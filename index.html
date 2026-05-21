@@ -24,6 +24,7 @@
   <a href="index.html" class="nav-logo">PLURGASM</a>
   <ul class="nav-links">
     <li><a href="#festivals">Festivals</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
     <li><a href="#categories">Categories</a></li>
     <li><a href="#brands">Brands</a></li>
     <li><a href="#social">Social</a></li>
@@ -119,13 +120,13 @@
     <div class="botw-star">★</div>
     <div>
       <p class="botw-eyebrow">Brand of the Week</p>
-      <p class="botw-name">FREEDOM RAVE WEAR</p>
-      <p class="botw-cat">Fem + Male Clothing · California</p>
-      <p class="botw-desc">One of the most trusted names in the community. Affordable, quality spandex sets for all body types — and one of the few brands that stocks solid male options too.</p>
-      <p class="botw-ig">@freedomravewear</p>
+      <p class="botw-name" id="botw-name">FREEDOM RAVE WEAR</p>
+      <p class="botw-cat" id="botw-cat">Fem + Male Clothing · California</p>
+      <p class="botw-desc" id="botw-desc">One of the most trusted names in the community. Affordable, quality spandex sets for all body types — and one of the few brands that stocks solid male options too.</p>
+      <p class="botw-ig" id="botw-ig">@freedomravewear</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
-      <a href="https://freedomravewear.com" target="_blank" class="nav-cta" style="white-space:nowrap;">Visit Site</a>
+      <a href="https://freedomravewear.com" target="_blank" class="nav-cta" style="white-space:nowrap;" id="botw-url">Visit Site</a>
     </div>
   </div>
 </section>
@@ -217,11 +218,19 @@
     <span class="footer-logo">PLURGASM</span>
     <ul class="footer-links">
       <li><a href="#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
       <li><a href="#categories">Categories</a></li>
       <li><a href="#brands">Brands</a></li>
       <li><a href="#social">Social</a></li>
     </ul>
-    <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <a href="admin.html" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--faint);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">admin</a>
+    </div>
   </div>
 </footer>
 

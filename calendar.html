@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival Calendar 2026 — PLURGASM</title>
+<meta name="description" content="Full rave festival calendar 2026. Every date, every lineup, every vibe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(0deg,
+    rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px,
+    transparent 1px, transparent 3px
+  );
+}
+
+.cal-page-hero {
+  padding: 72px 48px 56px;
+  max-width: 1380px;
+  margin: 0 auto;
+  position: relative;
+}
+.cal-page-hero-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.cal-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+}
+.cal-g1 { width:500px;height:500px;background:rgba(0,229,255,0.08);top:-100px;right:-100px; }
+.cal-g2 { width:400px;height:400px;background:rgba(182,77,255,0.06);bottom:0;left:-100px; }
+
+.cal-page-inner { position: relative; z-index: 1; }
+
+.toggle-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+.toggle-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-btn.active {
+  border-color: rgba(0,229,255,0.45);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+}
+
+.cal-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.cal-type-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.cal-genre-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.cal-genre-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faint);
+  display: flex;
+  align-items: center;
+}
+
+.cal-empty {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--faint);
+  letter-spacing: 1px;
+  padding: 48px 0;
+  text-align: center;
+}
+
+.cal-row-past { opacity: 0.45; }
+.cal-row-past:hover { opacity: 0.75; }
+
+.fest-count-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--faint);
+  padding: 2px 10px;
+  border: 1px solid var(--border);
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .cal-page-hero { padding: 48px 20px 40px; }
+  .cal-info-col { flex-wrap: wrap; }
+  .cal-name { min-width: unset; }
+}
+</style>
+</head>
+<body>
+
+<div class="cal-page-hero-bg">
+  <div class="cal-hero-glow cal-g1"></div>
+  <div class="cal-hero-glow cal-g2"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#festivals">Festivals</a></li>
+    <li><a href="calendar.html" style="color:var(--cyan)">Calendar</a></li>
+    <li><a href="index.html#categories">Categories</a></li>
+    <li><a href="index.html#brands">Brands</a></li>
+    <li><a href="index.html#social">Social</a></li>
+  </ul>
+  <a href="submit.html" class="nav-cta">Submit a Brand</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="cal-page-hero">
+  <div class="cal-page-inner">
+    <p class="eyebrow">Full Schedule</p>
+    <h1 class="section-title" style="font-size:clamp(52px,8vw,100px);margin-bottom:8px;">
+      FESTIVAL<br>CALENDAR
+    </h1>
+    <p style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:40px;">
+      Every rave. Every date. 2026 season.
+    </p>
+
+    <div class="cal-controls">
+      <!-- Past / Upcoming toggle -->
+      <div class="toggle-row">
+        <button class="toggle-btn active" id="btn-upcoming" onclick="setTimeFilter('upcoming',this)">Upcoming</button>
+        <button class="toggle-btn" id="btn-past" onclick="setTimeFilter('past',this)">Past</button>
+        <button class="toggle-btn" id="btn-all-time" onclick="setTimeFilter('all',this)">All</button>
+      </div>
+
+      <!-- Type filters -->
+      <div class="cal-type-filters">
+        <button class="filter-btn active" onclick="setTypeFilter('all',this)">All</button>
+        <button class="filter-btn" onclick="setTypeFilter('mega',this)">Mega</button>
+        <button class="filter-btn" onclick="setTypeFilter('regional',this)">Regional</button>
+        <button class="filter-btn" onclick="setTypeFilter('underground',this)">Underground</button>
+        <button class="filter-btn" onclick="setTypeFilter('international',this)">International</button>
+      </div>
+
+      <!-- Genre pills -->
+      <div class="cal-genre-filters">
+        <span class="cal-genre-label">Vibe:</span>
+        <button class="genre-pill active" onclick="setGenreFilter('',this)">All Vibes</button>
+        <button class="genre-pill" onclick="setGenreFilter('EDM',this)">EDM</button>
+        <button class="genre-pill" onclick="setGenreFilter('House',this)">House</button>
+        <button class="genre-pill" onclick="setGenreFilter('Techno',this)">Techno</button>
+        <button class="genre-pill" onclick="setGenreFilter('Bass',this)">Bass</button>
+        <button class="genre-pill" onclick="setGenreFilter('Trance',this)">Trance</button>
+        <button class="genre-pill" onclick="setGenreFilter('Dubstep',this)">Dubstep</button>
+        <button class="genre-pill" onclick="setGenreFilter('Psychedelic',this)">Psychedelic</button>
+        <button class="genre-pill" onclick="setGenreFilter('Hip-Hop',this)">Hip-Hop</button>
+        <button class="genre-pill" onclick="setGenreFilter('Jam',this)">Jam / Folk</button>
+      </div>
+    </div>
+
+    <!-- CALENDAR OUTPUT -->
+    <div id="cal-output"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="index.html#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#categories">Categories</a></li>
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="index.html#social">Social</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const dotClass = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
+const TODAY = new Date().toISOString().slice(0,10);
+
+let _timeFilter = 'upcoming';
+let _typeFilter = 'all';
+let _genreFilter = '';
+
+// Merge admin-added festivals
+const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+extraFests.forEach(f => FESTIVALS.push(f));
+
+function getFiltered() {
+  return FESTIVALS.filter(f => {
+    const endDate = f.endDate || f.sortDate;
+    const timeOk =
+      _timeFilter === 'all'      ? true :
+      _timeFilter === 'upcoming' ? endDate >= TODAY :
+                                   endDate < TODAY;
+    const typeOk  = _typeFilter  === 'all' || f.type === _typeFilter;
+    const genreOk = _genreFilter === ''    || (f.genres && f.genres.includes(_genreFilter));
+    return timeOk && typeOk && genreOk;
+  });
+}
+
+function render() {
+  const list = getFiltered().sort((a,b) => {
+    if (_timeFilter === 'past') return (b.sortDate||'').localeCompare(a.sortDate||'');
+    return (a.sortDate||'').localeCompare(b.sortDate||'');
+  });
+
+  const out = document.getElementById('cal-output');
+  if (!list.length) {
+    out.innerHTML = `<p class="cal-empty">No festivals match these filters.</p>`;
+    return;
+  }
+
+  // Group by month
+  const byMonth = {};
+  list.forEach(f => {
+    const key = (f.sortDate || '2026-12').slice(0,7);
+    if (!byMonth[key]) byMonth[key] = [];
+    byMonth[key].push(f);
+  });
+
+  const months = Object.keys(byMonth).sort((a,b) =>
+    _timeFilter === 'past' ? b.localeCompare(a) : a.localeCompare(b)
+  );
+
+  out.innerHTML = months.map(key => {
+    const [year, mo] = key.split('-');
+    const monthName = MONTH_NAMES[parseInt(mo) - 1];
+    const fests = byMonth[key];
+
+    return `
+      <div class="cal-month">
+        <div class="cal-month-label">${year} <span>${monthName.toUpperCase()}</span>
+          <span class="fest-count-badge">${fests.length} festival${fests.length !== 1 ? 's' : ''}</span>
+        </div>
+        ${fests.map(f => {
+          const isPast = (f.endDate || f.sortDate) < TODAY;
+          const dayNum = f.sortDate ? parseInt(f.sortDate.split('-')[2]) : '?';
+          const endNum = f.endDate  ? parseInt(f.endDate.split('-')[2])  : '';
+          const startMon = f.sortDate ? MONTH_NAMES[parseInt(f.sortDate.split('-')[1])-1].slice(0,3).toUpperCase() : monthName.slice(0,3).toUpperCase();
+          const hasUrl = f.url && f.url !== '#';
+          return `
+            <div class="cal-row ${isPast ? 'cal-row-past' : ''}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
+              <div class="cal-date-col">
+                <span class="cal-date-month">${startMon}</span>
+                <span class="cal-date-day">${dayNum}</span>
+                ${endNum && endNum !== dayNum ? `<span class="cal-date-end">– ${endNum}</span>` : ''}
+              </div>
+              <div class="cal-info-col">
+                <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
+                <span class="cal-name">${f.name}</span>
+                <span class="cal-loc">📍 ${f.location}</span>
+                <span class="cal-loc" style="opacity:0.7;">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
+                <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
+                ${hasUrl
+                  ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
+                      style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+                             color:var(--cyan);margin-left:auto;white-space:nowrap;transition:opacity 0.2s;"
+                      onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                      Tickets →
+                    </a>`
+                  : `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
+                <span class="cal-arrow">→</span>
+              </div>
+            </div>`;
+        }).join('')}
+      </div>`;
+  }).join('');
+}
+
+function setTimeFilter(val, btn) {
+  _timeFilter = val;
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function setTypeFilter(val, btn) {
+  _typeFilter = val;
+  document.querySelectorAll('.cal-type-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function setGenreFilter(val, btn) {
+  _genreFilter = val;
+  document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

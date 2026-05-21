@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — PLURGASM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; }
+
+:root {
+  --black:    #06060c;
+  --deep:     #0c0c1a;
+  --surface:  #111120;
+  --card:     #15152a;
+  --card-hi:  #1c1c35;
+  --border:   rgba(255,255,255,0.07);
+  --border-hi:rgba(255,255,255,0.13);
+  --cyan:     #00e5ff;
+  --pink:     #ff2d78;
+  --purple:   #b64dff;
+  --green:    #3dff85;
+  --amber:    #ffb800;
+  --white:    #f0eeff;
+  --muted:    rgba(240,238,255,0.50);
+  --faint:    rgba(240,238,255,0.24);
+}
+
+body {
+  background: #06060c;
+  color: #f0eeff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(0deg,
+    rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px,
+    transparent 1px, transparent 3px
+  );
+}
+
+/* ── LOGIN ── */
+#login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.login-box {
+  background: var(--card);
+  border: 1px solid rgba(0,229,255,0.18);
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+.login-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 6px;
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+}
+.login-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 36px;
+}
+.login-box input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  padding: 13px 18px;
+  outline: none;
+  margin-bottom: 14px;
+  text-align: center;
+  letter-spacing: 4px;
+  transition: border-color 0.2s;
+}
+.login-box input:focus { border-color: rgba(0,229,255,0.5); }
+.login-btn {
+  width: 100%;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 13px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  border: none;
+  color: var(--black);
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.login-btn:hover { opacity: 0.88; }
+.login-error {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--pink);
+  letter-spacing: 1px;
+  margin-top: 12px;
+  display: none;
+}
+
+/* ── PANEL LAYOUT ── */
+#admin-panel { display: none; }
+
+.admin-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(6,6,12,0.9);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+.admin-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+}
+.admin-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid rgba(0,229,255,0.3);
+  color: var(--cyan);
+}
+.logout-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  margin-left: auto;
+  transition: all 0.2s;
+}
+.logout-btn:hover { border-color: var(--pink); color: var(--pink); }
+
+/* ── TABS ── */
+.admin-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 20px 32px 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s;
+  position: relative;
+  bottom: -1px;
+}
+.tab-btn:hover { color: var(--white); }
+.tab-btn.active {
+  color: var(--cyan);
+  border-color: var(--border);
+  background: var(--surface);
+  border-bottom-color: var(--surface);
+}
+
+/* ── TAB CONTENT ── */
+.tab-content { display: none; padding: 36px 32px; max-width: 1100px; }
+.tab-content.active { display: block; }
+
+/* ── SECTION HEADINGS ── */
+.admin-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.admin-section-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.admin-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+
+/* ── DASHBOARD STATS ── */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.dash-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 24px 22px;
+}
+.dash-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.dash-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── FORMS ── */
+.admin-form { display: flex; flex-direction: column; gap: 14px; max-width: 680px; }
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-row label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.form-row input,
+.form-row textarea,
+.form-row select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus { border-color: rgba(0,229,255,0.5); }
+.form-row input::placeholder,
+.form-row textarea::placeholder { color: var(--faint); }
+.form-row textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+select option { background: #15152a; }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.save-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  color: var(--black);
+  border: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  width: fit-content;
+}
+.save-btn:hover { opacity: 0.88; }
+.save-confirm {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 1px;
+  display: none;
+}
+
+/* ── SUBMISSION CARDS ── */
+.sub-list { display: flex; flex-direction: column; gap: 12px; }
+.sub-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 20px 22px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+.sub-card.approved { border-color: rgba(61,255,133,0.25); }
+.sub-card.rejected { opacity: 0.4; }
+.sub-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.sub-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.sub-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.sub-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.approve-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  background: rgba(61,255,133,0.1);
+  border: 1px solid rgba(61,255,133,0.35);
+  color: var(--green);
+  transition: background 0.2s;
+}
+.approve-btn:hover { background: rgba(61,255,133,0.18); }
+.reject-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid rgba(255,45,120,0.3);
+  color: var(--pink);
+  transition: background 0.2s;
+}
+.reject-btn:hover { background: rgba(255,45,120,0.08); }
+.sub-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid;
+}
+.status-approved { color: var(--green); border-color: rgba(61,255,133,0.3); }
+.status-rejected { color: var(--pink);  border-color: rgba(255,45,120,0.3); }
+.status-pending  { color: var(--amber); border-color: rgba(255,184,0,0.3);  }
+
+.sub-empty {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--faint);
+  letter-spacing: 1px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* ── SOCIAL TOGGLE ── */
+.social-list { display: flex; flex-direction: column; gap: 10px; max-width: 680px; }
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+}
+.social-handle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  flex: 1;
+}
+.social-platform {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--faint);
+}
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.toggle-track::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 3px;
+  left: 3px;
+  background: var(--faint);
+  transition: transform 0.2s, background 0.2s;
+}
+.toggle-switch input:checked + .toggle-track { background: rgba(0,229,255,0.15); border-color: rgba(0,229,255,0.4); }
+.toggle-switch input:checked + .toggle-track::after { transform: translateX(20px); background: var(--cyan); }
+
+@media (max-width: 700px) {
+  .admin-tabs { padding: 12px 16px 0; }
+  .tab-content { padding: 24px 16px; }
+  .form-grid-2 { grid-template-columns: 1fr; }
+  .sub-card { grid-template-columns: 1fr; }
+  .admin-nav { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div id="login-screen">
+  <div class="login-box">
+    <p class="login-logo">PLURGASM</p>
+    <p class="login-sub">Admin Panel</p>
+    <input type="password" id="pw-input" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Enter</button>
+    <p class="login-error" id="login-error">Incorrect password</p>
+  </div>
+</div>
+
+<!-- ══ ADMIN PANEL ══ -->
+<div id="admin-panel">
+  <div class="admin-nav">
+    <span class="admin-logo">PLURGASM</span>
+    <span class="admin-badge">Admin</span>
+    <button class="logout-btn" onclick="doLogout()">Log Out</button>
+  </div>
+
+  <div class="admin-tabs">
+    <button class="tab-btn active" onclick="switchTab('dashboard',this)">Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('botw',this)">Brand of Week</button>
+    <button class="tab-btn" onclick="switchTab('submissions',this)">Submissions <span id="sub-count-badge"></span></button>
+    <button class="tab-btn" onclick="switchTab('add-festival',this)">Add Festival</button>
+    <button class="tab-btn" onclick="switchTab('add-brand',this)">Add Brand</button>
+    <button class="tab-btn" onclick="switchTab('social',this)">Social Spotlight</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="tab-content active" id="tab-dashboard">
+    <p class="admin-section-title">Dashboard</p>
+    <p class="admin-section-sub">Overview of your PLURGASM directory content.</p>
+    <div class="dash-grid" id="dash-grid"></div>
+    <div class="admin-divider"></div>
+    <p style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--muted);">
+      Admin-added festivals and brands are stored in localStorage and merged with data.js on each page load.
+      To make additions permanent, copy them into <code style="color:var(--cyan);">js/data.js</code> and redeploy.
+    </p>
+  </div>
+
+  <!-- BRAND OF THE WEEK -->
+  <div class="tab-content" id="tab-botw">
+    <p class="admin-section-title">Brand of the Week</p>
+    <p class="admin-section-sub">Override the featured brand on the homepage. Saved to localStorage — applies instantly.</p>
+    <div class="admin-form">
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Brand Name</label>
+          <input type="text" id="botw-name" placeholder="FREEDOM RAVE WEAR">
+        </div>
+        <div class="form-row">
+          <label>Category · Location</label>
+          <input type="text" id="botw-cat" placeholder="Fem + Male Clothing · California">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Description</label>
+        <textarea id="botw-desc" placeholder="Why this brand deserves the spotlight this week..."></textarea>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Instagram Handle</label>
+          <input type="text" id="botw-ig" placeholder="@brandhandle">
+        </div>
+        <div class="form-row">
+          <label>Website URL</label>
+          <input type="url" id="botw-url-input" placeholder="https://brand.com">
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <button class="save-btn" onclick="saveBotw()">Save Brand of Week</button>
+        <button onclick="clearBotw()" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 16px;background:transparent;border:1px solid var(--border);color:var(--muted);transition:all 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--muted)'">Clear Override</button>
+        <span class="save-confirm" id="botw-confirm">✓ Saved</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMISSIONS -->
+  <div class="tab-content" id="tab-submissions">
+    <p class="admin-section-title">Pending Submissions</p>
+    <p class="admin-section-sub">Brand submissions from the community via submit.html. Approve to add to directory, reject to dismiss.</p>
+    <div class="sub-list" id="sub-list"></div>
+  </div>
+
+  <!-- ADD FESTIVAL -->
+  <div class="tab-content" id="tab-add-festival">
+    <p class="admin-section-title">Add Festival</p>
+    <p class="admin-section-sub">Add a festival to the directory. It will appear on the homepage and calendar immediately.</p>
+    <div class="admin-form">
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Festival Name *</label>
+          <input type="text" id="af-name" placeholder="ELECTRIC DAISY CARNIVAL">
+        </div>
+        <div class="form-row">
+          <label>Tagline</label>
+          <input type="text" id="af-tagline" placeholder="30th Anniversary">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Location *</label>
+        <input type="text" id="af-location" placeholder="Las Vegas Motor Speedway, NV">
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Display Dates *</label>
+          <input type="text" id="af-dates" placeholder="May 15–17, 2026">
+        </div>
+        <div class="form-row">
+          <label>Start Date (YYYY-MM-DD) *</label>
+          <input type="text" id="af-sortdate" placeholder="2026-05-15">
+        </div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>End Date (YYYY-MM-DD)</label>
+          <input type="text" id="af-enddate" placeholder="2026-05-17">
+        </div>
+        <div class="form-row">
+          <label>Duration (days)</label>
+          <input type="number" id="af-days" placeholder="3" min="1">
+        </div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Age Restriction</label>
+          <input type="text" id="af-age" placeholder="18+ or All Ages">
+        </div>
+        <div class="form-row">
+          <label>Type</label>
+          <select id="af-type">
+            <option value="mega">Mega Festival</option>
+            <option value="regional">Regional</option>
+            <option value="underground">Underground</option>
+            <option value="international">International</option>
+            <option value="playa">Playa</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Type Label</label>
+        <input type="text" id="af-typelabel" placeholder="e.g. East Coast, World, Underground">
+      </div>
+      <div class="form-row">
+        <label>Genres (comma-separated)</label>
+        <input type="text" id="af-genres" placeholder="EDM, House, Techno, Bass">
+      </div>
+      <div class="form-row">
+        <label>Description *</label>
+        <textarea id="af-desc" placeholder="What makes this festival special..."></textarea>
+      </div>
+      <div class="form-row">
+        <label>Ticket URL</label>
+        <input type="url" id="af-url" placeholder="https://festival.com">
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="save-btn" onclick="saveFestival()">Add Festival</button>
+        <span class="save-confirm" id="af-confirm">✓ Festival Added</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD BRAND -->
+  <div class="tab-content" id="tab-add-brand">
+    <p class="admin-section-title">Add Brand</p>
+    <p class="admin-section-sub">Add a brand to the directory. It will appear on the homepage immediately.</p>
+    <div class="admin-form">
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Brand Name *</label>
+          <input type="text" id="ab-name" placeholder="VANISHING FAE">
+        </div>
+        <div class="form-row">
+          <label>Badge (2–4 letters)</label>
+          <input type="text" id="ab-badge" placeholder="VF" maxlength="4">
+        </div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Category *</label>
+          <select id="ab-cat">
+            <option value="fem-clothing">Fem Clothing</option>
+            <option value="male-clothing">Male Clothing</option>
+            <option value="shoes">Shoes</option>
+            <option value="accessories">Accessories</option>
+            <option value="kandi">Kandi</option>
+            <option value="supplements">Supplements</option>
+            <option value="gear">Gear & Audio</option>
+            <option value="lights">Lights & Toys</option>
+            <option value="wellness">Wellness</option>
+            <option value="events">Events</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Badge Color</label>
+          <select id="ab-badgecls">
+            <option value="b-cyan">Cyan</option>
+            <option value="b-pink">Pink</option>
+            <option value="b-purple">Purple</option>
+            <option value="b-green">Green</option>
+            <option value="b-amber">Amber</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Price Range</label>
+          <select id="ab-price">
+            <option value="$">$ — Budget</option>
+            <option value="$–$$">$–$$ — Budget/Mid</option>
+            <option value="$$">$$ — Mid</option>
+            <option value="$$–$$$">$$–$$$ — Mid/High</option>
+            <option value="$$$">$$$ — High</option>
+            <option value="$$$–$$$$">$$$–$$$$ — Luxury</option>
+            <option value="Varies">Varies</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Price Class</label>
+          <select id="ab-pricecls">
+            <option value="price-budget">Budget (green)</option>
+            <option value="price-mid">Mid (cyan)</option>
+            <option value="price-high">High (purple)</option>
+            <option value="price-luxury">Luxury (pink)</option>
+            <option value="price-varies">Varies (amber)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Location / State</label>
+          <input type="text" id="ab-loc" placeholder="California">
+        </div>
+        <div class="form-row">
+          <label>Typical Shipping Time</label>
+          <input type="text" id="ab-ship" placeholder="~1 week">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Style / What They Sell</label>
+        <input type="text" id="ab-style" placeholder="Fae, babydoll, sequin sets">
+      </div>
+      <div class="form-row">
+        <label>Description *</label>
+        <textarea id="ab-desc" placeholder="About the brand, what makes it special..."></textarea>
+      </div>
+      <div class="form-row">
+        <label>Community Notes / Warnings</label>
+        <textarea id="ab-note" placeholder="Sizing tips, return policy notes, community feedback..."></textarea>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>Instagram Handle</label>
+          <input type="text" id="ab-ig" placeholder="@brandhandle">
+        </div>
+        <div class="form-row">
+          <label>Website URL</label>
+          <input type="url" id="ab-url" placeholder="https://brand.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Tags (comma-separated)</label>
+        <input type="text" id="ab-tags" placeholder="fem, sets, spandex, rts">
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="save-btn" onclick="saveBrand()">Add Brand</button>
+        <span class="save-confirm" id="ab-confirm">✓ Brand Added</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL SPOTLIGHT -->
+  <div class="tab-content" id="tab-social">
+    <p class="admin-section-title">Social Spotlight</p>
+    <p class="admin-section-sub">Toggle which accounts appear as "Featured" in the social spotlight section.</p>
+    <div class="social-list" id="social-list"></div>
+    <div style="margin-top:20px;display:flex;align-items:center;gap:16px;">
+      <button class="save-btn" onclick="saveSocials()">Save Featured</button>
+      <span class="save-confirm" id="social-confirm">✓ Saved</span>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script>
+const ADMIN_PASSWORD = 'plurgasm2026';
+
+/* ── AUTH ── */
+function doLogin() {
+  const pw = document.getElementById('pw-input').value;
+  if (pw === ADMIN_PASSWORD) {
+    localStorage.setItem('pg_admin_auth', '1');
+    showPanel();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+  }
+}
+
+function doLogout() {
+  localStorage.removeItem('pg_admin_auth');
+  document.getElementById('admin-panel').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('pw-input').value = '';
+}
+
+function showPanel() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('admin-panel').style.display = 'block';
+  initDashboard();
+  loadBotwForm();
+  renderSubmissions();
+  renderSocialList();
+}
+
+/* ── TABS ── */
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+  if (name === 'submissions') renderSubmissions();
+}
+
+/* ── DASHBOARD ── */
+function initDashboard() {
+  const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
+  const pending = subs.filter(s => s.status === 'pending').length;
+  const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  const extraBrands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+
+  const stats = [
+    { num: FESTIVALS.length + extraFests.length, label: 'Festivals',  color: 'var(--cyan)' },
+    { num: BRANDS.length + extraBrands.length,   label: 'Brands',     color: 'var(--pink)' },
+    { num: CATEGORIES.length,                    label: 'Categories', color: 'var(--purple)' },
+    { num: subs.length,                          label: 'Submissions',color: 'var(--amber)' },
+    { num: pending,                              label: 'Pending',    color: 'var(--green)' },
+  ];
+
+  document.getElementById('dash-grid').innerHTML = stats.map(s => `
+    <div class="dash-card">
+      <div class="dash-num" style="color:${s.color}">${s.num}</div>
+      <div class="dash-label">${s.label}</div>
+    </div>
+  `).join('');
+
+  const pendingBadge = pending > 0 ? ` (${pending})` : '';
+  document.getElementById('sub-count-badge').textContent = pendingBadge;
+}
+
+/* ── BRAND OF THE WEEK ── */
+function loadBotwForm() {
+  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
+  if (!botw) return;
+  if (botw.name) document.getElementById('botw-name').value = botw.name;
+  if (botw.cat)  document.getElementById('botw-cat').value  = botw.cat;
+  if (botw.desc) document.getElementById('botw-desc').value = botw.desc;
+  if (botw.ig)   document.getElementById('botw-ig').value   = botw.ig;
+  if (botw.url)  document.getElementById('botw-url-input').value = botw.url;
+}
+
+function saveBotw() {
+  const botw = {
+    name: document.getElementById('botw-name').value.trim(),
+    cat:  document.getElementById('botw-cat').value.trim(),
+    desc: document.getElementById('botw-desc').value.trim(),
+    ig:   document.getElementById('botw-ig').value.trim(),
+    url:  document.getElementById('botw-url-input').value.trim(),
+  };
+  localStorage.setItem('pg_admin_botw', JSON.stringify(botw));
+  flash('botw-confirm');
+}
+
+function clearBotw() {
+  localStorage.removeItem('pg_admin_botw');
+  ['botw-name','botw-cat','botw-desc','botw-ig','botw-url-input'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+}
+
+/* ── SUBMISSIONS ── */
+function renderSubmissions() {
+  const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
+  const list = document.getElementById('sub-list');
+  if (!subs.length) {
+    list.innerHTML = `<p class="sub-empty">No submissions yet. They'll appear here when someone uses the Submit a Brand form.</p>`;
+    return;
+  }
+
+  list.innerHTML = [...subs].reverse().map((s, revIdx) => {
+    const idx = subs.length - 1 - revIdx;
+    const statusCls = s.status === 'approved' ? 'status-approved' : s.status === 'rejected' ? 'status-rejected' : 'status-pending';
+    const cardCls   = s.status === 'approved' ? 'approved' : s.status === 'rejected' ? 'rejected' : '';
+    const date = s.submittedAt ? new Date(s.submittedAt).toLocaleDateString() : '';
+    return `
+      <div class="sub-card ${cardCls}" id="sub-${idx}">
+        <div>
+          <p class="sub-name">${s.name || 'Unnamed Brand'}</p>
+          <p class="sub-meta">${[s.cat, s.loc, s.price, date].filter(Boolean).join(' · ')}</p>
+          ${s.style ? `<p class="sub-meta" style="margin-bottom:6px;">Style: ${s.style}</p>` : ''}
+          ${s.desc  ? `<p class="sub-desc">${s.desc}</p>` : ''}
+          ${s.notes ? `<p class="sub-desc" style="margin-top:6px;color:var(--faint);">Notes: ${s.notes}</p>` : ''}
+          ${s.ig    ? `<p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--cyan);margin-top:8px;">${s.ig}</p>` : ''}
+          ${s.url   ? `<a href="${s.url}" target="_blank" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--purple);">${s.url}</a>` : ''}
+        </div>
+        <div class="sub-actions">
+          ${s.status === 'pending' ? `
+            <button class="approve-btn" onclick="approveSubmission(${idx})">Approve</button>
+            <button class="reject-btn" onclick="rejectSubmission(${idx})">Reject</button>
+          ` : `<span class="sub-status ${statusCls}">${s.status}</span>`}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function approveSubmission(idx) {
+  const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
+  subs[idx].status = 'approved';
+  localStorage.setItem('pg_submissions', JSON.stringify(subs));
+
+  // Auto-add to pg_admin_brands so it shows on the homepage
+  const s = subs[idx];
+  const brands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+  brands.push({
+    id: s.id || ('sub-' + idx),
+    name: s.name || '',
+    badge: (s.name || 'X').slice(0,3).toUpperCase(),
+    cat: (s.cat || 'accessories').toLowerCase().replace(/\s+/g,'-').replace(/\//g,'-'),
+    badgeCls: 'b-cyan',
+    priceCls: 'price-mid',
+    price: s.price || '',
+    ship: s.ship || '',
+    loc: s.loc || '',
+    style: s.style || '',
+    desc: s.desc || '',
+    note: s.notes || '',
+    ig: s.ig || '',
+    url: s.url || '#',
+    tags: [],
+  });
+  localStorage.setItem('pg_admin_brands', JSON.stringify(brands));
+  initDashboard();
+  renderSubmissions();
+}
+
+function rejectSubmission(idx) {
+  const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
+  subs[idx].status = 'rejected';
+  localStorage.setItem('pg_submissions', JSON.stringify(subs));
+  initDashboard();
+  renderSubmissions();
+}
+
+/* ── ADD FESTIVAL ── */
+function saveFestival() {
+  const name = document.getElementById('af-name').value.trim();
+  if (!name) { alert('Festival name is required.'); return; }
+  const fest = {
+    id: name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
+    name,
+    tagline:   document.getElementById('af-tagline').value.trim(),
+    location:  document.getElementById('af-location').value.trim(),
+    dates:     document.getElementById('af-dates').value.trim(),
+    sortDate:  document.getElementById('af-sortdate').value.trim(),
+    endDate:   document.getElementById('af-enddate').value.trim(),
+    days:      parseInt(document.getElementById('af-days').value) || 1,
+    age:       document.getElementById('af-age').value.trim() || 'All Ages',
+    type:      document.getElementById('af-type').value,
+    typeLabel: document.getElementById('af-typelabel').value.trim(),
+    genres:    document.getElementById('af-genres').value.split(',').map(g=>g.trim()).filter(Boolean),
+    desc:      document.getElementById('af-desc').value.trim(),
+    url:       document.getElementById('af-url').value.trim() || '#',
+    featured:  false,
+  };
+  const fests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  fests.push(fest);
+  localStorage.setItem('pg_admin_festivals', JSON.stringify(fests));
+  // Clear form
+  ['af-name','af-tagline','af-location','af-dates','af-sortdate','af-enddate','af-days','af-age','af-typelabel','af-genres','af-desc','af-url'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  initDashboard();
+  flash('af-confirm');
+}
+
+/* ── ADD BRAND ── */
+function saveBrand() {
+  const name = document.getElementById('ab-name').value.trim();
+  if (!name) { alert('Brand name is required.'); return; }
+  const brand = {
+    id: name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
+    name,
+    badge:    document.getElementById('ab-badge').value.trim().toUpperCase() || name.slice(0,3).toUpperCase(),
+    cat:      document.getElementById('ab-cat').value,
+    badgeCls: document.getElementById('ab-badgecls').value,
+    priceCls: document.getElementById('ab-pricecls').value,
+    price:    document.getElementById('ab-price').value,
+    ship:     document.getElementById('ab-ship').value.trim(),
+    loc:      document.getElementById('ab-loc').value.trim(),
+    style:    document.getElementById('ab-style').value.trim(),
+    desc:     document.getElementById('ab-desc').value.trim(),
+    note:     document.getElementById('ab-note').value.trim(),
+    ig:       document.getElementById('ab-ig').value.trim(),
+    url:      document.getElementById('ab-url').value.trim() || '#',
+    tags:     document.getElementById('ab-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
+  };
+  const brands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+  brands.push(brand);
+  localStorage.setItem('pg_admin_brands', JSON.stringify(brands));
+  ['ab-name','ab-badge','ab-loc','ab-ship','ab-style','ab-desc','ab-note','ab-ig','ab-url','ab-tags'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  initDashboard();
+  flash('ab-confirm');
+}
+
+/* ── SOCIAL SPOTLIGHT ── */
+function renderSocialList() {
+  const overrides = JSON.parse(localStorage.getItem('pg_admin_socials') || '{}');
+  document.getElementById('social-list').innerHTML = SOCIALS.map((s, i) => {
+    const featured = overrides.hasOwnProperty(s.handle) ? overrides[s.handle] : s.featured;
+    return `
+      <div class="social-row">
+        <div>
+          <div class="social-handle">${s.handle}</div>
+          <div class="social-platform">${s.platform} · ${s.type}</div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="soc-${i}" ${featured ? 'checked' : ''}>
+          <div class="toggle-track"></div>
+        </label>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--faint);width:64px;">
+          ${featured ? '<span style="color:var(--cyan)">Featured</span>' : 'Default'}
+        </span>
+      </div>`;
+  }).join('');
+}
+
+function saveSocials() {
+  const overrides = {};
+  SOCIALS.forEach((s, i) => {
+    overrides[s.handle] = document.getElementById('soc-' + i).checked;
+  });
+  localStorage.setItem('pg_admin_socials', JSON.stringify(overrides));
+  renderSocialList();
+  flash('social-confirm');
+}
+
+/* ── UTILITY ── */
+function flash(id) {
+  const el = document.getElementById(id);
+  el.style.display = 'inline';
+  setTimeout(() => el.style.display = 'none', 2500);
+}
+
+/* ── INIT ── */
+if (localStorage.getItem('pg_admin_auth') === '1') {
+  showPanel();
+}
+</script>
+</body>
+</html>

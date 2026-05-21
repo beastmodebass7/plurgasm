@@ -736,12 +736,12 @@ nav {
 .cat-icon { font-size: 28px; line-height: 1; }
 .cat-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   letter-spacing: 2px;
   color: var(--white);
   transition: color 0.2s;
 }
-.cat-count { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--faint); }
+.cat-count { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 2px; color: var(--faint); }
 
 /* ══════════════════════════════════════════════════
    FILTER BUTTONS
@@ -749,10 +749,10 @@ nav {
 .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 .filter-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 7px 16px;
+  padding: 9px 18px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
@@ -801,7 +801,7 @@ nav {
 .brand-info { flex: 1; min-width: 0; }
 .brand-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 1.5px;
   color: var(--white);
   margin-bottom: 2px;
@@ -815,32 +815,32 @@ nav {
 }
 .brand-price {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1px;
   padding: 2px 8px;
   border: 1px solid;
 }
 .brand-ship {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1px;
   color: var(--faint);
 }
 .brand-loc {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1px;
   color: var(--faint);
 }
 .brand-style {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--faint);
   margin-bottom: 6px;
 }
-.brand-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.brand-desc { font-size: 15px; color: var(--muted); line-height: 1.55; }
 .brand-note { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--faint); margin-top: 7px; line-height: 1.5; }
 .brand-ig { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--cyan); margin-top: 6px; }
 .brand-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
@@ -962,7 +962,7 @@ footer {
 }
 .genre-pill {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 5px 14px;

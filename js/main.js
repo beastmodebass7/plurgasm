@@ -302,6 +302,26 @@ function renderSocials() {
    INIT
 ════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
+  // Merge admin-added festivals and brands from localStorage
+  const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  extraFests.forEach(f => FESTIVALS.push(f));
+  const extraBrands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+  extraBrands.forEach(b => BRANDS.push(b));
+
+  // Apply Brand of the Week override from admin panel
+  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
+  if (botw) {
+    if (botw.name) document.getElementById('botw-name').textContent = botw.name;
+    if (botw.cat)  document.getElementById('botw-cat').textContent  = botw.cat;
+    if (botw.desc) document.getElementById('botw-desc').textContent = botw.desc;
+    if (botw.ig)   document.getElementById('botw-ig').textContent   = botw.ig;
+    if (botw.url) {
+      const a = document.getElementById('botw-url');
+      a.href = botw.url;
+      a.style.display = '';
+    }
+  }
+
   renderFestivals();
   renderCategories();
   renderBrands('all');
