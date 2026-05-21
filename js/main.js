@@ -362,7 +362,79 @@ document.addEventListener('DOMContentLoaded', () => {
       if (FESTIVALS[i]) card.dataset.id = FESTIVALS[i].id;
     });
   }, 50);
+
+  initCountUp();
+  initScrollAnimations();
 });
+
+/* ════════════════════════════════════════════════
+   COUNT-UP ANIMATION — hero stats
+════════════════════════════════════════════════ */
+function initCountUp() {
+  const targets = [
+    { id: 'stat-festivals', end: 80,  suffix: '+', duration: 1800 },
+    { id: 'stat-brands',    end: 200, suffix: '+', duration: 2200 },
+    { id: 'stat-cats',      end: 12,  suffix: '',  duration: 1400 },
+  ];
+
+  targets.forEach(({ id, end, suffix, duration }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let start = 0;
+    const step = end / (duration / 16);
+    const tick = () => {
+      start = Math.min(start + step, end);
+      el.textContent = Math.floor(start) + suffix;
+      if (start < end) requestAnimationFrame(tick);
+      else el.textContent = end + suffix;
+    };
+    setTimeout(tick, 300);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   SCROLL FADE-IN ANIMATIONS
+════════════════════════════════════════════════ */
+function initScrollAnimations() {
+  document.querySelectorAll(
+    '.section-title, .section-eyebrow, .eyebrow, ' +
+    '.mission-headline, .mission-body, .mission-links, ' +
+    '.botw, .countdown-inner, .plur-cards'
+  ).forEach(el => {
+    if (!el.classList.contains('fade-up')) el.classList.add('fade-up');
+  });
+
+  document.querySelectorAll('.fest-card').forEach((el, i) => {
+    el.classList.add('fade-up');
+    el.dataset.delay = Math.min(i % 3 + 1, 6);
+  });
+
+  document.querySelectorAll('.cat-card').forEach((el, i) => {
+    el.classList.add('fade-up');
+    el.dataset.delay = Math.min(i % 4 + 1, 6);
+  });
+
+  document.querySelectorAll('.brand-card').forEach((el, i) => {
+    el.classList.add('fade-up');
+    el.dataset.delay = Math.min(i % 3 + 1, 6);
+  });
+
+  document.querySelectorAll('.plur-card').forEach((el, i) => {
+    el.classList.add('fade-up');
+    el.dataset.delay = i + 1;
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+}
 
 /* ════════════════════════════════════════════════
    MOUSE TRAIL — hero background
