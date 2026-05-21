@@ -575,23 +575,23 @@ nav {
 .botw-star {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 72px;
-  color: var(--cyan);
+  color: var(--amber);
   opacity: 0.55;
   line-height: 1;
   text-shadow:
-    0 0 20px rgba(0,229,255,0.8),
-    0 0 40px rgba(0,229,255,0.5),
-    0 0 80px rgba(0,229,255,0.3);
+    0 0 20px rgba(255,184,0,0.8),
+    0 0 40px rgba(255,184,0,0.5),
+    0 0 80px rgba(255,184,0,0.3);
   animation: starPulse 3s ease-in-out infinite;
 }
 @keyframes starPulse {
   0%, 100% {
     opacity: 0.55;
-    text-shadow: 0 0 20px rgba(0,229,255,0.8), 0 0 40px rgba(0,229,255,0.5), 0 0 80px rgba(0,229,255,0.3);
+    text-shadow: 0 0 20px rgba(255,184,0,0.8), 0 0 40px rgba(255,184,0,0.5), 0 0 80px rgba(255,184,0,0.3);
   }
   50% {
     opacity: 0.9;
-    text-shadow: 0 0 30px rgba(0,229,255,1), 0 0 60px rgba(0,229,255,0.7), 0 0 120px rgba(0,229,255,0.4), 0 0 200px rgba(182,77,255,0.2);
+    text-shadow: 0 0 30px rgba(255,184,0,1), 0 0 60px rgba(255,184,0,0.7), 0 0 120px rgba(255,184,0,0.4), 0 0 200px rgba(182,77,255,0.2);
   }
 }
 .botw-eyebrow {
