@@ -27,6 +27,29 @@
   </div>
 </div>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="#categories" onclick="closeMobileMenu()">Categories</a></li>
+      <li><a href="#brands"     onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="#social"     onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">PLURGASM</a>
@@ -38,6 +61,14 @@
     <li><a href="#social">Social</a></li>
   </ul>
   <a href="submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
