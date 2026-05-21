@@ -370,55 +370,51 @@ document.addEventListener('DOMContentLoaded', () => {
 (function() {
   const hero = document.querySelector('.hero');
   if (!hero) return;
+  const heroBg = hero.querySelector('.hero-bg');
+  if (!heroBg) return;
 
   const glow = document.createElement('div');
-  glow.style.cssText = `
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,229,255,0.13) 0%, rgba(0,229,255,0.04) 40%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    z-index: 1;
-    will-change: left, top;
-    transition: opacity 0.2s;
-  `;
-  hero.querySelector('.hero-bg').appendChild(glow);
+  glow.id = 'hero-mouse-glow';
+  glow.style.cssText = [
+    'position:absolute',
+    'width:120px',
+    'height:120px',
+    'border-radius:50%',
+    'background:radial-gradient(circle, rgba(0,229,255,0.18) 0%, rgba(0,229,255,0.05) 50%, transparent 70%)',
+    'pointer-events:none',
+    'transform:translate(-50%,-50%)',
+    'opacity:0',
+    'z-index:2',
+    'will-change:transform',
+  ].join(';');
+  heroBg.appendChild(glow);
 
-  let mouseX = 0, mouseY = 0;
-  let glowX = 0, glowY = 0;
-  let rafId = null;
-  let isInHero = false;
+  let tX = 0, tY = 0, cX = 0, cY = 0;
+  let active = false, raf;
 
-  function lerp(a, b, t) { return a + (b - a) * t; }
-
-  function animate() {
-    if (!isInHero) return;
-    glowX = lerp(glowX, mouseX, 0.35);
-    glowY = lerp(glowY, mouseY, 0.35);
-    glow.style.left = glowX + 'px';
-    glow.style.top  = glowY + 'px';
-    rafId = requestAnimationFrame(animate);
+  function tick() {
+    cX += (tX - cX) * 0.28;
+    cY += (tY - cY) * 0.28;
+    glow.style.left = cX + 'px';
+    glow.style.top  = cY + 'px';
+    raf = requestAnimationFrame(tick);
   }
 
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-    if (!isInHero) {
-      isInHero = true;
-      glowX = mouseX;
-      glowY = mouseY;
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    tX = e.clientX - r.left;
+    tY = e.clientY - r.top;
+    if (!active) {
+      active = true;
+      cX = tX; cY = tY;
       glow.style.opacity = '1';
-      animate();
+      tick();
     }
-  });
+  }, { passive: true });
 
   hero.addEventListener('mouseleave', () => {
-    isInHero = false;
+    active = false;
     glow.style.opacity = '0';
-    cancelAnimationFrame(rafId);
+    cancelAnimationFrame(raf);
   });
 })();
