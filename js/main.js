@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ════════════════════════════════════════════════
-   MOUSE GLOW — hero background
+   MOUSE TRAIL — hero background
 ════════════════════════════════════════════════ */
 (function() {
   const hero = document.querySelector('.hero');
@@ -373,30 +373,63 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroBg = hero.querySelector('.hero-bg');
   if (!heroBg) return;
 
-  const glow = document.createElement('div');
-  glow.id = 'hero-mouse-glow';
-  glow.style.cssText = [
-    'position:absolute',
-    'width:120px',
-    'height:120px',
-    'border-radius:50%',
-    'background:radial-gradient(circle, rgba(0,229,255,0.18) 0%, rgba(0,229,255,0.05) 50%, transparent 70%)',
-    'pointer-events:none',
-    'transform:translate(-50%,-50%)',
-    'opacity:0',
-    'z-index:2',
-    'will-change:transform',
-  ].join(';');
-  heroBg.appendChild(glow);
+  // Trail config
+  const TRAIL_LENGTH = 18;
+  const COLORS = [
+    'rgba(255,220,80,0.22)',
+    'rgba(255,210,60,0.16)',
+    'rgba(255,200,40,0.11)',
+    'rgba(255,190,20,0.07)',
+    'rgba(255,180,0,0.04)',
+    'rgba(255,170,0,0.02)',
+  ];
 
-  let tX = 0, tY = 0, cX = 0, cY = 0;
+  // Create trail dots
+  const dots = Array.from({ length: TRAIL_LENGTH }, (_, i) => {
+    const d = document.createElement('div');
+    const progress = i / TRAIL_LENGTH;
+    const size = Math.round(18 - progress * 12); // 18px at head → 6px at tail
+    const colorIdx = Math.min(Math.floor(progress * COLORS.length), COLORS.length - 1);
+    d.style.cssText = [
+      'position:absolute',
+      `width:${size}px`,
+      `height:${size}px`,
+      'border-radius:50%',
+      `background:${COLORS[colorIdx]}`,
+      'pointer-events:none',
+      'transform:translate(-50%,-50%)',
+      'opacity:0',
+      'z-index:2',
+      'will-change:left,top',
+      i < 4 ? 'filter:blur(3px)' : i < 8 ? 'filter:blur(1.5px)' : 'filter:blur(0.5px)',
+    ].join(';');
+    heroBg.appendChild(d);
+    return d;
+  });
+
+  // Position history ring buffer
+  const posX = new Array(TRAIL_LENGTH).fill(0);
+  const posY = new Array(TRAIL_LENGTH).fill(0);
+  let head = 0;
+  let tX = 0, tY = 0;
   let active = false, raf;
 
   function tick() {
-    cX += (tX - cX) * 0.28;
-    cY += (tY - cY) * 0.28;
-    glow.style.left = cX + 'px';
-    glow.style.top  = cY + 'px';
+    if (!active) return;
+    // Smooth head toward mouse
+    posX[head] = posX[(head - 1 + TRAIL_LENGTH) % TRAIL_LENGTH] +
+      (tX - posX[(head - 1 + TRAIL_LENGTH) % TRAIL_LENGTH]) * 0.32;
+    posY[head] = posY[(head - 1 + TRAIL_LENGTH) % TRAIL_LENGTH] +
+      (tY - posY[(head - 1 + TRAIL_LENGTH) % TRAIL_LENGTH]) * 0.32;
+    head = (head + 1) % TRAIL_LENGTH;
+
+    // Position each dot along the trail history
+    dots.forEach((dot, i) => {
+      const idx = (head - 1 - i + TRAIL_LENGTH * 2) % TRAIL_LENGTH;
+      dot.style.left = posX[idx] + 'px';
+      dot.style.top  = posY[idx] + 'px';
+    });
+
     raf = requestAnimationFrame(tick);
   }
 
@@ -406,15 +439,16 @@ document.addEventListener('DOMContentLoaded', () => {
     tY = e.clientY - r.top;
     if (!active) {
       active = true;
-      cX = tX; cY = tY;
-      glow.style.opacity = '1';
+      // seed all positions to current mouse pos so trail doesn't sweep from 0,0
+      posX.fill(tX); posY.fill(tY);
+      dots.forEach(d => d.style.opacity = '1');
       tick();
     }
   }, { passive: true });
 
   hero.addEventListener('mouseleave', () => {
     active = false;
-    glow.style.opacity = '0';
     cancelAnimationFrame(raf);
+    dots.forEach(d => d.style.opacity = '0');
   });
 })();
