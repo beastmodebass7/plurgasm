@@ -576,8 +576,23 @@ nav {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 72px;
   color: var(--cyan);
-  opacity: 0.12;
+  opacity: 0.55;
   line-height: 1;
+  text-shadow:
+    0 0 20px rgba(0,229,255,0.8),
+    0 0 40px rgba(0,229,255,0.5),
+    0 0 80px rgba(0,229,255,0.3);
+  animation: starPulse 3s ease-in-out infinite;
+}
+@keyframes starPulse {
+  0%, 100% {
+    opacity: 0.55;
+    text-shadow: 0 0 20px rgba(0,229,255,0.8), 0 0 40px rgba(0,229,255,0.5), 0 0 80px rgba(0,229,255,0.3);
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 30px rgba(0,229,255,1), 0 0 60px rgba(0,229,255,0.7), 0 0 120px rgba(0,229,255,0.4), 0 0 200px rgba(182,77,255,0.2);
+  }
 }
 .botw-eyebrow {
   font-family: 'DM Mono', monospace;
@@ -843,6 +858,32 @@ nav {
 .brand-desc { font-size: 15px; color: var(--muted); line-height: 1.55; }
 .brand-note { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--faint); margin-top: 7px; line-height: 1.5; }
 .brand-ig { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--cyan); margin-top: 6px; }
+.brand-ig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  background: rgba(182,77,255,0.1);
+  border: 1px solid rgba(182,77,255,0.35);
+  color: var(--purple);
+  margin-top: 14px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.brand-ig-btn:hover {
+  background: rgba(182,77,255,0.2);
+  border-color: rgba(182,77,255,0.6);
+  color: var(--white);
+}
+.brand-ig-btn::before {
+  content: '📷';
+  font-size: 13px;
+}
 .brand-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
 .brand-tag {
   font-family: 'DM Mono', monospace;

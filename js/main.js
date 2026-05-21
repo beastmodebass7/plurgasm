@@ -152,7 +152,13 @@ function renderBrands(cat) {
         </div>
         <p class="brand-style">${b.style}</p>
         <p class="brand-desc">${b.desc}</p>
-        ${b.ig ? `<p class="brand-ig">${b.ig}</p>` : ''}
+        ${b.ig ? `<a class="brand-ig-btn"
+  href="https://instagram.com/${b.ig.replace('@','')}"
+  target="_blank"
+  rel="noopener"
+  onclick="event.stopPropagation()">
+  ${b.ig}
+</a>` : ''}
       </div>
     </div>
   `).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">No brands found${searchQuery ? ' for "'+searchQuery+'"':''} in this category.</p>`;
@@ -222,7 +228,7 @@ function openBrandModal(id) {
         ? `<a href="${b.url}" target="_blank" rel="noopener" class="bm-link-btn bm-link-primary">Visit Website →</a>`
         : `<span class="bm-link-btn bm-link-ghost" style="cursor:default;opacity:0.5;">No website listed</span>`}
       ${igHandle
-        ? `<a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener" class="bm-link-btn bm-link-ig">Instagram ↗</a>`
+        ? `<a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener" class="brand-ig-btn">@${igHandle}</a>`
         : ''}
       <button onclick="closeBrandModal()" class="bm-link-btn bm-link-ghost" style="margin-left:auto;">Close</button>
     </div>
@@ -357,3 +363,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 50);
 });
+
+/* ════════════════════════════════════════════════
+   MOUSE GLOW — hero background
+════════════════════════════════════════════════ */
+(function() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    opacity: 0;
+    z-index: 1;
+    will-change: left, top;
+  `;
+  hero.querySelector('.hero-bg').appendChild(glow);
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    glow.style.left = (e.clientX - rect.left) + 'px';
+    glow.style.top  = (e.clientY - rect.top)  + 'px';
+    glow.style.opacity = '1';
+    glow.style.transition = 'opacity 0.3s, left 0.08s, top 0.08s';
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+  });
+})();
