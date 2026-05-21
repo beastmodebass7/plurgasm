@@ -125,11 +125,11 @@ function refreshFestView() {
 ════════════════════════════════════════════════ */
 function renderCategories() {
   document.getElementById('cat-grid').innerHTML = CATEGORIES.map(c => `
-    <div class="cat-card" onclick="filterBrands('${c.id}', document.querySelector('[data-cat=\\'${c.id}\\']'))">
+    <a class="cat-card" href="category.html?cat=${c.id}" style="text-decoration:none;">
       <span class="cat-icon">${c.icon}</span>
       <span class="cat-name">${c.label.toUpperCase()}</span>
-      <span class="cat-count">${c.count} Brands</span>
-    </div>
+      <span class="cat-count">${c.count > 0 ? c.count + ' Brands' : 'Coming Soon'}</span>
+    </a>
   `).join('');
 }
 

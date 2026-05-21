@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse by Category — PLURGASM</title>
+<meta name="description" content="Browse rave brands by category — fem clothing, shoes, kandi, accessories, jerseys and more. Find the best rave wear at PLURGASM.">
+<meta name="keywords" content="rave brands, rave clothing categories, kandi, rave shoes, rave accessories, rave directory, PLURGASM">
+<meta name="author" content="PLURGASM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plurgasm.com/category.html">
+<meta property="og:title" content="Browse by Category — PLURGASM">
+<meta property="og:description" content="Browse rave brands by category. Fem clothing, shoes, kandi, accessories, jerseys and more at PLURGASM.">
+<meta property="og:image" content="https://plurgasm.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Browse by Category — PLURGASM">
+<meta name="twitter:description" content="Browse rave brands by category — fem clothing, shoes, kandi, and more.">
+<meta name="twitter:image" content="https://plurgasm.com/og-image.png">
+<link rel="canonical" href="https://plurgasm.com/category.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── BG GLOW ── */
+.cat-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.cat-bg-glow {
+  position: absolute; border-radius: 50%; filter: blur(160px);
+}
+
+/* ── HERO ── */
+.cat-hero {
+  position: relative; z-index: 1;
+  padding: 80px 48px 56px;
+  max-width: 1380px; margin: 0 auto;
+}
+.cat-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color 0.2s; margin-bottom: 40px;
+}
+.cat-back:hover { color: var(--cyan); }
+.cat-icon-lg { font-size: 56px; line-height: 1; margin-bottom: 16px; display: block; }
+.cat-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 9vw, 110px);
+  line-height: 0.9; letter-spacing: 2px; margin-bottom: 16px;
+}
+.cat-title-cyan   { background: linear-gradient(135deg, var(--cyan)   0%, rgba(0,229,255,0.6)  100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cat-title-pink   { background: linear-gradient(135deg, var(--pink)   0%, rgba(255,45,120,0.6) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cat-title-purple { background: linear-gradient(135deg, var(--purple) 0%, rgba(182,77,255,0.6) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cat-title-green  { background: linear-gradient(135deg, var(--green)  0%, rgba(61,255,133,0.6) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cat-title-amber  { background: linear-gradient(135deg, var(--amber)  0%, rgba(255,184,0,0.6)  100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cat-desc-text {
+  font-size: 16px; color: var(--muted); max-width: 560px;
+  line-height: 1.6; margin-bottom: 24px;
+}
+.cat-count-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 6px 16px;
+  border: 1px solid var(--border); color: var(--muted);
+  background: rgba(255,255,255,0.03);
+}
+
+/* ── CONTROLS (sticky) ── */
+.cat-controls {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(6,6,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+}
+.cat-controls-inner {
+  max-width: 1380px; margin: 0 auto;
+  display: flex; align-items: center; gap: 16px;
+}
+.cat-search {
+  flex: 1; max-width: 440px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--white); font-family: 'Chakra Petch', sans-serif; font-size: 14px;
+  padding: 10px 16px; outline: none; transition: border-color 0.2s;
+}
+.cat-search::placeholder { color: var(--muted); }
+.cat-search:focus { border-color: var(--cyan); }
+.cat-result-count {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+  color: var(--muted); text-transform: uppercase; white-space: nowrap;
+}
+
+/* ── BRAND GRID ── */
+.cat-content {
+  max-width: 1380px; margin: 0 auto;
+  padding: 40px 48px 80px;
+  position: relative; z-index: 1;
+}
+.cat-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ── EMPTY STATE ── */
+.empty-cat {
+  grid-column: 1 / -1;
+  text-align: center; padding: 64px 24px;
+  color: var(--muted); font-size: 15px;
+}
+.empty-cat-icon { font-size: 48px; display: block; margin-bottom: 16px; opacity: 0.4; }
+
+/* ── COMING SOON ── */
+.cat-coming-soon {
+  max-width: 1380px; margin: 0 auto;
+  padding: 60px 48px 80px;
+  text-align: center; position: relative; z-index: 1;
+}
+.cat-coming-soon-icon { font-size: 64px; display: block; margin-bottom: 24px; opacity: 0.5; }
+.cat-coming-soon-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 64px;
+  letter-spacing: 4px; color: var(--muted); margin-bottom: 16px;
+}
+.cat-coming-soon-text {
+  color: var(--muted); font-size: 15px;
+  max-width: 420px; margin: 0 auto; line-height: 1.6;
+}
+
+/* ── OTHER CATEGORIES ── */
+.other-cats {
+  max-width: 1380px; margin: 0 auto;
+  padding: 0 48px 80px;
+  position: relative; z-index: 1;
+}
+.other-cats-label {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+}
+.other-cats-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.other-cat-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Chakra Petch', sans-serif; font-size: 12px;
+  padding: 7px 14px; border: 1px solid var(--border);
+  color: var(--muted); text-decoration: none;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.2s, color 0.2s;
+}
+.other-cat-pill:hover { border-color: var(--cyan); color: var(--white); }
+.other-cat-pill-icon { font-size: 14px; }
+.other-cat-pill-count {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: var(--muted); margin-left: 2px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .cat-hero    { padding: 64px 20px 48px; }
+  .cat-controls { padding: 12px 20px; }
+  .cat-content  { padding: 28px 20px 60px; }
+  .other-cats   { padding: 0 20px 60px; }
+  .cat-brand-grid { grid-template-columns: 1fr; }
+  .cat-controls-inner { flex-direction: column; align-items: stretch; }
+  .cat-search { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- FIXED BG GLOW (populated by JS) -->
+<div class="cat-bg" id="cat-bg"></div>
+
+<!-- BRAND DETAIL MODAL -->
+<div class="brand-modal-overlay" id="brand-modal">
+  <div class="brand-modal" id="brand-modal-inner">
+    <button class="bm-close" onclick="closeBrandModal()">✕</button>
+    <div id="brand-modal-content"></div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="index.html#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="index.html#categories" onclick="closeMobileMenu()">Categories</a></li>
+      <li><a href="index.html#brands"     onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="index.html#social"     onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#festivals">Festivals</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="index.html#categories">Categories</a></li>
+    <li><a href="index.html#brands">Brands</a></li>
+    <li><a href="index.html#social">Social</a></li>
+  </ul>
+  <a href="submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- PAGE CONTENT (rendered by JS) -->
+<div id="cat-page"></div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="index.html#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#categories">Categories</a></li>
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="index.html#social">Social</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <a href="admin.html" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--faint);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">admin</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+(function () {
+  /* ── MERGE ADMIN BRANDS ── */
+  try {
+    const extra = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+    if (extra.length) BRANDS.push(...extra);
+  } catch (e) {}
+
+  /* ── NORMALIZE BRAND IDS (original 20 brands lack id field) ── */
+  BRANDS.forEach(b => {
+    if (!b.id) b.id = b.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  });
+
+  /* ── PER-CATEGORY META ── */
+  const CAT_DESCRIPTIONS = {
+    'fem-clothing':  'Bodysuits, sets, spandex, sequin, babydoll — rave fashion for the dance floor.',
+    'male-clothing': 'Shorts, shirts, unisex and custom pieces for every raver.',
+    'shoes':         'Platform boots, chunky trainers, and statement shoes that survive the festival floor.',
+    'accessories':   'Pasties, hair clips, body jewels, pashminas — the finishing touch to any rave look.',
+    'kandi':         'Beads, perlers, premade kandi — PLUR in bracelet form.',
+    'jerseys':       'Rave jerseys and merch celebrating the culture.',
+    'events':        'Event promoters and communities bringing the underground above ground.',
+    'supplements':   'Pre-event prep, recovery, and wellness essentials.',
+    'gear':          'Audio gear, fanny packs, and festival essentials.',
+    'lights':        'LED gloves, poi, light toys, and glow-up gear.',
+    'wellness':      'Self-care, harm reduction, and festival recovery.',
+  };
+
+  const CAT_GLOWS = {
+    'fem-clothing':  ['rgba(255,45,120,0.10)',  'rgba(182,77,255,0.07)'],
+    'male-clothing': ['rgba(0,229,255,0.09)',   'rgba(61,255,133,0.05)'],
+    'shoes':         ['rgba(182,77,255,0.10)',  'rgba(0,229,255,0.06)'],
+    'accessories':   ['rgba(255,184,0,0.09)',   'rgba(255,45,120,0.05)'],
+    'kandi':         ['rgba(61,255,133,0.10)',  'rgba(0,229,255,0.06)'],
+    'jerseys':       ['rgba(0,229,255,0.09)',   'rgba(61,255,133,0.06)'],
+    'events':        ['rgba(255,45,120,0.09)',  'rgba(255,184,0,0.05)'],
+    'supplements':   ['rgba(182,77,255,0.08)',  'rgba(0,229,255,0.05)'],
+    'gear':          ['rgba(0,229,255,0.09)',   'rgba(182,77,255,0.05)'],
+    'lights':        ['rgba(255,184,0,0.10)',   'rgba(61,255,133,0.06)'],
+    'wellness':      ['rgba(61,255,133,0.09)',  'rgba(0,229,255,0.05)'],
+  };
+
+  const CAT_TITLE_CLS = {
+    'fem-clothing':  'cat-title-pink',
+    'male-clothing': 'cat-title-cyan',
+    'shoes':         'cat-title-purple',
+    'accessories':   'cat-title-amber',
+    'kandi':         'cat-title-green',
+    'jerseys':       'cat-title-cyan',
+    'events':        'cat-title-pink',
+    'supplements':   'cat-title-purple',
+    'gear':          'cat-title-cyan',
+    'lights':        'cat-title-amber',
+    'wellness':      'cat-title-green',
+  };
+
+  /* ── BRAND MODAL ── */
+  function priceChipClass(p) {
+    if (!p) return 'chip-neutral';
+    if (p.startsWith('$$$$') || p.startsWith('$$$–')) return 'chip-priceLux';
+    if (p.startsWith('$$$') || p.startsWith('$$–$$$'))  return 'chip-priceHi';
+    if (p.startsWith('$$')  || p.startsWith('$–$$'))    return 'chip-priceMid';
+    if (p === '$') return 'chip-price';
+    return 'chip-neutral';
+  }
+
+  window.openBrandModal = function (id) {
+    const b = BRANDS.find(x => x.id === id);
+    if (!b) return;
+    const igHandle = b.ig ? b.ig.replace(/^@/, '') : null;
+    const hasUrl   = b.url && b.url !== '#';
+    const catLabel = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
+
+    document.getElementById('brand-modal-content').innerHTML = `
+      <div class="bm-header">
+        <div class="bm-badge ${b.badgeCls}">${b.badge}</div>
+        <div class="bm-title-group">
+          <p class="bm-name">${b.name}</p>
+          <p class="bm-cat">${catLabel} &nbsp;·&nbsp; ${b.loc}</p>
+        </div>
+      </div>
+      <div class="bm-chips">
+        <span class="bm-chip ${priceChipClass(b.price)}"><span class="bm-chip-icon">💰</span>${b.price || 'Price varies'}</span>
+        ${b.ship ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">⏱</span>${b.ship}</span>` : ''}
+        ${b.loc  ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">📍</span>${b.loc}</span>` : ''}
+        ${b.ig   ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">📱</span>${b.ig}</span>` : ''}
+      </div>
+      <div class="bm-body">
+        <div>
+          <p class="bm-section-label">About</p>
+          <p class="bm-desc">${b.desc}</p>
+        </div>
+        <div>
+          <p class="bm-section-label">What They Sell</p>
+          <p class="bm-style-text">${b.style}</p>
+        </div>
+        ${b.note ? `<div><p class="bm-section-label">Community Notes</p><div class="bm-note">${b.note}</div></div>` : ''}
+        ${b.tags && b.tags.length ? `<div><p class="bm-section-label">Tags</p><div class="bm-tags">${b.tags.map(t => `<span class="bm-tag">${t}</span>`).join('')}</div></div>` : ''}
+      </div>
+      <div class="bm-links">
+        ${hasUrl
+          ? `<a href="${b.url}" target="_blank" rel="noopener" class="bm-link-btn bm-link-primary">Visit Website →</a>`
+          : `<span class="bm-link-btn bm-link-ghost" style="cursor:default;opacity:0.5;">No website listed</span>`}
+        ${igHandle ? `<a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener" class="brand-ig-btn">@${igHandle}</a>` : ''}
+        <button onclick="closeBrandModal()" class="bm-link-btn bm-link-ghost" style="margin-left:auto;">Close</button>
+      </div>
+    `;
+
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.getElementById('brand-modal').classList.add('open');
+  };
+
+  window.closeBrandModal = function () {
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    document.getElementById('brand-modal').classList.remove('open');
+  };
+
+  document.addEventListener('click', e => {
+    if (e.target === document.getElementById('brand-modal')) closeBrandModal();
+  });
+
+  /* ── MOBILE MENU ── */
+  window.toggleMobileMenu = function () {
+    const menu = document.getElementById('mobile-menu');
+    const btn  = document.getElementById('hamburger');
+    const opening = !menu.classList.contains('open');
+    menu.classList.toggle('open', opening);
+    btn.classList.toggle('open', opening);
+    btn.setAttribute('aria-expanded', opening);
+    document.body.style.overflow = opening ? 'hidden' : '';
+  };
+
+  window.closeMobileMenu = function () {
+    const menu = document.getElementById('mobile-menu');
+    const btn  = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeMobileMenu(); closeBrandModal(); }
+  });
+
+  /* ── RENDER ── */
+  let searchQuery = '';
+
+  function renderBrandCard(b) {
+    return `
+      <div class="brand-card" onclick="openBrandModal(${JSON.stringify(b.id)})">
+        <div class="brand-badge ${b.badgeCls}">${b.badge}</div>
+        <div class="brand-info">
+          <p class="brand-name">${b.name}</p>
+          <div class="brand-meta">
+            <span class="brand-price ${b.priceCls}">${b.price}</span>
+            <span class="brand-ship">⏱ ${b.ship}</span>
+            <span class="brand-loc">📍 ${b.loc}</span>
+          </div>
+          <p class="brand-style">${b.style}</p>
+          <p class="brand-desc">${b.desc}</p>
+          ${b.ig ? `<a class="brand-ig-btn" href="https://instagram.com/${b.ig.replace('@', '')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${b.ig}</a>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderGrid(catId) {
+    let list = BRANDS.filter(b => b.cat === catId);
+    if (searchQuery) {
+      list = list.filter(b =>
+        [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags || [])].join(' ').toLowerCase().includes(searchQuery)
+      );
+    }
+
+    const grid    = document.getElementById('cat-brand-grid');
+    const countEl = document.getElementById('cat-result-count');
+    if (!grid) return;
+
+    if (!list.length) {
+      grid.innerHTML = `
+        <div class="empty-cat">
+          <span class="empty-cat-icon">🔍</span>
+          ${searchQuery ? `No brands match "<strong>${searchQuery}</strong>"` : 'No brands listed in this category yet.'}
+        </div>`;
+      if (countEl) countEl.textContent = '0 results';
+      return;
+    }
+
+    grid.innerHTML = list.map(renderBrandCard).join('');
+    if (countEl) countEl.textContent = list.length + ' brand' + (list.length !== 1 ? 's' : '');
+  }
+
+  function renderPage() {
+    const params  = new URLSearchParams(window.location.search);
+    const catId   = params.get('cat') || '';
+    const cat     = CATEGORIES.find(c => c.id === catId);
+    const page    = document.getElementById('cat-page');
+
+    if (!cat) {
+      page.innerHTML = `
+        <div class="cat-hero">
+          <a href="index.html" class="cat-back">← Back to PLURGASM</a>
+          <p style="color:var(--muted);font-size:16px;">Category not found. <a href="index.html" style="color:var(--cyan);">Browse all →</a></p>
+        </div>`;
+      return;
+    }
+
+    document.title = `${cat.label} Brands — PLURGASM`;
+
+    const glows    = CAT_GLOWS[catId]     || ['rgba(0,229,255,0.08)', 'rgba(182,77,255,0.05)'];
+    const titleCls = CAT_TITLE_CLS[catId] || 'cat-title-cyan';
+    const desc     = CAT_DESCRIPTIONS[catId] || '';
+    const isComing = !!(cat.comingSoon || cat.count === 0);
+
+    /* set bg glow */
+    document.getElementById('cat-bg').innerHTML = `
+      <div class="cat-bg-glow" style="width:600px;height:600px;background:${glows[0]};top:-200px;left:-100px;"></div>
+      <div class="cat-bg-glow" style="width:500px;height:500px;background:${glows[1]};top:80px;right:-150px;"></div>
+    `;
+
+    /* hero */
+    const heroHtml = `
+      <div class="cat-hero">
+        <a href="index.html" class="cat-back">← All Categories</a>
+        <span class="cat-icon-lg">${cat.icon}</span>
+        <h1 class="cat-title ${titleCls}">${cat.label.toUpperCase()}</h1>
+        <p class="cat-desc-text">${desc}</p>
+        <span class="cat-count-badge">${isComing ? 'Coming Soon' : cat.count + ' Brands'}</span>
+      </div>
+    `;
+
+    /* other categories strip (exclude current, exclude coming-soon) */
+    const others = CATEGORIES.filter(c => c.id !== catId && c.count > 0);
+    const othersHtml = others.length ? `
+      <div class="other-cats">
+        <p class="other-cats-label">More Categories</p>
+        <div class="other-cats-pills">
+          ${others.map(c => `
+            <a class="other-cat-pill" href="category.html?cat=${c.id}">
+              <span class="other-cat-pill-icon">${c.icon}</span>
+              ${c.label}
+              <span class="other-cat-pill-count">${c.count}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
+    if (isComing) {
+      page.innerHTML = heroHtml + `
+        <div class="cat-coming-soon">
+          <span class="cat-coming-soon-icon">${cat.icon}</span>
+          <p class="cat-coming-soon-title">COMING SOON</p>
+          <p class="cat-coming-soon-text">We're curating the best ${cat.label.toLowerCase()} brands for the community. Check back soon.</p>
+        </div>
+      ` + othersHtml;
+      return;
+    }
+
+    page.innerHTML = heroHtml + `
+      <div class="cat-controls">
+        <div class="cat-controls-inner">
+          <input type="text" class="cat-search" id="cat-search"
+            placeholder="Search ${cat.label.toLowerCase()} brands…" autocomplete="off">
+          <span class="cat-result-count" id="cat-result-count"></span>
+        </div>
+      </div>
+      <div class="cat-content">
+        <div class="cat-brand-grid" id="cat-brand-grid"></div>
+      </div>
+    ` + othersHtml;
+
+    renderGrid(catId);
+
+    document.getElementById('cat-search').addEventListener('input', e => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderGrid(catId);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', renderPage);
+})();
+</script>
+</body>
+</html>
