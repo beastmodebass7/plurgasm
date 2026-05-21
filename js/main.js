@@ -1,4 +1,4 @@
-/* ════════════════════════════════════════════════
+﻿/* ════════════════════════════════════════════════
    FESTIVAL FILTER STATE
 ════════════════════════════════════════════════ */
 let _festType  = 'all';
@@ -21,8 +21,11 @@ function getFilteredFests() {
 ════════════════════════════════════════════════ */
 function renderFestivals() {
   const list = getFilteredFests();
-  document.getElementById('fest-grid').innerHTML = list.map(f => `
-    <div class="fest-card ${f.featured ? 'fest-featured' : ''}" data-id="${f.id}" onclick="window.open('${f.url}','_blank')">
+  document.getElementById('fest-grid').innerHTML = list.map(f => {
+    const dest   = f.detailPage || f.url;
+    const target = f.detailPage ? '_self' : '_blank';
+    return `
+    <div class="fest-card ${f.featured ? 'fest-featured' : ''}" data-id="${f.id}" onclick="window.open('${dest}','${target}')">
       <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
       <p class="fest-name">${f.name}</p>
       ${f.tagline ? `<p class="fest-tagline">${f.tagline}</p>` : ''}
@@ -33,7 +36,7 @@ function renderFestivals() {
         <span class="fest-arrow">→</span>
       </div>
     </div>
-  `).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:32px 0;">No festivals match this filter combo.</p>`;
+  `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:32px 0;">No festivals match this filter combo.</p>`;
 }
 
 /* ════════════════════════════════════════════════
@@ -567,3 +570,4 @@ function initScrollAnimations() {
     dots.forEach(d => d.style.opacity = '0');
   });
 })();
+

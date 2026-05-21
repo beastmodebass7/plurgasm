@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project GLOW 2026 — PLURGASM</title>
+<meta name="description" content="Project GLOW 2026 — 5th Anniversary. Full lineup, schedule, tickets and venue info for DC's biggest electronic festival at RFK Grounds, May 30–31 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+/* ─── PAGE BG GLOW ─── */
+.pg-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.pg-glow {
+  position: absolute; border-radius: 50%; filter: blur(140px);
+}
+.pg-g1 { width:600px;height:600px;background:rgba(0,229,255,0.07);top:-200px;left:-150px; }
+.pg-g2 { width:500px;height:500px;background:rgba(182,77,255,0.06);top:100px;right:-150px; }
+.pg-g3 { width:400px;height:400px;background:rgba(0,229,255,0.04);bottom:0;left:30%; }
+
+/* ─── HERO ─── */
+.fd-hero {
+  position: relative; z-index: 1;
+  padding: 72px 48px 64px;
+  max-width: 1380px; margin: 0 auto;
+}
+.fd-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted);
+  transition: color 0.2s; margin-bottom: 36px;
+}
+.fd-back:hover { color: var(--cyan); }
+
+.fd-hero-grid {
+  display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start;
+}
+.fd-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+}
+.fd-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 10vw, 130px);
+  line-height: 0.9; letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--cyan) 0%, rgba(0,229,255,0.65) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+.fd-subtitle {
+  font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+  letter-spacing: 6px; color: var(--purple); margin-bottom: 28px;
+}
+.fd-chips {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px;
+}
+.fd-chip {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+  padding: 8px 16px; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04); color: var(--muted);
+  white-space: nowrap;
+}
+.fd-desc {
+  font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 560px;
+  margin-bottom: 32px;
+}
+.fd-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.fd-btn-primary {
+  font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 14px 28px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  color: var(--black); font-weight: 600;
+  transition: opacity 0.2s; white-space: nowrap;
+}
+.fd-btn-primary:hover { opacity: 0.85; }
+.fd-btn-ghost {
+  font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 14px 28px;
+  border: 1px solid rgba(0,229,255,0.35); color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+  transition: background 0.2s, border-color 0.2s; white-space: nowrap;
+}
+.fd-btn-ghost:hover { background: rgba(0,229,255,0.12); border-color: rgba(0,229,255,0.6); }
+
+/* ticket box */
+.fd-ticket-box {
+  min-width: 240px; max-width: 280px;
+  border: 1px solid rgba(0,229,255,0.25); background: rgba(0,229,255,0.04);
+  padding: 24px;
+}
+.fd-ticket-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--faint); margin-bottom: 16px;
+}
+.fd-ticket-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-family: 'DM Mono', monospace; font-size: 12px;
+}
+.fd-ticket-row:last-of-type { border-bottom: none; }
+.fd-ticket-tier { color: var(--muted); letter-spacing: 1px; }
+.fd-ticket-price { color: var(--white); font-weight: 500; }
+.fd-ticket-note {
+  margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px;
+  color: var(--faint); line-height: 1.6;
+}
+
+/* ─── STATS BAR ─── */
+.fd-stats-bar {
+  position: relative; z-index: 1;
+  background: rgba(0,229,255,0.04); border-top: 1px solid rgba(0,229,255,0.15);
+  border-bottom: 1px solid rgba(0,229,255,0.15);
+}
+.fd-stats-inner {
+  max-width: 1380px; margin: 0 auto; padding: 0 48px;
+  display: flex; justify-content: space-around;
+}
+.fd-stat-item {
+  font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 4px;
+  color: var(--muted); padding: 18px 0; text-align: center;
+  transition: color 0.2s;
+}
+.fd-stat-item:hover { color: var(--cyan); }
+
+/* ─── LINEUP ─── */
+.fd-lineup {
+  position: relative; z-index: 1;
+  max-width: 1380px; margin: 0 auto;
+  padding: 80px 48px;
+}
+.fd-section-eyebrow { margin-bottom: 8px; }
+.fd-section-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px;
+  margin-bottom: 36px;
+}
+
+/* day tabs */
+.fd-tabs {
+  display: flex; gap: 4px; margin-bottom: 40px; flex-wrap: wrap;
+}
+.fd-tab {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 10px 22px;
+  border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+  color: var(--muted); cursor: pointer; transition: all 0.2s;
+}
+.fd-tab:hover { border-color: rgba(0,229,255,0.4); color: var(--cyan); }
+.fd-tab.active {
+  border-color: var(--cyan); color: var(--cyan);
+  background: rgba(0,229,255,0.1);
+  box-shadow: 0 0 12px rgba(0,229,255,0.12);
+}
+
+/* day panel */
+.fd-day-panel { display: none; }
+.fd-day-panel.active { display: block; }
+
+/* stage grid */
+.fd-stages {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+
+/* stage column */
+.fd-stage-col { display: flex; flex-direction: column; gap: 8px; }
+.fd-stage-header {
+  padding: 14px 16px 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  border-top-width: 2px;
+  margin-bottom: 4px;
+}
+.fd-stage-eternal { border-top-color: var(--cyan); }
+.fd-stage-pulse   { border-top-color: var(--pink); }
+.fd-stage-garden  { border-top-color: var(--purple); }
+
+.fd-stage-icon { font-size: 16px; margin-right: 8px; }
+.fd-stage-name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 3px;
+}
+.fd-stage-eternal .fd-stage-name { color: var(--cyan); }
+.fd-stage-pulse   .fd-stage-name { color: var(--pink); }
+.fd-stage-garden  .fd-stage-name { color: var(--purple); }
+.fd-stage-genre {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px;
+  color: var(--faint); margin-top: 4px;
+}
+
+/* set card */
+.fd-set {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.fd-set:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+.fd-set-artist {
+  font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1.5px;
+  color: var(--white); line-height: 1.1; margin-bottom: 5px;
+}
+.fd-set-time {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px;
+  color: var(--faint);
+}
+
+/* headliner */
+.fd-set-headliner {
+  border-color: rgba(0,229,255,0.3);
+  background: rgba(0,229,255,0.04);
+  box-shadow: 0 0 20px rgba(0,229,255,0.07);
+}
+.fd-set-headliner:hover {
+  border-color: rgba(0,229,255,0.6);
+  box-shadow: 0 8px 32px rgba(0,229,255,0.15);
+}
+.fd-set-headliner .fd-set-artist { color: var(--cyan); }
+.fd-headliner-badge {
+  position: absolute; top: 10px; right: 10px;
+  font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 3px 8px;
+  border: 1px solid rgba(0,229,255,0.4); color: var(--cyan);
+  background: rgba(0,229,255,0.08);
+}
+
+/* all artists grid */
+.fd-all-artists {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px;
+}
+.fd-artist-card {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.fd-artist-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+.fd-artist-name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 1px;
+  color: var(--white);
+}
+.fd-artist-meta {
+  display: flex; gap: 6px; align-items: center;
+}
+.fd-artist-day {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px;
+  padding: 2px 7px; border: 1px solid var(--border); color: var(--faint);
+}
+.fd-artist-stage-badge {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px;
+  padding: 2px 7px; border: 1px solid;
+}
+.badge-eternal { color: var(--cyan);   border-color: rgba(0,229,255,0.35);   background: rgba(0,229,255,0.07); }
+.badge-pulse   { color: var(--pink);   border-color: rgba(255,45,120,0.35);   background: rgba(255,45,120,0.07); }
+.badge-garden  { color: var(--purple); border-color: rgba(182,77,255,0.35);   background: rgba(182,77,255,0.07); }
+
+/* ─── PRACTICAL INFO ─── */
+.fd-info {
+  position: relative; z-index: 1;
+  background: rgba(255,255,255,0.015);
+  border-top: 1px solid var(--border);
+}
+.fd-info-inner {
+  max-width: 1380px; margin: 0 auto; padding: 80px 48px;
+}
+.fd-info-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+}
+.fd-info-card {
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
+  transition: border-color 0.2s;
+}
+.fd-info-card:hover { border-color: rgba(255,255,255,0.15); }
+.fd-info-card-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+.fd-info-card-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px;
+  color: var(--white); margin-bottom: 12px;
+}
+.fd-info-card-body {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.5px;
+  color: var(--muted); line-height: 1.9;
+}
+.fd-info-card-body span { display: block; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1000px) {
+  .fd-hero-grid { grid-template-columns: 1fr; }
+  .fd-ticket-box { max-width: 100%; }
+  .fd-stages { grid-template-columns: 1fr; }
+  .fd-info-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .fd-hero, .fd-lineup, .fd-info-inner { padding-left: 20px; padding-right: 20px; }
+  .fd-stats-inner { padding: 0 20px; gap: 0; }
+  .fd-stat-item { font-size: 11px; letter-spacing: 2px; }
+  .fd-info-grid { grid-template-columns: 1fr; }
+  .fd-title { font-size: clamp(52px, 14vw, 90px); }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE BG -->
+<div class="pg-bg">
+  <div class="pg-glow pg-g1"></div>
+  <div class="pg-glow pg-g2"></div>
+  <div class="pg-glow pg-g3"></div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="../index.html#festivals">Festivals</a></li>
+      <li><a href="../index.html#categories">Categories</a></li>
+      <li><a href="../index.html#brands">Brands</a></li>
+      <li><a href="../index.html#social">Social</a></li>
+      <li><a href="../calendar.html">Festival Calendar</a></li>
+      <li><a href="../safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="../submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#festivals">Festivals</a></li>
+    <li><a href="../calendar.html">Calendar</a></li>
+    <li><a href="../index.html#categories">Categories</a></li>
+    <li><a href="../index.html#brands">Brands</a></li>
+    <li><a href="../index.html#social">Social</a></li>
+  </ul>
+  <a href="../submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="fd-hero">
+  <a href="../index.html#festivals" class="fd-back">← All Festivals</a>
+
+  <div class="fd-hero-grid">
+    <div>
+      <p class="fd-eyebrow">INSOMNIAC × CLUB GLOW · 5th Edition</p>
+      <h1 class="fd-title">PROJECT<br>GLOW</h1>
+      <p class="fd-subtitle">5TH ANNIVERSARY</p>
+
+      <div class="fd-chips">
+        <span class="fd-chip">📅 May 30–31, 2026</span>
+        <span class="fd-chip">📍 RFK Festival Grounds, Washington DC</span>
+        <span class="fd-chip">🔞 18+</span>
+        <span class="fd-chip">🎭 3 Stages</span>
+        <span class="fd-chip">🎵 2 Days</span>
+      </div>
+
+      <p class="fd-desc">The East Coast's crown jewel returns for its 5th anniversary. Born from Club GLOW — DC's longest-running electronic music promoter. Three stages of music, art installations, and the electric energy of the nation's capital.</p>
+
+      <div class="fd-btns">
+        <a href="https://projectglow.frontgatetickets.com/" target="_blank" rel="noopener" class="fd-btn-primary">BUY TICKETS →</a>
+        <a href="https://projectglowfest.com" target="_blank" rel="noopener" class="fd-btn-ghost">OFFICIAL SITE</a>
+      </div>
+    </div>
+
+    <div class="fd-ticket-box">
+      <p class="fd-ticket-label">🎟 Ticket Prices</p>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">GA</span>
+        <span class="fd-ticket-price">from $119</span>
+      </div>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">GA+</span>
+        <span class="fd-ticket-price">from $139</span>
+      </div>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">VIP</span>
+        <span class="fd-ticket-price">from $249</span>
+      </div>
+      <p class="fd-ticket-note">Layaway available — $5 deposit at Front Gate · GA+ includes expedited entry + AC rest areas</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ STATS BAR ═══════════════ -->
+<div class="fd-stats-bar">
+  <div class="fd-stats-inner">
+    <span class="fd-stat-item">5TH ANNIVERSARY</span>
+    <span class="fd-stat-item">3 STAGES</span>
+    <span class="fd-stat-item">2 DAYS</span>
+    <span class="fd-stat-item">18+</span>
+    <span class="fd-stat-item">WASHINGTON DC</span>
+  </div>
+</div>
+
+<!-- ═══════════════ LINEUP ═══════════════ -->
+<div class="fd-lineup">
+  <p class="eyebrow fd-section-eyebrow">Full Schedule</p>
+  <h2 class="fd-section-title">FULL LINEUP</h2>
+
+  <!-- TABS -->
+  <div class="fd-tabs">
+    <button class="fd-tab active" onclick="showDay('day1', this)">DAY 1 — MAY 30</button>
+    <button class="fd-tab" onclick="showDay('day2', this)">DAY 2 — MAY 31</button>
+    <button class="fd-tab" onclick="showDay('all', this)">ALL ARTISTS</button>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="fd-day-panel active" id="panel-day1">
+    <div class="fd-stages">
+
+      <!-- ETERNAL -->
+      <div class="fd-stage-col">
+        <div class="fd-stage-header fd-stage-eternal">
+          <div><span class="fd-stage-icon">🌐</span><span class="fd-stage-name">ETERNAL STAGE</span></div>
+          <p class="fd-stage-genre">HOUSE · TECHNO · PROGRESSIVE</p>
+        </div>
+        <div class="fd-set"><p class="fd-set-artist">Discovery Project</p><p class="fd-set-time">1:00PM – 2:00PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Chaseonaux</p><p class="fd-set-time">2:00PM – 3:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Distant Matter</p><p class="fd-set-time">3:30PM – 4:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">DJ Mandy</p><p class="fd-set-time">4:30PM – 5:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Lilly Palmer</p><p class="fd-set-time">5:30PM – 6:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Kream</p><p class="fd-set-time">6:30PM – 7:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Disco Lines</p><p class="fd-set-time">7:30PM – 8:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Sara Landry</p><p class="fd-set-time">8:30PM – 9:30PM</p></div>
+        <div class="fd-set fd-set-headliner">
+          <span class="fd-headliner-badge">Headliner</span>
+          <p class="fd-set-artist">Eric Prydz</p>
+          <p class="fd-set-time">9:45PM – 11:00PM</p>
+        </div>
+      </div>
+
+      <!-- PULSE -->
+      <div class="fd-stage-col">
+        <div class="fd-stage-header fd-stage-pulse">
+          <div><span class="fd-stage-icon">🔊</span><span class="fd-stage-name">PULSE STAGE</span></div>
+          <p class="fd-stage-genre">BASS · DUBSTEP · EXPERIMENTAL</p>
+        </div>
+        <div class="fd-set"><p class="fd-set-artist">Wook Appruvd</p><p class="fd-set-time">1:00PM – 1:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Shizz Lo B2B Brainrack</p><p class="fd-set-time">1:35PM – 2:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Fly</p><p class="fd-set-time">2:35PM – 3:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Mary Droppinz</p><p class="fd-set-time">3:35PM – 4:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Effin</p><p class="fd-set-time">4:35PM – 5:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">G Jones B2B Eprom</p><p class="fd-set-time">5:35PM – 6:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Dimension</p><p class="fd-set-time">6:35PM – 7:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Ray Volpe</p><p class="fd-set-time">7:35PM – 8:35PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Wooli</p><p class="fd-set-time">8:35PM – 9:35PM</p></div>
+        <div class="fd-set fd-set-headliner">
+          <span class="fd-headliner-badge">Headliner</span>
+          <p class="fd-set-artist">Zeds Dead</p>
+          <p class="fd-set-time">9:45PM – 11:00PM</p>
+        </div>
+      </div>
+
+      <!-- SECRET GARDEN -->
+      <div class="fd-stage-col">
+        <div class="fd-stage-header fd-stage-garden">
+          <div><span class="fd-stage-icon">🌿</span><span class="fd-stage-name">SECRET GARDEN</span></div>
+          <p class="fd-stage-genre">TECHNO · DEEP HOUSE · UNDERGROUND</p>
+        </div>
+        <div class="fd-set"><p class="fd-set-artist">Shewolff</p><p class="fd-set-time">1:00PM – 2:15PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Silvertone</p><p class="fd-set-time">2:15PM – 3:15PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Misha</p><p class="fd-set-time">3:15PM – 4:15PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Ky William</p><p class="fd-set-time">4:15PM – 5:15PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Ruze</p><p class="fd-set-time">5:15PM – 6:15PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Ranger Trucco</p><p class="fd-set-time">6:15PM – 7:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Riordan B2B Bullet Tooth</p><p class="fd-set-time">7:45PM – 9:00PM</p></div>
+        <div class="fd-set fd-set-headliner">
+          <span class="fd-headliner-badge">Headliner</span>
+          <p class="fd-set-artist">Nicole Moudaber B2B Chasewest</p>
+          <p class="fd-set-time">9:00PM – 11:00PM</p>
+        </div>
+      </div>
+
+    </div><!-- /fd-stages -->
+  </div><!-- /panel-day1 -->
+
+  <!-- DAY 2 -->
+  <div class="fd-day-panel" id="panel-day2">
+    <div class="fd-stages">
+
+      <!-- ETERNAL -->
+      <div class="fd-stage-col">
+        <div class="fd-stage-header fd-stage-eternal">
+          <div><span class="fd-stage-icon">🌐</span><span class="fd-stage-name">ETERNAL STAGE</span></div>
+          <p class="fd-stage-genre">HOUSE · TECHNO · PROGRESSIVE</p>
+        </div>
+        <div class="fd-set"><p class="fd-set-artist">Arylia</p><p class="fd-set-time">1:00PM – 2:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Probcause</p><p class="fd-set-time">2:30PM – 3:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Avello</p><p class="fd-set-time">3:30PM – 4:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">YDG</p><p class="fd-set-time">4:30PM – 5:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Ninajirachi</p><p class="fd-set-time">5:30PM – 6:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Alleycvt</p><p class="fd-set-time">6:30PM – 7:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Gryffin</p><p class="fd-set-time">7:30PM – 8:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Porter Robinson</p><p class="fd-set-time">8:30PM – 9:30PM</p></div>
+        <div class="fd-set fd-set-headliner">
+          <span class="fd-headliner-badge">Headliner</span>
+          <p class="fd-set-artist">Excision B2B Sullivan King</p>
+          <p class="fd-set-time">9:45PM – 11:00PM</p>
+        </div>
+      </div>
+
+      <!-- PULSE -->
+      <div class="fd-stage-col">
+        <div class="fd-stage-header fd-stage-pulse">
+          <div><span class="fd-stage-icon">🔊</span><span class="fd-stage-name">PULSE STAGE</span></div>
+          <p class="fd-stage-genre">BASS · DUBSTEP · EXPERIMENTAL</p>
+        </div>
+        <div class="fd-set"><p class="fd-set-artist">Damon Pirko B2B Chase Norman</p><p class="fd-set-time">1:00PM – 1:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Avishek</p><p class="fd-set-time">1:45PM – 2:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Sama</p><p class="fd-set-time">2:45PM – 3:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Linska</p><p class="fd-set-time">3:45PM – 4:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Coco &amp; Breezy</p><p class="fd-set-time">4:45PM – 5:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Discip B2B Roddy Lima</p><p class="fd-set-time">5:45PM – 6:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Max Styler</p><p class="fd-set-time">6:45PM – 7:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">LP Giobbi</p><p class="fd-set-time">7:45PM – 8:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Cloonee</p><p class="fd-set-time">8:45PM – 9:45PM</p></div>
+        <div class="fd-set fd-set-headliner">
+          <span class="fd-headliner-badge">Headliner</span>
+          <p class="fd-set-artist">Mau P</p>
+          <p class="fd-set-time">9:45PM – 11:00PM</p>
+        </div>
+      </div>
+
+      <!-- SECRET GARDEN -->
+      <div class="fd-stage-col">
+        <div class="fd-stage-header fd-stage-garden">
+          <div><span class="fd-stage-icon">🌿</span><span class="fd-stage-name">SECRET GARDEN</span></div>
+          <p class="fd-stage-genre">TECHNO · DEEP HOUSE · UNDERGROUND</p>
+        </div>
+        <div class="fd-set"><p class="fd-set-artist">Queer Chaos</p><p class="fd-set-time">1:00PM – 2:30PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Ed Bailey</p><p class="fd-set-time">2:30PM – 3:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Rezident</p><p class="fd-set-time">3:45PM – 4:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Hayla</p><p class="fd-set-time">4:45PM – 5:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Spencer Brown B2B Qrion</p><p class="fd-set-time">5:45PM – 6:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Cosmic Gate</p><p class="fd-set-time">6:45PM – 7:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Eli &amp; Fur</p><p class="fd-set-time">7:45PM – 8:45PM</p></div>
+        <div class="fd-set"><p class="fd-set-artist">Cassian</p><p class="fd-set-time">8:45PM – 9:45PM</p></div>
+      </div>
+
+    </div><!-- /fd-stages -->
+  </div><!-- /panel-day2 -->
+
+  <!-- ALL ARTISTS -->
+  <div class="fd-day-panel" id="panel-all">
+    <div class="fd-all-artists">
+      <!-- All acts alphabetical -->
+      <div class="fd-artist-card"><p class="fd-artist-name">Alleycvt</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Arylia</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Avello</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Avishek</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Cassian</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Chaseonaux</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Cloonee</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Coco &amp; Breezy</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Cosmic Gate</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Damon Pirko B2B Chase Norman</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Dimension</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Disco Lines</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Discip B2B Roddy Lima</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Discovery Project</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Distant Matter</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">DJ Mandy</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Ed Bailey</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Effin</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Eli &amp; Fur</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Eric Prydz ★</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Excision B2B Sullivan King ★</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Fly</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">G Jones B2B Eprom</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Gryffin</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Hayla</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Kream</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Ky William</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Lilly Palmer</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Linska</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">LP Giobbi</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Mary Droppinz</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Mau P ★</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Max Styler</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Misha</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Nicole Moudaber B2B Chasewest ★</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Ninajirachi</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Porter Robinson</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Probcause</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Queer Chaos</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Ranger Trucco</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Ray Volpe</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Rezident</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Riordan B2B Bullet Tooth</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Ruze</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Sama</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Sara Landry</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Shewolff</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Shizz Lo B2B Brainrack</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Silvertone</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Spencer Brown B2B Qrion</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-garden">Garden</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Wook Appruvd</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Wooli</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">YDG</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 2</span><span class="fd-artist-stage-badge badge-eternal">Eternal</span></div></div>
+      <div class="fd-artist-card"><p class="fd-artist-name">Zeds Dead ★</p><div class="fd-artist-meta"><span class="fd-artist-day">Day 1</span><span class="fd-artist-stage-badge badge-pulse">Pulse</span></div></div>
+    </div>
+    <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--faint);margin-top:20px;">★ = Headliner</p>
+  </div><!-- /panel-all -->
+
+</div><!-- /fd-lineup -->
+
+<!-- ═══════════════ PRACTICAL INFO ═══════════════ -->
+<div class="fd-info">
+  <div class="fd-info-inner">
+    <p class="eyebrow">Know Before You Go</p>
+    <h2 class="fd-section-title">FESTIVAL INFO</h2>
+
+    <div class="fd-info-grid">
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">📍</span>
+        <p class="fd-info-card-title">VENUE</p>
+        <div class="fd-info-card-body">
+          <span>RFK Festival Grounds</span>
+          <span>2400 E Capitol St SE, DC 20003</span>
+          <span>&nbsp;</span>
+          <span>Metro: Stadium-Armory stop</span>
+          <span>Orange / Blue / Silver line</span>
+          <span>&nbsp;</span>
+          <span>Rideshare drop-off zones available</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">🎟️</span>
+        <p class="fd-info-card-title">TICKETS</p>
+        <div class="fd-info-card-body">
+          <span>GA · $119 all-in (2-day)</span>
+          <span>GA+ · $139 · Expedited entry + AC rest areas</span>
+          <span>VIP · from $249 · Premium viewing + lounge</span>
+          <span>&nbsp;</span>
+          <span>Layaway: $5 deposit at Front Gate</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">✅</span>
+        <p class="fd-info-card-title">ALLOWED</p>
+        <div class="fd-info-card-body">
+          <span>Small backpacks (under 18")</span>
+          <span>Sealed water bottles (up to 32oz)</span>
+          <span>Earplugs, sunscreen, hand fans</span>
+          <span>Kandi and flow toys (no sharp edges)</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">🚫</span>
+        <p class="fd-info-card-title">NOT ALLOWED</p>
+        <div class="fd-info-card-body">
+          <span>Outside food and alcohol</span>
+          <span>Professional cameras / detachable lenses</span>
+          <span>Umbrellas with metal tips</span>
+          <span>Laser pointers, drones, selfie sticks</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">🌐</span>
+        <p class="fd-info-card-title">THE STAGES</p>
+        <div class="fd-info-card-body">
+          <span>Eternal Stage</span>
+          <span style="color:var(--faint);">House · Techno · Progressive</span>
+          <span>&nbsp;</span>
+          <span>Pulse Stage</span>
+          <span style="color:var(--faint);">Bass · Dubstep · Experimental</span>
+          <span>&nbsp;</span>
+          <span>Secret Garden</span>
+          <span style="color:var(--faint);">Techno · Deep House · Underground</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">♥</span>
+        <p class="fd-info-card-title">HARM REDUCTION</p>
+        <div class="fd-info-card-body">
+          <span>DanceSafe on-site both days</span>
+          <span>Free water stations throughout venue</span>
+          <span>Medical tents with trained staff</span>
+          <span>Cool-down zones and chill areas</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="../index.html#festivals">Festivals</a></li>
+      <li><a href="../calendar.html">Calendar</a></li>
+      <li><a href="../index.html#categories">Categories</a></li>
+      <li><a href="../index.html#brands">Brands</a></li>
+      <li><a href="../index.html#social">Social</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ─── MOBILE MENU ─── */
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+/* ─── LINEUP TABS ─── */
+function showDay(day, btn) {
+  document.querySelectorAll('.fd-day-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.fd-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + day).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
