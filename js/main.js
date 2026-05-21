@@ -376,12 +376,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trail config
   const TRAIL_LENGTH = 18;
   const COLORS = [
-    'rgba(255,220,80,0.07)',
-    'rgba(255,210,60,0.05)',
-    'rgba(255,200,40,0.035)',
-    'rgba(255,190,20,0.022)',
-    'rgba(255,180,0,0.012)',
-    'rgba(255,170,0,0.006)',
+    'rgba(255,220,80,0.032)',
+    'rgba(255,210,60,0.022)',
+    'rgba(255,200,40,0.014)',
+    'rgba(255,190,20,0.009)',
+    'rgba(255,180,0,0.005)',
+    'rgba(255,170,0,0.002)',
   ];
 
   // Create trail dots
@@ -436,8 +436,13 @@ document.addEventListener('DOMContentLoaded', () => {
   hero.addEventListener('mousemove', e => {
     // Hide trail when hovering over text, inputs, buttons, links
     const isInteractive = e.target.closest(
-      'input, button, a, h1, h2, h3, p, .hero-eyebrow, .hero-sub, ' +
-      '.hero-title, .hero-stats, .plur-tiles, .search-form, .search-wrap'
+      'input, textarea, button, a, select, ' +
+      'h1, h2, h3, p, label, ' +
+      '.hero-eyebrow, .hero-sub, .hero-title, ' +
+      '.hero-stats, .stat-num, .stat-label, ' +
+      '.plur-tiles, .pt, ' +
+      '.search-wrap, .search-form, #search-input, ' +
+      '.hero-search, [type="text"], [type="search"]'
     );
     if (isInteractive) {
       dots.forEach(d => d.style.opacity = '0');
