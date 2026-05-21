@@ -39,7 +39,6 @@ body {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
 }
-
 body::after {
   content: '';
   position: fixed;
@@ -123,6 +122,16 @@ body::after {
   margin-top: 12px;
   display: none;
 }
+.login-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
 
 /* ── PANEL LAYOUT ── */
 #admin-panel { display: none; }
@@ -134,12 +143,11 @@ body::after {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 32px;
-  background: rgba(6,6,12,0.9);
+  background: rgba(6,6,12,0.94);
   backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
-  gap: 16px;
+  gap: 14px;
 }
 .admin-logo {
   font-family: 'Bebas Neue', sans-serif;
@@ -160,6 +168,16 @@ body::after {
   border: 1px solid rgba(0,229,255,0.3);
   color: var(--cyan);
 }
+.admin-nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.admin-home-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.admin-home-link:hover { color: var(--cyan); }
 .logout-btn {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
@@ -169,7 +187,6 @@ body::after {
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
-  margin-left: auto;
   transition: all 0.2s;
 }
 .logout-btn:hover { border-color: var(--pink); color: var(--pink); }
@@ -181,6 +198,7 @@ body::after {
   padding: 20px 32px 0;
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
+  background: var(--black);
 }
 .tab-btn {
   font-family: 'DM Mono', monospace;
@@ -207,41 +225,81 @@ body::after {
 }
 
 /* ── TAB CONTENT ── */
-.tab-content { display: none; padding: 36px 32px; max-width: 1100px; }
+.tab-content { display: none; padding: 36px 32px 64px; max-width: 1100px; }
 .tab-content.active { display: block; }
 
-/* ── SECTION HEADINGS ── */
+/* ── HEADINGS ── */
 .admin-section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing: 3px;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .admin-section-sub {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   color: var(--muted);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  max-width: 680px;
 }
-.admin-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 28px 0;
+.admin-divider { height: 1px; background: var(--border); margin: 32px 0; }
+.admin-sub-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin: 0 0 12px;
 }
 
-/* ── DASHBOARD STATS ── */
+/* ── TIPS / CALLOUTS ── */
+.admin-tip {
+  background: rgba(0,229,255,0.04);
+  border: 1px solid rgba(0,229,255,0.15);
+  border-left: 3px solid var(--cyan);
+  padding: 14px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.admin-tip strong { color: var(--cyan); font-weight: normal; }
+.admin-tip code {
+  background: rgba(0,229,255,0.08);
+  padding: 1px 6px;
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.admin-warn {
+  background: rgba(255,184,0,0.04);
+  border: 1px solid rgba(255,184,0,0.2);
+  border-left: 3px solid var(--amber);
+  padding: 14px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.admin-warn strong { color: var(--amber); font-weight: normal; }
+
+/* ── DASHBOARD ── */
 .dash-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 14px;
-  margin-bottom: 36px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
 }
 .dash-card {
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 24px 22px;
+  padding: 22px 20px;
 }
 .dash-num {
   font-family: 'Bebas Neue', sans-serif;
@@ -258,13 +316,37 @@ body::after {
   color: var(--muted);
 }
 
-/* ── FORMS ── */
-.admin-form { display: flex; flex-direction: column; gap: 14px; max-width: 680px; }
-.form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+/* ── HOW IT WORKS GRID ── */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
 }
+.how-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 20px 22px;
+}
+.how-icon { font-size: 20px; margin-bottom: 10px; }
+.how-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.how-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── FORMS ── */
+.admin-form { display: flex; flex-direction: column; gap: 14px; max-width: 700px; }
+.form-row { display: flex; flex-direction: column; gap: 6px; }
 .form-row label {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
@@ -272,6 +354,7 @@ body::after {
   text-transform: uppercase;
   color: var(--muted);
 }
+.form-row label .req { color: var(--cyan); margin-left: 3px; }
 .form-row input,
 .form-row textarea,
 .form-row select {
@@ -284,13 +367,21 @@ body::after {
   outline: none;
   transition: border-color 0.2s;
   appearance: none;
+  width: 100%;
 }
 .form-row input:focus,
 .form-row textarea:focus,
 .form-row select:focus { border-color: rgba(0,229,255,0.5); }
 .form-row input::placeholder,
 .form-row textarea::placeholder { color: var(--faint); }
-.form-row textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+.form-row textarea { resize: vertical; min-height: 88px; line-height: 1.6; }
+.form-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
 select option { background: #15152a; }
 .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
@@ -305,9 +396,35 @@ select option { background: #15152a; }
   border: none;
   font-weight: 600;
   transition: opacity 0.2s;
-  width: fit-content;
+  white-space: nowrap;
 }
 .save-btn:hover { opacity: 0.88; }
+.ghost-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.ghost-btn:hover { border-color: var(--border-hi); color: var(--white); }
+.danger-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid rgba(255,45,120,0.3);
+  color: var(--pink);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.danger-btn:hover { background: rgba(255,45,120,0.08); }
 .save-confirm {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
@@ -315,9 +432,10 @@ select option { background: #15152a; }
   letter-spacing: 1px;
   display: none;
 }
+.btn-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
 /* ── SUBMISSION CARDS ── */
-.sub-list { display: flex; flex-direction: column; gap: 12px; }
+.sub-list { display: flex; flex-direction: column; gap: 10px; }
 .sub-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -327,8 +445,8 @@ select option { background: #15152a; }
   gap: 16px;
   align-items: start;
 }
-.sub-card.approved { border-color: rgba(61,255,133,0.25); }
-.sub-card.rejected { opacity: 0.4; }
+.sub-card.approved { border-color: rgba(61,255,133,0.22); }
+.sub-card.rejected { opacity: 0.38; }
 .sub-name {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 20px;
@@ -336,27 +454,22 @@ select option { background: #15152a; }
   color: var(--white);
   margin-bottom: 4px;
 }
-.sub-meta {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
+.sub-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); margin-bottom: 6px; }
 .sub-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.sub-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.sub-actions { display: flex; gap: 8px; flex-shrink: 0; flex-direction: column; align-items: flex-end; }
 .approve-btn {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 8px 16px;
-  background: rgba(61,255,133,0.1);
-  border: 1px solid rgba(61,255,133,0.35);
+  background: rgba(61,255,133,0.08);
+  border: 1px solid rgba(61,255,133,0.3);
   color: var(--green);
   transition: background 0.2s;
+  white-space: nowrap;
 }
-.approve-btn:hover { background: rgba(61,255,133,0.18); }
+.approve-btn:hover { background: rgba(61,255,133,0.16); }
 .reject-btn {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
@@ -364,9 +477,10 @@ select option { background: #15152a; }
   text-transform: uppercase;
   padding: 8px 16px;
   background: transparent;
-  border: 1px solid rgba(255,45,120,0.3);
+  border: 1px solid rgba(255,45,120,0.25);
   color: var(--pink);
   transition: background 0.2s;
+  white-space: nowrap;
 }
 .reject-btn:hover { background: rgba(255,45,120,0.08); }
 .sub-status {
@@ -380,7 +494,6 @@ select option { background: #15152a; }
 .status-approved { color: var(--green); border-color: rgba(61,255,133,0.3); }
 .status-rejected { color: var(--pink);  border-color: rgba(255,45,120,0.3); }
 .status-pending  { color: var(--amber); border-color: rgba(255,184,0,0.3);  }
-
 .sub-empty {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
@@ -390,40 +503,93 @@ select option { background: #15152a; }
   text-align: center;
 }
 
+/* ── REORDER ── */
+.reorder-list { display: flex; flex-direction: column; gap: 4px; max-width: 800px; }
+.reorder-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 11px 16px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.reorder-item:hover { border-color: var(--border-hi); background: var(--card-hi); }
+.move-btn {
+  font-size: 13px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.move-btn:hover:not(:disabled) { border-color: rgba(0,229,255,0.4); color: var(--cyan); background: rgba(0,229,255,0.04); }
+.move-btn:disabled { opacity: 0.2; cursor: default; }
+.reorder-pos {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: var(--faint);
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.reorder-info { flex: 1; min-width: 0; }
+.reorder-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reorder-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 0.3px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reorder-cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  color: var(--faint);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 /* ── SOCIAL TOGGLE ── */
-.social-list { display: flex; flex-direction: column; gap: 10px; max-width: 680px; }
+.social-list { display: flex; flex-direction: column; gap: 8px; max-width: 700px; }
 .social-row {
   display: flex;
   align-items: center;
   gap: 16px;
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 16px 20px;
+  padding: 14px 18px;
 }
-.social-handle {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  letter-spacing: 1px;
-  color: var(--cyan);
-  flex: 1;
-}
-.social-platform {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--faint);
-}
-.toggle-switch {
-  position: relative;
-  width: 44px;
-  height: 24px;
-  flex-shrink: 0;
-}
+.social-handle { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; color: var(--cyan); flex: 1; }
+.social-platform { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--faint); }
+.toggle-switch { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
 .toggle-switch input { opacity: 0; width: 0; height: 0; }
 .toggle-track {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
   border: 1px solid var(--border);
   cursor: pointer;
   transition: background 0.2s;
@@ -438,15 +604,17 @@ select option { background: #15152a; }
   background: var(--faint);
   transition: transform 0.2s, background 0.2s;
 }
-.toggle-switch input:checked + .toggle-track { background: rgba(0,229,255,0.15); border-color: rgba(0,229,255,0.4); }
+.toggle-switch input:checked + .toggle-track { background: rgba(0,229,255,0.12); border-color: rgba(0,229,255,0.4); }
 .toggle-switch input:checked + .toggle-track::after { transform: translateX(20px); background: var(--cyan); }
+.feat-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--faint); width: 60px; text-align: right; }
 
 @media (max-width: 700px) {
   .admin-tabs { padding: 12px 16px 0; }
-  .tab-content { padding: 24px 16px; }
+  .tab-content { padding: 24px 16px 48px; }
   .form-grid-2 { grid-template-columns: 1fr; }
   .sub-card { grid-template-columns: 1fr; }
   .admin-nav { padding: 0 16px; }
+  .how-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -458,8 +626,12 @@ select option { background: #15152a; }
     <p class="login-logo">PLURGASM</p>
     <p class="login-sub">Admin Panel</p>
     <input type="password" id="pw-input" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" onclick="doLogin()">Enter</button>
-    <p class="login-error" id="login-error">Incorrect password</p>
+    <button class="login-btn" onclick="doLogin()">Enter Panel</button>
+    <p class="login-error" id="login-error">Incorrect password — try again</p>
+    <p class="login-hint">
+      This panel manages directory content without touching code.<br>
+      Changes are stored in your browser's localStorage and apply immediately on the homepage.
+    </p>
   </div>
 </div>
 
@@ -468,34 +640,79 @@ select option { background: #15152a; }
   <div class="admin-nav">
     <span class="admin-logo">PLURGASM</span>
     <span class="admin-badge">Admin</span>
-    <button class="logout-btn" onclick="doLogout()">Log Out</button>
+    <div class="admin-nav-right">
+      <a href="index.html" class="admin-home-link">← Homepage</a>
+      <button class="logout-btn" onclick="doLogout()">Log Out</button>
+    </div>
   </div>
 
   <div class="admin-tabs">
     <button class="tab-btn active" onclick="switchTab('dashboard',this)">Dashboard</button>
     <button class="tab-btn" onclick="switchTab('botw',this)">Brand of Week</button>
-    <button class="tab-btn" onclick="switchTab('submissions',this)">Submissions <span id="sub-count-badge"></span></button>
+    <button class="tab-btn" id="tab-btn-submissions" onclick="switchTab('submissions',this)">Submissions</button>
     <button class="tab-btn" onclick="switchTab('add-festival',this)">Add Festival</button>
     <button class="tab-btn" onclick="switchTab('add-brand',this)">Add Brand</button>
+    <button class="tab-btn" onclick="switchTab('reorder',this)">Reorder</button>
     <button class="tab-btn" onclick="switchTab('social',this)">Social Spotlight</button>
   </div>
 
-  <!-- DASHBOARD -->
+  <!-- ══════════════ DASHBOARD ══════════════ -->
   <div class="tab-content active" id="tab-dashboard">
     <p class="admin-section-title">Dashboard</p>
-    <p class="admin-section-sub">Overview of your PLURGASM directory content.</p>
+    <p class="admin-section-sub">Live overview of your PLURGASM directory. Numbers include both data.js content and anything you've added via this panel.</p>
+
     <div class="dash-grid" id="dash-grid"></div>
+
     <div class="admin-divider"></div>
-    <p style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--muted);">
-      Admin-added festivals and brands are stored in localStorage and merged with data.js on each page load.
-      To make additions permanent, copy them into <code style="color:var(--cyan);">js/data.js</code> and redeploy.
-    </p>
+
+    <p class="admin-sub-heading" style="margin-bottom:16px;">How This Panel Works</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-icon">🗄️</div>
+        <div class="how-title">localStorage Storage</div>
+        <div class="how-desc">Everything you add or change here is saved in your browser's localStorage. It applies instantly on the homepage — no code edit needed. If you clear browser data, changes are lost.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">📦</div>
+        <div class="how-title">Making Changes Permanent</div>
+        <div class="how-desc">To permanently save admin-added festivals or brands, copy them into <code style="color:var(--cyan);font-size:10px;">js/data.js</code> and push to GitHub. Once in data.js, they survive a browser data wipe.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">⭐</div>
+        <div class="how-title">Brand of the Week</div>
+        <div class="how-desc">Override the featured brand shown at the top of the homepage. Set it here and it applies immediately — no deploy needed. Clear the override to revert to the data.js default.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">📥</div>
+        <div class="how-title">Submissions Flow</div>
+        <div class="how-desc">When someone fills out the Submit a Brand form, it lands here as "Pending". Approve to auto-add it to the live directory. Reject to dismiss it. Approved brands appear on the homepage immediately.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">↕️</div>
+        <div class="how-title">Reordering Content</div>
+        <div class="how-desc">Use the Reorder tab to control which festivals and brands appear first. Move items up or down, then save. The homepage respects this order. Reset at any time to go back to the data.js default.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🔒</div>
+        <div class="how-title">Password</div>
+        <div class="how-desc">The password is stored as a constant in <code style="color:var(--cyan);font-size:10px;">admin.html</code>. To change it, edit the <code style="color:var(--cyan);font-size:10px;">ADMIN_PASSWORD</code> constant in the script block and redeploy.</div>
+      </div>
+    </div>
+
+    <div class="admin-warn">
+      <strong>⚠ Heads up:</strong> localStorage is browser-specific. Changes you make on your laptop won't appear on your phone or another device. Once you're happy with admin-added content, move it into <code>js/data.js</code> and push to GitHub to make it universal.
+    </div>
   </div>
 
-  <!-- BRAND OF THE WEEK -->
+  <!-- ══════════════ BRAND OF THE WEEK ══════════════ -->
   <div class="tab-content" id="tab-botw">
     <p class="admin-section-title">Brand of the Week</p>
-    <p class="admin-section-sub">Override the featured brand on the homepage. Saved to localStorage — applies instantly.</p>
+    <p class="admin-section-sub">Override the featured brand in the spotlight banner at the top of the homepage. Applies immediately — no deploy needed. The override lives in localStorage so it persists across visits on this browser.</p>
+
+    <div class="admin-tip">
+      <strong>How it works:</strong> Fill in any fields you want to override. Blank fields keep the data.js defaults. Hit Save and reload the homepage to see the change. Use "Clear Override" to revert fully to the static default in index.html.
+    </div>
+
     <div class="admin-form">
       <div class="form-grid-2">
         <div class="form-row">
@@ -503,72 +720,93 @@ select option { background: #15152a; }
           <input type="text" id="botw-name" placeholder="FREEDOM RAVE WEAR">
         </div>
         <div class="form-row">
-          <label>Category · Location</label>
+          <label>Category · Location <span class="form-hint" style="display:inline;margin-left:4px;">(shown under name)</span></label>
           <input type="text" id="botw-cat" placeholder="Fem + Male Clothing · California">
         </div>
       </div>
       <div class="form-row">
         <label>Description</label>
         <textarea id="botw-desc" placeholder="Why this brand deserves the spotlight this week..."></textarea>
+        <p class="form-hint">Keep it 1–2 sentences. Appears directly below the brand name on the homepage.</p>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
           <label>Instagram Handle</label>
           <input type="text" id="botw-ig" placeholder="@brandhandle">
+          <p class="form-hint">Include the @ symbol.</p>
         </div>
         <div class="form-row">
           <label>Website URL</label>
           <input type="url" id="botw-url-input" placeholder="https://brand.com">
+          <p class="form-hint">Used for the "Visit Site" button.</p>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <div class="btn-row">
         <button class="save-btn" onclick="saveBotw()">Save Brand of Week</button>
-        <button onclick="clearBotw()" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 16px;background:transparent;border:1px solid var(--border);color:var(--muted);transition:all 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--muted)'">Clear Override</button>
-        <span class="save-confirm" id="botw-confirm">✓ Saved</span>
+        <button class="ghost-btn" onclick="clearBotw()">Clear Override</button>
+        <span class="save-confirm" id="botw-confirm">✓ Saved — reload the homepage to see it</span>
       </div>
     </div>
   </div>
 
-  <!-- SUBMISSIONS -->
+  <!-- ══════════════ SUBMISSIONS ══════════════ -->
   <div class="tab-content" id="tab-submissions">
     <p class="admin-section-title">Pending Submissions</p>
-    <p class="admin-section-sub">Brand submissions from the community via submit.html. Approve to add to directory, reject to dismiss.</p>
+    <p class="admin-section-sub">Brand submissions from the community via the Submit a Brand page. Review each one and approve or reject.</p>
+
+    <div class="admin-tip">
+      <strong>Approve:</strong> Immediately adds the brand to the live directory (via localStorage). It'll show up in the Brands section on the homepage right away. The submission is marked as approved so you don't see it again.<br><br>
+      <strong>Reject:</strong> Marks the submission as rejected and dims it. The brand is not added to the directory. You can still see all rejected submissions below for reference.
+    </div>
+
     <div class="sub-list" id="sub-list"></div>
   </div>
 
-  <!-- ADD FESTIVAL -->
+  <!-- ══════════════ ADD FESTIVAL ══════════════ -->
   <div class="tab-content" id="tab-add-festival">
     <p class="admin-section-title">Add Festival</p>
-    <p class="admin-section-sub">Add a festival to the directory. It will appear on the homepage and calendar immediately.</p>
+    <p class="admin-section-sub">Add a festival to the directory. It will appear on the homepage grid/calendar and the dedicated Festival Calendar page immediately — no code change needed.</p>
+
+    <div class="admin-tip">
+      <strong>Sort Date format:</strong> Use <code>YYYY-MM-DD</code> (e.g. <code>2026-08-14</code>). This is what the calendar uses to sort and group festivals by month. If you skip it, the festival lands at the end with no date.<br><br>
+      <strong>Type:</strong> Controls the color-coded label tag on the card. "Mega" = pink, "Regional" = green, "Underground" = purple, "International" = cyan.<br><br>
+      <strong>Genres:</strong> Comma-separated. These power the genre filter pills on the festival section and calendar page. Use existing genres when possible: EDM, House, Techno, Bass, Trance, Dubstep, Psychedelic, Hip-Hop, Jam.
+    </div>
+
     <div class="admin-form">
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Festival Name *</label>
-          <input type="text" id="af-name" placeholder="ELECTRIC DAISY CARNIVAL">
+          <label>Festival Name <span class="req">*</span></label>
+          <input type="text" id="af-name" placeholder="BASS CANYON">
         </div>
         <div class="form-row">
-          <label>Tagline</label>
-          <input type="text" id="af-tagline" placeholder="30th Anniversary">
+          <label>Tagline / Subtitle</label>
+          <input type="text" id="af-tagline" placeholder="Deep Bass in the Gorge">
+          <p class="form-hint">Shown in small text below the festival name.</p>
         </div>
       </div>
       <div class="form-row">
-        <label>Location *</label>
-        <input type="text" id="af-location" placeholder="Las Vegas Motor Speedway, NV">
+        <label>Location <span class="req">*</span></label>
+        <input type="text" id="af-location" placeholder="Quincy, Washington">
+        <p class="form-hint">City, State format. Shown on the card and calendar row.</p>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Display Dates *</label>
-          <input type="text" id="af-dates" placeholder="May 15–17, 2026">
+          <label>Display Dates <span class="req">*</span></label>
+          <input type="text" id="af-dates" placeholder="Aug 14–16, 2026">
+          <p class="form-hint">Human-readable. Shown on the card.</p>
         </div>
         <div class="form-row">
-          <label>Start Date (YYYY-MM-DD) *</label>
-          <input type="text" id="af-sortdate" placeholder="2026-05-15">
+          <label>Start Date <span class="req">*</span></label>
+          <input type="text" id="af-sortdate" placeholder="2026-08-14">
+          <p class="form-hint">YYYY-MM-DD. Used for sorting and calendar grouping.</p>
         </div>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>End Date (YYYY-MM-DD)</label>
-          <input type="text" id="af-enddate" placeholder="2026-05-17">
+          <label>End Date</label>
+          <input type="text" id="af-enddate" placeholder="2026-08-16">
+          <p class="form-hint">YYYY-MM-DD. Used to determine past/upcoming status.</p>
         </div>
         <div class="form-row">
           <label>Duration (days)</label>
@@ -578,60 +816,73 @@ select option { background: #15152a; }
       <div class="form-grid-2">
         <div class="form-row">
           <label>Age Restriction</label>
-          <input type="text" id="af-age" placeholder="18+ or All Ages">
+          <input type="text" id="af-age" placeholder="18+">
+          <p class="form-hint">e.g. 18+, 21+, All Ages</p>
         </div>
         <div class="form-row">
           <label>Type</label>
           <select id="af-type">
-            <option value="mega">Mega Festival</option>
-            <option value="regional">Regional</option>
-            <option value="underground">Underground</option>
-            <option value="international">International</option>
-            <option value="playa">Playa</option>
+            <option value="mega">Mega Festival (pink tag)</option>
+            <option value="regional" selected>Regional (green tag)</option>
+            <option value="underground">Underground (purple tag)</option>
+            <option value="international">International (cyan tag)</option>
+            <option value="playa">Playa / Burns (amber tag)</option>
           </select>
         </div>
       </div>
       <div class="form-row">
         <label>Type Label</label>
         <input type="text" id="af-typelabel" placeholder="e.g. East Coast, World, Underground">
+        <p class="form-hint">The text inside the tag badge on the card. Keep it short.</p>
       </div>
       <div class="form-row">
         <label>Genres (comma-separated)</label>
-        <input type="text" id="af-genres" placeholder="EDM, House, Techno, Bass">
+        <input type="text" id="af-genres" placeholder="Bass, Dubstep, Riddim">
+        <p class="form-hint">Powers the vibe filter pills. Match existing genres where possible.</p>
       </div>
       <div class="form-row">
-        <label>Description *</label>
-        <textarea id="af-desc" placeholder="What makes this festival special..."></textarea>
+        <label>Description <span class="req">*</span></label>
+        <textarea id="af-desc" placeholder="What makes this festival special. Lineup highlights, vibe, history..."></textarea>
+        <p class="form-hint">2–4 sentences. Shown on the festival card.</p>
       </div>
       <div class="form-row">
-        <label>Ticket URL</label>
+        <label>Ticket / Website URL</label>
         <input type="url" id="af-url" placeholder="https://festival.com">
+        <p class="form-hint">Clicking the festival card opens this URL. Leave blank if tickets aren't live yet.</p>
       </div>
-      <div style="display:flex;align-items:center;gap:16px;">
+      <div class="btn-row">
         <button class="save-btn" onclick="saveFestival()">Add Festival</button>
-        <span class="save-confirm" id="af-confirm">✓ Festival Added</span>
+        <span class="save-confirm" id="af-confirm">✓ Festival added — reload the homepage to see it</span>
       </div>
     </div>
   </div>
 
-  <!-- ADD BRAND -->
+  <!-- ══════════════ ADD BRAND ══════════════ -->
   <div class="tab-content" id="tab-add-brand">
     <p class="admin-section-title">Add Brand</p>
-    <p class="admin-section-sub">Add a brand to the directory. It will appear on the homepage immediately.</p>
+    <p class="admin-section-sub">Add a brand to the directory. It will appear immediately in the Brands section on the homepage, filtered by the category you choose.</p>
+
+    <div class="admin-tip">
+      <strong>Badge:</strong> 2–4 capital letters shown in the colored square. Pick something recognizable — usually initials.<br><br>
+      <strong>Badge Color / Price Class:</strong> These set the color of the badge and price tag. Match the brand's vibe: cyan for techwear/EDM, pink for fem, purple for luxury/unique, green for budget-friendly, amber for handmade/artisan.<br><br>
+      <strong>Tags:</strong> Comma-separated keywords used by the search engine. Include category keywords (fem, male, unisex), style words (spandex, sequin, techwear), and fit notes (rts = ready to ship, mto = made to order).
+    </div>
+
     <div class="admin-form">
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Brand Name *</label>
+          <label>Brand Name <span class="req">*</span></label>
           <input type="text" id="ab-name" placeholder="VANISHING FAE">
         </div>
         <div class="form-row">
           <label>Badge (2–4 letters)</label>
           <input type="text" id="ab-badge" placeholder="VF" maxlength="4">
+          <p class="form-hint">Shown in the colored square. Auto-fills from name if blank.</p>
         </div>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Category *</label>
+          <label>Category <span class="req">*</span></label>
           <select id="ab-cat">
             <option value="fem-clothing">Fem Clothing</option>
             <option value="male-clothing">Male Clothing</option>
@@ -639,8 +890,8 @@ select option { background: #15152a; }
             <option value="accessories">Accessories</option>
             <option value="kandi">Kandi</option>
             <option value="supplements">Supplements</option>
-            <option value="gear">Gear & Audio</option>
-            <option value="lights">Lights & Toys</option>
+            <option value="gear">Gear &amp; Audio</option>
+            <option value="lights">Lights &amp; Toys</option>
             <option value="wellness">Wellness</option>
             <option value="events">Events</option>
           </select>
@@ -648,11 +899,11 @@ select option { background: #15152a; }
         <div class="form-row">
           <label>Badge Color</label>
           <select id="ab-badgecls">
-            <option value="b-cyan">Cyan</option>
-            <option value="b-pink">Pink</option>
-            <option value="b-purple">Purple</option>
-            <option value="b-green">Green</option>
-            <option value="b-amber">Amber</option>
+            <option value="b-cyan">Cyan — techwear, EDM, general</option>
+            <option value="b-pink">Pink — fem, romantic, soft</option>
+            <option value="b-purple">Purple — luxury, unique, fae</option>
+            <option value="b-green">Green — budget, eco, hippie</option>
+            <option value="b-amber">Amber — handmade, artisan</option>
           </select>
         </div>
       </div>
@@ -660,23 +911,23 @@ select option { background: #15152a; }
         <div class="form-row">
           <label>Price Range</label>
           <select id="ab-price">
-            <option value="$">$ — Budget</option>
-            <option value="$–$$">$–$$ — Budget/Mid</option>
-            <option value="$$">$$ — Mid</option>
-            <option value="$$–$$$">$$–$$$ — Mid/High</option>
-            <option value="$$$">$$$ — High</option>
+            <option value="$">$ — Under $100</option>
+            <option value="$–$$" selected>$–$$ — Budget to Mid</option>
+            <option value="$$">$$ — $100–$200</option>
+            <option value="$$–$$$">$$–$$$ — Mid to High</option>
+            <option value="$$$">$$$ — $200–$400</option>
             <option value="$$$–$$$$">$$$–$$$$ — Luxury</option>
             <option value="Varies">Varies</option>
           </select>
         </div>
         <div class="form-row">
-          <label>Price Class</label>
+          <label>Price Tag Color</label>
           <select id="ab-pricecls">
-            <option value="price-budget">Budget (green)</option>
-            <option value="price-mid">Mid (cyan)</option>
-            <option value="price-high">High (purple)</option>
-            <option value="price-luxury">Luxury (pink)</option>
-            <option value="price-varies">Varies (amber)</option>
+            <option value="price-budget">Budget — green</option>
+            <option value="price-mid" selected>Mid — cyan</option>
+            <option value="price-high">High — purple</option>
+            <option value="price-luxury">Luxury — pink</option>
+            <option value="price-varies">Varies — amber</option>
           </select>
         </div>
       </div>
@@ -688,24 +939,29 @@ select option { background: #15152a; }
         <div class="form-row">
           <label>Typical Shipping Time</label>
           <input type="text" id="ab-ship" placeholder="~1 week">
+          <p class="form-hint">e.g. ~1 week, MTO 2–4 weeks, Check website</p>
         </div>
       </div>
       <div class="form-row">
         <label>Style / What They Sell</label>
-        <input type="text" id="ab-style" placeholder="Fae, babydoll, sequin sets">
+        <input type="text" id="ab-style" placeholder="Fae, babydoll, sequin sets — high end handmade">
+        <p class="form-hint">Short descriptor shown in small text on the card. What makes this brand unique.</p>
       </div>
       <div class="form-row">
-        <label>Description *</label>
-        <textarea id="ab-desc" placeholder="About the brand, what makes it special..."></textarea>
+        <label>Description <span class="req">*</span></label>
+        <textarea id="ab-desc" placeholder="About the brand — reputation, what they're known for, who buys from them..."></textarea>
+        <p class="form-hint">2–3 sentences. This is what people read on the card.</p>
       </div>
       <div class="form-row">
         <label>Community Notes / Warnings</label>
-        <textarea id="ab-note" placeholder="Sizing tips, return policy notes, community feedback..."></textarea>
+        <textarea id="ab-note" placeholder="Sizing tips, return policy quirks, things to know before ordering..."></textarea>
+        <p class="form-hint">Optional. Shown as a callout box in the brand detail modal. Being honest builds trust.</p>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
           <label>Instagram Handle</label>
           <input type="text" id="ab-ig" placeholder="@brandhandle">
+          <p class="form-hint">Include the @ symbol.</p>
         </div>
         <div class="form-row">
           <label>Website URL</label>
@@ -714,23 +970,60 @@ select option { background: #15152a; }
       </div>
       <div class="form-row">
         <label>Tags (comma-separated)</label>
-        <input type="text" id="ab-tags" placeholder="fem, sets, spandex, rts">
+        <input type="text" id="ab-tags" placeholder="fem, sets, spandex, rts, luxury">
+        <p class="form-hint">Used by the search engine. Include style, fit, gender, and type keywords.</p>
       </div>
-      <div style="display:flex;align-items:center;gap:16px;">
+      <div class="btn-row">
         <button class="save-btn" onclick="saveBrand()">Add Brand</button>
-        <span class="save-confirm" id="ab-confirm">✓ Brand Added</span>
+        <span class="save-confirm" id="ab-confirm">✓ Brand added — reload the homepage to see it</span>
       </div>
     </div>
   </div>
 
-  <!-- SOCIAL SPOTLIGHT -->
+  <!-- ══════════════ REORDER ══════════════ -->
+  <div class="tab-content" id="tab-reorder">
+    <p class="admin-section-title">Reorder Content</p>
+    <p class="admin-section-sub">Control the display order of festivals and brands. Changes apply on the homepage and calendar. Use ↑ ↓ to move items, then save.</p>
+
+    <div class="admin-tip">
+      <strong>Festivals:</strong> The order here overrides the default data.js order. Featured festivals (EDC, Tomorrowland, etc.) are usually first — use this to promote a newly-added festival to the top.<br><br>
+      <strong>Brands:</strong> Order applies across all views including filtered category views. Brands you add via admin appear at the bottom by default — promote them here.<br><br>
+      <strong>Reset:</strong> Returns to the original data.js order (static brands/festivals first, admin-added ones at the end).
+    </div>
+
+    <p class="admin-sub-heading">Festivals <span id="fest-order-count" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--faint);font-weight:normal;"></span></p>
+    <div class="reorder-list" id="reorder-fests"></div>
+    <div class="btn-row" style="margin-top:14px;">
+      <button class="save-btn" onclick="saveFestOrder()">Save Festival Order</button>
+      <button class="ghost-btn" onclick="resetFestOrder()">Reset to Default</button>
+      <span class="save-confirm" id="fest-order-confirm">✓ Order saved — reload the homepage to see it</span>
+    </div>
+
+    <div class="admin-divider"></div>
+
+    <p class="admin-sub-heading">Brands <span id="brand-order-count" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--faint);font-weight:normal;"></span></p>
+    <div class="reorder-list" id="reorder-brands"></div>
+    <div class="btn-row" style="margin-top:14px;">
+      <button class="save-btn" onclick="saveBrandOrder()">Save Brand Order</button>
+      <button class="ghost-btn" onclick="resetBrandOrder()">Reset to Default</button>
+      <span class="save-confirm" id="brand-order-confirm">✓ Order saved — reload the homepage to see it</span>
+    </div>
+  </div>
+
+  <!-- ══════════════ SOCIAL SPOTLIGHT ══════════════ -->
   <div class="tab-content" id="tab-social">
     <p class="admin-section-title">Social Spotlight</p>
-    <p class="admin-section-sub">Toggle which accounts appear as "Featured" in the social spotlight section.</p>
+    <p class="admin-section-sub">Control which accounts are shown as "Featured" in the Social Spotlight section at the bottom of the homepage.</p>
+
+    <div class="admin-tip">
+      <strong>Featured</strong> accounts get the cyan border and a ⭐ Featured badge on their card. All accounts appear in the spotlight regardless — the featured toggle just highlights the ones you want people to notice first.<br><br>
+      To add new social accounts to the directory, edit <code>SOCIALS</code> in <code>js/data.js</code> and push to GitHub.
+    </div>
+
     <div class="social-list" id="social-list"></div>
-    <div style="margin-top:20px;display:flex;align-items:center;gap:16px;">
+    <div class="btn-row" style="margin-top:18px;">
       <button class="save-btn" onclick="saveSocials()">Save Featured</button>
-      <span class="save-confirm" id="social-confirm">✓ Saved</span>
+      <span class="save-confirm" id="social-confirm">✓ Saved — reload the homepage to see it</span>
     </div>
   </div>
 </div>
@@ -739,10 +1032,11 @@ select option { background: #15152a; }
 <script>
 const ADMIN_PASSWORD = 'plurgasm2026';
 
-/* ── AUTH ── */
+/* ════════════════════════════════════════════════
+   AUTH
+════════════════════════════════════════════════ */
 function doLogin() {
-  const pw = document.getElementById('pw-input').value;
-  if (pw === ADMIN_PASSWORD) {
+  if (document.getElementById('pw-input').value === ADMIN_PASSWORD) {
     localStorage.setItem('pg_admin_auth', '1');
     showPanel();
   } else {
@@ -765,102 +1059,109 @@ function showPanel() {
   loadBotwForm();
   renderSubmissions();
   renderSocialList();
+  initReorderTab();
 }
 
-/* ── TABS ── */
+/* ════════════════════════════════════════════════
+   TABS
+════════════════════════════════════════════════ */
 function switchTab(name, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
   if (name === 'submissions') renderSubmissions();
+  if (name === 'reorder')     initReorderTab();
 }
 
-/* ── DASHBOARD ── */
+/* ════════════════════════════════════════════════
+   DASHBOARD
+════════════════════════════════════════════════ */
 function initDashboard() {
-  const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
-  const pending = subs.filter(s => s.status === 'pending').length;
-  const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  const subs        = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
+  const pending     = subs.filter(s => s.status === 'pending').length;
+  const extraFests  = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
   const extraBrands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
 
-  const stats = [
-    { num: FESTIVALS.length + extraFests.length, label: 'Festivals',  color: 'var(--cyan)' },
-    { num: BRANDS.length + extraBrands.length,   label: 'Brands',     color: 'var(--pink)' },
-    { num: CATEGORIES.length,                    label: 'Categories', color: 'var(--purple)' },
-    { num: subs.length,                          label: 'Submissions',color: 'var(--amber)' },
-    { num: pending,                              label: 'Pending',    color: 'var(--green)' },
-  ];
-
-  document.getElementById('dash-grid').innerHTML = stats.map(s => `
+  document.getElementById('dash-grid').innerHTML = [
+    { num: FESTIVALS.length + extraFests.length, label: 'Festivals',   color: 'var(--cyan)'   },
+    { num: BRANDS.length + extraBrands.length,   label: 'Brands',      color: 'var(--pink)'   },
+    { num: CATEGORIES.length,                    label: 'Categories',  color: 'var(--purple)' },
+    { num: subs.length,                          label: 'Submissions', color: 'var(--amber)'  },
+    { num: pending,                              label: 'Pending',     color: pending > 0 ? 'var(--green)' : 'var(--faint)' },
+  ].map(s => `
     <div class="dash-card">
       <div class="dash-num" style="color:${s.color}">${s.num}</div>
       <div class="dash-label">${s.label}</div>
     </div>
   `).join('');
 
-  const pendingBadge = pending > 0 ? ` (${pending})` : '';
-  document.getElementById('sub-count-badge').textContent = pendingBadge;
+  document.getElementById('tab-btn-submissions').textContent =
+    pending > 0 ? `Submissions (${pending})` : 'Submissions';
 }
 
-/* ── BRAND OF THE WEEK ── */
+/* ════════════════════════════════════════════════
+   BRAND OF THE WEEK
+════════════════════════════════════════════════ */
 function loadBotwForm() {
   const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
   if (!botw) return;
-  if (botw.name) document.getElementById('botw-name').value = botw.name;
-  if (botw.cat)  document.getElementById('botw-cat').value  = botw.cat;
-  if (botw.desc) document.getElementById('botw-desc').value = botw.desc;
-  if (botw.ig)   document.getElementById('botw-ig').value   = botw.ig;
+  if (botw.name) document.getElementById('botw-name').value      = botw.name;
+  if (botw.cat)  document.getElementById('botw-cat').value       = botw.cat;
+  if (botw.desc) document.getElementById('botw-desc').value      = botw.desc;
+  if (botw.ig)   document.getElementById('botw-ig').value        = botw.ig;
   if (botw.url)  document.getElementById('botw-url-input').value = botw.url;
 }
 
 function saveBotw() {
-  const botw = {
+  localStorage.setItem('pg_admin_botw', JSON.stringify({
     name: document.getElementById('botw-name').value.trim(),
     cat:  document.getElementById('botw-cat').value.trim(),
     desc: document.getElementById('botw-desc').value.trim(),
     ig:   document.getElementById('botw-ig').value.trim(),
     url:  document.getElementById('botw-url-input').value.trim(),
-  };
-  localStorage.setItem('pg_admin_botw', JSON.stringify(botw));
+  }));
   flash('botw-confirm');
 }
 
 function clearBotw() {
   localStorage.removeItem('pg_admin_botw');
-  ['botw-name','botw-cat','botw-desc','botw-ig','botw-url-input'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
+  ['botw-name','botw-cat','botw-desc','botw-ig','botw-url-input'].forEach(id =>
+    document.getElementById(id).value = ''
+  );
 }
 
-/* ── SUBMISSIONS ── */
+/* ════════════════════════════════════════════════
+   SUBMISSIONS
+════════════════════════════════════════════════ */
 function renderSubmissions() {
   const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
   const list = document.getElementById('sub-list');
   if (!subs.length) {
-    list.innerHTML = `<p class="sub-empty">No submissions yet. They'll appear here when someone uses the Submit a Brand form.</p>`;
+    list.innerHTML = `<p class="sub-empty">No submissions yet. They appear here when someone fills out the Submit a Brand form at plurgasm.com/submit.html</p>`;
     return;
   }
-
-  list.innerHTML = [...subs].reverse().map((s, revIdx) => {
-    const idx = subs.length - 1 - revIdx;
+  list.innerHTML = [...subs].reverse().map((s, ri) => {
+    const idx = subs.length - 1 - ri;
     const statusCls = s.status === 'approved' ? 'status-approved' : s.status === 'rejected' ? 'status-rejected' : 'status-pending';
     const cardCls   = s.status === 'approved' ? 'approved' : s.status === 'rejected' ? 'rejected' : '';
-    const date = s.submittedAt ? new Date(s.submittedAt).toLocaleDateString() : '';
+    const date = s.submittedAt ? new Date(s.submittedAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '';
     return `
-      <div class="sub-card ${cardCls}" id="sub-${idx}">
+      <div class="sub-card ${cardCls}">
         <div>
           <p class="sub-name">${s.name || 'Unnamed Brand'}</p>
           <p class="sub-meta">${[s.cat, s.loc, s.price, date].filter(Boolean).join(' · ')}</p>
-          ${s.style ? `<p class="sub-meta" style="margin-bottom:6px;">Style: ${s.style}</p>` : ''}
+          ${s.style ? `<p class="sub-meta">Style: ${s.style}</p>` : ''}
           ${s.desc  ? `<p class="sub-desc">${s.desc}</p>` : ''}
-          ${s.notes ? `<p class="sub-desc" style="margin-top:6px;color:var(--faint);">Notes: ${s.notes}</p>` : ''}
-          ${s.ig    ? `<p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--cyan);margin-top:8px;">${s.ig}</p>` : ''}
-          ${s.url   ? `<a href="${s.url}" target="_blank" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--purple);">${s.url}</a>` : ''}
+          ${s.notes ? `<p class="sub-desc" style="margin-top:6px;font-style:italic;">Notes: ${s.notes}</p>` : ''}
+          ${s.submitter ? `<p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--faint);margin-top:8px;">Submitted by: ${s.submitter}</p>` : ''}
+          ${s.ig  ? `<p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--cyan);margin-top:6px;">${s.ig}</p>` : ''}
+          ${s.url && s.url !== '#' ? `<a href="${s.url}" target="_blank" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--purple);">${s.url}</a>` : ''}
         </div>
         <div class="sub-actions">
           ${s.status === 'pending' ? `
-            <button class="approve-btn" onclick="approveSubmission(${idx})">Approve</button>
-            <button class="reject-btn" onclick="rejectSubmission(${idx})">Reject</button>
+            <button class="approve-btn" onclick="approveSubmission(${idx})">✓ Approve</button>
+            <button class="reject-btn"  onclick="rejectSubmission(${idx})">✕ Reject</button>
           ` : `<span class="sub-status ${statusCls}">${s.status}</span>`}
         </div>
       </div>`;
@@ -871,29 +1172,28 @@ function approveSubmission(idx) {
   const subs = JSON.parse(localStorage.getItem('pg_submissions') || '[]');
   subs[idx].status = 'approved';
   localStorage.setItem('pg_submissions', JSON.stringify(subs));
-
-  // Auto-add to pg_admin_brands so it shows on the homepage
   const s = subs[idx];
   const brands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
   brands.push({
-    id: s.id || ('sub-' + idx),
-    name: s.name || '',
-    badge: (s.name || 'X').slice(0,3).toUpperCase(),
-    cat: (s.cat || 'accessories').toLowerCase().replace(/\s+/g,'-').replace(/\//g,'-'),
+    id:       s.id || ('sub-' + idx),
+    name:     s.name || '',
+    badge:    (s.name || 'X').replace(/[^A-Za-z]/g,'').slice(0,3).toUpperCase() || 'NEW',
+    cat:      (s.cat || 'accessories').toLowerCase().replace(/\s+/g,'-').replace(/[\/&]/g,'-').replace(/--+/g,'-'),
     badgeCls: 'b-cyan',
     priceCls: 'price-mid',
-    price: s.price || '',
-    ship: s.ship || '',
-    loc: s.loc || '',
-    style: s.style || '',
-    desc: s.desc || '',
-    note: s.notes || '',
-    ig: s.ig || '',
-    url: s.url || '#',
-    tags: [],
+    price:    s.price || '',
+    ship:     s.ship  || '',
+    loc:      s.loc   || '',
+    style:    s.style || '',
+    desc:     s.desc  || '',
+    note:     s.notes || '',
+    ig:       s.ig    || '',
+    url:      s.url   || '#',
+    tags:     [],
   });
   localStorage.setItem('pg_admin_brands', JSON.stringify(brands));
   initDashboard();
+  initReorderTab();
   renderSubmissions();
 }
 
@@ -905,12 +1205,15 @@ function rejectSubmission(idx) {
   renderSubmissions();
 }
 
-/* ── ADD FESTIVAL ── */
+/* ════════════════════════════════════════════════
+   ADD FESTIVAL
+════════════════════════════════════════════════ */
 function saveFestival() {
   const name = document.getElementById('af-name').value.trim();
   if (!name) { alert('Festival name is required.'); return; }
-  const fest = {
-    id: name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
+  const fests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  fests.push({
+    id:        name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
     name,
     tagline:   document.getElementById('af-tagline').value.trim(),
     location:  document.getElementById('af-location').value.trim(),
@@ -925,26 +1228,27 @@ function saveFestival() {
     desc:      document.getElementById('af-desc').value.trim(),
     url:       document.getElementById('af-url').value.trim() || '#',
     featured:  false,
-  };
-  const fests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
-  fests.push(fest);
-  localStorage.setItem('pg_admin_festivals', JSON.stringify(fests));
-  // Clear form
-  ['af-name','af-tagline','af-location','af-dates','af-sortdate','af-enddate','af-days','af-age','af-typelabel','af-genres','af-desc','af-url'].forEach(id => {
-    document.getElementById(id).value = '';
   });
+  localStorage.setItem('pg_admin_festivals', JSON.stringify(fests));
+  ['af-name','af-tagline','af-location','af-dates','af-sortdate','af-enddate',
+   'af-days','af-age','af-typelabel','af-genres','af-desc','af-url'].forEach(id =>
+    document.getElementById(id).value = ''
+  );
   initDashboard();
   flash('af-confirm');
 }
 
-/* ── ADD BRAND ── */
+/* ════════════════════════════════════════════════
+   ADD BRAND
+════════════════════════════════════════════════ */
 function saveBrand() {
   const name = document.getElementById('ab-name').value.trim();
   if (!name) { alert('Brand name is required.'); return; }
-  const brand = {
-    id: name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
+  const brands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+  brands.push({
+    id:       name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
     name,
-    badge:    document.getElementById('ab-badge').value.trim().toUpperCase() || name.slice(0,3).toUpperCase(),
+    badge:    document.getElementById('ab-badge').value.trim().toUpperCase() || name.replace(/[^A-Za-z]/g,'').slice(0,3).toUpperCase(),
     cat:      document.getElementById('ab-cat').value,
     badgeCls: document.getElementById('ab-badgecls').value,
     priceCls: document.getElementById('ab-pricecls').value,
@@ -957,25 +1261,134 @@ function saveBrand() {
     ig:       document.getElementById('ab-ig').value.trim(),
     url:      document.getElementById('ab-url').value.trim() || '#',
     tags:     document.getElementById('ab-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
-  };
-  const brands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
-  brands.push(brand);
-  localStorage.setItem('pg_admin_brands', JSON.stringify(brands));
-  ['ab-name','ab-badge','ab-loc','ab-ship','ab-style','ab-desc','ab-note','ab-ig','ab-url','ab-tags'].forEach(id => {
-    document.getElementById(id).value = '';
   });
+  localStorage.setItem('pg_admin_brands', JSON.stringify(brands));
+  ['ab-name','ab-badge','ab-loc','ab-ship','ab-style','ab-desc',
+   'ab-note','ab-ig','ab-url','ab-tags'].forEach(id =>
+    document.getElementById(id).value = ''
+  );
   initDashboard();
   flash('ab-confirm');
 }
 
-/* ── SOCIAL SPOTLIGHT ── */
+/* ════════════════════════════════════════════════
+   REORDER
+════════════════════════════════════════════════ */
+let _festList  = [];
+let _brandList = [];
+
+function initReorderTab() {
+  const extraFests  = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  const extraBrands = JSON.parse(localStorage.getItem('pg_admin_brands')    || '[]');
+  const festOrder   = JSON.parse(localStorage.getItem('pg_admin_fest_order')  || 'null');
+  const brandOrder  = JSON.parse(localStorage.getItem('pg_admin_brand_order') || 'null');
+
+  _festList  = [...FESTIVALS, ...extraFests];
+  _brandList = [...BRANDS,    ...extraBrands];
+
+  if (festOrder) {
+    _festList.sort((a, b) => {
+      const ai = festOrder.indexOf(a.id), bi = festOrder.indexOf(b.id);
+      if (ai === -1 && bi === -1) return 0;
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+  }
+  if (brandOrder) {
+    _brandList.sort((a, b) => {
+      const ai = brandOrder.indexOf(a.name), bi = brandOrder.indexOf(b.name);
+      if (ai === -1 && bi === -1) return 0;
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+  }
+
+  renderFestOrder();
+  renderBrandOrder();
+}
+
+function renderFestOrder() {
+  document.getElementById('fest-order-count').textContent = `(${_festList.length})`;
+  document.getElementById('reorder-fests').innerHTML = _festList.map((f, i) => `
+    <div class="reorder-item">
+      <button class="move-btn" onclick="moveFest(${i},-1)" ${i===0?'disabled':''} title="Move up">↑</button>
+      <button class="move-btn" onclick="moveFest(${i}, 1)" ${i===_festList.length-1?'disabled':''} title="Move down">↓</button>
+      <span class="reorder-pos">${i+1}</span>
+      <div class="reorder-info">
+        <div class="reorder-name">${f.name}</div>
+        <div class="reorder-meta">${[f.location, f.dates, f.typeLabel].filter(Boolean).join(' · ')}</div>
+      </div>
+      ${f.type ? `<span class="reorder-cat">${f.type}</span>` : ''}
+    </div>
+  `).join('');
+}
+
+function renderBrandOrder() {
+  document.getElementById('brand-order-count').textContent = `(${_brandList.length})`;
+  document.getElementById('reorder-brands').innerHTML = _brandList.map((b, i) => `
+    <div class="reorder-item">
+      <button class="move-btn" onclick="moveBrand(${i},-1)" ${i===0?'disabled':''} title="Move up">↑</button>
+      <button class="move-btn" onclick="moveBrand(${i}, 1)" ${i===_brandList.length-1?'disabled':''} title="Move down">↓</button>
+      <span class="reorder-pos">${i+1}</span>
+      <div class="reorder-info">
+        <div class="reorder-name">${b.name}</div>
+        <div class="reorder-meta">${[b.cat?.replace(/-/g,' '), b.loc, b.price].filter(Boolean).join(' · ')}</div>
+      </div>
+      ${b.cat ? `<span class="reorder-cat">${b.cat.replace(/-/g,' ')}</span>` : ''}
+    </div>
+  `).join('');
+}
+
+function moveFest(idx, dir) {
+  const ni = idx + dir;
+  if (ni < 0 || ni >= _festList.length) return;
+  [_festList[idx], _festList[ni]] = [_festList[ni], _festList[idx]];
+  renderFestOrder();
+}
+
+function moveBrand(idx, dir) {
+  const ni = idx + dir;
+  if (ni < 0 || ni >= _brandList.length) return;
+  [_brandList[idx], _brandList[ni]] = [_brandList[ni], _brandList[idx]];
+  renderBrandOrder();
+}
+
+function saveFestOrder() {
+  localStorage.setItem('pg_admin_fest_order', JSON.stringify(_festList.map(f => f.id)));
+  flash('fest-order-confirm');
+}
+
+function saveBrandOrder() {
+  localStorage.setItem('pg_admin_brand_order', JSON.stringify(_brandList.map(b => b.name)));
+  flash('brand-order-confirm');
+}
+
+function resetFestOrder() {
+  localStorage.removeItem('pg_admin_fest_order');
+  const extra = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  _festList = [...FESTIVALS, ...extra];
+  renderFestOrder();
+}
+
+function resetBrandOrder() {
+  localStorage.removeItem('pg_admin_brand_order');
+  const extra = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
+  _brandList = [...BRANDS, ...extra];
+  renderBrandOrder();
+}
+
+/* ════════════════════════════════════════════════
+   SOCIAL SPOTLIGHT
+════════════════════════════════════════════════ */
 function renderSocialList() {
   const overrides = JSON.parse(localStorage.getItem('pg_admin_socials') || '{}');
   document.getElementById('social-list').innerHTML = SOCIALS.map((s, i) => {
     const featured = overrides.hasOwnProperty(s.handle) ? overrides[s.handle] : s.featured;
     return `
       <div class="social-row">
-        <div>
+        <div style="flex:1;min-width:0;">
           <div class="social-handle">${s.handle}</div>
           <div class="social-platform">${s.platform} · ${s.type}</div>
         </div>
@@ -983,34 +1396,32 @@ function renderSocialList() {
           <input type="checkbox" id="soc-${i}" ${featured ? 'checked' : ''}>
           <div class="toggle-track"></div>
         </label>
-        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--faint);width:64px;">
-          ${featured ? '<span style="color:var(--cyan)">Featured</span>' : 'Default'}
-        </span>
+        <span class="feat-label" style="color:${featured?'var(--cyan)':'var(--faint)'};">${featured?'Featured':'Default'}</span>
       </div>`;
   }).join('');
 }
 
 function saveSocials() {
   const overrides = {};
-  SOCIALS.forEach((s, i) => {
-    overrides[s.handle] = document.getElementById('soc-' + i).checked;
-  });
+  SOCIALS.forEach((s, i) => { overrides[s.handle] = document.getElementById('soc-' + i).checked; });
   localStorage.setItem('pg_admin_socials', JSON.stringify(overrides));
   renderSocialList();
   flash('social-confirm');
 }
 
-/* ── UTILITY ── */
+/* ════════════════════════════════════════════════
+   UTILITY
+════════════════════════════════════════════════ */
 function flash(id) {
   const el = document.getElementById(id);
   el.style.display = 'inline';
-  setTimeout(() => el.style.display = 'none', 2500);
+  setTimeout(() => el.style.display = 'none', 3000);
 }
 
-/* ── INIT ── */
-if (localStorage.getItem('pg_admin_auth') === '1') {
-  showPanel();
-}
+/* ════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════ */
+if (localStorage.getItem('pg_admin_auth') === '1') showPanel();
 </script>
 </body>
 </html>

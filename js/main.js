@@ -308,6 +308,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const extraBrands = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
   extraBrands.forEach(b => BRANDS.push(b));
 
+  // Apply admin-saved display ordering
+  const festOrder = JSON.parse(localStorage.getItem('pg_admin_fest_order') || 'null');
+  if (festOrder && festOrder.length) {
+    FESTIVALS.sort((a, b) => {
+      const ai = festOrder.indexOf(a.id);
+      const bi = festOrder.indexOf(b.id);
+      if (ai === -1 && bi === -1) return 0;
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+  }
+  const brandOrder = JSON.parse(localStorage.getItem('pg_admin_brand_order') || 'null');
+  if (brandOrder && brandOrder.length) {
+    BRANDS.sort((a, b) => {
+      const ai = brandOrder.indexOf(a.name);
+      const bi = brandOrder.indexOf(b.name);
+      if (ai === -1 && bi === -1) return 0;
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+  }
+
   // Apply Brand of the Week override from admin panel
   const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
   if (botw) {
