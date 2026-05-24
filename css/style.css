@@ -829,6 +829,22 @@ nav {
 }
 .fest-card:hover .fest-arrow { opacity: 1; transform: translateX(5px); }
 
+.fest-card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 0;
+}
+.fest-card:hover .fest-card-glow { opacity: 1; }
+
+.fest-card > *:not(.fest-card-glow) { position: relative; z-index: 1; }
+
+.fest-card:hover {
+  filter: brightness(1.04);
+}
+
 /* ══════════════════════════════════════════════════
    CATEGORIES
 ══════════════════════════════════════════════════ */
