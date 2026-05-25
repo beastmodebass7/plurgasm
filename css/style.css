@@ -1044,6 +1044,10 @@ nav {
   transition: background 0.2s, border-color 0.2s, color 0.2s;
   text-decoration: none;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
 }
 .brand-ig-btn:hover {
   background: rgba(182,77,255,0.2);
