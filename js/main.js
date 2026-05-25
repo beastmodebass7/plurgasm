@@ -17,6 +17,24 @@ function getFilteredFests() {
 }
 
 /* ════════════════════════════════════════════════
+   DAYS AWAY BADGE
+════════════════════════════════════════════════ */
+function getDaysBadge(sortDate) {
+  if (!sortDate) return '';
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const fest  = new Date(sortDate);
+  fest.setHours(0,0,0,0);
+  const diff  = Math.round((fest - today) / 86400000);
+
+  if (diff < 0)   return `<span class="fest-days-badge days-past">Past</span>`;
+  if (diff === 0) return `<span class="fest-days-badge days-soon">Today</span>`;
+  if (diff <= 14) return `<span class="fest-days-badge days-soon">${diff} days away</span>`;
+  if (diff <= 60) return `<span class="fest-days-badge days-upcoming">${diff} days away</span>`;
+  return `<span class="fest-days-badge days-far">${diff} days</span>`;
+}
+
+/* ════════════════════════════════════════════════
    RENDER — GRID VIEW
 ════════════════════════════════════════════════ */
 function renderFestivals() {
@@ -30,6 +48,7 @@ function renderFestivals() {
     const taglineColor = t ? `style="color:${t.label};"` : '';
     return `
     <div class="fest-card ${f.featured && !t ? 'fest-featured' : ''}" data-id="${f.id}" ${cardStyle} onclick="window.open('${dest}','${target}')">
+      ${getDaysBadge(f.sortDate)}
       <div class="fest-card-glow" ${glowStyle}></div>
       <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
       <p class="fest-name">${f.name}</p>
