@@ -38,7 +38,17 @@ function getDaysBadge(sortDate) {
    RENDER — GRID VIEW
 ════════════════════════════════════════════════ */
 function renderFestivals() {
-  const list = getFilteredFests();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const list = getFilteredFests().slice().sort((a, b) => {
+    const aDate = new Date(a.sortDate || '2099-01-01');
+    const bDate = new Date(b.sortDate || '2099-01-01');
+    const aPast = aDate < today;
+    const bPast = bDate < today;
+    if (aPast && !bPast) return 1;
+    if (!aPast && bPast) return -1;
+    return aDate - bDate;
+  });
   document.getElementById('fest-grid').innerHTML = list.map(f => {
     const dest   = f.detailPage || f.url;
     const target = f.detailPage ? '_self' : '_blank';
@@ -148,13 +158,15 @@ function refreshFestView() {
    RENDER CATEGORIES
 ════════════════════════════════════════════════ */
 function renderCategories() {
-  document.getElementById('cat-grid').innerHTML = CATEGORIES.map(c => `
+  document.getElementById('cat-grid').innerHTML = CATEGORIES.map(c => {
+    const count = BRANDS.filter(b => b.cat === c.id).length;
+    return `
     <a class="cat-card" href="category.html?cat=${c.id}" style="text-decoration:none;">
       <span class="cat-icon">${c.icon}</span>
       <span class="cat-name">${c.label.toUpperCase()}</span>
-      <span class="cat-count">${c.count > 0 ? c.count + ' Brands' : 'Coming Soon'}</span>
+      <span class="cat-count">${count > 0 ? count + ' Brands' : 'Coming Soon'}</span>
     </a>
-  `).join('');
+  `;}).join('');
 }
 
 /* ════════════════════════════════════════════════
@@ -167,8 +179,16 @@ function renderBrands(cat) {
   if (searchQuery) list = list.filter(b =>
     [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags||[])].join(' ').toLowerCase().includes(searchQuery)
   );
+  list = list.slice().sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    const so = (a.sortOrder || 0) - (b.sortOrder || 0);
+    if (so !== 0) return so;
+    return a.name.localeCompare(b.name);
+  });
   document.getElementById('brand-grid').innerHTML = list.map(b => `
-    <div class="brand-card" onclick="openBrandModal('${b.id}')">
+    <div class="brand-card${b.featured ? ' brand-card-featured' : ''}" onclick="openBrandModal('${b.id}')">
+      ${b.featured ? '<span class="brand-featured-star">★</span>' : ''}
       <div class="brand-badge ${b.badgeCls}">${b.badge}</div>
       <div class="brand-info">
         <p class="brand-name">${b.name}</p>
@@ -425,9 +445,9 @@ document.addEventListener('keydown', e => {
 ════════════════════════════════════════════════ */
 function initCountUp() {
   const targets = [
-    { id: 'stat-festivals', end: 80,  suffix: '+', duration: 1800 },
-    { id: 'stat-brands',    end: 200, suffix: '+', duration: 2200 },
-    { id: 'stat-cats',      end: 12,  suffix: '',  duration: 1400 },
+    { id: 'stat-festivals', end: FESTIVALS.length,                              suffix: '', duration: 1200 },
+    { id: 'stat-brands',    end: BRANDS.length,                                 suffix: '', duration: 1600 },
+    { id: 'stat-cats',      end: CATEGORIES.filter(c => !c.comingSoon).length,  suffix: '', duration: 900  },
   ];
 
   targets.forEach(({ id, end, suffix, duration }) => {
