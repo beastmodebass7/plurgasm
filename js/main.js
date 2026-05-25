@@ -24,16 +24,21 @@ function renderFestivals() {
   document.getElementById('fest-grid').innerHTML = list.map(f => {
     const dest   = f.detailPage || f.url;
     const target = f.detailPage ? '_self' : '_blank';
+    const t = f.cardTheme;
+    const cardStyle    = t ? `style="background:${t.bg};border-color:${t.border};"` : '';
+    const glowStyle    = t ? `style="background:radial-gradient(ellipse 80% 40% at 50% 0%, ${t.glow}, transparent);"` : '';
+    const taglineColor = t ? `style="color:${t.label};"` : '';
     return `
-    <div class="fest-card ${f.featured ? 'fest-featured' : ''}" data-id="${f.id}" onclick="window.open('${dest}','${target}')">
+    <div class="fest-card ${f.featured && !t ? 'fest-featured' : ''}" data-id="${f.id}" ${cardStyle} onclick="window.open('${dest}','${target}')">
+      <div class="fest-card-glow" ${glowStyle}></div>
       <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
       <p class="fest-name">${f.name}</p>
-      ${f.tagline ? `<p class="fest-tagline">${f.tagline}</p>` : ''}
+      ${f.tagline ? `<p class="fest-tagline" ${taglineColor}>${f.tagline}</p>` : ''}
       <p class="fest-meta">${f.location} &nbsp;·&nbsp; ${f.dates} &nbsp;·&nbsp; ${f.days} Day${f.days>1?'s':''} &nbsp;·&nbsp; ${f.age}</p>
       <p class="fest-desc">${f.desc}</p>
       <div class="fest-footer">
         <div class="vibes">${f.genres.slice(0,4).map(g=>`<span class="vibe">${g}</span>`).join('')}</div>
-        <span class="fest-arrow">→</span>
+        <span class="fest-arrow" ${t ? `style="color:${t.accent};"` : ''}>→</span>
       </div>
     </div>
   `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:32px 0;">No festivals match this filter combo.</p>`;
