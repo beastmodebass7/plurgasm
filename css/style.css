@@ -902,7 +902,9 @@ nav {
 }
 .cat-card:hover { background: var(--card-hi); border-color: rgba(0,229,255,0.25); transform: translateY(-3px); }
 .cat-card:hover .cat-name { color: var(--cyan); }
-.cat-icon { font-size: 28px; line-height: 1; }
+.cat-icon { font-size: 28px; line-height: 1; color: var(--muted); transition: color 0.2s; }
+.cat-icon svg { width: 32px; height: 32px; display: block; }
+.cat-card:hover .cat-icon { color: var(--cyan); }
 .cat-name {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 22px;

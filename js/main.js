@@ -164,7 +164,7 @@ function renderCategories() {
     <a class="cat-card" href="category.html?cat=${c.id}" style="text-decoration:none;">
       <span class="cat-icon">${c.icon}</span>
       <span class="cat-name">${c.label.toUpperCase()}</span>
-      <span class="cat-count">${count > 0 ? count + ' Brands' : 'Coming Soon'}</span>
+      <span class="cat-count">${count > 0 ? count + ' Brands' : c.comingSoon ? 'Coming Soon' : ''}</span>
     </a>
   `;}).join('');
 }

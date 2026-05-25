@@ -9,17 +9,17 @@ const FESTIVALS = [
 ];
 
 const CATEGORIES = [
-  { id:'fem-clothing',  label:'Fem Clothing',   icon:'👗' },
-  { id:'male-clothing', label:'Male Clothing',   icon:'👕' },
-  { id:'shoes',         label:'Shoes',           icon:'👟' },
-  { id:'accessories',   label:'Accessories',     icon:'💎' },
-  { id:'kandi',         label:'Kandi',           icon:'📿' },
-  { id:'jerseys',       label:'Jerseys & Merch', icon:'👕' },
-  { id:'events',        label:'Events',          icon:'🎪' },
-  { id:'supplements',   label:'Supplements',     icon:'💊', comingSoon:true },
-  { id:'gear',          label:'Gear & Audio',    icon:'🎧', comingSoon:true },
-  { id:'lights',        label:'Lights & Toys',   icon:'🔦', comingSoon:true },
-  { id:'wellness',      label:'Wellness',        icon:'🧘', comingSoon:true },
+  { id:'fem-clothing',  label:'Fem Clothing',   icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4C11 6 9 7 8 8L4 8L7 27L25 27L28 8L24 8C23 7 21 6 20 4C19 7 17.5 9 16 9C14.5 9 13 7 12 4Z"/></svg>` },
+  { id:'male-clothing', label:'Male Clothing',   icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L4 9L8 13L10 13L10 27L22 27L22 13L24 13L28 9L21 5C20 7 18 9 16 9C14 9 12 7 11 5Z"/></svg>` },
+  { id:'shoes',         label:'Shoes',           icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6L12 6L12 19L22 19L24 24L24 27L6 27L6 22L10 22Z"/><line x1="6" y1="22" x2="24" y2="22"/></svg>` },
+  { id:'accessories',   label:'Accessories',     icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4L26 13L16 28L6 13ZM6 13L26 13M11 8.5L16 13L21 8.5"/></svg>` },
+  { id:'kandi',         label:'Kandi',           icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="16" r="2.2"/><circle cx="23" cy="23" r="2.2"/><circle cx="16" cy="26" r="2.2"/><circle cx="9" cy="23" r="2.2"/><circle cx="6" cy="16" r="2.2"/><circle cx="9" cy="9" r="2.2"/><circle cx="16" cy="6" r="2.2"/><circle cx="23" cy="9" r="2.2"/></svg>` },
+  { id:'jerseys',       label:'Jerseys & Merch', icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L4 9L8 13L10 13L10 27L22 27L22 13L24 13L28 9L21 5L19 9L16 11L13 9Z"/></svg>` },
+  { id:'events',        label:'Events',          icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="24" height="20" rx="1"/><line x1="4" y1="14" x2="28" y2="14"/><line x1="11" y1="4" x2="11" y2="11"/><line x1="21" y1="4" x2="21" y2="11"/></svg>` },
+  { id:'supplements',   label:'Supplements',     icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="11" width="18" height="10" rx="5"/><line x1="16" y1="11" x2="16" y2="21"/></svg>`, comingSoon:true },
+  { id:'gear',          label:'Gear & Audio',    icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L7 14C7 9 11 5 16 5C21 5 25 9 25 14L25 17"/><rect x="4" y="16" width="5" height="8" rx="2.5"/><rect x="23" y="16" width="5" height="8" rx="2.5"/></svg>`, comingSoon:true },
+  { id:'lights',        label:'Lights & Toys',   icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3L10 18L16 18L12 29L22 14L16 14Z"/></svg>`, comingSoon:true },
+  { id:'wellness',      label:'Wellness',        icon:`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5C10 5 5 10 5 18C5 23 9 27 16 28C23 27 27 23 27 18C27 10 22 5 16 5Z"/><line x1="16" y1="5" x2="16" y2="28"/></svg>`, comingSoon:true },
 ];
 
 const BRANDS = [
