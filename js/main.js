@@ -135,7 +135,7 @@ function setView(view) {
   document.getElementById('btn-grid').classList.toggle('active', view === 'grid');
   document.getElementById('btn-cal').classList.toggle('active',  view === 'cal');
   document.getElementById('fest-grid').style.display = view === 'grid' ? '' : 'none';
-  document.getElementById('cal-view').style.display  = view === 'cal'  ? '' : 'none';
+  document.getElementById('cal-view').style.display  = view === 'cal'  ? 'block' : 'none';
   refreshFestView();
 }
 
