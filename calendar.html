@@ -146,6 +146,30 @@ body::after {
 </head>
 <body>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="index.html#festivals" onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="index.html#categories" onclick="closeMobileMenu()">Categories</a></li>
+      <li><a href="index.html#brands" onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="index.html#social" onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
 <div class="cal-page-hero-bg">
   <div class="cal-hero-glow cal-g1"></div>
   <div class="cal-hero-glow cal-g2"></div>
@@ -162,6 +186,14 @@ body::after {
     <li><a href="index.html#social">Social</a></li>
   </ul>
   <a href="submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -352,6 +384,29 @@ function setGenreFilter(val, btn) {
 }
 
 render();
+</script>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  if (!menu || !btn) return;
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMobileMenu();
+});
 </script>
 </body>
 </html>
