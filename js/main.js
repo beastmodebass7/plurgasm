@@ -571,3 +571,16 @@ function initScrollAnimations() {
   });
 })();
 
+/* ════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+════════════════════════════════════════════════ */
+(function() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+
