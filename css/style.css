@@ -856,6 +856,27 @@ nav {
   filter: brightness(1.04);
 }
 
+/* ── FESTIVAL DAYS BADGE ── */
+.fest-days-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.fest-card .fest-days-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+}
+.days-soon     { color: #ff2d78; border-color: rgba(255,45,120,0.4);  background: rgba(255,45,120,0.08); }
+.days-upcoming { color: #00e5ff; border-color: rgba(0,229,255,0.3);   background: rgba(0,229,255,0.06); }
+.days-far      { color: rgba(240,238,255,0.4); border-color: rgba(255,255,255,0.08); background: transparent; }
+.days-past     { color: rgba(240,238,255,0.2); border-color: rgba(255,255,255,0.06); background: transparent; }
+
 /* ══════════════════════════════════════════════════
    CATEGORIES
 ══════════════════════════════════════════════════ */
