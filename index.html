@@ -112,11 +112,11 @@
       <button class="mob-close" onclick="closeMobileMenu()">✕</button>
     </div>
     <ul class="mob-links">
-      <li><a href="#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
-      <li><a href="#categories" onclick="closeMobileMenu()">Categories</a></li>
       <li><a href="#brands"     onclick="closeMobileMenu()">Brands</a></li>
-      <li><a href="#social"     onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
       <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="#categories" onclick="closeMobileMenu()">Shopping</a></li>
+      <li><a href="#social"     onclick="closeMobileMenu()">Social</a></li>
       <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
     </ul>
     <div class="mob-footer">
@@ -130,10 +130,10 @@
 <nav>
   <a href="index.html" class="nav-logo">PLURGASM</a>
   <ul class="nav-links">
+    <li><a href="#brands">Brands</a></li>
     <li><a href="#festivals">Festivals</a></li>
     <li><a href="calendar.html">Calendar</a></li>
-    <li><a href="#categories">Categories</a></li>
-    <li><a href="#brands">Brands</a></li>
+    <li><a href="#categories">Shopping</a></li>
     <li><a href="#social">Social</a></li>
   </ul>
   <a href="submit.html" class="nav-cta">Submit a Brand</a>
@@ -279,9 +279,30 @@
 </section>
 <div class="accent-line" style="margin-top:40px;"></div>
 
+<!-- BRANDS -->
+<section class="section" id="brands">
+  <p class="eyebrow">Chapter 01</p>
+  <div class="section-header">
+    <h2 class="section-title">BRANDS</h2>
+    <div class="filters" style="margin-bottom:0;" id="brand-filters">
+      <button class="filter-btn active" onclick="filterBrands('all',this)">All</button>
+      <button class="filter-btn" onclick="filterBrands('fem-clothing',this)">Fem Clothing</button>
+      <button class="filter-btn" onclick="filterBrands('male-clothing',this)">Male Clothing</button>
+      <button class="filter-btn" onclick="filterBrands('shoes',this)">Shoes</button>
+      <button class="filter-btn" onclick="filterBrands('accessories',this)">Accessories</button>
+      <button class="filter-btn" onclick="filterBrands('kandi',this)">Kandi</button>
+      <button class="filter-btn" onclick="filterBrands('jerseys',this)">Jerseys & Merch</button>
+      <button class="filter-btn" onclick="filterBrands('events',this)">Events</button>
+    </div>
+  </div>
+  <div class="brand-grid" id="brand-grid"></div>
+</section>
+
+<div class="divider"></div>
+
 <!-- FESTIVALS -->
 <section class="section" id="festivals">
-  <p class="eyebrow">Chapter 01</p>
+  <p class="eyebrow">Chapter 02</p>
   <div class="section-header" style="align-items:flex-start;flex-direction:column;gap:16px;">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;width:100%;gap:16px;flex-wrap:wrap;">
       <h2 class="section-title" style="margin-bottom:0;">FESTIVALS</h2>
@@ -323,33 +344,14 @@
 
 <div class="divider"></div>
 
-<!-- CATEGORIES -->
+<!-- SHOPPING -->
 <div class="cat-bg section-full" id="categories">
   <div class="section" style="padding-top:88px;padding-bottom:88px;">
-    <p class="eyebrow">Chapter 02</p>
-    <h2 class="section-title">CATEGORIES</h2>
+    <p class="eyebrow">Chapter 03</p>
+    <h2 class="section-title">SHOPPING</h2>
     <div class="cat-grid" id="cat-grid"></div>
   </div>
 </div>
-
-<!-- BRANDS -->
-<section class="section" id="brands">
-  <p class="eyebrow">Chapter 03</p>
-  <div class="section-header">
-    <h2 class="section-title">BRANDS</h2>
-    <div class="filters" style="margin-bottom:0;" id="brand-filters">
-      <button class="filter-btn active" onclick="filterBrands('all',this)">All</button>
-      <button class="filter-btn" onclick="filterBrands('fem-clothing',this)">Fem Clothing</button>
-      <button class="filter-btn" onclick="filterBrands('male-clothing',this)">Male Clothing</button>
-      <button class="filter-btn" onclick="filterBrands('shoes',this)">Shoes</button>
-      <button class="filter-btn" onclick="filterBrands('accessories',this)">Accessories</button>
-      <button class="filter-btn" onclick="filterBrands('kandi',this)">Kandi</button>
-      <button class="filter-btn" onclick="filterBrands('jerseys',this)">Jerseys & Merch</button>
-      <button class="filter-btn" onclick="filterBrands('events',this)">Events</button>
-    </div>
-  </div>
-  <div class="brand-grid" id="brand-grid"></div>
-</section>
 
 <div class="divider"></div>
 
@@ -365,10 +367,10 @@
   <div class="footer-inner">
     <span class="footer-logo">PLURGASM</span>
     <ul class="footer-links">
+      <li><a href="#brands">Brands</a></li>
       <li><a href="#festivals">Festivals</a></li>
       <li><a href="calendar.html">Calendar</a></li>
-      <li><a href="#categories">Categories</a></li>
-      <li><a href="#brands">Brands</a></li>
+      <li><a href="#categories">Shopping</a></li>
       <li><a href="#social">Social</a></li>
     </ul>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
