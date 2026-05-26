@@ -246,6 +246,18 @@
 <!-- BRANDS -->
 <section class="section" id="brands">
   <p class="eyebrow">Chapter 01</p>
+  <div class="item-filter-wrap">
+    <div class="item-filter-header">
+      <p class="item-filter-title">WHAT ARE YOU LOOKING FOR?</p>
+      <button class="item-filter-clear"
+        id="item-clear-btn"
+        onclick="filterByItem(_activeItemTag, document.querySelector('.item-pill.active'))"
+        style="display:none;">
+        Clear &#x2715;
+      </button>
+    </div>
+    <div id="item-filters"></div>
+  </div>
   <div class="section-header">
     <h2 class="section-title">BRANDS</h2>
     <div class="filters" style="margin-bottom:0;" id="brand-filters">
