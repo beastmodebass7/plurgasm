@@ -34,6 +34,32 @@
 @keyframes splashLine {
   to { transform: scaleX(1); }
 }
+.hero-quick-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.hero-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.hero-chip:hover {
+  border-color: rgba(0,229,255,0.4);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+}
 </style>
 </head>
 <body>
@@ -162,8 +188,24 @@
       <span class="tc">PLUR</span>
       <span class="tp">GASM</span>
     </h1>
-    <p class="hero-sub">Every festival. Every brand. Every vibe. One home.</p>
+    <p class="hero-sub">
+  <span style="color:var(--white);font-size:19px;font-weight:500;
+    display:block;margin-bottom:8px;">
+    Your one-stop rave universe.
+  </span>
+  <span style="color:var(--muted);font-size:15px;display:block;
+    line-height:1.8;">
+    Find festivals near you · Discover rave brands &amp; gear ·
+    Read rave culture news · All in one place.
+  </span>
+</p>
     <div id="plur-cards"></div>
+    <div class="hero-quick-links">
+  <a href="#festivals" class="hero-chip">🎪 Festivals</a>
+  <a href="#brands" class="hero-chip">🏷️ Brands</a>
+  <a href="#blog" class="hero-chip">📰 News</a>
+  <a href="safety.html" class="hero-chip">☮ Safety</a>
+</div>
     <div class="search-wrap" id="search-wrap">
       <div class="search-form">
         <input type="text" id="search-input" placeholder="Search festivals, brands, categories, socials..." autocomplete="off">
