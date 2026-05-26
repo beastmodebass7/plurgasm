@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4QSZ7HPXPJ');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Safety & PLUR — Harm reduction, Narcan, hydration, ground crew, and festival safety resources. Rave culture was built on looking out for each other.">
+<meta name="keywords" content="festival safety, harm reduction, Narcan, naloxone, fentanyl, DanceSafe, TripSit, PLUR, kandi, rave safety">
+<meta name="author" content="PLURGASM">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plurgasm.com/safety.html">
+<meta property="og:title" content="Safety & PLUR — PLURGASM">
+<meta property="og:description" content="Rave culture was built on looking out for each other. Everything you need to go in informed, stay safe, and come home.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=1200&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Safety & PLUR — PLURGASM">
+<meta name="twitter:description" content="Rave culture was built on looking out for each other. Everything you need to go in informed, stay safe, and come home.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=1200&q=80">
+<link rel="canonical" href="https://plurgasm.com/safety.html">
+<title>Safety &amp; PLUR — PLURGASM</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#06060c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ─────── SAFETY PAGE ─────── */
+.sf-hero {
+  position: relative;
+  min-height: 520px;
+  padding: 120px 32px 80px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.sf-hero-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45) saturate(1.1);
+  z-index: 0;
+}
+.sf-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(6,6,12,0.35) 0%,
+    rgba(6,6,12,0.6) 55%,
+    rgba(6,6,12,0.96) 100%);
+  z-index: 1;
+}
+.sf-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.sf-hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 18px;
+}
+.sf-hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 9vw, 108px);
+  line-height: 0.95;
+  letter-spacing: 4px;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.sf-hero-title .tp {
+  background: linear-gradient(135deg, #ff2d78, #b64dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sf-hero-sub {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--white);
+  max-width: 640px;
+  margin-bottom: 8px;
+}
+
+/* ─────── EMERGENCY BANNER ─────── */
+.sf-emergency {
+  max-width: 1100px;
+  margin: -48px auto 64px;
+  position: relative;
+  z-index: 5;
+  padding: 32px 36px;
+  background: linear-gradient(135deg, rgba(255,45,120,0.08), rgba(182,77,255,0.04));
+  border: 2px solid var(--pink);
+  box-shadow: 0 0 0 1px rgba(255,45,120,0.15), 0 24px 60px rgba(255,45,120,0.12);
+}
+.sf-emergency-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+.sf-emergency-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(26px, 3.6vw, 36px);
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.sf-emergency-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--white);
+}
+.sf-emergency-body strong {
+  color: var(--pink);
+  font-weight: 600;
+}
+
+/* ─────── CHAPTER ─────── */
+.sf-chapter {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 32px;
+}
+.sf-chapter-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.sf-chapter-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+.sf-chapter-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: 3px;
+  color: var(--white);
+  margin: 12px 0 24px;
+}
+.sf-chapter-lede {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.sf-chapter-lede strong { color: var(--white); font-weight: 600; }
+
+.sf-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 760px;
+}
+.sf-body p { margin-bottom: 18px; }
+.sf-body strong { color: var(--white); font-weight: 600; }
+.sf-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+.sf-body ul li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.sf-body ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  font-family: 'DM Mono', monospace;
+}
+
+.sf-subhead {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 40px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─────── GRIDS ─────── */
+.sf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 24px 0 40px;
+}
+.sf-card {
+  padding: 24px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.sf-card:hover {
+  border-color: rgba(0,229,255,0.4);
+  transform: translateY(-2px);
+}
+.sf-card-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+.sf-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.sf-card-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ─────── STEPS (Narcan) ─────── */
+.sf-steps {
+  counter-reset: step;
+  display: grid;
+  gap: 14px;
+  margin: 24px 0 32px;
+}
+.sf-step {
+  counter-increment: step;
+  padding: 18px 22px 18px 70px;
+  background: rgba(255,45,120,0.04);
+  border: 1px solid rgba(255,45,120,0.2);
+  position: relative;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--white);
+}
+.sf-step::before {
+  content: counter(step);
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+/* ─────── RESOURCE CARD ─────── */
+.sf-resource {
+  margin: 32px 0;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(182,77,255,0.04));
+  border: 1px solid rgba(0,229,255,0.3);
+}
+.sf-resource-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+.sf-resource-list {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--muted);
+  list-style: none;
+  padding: 0;
+}
+.sf-resource-list li::before {
+  content: '◆ ';
+  color: var(--cyan);
+  margin-right: 6px;
+}
+
+/* ─────── WARNING SUB-CARDS (Heat & Cold) ─────── */
+.sf-warn {
+  padding: 24px 26px;
+  background: var(--card);
+  border-left: 3px solid var(--amber);
+  margin-bottom: 16px;
+}
+.sf-warn.emergency { border-left-color: var(--pink); }
+.sf-warn.cold      { border-left-color: var(--cyan); }
+.sf-warn-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.sf-warn.emergency .sf-warn-label { color: var(--pink); }
+.sf-warn.cold .sf-warn-label      { color: var(--cyan); }
+.sf-warn-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.sf-warn-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.sf-warn-body strong { color: var(--white); }
+
+/* ─────── HARM REDUCTION CARDS ─────── */
+.sf-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 24px 0 32px;
+}
+.sf-org {
+  padding: 26px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.sf-org:hover { border-color: var(--purple); transform: translateY(-2px); }
+.sf-org-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.sf-org-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--purple);
+  margin-bottom: 14px;
+}
+.sf-org-desc {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ─────── CHECKLIST ─────── */
+.sf-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+  margin: 24px 0 32px;
+}
+.sf-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  color: var(--white);
+}
+.sf-check-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--amber);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.sf-check strong { color: var(--white); display: block; font-weight: 600; }
+.sf-check span  { color: var(--muted); font-size: 12.5px; line-height: 1.55; display:block; margin-top:2px; }
+
+/* ─────── PLUR LETTERS ─────── */
+.sf-plur-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+}
+.sf-letter {
+  padding: 32px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.sf-letter-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  line-height: 1;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+}
+.sf-letter[data-c="P"] .sf-letter-big {
+  background: linear-gradient(135deg, var(--cyan), #007aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sf-letter[data-c="L"] .sf-letter-big {
+  background: linear-gradient(135deg, var(--pink), #b64dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sf-letter[data-c="U"] .sf-letter-big {
+  background: linear-gradient(135deg, var(--green), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sf-letter[data-c="R"] .sf-letter-big {
+  background: linear-gradient(135deg, var(--amber), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sf-letter-word {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.sf-letter-desc {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ─────── HANDSHAKE STEPS ─────── */
+.sf-handshake {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 24px 0 32px;
+}
+.sf-shake {
+  padding: 22px 18px;
+  text-align: center;
+  background: rgba(255,45,120,0.04);
+  border: 1px solid rgba(255,45,120,0.25);
+}
+.sf-shake-emoji {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 10px;
+}
+.sf-shake-word {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 8px;
+}
+.sf-shake-desc {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ─────── DIVIDER ─────── */
+.sf-line {
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 760px) {
+  .sf-hero { padding: 100px 22px 60px; min-height: 460px; }
+  .sf-emergency { margin: -32px 16px 48px; padding: 24px 22px; }
+  .sf-chapter { padding: 48px 22px; }
+  .sf-chapter-head {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .sf-chapter-img { order: -1; aspect-ratio: 16/10; }
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="index.html#brands"     onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="index.html#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="index.html#categories" onclick="closeMobileMenu()">Shop by Category</a></li>
+      <li><a href="index.html#social"     onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="blog.html">Blog &amp; News</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#brands">Brands</a></li>
+    <li><a href="index.html#festivals">Festivals</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="index.html#categories">Shop by Category</a></li>
+    <li><a href="index.html#social">Social</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<header class="sf-hero">
+  <div class="sf-hero-img" style="background-image:url('https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=1200&q=80');"></div>
+  <div class="sf-hero-inner">
+    <p class="sf-hero-eyebrow">Know Before You Go</p>
+    <h1 class="sf-hero-title">SAFETY &amp; <span class="tp">PLUR</span></h1>
+    <p class="sf-hero-sub">
+      Rave culture was built on looking out for each other.
+      Here is everything you need to go in informed, stay safe, and come home.
+    </p>
+  </div>
+</header>
+
+<!-- EMERGENCY BANNER -->
+<aside class="sf-emergency" role="alert">
+  <p class="sf-emergency-label">🚨 In an emergency</p>
+  <h2 class="sf-emergency-title">IN AN EMERGENCY AT A FESTIVAL</h2>
+  <p class="sf-emergency-body">
+    Find a <strong>medic</strong> or <strong>security staff</strong> immediately.
+    Every licensed festival has on-site medical teams — they are there to help, not judge.
+    If someone is unresponsive, seizing, or in distress: find the nearest medical tent
+    and call <strong>911</strong>.
+    <br><br>
+    Most festivals have <strong>Good Samaritan policies</strong> — you will NOT get in
+    trouble for seeking help. <strong>Always seek help first. Always.</strong>
+  </p>
+</aside>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 01 — GROUND CREW -->
+<section class="sf-chapter" id="ground-crew">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 01</p>
+      <h2 class="sf-chapter-title">GROUND CREW</h2>
+      <p class="sf-chapter-lede">
+        The volunteers and staff in bright vests are <strong>your first point of contact</strong>
+        for anything safety-related at a festival. Trained, non-judgmental, and there only to help.
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+      alt="Festival medical staff and ground crew">
+  </div>
+
+  <div class="sf-body">
+    <p>
+      <strong>Ground crew are the unsung heroes of every festival.</strong> They are the volunteers
+      and staff in bright vests walking the crowd, checking on people, and making sure everyone
+      gets home safe. If you see someone wearing a <strong>GROUND CREW</strong> or
+      <strong>MEDICAL</strong> vest — they are your first point of contact for anything
+      safety-related.
+    </p>
+    <p><strong>Do not hesitate to flag down a ground crew member for:</strong></p>
+    <ul>
+      <li>Someone who seems unwell, confused, or overly disoriented</li>
+      <li>A person who has fallen or cannot stand on their own</li>
+      <li>Anyone who is unresponsive or unconscious</li>
+      <li>A lost person or separated group member</li>
+      <li>Any situation where your gut says something is wrong</li>
+    </ul>
+    <p>
+      Ground crew are trained for this. They have seen everything and will not judge you or
+      your friends. <strong>Their only job is to help.</strong>
+    </p>
+  </div>
+
+  <p class="sf-subhead">What Ground Crew Can Do</p>
+  <div class="sf-grid">
+    <div class="sf-card">
+      <span class="sf-card-icon">🏥</span>
+      <h3 class="sf-card-title">Medical Assessment</h3>
+      <p class="sf-card-body">Evaluate and stabilize someone on-site before EMS arrives.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">💧</span>
+      <h3 class="sf-card-title">Water &amp; Cooling</h3>
+      <p class="sf-card-body">Treat heat exhaustion with cooling towels, water, and shade.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">🧠</span>
+      <h3 class="sf-card-title">Calm Someone Down</h3>
+      <p class="sf-card-body">Trained in de-escalation for difficult or anxious experiences.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">📍</span>
+      <h3 class="sf-card-title">Help You Find People</h3>
+      <p class="sf-card-body">Coordinate with other staff to locate lost friends.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">🚑</span>
+      <h3 class="sf-card-title">Call for EMS</h3>
+      <p class="sf-card-body">Escalate to emergency medical services when needed.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 02 — NARCAN -->
+<section class="sf-chapter" id="narcan">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 02</p>
+      <h2 class="sf-chapter-title">NARCAN &amp; FENTANYL</h2>
+      <p class="sf-chapter-lede">
+        <strong>Fentanyl is in the drug supply.</strong> Carry Narcan. Know the signs.
+        Save a life — even a stranger's.
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"
+      alt="Naloxone nasal spray kit">
+  </div>
+
+  <div class="sf-body">
+    <p>
+      <strong>Fentanyl is in the drug supply.</strong> This is not a scare tactic — it is a
+      documented fact that affects every festival in North America. Fentanyl is odorless,
+      tasteless, and <strong>50–100x stronger than morphine</strong>. A dose invisible to the
+      naked eye can be fatal.
+    </p>
+    <p>
+      <strong>NARCAN (naloxone) reverses opioid overdoses.</strong> It is available over the
+      counter at most pharmacies with no prescription required. It is safe to use even if you
+      are not sure whether someone has taken opioids — <strong>it will not harm someone who
+      hasn't.</strong>
+    </p>
+    <p><strong>Signs of opioid overdose:</strong></p>
+    <ul>
+      <li>Unresponsive or unconscious</li>
+      <li>Slow, shallow, or stopped breathing</li>
+      <li>Gurgling or choking sounds</li>
+      <li>Blue or grey lips or fingertips</li>
+      <li>Pinpoint (very small) pupils</li>
+    </ul>
+    <p>
+      <strong>If you see these signs:</strong> call 911 immediately, administer Narcan if
+      available, place the person in the recovery position, and stay with them.
+    </p>
+  </div>
+
+  <p class="sf-subhead">How to Use Narcan</p>
+  <ol class="sf-steps">
+    <li class="sf-step">Lay the person on their back.</li>
+    <li class="sf-step">Insert the nozzle into one nostril.</li>
+    <li class="sf-step">Press the plunger firmly to release the dose.</li>
+    <li class="sf-step">Place them in the recovery position on their side.</li>
+    <li class="sf-step">Call 911 — Narcan wears off in 30–90 minutes, and a second dose may be needed.</li>
+    <li class="sf-step">Stay with them until EMS arrives.</li>
+  </ol>
+
+  <div class="sf-resource">
+    <p class="sf-resource-title">Where to Get Narcan</p>
+    <p style="font-family:'Chakra Petch',sans-serif;font-size:14.5px;color:var(--white);margin-bottom:14px;">
+      NARCAN is available free or low-cost at:
+    </p>
+    <ul class="sf-resource-list">
+      <li>Most CVS, Walgreens, and Rite Aid pharmacies</li>
+      <li>NEXT Distro — <a href="https://nextdistro.org" target="_blank" style="color:var(--cyan);">nextdistro.org</a></li>
+      <li>DanceSafe — <a href="https://dancesafe.org" target="_blank" style="color:var(--cyan);">dancesafe.org</a></li>
+      <li>Many local harm reduction organizations</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 03 — HYDRATION -->
+<section class="sf-chapter" id="hydration">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 03</p>
+      <h2 class="sf-chapter-title">HYDRATION</h2>
+      <p class="sf-chapter-lede">
+        Both <strong>dehydration</strong> and <strong>over-hydration</strong> are real risks.
+        Water alone isn't the answer — electrolytes are.
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&q=80"
+      alt="Person drinking water from a bottle">
+  </div>
+
+  <div class="sf-body">
+    <p>
+      Dehydration and over-hydration are both real risks at festivals. Most people know to drink
+      water — but drinking too much plain water without electrolytes can be just as dangerous
+      as not drinking enough. This condition is called <strong>hyponatremia</strong> and it is
+      more common at festivals than most people realize.
+    </p>
+    <p><strong>The rule: drink water AND replace electrolytes.</strong></p>
+    <p>
+      <strong>How much water:</strong> about <strong>500ml (roughly 16oz) per hour</strong> when
+      dancing actively in the heat. Sip consistently rather than gulping large amounts at once.
+      If you have been drinking alcohol, match every drink with water.
+    </p>
+    <p><strong>Signs of dehydration:</strong></p>
+    <ul>
+      <li>Dark yellow urine (pale yellow = well hydrated)</li>
+      <li>Headache, dizziness, dry mouth</li>
+      <li>Muscle cramps, fatigue</li>
+      <li>Confusion in severe cases</li>
+    </ul>
+    <p><strong>Signs of over-hydration (hyponatremia):</strong></p>
+    <ul>
+      <li>Nausea and vomiting despite drinking lots of water</li>
+      <li>Headache that gets worse</li>
+      <li>Confusion or disorientation</li>
+      <li>Swelling in hands or feet</li>
+    </ul>
+    <p>
+      <strong>If you see these signs seek medical help immediately — this is a medical emergency.</strong>
+    </p>
+  </div>
+
+  <p class="sf-subhead">Electrolyte Recommendations</p>
+  <div class="sf-grid">
+    <div class="sf-card">
+      <span class="sf-card-icon">💊</span>
+      <h3 class="sf-card-title">Liquid IV / LMNT / Nuun</h3>
+      <p class="sf-card-body">Dissolvable electrolyte packets. Pack 1–2 per day.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">🍌</span>
+      <h3 class="sf-card-title">Bananas &amp; Salty Snacks</h3>
+      <p class="sf-card-body">Potassium and sodium replenishment between sets.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">🥤</span>
+      <h3 class="sf-card-title">Pedialyte</h3>
+      <p class="sf-card-body">The gold standard for rapid rehydration. Available at most festival vendor areas.</p>
+    </div>
+    <div class="sf-card">
+      <span class="sf-card-icon">🚰</span>
+      <h3 class="sf-card-title">Free Water Stations</h3>
+      <p class="sf-card-body">Every licensed festival has them. Find them on the festival map when you arrive.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 04 — HEAT & COLD -->
+<section class="sf-chapter" id="heat-cold">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 04</p>
+      <h2 class="sf-chapter-title">HEAT &amp; COLD</h2>
+      <p class="sf-chapter-lede">
+        Festival weather swings hard. <strong>Heat exhaustion, heat stroke, and overnight
+        hypothermia</strong> are all preventable — if you know the signs.
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&q=80"
+      alt="Festival crowd silhouette at sunset">
+  </div>
+
+  <div class="sf-warn">
+    <p class="sf-warn-label">⚠ Warning</p>
+    <h3 class="sf-warn-title">HEAT EXHAUSTION</h3>
+    <p class="sf-warn-body">
+      <strong>Signs:</strong> heavy sweating, weakness, fast or weak pulse, nausea,
+      pale or moist skin.
+      <br><br>
+      <strong>What to do:</strong> Move to shade or AC immediately. Remove excess clothing.
+      Apply cool wet cloths. Drink water slowly. Seek medical staff.
+    </p>
+  </div>
+
+  <div class="sf-warn emergency">
+    <p class="sf-warn-label">🚨 Emergency</p>
+    <h3 class="sf-warn-title">HEAT STROKE</h3>
+    <p class="sf-warn-body">
+      <strong>Signs:</strong> high body temperature (103°F+), hot dry skin, rapid strong pulse,
+      confusion, loss of consciousness.
+      <br><br>
+      <strong>What to do: Call 911 immediately. This is life-threatening.</strong>
+    </p>
+  </div>
+
+  <div class="sf-warn cold">
+    <p class="sf-warn-label">❄ After dark</p>
+    <h3 class="sf-warn-title">COLD AT NIGHT</h3>
+    <p class="sf-warn-body">
+      Many outdoor festivals get cold after midnight even in summer. Bring a pashmina or
+      light layer. <strong>Hypothermia can set in faster than people expect</strong> when
+      sweaty and exposed to cool night air.
+    </p>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 05 — HARM REDUCTION RESOURCES -->
+<section class="sf-chapter" id="harm-reduction">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 05</p>
+      <h2 class="sf-chapter-title">HARM REDUCTION RESOURCES</h2>
+      <p class="sf-chapter-lede">
+        The organizations below have been keeping ravers alive for decades.
+        <strong>Bookmark them. Donate to them. Use them.</strong>
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&q=80"
+      alt="Hands forming a heart shape">
+  </div>
+
+  <div class="sf-resource-grid">
+    <a class="sf-org" href="https://dancesafe.org" target="_blank" rel="noopener">
+      <p class="sf-org-name">DANCESAFE</p>
+      <p class="sf-org-url">dancesafe.org ↗</p>
+      <p class="sf-org-desc">
+        On-site drug checking, fentanyl test strips, reagent kits, and harm-reduction
+        education. Look for their booth at most major US festivals.
+      </p>
+    </a>
+    <a class="sf-org" href="https://tripsit.me" target="_blank" rel="noopener">
+      <p class="sf-org-name">TRIPSIT</p>
+      <p class="sf-org-url">tripsit.me ↗</p>
+      <p class="sf-org-desc">
+        24/7 live harm-reduction chat run by volunteers. Includes the famous
+        drug-combination chart — check it before mixing anything.
+      </p>
+    </a>
+    <a class="sf-org" href="https://rollsafe.org" target="_blank" rel="noopener">
+      <p class="sf-org-name">ROLLSAFE</p>
+      <p class="sf-org-url">rollsafe.org ↗</p>
+      <p class="sf-org-desc">
+        MDMA-specific harm reduction. Dosing, recovery, supplements, and the science
+        behind rolling responsibly. The most thorough resource on the internet.
+      </p>
+    </a>
+    <a class="sf-org" href="https://firesideproject.org" target="_blank" rel="noopener">
+      <p class="sf-org-name">FIRESIDE PROJECT</p>
+      <p class="sf-org-url">62-FIRESIDE ↗</p>
+      <p class="sf-org-desc">
+        Free, confidential peer-support hotline for psychedelic experiences. Call or text
+        if you or a friend is having a difficult trip. Trained volunteers, no judgment.
+      </p>
+    </a>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 06 — CHECKLIST -->
+<section class="sf-chapter" id="checklist">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 06</p>
+      <h2 class="sf-chapter-title">FESTIVAL SAFETY CHECKLIST</h2>
+      <p class="sf-chapter-lede">
+        Pack this list. Share it with your group. <strong>The friend who brought the
+        Narcan is the MVP of every festival</strong> — and nobody knows it until they need it.
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1551516594-56cb78394645?w=800&q=80"
+      alt="Festival essentials laid out flat">
+  </div>
+
+  <div class="sf-checklist">
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Narcan / Naloxone</strong><span>One kit per group, minimum. Free at most pharmacies.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Fentanyl Test Strips</strong><span>Available from DanceSafe. Use before consuming anything.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Reusable Water Bottle</strong><span>Most festivals allow empty bottles in. Refill at free water stations.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Electrolyte Packets</strong><span>Liquid IV, LMNT, or Nuun. Pack 1–2 per day.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>High-Fidelity Earplugs</strong><span>Loop, Eargasm, or EarPeace. Protect your hearing — it doesn't grow back.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Sunscreen</strong><span>SPF 30+. Reapply every 2 hours. Daytime sets are brutal.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Hat &amp; Sunglasses</strong><span>Heat exhaustion starts with sun exposure.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Phone + Battery Pack</strong><span>Bring at least one 10000mAh power bank. Charge your friends' too.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Cash</strong><span>For vendors, tipping, and emergencies when cell service drops.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>ID + Insurance Card</strong><span>Required for most festivals. Insurance card lives in your wallet.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Emergency Contact (Written)</strong><span>On paper, in your wallet. Phones die.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Comfortable Shoes</strong><span>You will walk 8–15 miles a day. No new shoes on day one.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Layers for Night</strong><span>Pashmina or light jacket. Even desert festivals get cold.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Hand Sanitizer + Wipes</strong><span>Porta-potty reality. Don't skip this.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Snacks</strong><span>Salty + sweet. Festival food lines are long and expensive.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Group Meetup Spot</strong><span>Agree on one BEFORE service drops. "By the X stage at Y time."</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Buddy System</strong><span>Never wander off alone, especially at night. Check in every set.</span></div></div>
+    <div class="sf-check"><span class="sf-check-box"></span><div><strong>Festival Map (Offline)</strong><span>Screenshot it. Mark medical tents and exits.</span></div></div>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 07 — PLUR -->
+<section class="sf-chapter" id="plur">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 07</p>
+      <h2 class="sf-chapter-title">PLUR</h2>
+      <p class="sf-chapter-lede">
+        Coined by DJ Frankie Bones at Storm Rave in Brooklyn, 1991. Four words that built
+        the entire culture. <strong>Still the only rule that matters.</strong>
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?w=800&q=80"
+      alt="Hands raised at a festival">
+  </div>
+
+  <div class="sf-plur-grid">
+    <div class="sf-letter" data-c="P">
+      <p class="sf-letter-big">P</p>
+      <p class="sf-letter-word">Peace</p>
+      <p class="sf-letter-desc">
+        Leave conflict at the gate. The dancefloor is neutral ground. No fights, no drama,
+        no ego.
+      </p>
+    </div>
+    <div class="sf-letter" data-c="L">
+      <p class="sf-letter-big">L</p>
+      <p class="sf-letter-word">Love</p>
+      <p class="sf-letter-desc">
+        For the music, the people, and the strangers becoming friends in the crowd next
+        to you. Open and unconditional.
+      </p>
+    </div>
+    <div class="sf-letter" data-c="U">
+      <p class="sf-letter-big">U</p>
+      <p class="sf-letter-word">Unity</p>
+      <p class="sf-letter-desc">
+        We are one crowd, one heartbeat. Watch out for each other. Hand water to the
+        person who needs it. Flag a medic for a stranger.
+      </p>
+    </div>
+    <div class="sf-letter" data-c="R">
+      <p class="sf-letter-big">R</p>
+      <p class="sf-letter-word">Respect</p>
+      <p class="sf-letter-desc">
+        For consent, personal space, identity, the artists, the venue, the land, and the
+        people you'll never meet who built this culture before you.
+      </p>
+    </div>
+  </div>
+
+  <div class="sf-body">
+    <p>
+      <strong>PLUR is not a slogan — it's a contract.</strong> When you walk into a festival,
+      you're agreeing to look out for the person dancing next to you. To share water. To
+      help up the kid who tripped. To call a medic if someone needs one. To respect the
+      "no" of a stranger as much as the "yes" of a friend.
+    </p>
+    <p>
+      Rave culture started in warehouses and basements where the outside world wasn't
+      welcome. The people who built it — queer kids, Black and Latino DJs, immigrants,
+      outcasts — built it as a sanctuary. <strong>PLUR is how we keep it one.</strong>
+    </p>
+  </div>
+</section>
+
+<hr class="sf-line">
+
+<!-- CHAPTER 08 — KANDI -->
+<section class="sf-chapter" id="kandi">
+  <div class="sf-chapter-head">
+    <div>
+      <p class="eyebrow">Chapter 08</p>
+      <h2 class="sf-chapter-title">KANDI TRADING</h2>
+      <p class="sf-chapter-lede">
+        Bracelets made of plastic pony beads, traded between strangers with a
+        <strong>four-step handshake</strong>. The most wholesome ritual at any rave.
+      </p>
+    </div>
+    <img class="sf-chapter-img" loading="lazy"
+      src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=800&q=80"
+      alt="Colorful kandi bracelets stacked on wrists">
+  </div>
+
+  <div class="sf-body">
+    <p>
+      <strong>Kandi</strong> are bracelets, cuffs, and perler-bead pieces made of colorful
+      plastic beads — often spelling out track names, artist names, inside jokes, or just
+      "PLUR." Ravers make them at home before festivals and trade them with strangers on
+      the dancefloor.
+    </p>
+    <p>
+      The trade happens via the <strong>PLUR handshake</strong>, a four-step ritual that
+      ends with the kandi sliding from one wrist to the other. The bracelet is the keepsake.
+      The handshake is the moment.
+    </p>
+  </div>
+
+  <p class="sf-subhead">The PLUR Handshake</p>
+  <div class="sf-handshake">
+    <div class="sf-shake">
+      <span class="sf-shake-emoji">✌</span>
+      <p class="sf-shake-word">Peace</p>
+      <p class="sf-shake-desc">Both raise a peace sign and touch them together.</p>
+    </div>
+    <div class="sf-shake">
+      <span class="sf-shake-emoji">❤</span>
+      <p class="sf-shake-word">Love</p>
+      <p class="sf-shake-desc">Form half a heart with each hand and join into one heart.</p>
+    </div>
+    <div class="sf-shake">
+      <span class="sf-shake-emoji">🤝</span>
+      <p class="sf-shake-word">Unity</p>
+      <p class="sf-shake-desc">Clasp hands together palm-to-palm.</p>
+    </div>
+    <div class="sf-shake">
+      <span class="sf-shake-emoji">💫</span>
+      <p class="sf-shake-word">Respect</p>
+      <p class="sf-shake-desc">Slide a kandi from your wrist onto theirs. Interlock fingers. Done.</p>
+    </div>
+  </div>
+
+  <div class="sf-body">
+    <p><strong>Kandi etiquette:</strong></p>
+    <ul>
+      <li>Ask before initiating — not everyone wants to trade, and that's okay</li>
+      <li>Trade with intention. The story behind the bracelet matters more than the beads</li>
+      <li>Wear what you receive. Kandi is meant to be visible, not stashed in a drawer</li>
+      <li>Respect "no" — a refusal to trade is not a rejection of you</li>
+      <li>If you make singles to give away, hand them out freely — no trade required</li>
+    </ul>
+    <p>
+      <strong>The bracelet is a token.</strong> The real trade is the moment between two
+      strangers who agreed, for thirty seconds in the middle of a crowd, to see each other.
+      That's the whole point.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="index.html#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#categories">Shop by Category</a></li>
+      <li><a href="index.html#social">Social</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav" id="bottom-nav">
+  <a href="index.html#brands" class="bn-item">
+    <span class="bn-icon">🏷️</span>
+    <span class="bn-label">Brands</span>
+  </a>
+  <a href="index.html#festivals" class="bn-item">
+    <span class="bn-icon">🎪</span>
+    <span class="bn-label">Festivals</span>
+  </a>
+  <a href="index.html" class="bn-item">
+    <span class="bn-icon">🏠</span>
+    <span class="bn-label">Home</span>
+  </a>
+  <a href="blog.html" class="bn-item">
+    <span class="bn-icon">📰</span>
+    <span class="bn-label">Blog</span>
+  </a>
+  <a href="safety.html" class="bn-item">
+    <span class="bn-icon">☮</span>
+    <span class="bn-label">Safety</span>
+  </a>
+</nav>
+
+<script>
+/* ─────── MOBILE HAMBURGER MENU ─────── */
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMobileMenu();
+});
+
+/* ─────── SCROLL PROGRESS BAR ─────── */
+(function() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
