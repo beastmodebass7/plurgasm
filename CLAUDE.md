@@ -47,6 +47,15 @@ Brands: id, name, badge, cat, badgeCls, priceCls, price, ship, loc, style, tags,
 Categories: id, label, icon, count
 Socials: handle, platform, type, desc, featured
 
+## Blog system
+- Posts stored in `PLURGASM_DATA.blogPosts` in `js/data.js`
+- Rendered on homepage by `renderBlog()` in `js/main.js` (newspaper layout — featured left, sidebar right)
+- Single post page: `blog-post.html` (reads `?id=` from URL, finds post in blogPosts)
+- All posts page: `blog.html` (filter pills + search bar, blog-grid layout)
+- To add a post: add object to `blogPosts` array in `js/data.js`
+- Fields: `id`, `title`, `slug`, `author`, `authorHandle`, `date`, `category`, `coverImage`, `excerpt`, `body`, `published`, `featured`
+- Categories: `festival-news`, `culture`, `fashion`, `safety`, `gear`
+
 ## Admin password (localStorage based for now)
 Currently saved in brand submission form — no real admin panel yet
 

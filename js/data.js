@@ -124,6 +124,51 @@ PLURGASM_DATA.plurDefinitions = [
   }
 ];
 
+PLURGASM_DATA.blogPosts = [
+  {
+    id: 'post-001',
+    title: 'Project GLOW 2026 — The Complete Guide',
+    slug: 'project-glow-2026-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-05-15',
+    category: 'festival-news',
+    coverImage: '',
+    excerpt: 'Everything you need to know before heading to RFK Festival Grounds this May 30-31. Lineup breakdown, what to bring, getting there, and what to expect from DC\'s biggest electronic music event.',
+    body: '<p>Project GLOW returns to Washington DC for its 5th anniversary...</p><p>Full guide coming soon.</p>',
+    published: true,
+    featured: true,
+  },
+  {
+    id: 'post-002',
+    title: 'PLUR 101 — A Beginner\'s Guide to Rave Culture',
+    slug: 'plur-101-beginners-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-05-10',
+    category: 'culture',
+    coverImage: '',
+    excerpt: 'New to raving? Here\'s everything you need to know about the culture, the etiquette, kandi trading, and why PLUR isn\'t just a slogan — it\'s how we look out for each other.',
+    body: '<p>Welcome to the rave community...</p><p>Full post coming soon.</p>',
+    published: true,
+    featured: false,
+  },
+  {
+    id: 'post-003',
+    title: 'Best Rave Outfits for Summer 2026',
+    slug: 'best-rave-outfits-summer-2026',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-05-05',
+    category: 'fashion',
+    coverImage: '',
+    excerpt: 'Festival season is here. We rounded up the best fem and masc festival looks for summer 2026 — from budget-friendly sets to luxury fae pieces.',
+    body: '<p>Summer 2026 festival fashion...</p><p>Full post coming soon.</p>',
+    published: true,
+    featured: false,
+  }
+];
+
 const SOCIALS = [
   { handle:'@insomniac_events', platform:'Instagram', type:'Brand',    desc:'Official Insomniac page. Festival announcements, lineups, and behind-the-scenes from EDC and beyond.', featured:false },
   { handle:'@projectglowfest',  platform:'Instagram', type:'Festival', desc:'All official updates for Project GLOW DC — lineups, artist spotlights, and more.',                     featured:true  },

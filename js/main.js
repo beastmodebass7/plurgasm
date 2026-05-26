@@ -427,6 +427,109 @@ function renderPlur() {
 }
 
 /* ════════════════════════════════════════════════
+   RENDER BLOG — newspaper layout
+════════════════════════════════════════════════ */
+function renderBlog() {
+  const container = document.getElementById('blog-newspaper');
+  if (!container) return;
+  const posts = (PLURGASM_DATA.blogPosts || [])
+    .filter(p => p.published)
+    .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+  if (!posts.length) return;
+
+  const catColors = {
+    'festival-news': 'var(--cyan)',
+    'culture':       'var(--purple)',
+    'fashion':       'var(--pink)',
+    'safety':        'var(--green)',
+    'gear':          'var(--amber)',
+  };
+  const catLabels = {
+    'festival-news': 'Festival News',
+    'culture':       'Culture',
+    'fashion':       'Fashion',
+    'safety':        'Safety',
+    'gear':          'Gear',
+  };
+
+  function dateStr(d) {
+    return new Date(d).toLocaleDateString('en-US',
+      { month:'short', day:'numeric', year:'numeric' });
+  }
+  function color(p) { return catColors[p.category] || 'var(--cyan)'; }
+  function label(p) { return catLabels[p.category] || p.category; }
+
+  const featured = posts[0];
+  const sidebar  = posts.slice(1, 5);
+
+  container.innerHTML = `
+    <div class="blog-newspaper-inner">
+
+      <a class="blog-feat" href="blog-post.html?id=${featured.id}">
+        <div class="blog-feat-img">
+          ${featured.coverImage
+            ? `<img src="${featured.coverImage}" alt="${featured.title}">`
+            : `<div class="blog-feat-placeholder"
+                style="background:linear-gradient(135deg,${color(featured)}18,transparent);">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:80px;
+                  color:${color(featured)};opacity:0.15;">${featured.title[0]}</span>
+               </div>`}
+          <span class="blog-feat-cat"
+            style="color:${color(featured)};border-color:${color(featured)}44;">
+            ${label(featured)}
+          </span>
+        </div>
+        <div class="blog-feat-body">
+          <p class="blog-feat-date">${dateStr(featured.date)}</p>
+          <h2 class="blog-feat-title">${featured.title}</h2>
+          <p class="blog-feat-excerpt">${featured.excerpt}</p>
+          <div class="blog-feat-author">
+            By <span>${featured.author}</span>
+            ${featured.authorHandle
+              ? `<span class="blog-feat-handle">${featured.authorHandle}</span>`
+              : ''}
+          </div>
+        </div>
+      </a>
+
+      <div class="blog-sidebar">
+        ${sidebar.map((p, i) => `
+          <a class="blog-thumb" href="blog-post.html?id=${p.id}">
+            <div class="blog-thumb-img">
+              ${p.coverImage
+                ? `<img src="${p.coverImage}" alt="${p.title}">`
+                : `<div class="blog-thumb-placeholder"
+                    style="background:linear-gradient(135deg,${color(p)}18,transparent);">
+                    <span style="font-family:'Bebas Neue',sans-serif;font-size:28px;
+                      color:${color(p)};opacity:0.2;">${p.title[0]}</span>
+                   </div>`}
+            </div>
+            <div class="blog-thumb-body">
+              <div class="blog-thumb-meta">
+                <span class="blog-cat"
+                  style="color:${color(p)};border-color:${color(p)}44;">
+                  ${label(p)}
+                </span>
+                <span class="blog-date">${dateStr(p.date)}</span>
+              </div>
+              <p class="blog-thumb-title">${p.title}</p>
+              <p class="blog-thumb-author">By ${p.author}</p>
+            </div>
+          </a>
+          ${i < sidebar.length - 1
+            ? '<div class="blog-thumb-divider"></div>'
+            : ''}
+        `).join('')}
+        <a href="blog.html" class="blog-sidebar-more">
+          View all posts →
+        </a>
+      </div>
+
+    </div>`;
+}
+
+/* ════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -479,6 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCategories();
   renderBrands('all');
   renderSocials();
+  renderBlog();
   // stamp data-id on fest cards after render for search highlight
   setTimeout(() => {
     document.querySelectorAll('.fest-card').forEach((card, i) => {
