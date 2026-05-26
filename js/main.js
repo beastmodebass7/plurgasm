@@ -4,6 +4,7 @@
 let _festType  = 'all';
 let _festGenre = '';
 let _festView  = 'grid';
+let _festLimit = 4;
 
 const typeClass = { mega:'t-mega', underground:'t-under', regional:'t-reg', playa:'t-playa', international:'t-intl' };
 const dotClass  = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
@@ -40,15 +41,22 @@ function getDaysBadge(sortDate) {
 function renderFestivals() {
   const today = new Date();
   today.setHours(0,0,0,0);
-  const list = getFilteredFests().slice().sort((a, b) => {
+  const fullList = getFilteredFests().slice().sort((a, b) => {
     const aDate = new Date(a.sortDate || '2099-01-01');
     const bDate = new Date(b.sortDate || '2099-01-01');
     const aPast = aDate < today;
     const bPast = bDate < today;
     if (aPast && !bPast) return 1;
     if (!aPast && bPast) return -1;
+    if (!aPast && !bPast) {
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
+    }
     return aDate - bDate;
   });
+  const expandEl = document.getElementById('fests-expand');
+  if (expandEl) expandEl.style.display = fullList.length > _festLimit ? '' : 'none';
+  const list = fullList.slice(0, _festLimit);
   document.getElementById('fest-grid').innerHTML = list.map(f => {
     const dest   = f.detailPage || f.url;
     const target = f.detailPage ? '_self' : '_blank';
@@ -79,6 +87,8 @@ function renderFestivals() {
 const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 function renderCalendar() {
+  const expandEl = document.getElementById('fests-expand');
+  if (expandEl) expandEl.style.display = 'none';
   const list = getFilteredFests();
   const byMonth = {};
   list.forEach(f => {
@@ -128,6 +138,7 @@ function renderCalendar() {
 ════════════════════════════════════════════════ */
 function filterFests(type, btn) {
   _festType = type;
+  _festLimit = 4;
   document.querySelectorAll('#festivals .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   refreshFestView();
@@ -135,9 +146,16 @@ function filterFests(type, btn) {
 
 function filterGenre(genre, btn) {
   _festGenre = genre;
+  _festLimit = 4;
   document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   refreshFestView();
+}
+
+function expandFests() {
+  _festLimit = 999;
+  renderFestivals();
+  document.getElementById('fests-expand').style.display = 'none';
 }
 
 function setView(view) {
@@ -173,6 +191,7 @@ function renderCategories() {
    RENDER BRANDS
 ════════════════════════════════════════════════ */
 let searchQuery = '';
+let _brandLimit = 8;
 
 function renderBrands(cat) {
   let list = cat === 'all' ? BRANDS : BRANDS.filter(b => b.cat === cat);
@@ -186,7 +205,13 @@ function renderBrands(cat) {
     if (so !== 0) return so;
     return a.name.localeCompare(b.name);
   });
-  document.getElementById('brand-grid').innerHTML = list.map(b => `
+  const expandEl = document.getElementById('brands-expand');
+  if (expandEl) expandEl.style.display = list.length > _brandLimit ? '' : 'none';
+  const visible = list.slice(0, _brandLimit);
+  document.getElementById('brand-grid').innerHTML = visible.map(b => {
+    const catLabel = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
+    const shortDesc = b.desc.length > 80 ? b.desc.slice(0, 80) + '...' : b.desc;
+    return `
     <div class="brand-card${b.featured ? ' brand-card-featured' : ''}" onclick="openBrandModal('${b.id}')">
       ${b.featured ? '<span class="brand-featured-star">★</span>' : ''}
       <div class="brand-badge ${b.badgeCls}">${b.badge}</div>
@@ -197,7 +222,7 @@ function renderBrands(cat) {
           <span class="brand-ship">⏱ ${b.ship}</span>
           <span class="brand-loc">📍 ${b.loc}</span>
         </div>
-        <p class="brand-style">${b.style}</p>
+<p class="brand-style">${b.style}</p>
         <p class="brand-desc">${b.desc}</p>
         ${b.ig ? `<a class="brand-ig-btn"
   href="https://instagram.com/${b.ig.replace('@','')}"
@@ -207,7 +232,13 @@ function renderBrands(cat) {
 </a>` : ''}
       </div>
     </div>
-  `).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">No brands found${searchQuery ? ' for "'+searchQuery+'"':''} in this category.</p>`;
+  `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">No brands found${searchQuery ? ' for "'+searchQuery+'"':''} in this category.</p>`;
+}
+
+function expandBrands() {
+  _brandLimit = 999;
+  renderBrands(window._currentCat || 'all');
+  document.getElementById('brands-expand').style.display = 'none';
 }
 
 /* ════════════════════════════════════════════════
@@ -303,6 +334,7 @@ document.addEventListener('click', e => {
 });
 
 function filterBrands(cat, btn) {
+  _brandLimit = 8;
   document.querySelectorAll('#brand-filters .filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   renderBrands(cat);
