@@ -202,7 +202,9 @@ function refreshFestView() {
    RENDER CATEGORIES
 ════════════════════════════════════════════════ */
 function renderCategories() {
-  document.getElementById('cat-grid').innerHTML = CATEGORIES.map(c => {
+  const container = document.getElementById('cat-grid');
+  if (!container) return;
+  container.innerHTML = CATEGORIES.map(c => {
     const count = BRANDS.filter(b => b.cat === c.id).length;
     return `
     <a class="cat-card" href="category.html?cat=${c.id}" style="text-decoration:none;">
