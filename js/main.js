@@ -221,6 +221,7 @@ let _activeItemTag = '';
 function renderItemFilters() {
   const container = document.getElementById('item-filters');
   if (!container) return;
+  if (!window.PLURGASM_DATA) return; // safety guard
   const groups = PLURGASM_DATA.itemFilters || [];
 
   container.innerHTML = groups.map(g => `
@@ -460,18 +461,20 @@ function renderSocials() {
 /* ════════════════════════════════════════════════
    COUNTDOWN — Project GLOW May 30 2026
 ════════════════════════════════════════════════ */
-(function tick() {
-  const diff = new Date('2026-05-30T18:00:00-04:00') - Date.now();
-  const el = document.getElementById('countdown');
-  if (!el) return;
-  if (diff <= 0) { el.textContent = "IT'S HAPPENING"; return; }
-  const d = Math.floor(diff/86400000);
-  const h = Math.floor((diff%86400000)/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  const s = Math.floor((diff%60000)/1000);
-  el.innerHTML = `<span>${String(d).padStart(2,'0')}<small>d</small></span><span>${String(h).padStart(2,'0')}<small>h</small></span><span>${String(m).padStart(2,'0')}<small>m</small></span><span>${String(s).padStart(2,'0')}<small>s</small></span>`;
-  setTimeout(tick, 1000);
-})();
+function initCountdown() {
+  (function tick() {
+    const diff = new Date('2026-05-30T18:00:00-04:00') - Date.now();
+    const el = document.getElementById('countdown');
+    if (!el) return;
+    if (diff <= 0) { el.textContent = "IT'S HAPPENING"; return; }
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    el.innerHTML = `<span>${String(d).padStart(2,'0')}<small>d</small></span><span>${String(h).padStart(2,'0')}<small>h</small></span><span>${String(m).padStart(2,'0')}<small>m</small></span><span>${String(s).padStart(2,'0')}<small>s</small></span>`;
+    setTimeout(tick, 1000);
+  })();
+}
 
 /* ════════════════════════════════════════════════
    RENDER PLUR CARDS
@@ -479,7 +482,9 @@ function renderSocials() {
 function renderPlur() {
   const container = document.getElementById('plur-cards');
   if (!container) return;
-  const defs = window.PLURGASM_DATA.plurDefinitions;
+  const defs = window.PLURGASM_DATA &&
+    window.PLURGASM_DATA.plurDefinitions;
+  if (!defs) return; // safety guard
   container.innerHTML = defs.map(p => `
     <div class="plur-card-new" data-letter="${p.letter}" style="border-color:${p.borderColor};">
       <div class="pcn-left">
@@ -502,6 +507,7 @@ function renderPlur() {
 function renderBlog() {
   const container = document.getElementById('blog-newspaper');
   if (!container) return;
+  if (!window.PLURGASM_DATA) return; // safety guard
   const posts = (PLURGASM_DATA.blogPosts || [])
     .filter(p => p.published)
     .sort((a,b) => new Date(b.date) - new Date(a.date));
@@ -600,6 +606,23 @@ function renderBlog() {
 }
 
 /* ════════════════════════════════════════════════
+   RENDER BOTW — Brand of the Week (admin override)
+════════════════════════════════════════════════ */
+function renderBotw() {
+  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
+  if (!botw) return;
+  if (botw.name) document.getElementById('botw-name').textContent = botw.name;
+  if (botw.cat)  document.getElementById('botw-cat').textContent  = botw.cat;
+  if (botw.desc) document.getElementById('botw-desc').textContent = botw.desc;
+  if (botw.ig)   document.getElementById('botw-ig').textContent   = botw.ig;
+  if (botw.url) {
+    const a = document.getElementById('botw-url');
+    a.href = botw.url;
+    a.style.display = '';
+  }
+}
+
+/* ════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -633,27 +656,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Apply Brand of the Week override from admin panel
-  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
-  if (botw) {
-    if (botw.name) document.getElementById('botw-name').textContent = botw.name;
-    if (botw.cat)  document.getElementById('botw-cat').textContent  = botw.cat;
-    if (botw.desc) document.getElementById('botw-desc').textContent = botw.desc;
-    if (botw.ig)   document.getElementById('botw-ig').textContent   = botw.ig;
-    if (botw.url) {
-      const a = document.getElementById('botw-url');
-      a.href = botw.url;
-      a.style.display = '';
-    }
-  }
-
-  renderPlur();
   renderFestivals();
   renderCategories();
-  renderItemFilters();
   renderBrands('all');
   renderSocials();
+  renderBotw();
+  renderPlur();
   renderBlog();
+  renderItemFilters();
   // stamp data-id on fest cards after render for search highlight
   setTimeout(() => {
     document.querySelectorAll('.fest-card').forEach((card, i) => {
@@ -661,8 +671,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 50);
 
-  initCountUp();
   initScrollAnimations();
+  initCountUp();
+  initCountdown();
 });
 
 /* ════════════════════════════════════════════════
