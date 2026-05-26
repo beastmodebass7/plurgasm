@@ -676,7 +676,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCountUp();
   initCountdown();
+  initBottomNav();
 });
+
+function initBottomNav() {
+  const items = document.querySelectorAll('.bn-item');
+  const sections = ['brands','festivals','blog','social'];
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY + 200;
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    items.forEach(item => {
+      const href = item.getAttribute('href');
+      item.classList.toggle('active',
+        href === '#' + current);
+    });
+  }, { passive: true });
+}
 
 /* ════════════════════════════════════════════════
    MOBILE MENU

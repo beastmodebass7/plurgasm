@@ -475,6 +475,31 @@
   </div>
 </footer>
 
+<nav class="bottom-nav" id="bottom-nav">
+  <a href="#brands" class="bn-item" onclick="closeMobileMenu()">
+    <span class="bn-icon">🏷️</span>
+    <span class="bn-label">Brands</span>
+  </a>
+  <a href="#festivals" class="bn-item" onclick="closeMobileMenu()">
+    <span class="bn-icon">🎪</span>
+    <span class="bn-label">Festivals</span>
+  </a>
+  <a href="#" class="bn-item bn-search"
+    onclick="document.getElementById('search-input').focus();
+    window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <span class="bn-icon">🔍</span>
+    <span class="bn-label">Search</span>
+  </a>
+  <a href="blog.html" class="bn-item">
+    <span class="bn-icon">📰</span>
+    <span class="bn-label">Blog</span>
+  </a>
+  <a href="safety.html" class="bn-item">
+    <span class="bn-icon">☮</span>
+    <span class="bn-label">Safety</span>
+  </a>
+</nav>
+
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
 <script src="js/search.js"></script>
