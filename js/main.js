@@ -6,7 +6,7 @@ let _festGenre  = '';
 let _festRegion = '';
 let _festMonth  = '';
 let _festView   = 'grid';
-let _festLimit  = 4;
+let _festLimit  = 6;
 
 const typeClass = { mega:'t-mega', underground:'t-under', regional:'t-reg', playa:'t-playa', international:'t-intl' };
 const dotClass  = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
@@ -144,7 +144,7 @@ function filterFests(type, btn) {
   _festType   = type;
   _festRegion = '';
   _festMonth  = '';
-  _festLimit  = 4;
+  _festLimit  = 6;
   document.querySelectorAll('#festivals .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.region-pill').forEach(b => b.classList.remove('active'));
@@ -156,7 +156,7 @@ function filterFests(type, btn) {
 
 function filterGenre(genre, btn) {
   _festGenre = genre;
-  _festLimit = 4;
+  _festLimit = 6;
   document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   refreshFestView();
@@ -164,7 +164,7 @@ function filterGenre(genre, btn) {
 
 function filterRegion(region, btn) {
   _festRegion = region;
-  _festLimit  = 4;
+  _festLimit  = 6;
   document.querySelectorAll('.region-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   refreshFestView();
@@ -172,7 +172,7 @@ function filterRegion(region, btn) {
 
 function filterMonth(month, btn) {
   _festMonth = month;
-  _festLimit = 4;
+  _festLimit = 6;
   document.querySelectorAll('.month-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   refreshFestView();
@@ -275,7 +275,7 @@ function filterByItem(tag, btn) {
    RENDER BRANDS
 ════════════════════════════════════════════════ */
 let searchQuery = '';
-let _brandLimit = 8;
+let _brandLimit = 6;
 
 function renderBrands(cat) {
   let list = cat === 'all' ? BRANDS : BRANDS.filter(b => b.cat === cat);
@@ -419,7 +419,7 @@ document.addEventListener('click', e => {
 });
 
 function filterBrands(cat, btn) {
-  _brandLimit = 8;
+  _brandLimit = 6;
   document.querySelectorAll('#brand-filters .filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   // clear item pill state when category filter changes
