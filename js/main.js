@@ -1,19 +1,23 @@
 ﻿/* ════════════════════════════════════════════════
    FESTIVAL FILTER STATE
 ════════════════════════════════════════════════ */
-let _festType  = 'all';
-let _festGenre = '';
-let _festView  = 'grid';
-let _festLimit = 4;
+let _festType   = 'all';
+let _festGenre  = '';
+let _festRegion = '';
+let _festMonth  = '';
+let _festView   = 'grid';
+let _festLimit  = 4;
 
 const typeClass = { mega:'t-mega', underground:'t-under', regional:'t-reg', playa:'t-playa', international:'t-intl' };
 const dotClass  = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
 
 function getFilteredFests() {
   return FESTIVALS.filter(f => {
-    const typeOk  = _festType  === 'all' || f.type === _festType;
-    const genreOk = _festGenre === ''    || f.genres.includes(_festGenre);
-    return typeOk && genreOk;
+    const typeOk   = _festType   === 'all' || f.type === _festType;
+    const genreOk  = _festGenre  === ''    || f.genres.includes(_festGenre);
+    const regionOk = _festRegion === ''    || f.region === _festRegion;
+    const monthOk  = _festMonth  === ''    || (f.sortDate && new Date(f.sortDate).getMonth() + 1 === _festMonth);
+    return typeOk && genreOk && regionOk && monthOk;
   });
 }
 
@@ -137,10 +141,16 @@ function renderCalendar() {
    FILTER ACTIONS
 ════════════════════════════════════════════════ */
 function filterFests(type, btn) {
-  _festType = type;
-  _festLimit = 4;
+  _festType   = type;
+  _festRegion = '';
+  _festMonth  = '';
+  _festLimit  = 4;
   document.querySelectorAll('#festivals .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  document.querySelectorAll('.region-pill').forEach(b => b.classList.remove('active'));
+  document.querySelector('.region-pill')?.classList.add('active');
+  document.querySelectorAll('.month-pill').forEach(b => b.classList.remove('active'));
+  document.querySelector('.month-pill')?.classList.add('active');
   refreshFestView();
 }
 
@@ -148,6 +158,22 @@ function filterGenre(genre, btn) {
   _festGenre = genre;
   _festLimit = 4;
   document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  refreshFestView();
+}
+
+function filterRegion(region, btn) {
+  _festRegion = region;
+  _festLimit  = 4;
+  document.querySelectorAll('.region-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  refreshFestView();
+}
+
+function filterMonth(month, btn) {
+  _festMonth = month;
+  _festLimit = 4;
+  document.querySelectorAll('.month-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   refreshFestView();
 }
