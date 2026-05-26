@@ -1718,3 +1718,30 @@ footer {
   color: var(--muted);
 }
 .bm-link-ghost:hover { border-color: var(--border-hi); color: var(--white); }
+
+/* ══════════════════════════════════════════════════
+   BRAND TAG PILLS
+══════════════════════════════════════════════════ */
+.brand-tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+.brand-tag-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--faint);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.brand-tag-pill:hover {
+  border-color: rgba(0,229,255,0.4);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+}

@@ -224,6 +224,14 @@ function renderBrands(cat) {
         </div>
         <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-bottom:6px;">${catLabel}</p>
         <p class="brand-desc">${shortDesc}</p>
+        ${b.tags && b.tags.length ? `
+          <div class="brand-tag-pills">
+            ${b.tags.slice(0,4).map(t => `
+              <button class="brand-tag-pill"
+                onclick="event.stopPropagation(); filterByTag('${t}')">
+                ${t}
+              </button>`).join('')}
+          </div>` : ''}
         ${b.ig ? `<a class="brand-ig-btn" href="https://instagram.com/${b.ig.replace('@','')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${b.ig}</a>` : ''}
       </div>
     </div>
@@ -334,6 +342,16 @@ function filterBrands(cat, btn) {
   if (btn) btn.classList.add('active');
   renderBrands(cat);
   window._currentCat = cat;
+}
+
+function filterByTag(tag) {
+  searchQuery = tag;
+  _brandLimit = 999;
+  window._currentCat = 'all';
+  document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.remove('active'));
+  document.querySelector('.filter-btn[data-cat="all"]')?.classList.add('active');
+  renderBrands('all');
+  document.getElementById('brands')?.scrollIntoView({ behavior: 'smooth' });
 }
 
 // add data-cat to filter buttons after DOM is ready
