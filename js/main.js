@@ -404,6 +404,29 @@ function renderSocials() {
 })();
 
 /* ════════════════════════════════════════════════
+   RENDER PLUR CARDS
+════════════════════════════════════════════════ */
+function renderPlur() {
+  const container = document.getElementById('plur-cards');
+  if (!container) return;
+  const defs = window.PLURGASM_DATA.plurDefinitions;
+  container.innerHTML = defs.map(p => `
+    <div class="plur-card-new" data-letter="${p.letter}" style="border-color:${p.borderColor};">
+      <div class="pcn-left">
+        <span class="pcn-letter" style="color:${p.color};">${p.letter}</span>
+        <span class="pcn-icon">${p.icon}</span>
+      </div>
+      <div class="pcn-right">
+        <p class="pcn-word" style="color:${p.color};">${p.word}</p>
+        <div class="pcn-lines">
+          ${p.lines.map(l => `<p>${l}</p>`).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -451,6 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  renderPlur();
   renderFestivals();
   renderCategories();
   renderBrands('all');
