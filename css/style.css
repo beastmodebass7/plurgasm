@@ -2306,3 +2306,148 @@ footer {
      since bottom nav handles navigation */
   .nav-cta { display: none; }
 }
+
+@media (max-width: 768px) {
+
+  /* BRAND MODAL — slide up from bottom like a sheet */
+  .brand-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .brand-modal {
+    max-width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid rgba(0,229,255,0.2);
+    transform: translateY(100%);
+  }
+  .brand-modal-overlay.open .brand-modal {
+    transform: translateY(0);
+  }
+
+  /* drag handle on modal */
+  .brand-modal::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--border-hi);
+    border-radius: 2px;
+    margin: 12px auto 0;
+  }
+
+  /* BIGGER TOUCH TARGETS */
+  .filter-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 11px;
+  }
+  .genre-pill {
+    min-height: 40px;
+    padding: 8px 16px;
+  }
+  .item-pill {
+    min-height: 40px;
+  }
+  .nav-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  /* HERO — reduce height on mobile */
+  .hero {
+    min-height: 75vh;
+    padding: 48px 20px 40px;
+  }
+  .hero-stats {
+    margin-top: 36px;
+    gap: 20px;
+  }
+  .stat-num { font-size: 36px; }
+  .stat-label { font-size: 9px; }
+
+  /* SEARCH — prevent iOS zoom (must be 16px+) */
+  .search-form input,
+  #search-input {
+    font-size: 16px !important;
+  }
+
+  /* SECTION PADDING tighter on mobile */
+  .section {
+    padding: 48px 16px;
+  }
+
+  /* FESTIVAL CARDS full width */
+  .fest-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* BRAND CARDS full width */
+  .brand-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* CATEGORY GRID 2 columns */
+  .cat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* BLOG newspaper full width */
+  .blog-newspaper-inner {
+    grid-template-columns: 1fr;
+  }
+  .blog-feat { border-right: none; }
+
+  /* COUNTDOWN strip smaller */
+  .countdown-fest {
+    font-size: 15px;
+  }
+  #countdown {
+    font-size: 22px;
+  }
+
+  /* PLUR CARDS 2x2 */
+  #plur-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pcn-lines p { font-size: 11px; }
+
+  /* BOTW banner stack */
+  .botw {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  /* ITEM FILTER wrap to 2 col grid */
+  .item-filter-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .item-pill {
+    text-align: center;
+    border-radius: 6px;
+    font-size: 10px;
+  }
+
+  /* FILTER ROWS horizontal scroll */
+  .filters,
+  .genre-filter-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 6px;
+  }
+  .filters::-webkit-scrollbar,
+  .genre-filter-row::-webkit-scrollbar { display: none; }
+  .filter-btn,
+  .genre-pill { flex-shrink: 0; }
+}
