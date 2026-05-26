@@ -214,6 +214,64 @@ function renderCategories() {
 }
 
 /* ════════════════════════════════════════════════
+   ITEM FILTERS
+════════════════════════════════════════════════ */
+let _activeItemTag = '';
+
+function renderItemFilters() {
+  const container = document.getElementById('item-filters');
+  if (!container) return;
+  const groups = PLURGASM_DATA.itemFilters || [];
+
+  container.innerHTML = groups.map(g => `
+    <div class="item-filter-group">
+      <p class="item-filter-group-label">${g.group}</p>
+      <div class="item-filter-pills">
+        ${g.items.map(item => `
+          <button class="item-pill"
+            data-tag="${item.tag}"
+            onclick="filterByItem('${item.tag}', this)">
+            ${item.label}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterByItem(tag, btn) {
+  if (_activeItemTag === tag) {
+    _activeItemTag = '';
+    document.querySelectorAll('.item-pill')
+      .forEach(b => b.classList.remove('active'));
+    searchQuery = '';
+    document.getElementById('item-clear-btn').style.display = 'none';
+    renderBrands(window._currentCat || 'all');
+    return;
+  }
+
+  _activeItemTag = tag;
+  searchQuery = tag;
+
+  document.querySelectorAll('.item-pill')
+    .forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.getElementById('item-clear-btn').style.display = 'block';
+
+  window._currentCat = 'all';
+  document.querySelectorAll('.filter-btn[data-cat]')
+    .forEach(b => b.classList.remove('active'));
+  document.querySelector('.filter-btn[data-cat="all"]')
+    ?.classList.add('active');
+
+  renderBrands('all');
+
+  document.getElementById('brands')
+    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ════════════════════════════════════════════════
    RENDER BRANDS
 ════════════════════════════════════════════════ */
 let searchQuery = '';
@@ -221,9 +279,15 @@ let _brandLimit = 8;
 
 function renderBrands(cat) {
   let list = cat === 'all' ? BRANDS : BRANDS.filter(b => b.cat === cat);
-  if (searchQuery) list = list.filter(b =>
-    [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags||[])].join(' ').toLowerCase().includes(searchQuery)
-  );
+  if (searchQuery) list = list.filter(b => {
+    const text = [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags||[])].join(' ').toLowerCase();
+    const matchesText = text.includes(searchQuery.toLowerCase());
+    const matchesTags = (b.tags||[]).some(t =>
+      t.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      searchQuery.toLowerCase().includes(t.toLowerCase())
+    );
+    return matchesText || matchesTags;
+  });
   list = list.slice().sort((a, b) => {
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
@@ -358,6 +422,12 @@ function filterBrands(cat, btn) {
   _brandLimit = 8;
   document.querySelectorAll('#brand-filters .filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
+  // clear item pill state when category filter changes
+  _activeItemTag = '';
+  searchQuery = '';
+  document.querySelectorAll('.item-pill').forEach(b => b.classList.remove('active'));
+  const clearBtn = document.getElementById('item-clear-btn');
+  if (clearBtn) clearBtn.style.display = 'none';
   renderBrands(cat);
   window._currentCat = cat;
 }
@@ -580,6 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPlur();
   renderFestivals();
   renderCategories();
+  renderItemFilters();
   renderBrands('all');
   renderSocials();
   renderBlog();

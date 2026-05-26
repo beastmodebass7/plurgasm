@@ -941,6 +941,85 @@ nav {
 }
 
 /* ══════════════════════════════════════════════════
+   ITEM FILTERS
+══════════════════════════════════════════════════ */
+.item-filter-wrap {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  margin-bottom: 28px;
+}
+.item-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.item-filter-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.item-filter-clear {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pink);
+  background: none;
+  border: 1px solid rgba(255,45,120,0.3);
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.item-filter-clear:hover { background: rgba(255,45,120,0.08); }
+
+.item-filter-group {
+  margin-bottom: 14px;
+}
+.item-filter-group:last-child { margin-bottom: 0; }
+
+.item-filter-group-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 8px;
+}
+.item-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.item-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.item-pill:hover {
+  border-color: rgba(0,229,255,0.4);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+}
+.item-pill.active {
+  border-color: var(--cyan);
+  color: var(--black);
+  background: var(--cyan);
+  box-shadow: 0 0 16px rgba(0,229,255,0.25);
+}
+
+/* ══════════════════════════════════════════════════
    BRAND CARDS
 ══════════════════════════════════════════════════ */
 .brand-grid {

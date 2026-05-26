@@ -47,6 +47,12 @@ Brands: id, name, badge, cat, badgeCls, priceCls, price, ship, loc, style, tags,
 Categories: id, label, icon, count
 Socials: handle, platform, type, desc, featured
 
+## Item filter system
+- Item filters stored in `PLURGASM_DATA.itemFilters` in `js/data.js`
+- Rendered by `renderItemFilters()` in `js/main.js`
+- `filterByItem()` sets `searchQuery` to the tag and re-renders brands
+- To add a new item filter: add to `itemFilters` array in `js/data.js`
+
 ## Blog system
 - Posts stored in `PLURGASM_DATA.blogPosts` in `js/data.js`
 - Rendered on homepage by `renderBlog()` in `js/main.js` (newspaper layout — featured left, sidebar right)
