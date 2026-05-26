@@ -1367,6 +1367,56 @@ footer {
   box-shadow: 0 0 12px rgba(182,77,255,0.15);
 }
 
+.region-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(240,238,255,0.65);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.region-pill:hover {
+  border-color: rgba(255,184,0,0.6);
+  color: var(--amber);
+  background: rgba(255,184,0,0.1);
+}
+.region-pill.active {
+  border-color: rgba(255,184,0,0.7);
+  color: var(--amber);
+  background: rgba(255,184,0,0.14);
+  box-shadow: 0 0 12px rgba(255,184,0,0.15);
+}
+
+.month-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(240,238,255,0.65);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.month-pill:hover {
+  border-color: rgba(0,229,255,0.6);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.1);
+}
+.month-pill.active {
+  border-color: rgba(0,229,255,0.7);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.14);
+  box-shadow: 0 0 12px rgba(0,229,255,0.15);
+}
+
 /* view toggle */
 .view-toggle {
   display: flex;
