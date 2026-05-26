@@ -125,6 +125,7 @@ PLURGASM_DATA.plurDefinitions = [
 ];
 
 PLURGASM_DATA.blogPosts = [
+
   {
     id: 'post-001',
     title: 'Project GLOW 2026 — The Complete Guide',
@@ -133,40 +134,317 @@ PLURGASM_DATA.blogPosts = [
     authorHandle: '@plurgasm',
     date: '2026-05-15',
     category: 'festival-news',
-    coverImage: '',
-    excerpt: 'Everything you need to know before heading to RFK Festival Grounds this May 30-31. Lineup breakdown, what to bring, getting there, and what to expect from DC\'s biggest electronic music event.',
-    body: '<p>Project GLOW returns to Washington DC for its 5th anniversary...</p><p>Full guide coming soon.</p>',
+    coverImage: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80',
+    excerpt: 'Everything you need to know before heading to RFK Festival Grounds this May 30-31. Full lineup breakdown by stage, what to bring, how to get there, and what makes DC\'s biggest rave worth the trip.',
     published: true,
     featured: true,
+    body: `
+      <p>Project GLOW returns to Washington DC for its <strong>5th anniversary</strong> on May 30–31, 2026 at RFK Festival Grounds — and this year feels different. The lineup is the strongest it has ever been, the production is scaling up, and if you have been sleeping on this festival, this is the year to wake up.</p>
+
+      <p>Born from <strong>Club GLOW</strong> — the longest-running electronic music promoter on the East Coast — Project GLOW has grown from a local DC staple into one of the most respected regional festivals in the country. Here is everything you need to know before you go.</p>
+
+      <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80" alt="Festival crowd under lights" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
+
+      <h2>The Lineup</h2>
+
+      <h3>🌐 Eternal Stage</h3>
+      <p>The main stage lineup for Day 1 is headlined by <strong>Eric Prydz</strong> — a name that needs no introduction. If you have never seen a Prydz set live, this is one of the most production-heavy shows in electronic music. Plan your Day 1 around being at the Eternal Stage by 9:45PM. Supporting him: Disco Lines, Sara Landry, DJ Mandy, Lilly Palmer, and Kream.</p>
+      <p>Day 2 closes with <strong>Porter Robinson</strong> followed by <strong>Excision B2B Sullivan King</strong> — two completely different energies back to back. Gryffin plays sunset. Alleycvt, Ninajirachi, YDG, and Probcause round out the afternoon.</p>
+
+      <h3>🔊 Pulse Stage</h3>
+      <p>The bass stage is where it gets chaotic. <strong>Zeds Dead</strong> headlines Day 1 and <strong>Mau P</strong> closes Day 2. G Jones B2B Eprom, Wooli, Dimension, and Ray Volpe fill out a stage that runs hard from 1PM to 11PM both days.</p>
+
+      <h3>🌿 Secret Garden</h3>
+      <p>The underground stage is the hidden gem of Project GLOW. <strong>Nicole Moudaber B2B Chasewest</strong> closes Day 1 in what should be one of the sets of the weekend. Day 2 brings Spencer Brown B2B Qrion, Cosmic Gate, Eli & Fur, and Cassian. If you are into deeper, darker sounds — spend time here.</p>
+
+      <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80" alt="Concert stage lights" style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
+
+      <h2>Getting There</h2>
+      <p>RFK Festival Grounds sits just off the <strong>Stadium-Armory Metro stop</strong> on the Orange, Blue, and Silver lines. If you are coming from anywhere in the DC/Maryland/Virginia area, metro is genuinely your best option. Parking is available but limited and expensive — budget an extra 30 minutes if you drive.</p>
+      <p>Rideshare dropoff zones are clearly marked on the festival map. Uber and Lyft surge hard after the show ends — consider walking to a nearby street before requesting or splitting with your group.</p>
+
+      <h2>What to Bring</h2>
+      <ul style="margin:16px 0 16px 20px;line-height:2;">
+        <li>Small backpack (under 18 inches)</li>
+        <li>Sealed water bottle up to 32oz — refill stations are throughout the venue</li>
+        <li>Earplugs — seriously, your ears will thank you</li>
+        <li>Sunscreen (no aerosol)</li>
+        <li>Kandi and flow toys (no sharp edges)</li>
+        <li>Phone charger / portable battery</li>
+        <li>Cash and card — both accepted inside</li>
+      </ul>
+
+      <h2>What NOT to Bring</h2>
+      <ul style="margin:16px 0 16px 20px;line-height:2;">
+        <li>Outside food or alcohol</li>
+        <li>Professional cameras with detachable lenses</li>
+        <li>Drones, laser pointers, selfie sticks</li>
+        <li>Umbrellas with metal tips</li>
+        <li>Large bags over 18 inches</li>
+      </ul>
+
+      <h2>Harm Reduction</h2>
+      <p><strong>DanceSafe will be on-site both days.</strong> Free water stations are located throughout the venue. Medical tents with trained staff are clearly marked on the festival map. Cool-down zones are available if you need to step away from the crowd.</p>
+      <p>Project GLOW has a Good Samaritan policy — if someone needs help, seek it. You will not get in trouble for doing the right thing.</p>
+
+      <h2>Tickets</h2>
+      <p>GA passes start at <strong>$119 all-in</strong> for both days. GA+ ($139) includes expedited entry and access to air-conditioned rest areas. VIP starts at $249. Layaway is available through Front Gate Tickets with a $5 deposit. Buy directly from the official site — never from third-party resellers or Facebook groups.</p>
+
+      <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;"><strong>Bottom line:</strong> Project GLOW is one of the best-run festivals on the East Coast. The stages are close together, the crowd is welcoming, and the production punches above its weight. If you are within driving distance of DC — go.</p>
+    `
   },
+
   {
     id: 'post-002',
+    title: 'EDC Las Vegas 2026 — What to Expect at the 30th Anniversary',
+    slug: 'edc-las-vegas-2026-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-05-01',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&q=80',
+    excerpt: 'EDC turns 30 in 2026 and it\'s shaping up to be the biggest edition ever. 9 stages, 200+ artists, 500,000 headliners under the electric sky of Las Vegas. Here\'s what you need to know.',
+    published: true,
+    featured: false,
+    body: `
+      <p>Electric Daisy Carnival turns <strong>30 years old in 2026</strong> — and Insomniac is pulling out everything for the anniversary. EDC Las Vegas runs <strong>May 15–17</strong> at the Las Vegas Motor Speedway, and if you have ever considered going, this is the year.</p>
+
+      <p>EDC is not just a festival. It is the single largest electronic music event in North America, and arguably the most important. Three nights. Nine stages. 200+ artists. 500,000 headliners from around the world, all under what Insomniac calls "the electric sky."</p>
+
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Massive festival crowd at night" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
+
+      <h2>The Stages</h2>
+      <p>EDC's stage lineup is unlike anything else in festival production:</p>
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>kineticFIELD</strong> — the iconic mainstage. The centerpiece of the entire festival. Production that takes a full year to build.</li>
+        <li><strong>cosmicMEADOW</strong> — the second mainstage. Typically progressive house and techno.</li>
+        <li><strong>circuitGROUNDS</strong> — bass and hard dance. One of the loudest stages on the property.</li>
+        <li><strong>neonGARDEN</strong> — the underground techno stage. Dark, sweaty, and relentless.</li>
+        <li><strong>wasteLAND</strong> — the experimental and hard techno stage. Industrial and raw.</li>
+        <li><strong>basspod</strong> — dubstep, riddim, and bass music</li>
+        <li><strong>quantumVALLEY</strong> — trance and progressive</li>
+        <li><strong>stereoBLOOM</strong> — house and disco</li>
+        <li><strong>pixel forest</strong> — art installation with live music</li>
+      </ul>
+
+      <h2>Confirmed Headliners</h2>
+      <p>The 30th anniversary lineup features Martin Garrix, Tiësto, Alesso, Excision, Seven Lions, Fisher, Eric Prydz, and Subtronics — with more names being announced in waves. Full lineup drops typically happen 2–3 months before the event on the official EDC website.</p>
+
+      <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80" alt="DJ on stage" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+      <h2>Surviving EDC — The Practical Guide</h2>
+      <p>EDC is a 3-night outdoor desert festival. It runs from roughly <strong>7PM to 5AM</strong> each night. The Las Vegas desert can be cold at night even in May — temperatures drop significantly after midnight. Here is what veteran headliners recommend:</p>
+
+      <h3>Sleep and Recovery</h3>
+      <p>You will not sleep much. Plan for it. Book your hotel with blackout curtains and try to get 6+ hours during the day before each night. Most experienced EDC attendees stay at hotels directly on the Las Vegas Strip and use the official shuttle service to the speedway — this is strongly recommended over driving or rideshare.</p>
+
+      <h3>Hydration and Heat</h3>
+      <p>Hydration packs (up to 70oz) are allowed and highly recommended. The Speedway is massive — you will walk miles each night. Bring electrolyte packets. Water refill stations are throughout the venue and free. Do not drink alcohol without matching it with water.</p>
+
+      <h3>What to Wear</h3>
+      <p>Layers. Desert nights go from warm to cold fast. A pashmina or light jacket is essential. Comfortable shoes you can stand and dance in for 8+ hours. Bring earplugs — at EDC this is non-negotiable, the stages are loud.</p>
+
+      <h2>Tickets and Cost</h2>
+      <p>GA 3-day passes start around <strong>$459 all-in</strong> with layaway available through Front Gate Tickets. GA+ and VIP options exist at higher price points. Hotel packages are available through Insomniac's official travel partners — these sell out fast and are worth booking early if you want on-site convenience.</p>
+
+      <p style="margin-top:32px;padding:20px;background:rgba(182,77,255,0.06);border-left:3px solid #b64dff;"><strong>30 years is a milestone.</strong> EDC 2026 will be remembered. If there is one festival to splurge on this decade, this is it.</p>
+    `
+  },
+
+  {
+    id: 'post-003',
     title: 'PLUR 101 — A Beginner\'s Guide to Rave Culture',
     slug: 'plur-101-beginners-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
-    date: '2026-05-10',
+    date: '2026-04-20',
     category: 'culture',
-    coverImage: '',
-    excerpt: 'New to raving? Here\'s everything you need to know about the culture, the etiquette, kandi trading, and why PLUR isn\'t just a slogan — it\'s how we look out for each other.',
-    body: '<p>Welcome to the rave community...</p><p>Full post coming soon.</p>',
+    coverImage: 'https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80',
+    excerpt: 'New to raving? Here\'s everything you need to know about the culture, etiquette, kandi trading, and why PLUR isn\'t just a slogan — it\'s how we actually look out for each other on the dancefloor.',
     published: true,
     featured: false,
+    body: `
+      <p>Everyone starts somewhere. Maybe a friend invited you to your first festival and you had no idea what to expect. Maybe you have been curious about rave culture for a while and finally decided to dive in. Either way — welcome. You are in the right place.</p>
+
+      <p>This guide covers everything a first-time raver needs to know: what PLUR actually means, how kandi trading works, dancefloor etiquette, and how to have a safe and genuinely amazing time.</p>
+
+      <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=800&q=80" alt="Colorful kandi bracelets" style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
+
+      <h2>What is PLUR?</h2>
+      <p>PLUR stands for <strong>Peace, Love, Unity, Respect</strong>. It started in the early 90s New York rave scene as both a greeting and a philosophy — and it became the backbone of global rave culture for a reason.</p>
+
+      <p>PLUR is not just a slogan. It is how the rave community actually operates at its best:</p>
+
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Peace</strong> — no judgment, no gatekeeping, no ego. The dancefloor is a judgment-free zone. It doesn\'t matter what you\'re wearing, what music you like, or how long you\'ve been going to raves.</li>
+        <li><strong>Love</strong> — unconditional love for strangers. The kind that makes someone hand you water when you look overheated, or check on you if you\'re sitting alone outside a tent.</li>
+        <li><strong>Unity</strong> — one crowd, one energy. Every background, every genre preference, every body. The dancefloor erases all of it.</li>
+        <li><strong>Respect</strong> — for personal space, for consent, for the music, and for each other. Respect means looking out for people around you.</li>
+      </ul>
+
+      <h2>Kandi — What It Is and How Trading Works</h2>
+      <p>Kandi are the colorful beaded bracelets you will see ravers wearing stacked up their arms. Each one was handmade by someone, worn, and traded. Every piece has a story.</p>
+
+      <p>Trading kandi is one of the most beloved rituals in rave culture. It happens through the <strong>PLUR handshake</strong> — a four-step gesture that physically represents each letter:</p>
+
+      <ol style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Peace</strong> — press your flat palms together (like a namaste)</li>
+        <li><strong>Love</strong> — interlock your fingers together</li>
+        <li><strong>Unity</strong> — hook your thumbs together, hands still joined</li>
+        <li><strong>Respect</strong> — slide the kandi bracelet from your wrist to theirs</li>
+      </ol>
+
+      <p>A few etiquette rules: always ask before initiating. Accept a trade graciously even if the piece isn\'t your style — it\'s about the connection, not the bracelet. Never demand kandi or trade with someone who seems uncomfortable. You can always politely decline.</p>
+
+      <h2>Dancefloor Etiquette</h2>
+      <p>Rave etiquette is mostly common sense, but here are the things that matter:</p>
+
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Watch your space.</strong> Festivals are crowded. Be aware of the people around you, especially near the front of stages.</li>
+        <li><strong>Ask before touching.</strong> Consent is non-negotiable. Always ask before hugging, dancing with, or touching anyone.</li>
+        <li><strong>Check on people.</strong> If someone looks unwell, check on them. If they need help, find a medic — that is what they are there for.</li>
+        <li><strong>Don\'t push to the front.</strong> The people who got there early earned their spot.</li>
+        <li><strong>Leave space for flow artists.</strong> If someone is spinning or doing flow arts, give them room — it is genuinely beautiful to watch and dangerous to interrupt.</li>
+      </ul>
+
+      <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Festival crowd dancing" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+      <h2>Safety Basics for Your First Rave</h2>
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li>Tell someone where you\'re going and when you expect to be back</li>
+        <li>Go with at least one person you trust</li>
+        <li>Agree on a meeting spot before you go in — phones die and crowds split groups</li>
+        <li>Drink water. Roughly 500ml per hour if you\'re dancing</li>
+        <li>Bring earplugs. The music is loud and hearing damage is permanent</li>
+        <li>Know where the medical tent is when you first arrive</li>
+        <li>DanceSafe is at most major festivals — find them for harm reduction information</li>
+      </ul>
+
+      <h2>What to Wear</h2>
+      <p>Rave fashion is expressive and there are truly no rules — but practically speaking: wear shoes you can stand in for hours, bring a layer if you\'re at an outdoor event, and if you\'re in a crowd, wear something you\'re comfortable moving in.</p>
+
+      <p>Kandi, LED accessories, and flow toys are all welcome at most festivals. Check the specific event\'s rules on what\'s allowed before you go.</p>
+
+      <p style="margin-top:32px;padding:20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;"><strong>The most important thing:</strong> show up with an open mind and genuine respect for the people around you. The rave community is one of the most welcoming on earth when PLUR is actually practiced. We are glad you\'re here.</p>
+    `
   },
+
   {
-    id: 'post-003',
-    title: 'Best Rave Outfits for Summer 2026',
-    slug: 'best-rave-outfits-summer-2026',
+    id: 'post-004',
+    title: 'Electric Forest 2026 — Why This is Unlike Any Other Festival',
+    slug: 'electric-forest-2026-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
-    date: '2026-05-05',
-    category: 'fashion',
-    coverImage: '',
-    excerpt: 'Festival season is here. We rounded up the best fem and masc festival looks for summer 2026 — from budget-friendly sets to luxury fae pieces.',
-    body: '<p>Summer 2026 festival fashion...</p><p>Full post coming soon.</p>',
+    date: '2026-04-10',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80',
+    excerpt: 'Electric Forest is not just a festival — it\'s a world built inside a Michigan pine forest. ILLENIUM, GRiZ, and Subtronics headline a 4-day experience that is genuinely unlike anything else.',
     published: true,
     featured: false,
+    body: `
+      <p>There is Electric Forest, and then there is every other festival. That sounds like hype — but ask anyone who has been and they will tell you the same thing. The forest changes people.</p>
+
+      <p>Electric Forest runs <strong>June 25–28, 2026</strong> at Double JJ Resort in Rothbury, Michigan. It is a 4-day camping festival built around and inside <strong>Sherwood Forest</strong> — a real pine forest that the production team spends an entire year transforming into something that defies description.</p>
+
+      <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80" alt="Forest lights at night" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
+
+      <h2>Sherwood Forest — The Heart of It All</h2>
+      <p>Sherwood Forest is not a stage. It is a 24-hour art installation — a winding network of paths through the trees, each one lit differently, filled with art pieces, secret stages, performers, and moments that happen nowhere else on earth.</p>
+
+      <p>You might turn a corner at 3AM and find a string quartet playing in a clearing. Or a fire performer. Or an entire crowd of people dancing to a DJ set underneath a canopy of lights strung through the trees. The forest runs all night and it is worth staying up for.</p>
+
+      <h2>The 2026 Lineup</h2>
+      <p>The headline acts for 2026 include <strong>ILLENIUM</strong>, <strong>GRiZ performing twice</strong> (a tradition at EF), and <strong>Subtronics</strong>. The booking that has everyone talking: <strong>Shaquille O\'Neal B2B T-Pain</strong> in a DJ set that will absolutely be unhinged in the best possible way.</p>
+
+      <p>Electric Forest\'s strength is always the depth of the lineup — bass music, jam bands, psychedelic electronic, house, and experimental acts fill 4 days across multiple stages. There is always something happening worth seeing.</p>
+
+      <h2>Camping is Part of the Experience</h2>
+      <p>Electric Forest is a camping festival in the truest sense. <strong>On-site camping is strongly recommended</strong> — the experience of waking up in the forest, walking to stages, and spending 4 full days in this environment is fundamentally different from commuting in each day.</p>
+
+      <p>General camping is included with GA Camping passes. Good Life (VIP) camping offers upgraded amenities. The campgrounds have showers, though lines get long — shower at off-peak hours (early morning or late afternoon).</p>
+
+      <img src="https://images.unsplash.com/photo-1478827387698-1527781a4887?w=800&q=80" alt="Camping at festival" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+      <h2>Practical Tips from Veterans</h2>
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Bring a wagon.</strong> You will haul gear from your car to your campsite and a wagon makes it manageable. Many people rent them on-site.</li>
+        <li><strong>Michigan weather is unpredictable.</strong> Pack a poncho and a layer. June can be beautiful and it can also rain hard for a full day.</li>
+        <li><strong>Get lost in the forest.</strong> The scheduled FOMO is real but some of the best Electric Forest moments happen when you wander with no plan.</li>
+        <li><strong>Bring lights for your campsite.</strong> String lights, LED stakes — anything to mark your tent so you can find it at 4AM.</li>
+        <li><strong>The Good Life Lounge</strong> is worth it if you can afford it — AC, private bathrooms, and a shaded viewing area.</li>
+      </ul>
+
+      <h2>Tickets</h2>
+      <p>GA Camping passes start around <strong>$399</strong>. Good Life (VIP) from $799. Day tickets are available at a lower price point if you cannot commit to all 4 days. Layaway is available — Electric Forest typically sells out well before the event, so do not wait.</p>
+
+      <p style="margin-top:32px;padding:20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;"><strong>If you can only go to one new festival this year, make it Electric Forest.</strong> It is the kind of experience that becomes a reference point — before and after.</p>
+    `
+  },
+
+  {
+    id: 'post-005',
+    title: 'The Best Rave Brands of 2026 — Community Picks',
+    slug: 'best-rave-brands-2026',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-03-28',
+    category: 'fashion',
+    coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    excerpt: 'We pulled together the most-recommended rave clothing, kandi, and accessory brands from community feedback. From affordable everyday sets to high-end fae pieces — here is what the community actually rates.',
+    published: true,
+    featured: false,
+    body: `
+      <p>Every season the rave fashion conversation cycles through the same questions: who is actually worth buying from? Which brands have quality issues? Who ships on time? Who has good return policies?</p>
+
+      <p>We pulled this list from real community feedback across rave subreddits, Facebook groups, and direct submissions. These are not sponsored picks — they are brands the community actually rates.</p>
+
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Festival fashion outfits" style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
+
+      <h2>Best for Everyday Rave Sets — All Price Points</h2>
+
+      <h3>Freedom Rave Wear — California · $–$$</h3>
+      <p>Consistently the most-recommended brand in the community for a reason. Quality spandex sets at reasonable prices, ships within a week, and one of the few brands that stocks solid options for all body types. They also carry men\'s shirts and tank tops — rare in the rave clothing space.</p>
+
+      <h3>iHeartRaves — California · $</h3>
+      <p>The biggest rave clothing retailer in the US. Wide selection, artist collabs, and affordable prices. Note: no returns, only store credit. Quality can be inconsistent but they will replace defective items. Size generally runs true.</p>
+
+      <h3>Rage Kage — California · $</h3>
+      <p>Specifically beloved for long-torso-friendly bodysuits and affordable sequin looks. True to size, quick shipping, and MTO options available if you want something specific. Great entry point for fancier looks without the luxury price tag.</p>
+
+      <h2>Best for Fae, Babydoll, and High-End Looks</h2>
+
+      <h3>Vanishing Fae — California · $$$–$$$$</h3>
+      <p>The community luxury pick. Intricate fae and babydoll aesthetics handmade at a premium price point. If you are investing in a statement piece, Vanishing Fae is consistently cited as worth it. Check if sets are lined before purchasing — some sequin pieces can cause irritation.</p>
+
+      <h3>Little Kitty Raves — California · $$–$$$</h3>
+      <p>MTO fae and babydoll sets with a dedicated following. Expect 2–3 week turnaround for made-to-order pieces. The quality is consistently praised across community reviews.</p>
+
+      <h2>Best Shoes</h2>
+
+      <h3>Demonia Cult — California · $–$$</h3>
+      <p>Still the undisputed king of rave shoes. Platform boots, trainers, pumps, and Gothic styles in a wide size range. Ships within a week. If you are buying your first pair of platform shoes for a festival, start here.</p>
+
+      <h3>YRU — California · $–$$$</h3>
+      <p>A strong Demonia alternative with wider styles and a higher price ceiling. Chunky platforms, boots, and trainers with more experimental colorways. Worth browsing if you want something different.</p>
+
+      <h2>Best Kandi Supplies</h2>
+
+      <h3>Kandies World — Florida · $</h3>
+      <p>The kandi supply headquarters. If you make your own kandi, this is your first stop — beads, perler beads, elastic, and accessories. Ships fast, prices are fair.</p>
+
+      <h3>inPLUR — Louisiana · $</h3>
+      <p>For those who want premade kandi ready to trade without making it themselves. One of the most loved kandi shops in the community. PLUR through and through.</p>
+
+      <img src="https://images.unsplash.com/photo-1516450137517-162bfbeb8dba?w=800&q=80" alt="Rave accessories and kandi" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+      <h2>A Note on Red Flags</h2>
+      <p>The rave clothing space has a dropshipping problem. Some warning signs: the website has no clear location listed, the same items appear on AliExpress at a fraction of the price, shipping takes 4–6 weeks with no explanation, and reviews are suspiciously generic.</p>
+      <p>Always check community reviews before buying from an unfamiliar brand. The Facebook groups and Reddit\'s r/festivals are good resources. When in doubt — stick to community-tested names.</p>
+
+      <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;"><strong>All brands listed in this article are in the PLURGASM directory</strong> with full details on pricing, shipping times, and community notes. Click any brand name to see more.</p>
+    `
   }
+
 ];
 
 PLURGASM_DATA.itemFilters = [
