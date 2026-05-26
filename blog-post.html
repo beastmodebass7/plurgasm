@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PLURGASM Blog — Rave news and culture">
+<title>PLURGASM — Blog</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="theme-color" content="#06060c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="index.html#brands"     onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="index.html#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="index.html#categories" onclick="closeMobileMenu()">Shop by Category</a></li>
+      <li><a href="index.html#social"     onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="blog.html"             onclick="closeMobileMenu()">Blog &amp; News</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#brands">Brands</a></li>
+    <li><a href="index.html#festivals">Festivals</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="index.html#categories">Shop by Category</a></li>
+    <li><a href="index.html#social">Social</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- POST CONTENT -->
+<div style="max-width:860px;margin:0 auto;padding:60px 48px 0;" id="post-main"></div>
+
+<!-- MORE POSTS -->
+<div class="section" style="max-width:860px;padding-top:48px;" id="more-section">
+  <div class="divider" style="margin-bottom:40px;max-width:100%;"></div>
+  <p class="eyebrow">More From the Community</p>
+  <div class="blog-grid" id="more-posts-grid" style="margin-top:24px;"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="index.html#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#categories">Shop by Category</a></li>
+      <li><a href="index.html#social">Social</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+(function() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+
+const catColors = {
+  'festival-news': 'var(--cyan)',
+  'culture':       'var(--purple)',
+  'fashion':       'var(--pink)',
+  'safety':        'var(--green)',
+  'gear':          'var(--amber)',
+};
+const catLabels = {
+  'festival-news': 'Festival News',
+  'culture':       'Culture',
+  'fashion':       'Fashion',
+  'safety':        'Safety',
+  'gear':          'Gear',
+};
+
+function getColor(cat) { return catColors[cat] || 'var(--cyan)'; }
+function getLabel(cat) { return catLabels[cat] || cat; }
+function fmtDate(d) {
+  return new Date(d).toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const posts = (PLURGASM_DATA.blogPosts || []).filter(p => p.published);
+  const post = posts.find(p => p.id === id);
+  const main = document.getElementById('post-main');
+
+  if (!post) {
+    main.innerHTML = `
+      <div style="text-align:center;padding:80px 0;">
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:3px;color:var(--white);">POST NOT FOUND</p>
+        <p style="color:var(--muted);margin:16px 0 32px;">This post doesn't exist or has been removed.</p>
+        <a href="blog.html" class="nav-cta">← Back to Blog</a>
+      </div>`;
+    document.getElementById('more-section').style.display = 'none';
+    return;
+  }
+
+  document.title = post.title + ' — PLURGASM';
+
+  const color = getColor(post.category);
+  const label = getLabel(post.category);
+
+  main.innerHTML = `
+    <div style="margin-bottom:32px;">
+      <a href="blog.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">← All Posts</a>
+    </div>
+
+    ${post.coverImage
+      ? `<div style="width:100%;height:320px;overflow:hidden;margin-bottom:36px;">
+           <img src="${post.coverImage}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;">
+         </div>`
+      : `<div style="width:100%;height:200px;background:linear-gradient(135deg,${color}12,transparent);border:1px solid ${color}22;display:flex;align-items:center;justify-content:center;margin-bottom:36px;">
+           <span style="font-family:'Bebas Neue',sans-serif;font-size:100px;color:${color};opacity:0.12;">${post.title[0]}</span>
+         </div>`}
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+      <span class="blog-cat" style="color:${color};border-color:${color}44;">${label}</span>
+      <span class="blog-date">${fmtDate(post.date)}</span>
+    </div>
+
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,72px);letter-spacing:3px;color:var(--white);line-height:1.05;margin-bottom:16px;">${post.title}</h1>
+
+    <div style="display:flex;align-items:center;gap:10px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:40px;">
+      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">By ${post.author}</span>
+      ${post.authorHandle ? `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--cyan);">${post.authorHandle}</span>` : ''}
+    </div>
+
+    <div style="font-size:16px;color:var(--muted);line-height:1.8;">${post.body}</div>
+  `;
+
+  const morePosts = posts
+    .filter(p => p.id !== post.id)
+    .sort((a,b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 2);
+
+  if (!morePosts.length) {
+    document.getElementById('more-section').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('more-posts-grid').innerHTML = morePosts.map(p => {
+    const c = getColor(p.category);
+    const l = getLabel(p.category);
+    const d = new Date(p.date).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    return `
+      <a class="blog-card" href="blog-post.html?id=${p.id}">
+        <div class="blog-card-top">
+          ${p.coverImage
+            ? `<img src="${p.coverImage}" alt="${p.title}" class="blog-cover">`
+            : `<div class="blog-cover-placeholder" style="background:linear-gradient(135deg,${c}22,transparent);">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:${c};opacity:0.2;">${l[0]}</span>
+               </div>`}
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-cat" style="color:${c};border-color:${c}33;">${l}</span>
+            <span class="blog-date">${d}</span>
+          </div>
+          <h3 class="blog-title">${p.title}</h3>
+          <p class="blog-excerpt">${p.excerpt}</p>
+          <div class="blog-author">
+            <span class="blog-author-name">By ${p.author}</span>
+            ${p.authorHandle ? `<span class="blog-author-handle">${p.authorHandle}</span>` : ''}
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+});
+</script>
+</body>
+</html>

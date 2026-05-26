@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PLURGASM Blog — Rave news, culture, fashion, and safety.">
+<title>PLURGASM — Blog &amp; News</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="theme-color" content="#06060c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="index.html#brands"     onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="index.html#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="index.html#categories" onclick="closeMobileMenu()">Shop by Category</a></li>
+      <li><a href="index.html#social"     onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="blog.html"             onclick="closeMobileMenu()">Blog &amp; News</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="submit.html" class="mob-cta">Submit a Brand</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#brands">Brands</a></li>
+    <li><a href="index.html#festivals">Festivals</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="index.html#categories">Shop by Category</a></li>
+    <li><a href="index.html#social">Social</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="submit.html" class="nav-cta">Submit a Brand</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- BLOG HEADER + FILTERS -->
+<section class="section" style="padding-bottom:0;">
+  <p class="eyebrow">From the Community</p>
+  <div class="section-header">
+    <h2 class="section-title">RAVE NEWS &amp; CULTURE</h2>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <input type="text" id="blog-search" placeholder="Search posts..."
+      style="
+        width:100%;max-width:420px;
+        background:rgba(255,255,255,0.05);
+        border:1px solid rgba(0,229,255,0.28);
+        color:var(--white);
+        font-family:'Chakra Petch',sans-serif;
+        font-size:14px;
+        padding:12px 18px;
+        outline:none;
+        transition:border-color 0.2s;
+      "
+      onfocus="this.style.borderColor='rgba(0,229,255,0.6)'"
+      onblur="this.style.borderColor='rgba(0,229,255,0.28)'"
+      oninput="renderAll()">
+  </div>
+
+  <div class="filters" id="blog-filters" style="margin-bottom:32px;">
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('festival-news',this)">Festival News</button>
+    <button class="filter-btn" onclick="setFilter('culture',this)">Culture</button>
+    <button class="filter-btn" onclick="setFilter('fashion',this)">Fashion</button>
+    <button class="filter-btn" onclick="setFilter('safety',this)">Safety</button>
+    <button class="filter-btn" onclick="setFilter('gear',this)">Gear</button>
+  </div>
+
+  <div class="blog-grid" id="blog-all-grid"></div>
+  <p id="blog-empty" style="display:none;color:var(--muted);font-size:15px;padding:32px 0;font-family:'DM Mono',monospace;letter-spacing:1px;">No posts found.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="index.html#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#categories">Shop by Category</a></li>
+      <li><a href="index.html#social">Social</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+(function() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+
+const catColors = {
+  'festival-news': 'var(--cyan)',
+  'culture':       'var(--purple)',
+  'fashion':       'var(--pink)',
+  'safety':        'var(--green)',
+  'gear':          'var(--amber)',
+};
+const catLabels = {
+  'festival-news': 'Festival News',
+  'culture':       'Culture',
+  'fashion':       'Fashion',
+  'safety':        'Safety',
+  'gear':          'Gear',
+};
+
+let _activeFilter = 'all';
+
+function setFilter(cat, btn) {
+  _activeFilter = cat;
+  document.querySelectorAll('#blog-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+
+function renderAll() {
+  const query = (document.getElementById('blog-search').value || '').toLowerCase().trim();
+  const posts = (PLURGASM_DATA.blogPosts || [])
+    .filter(p => p.published)
+    .filter(p => _activeFilter === 'all' || p.category === _activeFilter)
+    .filter(p => !query ||
+      p.title.toLowerCase().includes(query) ||
+      p.author.toLowerCase().includes(query) ||
+      p.excerpt.toLowerCase().includes(query))
+    .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+  const grid  = document.getElementById('blog-all-grid');
+  const empty = document.getElementById('blog-empty');
+
+  if (!posts.length) {
+    grid.innerHTML = '';
+    empty.style.display = '';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = posts.map(p => {
+    const color   = catColors[p.category] || 'var(--cyan)';
+    const label   = catLabels[p.category] || p.category;
+    const dateStr = new Date(p.date).toLocaleDateString('en-US',
+      { month:'short', day:'numeric', year:'numeric' });
+    return `
+      <a class="blog-card" href="blog-post.html?id=${p.id}">
+        <div class="blog-card-top">
+          ${p.coverImage
+            ? `<img src="${p.coverImage}" alt="${p.title}" class="blog-cover">`
+            : `<div class="blog-cover-placeholder" style="background:linear-gradient(135deg,${color}22,transparent);">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:${color};opacity:0.2;">${label[0]}</span>
+               </div>`}
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-cat" style="color:${color};border-color:${color}33;">${label}</span>
+            <span class="blog-date">${dateStr}</span>
+          </div>
+          <h3 class="blog-title">${p.title}</h3>
+          <p class="blog-excerpt">${p.excerpt}</p>
+          <div class="blog-author">
+            <span class="blog-author-name">By ${p.author}</span>
+            ${p.authorHandle ? `<span class="blog-author-handle">${p.authorHandle}</span>` : ''}
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', renderAll);
+</script>
+</body>
+</html>
