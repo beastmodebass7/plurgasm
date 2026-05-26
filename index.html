@@ -296,6 +296,23 @@
     </div>
   </div>
   <div class="brand-grid" id="brand-grid"></div>
+  <div style="text-align:center;margin-top:32px;" id="brands-expand">
+    <button onclick="expandBrands()" style="
+      font-family:'DM Mono',monospace;
+      font-size:11px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      padding:13px 32px;
+      background:transparent;
+      border:1px solid rgba(0,229,255,0.4);
+      color:var(--cyan);
+      cursor:pointer;
+      transition:all 0.2s;
+    " onmouseover="this.style.background='rgba(0,229,255,0.08)'"
+       onmouseout="this.style.background='transparent'">
+      Browse All Brands ↓
+    </button>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -337,6 +354,23 @@
 
   <!-- GRID VIEW -->
   <div class="fest-grid" id="fest-grid"></div>
+  <div style="text-align:center;margin-top:32px;" id="fests-expand">
+    <button onclick="expandFests()" style="
+      font-family:'DM Mono',monospace;
+      font-size:11px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      padding:13px 32px;
+      background:transparent;
+      border:1px solid rgba(182,77,255,0.4);
+      color:var(--purple);
+      cursor:pointer;
+      transition:all 0.2s;
+    " onmouseover="this.style.background='rgba(182,77,255,0.08)'"
+       onmouseout="this.style.background='transparent'">
+      View All Festivals ↓
+    </button>
+  </div>
 
   <!-- CALENDAR VIEW -->
   <div class="cal-view" id="cal-view"></div>
