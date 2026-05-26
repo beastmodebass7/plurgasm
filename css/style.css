@@ -2249,3 +2249,60 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ══════════════════════════════════════════════════
+   MOBILE BOTTOM NAV
+══════════════════════════════════════════════════ */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 400;
+  background: rgba(6,6,12,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bn-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 16px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  min-width: 56px;
+  min-height: 44px;
+  justify-content: center;
+}
+.bn-item:hover { opacity: 0.8; }
+.bn-item.active .bn-icon { filter: drop-shadow(0 0 6px var(--cyan)); }
+.bn-item.active .bn-label { color: var(--cyan); }
+
+.bn-icon { font-size: 20px; line-height: 1; }
+.bn-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .bottom-nav { display: flex; }
+
+  /* add padding to body so content
+     doesn't hide behind bottom nav */
+  body { padding-bottom: 72px; }
+
+  /* hide the top nav submit button on mobile
+     since bottom nav handles navigation */
+  .nav-cta { display: none; }
+}
