@@ -278,12 +278,12 @@ let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
 
-// Merge admin-added festivals
+// Merge PLURGASM_DATA.festivals with any admin-added festivals
 const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
-extraFests.forEach(f => FESTIVALS.push(f));
+const festivals = [...(window.PLURGASM_DATA.festivals || []), ...extraFests];
 
 function getFiltered() {
-  return FESTIVALS.filter(f => {
+  return festivals.filter(f => {
     const endDate = f.endDate || f.sortDate;
     const timeOk =
       _timeFilter === 'all'      ? true :
