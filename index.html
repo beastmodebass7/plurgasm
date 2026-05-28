@@ -377,44 +377,46 @@
         </div>
       </div>
     </div>
-    <div class="genre-filter-row" id="genre-filters">
-      <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;">Vibe:</span>
-      <button class="genre-pill active" onclick="filterGenre('',this)">All Vibes</button>
-      <button class="genre-pill" onclick="filterGenre('EDM',this)">EDM</button>
-      <button class="genre-pill" onclick="filterGenre('House',this)">House</button>
-      <button class="genre-pill" onclick="filterGenre('Techno',this)">Techno</button>
-      <button class="genre-pill" onclick="filterGenre('Bass',this)">Bass</button>
-      <button class="genre-pill" onclick="filterGenre('Trance',this)">Trance</button>
-      <button class="genre-pill" onclick="filterGenre('Dubstep',this)">Dubstep</button>
-      <button class="genre-pill" onclick="filterGenre('Psychedelic',this)">Psychedelic</button>
-      <button class="genre-pill" onclick="filterGenre('Hip-Hop',this)">Hip-Hop</button>
-      <button class="genre-pill" onclick="filterGenre('Jam',this)">Jam / Folk</button>
-    </div>
-    <div class="genre-filter-row region-filter-row" id="region-filters">
-      <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;">Region:</span>
-      <button class="region-pill active" onclick="filterRegion('',this)">All Regions</button>
-      <button class="region-pill" onclick="filterRegion('northeast',this)">Northeast</button>
-      <button class="region-pill" onclick="filterRegion('southeast',this)">Southeast</button>
-      <button class="region-pill" onclick="filterRegion('midwest',this)">Midwest</button>
-      <button class="region-pill" onclick="filterRegion('west',this)">West Coast</button>
-      <button class="region-pill" onclick="filterRegion('southwest',this)">Southwest</button>
-      <button class="region-pill" onclick="filterRegion('international',this)">International</button>
-    </div>
-    <div class="genre-filter-row month-filter-row" id="month-filters">
-      <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;">Month:</span>
-      <button class="month-pill active" onclick="filterMonth('',this)">All Months</button>
-      <button class="month-pill" onclick="filterMonth(1,this)">Jan</button>
-      <button class="month-pill" onclick="filterMonth(2,this)">Feb</button>
-      <button class="month-pill" onclick="filterMonth(3,this)">Mar</button>
-      <button class="month-pill" onclick="filterMonth(4,this)">Apr</button>
-      <button class="month-pill" onclick="filterMonth(5,this)">May</button>
-      <button class="month-pill" onclick="filterMonth(6,this)">Jun</button>
-      <button class="month-pill" onclick="filterMonth(7,this)">Jul</button>
-      <button class="month-pill" onclick="filterMonth(8,this)">Aug</button>
-      <button class="month-pill" onclick="filterMonth(9,this)">Sep</button>
-      <button class="month-pill" onclick="filterMonth(10,this)">Oct</button>
-      <button class="month-pill" onclick="filterMonth(11,this)">Nov</button>
-      <button class="month-pill" onclick="filterMonth(12,this)">Dec</button>
+    <div class="fest-filters-wrap">
+      <div class="genre-filter-row" id="genre-filters">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;">Vibe:</span>
+        <button class="genre-pill active" onclick="filterGenre('',this)">All Vibes</button>
+        <button class="genre-pill" onclick="filterGenre('EDM',this)">EDM</button>
+        <button class="genre-pill" onclick="filterGenre('House',this)">House</button>
+        <button class="genre-pill" onclick="filterGenre('Techno',this)">Techno</button>
+        <button class="genre-pill" onclick="filterGenre('Bass',this)">Bass</button>
+        <button class="genre-pill" onclick="filterGenre('Trance',this)">Trance</button>
+        <button class="genre-pill" onclick="filterGenre('Dubstep',this)">Dubstep</button>
+        <button class="genre-pill" onclick="filterGenre('Psychedelic',this)">Psychedelic</button>
+        <button class="genre-pill" onclick="filterGenre('Hip-Hop',this)">Hip-Hop</button>
+        <button class="genre-pill" onclick="filterGenre('Jam',this)">Jam / Folk</button>
+      </div>
+      <div class="genre-filter-row region-filter-row" id="region-filters">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;">Region:</span>
+        <button class="region-pill active" onclick="filterRegion('',this)">All Regions</button>
+        <button class="region-pill" onclick="filterRegion('northeast',this)">Northeast</button>
+        <button class="region-pill" onclick="filterRegion('southeast',this)">Southeast</button>
+        <button class="region-pill" onclick="filterRegion('midwest',this)">Midwest</button>
+        <button class="region-pill" onclick="filterRegion('west',this)">West Coast</button>
+        <button class="region-pill" onclick="filterRegion('southwest',this)">Southwest</button>
+        <button class="region-pill" onclick="filterRegion('international',this)">International</button>
+      </div>
+      <div class="genre-filter-row month-filter-row" id="month-filters">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;">Month:</span>
+        <button class="month-pill active" onclick="filterMonth('',this)">All Months</button>
+        <button class="month-pill" onclick="filterMonth(1,this)">Jan</button>
+        <button class="month-pill" onclick="filterMonth(2,this)">Feb</button>
+        <button class="month-pill" onclick="filterMonth(3,this)">Mar</button>
+        <button class="month-pill" onclick="filterMonth(4,this)">Apr</button>
+        <button class="month-pill" onclick="filterMonth(5,this)">May</button>
+        <button class="month-pill" onclick="filterMonth(6,this)">Jun</button>
+        <button class="month-pill" onclick="filterMonth(7,this)">Jul</button>
+        <button class="month-pill" onclick="filterMonth(8,this)">Aug</button>
+        <button class="month-pill" onclick="filterMonth(9,this)">Sep</button>
+        <button class="month-pill" onclick="filterMonth(10,this)">Oct</button>
+        <button class="month-pill" onclick="filterMonth(11,this)">Nov</button>
+        <button class="month-pill" onclick="filterMonth(12,this)">Dec</button>
+      </div>
     </div>
   </div>
 
