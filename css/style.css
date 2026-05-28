@@ -1422,40 +1422,22 @@ footer {
   .botw { grid-template-columns: 1fr; }
   .countdown-strip { padding: 20px; }
 
-  /* prevent any horizontal overflow from filters */
-  body { overflow-x: hidden; }
-
-  #festivals .genre-filter-row,
-  #festivals .filters,
-  .genre-filter-row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 8px;
-    /* critical — contain scroll within this element */
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  #festivals .genre-filter-row::-webkit-scrollbar { display: none; }
-
-  /* stop pills shrinking */
-  .genre-pill,
-  .filter-btn { flex-shrink: 0; }
-
-  /* contain the entire festivals section */
-  #festivals {
+  body {
     overflow-x: hidden;
     max-width: 100vw;
   }
-
-  /* contain the section wrapper */
   .section {
-    overflow-x: hidden;
     max-width: 100%;
     box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  /* filter rows wrap normally —
+     JS handles the show/hide */
+  .genre-filter-row,
+  .filters {
+    flex-wrap: wrap;
+    overflow-x: visible;
   }
 }
 
@@ -1565,6 +1547,27 @@ footer {
   color: var(--cyan);
   background: rgba(0,229,255,0.14);
   box-shadow: 0 0 12px rgba(0,229,255,0.15);
+}
+
+/* ── EXPANDABLE PILLS — +More button ── */
+.pill-more-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,229,255,0.35);
+  background: rgba(0,229,255,0.06);
+  color: var(--cyan);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.pill-more-btn:hover {
+  background: rgba(0,229,255,0.12);
+  border-color: rgba(0,229,255,0.6);
 }
 
 /* view toggle */

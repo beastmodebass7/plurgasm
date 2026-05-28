@@ -138,6 +138,48 @@ function renderCalendar() {
 }
 
 /* ════════════════════════════════════════════════
+   EXPANDABLE PILLS — mobile show/hide
+════════════════════════════════════════════════ */
+function makeExpandablePills(pills, container, activeClass) {
+  const isMobile = window.innerWidth <= 900;
+  const SHOW = 4; // show first 4 on mobile
+
+  if (!isMobile || pills.length <= SHOW) {
+    // desktop or few pills — show all normally
+    return;
+  }
+
+  // hide pills after index SHOW
+  const allPills = container.querySelectorAll(
+    '.genre-pill, .filter-btn'
+  );
+  let expanded = false;
+
+  allPills.forEach((pill, i) => {
+    if (i >= SHOW) pill.style.display = 'none';
+  });
+
+  // add +More button
+  const moreBtn = document.createElement('button');
+  const hiddenCount = allPills.length - SHOW;
+  moreBtn.className = 'pill-more-btn';
+  moreBtn.textContent = `+${hiddenCount} More`;
+  container.appendChild(moreBtn);
+
+  moreBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    allPills.forEach((pill, i) => {
+      if (i >= SHOW) {
+        pill.style.display = expanded ? '' : 'none';
+      }
+    });
+    moreBtn.textContent = expanded
+      ? 'Show Less ↑'
+      : `+${hiddenCount} More`;
+  });
+}
+
+/* ════════════════════════════════════════════════
    FILTER ACTIONS
 ════════════════════════════════════════════════ */
 function filterFests(type, btn) {
@@ -682,6 +724,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderFestivals();
+
+  // after pills render on mobile only
+  if (window.innerWidth <= 900) {
+    const vibeRow   = document.getElementById('genre-filters');
+    const regionRow = document.getElementById('region-filters');
+    const monthRow  = document.getElementById('month-filters');
+    if (vibeRow)   makeExpandablePills(vibeRow.querySelectorAll('.genre-pill'),   vibeRow);
+    if (regionRow) makeExpandablePills(regionRow.querySelectorAll('.genre-pill'), regionRow);
+    if (monthRow)  makeExpandablePills(monthRow.querySelectorAll('.genre-pill'),  monthRow);
+  }
+
   renderCategories();
   renderBrands('all');
   renderSocials();
