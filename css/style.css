@@ -2552,3 +2552,67 @@ footer {
     max-width: 100%;
   }
 }
+
+/* ══════════════════════════════════════════════════
+   ANIMATED SEARCH INPUT
+══════════════════════════════════════════════════ */
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,229,255,0.35);
+  padding: 0 16px;
+  gap: 8px;
+  height: 52px;
+}
+.search-static {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.search-divider {
+  color: rgba(0,229,255,0.3);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.search-cycle {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  color: var(--faint);
+  pointer-events: none;
+  position: absolute;
+  left: 128px; /* after "Search |" */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.search-real-input {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: 'Chakra Petch', sans-serif;
+  padding-left: 128px; /* after "Search |" */
+  padding-right: 16px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  caret-color: var(--cyan);
+  font-size: 16px; /* prevent iOS zoom */
+}
+
+/* hide cycle text when user is typing */
+.search-real-input:not(:placeholder-shown) ~ .search-cycle,
+.search-input-wrap.typing .search-cycle {
+  opacity: 0;
+}

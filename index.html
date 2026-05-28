@@ -230,8 +230,19 @@
 </div>
     <div class="search-wrap" id="search-wrap">
       <div class="search-form">
-        <input type="text" id="search-input" placeholder="Search festivals, brands, categories, socials..." autocomplete="off">
-        <button onclick="doSearch()">Search</button>
+        <div class="search-input-wrap">
+          <span class="search-static">Search</span>
+          <span class="search-divider">|</span>
+          <span class="search-cycle" id="search-cycle-text"></span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-real-input"
+            placeholder=""
+            autocomplete="off"
+          />
+        </div>
+        <button class="search-btn" onclick="doSearch()">SEARCH</button>
       </div>
       <div class="search-results" id="search-results"></div>
     </div>
@@ -541,6 +552,78 @@
       splash.style.display = 'none';
     }, 400);
   }, 900);
+})();
+</script>
+<script>
+(function() {
+  const cycleTerms = [
+    'festivals near you...',
+    'rave brands...',
+    'kandi supplies...',
+    'platform boots...',
+    'flowstars...',
+    'techno events...',
+    'fem clothing...',
+    'bass festivals...',
+    'EDC 2026...',
+    'harm reduction...',
+    'trance events...',
+    'Project GLOW...',
+    'lost lands...',
+    'pasties...',
+    'led gloves...',
+    'electric forest...',
+  ];
+
+  const el = document.getElementById('search-cycle-text');
+  const input = document.getElementById('search-input');
+  const wrap = input && input.closest('.search-input-wrap');
+  if (!el || !input) return;
+
+  let termIndex = 0;
+  let charIndex  = 0;
+  let deleting   = false;
+  let paused     = false;
+  let raf;
+
+  function type() {
+    if (paused) {
+      setTimeout(() => { paused = false; raf = requestAnimationFrame(type); }, 1800);
+      return;
+    }
+
+    const term = cycleTerms[termIndex];
+
+    if (!deleting) {
+      charIndex++;
+      el.textContent = term.slice(0, charIndex);
+      if (charIndex === term.length) {
+        paused = true;
+        deleting = true;
+      }
+      setTimeout(() => raf = requestAnimationFrame(type), 65);
+    } else {
+      charIndex--;
+      el.textContent = term.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        termIndex = (termIndex + 1) % cycleTerms.length;
+      }
+      setTimeout(() => raf = requestAnimationFrame(type), 30);
+    }
+  }
+
+  // hide cycle text while user types
+  input.addEventListener('input', () => {
+    if (input.value.length > 0) {
+      el.style.opacity = '0';
+    } else {
+      el.style.opacity = '1';
+    }
+  });
+
+  // start after short delay
+  setTimeout(() => requestAnimationFrame(type), 800);
 })();
 </script>
 </body>
