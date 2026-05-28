@@ -51,6 +51,26 @@ const BRANDS = [
   { name:'SASSWEAR SHOP', badge:'SSW', cat:'accessories', badgeCls:'b-pink', priceCls:'price-budget',      price:'$',       ship:'1–2 weeks',       loc:'Florida',        style:'Pasties, glow stickers, body jewels', tags:['accessories','pasties','body-jewels','glow','stickers','hair','clips','glow-stickers'],   desc:'Everything glowy, sticky, and sparkly. Pasties, body jewels, glow stickers, and hair clips — the finishing touches.', ig:'@sasswearshop', url:'#', featured:false, sortOrder:0 },
   { name:'PASHMANIAC', badge:'PMN', cat:'accessories', badgeCls:'b-amber', priceCls:'price-budget',         price:'$',       ship:'1–2 weeks',       loc:'USA',            style:'EDM artist pashminas',               tags:['accessories','pashminas','hoodies','wraps','edm','artist','artist-merch'],               desc:'Artist-branded pashminas for EDM fans. One of the most unique accessories in the scene — warm and festival-essential.', note:'The go-to for EDM pashminas.', ig:'@pashmaniac', url:'#', featured:false, sortOrder:0 },
   { name:'KRITTER KLIPS', badge:'KKL', cat:'accessories', badgeCls:'b-pink', priceCls:'price-mid',          price:'$–$$',    ship:'1–2 weeks',       loc:'California',     style:'Hair clips, tails, fans, clothing',  tags:['accessories','hair','clips','tails','fans'],                             desc:'Hair clips, fuzzy tails, fans, and fun accessories.', note:'Mixed reviews — check community feedback first.', ig:'@kritterklips', url:'#', featured:false, sortOrder:0 },
+  {
+    id: 'first-earth',
+    name: 'FIRST EARTH',
+    badge: 'FE',
+    cat: 'accessories',
+    badgeCls: 'b-green',
+    priceCls: 'price-mid',
+    price: '$$–$$$',
+    ship: '1–2 weeks',
+    loc: 'USA',
+    style: 'Flowstars, flow props, LED poi, orbital',
+    tags: ['flowstar','flow-toys','orbital','poi',
+           'led-gloves','flow-props','performance'],
+    desc: 'One of the most respected flow prop brands in the rave community. Quality flowstars, orbital sets, and LED poi for flow artists at every level.',
+    note: 'Check their site for MTO vs RTS availability.',
+    ig: '@firstearthflow',
+    url: 'https://firstearth.com',
+    featured: false,
+    sortOrder: 0
+  },
   // ── NEW SHOES ──
   { id:'dr-martens', name:'DR. MARTENS', badge:'DM', cat:'shoes', badgeCls:'b-amber', priceCls:'price-mid', price:'$–$$', ship:'~1 week', loc:'Oregon', style:'Combat boots, platform boots', tags:['shoes','boots','combat','platform','grunge','alternative','goth','combat-boots'], desc:'The iconic combat boot. A rave staple for alternative and grunge aesthetics. Wide availability.', ig:'@drmartens', url:'https://drmartens.com', featured:false, sortOrder:0 },
   { id:'melissa-shoes', name:'MELISSA', badge:'MEL', cat:'shoes', badgeCls:'b-pink', priceCls:'price-mid', price:'$–$$', ship:'~1 week', loc:'USA', style:'Jelly shoes, platform boots, heels, sandals', tags:['shoes','jelly','platform','heels','sandals','colorful','fun'], desc:'Adult jelly shoes — platform boots, heels, and sandals. Playful and perfect for festival looks.', note:'Lower 48 US shipping only.', ig:'@melissashoes', url:'https://melissa.com.br/en', featured:false, sortOrder:0 },
@@ -525,6 +545,14 @@ const SOCIALS = [
   { handle:'@dancesafe',        platform:'Instagram', type:'Safety',   featured:true,  desc:'The most important account in the rave community. Harm reduction, drug checking, and real information with zero judgment.' },
   { handle:'@demoniacult',      platform:'Instagram', type:'Brand',    featured:false, desc:'The official Demonia Cult page. New styles, platform boots, and alternative footwear drops.' },
 ];
+
+PLURGASM_DATA.brandOfWeek = {
+  name: 'FREEDOM RAVE WEAR',
+  cat: 'Fem Clothing',
+  desc: 'Fan-favourite for quality spandex rave wear. Stocks fem sets AND mens shirts and tank tops.',
+  ig: '@freedomravewear',
+  url: 'https://freedomravewear.com',
+};
 
 PLURGASM_DATA.festivals = [
   {

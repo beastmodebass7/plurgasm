@@ -653,7 +653,8 @@ function renderBlog() {
    RENDER BOTW — Brand of the Week (admin override)
 ════════════════════════════════════════════════ */
 function renderBotw() {
-  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
+  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null')
+               || PLURGASM_DATA.brandOfWeek;
   if (!botw) return;
   if (botw.name) document.getElementById('botw-name').textContent = botw.name;
   if (botw.cat)  document.getElementById('botw-cat').textContent  = botw.cat;
