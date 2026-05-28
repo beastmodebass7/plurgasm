@@ -1421,6 +1421,42 @@ footer {
   .hero-stats { gap: 32px; }
   .botw { grid-template-columns: 1fr; }
   .countdown-strip { padding: 20px; }
+
+  /* prevent any horizontal overflow from filters */
+  body { overflow-x: hidden; }
+
+  #festivals .genre-filter-row,
+  #festivals .filters,
+  .genre-filter-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 8px;
+    /* critical — contain scroll within this element */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  #festivals .genre-filter-row::-webkit-scrollbar { display: none; }
+
+  /* stop pills shrinking */
+  .genre-pill,
+  .filter-btn { flex-shrink: 0; }
+
+  /* contain the entire festivals section */
+  #festivals {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* contain the section wrapper */
+  .section {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* ── SCROLL ANIMATIONS ── */
@@ -2485,4 +2521,29 @@ footer {
   .genre-filter-row::-webkit-scrollbar { display: none; }
   .filter-btn,
   .genre-pill { flex-shrink: 0; }
+}
+
+/* ══════════════════════════════════════════════════
+   FESTIVAL FILTERS WRAPPER
+══════════════════════════════════════════════════ */
+.fest-filters-wrap {
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .fest-filters-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .fest-filters-wrap > div,
+  .fest-filters-wrap > .filters {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    max-width: 100%;
+  }
 }
