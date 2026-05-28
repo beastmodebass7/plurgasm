@@ -739,6 +739,41 @@ nav {
   color: var(--muted);
   margin-top: 12px;
 }
+.botw-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+}
+.botw-link-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  border: 1px solid;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.botw-link-primary {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--black);
+}
+.botw-link-primary:hover { opacity: 0.85; }
+.botw-link-ig {
+  background: transparent;
+  border-color: rgba(182,77,255,0.45);
+  color: var(--purple);
+}
+.botw-link-ig:hover {
+  background: rgba(182,77,255,0.1);
+  border-color: rgba(182,77,255,0.7);
+}
 
 /* ══════════════════════════════════════════════════
    FESTIVAL CARDS

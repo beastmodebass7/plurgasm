@@ -622,6 +622,29 @@ function renderBotw() {
     a.href = botw.url;
     a.style.display = '';
   }
+
+  const botwCard = document.querySelector('.botw');
+  if (botwCard) {
+    let linksDiv = botwCard.querySelector('.botw-links');
+    if (!linksDiv) {
+      linksDiv = document.createElement('div');
+      linksDiv.className = 'botw-links';
+      botwCard.appendChild(linksDiv);
+    }
+    linksDiv.innerHTML = `
+      ${botw.url && botw.url !== '#' ? `
+        <a href="${botw.url}" target="_blank" rel="noopener"
+          class="botw-link-btn botw-link-primary">
+          Visit Website →
+        </a>` : ''}
+      ${botw.ig ? `
+        <a href="https://instagram.com/${botw.ig.replace('@','')}"
+          target="_blank" rel="noopener"
+          class="botw-link-btn botw-link-ig">
+          ${botw.ig} ↗
+        </a>` : ''}
+    `;
+  }
 }
 
 /* ════════════════════════════════════════════════
