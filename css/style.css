@@ -1441,6 +1441,53 @@ footer {
     flex-wrap: wrap;
     overflow-x: visible;
   }
+
+  /* lock page to viewport width — no horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* festival type filters — horizontal scroll WITHIN
+     the row only, page doesn't scroll with it */
+  #festivals .filters,
+  .fest-type-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  #festivals .filters::-webkit-scrollbar { display: none; }
+
+  /* stop buttons shrinking */
+  #festivals .filters .filter-btn,
+  #festivals .filters .view-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* hide GRID and CALENDAR view toggle on mobile
+     — takes up too much space, calendar accessible
+     from nav instead */
+  .view-toggle {
+    display: none;
+  }
+
+  /* contain the section header row */
+  #festivals .section-header,
+  #festivals > div:first-of-type {
+    max-width: 100%;
+    overflow: hidden;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 
 /* ── SCROLL ANIMATIONS ── */
