@@ -592,6 +592,7 @@ PLURGASM_DATA.brandOfWeek = {
   name: 'PSYDE QUEST',
   badge: '✦',
   tagline: 'Kandi · Community · USA',
+  image: 'https://psydequestdesigns.com/cdn/shop/files/Untitled-1_584ceb26-1642-47c1-98c6-e8f67510406c.jpg',
   desc: 'The official trading card of dance music. Psyde Quest makes beautifully designed cards meant to be gifted in-person at shows — a physical token of connection that lives in the PLUR spirit. Bring a pack to your next festival and watch what happens.',
   ig: '@psydequestdesigns',
   url: 'https://psydequestdesigns.com',

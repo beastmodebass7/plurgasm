@@ -731,41 +731,50 @@ function renderBlog() {
    RENDER BOTW — Brand of the Week (admin override)
 ════════════════════════════════════════════════ */
 function renderBotw() {
-  const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null')
-               || PLURGASM_DATA.brandOfWeek;
-  if (!botw) return;
-  if (botw.name) document.getElementById('botw-name').textContent = botw.name;
-  if (botw.cat)  document.getElementById('botw-cat').textContent  = botw.cat;
-  if (botw.desc) document.getElementById('botw-desc').textContent = botw.desc;
-  if (botw.ig)   document.getElementById('botw-ig').textContent   = botw.ig;
-  if (botw.url) {
-    const a = document.getElementById('botw-url');
-    a.href = botw.url;
-    a.style.display = '';
-  }
+  const bw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null')
+             || PLURGASM_DATA.brandOfWeek;
+  if (!bw) return;
 
   const botwCard = document.querySelector('.botw');
-  if (botwCard) {
-    let linksDiv = botwCard.querySelector('.botw-links');
-    if (!linksDiv) {
-      linksDiv = document.createElement('div');
-      linksDiv.className = 'botw-links';
-      botwCard.appendChild(linksDiv);
-    }
-    linksDiv.innerHTML = `
-      ${botw.url && botw.url !== '#' ? `
-        <a href="${botw.url}" target="_blank" rel="noopener"
-          class="botw-link-btn botw-link-primary">
-          Visit Website →
-        </a>` : ''}
-      ${botw.ig ? `
-        <a href="https://instagram.com/${botw.ig.replace('@','')}"
-          target="_blank" rel="noopener"
-          class="botw-link-btn botw-link-ig">
-          ${botw.ig} ↗
-        </a>` : ''}
-    `;
-  }
+  if (!botwCard) return;
+
+  if (bw.image) botwCard.classList.add('botw-has-image');
+  else botwCard.classList.remove('botw-has-image');
+
+  botwCard.innerHTML = `
+    ${bw.image ? `
+    <div class="botw-image-wrap">
+      <img src="${bw.image}"
+        alt="${bw.name}"
+        class="botw-image"
+        loading="lazy"
+        onerror="this.parentElement.style.display='none'">
+    </div>` : ''}
+    <div class="botw-content">
+      <div class="botw-star">★</div>
+      <div>
+        <p class="botw-eyebrow">Brand of the Week</p>
+        <p class="botw-name">${bw.name}</p>
+        <p class="botw-tagline">${bw.tagline}</p>
+      </div>
+      <p class="botw-desc">${bw.desc}</p>
+      ${bw.ig ? `<p class="botw-ig">${bw.ig}</p>` : ''}
+      <div class="botw-links">
+        ${bw.url && bw.url !== '#' ? `
+          <a href="${bw.url}" target="_blank"
+            rel="noopener"
+            class="botw-link-btn botw-link-primary">
+            Visit Website →
+          </a>` : ''}
+        ${bw.ig ? `
+          <a href="https://instagram.com/${(bw.ig||'').replace('@','')}"
+            target="_blank" rel="noopener"
+            class="botw-link-btn botw-link-ig">
+            ${bw.ig} ↗
+          </a>` : ''}
+      </div>
+    </div>
+  `;
 }
 
 /* ════════════════════════════════════════════════
