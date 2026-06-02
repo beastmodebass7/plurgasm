@@ -2699,3 +2699,51 @@ footer {
   }
 
 } /* end @media */
+
+/* ══════════════════════════════════════════════════
+   HERO DANCER
+══════════════════════════════════════════════════ */
+.hero-dancer {
+  position: absolute;
+  bottom: 0;
+  right: -20px;
+  height: 85%;
+  max-height: 720px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  opacity: 0.92;
+  mix-blend-mode: lighten;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 12%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 12%
+  );
+}
+
+/* hide completely on mobile */
+@media (max-width: 900px) {
+  .hero-dancer { display: none; }
+}
+
+/* make sure hero text doesn't overlap her */
+@media (min-width: 901px) {
+  .hero-inner,
+  .hero h1,
+  .hero-sub,
+  .hero-stats,
+  .search-form,
+  .plur-cards,
+  .hero-quick-links {
+    position: relative;
+    z-index: 2;
+  }
+}
