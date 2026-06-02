@@ -503,21 +503,99 @@ function renderSocials() {
 }
 
 /* ════════════════════════════════════════════════
-   COUNTDOWN — Project GLOW May 30 2026
+   COUNTDOWN — auto-selects next upcoming festival
 ════════════════════════════════════════════════ */
+function getNextFestival() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcoming = (window.PLURGASM_DATA?.festivals || [])
+    .filter(f => {
+      if (!f.sortDate) return false;
+      const festDate = new Date(f.endDate || f.sortDate);
+      festDate.setHours(23, 59, 59, 999);
+      return festDate >= today;
+    })
+    .sort((a, b) => new Date(a.sortDate) - new Date(b.sortDate));
+
+  return upcoming[0] || null;
+}
+
 function initCountdown() {
-  (function tick() {
-    const diff = new Date('2026-05-30T18:00:00-04:00') - Date.now();
-    const el = document.getElementById('countdown');
-    if (!el) return;
-    if (diff <= 0) { el.textContent = "IT'S HAPPENING"; return; }
-    const d = Math.floor(diff/86400000);
-    const h = Math.floor((diff%86400000)/3600000);
-    const m = Math.floor((diff%3600000)/60000);
-    const s = Math.floor((diff%60000)/1000);
-    el.innerHTML = `<span>${String(d).padStart(2,'0')}<small>d</small></span><span>${String(h).padStart(2,'0')}<small>h</small></span><span>${String(m).padStart(2,'0')}<small>m</small></span><span>${String(s).padStart(2,'0')}<small>s</small></span>`;
+  const fest = getNextFestival();
+  if (!fest) return;
+
+  const nameEl  = document.getElementById('countdown-fest-name');
+  const locEl   = document.getElementById('countdown-fest-loc');
+  const dateEl  = document.getElementById('countdown-fest-date');
+  const linkEl  = document.getElementById('countdown-fest-link');
+  const timerEl = document.getElementById('countdown');
+
+  if (nameEl) nameEl.textContent = fest.name;
+  if (locEl)  locEl.textContent  = fest.location;
+  if (dateEl) dateEl.textContent = fest.dates;
+  if (linkEl && fest.url) {
+    linkEl.href = fest.detailPage || fest.url;
+  }
+
+  if (!timerEl) return;
+
+  const target = new Date(fest.sortDate);
+  target.setHours(0, 0, 0, 0);
+
+  function tick() {
+    const now  = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      timerEl.textContent = 'HAPPENING NOW';
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000)  / 60000);
+    const s = Math.floor((diff % 60000)    / 1000);
+
+    timerEl.innerHTML =
+      `<span>${String(d).padStart(2,'0')}<sub>d</sub></span>` +
+      `<span>${String(h).padStart(2,'0')}<sub>h</sub></span>` +
+      `<span>${String(m).padStart(2,'0')}<sub>m</sub></span>` +
+      `<span>${String(s).padStart(2,'0')}<sub>s</sub></span>`;
+
     setTimeout(tick, 1000);
-  })();
+  }
+
+  tick();
+}
+
+/* ════════════════════════════════════════════════
+   MARQUEE — upcoming festivals sorted by date
+════════════════════════════════════════════════ */
+function initMarquee() {
+  const track = document.getElementById('marquee-track');
+  if (!track) return;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const sorted = (window.PLURGASM_DATA?.festivals || [])
+    .filter(f => {
+      if (!f.sortDate) return false;
+      const festDate = new Date(f.endDate || f.sortDate);
+      festDate.setHours(23, 59, 59, 999);
+      return festDate >= today;
+    })
+    .sort((a, b) => new Date(a.sortDate) - new Date(b.sortDate));
+
+  if (!sorted.length) return;
+
+  // Double the list so the CSS marquee loop is seamless
+  const items = [...sorted, ...sorted]
+    .map(f => `<span class="marquee-item">${f.name.toUpperCase()} <span>${f.dates}</span></span>`)
+    .join('');
+
+  track.innerHTML = items;
 }
 
 /* ════════════════════════════════════════════════
@@ -753,6 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCountUp();
   initCountdown();
+  initMarquee();
   initBottomNav();
 });
 
