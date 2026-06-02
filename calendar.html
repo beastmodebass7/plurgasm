@@ -278,9 +278,7 @@ let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
 
-// Merge PLURGASM_DATA.festivals with any admin-added festivals
-const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
-const festivals = [...(window.PLURGASM_DATA.festivals || []), ...extraFests];
+let festivals = [];
 
 function getFiltered() {
   return festivals.filter(f => {
@@ -385,8 +383,17 @@ function setGenreFilter(val, btn) {
   render();
 }
 
-console.log('festivals count:', (window.PLURGASM_DATA?.festivals||[]).length);
-render();
+document.addEventListener('DOMContentLoaded', () => {
+  const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
+  festivals = [...((window.PLURGASM_DATA && window.PLURGASM_DATA.festivals) || []), ...extraFests];
+
+  if (!festivals.length) {
+    console.warn('No festival data found');
+    return;
+  }
+
+  render();
+});
 </script>
 <script>
 function toggleMobileMenu() {
