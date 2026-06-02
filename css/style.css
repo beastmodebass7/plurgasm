@@ -983,6 +983,17 @@ nav {
 .cat-card:hover { background: var(--card-hi); border-color: rgba(0,229,255,0.25); transform: translateY(-3px); }
 .cat-card:hover .cat-name { color: var(--cyan); }
 .cat-icon { font-size: 28px; line-height: 1; }
+.cat-icon-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  transition: transform 0.25s, filter 0.25s;
+}
+.cat-card:hover .cat-icon-img {
+  transform: scale(1.12);
+  filter: brightness(1.15);
+}
 .cat-name {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 22px;

@@ -27,17 +27,17 @@ const FESTIVALS = [
 ];
 
 const CATEGORIES = [
-  { id:'fem-clothing',  label:'Fem Clothing',   icon:'👗' },
-  { id:'male-clothing', label:'Male Clothing',   icon:'👕' },
-  { id:'shoes',         label:'Shoes',           icon:'👟' },
-  { id:'accessories',   label:'Accessories',     icon:'💎' },
-  { id:'kandi',         label:'Kandi',           icon:'📿' },
-  { id:'jerseys',       label:'Jerseys & Merch', icon:'👕' },
+  { id:'fem-clothing',  label:'Fem Clothing',   icon:'images/categories/icon-fem-clothing.png' },
+  { id:'male-clothing', label:'Male Clothing',   icon:'images/categories/icon-male-clothing.png' },
+  { id:'shoes',         label:'Shoes',           icon:'images/categories/icon-shoes.png' },
+  { id:'accessories',   label:'Accessories',     icon:'images/categories/icon-accessories.png' },
+  { id:'kandi',         label:'Kandi',           icon:'images/categories/icon-kandi.png' },
+  { id:'jerseys',       label:'Jerseys & Merch', icon:'images/categories/icon-jerseymerch.png' },
   { id:'events',        label:'Events',          icon:'🎪' },
-  { id:'supplements',   label:'Supplements',     icon:'💊', comingSoon:true },
-  { id:'gear',          label:'Gear & Audio',    icon:'🎧', comingSoon:true },
-  { id:'lights',        label:'Lights & Toys',   icon:'🔦', comingSoon:true },
-  { id:'wellness',      label:'Wellness',        icon:'🧘', comingSoon:true },
+  { id:'supplements',   label:'Supplements',     icon:'images/categories/icon-supplements.png', comingSoon:true },
+  { id:'gear',          label:'Gear & Audio',    icon:'images/categories/icon-headphones.png', comingSoon:true },
+  { id:'lights',        label:'Lights & Toys',   icon:'images/categories/icon-lightsandtoys.png', comingSoon:true },
+  { id:'wellness',      label:'Wellness',        icon:'images/categories/icon-wellness.png', comingSoon:true },
 ];
 
 const BRANDS = [

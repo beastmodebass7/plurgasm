@@ -248,9 +248,13 @@ function renderCategories() {
   if (!container) return;
   container.innerHTML = CATEGORIES.map(c => {
     const count = BRANDS.filter(b => b.cat === c.id).length;
+    const isImg = /\.(png|jpe?g|gif|webp|svg)$/i.test(c.icon);
+    const iconHtml = isImg
+      ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}">`
+      : `<span class="cat-icon">${c.icon}</span>`;
     return `
     <a class="cat-card" href="category.html?cat=${c.id}" style="text-decoration:none;">
-      <span class="cat-icon">${c.icon}</span>
+      ${iconHtml}
       <span class="cat-name">${c.label.toUpperCase()}</span>
       <span class="cat-count">${count > 0 ? count + ' Brands' : 'Coming Soon'}</span>
     </a>
