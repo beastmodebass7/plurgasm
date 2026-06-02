@@ -78,6 +78,26 @@ const BRANDS = [
   { name:'KANDIES WORLD', badge:'KW', cat:'kandi', badgeCls:'b-cyan', priceCls:'price-budget',              price:'$',       ship:'~1 week',         loc:'Florida',        style:'Beads, perlers, supplies, accessories',tags:['kandi','beads','perlers','supplies','accessories','bracelets','plur','kandi-supplies','premade-kandi'],  desc:'The kandi supply HQ. Beads, perler beads, kandi-making supplies, and pre-made accessories. PLUR from Florida.', note:'Great for stocking up on kandi supplies pre-festival.', ig:'@kandiesworld', url:'#', featured:false, sortOrder:0 },
   { name:'INPLUR', badge:'IPL', cat:'kandi', badgeCls:'b-green', priceCls:'price-budget',                    price:'$',       ship:'~1 week',         loc:'Louisiana',      style:'Premade kandi, perlers',              tags:['kandi','beads','perlers','premade','bracelets','plur','premade-kandi'],                  desc:'Pre-made kandi and perler pieces ready to trade at your next rave. One of the most loved kandi shops in the community.', ig:'@inplur', url:'#', featured:false, sortOrder:0 },
   // ── NEW KANDI ──
+  {
+    id: 'psyde-quest',
+    name: 'PSYDE QUEST',
+    badge: 'PQ',
+    cat: 'kandi',
+    badgeCls: 'b-purple',
+    priceCls: 'price-budget',
+    price: '$',
+    ship: '1–2 weeks',
+    loc: 'USA',
+    style: 'Rave trading cards — event cards & collectible booster packs',
+    tags: ['kandi','trading-cards','collectibles',
+           'community','gifting','plur','event-cards'],
+    desc: 'Psyde Quest makes official trading cards of dance music — designed to be gifted and traded in-person at shows. Two types: Event Cards (ambassador packs made for specific events) and Serialized Cards (generic collectible booster packs). The mission is genuine human connection first, cool merch second.',
+    note: 'Event Cards are where the magic is — bring them to shows and gift them in person. That\'s the whole point.',
+    ig: '@psydequestdesigns',
+    url: 'https://psydequestdesigns.com',
+    featured: true,
+    sortOrder: 0
+  },
   { id:'kandiqueeni', name:'KANDI QUEENI', badge:'KQI', cat:'kandi', badgeCls:'b-pink', priceCls:'price-budget', price:'$', ship:'~1 week', loc:'Utah', style:'Beads, perlers, supplies, accessories', tags:['kandi','beads','perlers','supplies','accessories','plur'], desc:'Utah-based kandi supply shop. Beads, perlers, and accessories for your kandi-making needs.', ig:'@kandiqueeni', url:'#', featured:false, sortOrder:0 },
   { id:'karmakandishop', name:'KARMA KANDI SHOP', badge:'KKS', cat:'kandi', badgeCls:'b-green', priceCls:'price-budget', price:'$', ship:'~1 week', loc:'California', style:'Kandi bracelets, stickers', tags:['kandi','beads','stickers','bracelets','plur','accessories','kandi-supplies'], desc:'California kandi shop with bracelets and festival stickers. PLUR all the way.', ig:'@karmakandishop', url:'#', featured:false, sortOrder:0 },
   { id:'nocturnal-print-shop', name:'NOCTURNAL PRINT SHOP', badge:'NPS', cat:'kandi', badgeCls:'b-cyan', priceCls:'price-budget', price:'$', ship:'~1 week', loc:'California', style:'EDM artist kandi beads', tags:['kandi','beads','edm','artist','perlers','merchandise','edm-artist-kandi'], desc:'EDM artist-themed kandi beads. Perfect for trading at your favorite artist\'s set.', ig:'@nocturnalprintshop', url:'#', featured:false, sortOrder:0 },
@@ -547,11 +567,13 @@ const SOCIALS = [
 ];
 
 PLURGASM_DATA.brandOfWeek = {
-  name: 'FREEDOM RAVE WEAR',
-  cat: 'Fem Clothing',
-  desc: 'Fan-favourite for quality spandex rave wear. Stocks fem sets AND mens shirts and tank tops.',
-  ig: '@freedomravewear',
-  url: 'https://freedomravewear.com',
+  name: 'PSYDE QUEST',
+  badge: '✦',
+  tagline: 'Kandi · Community · USA',
+  desc: 'The official trading card of dance music. Psyde Quest makes beautifully designed cards meant to be gifted in-person at shows — a physical token of connection that lives in the PLUR spirit. Bring a pack to your next festival and watch what happens.',
+  ig: '@psydequestdesigns',
+  url: 'https://psydequestdesigns.com',
+  cat: 'Community'
 };
 
 PLURGASM_DATA.festivals = [
