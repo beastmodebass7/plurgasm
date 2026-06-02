@@ -1399,6 +1399,43 @@ footer {
   .countdown-strip { padding: 20px; }
 }
 
+/* mobile title row with flanking dancers */
+.hero-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title-dancer {
+  display: none;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  flex-shrink: 0;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+  mask-image: linear-gradient(to top, transparent 0%, black 15%);
+}
+
+@media (max-width: 900px) {
+  .hero-title-dancer {
+    display: block;
+    height: 110px;
+  }
+  .hero-title-dancer-left {
+    opacity: 0.85;
+  }
+  .hero-title-dancer-right {
+    transform: scaleX(-1);
+    opacity: 0.85;
+  }
+  .hero-dancer { display: none; }
+  .hero-dancer-left { display: none; }
+}
+
 /* ── SCROLL ANIMATIONS ── */
 .fade-up {
   opacity: 0;
