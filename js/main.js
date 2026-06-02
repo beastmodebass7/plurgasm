@@ -350,10 +350,13 @@ function renderBrands(cat) {
   document.getElementById('brand-grid').innerHTML = visible.map(b => {
     const catLabel = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
     const shortDesc = b.desc.length > 80 ? b.desc.slice(0, 80) + '...' : b.desc;
+    const badgeHTML = b.logo
+      ? `<img src="${b.logo}" alt="${b.name}" style="width:100%;height:100%;object-fit:contain;padding:4px;" onerror="this.style.display='none';this.parentElement.innerHTML='${b.badge}';">`
+      : b.badge;
     return `
     <div class="brand-card${b.featured ? ' brand-card-featured' : ''}" onclick="openBrandModal('${b.id}')">
       ${b.featured ? '<span class="brand-featured-star">★</span>' : ''}
-      <div class="brand-badge ${b.badgeCls}">${b.badge}</div>
+      <div class="brand-badge ${b.logo ? '' : b.badgeCls}">${badgeHTML}</div>
       <div class="brand-info">
         <p class="brand-name">${b.name}</p>
         <div class="brand-meta">
@@ -395,9 +398,12 @@ function openBrandModal(id) {
   const hasUrl    = b.url && b.url !== '#';
   const catLabel  = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
 
+  const modalBadgeHTML = b.logo
+    ? `<img src="${b.logo}" alt="${b.name}" style="width:100%;height:100%;object-fit:contain;padding:4px;" onerror="this.style.display='none';this.parentElement.innerHTML='${b.badge}';">`
+    : b.badge;
   document.getElementById('brand-modal-content').innerHTML = `
     <div class="bm-header">
-      <div class="bm-badge ${b.badgeCls}">${b.badge}</div>
+      <div class="bm-badge ${b.logo ? '' : b.badgeCls}">${modalBadgeHTML}</div>
       <div class="bm-title-group">
         <p class="bm-name">${b.name}</p>
         <p class="bm-cat">${catLabel} &nbsp;·&nbsp; ${b.loc}</p>

@@ -553,12 +553,23 @@ nav {
   letter-spacing: 2px;
   color: var(--white);
 }
-#countdown small {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--muted);
+#countdown span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  color: var(--white);
   letter-spacing: 2px;
-  margin-left: 2px;
+  line-height: 1;
+}
+#countdown small,
+#countdown sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(240,238,255,0.25);
+  font-weight: 400;
+  vertical-align: baseline;
+  margin-left: 1px;
 }
 .cd-btn {
   font-family: 'DM Mono', monospace;
@@ -587,7 +598,7 @@ nav {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 36s linear infinite;
+  animation: marquee 55s linear infinite;
 }
 .marquee-item {
   font-family: 'DM Mono', monospace;
