@@ -33,7 +33,7 @@ const CATEGORIES = [
   { id:'accessories',   label:'Accessories',     icon:'images/categories/icon-accessories.png' },
   { id:'kandi',         label:'Kandi',           icon:'images/categories/icon-kandi.png' },
   { id:'jerseys',       label:'Jerseys & Merch', icon:'images/categories/icon-jerseymerch.png' },
-  { id:'events',        label:'Events',          icon:'🎪' },
+  { id:'events',        label:'Events',          icon:'images/categories/icon-events.png' },
   { id:'supplements',   label:'Supplements',     icon:'images/categories/icon-supplements.png', comingSoon:true },
   { id:'gear',          label:'Gear & Audio',    icon:'images/categories/icon-headphones.png', comingSoon:true },
   { id:'lights',        label:'Lights & Toys',   icon:'images/categories/icon-lightsandtoys.png', comingSoon:true },
