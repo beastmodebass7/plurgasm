@@ -441,6 +441,106 @@ PLURGASM_DATA.blogPosts = [
   },
 
   {
+    id: 'post-006',
+    title: 'The Coachella Effect — What Happens When the Mainstream Finds Our Festivals',
+    slug: 'coachella-effect-plur-culture',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-05-28',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80',
+    excerpt: 'Subtronics went viral on TikTok. Coachella booked Fisher. Bass music is everywhere. A new wave of fans is discovering our festivals — and some of them have never heard of PLUR. Here\'s what that means for the culture, and what we all have a responsibility to do about it.',
+    published: true,
+    featured: true,
+    body: `
+    <p>Something shifted in the last two years. Bass music started showing up in mainstream playlists. Subtronics went viral on TikTok. Coachella booked Fisher, then four Anyma sets. Your coworker who has never been to a festival suddenly bought EDC tickets. Your little brother discovered Excision through a YouTube algorithm rabbit hole.</p>
+
+    <p>This is not a bad thing. Growth is how culture survives. But it comes with a tension that anyone who has been in the rave scene for more than a few years can feel in real time — especially at festivals like Project Glow, which used to be a tight-knit East Coast family event and now draws crowds that include people who have genuinely never heard the word PLUR.</p>
+
+    <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80" alt="Festival crowd at night" style="width:100%;height:300px;object-fit:cover;margin:24px 0;border-radius:2px;">
+
+    <h2>What the Coachella Effect Actually Is</h2>
+
+    <p>Coachella has always been a mainstream festival with an electronic component. But in 2024 and 2025 something changed — the electronic acts stopped being a side attraction and started being the reason people went. The Sahara tent became the most talked-about stage. Artists like Subtronics, Anyma, and Dom Dolla were pulling crowds that rivaled the headliners.</p>
+
+    <p>The result is a generation of fans who discovered electronic music through Coachella, through TikTok clips, through Spotify algorithmic playlists — and then bought tickets to underground and mid-sized festivals that were built on an entirely different set of values. They came for the music. They had no idea the music came with a culture.</p>
+
+    <p>That is not their fault. Nobody told them. And that is partly our fault as a community.</p>
+
+    <h2>What You Actually Notice in the Crowds</h2>
+
+    <p>If you have been to Project Glow, Movement, or any regional festival in the last two years, you have probably felt it. The pushing at the rail. The phones held up blocking everyone behind them for forty-five minutes. The group that bulldozes through a crowd mid-set like they are walking through a shopping mall. The person who steps on your feet and does not turn around.</p>
+
+    <p>None of these people are villains. Most of them just do not know. They went to Coachella where the crowd behavior is different, or they went to a stadium show, and they carried those habits with them into spaces that operate on different rules. Rules that were never written down anywhere — because for a long time, everyone in the room already knew them.</p>
+
+    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Crowd at electronic music festival" style="width:100%;height:280px;object-fit:cover;margin:24px 0;border-radius:2px;">
+
+    <h2>Why PLUR Is Not Just a Slogan</h2>
+
+    <p>Peace, Love, Unity, Respect. It sounds like something you would print on a tote bag. But PLUR was never a marketing slogan — it was a code of conduct that developed organically in the early 90s New York rave scene because the people in those rooms needed one. Raves were illegal. The crowds were in basements and warehouses. Everyone was in an unfamiliar situation together, and the culture that emerged said: we look after each other here.</p>
+
+    <p>That ethos is what makes a rave different from a concert. At a concert you go to be entertained. At a rave you are part of the experience. The energy of the crowd is the experience. When the person next to you is looking out for you, when a stranger hands you water, when someone apologizes for bumping into you and you end up talking for an hour — that is PLUR working. That is what people who discovered this culture through a TikTok clip do not know they are missing.</p>
+
+    <p>And honestly? Once they experience it, most of them love it. The problem is someone has to introduce them to it.</p>
+
+    <h2>The Unwritten Rules — Written Down</h2>
+
+    <p>Consider this the handbook nobody gave you when you bought your first festival ticket.</p>
+
+    <h3>Moving Through Crowds</h3>
+    <p>When you need to move through a crowd during a set — and sometimes you do — you say excuse me before you move, not after. You touch people on the shoulder gently to signal you are coming through. You say thank you when they make space. If you accidentally step on someone or knock into them, you turn around, you make eye contact, and you apologize. This is not optional. This is the baseline.</p>
+
+    <p>The crowd is not an obstacle between you and the rail. The crowd is people who got there first and have as much right to their space as you do to yours.</p>
+
+    <h3>Phone Culture</h3>
+    <p>Record the drop. Film the moment. Nobody is telling you to put your phone away forever. But holding your phone up for full sets, blocking the view of everyone behind you, is one of the most common complaints in the rave community right now and it comes almost entirely from the newer wave of festival attendees. Be present. Film thirty seconds. Put it down. The memory in your body is better than the video on your phone.</p>
+
+    <h3>Flow Artists and Space</h3>
+    <p>If someone is spinning poi, using a flowstar, or doing any kind of flow art near you — give them room. Do not crowd into their space out of curiosity. Watch from a respectful distance. Flow artists are part of the event. Some of them have practiced for years. Bumping into someone mid-flow with an expensive LED prop is not a small thing.</p>
+
+    <h3>Looking Out</h3>
+    <p>If someone near you looks unwell — too hot, too disoriented, too quiet — check on them. Ask if they are okay. If they are not, find medical staff. Do not step over someone sitting on the ground and assume someone else will handle it. PLUR is not a personal philosophy. It is a collective one. It only works when everyone participates.</p>
+
+    <h3>The Rail</h3>
+    <p>Pushing to the front mid-set is one of the most universally disliked behaviors in rave crowds. The people at the rail got there early. They planned for it. They gave up their spot elsewhere for it. Forcing your way through to join them mid-set is taking something that was not yours to take. If you want the rail, get there early.</p>
+
+    <h3>Kandi</h3>
+    <p>If someone initiates the PLUR handshake with you, participate or decline gracefully — do not leave them hanging. If you receive kandi, accept it with genuine appreciation even if you do not know what it is. Someone made it by hand, wore it, and chose you. That is a meaningful gesture in this culture. Treat it like one.</p>
+
+    <img src="https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80" alt="Colorful kandi bracelets" style="width:100%;height:260px;object-fit:cover;margin:24px 0;border-radius:2px;">
+
+    <h2>What the Community Owes Newcomers</h2>
+
+    <p>Here is the part that is harder to say: the rave community is not without blame here. Gatekeeping is real. The attitude of "you should already know this" is real. Newcomers who show up not knowing the culture are sometimes made to feel unwelcome rather than educated.</p>
+
+    <p>That is not PLUR either.</p>
+
+    <p>If you see someone doing something that violates the norms of the space — phones up, pushing through crowds, not giving flow artists room — the response that serves the culture is not to glare at them or complain to your friends. It is to gently, non-aggressively, say something. "Hey, just so you know, at raves we usually do it this way." Most people, when told the culture exists, want to be part of it. They just needed someone to tell them.</p>
+
+    <p>Subtronics going viral is good. More people discovering bass music is good. Project Glow selling out is good. A bigger tent means more resources, more artists, more production. But a bigger tent also means more people who need to be welcomed into what the tent actually stands for.</p>
+
+    <p>That is on all of us.</p>
+
+    <h2>To the New Ravers Reading This</h2>
+
+    <p>Welcome. Genuinely. The fact that you found this article — whether through an algorithm or a friend or a Google search after your first festival — means you are already doing something right. You are curious about the culture, not just the music.</p>
+
+    <p>The music is why you came. The culture is why you will stay.</p>
+
+    <p>PLUR is not a test you pass or fail. It is a practice. It is imperfect and it is ongoing and some days the crowd is beautiful and some days it is frustrating and that is true of every community that has ever existed. But at its best — at its actual best, the version that exists at 2AM when the bass is rattling your chest and a stranger hands you their last electrolyte packet because you look like you need it — there is nothing like it anywhere else in the world.</p>
+
+    <p>That is what we are protecting when we talk about PLUR. Not a slogan. A feeling. And it belongs to anyone willing to show up for it.</p>
+
+    <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;line-height:1.8;">
+      <strong>New to raving?</strong> Check out our
+      <a href="blog-post.html?id=post-003" style="color:var(--cyan);">PLUR 101 guide</a>
+      and our <a href="safety.html" style="color:var(--cyan);">Safety & PLUR page</a>
+      for everything you need to know before your first festival.
+    </p>
+  `
+  },
+
+  {
     id: 'post-005',
     title: 'The Best Rave Brands of 2026 — Community Picks',
     slug: 'best-rave-brands-2026',
