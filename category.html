@@ -475,7 +475,12 @@
     const glows    = CAT_GLOWS[catId]     || ['rgba(0,229,255,0.08)', 'rgba(182,77,255,0.05)'];
     const titleCls = CAT_TITLE_CLS[catId] || 'cat-title-cyan';
     const desc     = CAT_DESCRIPTIONS[catId] || '';
-    const isComing = !!(cat.comingSoon || cat.count === 0);
+    const count    = BRANDS.filter(b => b.cat === catId).length;
+    const isComing = !!(cat.comingSoon || count === 0);
+    const isImage  = cat.icon && /\.(png|jpg|svg|webp)$/i.test(cat.icon);
+    const iconHtml = isImage
+      ? `<img src="${cat.icon}" style="width:64px;height:64px;object-fit:contain;mix-blend-mode:screen;" alt="${cat.label}">`
+      : cat.icon;
 
     /* set bg glow */
     document.getElementById('cat-bg').innerHTML = `
@@ -487,10 +492,10 @@
     const heroHtml = `
       <div class="cat-hero">
         <a href="index.html" class="cat-back">← All Categories</a>
-        <span class="cat-icon-lg">${cat.icon}</span>
+        <span class="cat-icon-lg">${iconHtml}</span>
         <h1 class="cat-title ${titleCls}">${cat.label.toUpperCase()}</h1>
         <p class="cat-desc-text">${desc}</p>
-        <span class="cat-count-badge">${isComing ? 'Coming Soon' : cat.count + ' Brands'}</span>
+        <span class="cat-count-badge">${isComing ? 'Coming Soon' : count + ' Brand' + (count !== 1 ? 's' : '') + ' in this category'}</span>
       </div>
     `;
 
