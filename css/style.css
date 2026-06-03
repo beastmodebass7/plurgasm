@@ -2905,3 +2905,28 @@ footer {
 @media (max-width: 900px) {
   .hero-dancer-left { display: none; }
 }
+
+/* ── MOBILE +MORE BUTTON ── */
+.mobile-more-btn {
+  display: none;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(0,229,255,0.3);
+  color: var(--cyan);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.mobile-more-btn:hover {
+  background: rgba(0,229,255,0.06);
+  border-color: rgba(0,229,255,0.6);
+}
+
+@media (max-width: 900px) {
+  .mobile-more-btn { display: block; }
+}

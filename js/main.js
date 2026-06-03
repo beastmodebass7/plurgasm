@@ -83,6 +83,34 @@ function renderFestivals() {
       </div>
     </div>
   `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:32px 0;">No festivals match this filter combo.</p>`;
+  applyMobileFestLimit();
+}
+
+function applyMobileFestLimit() {
+  if (window.innerWidth > 900) return;
+  const grid = document.getElementById('fest-grid');
+  if (!grid) return;
+  const cards = [...grid.children];
+  const SHOW = 3;
+  if (cards.length <= SHOW) return;
+
+  cards.forEach((card, i) => {
+    if (i >= SHOW) card.style.display = 'none';
+  });
+
+  const existing = document.getElementById('fest-more-btn');
+  if (existing) existing.remove();
+
+  const btn = document.createElement('button');
+  btn.id = 'fest-more-btn';
+  btn.className = 'mobile-more-btn';
+  btn.textContent = `+ ${cards.length - SHOW} More Festivals`;
+  btn.onclick = () => {
+    cards.forEach(c => c.style.display = '');
+    btn.remove();
+    applyMobileFestLimit.expanded = true;
+  };
+  grid.parentElement.appendChild(btn);
 }
 
 /* ════════════════════════════════════════════════
@@ -259,6 +287,33 @@ function renderCategories() {
       <span class="cat-count">${count > 0 ? count + ' Brands' : 'Coming Soon'}</span>
     </a>
   `;}).join('');
+  applyMobileCategoryLimit();
+}
+
+function applyMobileCategoryLimit() {
+  if (window.innerWidth > 900) return;
+  const grid = document.getElementById('cat-grid');
+  if (!grid) return;
+  const cards = [...grid.children];
+  const SHOW = 6;
+  if (cards.length <= SHOW) return;
+
+  cards.forEach((card, i) => {
+    if (i >= SHOW) card.style.display = 'none';
+  });
+
+  const existing = document.getElementById('cat-more-btn');
+  if (existing) existing.remove();
+
+  const btn = document.createElement('button');
+  btn.id = 'cat-more-btn';
+  btn.className = 'mobile-more-btn';
+  btn.textContent = `+ ${cards.length - SHOW} More Categories`;
+  btn.onclick = () => {
+    cards.forEach(c => c.style.display = '');
+    btn.remove();
+  };
+  grid.parentElement.appendChild(btn);
 }
 
 /* ════════════════════════════════════════════════
@@ -370,6 +425,33 @@ function renderBrands(cat) {
       </div>
     </div>
   `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">No brands found${searchQuery ? ' for "'+searchQuery+'"':''} in this category.</p>`;
+  applyMobileBrandLimit();
+}
+
+function applyMobileBrandLimit() {
+  if (window.innerWidth > 900) return;
+  const grid = document.getElementById('brand-grid');
+  if (!grid) return;
+  const cards = [...grid.children];
+  const SHOW = 4;
+  if (cards.length <= SHOW) return;
+
+  cards.forEach((card, i) => {
+    if (i >= SHOW) card.style.display = 'none';
+  });
+
+  const existing = document.getElementById('brand-more-btn');
+  if (existing) existing.remove();
+
+  const btn = document.createElement('button');
+  btn.id = 'brand-more-btn';
+  btn.className = 'mobile-more-btn';
+  btn.textContent = `+ ${cards.length - SHOW} More Brands`;
+  btn.onclick = () => {
+    cards.forEach(c => c.style.display = '');
+    btn.remove();
+  };
+  grid.parentElement.appendChild(btn);
 }
 
 function expandBrands() {
@@ -484,6 +566,7 @@ function filterBrands(cat, btn) {
   const clearBtn = document.getElementById('item-clear-btn');
   if (clearBtn) clearBtn.style.display = 'none';
   renderBrands(cat);
+  applyMobileBrandLimit();
   window._currentCat = cat;
 }
 
