@@ -589,6 +589,14 @@ const SOCIALS = [
   { handle:'@demoniacult',      platform:'Instagram', type:'Brand',    featured:false, desc:'The official Demonia Cult page. New styles, platform boots, and alternative footwear drops.' },
 ];
 
+PLURGASM_DATA.featuredPost = {
+  url: 'https://www.tiktok.com/@plurgasm/video/placeholder',
+  handle: '@plurgasm',
+  platform: 'tiktok',
+  caption: 'The rave universe is here. Follow for festival news, brand drops, and rave culture.',
+  active: false
+};
+
 PLURGASM_DATA.brandOfWeek = {
   name: 'PSYDE QUEST',
   badge: '✦',

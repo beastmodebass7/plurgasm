@@ -1304,6 +1304,81 @@ nav {
 .spot-link:hover { color: var(--cyan); }
 
 /* ══════════════════════════════════════════════════
+   FEATURED POST
+══════════════════════════════════════════════════ */
+.fp-card {
+  background: var(--card);
+  border: 1px solid rgba(182,77,255,0.2);
+  padding: 24px;
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+.fp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fp-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fp-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid rgba(182,77,255,0.4);
+  color: var(--purple);
+  background: rgba(182,77,255,0.08);
+}
+
+.fp-handle {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--cyan);
+  letter-spacing: 1px;
+}
+
+.fp-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.fp-caption {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.fp-embed {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.fp-view-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--purple);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.fp-view-link:hover { color: var(--white); }
+
+/* ══════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════ */
 footer {
