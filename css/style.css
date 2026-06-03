@@ -2989,3 +2989,34 @@ footer {
 .bn-icon {
   display: none;
 }
+
+/* ══════════════════════════════════════════════════
+   SHARE BUTTON
+══════════════════════════════════════════════════ */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.share-btn:hover {
+  border-color: rgba(0,229,255,0.4);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.05);
+}
+.share-btn::before { content: '↑ '; }
+
+/* only show share button on mobile
+   where Web Share API is most useful */
+@media (min-width: 901px) {
+  .share-btn { display: none; }
+}

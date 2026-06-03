@@ -400,6 +400,7 @@
       <div class="fd-btns">
         <a href="https://projectglow.frontgatetickets.com/" target="_blank" rel="noopener" class="fd-btn-primary">BUY TICKETS →</a>
         <a href="https://projectglowfest.com" target="_blank" rel="noopener" class="fd-btn-ghost">OFFICIAL SITE</a>
+        <button class="share-btn" onclick="sharePage()">Share</button>
       </div>
     </div>
 
@@ -774,6 +775,21 @@ function closeMobileMenu() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+/* ─── SHARE ─── */
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      text: document.querySelector('meta[name="description"]')
+        ?.content || 'Check out this festival on PLURGASM',
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied!');
+  }
+}
 
 /* ─── LINEUP TABS ─── */
 function showDay(day, btn) {

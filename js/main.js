@@ -529,6 +529,7 @@ function openBrandModal(id) {
       ${igHandle
         ? `<a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener" class="brand-ig-btn">@${igHandle}</a>`
         : ''}
+      <button onclick="shareBrand('${b.name}', '${b.url}')" class="share-btn">Share</button>
       <button onclick="closeBrandModal()" class="bm-link-btn bm-link-ghost" style="margin-left:auto;">Close</button>
     </div>
   `;
@@ -538,6 +539,20 @@ function openBrandModal(id) {
   document.body.style.top = `-${scrollY}px`;
   document.body.style.width = '100%';
   document.getElementById('brand-modal').classList.add('open');
+}
+
+function shareBrand(name, url) {
+  const shareUrl = url && url !== '#' ? url : window.location.href;
+  if (navigator.share) {
+    navigator.share({
+      title: name + ' — PLURGASM',
+      text: 'Check out ' + name + ' on the PLURGASM rave brand directory',
+      url: shareUrl
+    });
+  } else {
+    navigator.clipboard.writeText(shareUrl);
+    alert('Link copied!');
+  }
 }
 
 function closeBrandModal() {

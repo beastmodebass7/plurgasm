@@ -192,9 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,72px);letter-spacing:3px;color:var(--white);line-height:1.05;margin-bottom:16px;">${post.title}</h1>
 
-    <div style="display:flex;align-items:center;gap:10px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:40px;">
+    <div style="display:flex;align-items:center;gap:10px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:40px;flex-wrap:wrap;">
       <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">By ${post.author}</span>
       ${post.authorHandle ? `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--cyan);">${post.authorHandle}</span>` : ''}
+      <button class="share-btn" onclick="sharePost()" style="margin-left:auto;">Share Article</button>
     </div>
 
     <div id="post-body" style="font-size:16px;color:var(--muted);line-height:1.8;">${post.body}</div>
@@ -243,6 +244,21 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>`;
   }).join('');
 });
+
+function sharePost() {
+  const title = document.querySelector('h1')?.textContent || document.title;
+  const excerpt = document.getElementById('post-excerpt')?.textContent || '';
+  if (navigator.share) {
+    navigator.share({
+      title: title + ' — PLURGASM',
+      text: excerpt,
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied!');
+  }
+}
 </script>
 </body>
 </html>
