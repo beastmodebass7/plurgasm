@@ -590,11 +590,11 @@ const SOCIALS = [
 ];
 
 PLURGASM_DATA.featuredPost = {
-  url: 'https://www.tiktok.com/@plurgasm/video/placeholder',
+  url: 'https://www.instagram.com/p/DZCWVwWM7fm/',
   handle: '@plurgasm',
-  platform: 'tiktok',
-  caption: 'The rave universe is here. Follow for festival news, brand drops, and rave culture.',
-  active: false
+  platform: 'instagram',
+  caption: '',
+  active: true
 };
 
 PLURGASM_DATA.brandOfWeek = {
