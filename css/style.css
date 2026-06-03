@@ -2932,3 +2932,29 @@ footer {
 @media (max-width: 900px) {
   .mobile-more-btn { display: block; }
 }
+
+/* ── BOTTOM NAV CUSTOM ICONS ── */
+.bn-icon-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  opacity: 0.65;
+  transition: opacity 0.2s, transform 0.2s;
+  display: block;
+}
+
+.bn-item:hover .bn-icon-img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.bn-item.active .bn-icon-img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* remove old emoji icon style if present */
+.bn-icon {
+  display: none;
+}
