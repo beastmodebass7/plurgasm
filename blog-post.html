@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ${post.coverImage
       ? `<div style="width:100%;height:320px;overflow:hidden;margin-bottom:36px;">
-           <img src="${post.coverImage}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;">
+           <img src="${post.coverImage}" alt="${post.title}" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;">
          </div>`
       : `<div style="width:100%;height:200px;background:linear-gradient(135deg,${color}12,transparent);border:1px solid ${color}22;display:flex;align-items:center;justify-content:center;margin-bottom:36px;">
            <span style="font-family:'Bebas Neue',sans-serif;font-size:100px;color:${color};opacity:0.12;">${post.title[0]}</span>
@@ -197,8 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ${post.authorHandle ? `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--cyan);">${post.authorHandle}</span>` : ''}
     </div>
 
-    <div style="font-size:16px;color:var(--muted);line-height:1.8;">${post.body}</div>
+    <div id="post-body" style="font-size:16px;color:var(--muted);line-height:1.8;">${post.body}</div>
   `;
+
+  document.querySelectorAll('#post-body img').forEach(img => {
+    img.onerror = () => img.style.display = 'none';
+    img.loading = 'lazy';
+  });
 
   const morePosts = posts
     .filter(p => p.id !== post.id)
