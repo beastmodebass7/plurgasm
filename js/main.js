@@ -1,4 +1,78 @@
 ﻿/* ════════════════════════════════════════════════
+   NEAR ME — location filter
+════════════════════════════════════════════════ */
+function haversineDistance(lat1, lng1, lat2, lng2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI/180) *
+    Math.cos(lat2 * Math.PI/180) *
+    Math.sin(dLng/2) * Math.sin(dLng/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+let _userLat = null;
+let _userLng = null;
+let _nearMeActive = false;
+let _maxMiles = 100;
+
+function toggleNearMe() {
+  const btn      = document.getElementById('near-me-btn');
+  const controls = document.getElementById('near-me-controls');
+  const status   = document.getElementById('near-me-status');
+
+  if (_nearMeActive) {
+    _nearMeActive = false;
+    _userLat = null;
+    _userLng = null;
+    btn.classList.remove('active');
+    controls.style.display = 'none';
+    refreshFestView();
+    return;
+  }
+
+  controls.style.display = 'block';
+  btn.classList.add('active');
+  status.textContent = 'Getting your location...';
+
+  if (!navigator.geolocation) {
+    status.textContent = 'Location not supported by your browser.';
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      _userLat = pos.coords.latitude;
+      _userLng = pos.coords.longitude;
+      _nearMeActive = true;
+      status.textContent = `📍 Location found — showing within ${_maxMiles} miles`;
+      refreshFestView();
+    },
+    () => {
+      status.textContent = 'Location access denied. Enable location in your browser settings.';
+      btn.classList.remove('active');
+      controls.style.display = 'none';
+    },
+    { timeout: 10000 }
+  );
+}
+
+function setDistance(miles, btn) {
+  _maxMiles = miles;
+  document.querySelectorAll('.dist-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const status = document.getElementById('near-me-status');
+  if (status && _userLat) {
+    status.textContent = miles === 9999
+      ? '📍 Showing all festivals'
+      : `📍 Showing within ${miles} miles`;
+  }
+  refreshFestView();
+}
+
+/* ════════════════════════════════════════════════
    FESTIVAL FILTER STATE
 ════════════════════════════════════════════════ */
 let _festType   = 'all';
@@ -17,7 +91,22 @@ function getFilteredFests() {
     const genreOk  = _festGenre  === ''    || f.genres.includes(_festGenre);
     const regionOk = _festRegion === ''    || f.region === _festRegion;
     const monthOk  = _festMonth  === ''    || (f.sortDate && new Date(f.sortDate).getMonth() + 1 === _festMonth);
-    return typeOk && genreOk && regionOk && monthOk;
+
+    let nearOk = true;
+    if (_nearMeActive && _userLat && f.lat && f.lng) {
+      const dist = haversineDistance(_userLat, _userLng, f.lat, f.lng);
+      nearOk = dist <= _maxMiles;
+      f._distanceMiles = Math.round(dist);
+    } else {
+      f._distanceMiles = null;
+    }
+
+    return typeOk && genreOk && regionOk && monthOk && nearOk;
+  }).sort((a, b) => {
+    if (_nearMeActive && a._distanceMiles !== null && b._distanceMiles !== null) {
+      return a._distanceMiles - b._distanceMiles;
+    }
+    return new Date(a.sortDate) - new Date(b.sortDate);
   });
 }
 
@@ -73,6 +162,7 @@ function renderFestivals() {
       ${getDaysBadge(f.sortDate)}
       <div class="fest-card-glow" ${glowStyle}></div>
       <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
+      ${f._distanceMiles !== null ? `<span class="fest-distance-badge">📍 ${f._distanceMiles} mi away</span>` : ''}
       <p class="fest-name">${f.name}</p>
       ${f.tagline ? `<p class="fest-tagline" ${taglineColor}>${f.tagline}</p>` : ''}
       <p class="fest-meta">${f.location} &nbsp;·&nbsp; ${f.dates} &nbsp;·&nbsp; ${f.days} Day${f.days>1?'s':''} &nbsp;·&nbsp; ${f.age}</p>

@@ -396,6 +396,7 @@
           <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>
           <button class="view-btn" id="btn-cal"  onclick="setView('cal')">≡ Calendar</button>
         </div>
+        <button class="filter-btn near-me-btn" id="near-me-btn" onclick="toggleNearMe()">📍 Near Me</button>
       </div>
     </div>
     <div class="fest-filters-wrap">
@@ -421,6 +422,16 @@
         <button class="region-pill" onclick="filterRegion('west',this)">West Coast US</button>
         <button class="region-pill" onclick="filterRegion('southwest',this)">Southwest US</button>
         <button class="region-pill" onclick="filterRegion('international',this)">🌐 International</button>
+      </div>
+      <div class="near-me-controls" id="near-me-controls" style="display:none;">
+        <div class="near-me-distance">
+          <span class="near-me-label">Within</span>
+          <button class="dist-btn active" data-miles="100" onclick="setDistance(100, this)">100mi</button>
+          <button class="dist-btn" data-miles="250" onclick="setDistance(250, this)">250mi</button>
+          <button class="dist-btn" data-miles="500" onclick="setDistance(500, this)">500mi</button>
+          <button class="dist-btn" data-miles="9999" onclick="setDistance(9999, this)">Any</button>
+        </div>
+        <p class="near-me-status" id="near-me-status">Getting your location...</p>
       </div>
       <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);margin-top:6px;">US regions · International listed separately</p>
       <div class="genre-filter-row month-filter-row" id="month-filters">
