@@ -144,6 +144,187 @@ body::after {
   .cal-info-col { flex-wrap: wrap; }
   .cal-name { min-width: unset; }
 }
+
+.artist-finder {
+  background: var(--deep);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.artist-finder::before {
+  content: 'FIND';
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 220px;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,229,255,0.04);
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  letter-spacing: 10px;
+  line-height: 1;
+}
+.artist-finder-inner {
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+.artist-finder-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.artist-finder-eyebrow::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--cyan);
+  opacity: 0.4;
+}
+.artist-finder-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.artist-finder-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.artist-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.artist-search-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,229,255,0.35);
+  color: var(--white);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 18px;
+  padding: 16px 50px 16px 20px;
+  outline: none;
+  transition: border-color 0.2s;
+  caret-color: var(--cyan);
+}
+.artist-search-input:focus {
+  border-color: rgba(0,229,255,0.7);
+}
+.artist-search-input::placeholder {
+  color: var(--faint);
+  font-size: 15px;
+}
+.artist-clear-btn {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--faint);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.artist-clear-btn:hover { color: var(--white); }
+
+#artist-results {
+  margin-top: 20px;
+}
+.artist-result-none {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 20px 0;
+}
+.artist-result-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+.artist-result-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.artist-result-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.artist-result-card:hover {
+  border-color: rgba(0,229,255,0.3);
+  background: var(--card-hi);
+}
+.arc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.arc-fest {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--white);
+  display: block;
+  margin-bottom: 3px;
+}
+.arc-dates {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.arc-loc {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+.arc-arrow {
+  color: var(--cyan);
+  opacity: 0.5;
+  font-size: 16px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.artist-result-card:hover .arc-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .artist-finder { padding: 40px 20px; }
+  .artist-result-card {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+  }
+  .arc-loc { display: none; }
+}
 </style>
 </head>
 <body>
@@ -208,6 +389,36 @@ body::after {
     <p style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:40px;">
       Every rave. Every date. 2026 season.
     </p>
+
+    <div class="artist-finder">
+  <div class="artist-finder-inner">
+    <p class="artist-finder-eyebrow">
+      Artist Finder
+    </p>
+    <h2 class="artist-finder-title">
+      WHO ARE YOU CHASING?
+    </h2>
+    <p class="artist-finder-sub">
+      Type an artist name to find which
+      festivals they are playing in 2026.
+    </p>
+    <div class="artist-search-wrap">
+      <input
+        type="text"
+        id="artist-input"
+        class="artist-search-input"
+        placeholder="e.g. John Summit, Carl Cox, ILLENIUM..."
+        autocomplete="off"
+        oninput="searchArtist(this.value)"
+      >
+      <button class="artist-clear-btn"
+        id="artist-clear"
+        onclick="clearArtistSearch()"
+        style="display:none">✕</button>
+    </div>
+    <div id="artist-results"></div>
+  </div>
+</div>
 
     <div class="cal-controls">
       <!-- Past / Upcoming toggle -->
@@ -396,6 +607,94 @@ document.addEventListener('DOMContentLoaded', () => {
 
   render();
 });
+</script>
+<script>
+const TYPE_DOTS = {
+  mega: '#ff2d78',
+  underground: '#b64dff',
+  regional: '#3dff85',
+  international: '#00e5ff',
+  playa: '#ffb800'
+};
+
+function searchArtist(query) {
+  const q = query.trim().toLowerCase();
+  const clearBtn = document.getElementById('artist-clear');
+  const results  = document.getElementById('artist-results');
+
+  clearBtn.style.display = q ? 'block' : 'none';
+
+  if (!q || q.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+
+  const festivals = window.PLURGASM_DATA?.festivals || [];
+  const matches = [];
+
+  festivals.forEach(f => {
+    const headliners = f.headliners || [];
+    const matchedArtists = headliners.filter(a =>
+      a.toLowerCase().includes(q)
+    );
+    if (matchedArtists.length > 0) {
+      matches.push({ fest: f, artists: matchedArtists });
+    }
+  });
+
+  if (!matches.length) {
+    results.innerHTML = `
+      <p class="artist-result-none">
+        No results for "${query}" —
+        lineups update as announcements drop
+      </p>`;
+    return;
+  }
+
+  const artistDisplay = [...new Set(
+    matches.flatMap(m => m.artists)
+  )].join(', ');
+
+  results.innerHTML = `
+    <p class="artist-result-label">
+      Found ${matches.length} festival${matches.length > 1 ? 's' : ''}
+      featuring ${artistDisplay}
+    </p>
+    <div class="artist-result-cards">
+      ${matches.map(m => {
+        const f = m.fest;
+        const dot = TYPE_DOTS[f.type] || '#888';
+        const href = f.detailPage || f.url || '#';
+        return `
+          <a class="artist-result-card"
+            href="${href}"
+            target="${f.detailPage ? '_self' : '_blank'}"
+            rel="noopener">
+            <div class="arc-dot"
+              style="background:${dot};">
+            </div>
+            <div class="arc-info">
+              <span class="arc-fest">${f.name}</span>
+              <span class="arc-dates">
+                ${f.dates} · ${f.age} ·
+                <span style="color:var(--cyan);">
+                  ${m.artists.join(', ')}
+                </span>
+              </span>
+            </div>
+            <span class="arc-loc">${f.location}</span>
+            <span class="arc-arrow">→</span>
+          </a>`;
+      }).join('')}
+    </div>`;
+}
+
+function clearArtistSearch() {
+  document.getElementById('artist-input').value = '';
+  document.getElementById('artist-results').innerHTML = '';
+  document.getElementById('artist-clear').style.display = 'none';
+  document.getElementById('artist-input').focus();
+}
 </script>
 <script>
 function toggleMobileMenu() {
