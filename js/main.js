@@ -1200,63 +1200,42 @@ function renderBlog() {
    RENDER FEATURED INFLUENCER OF THE WEEK
 ════════════════════════════════════════════════ */
 function renderFeaturedInfluencer() {
-  const fi = window.PLURGASM_DATA?.featuredInfluencer;
-  const container = document.getElementById(
-    'featured-influencer'
-  );
-  if (!container || !fi || !fi.active) {
-    if (container) container.style.display = 'none';
-    return;
-  }
+  try {
+    const inf = window.PLURGASM_DATA?.featuredInfluencer;
+    const container = document.getElementById('featured-influencer');
+    if (!container) return;
+    if (!inf || !inf.active) { container.style.display = 'none'; return; }
 
-  container.innerHTML = `
-    <div class="fi-card">
-      <div class="fi-eyebrow-row">
-        <span class="fi-eyebrow">
-          Influencer of the Week
-        </span>
-        <span class="fi-platform">
-          ${fi.platform}
-        </span>
-      </div>
+    const linksHtml = (inf.links || []).filter(l => l.url).map((l, i) =>
+      `<a href="${l.url}" target="_blank" rel="noopener"
+          class="fi-link-btn ${i === 0 ? 'fi-link-primary' : 'fi-link-secondary'}">
+        ${l.platform} ↗
+      </a>`
+    ).join('');
 
-      ${fi.image ? `
-        <div class="fi-photo-wrap">
-          <img src="${fi.image}"
-            alt="${fi.name}"
-            class="fi-photo"
-            onerror="this.parentElement
-              .style.display='none'">
-        </div>` : ''}
-
-      <div class="fi-name-row">
-        <div>
-          <p class="fi-name">${fi.name}</p>
-          <a href="${fi.profileUrl}"
-            target="_blank" rel="noopener"
-            class="fi-handle">
-            ${fi.handle}
-          </a>
+    container.innerHTML = `
+      <div class="fi-card">
+        <div class="fi-eyebrow-row">
+          <a href="social.html" class="fi-eyebrow">Influencer Spotlight</a>
         </div>
+        ${inf.image ? `
+          <div class="fi-photo-wrap">
+            <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent"
+              onerror="this.parentElement.style.display='none'">
+          </div>` : ''}
+        <div class="fi-name-row">
+          <div>
+            <p class="fi-name">${inf.name}</p>
+            <span class="fi-handle">${inf.handle}</span>
+          </div>
+        </div>
+        <p class="fi-blurb">${inf.blurb}</p>
+        ${linksHtml ? `<div class="fi-links">${linksHtml}</div>` : ''}
       </div>
-
-      <p class="fi-blurb">${fi.blurb}</p>
-
-      <div class="fi-links">
-        <a href="${fi.profileUrl}"
-          target="_blank" rel="noopener"
-          class="fi-link-btn fi-link-primary">
-          Follow on Instagram ↗
-        </a>
-        ${fi.posts && fi.posts.length ? `
-          <a href="https://www.instagram.com/reel/${fi.posts[0]}/"
-            target="_blank" rel="noopener"
-            class="fi-link-btn fi-link-secondary">
-            View Featured Post ↗
-          </a>` : ''}
-      </div>
-    </div>
-  `;
+    `;
+  } catch (e) {
+    console.error('renderFeaturedInfluencer:', e);
+  }
 }
 
 /* ════════════════════════════════════════════════

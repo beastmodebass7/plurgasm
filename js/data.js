@@ -1723,17 +1723,15 @@ PLURGASM_DATA.featuredPost = {
 };
 
 PLURGASM_DATA.featuredInfluencer = {
-  handle: '@jarren_ellis',
   name: 'Jarren Ellis',
-  image: 'https://unavatar.io/instagram/jarren_ellis',
-  platform: 'Instagram',
-  profileUrl: 'https://www.instagram.com/jarren_ellis/',
+  handle: '@jarren_ellis',
+  image: 'images/jarren-ellis.png',
   blurb: 'One of the most genuine rave content creators in the community right now. Jarren covers festival culture, flow arts, harm reduction, and everything in between — from the inside, not from the sidelines. Give him a follow.',
-  posts: [
-    'DZGC_wdq-pc',
-    'DY5VhinysUB'
-  ],
-  active: true
+  active: true,
+  links: [
+    { platform: 'Instagram', url: '' },
+    { platform: 'Website',   url: '' }
+  ]
 };
 
 PLURGASM_DATA.brandOfWeek = {

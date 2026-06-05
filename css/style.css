@@ -3265,17 +3265,20 @@ footer {
    FEATURED ROW — BOTW + INFLUENCER side by side
 ══════════════════════════════════════════════════ */
 .featured-row {
-  display: grid;
-  grid-template-columns: 1fr 380px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   gap: 0;
   border: 1px solid var(--border);
   margin-bottom: 48px;
 }
 .featured-botw-col {
+  flex: 7;
   border-right: 1px solid var(--border);
   min-width: 0;
 }
 .featured-inf-col {
+  flex: 3;
   min-width: 0;
   background: var(--card);
 }
@@ -3337,6 +3340,10 @@ footer {
   object-position: top;
   transition: transform 0.4s;
 }
+.fi-photo-transparent {
+  mix-blend-mode: lighten;
+  object-fit: contain;
+}
 .fi-card:hover .fi-photo {
   transform: scale(1.04);
 }
@@ -3388,7 +3395,12 @@ footer {
 
 @media (max-width: 900px) {
   .featured-row {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+  .featured-botw-col,
+  .featured-inf-col {
+    flex: none;
+    width: 100%;
   }
   .featured-botw-col {
     border-right: none;
