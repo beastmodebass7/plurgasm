@@ -780,15 +780,70 @@ function renderFeaturedPost() {
    RENDER SOCIALS
 ════════════════════════════════════════════════ */
 function renderSocials() {
-  document.getElementById('social-grid').innerHTML = SOCIALS.map(s => `
-    <div class="spotlight-card ${s.featured ? 'featured' : ''}">
-      ${s.featured ? '<span class="spot-badge">⭐ Featured</span>' : ''}
-      <p class="spot-handle">${s.handle}</p>
-      <p class="spot-platform">${s.platform} · ${s.type}</p>
-      <p class="spot-desc">${s.desc}</p>
-      <a class="spot-link" href="https://instagram.com/${s.handle.replace('@','')}" target="_blank">Follow →</a>
-    </div>
-  `).join('');
+  const container = document.getElementById('social-grid');
+  if (!container) return;
+  const socials = (window.PLURGASM_DATA?.socials || [])
+    .filter(s => s.featured);
+
+  if (!socials.length) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const platformColors = {
+    Instagram: '#ff2d78',
+    TikTok: '#00e5ff',
+    YouTube: '#ff2d78',
+    Twitter: '#00e5ff'
+  };
+
+  container.innerHTML = socials.map(s => {
+    const handle = (s.handle || '').replace('@','');
+    const color = platformColors[s.platform]
+      || 'var(--cyan)';
+    const initials = handle.slice(0,2).toUpperCase();
+    const avatarUrl =
+      'https://unavatar.io/instagram/' + handle;
+
+    return `
+      <a class="social-card"
+        href="${s.url || '#'}"
+        target="_blank"
+        rel="noopener">
+        <div class="sc-avatar-wrap">
+          <img
+            src="${avatarUrl}"
+            alt="${s.handle}"
+            class="sc-avatar"
+            onerror="this.style.display='none';
+              this.nextElementSibling
+                .style.display='flex';"
+          >
+          <div class="sc-avatar-fallback"
+            style="display:none;
+              background:${color}22;
+              color:${color};">
+            ${initials}
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-top">
+            <span class="sc-handle"
+              style="color:${color}">
+              ${s.handle}
+            </span>
+            <span class="sc-platform">
+              ${s.platform}
+            </span>
+          </div>
+          <p class="sc-type">${s.type || ''}</p>
+          <p class="sc-desc">${s.desc || ''}</p>
+        </div>
+        <span class="sc-arrow">→</span>
+      </a>`;
+  }).join('');
+
+  applyMobileSocialLimit();
 }
 
 /* ════════════════════════════════════════════════
