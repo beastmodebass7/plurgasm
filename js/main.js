@@ -715,15 +715,18 @@ function renderFeaturedPost() {
 
     if (fp.platform === 'instagram' || url.includes('instagram.com')) {
       return `
-        <div class="fp-embed fp-instagram">
-          <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="${url}"
-            data-instgrm-version="14"
-            style="max-width:540px;">
-          </blockquote>
-          <script async src="//www.instagram.com/embed.js"><\/script>
-        </div>`;
+        <a href="${fp.url}"
+          target="_blank"
+          rel="noopener"
+          class="fp-instagram-card">
+          <div class="fp-ig-icon">📸</div>
+          <div class="fp-ig-text">
+            <p class="fp-ig-handle">${fp.handle}</p>
+            <p class="fp-ig-cta">
+              Watch on Instagram →
+            </p>
+          </div>
+        </a>`;
     }
 
     if (fp.platform === 'youtube' || url.includes('youtube.com') || url.includes('youtu.be')) {
