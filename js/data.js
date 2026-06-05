@@ -186,6 +186,306 @@ PLURGASM_DATA.plurDefinitions = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'post-009',
+    title: 'Bass Music 101 — A Complete Guide to the Subgenres, Artists, and Festivals',
+    slug: 'bass-music-101-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-01',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80',
+    excerpt: 'Dubstep, riddim, melodic bass, future bass, midtempo, bass house. If you are new to the bass music world, the subgenres can feel overwhelming. This is your complete guide to what each one sounds like, who the key artists are, and which festivals to go to based on where you live.',
+    published: true,
+    featured: false,
+    body: `
+    <p>Bass music is not one thing. It is a family of related genres that
+    share a foundation of heavy low-end frequencies and high-energy production,
+    but branch in wildly different directions from there.
+    Riddim sounds nothing like melodic bass.
+    Future bass sounds nothing like midtempo.
+    The artists who dominate one corner of the scene
+    often have almost no overlap with the artists who dominate another.</p>
+
+    <p>If you discovered bass music through a single artist or a single festival
+    and want to understand the larger landscape, this is where to start.
+    And if you are trying to figure out which festivals are worth your money
+    based on the sounds you actually love,
+    we have broken that down by region at the end.</p>
+
+    <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80"
+      alt="Bass music festival crowd"
+      style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
+
+    <h2>Dubstep</h2>
+    <p>The origin point. Dubstep started in South London in the late 1990s
+    as a dark, minimal genre built around half-time rhythms and deep sub bass.
+    The original sound was spacious and atmospheric with a strong reggae and dub influence.
+    By 2010 the American version had developed its own character entirely,
+    emphasizing aggressive drops, distorted bass wobbles, and high-energy buildups.
+    This American take is what most people mean when they say dubstep today.</p>
+
+    <p>The tempo sits around 140 BPM. The drops are heavy.
+    The crowd response at a good dubstep set is physical,
+    bass hitting your chest in ways that feel more like weather than music.</p>
+
+    <p><strong>Key artists:</strong> Excision, Zomboy, Datsik, Feed Me,
+    12th Planet, Downlink, Space Laces, Barely Alive</p>
+
+    <p><strong>Gateway track:</strong> Listen to Excision and Datsik
+    collaborations from 2011 to understand where modern dubstep came from,
+    then follow Excision forward to hear how it evolved.</p>
+
+    <h2>Riddim</h2>
+    <p>Riddim split from dubstep around 2015 and developed its own dedicated following.
+    The key difference is minimalism. Where traditional dubstep piles on complexity,
+    riddim strips everything back to a repeating bass pattern,
+    a simple rhythm, and precise sound design.
+    The wobbles are cleaner and more mechanical.
+    The drops feel like machinery rather than chaos.</p>
+
+    <p>Riddim fans are among the most dedicated in the bass world.
+    The subgenre has its own labels, its own festivals,
+    and its own aesthetic that is distinctly separate from the broader dubstep scene.</p>
+
+    <p><strong>Key artists:</strong> Svdden Death, Chomppa, Virtual Riot,
+    Griz (not purely riddim but influential), Peekaboo, Yakz, Wooli</p>
+
+    <p><strong>Gateway track:</strong> Start with Svdden Death remixes
+    and work backward through the Virtual Riot catalog
+    to understand how the sound developed.</p>
+
+    <h2>Melodic Bass / Melodic Dubstep</h2>
+    <p>The most emotionally accessible corner of the bass world.
+    Melodic bass keeps the weight and energy of dubstep
+    but wraps it in cinematic melodies, vocal chops,
+    and song structures that feel closer to pop than underground club music.
+    The drops still hit hard but you are also likely to feel something in your chest
+    that has nothing to do with the volume.</p>
+
+    <p>This is the subgenre that crossover audiences discover first
+    and that has produced some of the most commercially successful artists
+    in the bass world.
+    It is also the subgenre most likely to headline a mainstream festival.</p>
+
+    <p><strong>Key artists:</strong> ILLENIUM, Seven Lions, Said the Sky,
+    Dabin, Trivecta, Woodes, Kompany, Rezz (adjacent),
+    Excision (when he goes melodic)</p>
+
+    <p><strong>Gateway track:</strong> ILLENIUM and Said the Sky
+    collaborations are the most accessible entry point.
+    From there, Seven Lions takes you deeper into the more complex
+    psychedelic side of the sound.</p>
+
+    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80"
+      alt="Festival crowd with lights"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>Future Bass</h2>
+    <p>Future bass sits at the intersection of bass music and pop electronic music.
+    The signature sound is a bright, chord-heavy drop built around
+    supersaw synths, pitched-up vocal chops, and melodies
+    that feel almost overwhelmingly euphoric.
+    The energy is uplifting rather than aggressive.
+    The crowds tend to be younger and the festival bookings
+    often overlap with EDM mainstage programming.</p>
+
+    <p>Future bass had its commercial peak around 2016 to 2019
+    but continues to evolve, with newer artists pushing it
+    toward more experimental territory.</p>
+
+    <p><strong>Key artists:</strong> Flume, San Holo, Jai Wolf,
+    Odesza (adjacent), Kasbo, Unlike Pluto, Slushii, Valentino Khan</p>
+
+    <p><strong>Gateway track:</strong> Flume's self-titled album
+    defined the genre. San Holo's album1
+    pushed it in a more emotional direction worth exploring.</p>
+
+    <h2>Midtempo</h2>
+    <p>Midtempo is one of the more recently defined subgenres and
+    sits in interesting territory.
+    The tempo is slower than most bass music, usually around 90 to 110 BPM,
+    which creates a heaviness that feels less frantic and more deliberate.
+    The bass is deep, the atmospheres are dark,
+    and the music tends to have a cinematic quality
+    that rewards headphone listening as much as festival sound systems.</p>
+
+    <p>Rezz is the most prominent artist in this space
+    and has built a cult following that extends well beyond
+    the typical bass music audience.</p>
+
+    <p><strong>Key artists:</strong> Rezz, Phase (now Rezz's label),
+    Blanke, Sable Valley artists, Marauda, 1788-L, Lxstfire</p>
+
+    <p><strong>Gateway track:</strong> Rezz's Mass Manipulation album
+    is the definitive midtempo record.
+    Start there and follow the Rezz Nation rabbit hole.</p>
+
+    <h2>Bass House</h2>
+    <p>Bass house fuses the four-on-the-floor structure of house music
+    with the distorted, driving bass lines of bass music.
+    The result is something that works on a house dancefloor
+    but hits considerably harder than traditional house.
+    It is one of the most DJ-friendly subgenres in the bass world
+    and has produced some of the most consistently fun festival sets
+    of the last five years.</p>
+
+    <p><strong>Key artists:</strong> Habstrakt, Valentino Khan,
+    Walker and Royce, AC Slater, Jauz, Joyryde, Habstrakt, Tchami</p>
+
+    <p><strong>Gateway track:</strong> Valentino Khan's Deep Down Low
+    became a crossover moment for the genre.
+    Habstrakt's catalog is the most consistent entry point
+    for understanding the full sonic range.</p>
+
+    <h2>Drum and Bass</h2>
+    <p>Drum and bass is the oldest genre in this guide
+    and the one with the most developed culture outside of America.
+    It emerged from the UK jungle scene in the early 1990s
+    and developed into a sprawling genre with multiple subgenres of its own,
+    including liquid DnB, neurofunk, jump-up, and techstep.</p>
+
+    <p>The defining feature is tempo.
+    DnB runs at 160 to 180 BPM,
+    making it significantly faster than any other genre in this guide.
+    The drums are syncopated and complex,
+    the bass lines deep and rolling.
+    A good DnB set in a club with a proper sound system
+    is one of the most physically consuming experiences in electronic music.</p>
+
+    <p>The American DnB scene is smaller than the UK scene
+    but has grown substantially in the last few years,
+    particularly on the West Coast.</p>
+
+    <p><strong>Key artists:</strong> Chase and Status, Andy C, Noisia,
+    Pendulum, Dimension, Netsky, Shy FX, Sub Focus, Wilkinson,
+    Delta Heavy, Logistics</p>
+
+    <p><strong>Gateway track:</strong> Pendulum's Hold Your Colour
+    is the crossover album that brought most American fans
+    to DnB for the first time.
+    Chase and Status are the most consistent live performers in the genre.</p>
+
+    <img src="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80"
+      alt="Festival at night with crowd"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>Which Festivals to Go To Based on Your Region</h2>
+    <p>Bass music is not evenly distributed across the country.
+    Some regions have a thriving scene with multiple annual events.
+    Others have less to choose from locally but are within driving distance
+    of something worth attending.
+    Here is where to look based on where you live.</p>
+
+    <h3>Northeast (DC, New York, Philadelphia, Boston)</h3>
+    <p>The Northeast is underserved for major bass events
+    relative to its population, which makes Project GLOW in Washington DC
+    the anchor event for the region.
+    The festival's Pulse Stage is a dedicated bass stage
+    with a consistently strong lineup that includes dubstep,
+    riddim, and experimental bass acts alongside the melodic headliners
+    on the main stage.
+    For DnB specifically, New York City club nights
+    are more reliable than festival bookings in this region.</p>
+
+    <p><strong>Best for:</strong> Dubstep, Melodic Bass, Bass House</p>
+    <p><strong>Go to:</strong> Project GLOW (DC, May)</p>
+
+    <h3>Southeast (Atlanta, Miami, Orlando, Nashville)</h3>
+    <p>The Southeast has developed one of the strongest
+    regional bass scenes in the country over the last decade.
+    Imagine Music Festival in Atlanta is the anchor event,
+    with a lineup that leans heavily toward dubstep and riddim
+    with melodic and future bass support.
+    Ultra Miami covers the electronic spectrum more broadly
+    but has strong bass bookings in its Resistance and Live stages.
+    EDC Orlando in November is more accessible
+    than Las Vegas for Southeast attendees
+    and covers every bass subgenre.</p>
+
+    <p><strong>Best for:</strong> Dubstep, Riddim, Bass House</p>
+    <p><strong>Go to:</strong> Imagine Music Festival (Atlanta, September),
+    Ultra Miami (March), EDC Orlando (November)</p>
+
+    <h3>Midwest (Chicago, Detroit, Columbus, Minneapolis)</h3>
+    <p>Lost Lands in Thornville Ohio is the most important bass music festival
+    in the Midwest and arguably in the country for pure bass programming.
+    Excision's annual event runs for three days with a lineup
+    that covers every corner of bass music from dubstep to riddim
+    to experimental.
+    The production is exceptional and the crowd
+    is among the most knowledgeable bass audiences anywhere.
+    Bonnaroo in Tennessee covers melodic bass and future bass well
+    and is within reach for the southern Midwest.</p>
+
+    <p><strong>Best for:</strong> Dubstep, Riddim, Melodic Bass, Experimental</p>
+    <p><strong>Go to:</strong> Lost Lands (Ohio, October), Bonnaroo (Tennessee, June)</p>
+
+    <h3>West Coast (Los Angeles, San Francisco, Seattle, Portland)</h3>
+    <p>The West Coast has the most developed bass scene outside of the UK.
+    Hard Summer in Los Angeles covers bass house, dubstep,
+    and melodic bass with one of the strongest annual lineups in the country.
+    Bass Canyon in Quincy Washington is a dedicated bass festival
+    run by Excision and stays closer to heavy dubstep and riddim territory.
+    Nocturnal Wonderland in San Bernardino is one of the
+    longest-running events in American rave history
+    and consistently books strong bass acts across subgenres.
+    The West Coast also has the most developed DnB club scene in the US,
+    particularly in San Francisco and Seattle.</p>
+
+    <p><strong>Best for:</strong> Every subgenre, strongest regional scene</p>
+    <p><strong>Go to:</strong> Hard Summer (LA, August),
+    Bass Canyon (Washington, August),
+    Nocturnal Wonderland (San Bernardino, September)</p>
+
+    <h3>Texas and Southwest (Houston, Dallas, Austin, Phoenix)</h3>
+    <p>Something Wicked in Houston is the primary bass-focused event
+    for the Texas region, with strong dubstep and bass house bookings
+    around Halloween weekend.
+    Austin's club scene covers melodic bass and future bass well year-round.
+    Phoenix has a growing scene with regular bass bookings
+    in club venues that often bring touring artists
+    who are traveling between LA and Texas dates.</p>
+
+    <p><strong>Best for:</strong> Dubstep, Bass House</p>
+    <p><strong>Go to:</strong> Something Wicked (Houston, October)</p>
+
+    <h2>How to Figure Out What You Actually Like</h2>
+    <p>The fastest way to understand the distinctions between subgenres
+    is not to read about them but to listen back to back.
+    Put on an Excision set, then a Seven Lions set,
+    then a Rezz set, then a Valentino Khan set.
+    The differences are immediately audible
+    in a way that no amount of description fully captures.</p>
+
+    <p>Most subgenre communities have dedicated subreddits,
+    Discord servers, and playlist curators.
+    The bass music world is generally welcoming to new listeners
+    who are genuinely curious,
+    and most veteran fans are happy to make recommendations
+    if you tell them what you already know you like.</p>
+
+    <p>Start with one artist. Follow them to the acts they collaborate with.
+    Follow those acts to the labels they release on.
+    Follow those labels to the other artists they sign.
+    In three or four steps you will have a map of
+    an entire corner of the bass world,
+    built from your own taste rather than someone else's.</p>
+
+    <p style="margin-top:32px;padding:20px;
+      background:rgba(0,229,255,0.06);
+      border-left:3px solid #00e5ff;
+      line-height:1.8;">
+      Find every bass music festival in one place on the
+      <a href="calendar.html" style="color:var(--cyan);">
+        PLURGASM festival calendar
+      </a>.
+      Use the genre filter to show only Bass, Dubstep,
+      or Riddim events and find something near you.
+    </p>
+  `
+  },
+
+  {
     id: 'post-008',
     title: 'The History of PLUR — Where It Actually Came From',
     slug: 'history-of-plur',
