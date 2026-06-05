@@ -780,13 +780,14 @@ function renderFeaturedPost() {
    RENDER SOCIALS
 ════════════════════════════════════════════════ */
 function renderSocials() {
+  try {
   const container = document.getElementById('social-grid');
   if (!container) return;
   const socials = (window.PLURGASM_DATA?.socials || [])
     .filter(s => s.featured);
 
   if (!socials.length) {
-    container.innerHTML = '';
+    container.innerHTML = '<p style="color:var(--faint);font-family:DM Mono,monospace;font-size:11px;letter-spacing:2px;">No featured accounts yet.</p>';
     return;
   }
 
@@ -844,6 +845,9 @@ function renderSocials() {
   }).join('');
 
   applyMobileSocialLimit();
+  } catch(e) {
+    console.error('renderSocials error:', e);
+  }
 }
 
 function applyMobileSocialLimit() {
