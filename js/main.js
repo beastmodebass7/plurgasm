@@ -1076,58 +1076,62 @@ function renderBlog() {
 ════════════════════════════════════════════════ */
 function renderFeaturedInfluencer() {
   const fi = window.PLURGASM_DATA?.featuredInfluencer;
-  const container = document.getElementById('featured-influencer');
+  const container = document.getElementById(
+    'featured-influencer'
+  );
   if (!container || !fi || !fi.active) {
     if (container) container.style.display = 'none';
     return;
   }
 
-  const posts = fi.posts || [];
-  if (!posts.length) return;
-
-  const code = posts[Math.floor(Math.random() * posts.length)];
-  const postUrl = 'https://www.instagram.com/reel/' + code + '/';
-
   container.innerHTML = `
     <div class="fi-card">
       <div class="fi-eyebrow-row">
-        <span class="fi-eyebrow">Influencer of the Week</span>
-        <span class="fi-platform">Instagram</span>
+        <span class="fi-eyebrow">
+          Influencer of the Week
+        </span>
+        <span class="fi-platform">
+          ${fi.platform}
+        </span>
       </div>
-      <a href="${fi.profileUrl}"
-        target="_blank" rel="noopener"
-        class="fi-handle">${fi.handle}</a>
+
+      ${fi.image ? `
+        <div class="fi-photo-wrap">
+          <img src="${fi.image}"
+            alt="${fi.name}"
+            class="fi-photo"
+            onerror="this.parentElement
+              .style.display='none'">
+        </div>` : ''}
+
+      <div class="fi-name-row">
+        <div>
+          <p class="fi-name">${fi.name}</p>
+          <a href="${fi.profileUrl}"
+            target="_blank" rel="noopener"
+            class="fi-handle">
+            ${fi.handle}
+          </a>
+        </div>
+      </div>
+
       <p class="fi-blurb">${fi.blurb}</p>
-      <div class="fi-embed-wrap">
-        <blockquote
-          class="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="${postUrl}?utm_source=ig_embed&utm_campaign=loading"
-          data-instgrm-version="14"
-          style="background:#FFF;border:0;
-            border-radius:3px;
-            box-shadow:0 0 1px 0 rgba(0,0,0,0.5),
-              0 1px 10px 0 rgba(0,0,0,0.15);
-            margin:0;max-width:100%;
-            min-width:280px;padding:0;width:100%;">
-        </blockquote>
+
+      <div class="fi-links">
+        <a href="${fi.profileUrl}"
+          target="_blank" rel="noopener"
+          class="fi-link-btn fi-link-primary">
+          Follow on Instagram ↗
+        </a>
+        ${fi.posts && fi.posts.length ? `
+          <a href="https://www.instagram.com/reel/${fi.posts[0]}/"
+            target="_blank" rel="noopener"
+            class="fi-link-btn fi-link-secondary">
+            View Featured Post ↗
+          </a>` : ''}
       </div>
-      <a href="${fi.profileUrl}"
-        target="_blank" rel="noopener"
-        class="fi-follow-btn">
-        Follow ${fi.handle} on Instagram ↗
-      </a>
     </div>
   `;
-
-  if (window.instgrm) {
-    window.instgrm.Embeds.process();
-  } else {
-    const script = document.createElement('script');
-    script.src = '//www.instagram.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-  }
 }
 
 /* ════════════════════════════════════════════════

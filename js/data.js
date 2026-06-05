@@ -1727,9 +1727,10 @@ PLURGASM_DATA.featuredPost = {
 PLURGASM_DATA.featuredInfluencer = {
   handle: '@jarren_ellis',
   name: 'Jarren Ellis',
-  platform: 'instagram',
+  image: 'images/jarren-ellis.jpg',
+  platform: 'Instagram',
   profileUrl: 'https://www.instagram.com/jarren_ellis/',
-  blurb: 'Rave culture content from inside the scene. Festival coverage, flow arts, and the kind of authentic community energy that is hard to fake. Worth a follow.',
+  blurb: 'One of the most genuine rave content creators in the community right now. Jarren covers festival culture, flow arts, harm reduction, and everything in between — from the inside, not from the sidelines. Give him a follow.',
   posts: [
     'DZGC_wdq-pc',
     'DY5VhinysUB'
