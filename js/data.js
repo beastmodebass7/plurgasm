@@ -186,6 +186,177 @@ PLURGASM_DATA.plurDefinitions = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'post-010',
+    title: 'Chase & Status in a Bond Game — What Electronic Music in Video Games Actually Means',
+    slug: 'chase-status-007-first-light-electronic-music-games',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-02',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    excerpt: 'Chase & Status are DJing in the new James Bond game. Dimitri Vegas remixed the Bond theme. FISHER is voicing a garden gnome in Toy Story 5. Electronic music is everywhere right now and video games might be one of the most interesting places it is showing up.',
+    published: true,
+    featured: true,
+    body: `
+    <p>A few weeks ago IO Interactive dropped something that went quietly viral
+    in electronic music circles. In 007: First Light, the new James Bond game
+    released at the end of May, there is a mission called A Night Out.
+    Bond enters a packed nightclub.
+    The dance floor is heaving.
+    The lighting system is detailed enough to draw comparisons
+    to Club Hölle from Hitman 3, still considered one of the best
+    club environments ever put in a video game.
+    And in the elevated DJ booth above the crowd,
+    rendered in full polygonal detail,
+    are Chase and Status.</p>
+
+    <p>The mission plays two unreleased Chase and Status tracks.
+    Fans started pulling the audio from game files within days of launch.
+    The scene is not a cutscene.
+    You move through it.
+    You feel the crowd, the lights, the bass pushing
+    through a fictional sound system in a fictional club
+    while one of the UK's most important drum and bass duos
+    plays overhead.</p>
+
+    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80"
+      alt="DJ set with crowd"
+      style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
+
+    <h2>The Reaction</h2>
+
+    <p>The response online was immediate and genuinely enthusiastic,
+    which does not always happen when games try to integrate
+    contemporary music acts.
+    One X user described the sequence as
+    "absolutely stunning, the neon-soaked atmosphere,
+    dynamic crowd, and that classic Bond tension while staying stealthy
+    is chef's kiss."
+    Others pointed specifically to the lighting system and
+    crowd animation as evidence that IO Interactive understood
+    what a club actually looks like from the inside,
+    not from a distance.</p>
+
+    <p>IO Interactive's statement on the inclusion was direct:
+    "It's a modern pop-culture touchstone that keeps Bond
+    in step with the world around him.
+    Their inclusion adds a distinct edge to 007: First Light,
+    not just as a cameo, but bringing immersive energy
+    that amplifies Bond's journey."</p>
+
+    <p>That framing matters.
+    They did not say Chase and Status were added to appeal
+    to a younger demographic or to generate press.
+    They said electronic music is part of the world Bond moves through.
+    That is a different statement about where club culture sits
+    in the cultural landscape right now.</p>
+
+    <h2>The Bigger Picture</h2>
+
+    <p>Chase and Status are not the only electronic act in the game.
+    Dimitri Vegas appears as a character players can interact with
+    and created a remix of the Bond theme that he debuted at Tomorrowland Winter.
+    Lana Del Rey performs the title track alongside a score
+    composed by The Flight, a UK duo whose work sits
+    at the intersection of orchestral and electronic production.
+    The entire musical world of 007: First Light
+    is built around contemporary sounds rather than
+    the orchestral tradition that defined the franchise for decades.</p>
+
+    <p>This is not an accident.
+    Video games have been one of the most interesting
+    places to watch electronic music expand its cultural footprint
+    for at least fifteen years.
+    The GTA series introduced entire generations to
+    house music, drum and bass, and techno through its radio stations.
+    Hitman 3's Club Hölle mission became a genuine talking point
+    among people who had never set foot in a techno club
+    but spent hours inside a virtual one.
+    Games create immersive environments that can communicate
+    the feeling of a subculture in ways that a playlist or
+    a documentary cannot.</p>
+
+    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80"
+      alt="Club lighting and crowd"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>DJs Are Everywhere Right Now</h2>
+
+    <p>The Chase and Status cameo lands in the middle of
+    an unusually concentrated moment for electronic artists
+    crossing into other media.
+    FISHER, the Australian house DJ best known for Losing It,
+    announced around the same time that he would be voicing
+    a garden gnome in the Australia and New Zealand release of Toy Story 5.
+    That detail went viral faster than most actual music news does.
+    The image of a gnome with FISHER's energy is objectively funny
+    but it also says something real about how visible
+    these artists have become outside the festival circuit.</p>
+
+    <p>Five years ago a Bond game putting a drum and bass duo
+    in a club scene would have been considered niche at best.
+    Now it is a selling point.
+    The trailer clips featuring the club sequence
+    performed well enough that IO Interactive put them front and center
+    in the game's marketing.
+    Chase and Status fans who have never played a James Bond game
+    are downloading 007: First Light because they want to
+    stand on that virtual dance floor.</p>
+
+    <h2>What This Means for the Culture</h2>
+
+    <p>There is a version of this story that is just press release material.
+    Big game, famous artists, everyone wins.
+    But the more interesting version is about legitimacy
+    moving in an unexpected direction.</p>
+
+    <p>Electronic music spent decades fighting for cultural recognition.
+    The British press spent years dismissing rave culture as a drug problem.
+    American mainstream media ignored it almost entirely
+    until EDM became impossible to ignore commercially.
+    Even now there is a version of the conversation that treats
+    club music as background, as atmosphere, as something that happens
+    while the real story unfolds elsewhere.</p>
+
+    <p>What IO Interactive did with the A Night Out mission is treat
+    the club sequence as the story.
+    Bond is in that room because that is where the world is.
+    Chase and Status are in that booth because that is who is
+    shaping the sound of that world.
+    The music is not wallpaper.
+    It is architecture.</p>
+
+    <p>That is a small thing to notice in a game that has
+    Lenny Kravitz playing a pirate king and Lana Del Rey
+    on the soundtrack.
+    But it is the kind of small thing that accumulates.
+    The culture shifts because a lot of small things
+    point in the same direction at the same time.</p>
+
+    <p>Chase and Status have been making drum and bass for over twenty years.
+    The fact that a major video game in 2026 uses their music
+    as the sonic identity of its most praised level
+    is not just good for them.
+    It is good evidence that the culture they helped build
+    is now part of the furniture of the world.</p>
+
+    <p style="margin-top:32px;padding:20px;
+      background:rgba(0,229,255,0.06);
+      border-left:3px solid #00e5ff;
+      line-height:1.8;">
+      New to drum and bass?
+      Our
+      <a href="blog-post.html?id=post-009"
+        style="color:var(--cyan);">
+        Bass Music 101 guide
+      </a>
+      covers Chase and Status, the full subgenre landscape,
+      and which festivals to attend based on where you live.
+    </p>
+  `
+  },
+
+  {
     id: 'post-009',
     title: 'Bass Music 101 — A Complete Guide to the Subgenres, Artists, and Festivals',
     slug: 'bass-music-101-guide',
