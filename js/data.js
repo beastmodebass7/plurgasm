@@ -1715,10 +1715,10 @@ const SOCIALS = [
 ];
 
 PLURGASM_DATA.featuredPost = {
-  url: 'https://www.instagram.com/p/DZCWVwWM7fm/',
-  handle: '@plurgasm',
+  url: 'https://www.instagram.com/p/DZGC_wdq-pc/',
+  handle: '@jarren_ellis',
   platform: 'instagram',
-  caption: '',
+  caption: 'Follow @jarren_ellis for rave culture content from inside the scene.',
   active: true
 };
 
