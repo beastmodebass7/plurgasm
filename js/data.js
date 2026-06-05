@@ -1706,12 +1706,13 @@ PLURGASM_DATA.itemFilters = [
 const SOCIALS = [
   { handle:'@insomniac_events', platform:'Instagram', type:'Brand',    desc:'Official Insomniac page. Festival announcements, lineups, and behind-the-scenes from EDC and beyond.', featured:false },
   { handle:'@projectglowfest',  platform:'Instagram', type:'Festival', desc:'All official updates for Project GLOW DC — lineups, artist spotlights, and more.',                     featured:true  },
-  { handle:'@edc_lasvegas',     platform:'Instagram', type:'Festival', desc:'The official EDC LV page. Your home for 30th anniversary content and headliner reveals.',                featured:false },
+  { handle:'@edc_lasvegas',     platform:'Instagram', type:'Festival', desc:'The official EDC LV page. Your home for 30th anniversary content and headliner reveals.',                featured:true  },
   { handle:'@freedomravewear',  platform:'Instagram', type:'Brand',    desc:'Freedom Rave Wear\'s official page. New drops, festival looks, and styling inspo from the community.',   featured:false },
-  { handle:'@electricforest',   platform:'Instagram', type:'Festival', featured:false, desc:'Official Electric Forest. Forest magic, lineup announcements, and art from Rothbury Michigan.' },
+  { handle:'@electricforest',   platform:'Instagram', type:'Festival', featured:true,  desc:'Official Electric Forest. Forest magic, lineup announcements, and art from Rothbury Michigan.' },
   { handle:'@movementdetroit',  platform:'Instagram', type:'Festival', featured:false, desc:'Official Movement Detroit. Techno from the birthplace of the genre.' },
   { handle:'@dancesafe',        platform:'Instagram', type:'Safety',   featured:true,  desc:'The most important account in the rave community. Harm reduction, drug checking, and real information with zero judgment.' },
   { handle:'@demoniacult',      platform:'Instagram', type:'Brand',    featured:false, desc:'The official Demonia Cult page. New styles, platform boots, and alternative footwear drops.' },
+  { handle:'@jarren_ellis',     platform:'Instagram', type:'Creator',  featured:true,  desc:'Rave culture content from inside the scene. Festival coverage, flow arts, and genuine community energy.', url:'https://www.instagram.com/jarren_ellis/' },
 ];
 
 PLURGASM_DATA.featuredPost = {

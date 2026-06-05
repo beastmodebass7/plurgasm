@@ -780,7 +780,7 @@ function renderFeaturedPost() {
    RENDER SOCIALS
 ════════════════════════════════════════════════ */
 function renderSocials() {
-  document.getElementById('spotlight-grid').innerHTML = SOCIALS.map(s => `
+  document.getElementById('social-grid').innerHTML = SOCIALS.map(s => `
     <div class="spotlight-card ${s.featured ? 'featured' : ''}">
       ${s.featured ? '<span class="spot-badge">⭐ Featured</span>' : ''}
       <p class="spot-handle">${s.handle}</p>
