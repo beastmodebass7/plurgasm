@@ -1172,7 +1172,7 @@ function renderBotw() {
              || PLURGASM_DATA.brandOfWeek;
   if (!bw) return;
 
-  const botwCard = document.querySelector('.botw');
+  const botwCard = document.getElementById('botw');
   if (!botwCard) return;
 
   if (bw.image) botwCard.classList.add('botw-has-image');
@@ -1212,6 +1212,28 @@ function renderBotw() {
       </div>
     </div>
   `;
+}
+
+/* ════════════════════════════════════════════════
+   ITEM GROUP TOGGLE
+════════════════════════════════════════════════ */
+function toggleItemGroup(groupEl) {
+  if (!groupEl) return;
+  groupEl.classList.toggle('collapsed');
+}
+
+/* ════════════════════════════════════════════════
+   ARTIST SEARCH
+════════════════════════════════════════════════ */
+function searchArtist(query) {
+  if (!query) return [];
+  const q = query.toLowerCase();
+  return FESTIVALS
+    .filter(f => f.headliners && f.headliners.some(h => h.toLowerCase().includes(q)))
+    .map(f => ({
+      festival: f,
+      artists: f.headliners.filter(h => h.toLowerCase().includes(q))
+    }));
 }
 
 /* ════════════════════════════════════════════════
