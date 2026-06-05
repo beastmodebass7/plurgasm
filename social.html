@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4QSZ7HPXPJ');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creators Directory — PLURGASM</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<meta name="description" content="Rave creators, influencers, and community accounts worth following. Festival culture, flow arts, harm reduction, and more.">
+<meta name="keywords" content="rave creators, rave influencers, rave instagram, rave tiktok, rave community, PLUR, festival creators">
+<meta name="author" content="PLURGASM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plurgasm.com/social.html">
+<meta property="og:title" content="Creators Directory — PLURGASM">
+<meta property="og:description" content="Rave creators, influencers, and community accounts worth following. Festival culture, flow arts, harm reduction, and more.">
+<meta property="og:image" content="https://plurgasm.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Creators Directory — PLURGASM">
+<meta name="twitter:description" content="Rave creators, influencers, and community accounts worth following.">
+<meta name="twitter:image" content="https://plurgasm.com/og-image.png">
+<link rel="canonical" href="https://plurgasm.com/social.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(0deg,
+    rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px,
+    transparent 1px, transparent 3px
+  );
+}
+
+.creators-page-hero {
+  padding: 72px 48px 56px;
+  max-width: 1380px;
+  margin: 0 auto;
+  position: relative;
+}
+.creators-page-hero-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.creators-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+}
+.creators-g1 { width:500px;height:500px;background:rgba(255,45,120,0.07);top:-100px;right:-100px; }
+.creators-g2 { width:400px;height:400px;background:rgba(182,77,255,0.06);bottom:0;left:-100px; }
+
+.creators-page-inner { position: relative; z-index: 1; }
+
+/* Featured influencer hero */
+.creators-influencer-wrap {
+  margin-bottom: 48px;
+}
+
+/* Platform filter pills */
+.creator-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.creator-filters::-webkit-scrollbar { display: none; }
+.creator-filter-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.creator-filter-pill.active {
+  border-color: rgba(255,45,120,0.5);
+  color: var(--pink);
+  background: rgba(255,45,120,0.06);
+}
+.creator-filter-pill:hover:not(.active) {
+  border-color: var(--border);
+  color: var(--white);
+}
+
+/* Search */
+.creator-search-wrap {
+  position: relative;
+  margin-bottom: 36px;
+}
+.creator-search-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  padding: 14px 44px 14px 18px;
+  outline: none;
+  transition: border-color 0.2s;
+  caret-color: var(--pink);
+  box-sizing: border-box;
+}
+.creator-search-input:focus {
+  border-color: rgba(255,45,120,0.5);
+}
+.creator-search-input::placeholder { color: var(--faint); }
+.creator-search-clear {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--faint);
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.creator-search-clear:hover { color: var(--white); }
+
+/* Creator grid */
+#creator-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.creator-card {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.creator-card:hover {
+  border-color: rgba(255,45,120,0.3);
+  background: var(--card-hi);
+}
+
+.cc-avatar-wrap {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+.cc-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+.cc-avatar-fallback {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  border: 2px solid var(--border);
+}
+
+.cc-body { min-width: 0; }
+.cc-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 2px;
+  flex-wrap: wrap;
+}
+.cc-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+}
+.cc-platform {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.cc-handle {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+.cc-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 4px;
+}
+.cc-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cc-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.cc-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+}
+.cc-arrow {
+  color: var(--pink);
+  opacity: 0.5;
+  font-size: 18px;
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.creator-card:hover .cc-arrow { opacity: 1; transform: translateX(3px); }
+
+.creator-empty {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 48px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .creators-page-hero { padding: 48px 20px 40px; }
+  .creator-card {
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .cc-avatar, .cc-avatar-fallback { width: 48px; height: 48px; }
+  .cc-avatar-wrap { width: 48px; height: 48px; }
+  .cc-arrow { display: none; }
+  .cc-desc { -webkit-line-clamp: 3; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mob-panel">
+    <div class="mob-header">
+      <span class="mob-logo">PLURGASM</span>
+      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <ul class="mob-links">
+      <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="index.html#festivals" onclick="closeMobileMenu()">Festivals</a></li>
+      <li><a href="calendar.html">Festival Calendar</a></li>
+      <li><a href="index.html#categories" onclick="closeMobileMenu()">Categories</a></li>
+      <li><a href="index.html#brands" onclick="closeMobileMenu()">Brands</a></li>
+      <li><a href="social.html" style="color:var(--pink)">Creators</a></li>
+      <li><a href="index.html#social" onclick="closeMobileMenu()">Social</a></li>
+      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
+    </ul>
+    <div class="mob-footer">
+      <a href="partners.html" class="mob-cta">Partner With Us</a>
+      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
+    </div>
+  </div>
+</div>
+
+<div class="creators-page-hero-bg">
+  <div class="creators-hero-glow creators-g1"></div>
+  <div class="creators-hero-glow creators-g2"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">PLURGASM</a>
+  <ul class="nav-links">
+    <li><a href="index.html#festivals">Festivals</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="index.html#brands">Brands</a></li>
+    <li><a href="social.html" style="color:var(--pink)">Creators</a></li>
+    <li><a href="index.html#social">Social</a></li>
+  </ul>
+  <a href="partners.html" class="nav-cta">Partner With Us</a>
+  <button class="hamburger" id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Open menu"
+    aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="creators-page-hero">
+  <div class="creators-page-inner">
+    <p class="eyebrow">Community</p>
+    <h1 class="section-title" style="font-size:clamp(52px,8vw,100px);margin-bottom:8px;">
+      CREATORS<br>DIRECTORY
+    </h1>
+    <p style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:40px;">
+      Creators, accounts, and community worth following.
+    </p>
+
+    <!-- Featured Influencer Hero -->
+    <div class="creators-influencer-wrap">
+      <div id="featured-influencer"></div>
+    </div>
+
+    <!-- Platform Filter Pills -->
+    <div class="creator-filters" id="creator-filters">
+      <button class="creator-filter-pill active" onclick="setCreatorPlatform('all',this)">All</button>
+      <button class="creator-filter-pill" onclick="setCreatorPlatform('Instagram',this)">Instagram</button>
+      <button class="creator-filter-pill" onclick="setCreatorPlatform('TikTok',this)">TikTok</button>
+      <button class="creator-filter-pill" onclick="setCreatorPlatform('YouTube',this)">YouTube</button>
+    </div>
+
+    <!-- Search -->
+    <div class="creator-search-wrap">
+      <input
+        type="text"
+        id="creator-search"
+        class="creator-search-input"
+        placeholder="Search by name, handle, or tag..."
+        autocomplete="off"
+        oninput="onCreatorSearch(this.value)"
+      >
+      <button class="creator-search-clear" id="creator-search-clear"
+        onclick="clearCreatorSearch()" style="display:none">✕</button>
+    </div>
+
+    <!-- Creator Grid -->
+    <div id="creator-grid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="index.html#festivals">Festivals</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#categories">Categories</a></li>
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="social.html">Creators</a></li>
+      <li><a href="index.html#social">Social</a></li>
+      <li><a href="partners.html">Partner With Us</a></li>
+      <li><a href="submit-article.html">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" id="bottom-nav">
+  <a href="index.html#brands" class="bn-item">
+    <img src="images/nav/icon-nav-brands.png" class="bn-icon-img" alt="Brands" loading="eager">
+    <span class="bn-label">Brands</span>
+  </a>
+  <a href="index.html#festivals" class="bn-item">
+    <img src="images/nav/icon-nav-festivals.png" class="bn-icon-img" alt="Festivals" loading="eager">
+    <span class="bn-label">Festivals</span>
+  </a>
+  <a href="social.html" class="bn-item active">
+    <img src="images/nav/icon-nav-creators.png" class="bn-icon-img" alt="Creators" loading="eager" style="mix-blend-mode:screen">
+    <span class="bn-label">Creators</span>
+  </a>
+  <a href="blog.html" class="bn-item">
+    <img src="images/nav/icon-nav-blog.png" class="bn-icon-img" alt="Blog" loading="eager">
+    <span class="bn-label">Blog</span>
+  </a>
+  <a href="safety.html" class="bn-item">
+    <img src="images/nav/icon-nav-safety.png" class="bn-icon-img" alt="Safety" loading="eager">
+    <span class="bn-label">Safety</span>
+  </a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+function setCreatorPlatform(platform, btn) {
+  _creatorPlatform = platform;
+  document.querySelectorAll('.creator-filter-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCreatorDirectory();
+}
+
+function onCreatorSearch(val) {
+  _creatorSearch = val.trim();
+  document.getElementById('creator-search-clear').style.display = _creatorSearch ? 'block' : 'none';
+  renderCreatorDirectory();
+}
+
+function clearCreatorSearch() {
+  _creatorSearch = '';
+  document.getElementById('creator-search').value = '';
+  document.getElementById('creator-search-clear').style.display = 'none';
+  renderCreatorDirectory();
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  if (!menu || !btn) return;
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMobileMenu();
+});
+</script>
+</body>
+</html>

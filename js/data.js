@@ -1634,7 +1634,6 @@ PLURGASM_DATA.blogPosts = [
 window.PLURGASM_DATA.festivals  = FESTIVALS;
 window.PLURGASM_DATA.brands     = BRANDS;
 window.PLURGASM_DATA.categories = CATEGORIES;
-window.PLURGASM_DATA.socials    = SOCIALS;
 
 PLURGASM_DATA.itemFilters = [
   {
@@ -1705,13 +1704,15 @@ PLURGASM_DATA.itemFilters = [
 ];
 
 const SOCIALS = [
-  { handle: '@beastmodebass',    platform: 'Instagram', type: 'Meme Page', featured: true, desc: 'Rave memes, festival culture, and community content. Also the people who built this site — so yeah, we put ourselves first. No shame. Follow us.', url: 'https://www.instagram.com/beastmodebass/' },
-  { handle: '@jarren_ellis',     platform: 'Instagram', type: 'Creator',   featured: true, desc: 'Rave culture content from inside the scene. Festival coverage, flow arts, and genuine community energy worth following.', url: 'https://www.instagram.com/jarren_ellis/' },
-  { handle: '@edc_lasvegas',     platform: 'Instagram', type: 'Festival',  featured: true, desc: 'Official EDC Las Vegas. 30th anniversary content, lineup reveals, and behind-the-scenes from the electric sky.', url: 'https://www.instagram.com/edc_lasvegas/' },
-  { handle: '@electricforest',   platform: 'Instagram', type: 'Festival',  featured: true, desc: 'Official Electric Forest. Forest magic, lineup announcements, and art from Rothbury Michigan.', url: 'https://www.instagram.com/electricforest/' },
-  { handle: '@dancesafe',        platform: 'Instagram', type: 'Safety',    featured: true, desc: 'The most important account in the rave community. Harm reduction, drug checking, and real information with zero judgment.', url: 'https://www.instagram.com/dancesafe/' },
-  { handle: '@insomniac_events', platform: 'Instagram', type: 'Festival',  featured: true, desc: 'Official Insomniac. EDC, Project GLOW, Dreamstate and more — festival announcements and production content.', url: 'https://www.instagram.com/insomniac_events/' },
+  { handle: '@beastmodebass',    name: 'Beast Mode Bass',   image: null, platform: 'Instagram', type: 'Meme Page', tags: ['memes','festival-culture','community','plur'],                    sortOrder: 1, featured: true, desc: 'Rave memes, festival culture, and community content. Also the people who built this site — so yeah, we put ourselves first. No shame. Follow us.', url: 'https://www.instagram.com/beastmodebass/' },
+  { handle: '@jarren_ellis',     name: 'Jarren Ellis',      image: null, platform: 'Instagram', type: 'Creator',   tags: ['rave-culture','flow-arts','festival-coverage','harm-reduction'], sortOrder: 2, featured: true, desc: 'Rave culture content from inside the scene. Festival coverage, flow arts, and genuine community energy worth following.', url: 'https://www.instagram.com/jarren_ellis/' },
+  { handle: '@edc_lasvegas',     name: 'EDC Las Vegas',     image: null, platform: 'Instagram', type: 'Festival',  tags: ['edc','festival','insomniac','las-vegas'],                        sortOrder: 3, featured: true, desc: 'Official EDC Las Vegas. 30th anniversary content, lineup reveals, and behind-the-scenes from the electric sky.', url: 'https://www.instagram.com/edc_lasvegas/' },
+  { handle: '@electricforest',   name: 'Electric Forest',   image: null, platform: 'Instagram', type: 'Festival',  tags: ['electric-forest','festival','michigan','bass'],                 sortOrder: 4, featured: true, desc: 'Official Electric Forest. Forest magic, lineup announcements, and art from Rothbury Michigan.', url: 'https://www.instagram.com/electricforest/' },
+  { handle: '@dancesafe',        name: 'DanceSafe',         image: null, platform: 'Instagram', type: 'Safety',    tags: ['harm-reduction','safety','drug-checking','community'],          sortOrder: 5, featured: true, desc: 'The most important account in the rave community. Harm reduction, drug checking, and real information with zero judgment.', url: 'https://www.instagram.com/dancesafe/' },
+  { handle: '@insomniac_events', name: 'Insomniac Events',  image: null, platform: 'Instagram', type: 'Festival',  tags: ['insomniac','edc','project-glow','festival-production'],         sortOrder: 6, featured: true, desc: 'Official Insomniac. EDC, Project GLOW, Dreamstate and more — festival announcements and production content.', url: 'https://www.instagram.com/insomniac_events/' },
 ];
+
+window.PLURGASM_DATA.socials = SOCIALS;
 
 PLURGASM_DATA.featuredPost = {
   url: 'https://www.instagram.com/p/DZGC_wdq-pc/',

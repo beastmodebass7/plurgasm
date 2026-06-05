@@ -777,14 +777,109 @@ function renderFeaturedPost() {
 }
 
 /* ════════════════════════════════════════════════
+   CREATOR DIRECTORY
+════════════════════════════════════════════════ */
+let _creatorPlatform = 'all';
+let _creatorSearch   = '';
+
+function renderCreatorDirectory() {
+  try {
+    const container = document.getElementById('creator-grid');
+    if (!container) return;
+
+    let socials = (window.PLURGASM_DATA?.socials || []).slice();
+
+    if (_creatorPlatform !== 'all') {
+      socials = socials.filter(s => s.platform === _creatorPlatform);
+    }
+
+    if (_creatorSearch) {
+      const q = _creatorSearch.toLowerCase();
+      socials = socials.filter(s => {
+        const text = [s.handle, s.name, s.type, ...(s.tags || [])].join(' ').toLowerCase();
+        return text.includes(q);
+      });
+    }
+
+    socials.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+
+    if (!socials.length) {
+      container.innerHTML = '<p class="creator-empty">No creators match this filter.</p>';
+      return;
+    }
+
+    const platformColors = {
+      Instagram: '#ff2d78',
+      TikTok:    '#00e5ff',
+      YouTube:   '#ff2d78',
+      Twitter:   '#00e5ff'
+    };
+
+    container.innerHTML = socials.map(s => {
+      const handle  = (s.handle || '').replace('@', '');
+      const color   = platformColors[s.platform] || 'var(--cyan)';
+      const initials = handle.slice(0, 2).toUpperCase();
+      const avatarUrl = s.image || ('https://unavatar.io/instagram/' + handle);
+
+      return `
+        <a class="creator-card" href="${s.url || '#'}" target="_blank" rel="noopener">
+          <div class="cc-avatar-wrap">
+            <img src="${avatarUrl}" alt="${s.handle}" class="cc-avatar"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="cc-avatar-fallback" style="display:none;background:${color}22;color:${color};">${initials}</div>
+          </div>
+          <div class="cc-body">
+            <div class="cc-top">
+              <span class="cc-name">${s.name || s.handle}</span>
+              <span class="cc-platform" style="color:${color}">${s.platform}</span>
+            </div>
+            <span class="cc-handle" style="color:${color}">${s.handle}</span>
+            <p class="cc-type">${s.type || ''}</p>
+            <p class="cc-desc">${s.desc || ''}</p>
+            ${s.tags && s.tags.length ? `<div class="cc-tags">${s.tags.slice(0,3).map(t=>`<span class="cc-tag">${t}</span>`).join('')}</div>` : ''}
+          </div>
+          <span class="cc-arrow">→</span>
+        </a>`;
+    }).join('');
+
+    applyMobileCreatorLimit();
+  } catch(e) {
+    console.error('renderCreatorDirectory error:', e);
+  }
+}
+
+function applyMobileCreatorLimit() {
+  if (window.innerWidth > 900) return;
+  const grid = document.getElementById('creator-grid');
+  if (!grid) return;
+  const cards = [...grid.children];
+  const SHOW = 4;
+  if (cards.length <= SHOW) return;
+
+  cards.forEach((card, i) => { if (i >= SHOW) card.style.display = 'none'; });
+
+  const existing = document.getElementById('creator-more-btn');
+  if (existing) existing.remove();
+
+  const btn = document.createElement('button');
+  btn.id        = 'creator-more-btn';
+  btn.className = 'mobile-more-btn';
+  btn.textContent = `+ ${cards.length - SHOW} More Creators`;
+  btn.onclick = () => { cards.forEach(c => c.style.display = ''); btn.remove(); };
+  grid.parentElement.appendChild(btn);
+}
+
+/* ════════════════════════════════════════════════
    RENDER SOCIALS
 ════════════════════════════════════════════════ */
 function renderSocials() {
   try {
   const container = document.getElementById('social-grid');
   if (!container) return;
+  const limit = parseInt(container.dataset.limit || '999', 10);
   const socials = (window.PLURGASM_DATA?.socials || [])
-    .filter(s => s.featured);
+    .filter(s => s.featured)
+    .slice(0, limit);
 
   if (!socials.length) {
     container.innerHTML = '<p style="color:var(--faint);font-family:DM Mono,monospace;font-size:11px;letter-spacing:2px;">No featured accounts yet.</p>';
@@ -1287,6 +1382,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFeaturedPost();
   renderFeaturedInfluencer();
   renderSocials();
+  renderCreatorDirectory();
   renderBotw();
   renderPlur();
   renderBlog();
