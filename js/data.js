@@ -541,6 +541,333 @@ PLURGASM_DATA.blogPosts = [
   },
 
   {
+    id: 'post-007',
+    title: 'The Complete Rave Packing List — What to Actually Bring',
+    slug: 'complete-rave-packing-list',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-05-29',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+    excerpt: 'The definitive festival packing list — built from real experience, not Pinterest boards. What you actually need, what you will definitely forget, what to leave at home, and why earplugs are the most important thing on this entire list.',
+    published: true,
+    featured: false,
+    body: `
+    <p>Every festival season the same thing happens. Someone packs a bag, shows up,
+    and spends the first hour desperately searching the vendor area for something
+    they forgot. Usually it is sunscreen. Sometimes it is a phone charger.
+    Occasionally it is socks.</p>
+
+    <p>This is the list we wish someone had given us at our first festival.
+    Not the Pinterest version. The real one — built from experience,
+    from mistakes, and from watching strangers suffer in the heat because
+    they brought the wrong shoes.</p>
+
+    <img src="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80"
+      alt="Festival camping gear laid out"
+      style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
+
+    <h2>The Non-Negotiables</h2>
+    <p>These are the items that if you forget them,
+    your festival experience is actively worse.
+    Not just inconvenient — actually worse.</p>
+
+    <h3>🎧 Earplugs — the most important thing on this list</h3>
+    <p>We are putting this first because most people put it last and then forget it.
+    Festival stages are loud. Genuinely dangerously loud — sustained exposure
+    above 85dB causes permanent hearing damage and festival main stages
+    regularly hit 100dB+. High-fidelity earplugs (Eargasm, Loop, Earasers,
+    Etymotic) reduce volume without killing sound quality.
+    The music still sounds incredible. Your ears still work at 40.</p>
+    <p>Foam disposable earplugs work in a pinch but muffle the sound badly.
+    Invest $20-40 in a real pair. You will use them for years.</p>
+
+    <h3>💧 Water bottle — sealed, 32oz max</h3>
+    <p>Most festivals allow sealed water bottles up to 32oz.
+    Bring one. Fill it at the free water stations that are
+    located throughout every licensed festival.
+    Do not rely on buying water inside —
+    you will spend $8 per bottle and run out constantly.</p>
+
+    <h3>🎒 Small backpack — under 18 inches</h3>
+    <p>The standard allowed size at most festivals.
+    Measure yours before you go. A hydration pack (CamelBak style)
+    is even better if you are dancing heavily —
+    hands free, always hydrated, up to 70oz allowed at most events.</p>
+
+    <h3>🪪 ID and tickets</h3>
+    <p>Screenshot your tickets AND have the app downloaded.
+    Screenshot them saved to your camera roll so they load
+    without signal. Your ID gets checked at entry and at
+    any age-restricted area inside. Do not leave it in the car.</p>
+
+    <h3>💊 Electrolyte packets — 2 per day minimum</h3>
+    <p>Liquid IV, LMNT, Nuun tablets — whatever your preference.
+    Dehydration at festivals is rarely about not drinking enough water.
+    It is about drinking water without replacing the electrolytes
+    lost through sweat. One packet dissolved in your water bottle
+    per session changes how you feel dramatically.</p>
+
+    <h3>🔋 Portable phone charger</h3>
+    <p>Your phone will die. It always dies.
+    A 10,000mAh power bank charges most phones
+    2-3 times and fits in a small bag pocket.
+    Charge it fully the night before.
+    Bring the right cable for your phone.</p>
+
+    <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80"
+      alt="Festival crowd at night"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>Safety & Harm Reduction</h2>
+
+    <h3>🧪 Fentanyl test strips</h3>
+    <p>Available at most pharmacies without a prescription
+    and from DanceSafe at dancesafe.org.
+    Fentanyl is in the drug supply.
+    Test strips take 30 seconds and can save a life.
+    Bring them. Use them. Give them to friends.</p>
+
+    <h3>💊 Narcan (naloxone)</h3>
+    <p>Available over the counter at CVS, Walgreens, and Rite Aid.
+    Reverses opioid overdoses.
+    You do not need a prescription.
+    You do not need to know how to use it in advance —
+    the instructions are on the box.
+    Keep it accessible in your bag, not buried at the bottom.</p>
+
+    <h3>🩹 Basic first aid</h3>
+    <p>A small travel first aid kit:
+    band-aids, blister pads (you will blister),
+    ibuprofen, antacids.
+    Not glamorous. Necessary.</p>
+
+    <h3>🌡️ Hand fan or personal misting fan</h3>
+    <p>Heat exhaustion at festivals is serious and
+    it happens faster than people expect.
+    A small battery-powered misting fan is $10-15
+    and genuinely life-changing at an outdoor summer festival.
+    Aim it at your wrists and neck for fastest cooling.</p>
+
+    <h3>☀️ Sunscreen — no aerosol</h3>
+    <p>Most festivals ban aerosol sunscreen for fire safety reasons.
+    Bring lotion or spray in a non-aerosol bottle.
+    SPF 50. Reapply every two hours if you are outdoors.
+    Sunburn makes a three-day festival significantly less fun
+    starting around hour six of day one.</p>
+
+    <h2>What to Wear — and What to Bring for Later</h2>
+
+    <h3>👟 Shoes you can stand in for 8+ hours</h3>
+    <p>This is where people make the biggest mistake.
+    Platform boots look incredible.
+    Platform boots after six hours of dancing on concrete
+    feel like punishment. If you are going to wear platforms,
+    break them in first — wear them around the house,
+    on walks, anywhere for at least a few weeks before the festival.
+    Bring blister pads and moleskin regardless.</p>
+
+    <h3>🧣 A layer for after midnight</h3>
+    <p>Outdoor summer festivals get cold at night.
+    This surprises people every single time.
+    You will be sweaty and then suddenly you will be in the dark
+    with a breeze and you will need a layer.
+    A lightweight pashmina or pullover packs flat
+    and saves you from misery after midnight.
+    This doubles as something to sit on during sets
+    and a pillow if you end up somewhere unexpected.</p>
+
+    <h3>👙 Your actual outfit — plus a backup</h3>
+    <p>Bring one backup outfit element —
+    a spare top, spare shorts, something.
+    Festivals are unpredictable.
+    Things spill, things tear, weather happens.
+    A backup takes up almost no space and has saved
+    more festival experiences than we can count.</p>
+
+    <h3>🧦 Extra socks</h3>
+    <p>Specifically mentioned because specifically forgotten.
+    One extra pair. Trust us.</p>
+
+    <img src="https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80"
+      alt="Festival fashion and kandi"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>Kandi & Culture Items</h2>
+
+    <h3>📿 Kandi to trade</h3>
+    <p>You do not need to bring a lot.
+    Even five or six pieces is enough for a meaningful trading experience.
+    If you do not have any, visit the PLURGASM brand directory —
+    there are several shops that sell premade kandi
+    ready to trade the same week you order.</p>
+
+    <h3>🎨 Glitter, body jewels, accessories</h3>
+    <p>Cosmetic glitter is fine.
+    Craft glitter is microplastic and bad for the environment
+    — most festivals are moving away from it.
+    Body jewels, face gems, LED accessories —
+    all great and all allowed at most events.
+    Check the specific festival rules before you pack anything unconventional.</p>
+
+    <h3>🌀 Flow props — check rules first</h3>
+    <p>Flowstars, poi, LED gloves, and most flow props are
+    allowed at most festivals with the caveat that
+    they cannot have sharp edges and cannot be used
+    in crowded areas unsafely.
+    Check the specific festival policy before you pack yours.
+    Keep them secured in your bag during transit.</p>
+
+    <h2>Tech & Practical Gear</h2>
+
+    <h3>📱 Screenshot everything</h3>
+    <p>Festival apps crash. Cell service at festivals is genuinely terrible
+    — 50,000 people in one field destroys tower capacity.
+    Screenshot your ticket, the festival map,
+    the set times, your campsite location (if camping),
+    and the address of where you are staying.
+    All of it. Saved to your camera roll, accessible offline.</p>
+
+    <h3>💵 Cash</h3>
+    <p>Most festivals accept card everywhere but the ATMs inside
+    charge $8-12 per transaction and run out of cash by day two.
+    Bring $60-100 in small bills.
+    You will use it for tips, for small vendors,
+    and for emergencies when a card reader is down.</p>
+
+    <h3>🔦 Small flashlight or headlamp</h3>
+    <p>Camping festivals specifically.
+    Finding your tent at 3AM in a dark campground
+    without a light is an experience.
+    A small headlamp or clip-on flashlight
+    is one of those things that costs $8
+    and earns its place every single time you use it.</p>
+
+    <h2>What NOT to Bring</h2>
+    <p>What you leave at home matters as much as what you pack.</p>
+
+    <ul style="margin:16px 0 24px 20px;line-height:2.2;">
+      <li><strong>Large backpacks over 18 inches</strong> —
+        will be turned away at security. Measure first.</li>
+      <li><strong>Outside alcohol</strong> —
+        confiscated at every festival, no exceptions.</li>
+      <li><strong>Professional cameras with detachable lenses</strong> —
+        banned at most events.
+        Your phone camera is genuinely good enough.</li>
+      <li><strong>Aerosol anything</strong> —
+        sunscreen, dry shampoo, body spray. All banned.</li>
+      <li><strong>Anything you cannot afford to lose</strong> —
+        expensive jewelry, irreplaceable items,
+        your grandmother's ring.
+        Things get lost, things get stolen.
+        Leave valuables at home.</li>
+      <li><strong>Drones</strong> — banned universally.</li>
+      <li><strong>Selfie sticks, laser pointers</strong> —
+        confiscated immediately.</li>
+      <li><strong>More than you can comfortably carry</strong> —
+        you will be carrying this bag for 8+ hours.
+        If it feels heavy in your bedroom
+        it will feel impossible at hour six.</li>
+    </ul>
+
+    <h2>The Master Checklist</h2>
+    <p>Print this or screenshot it before you pack:</p>
+
+    <div style="background:rgba(0,229,255,0.05);
+      border:1px solid rgba(0,229,255,0.2);
+      padding:24px 28px;margin:20px 0;">
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--cyan);
+        margin-bottom:16px;">
+        ESSENTIALS
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:20px;">
+        ☐ High-fidelity earplugs<br>
+        ☐ Sealed water bottle (32oz max)<br>
+        ☐ Small backpack (under 18")<br>
+        ☐ ID + tickets (screenshotted offline)<br>
+        ☐ Electrolyte packets (2 per day)<br>
+        ☐ Portable phone charger + cable<br>
+        ☐ Sunscreen (no aerosol)<br>
+        ☐ Cash ($60-100 in small bills)<br>
+        ☐ Phone fully charged at departure
+      </p>
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--green);
+        margin-bottom:16px;">
+        SAFETY
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:20px;">
+        ☐ Fentanyl test strips<br>
+        ☐ Narcan / naloxone<br>
+        ☐ Basic first aid kit<br>
+        ☐ Hand fan or misting fan<br>
+        ☐ Medications you take daily
+      </p>
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--pink);
+        margin-bottom:16px;">
+        WHAT TO WEAR
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:20px;">
+        ☐ Broken-in shoes<br>
+        ☐ Blister pads + moleskin<br>
+        ☐ Pashmina or light layer<br>
+        ☐ Backup outfit element<br>
+        ☐ Extra socks
+      </p>
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--purple);
+        margin-bottom:16px;">
+        CULTURE
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:0;">
+        ☐ Kandi to trade<br>
+        ☐ Flow props (if allowed)<br>
+        ☐ Small flashlight (camping)<br>
+        ☐ Festival map screenshotted<br>
+        ☐ Meetup spot agreed with your group
+      </p>
+    </div>
+
+    <p style="margin-top:32px;padding:20px;
+      background:rgba(255,45,120,0.06);
+      border-left:3px solid #ff2d78;
+      line-height:1.8;">
+      <strong>One last thing:</strong> Agree on a physical
+      meetup spot with your group before you walk in.
+      Not a general area — a specific landmark,
+      a specific stage entrance, something unmistakable.
+      Cell service will fail at the worst moment.
+      The meetup spot has saved more festival groups
+      than any other item on this list.
+    </p>
+
+    <p style="margin-top:24px;font-size:15px;
+      color:var(--muted);line-height:1.8;">
+      For full harm reduction resources, DanceSafe links,
+      and what to do in an emergency at a festival,
+      visit our
+      <a href="safety.html" style="color:var(--cyan);">
+        Safety & PLUR page →
+      </a>
+    </p>
+  `
+  },
+
+  {
     id: 'post-005',
     title: 'The Best Rave Brands of 2026 — Community Picks',
     slug: 'best-rave-brands-2026',
