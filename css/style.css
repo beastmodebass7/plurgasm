@@ -3176,3 +3176,106 @@ footer {
     gap: 8px;
   }
 }
+
+/* ══════════════════════════════════════════════════
+   FEATURED ROW — BOTW + INFLUENCER side by side
+══════════════════════════════════════════════════ */
+.featured-row {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.featured-botw-col {
+  border-right: 1px solid var(--border);
+  min-width: 0;
+}
+.featured-inf-col {
+  min-width: 0;
+  background: var(--card);
+}
+.fi-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.fi-eyebrow-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fi-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.fi-platform {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 2px 8px;
+  border: 1px solid rgba(182,77,255,0.25);
+}
+.fi-handle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-decoration: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.fi-handle:hover { color: var(--cyan); }
+.fi-blurb {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.fi-embed-wrap {
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+}
+.fi-embed-wrap .instagram-media {
+  margin: 0 !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+.fi-follow-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border: 1px solid rgba(182,77,255,0.35);
+  color: var(--purple);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  transition: all 0.2s;
+}
+.fi-follow-btn:hover {
+  background: rgba(182,77,255,0.08);
+  border-color: rgba(182,77,255,0.6);
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .featured-row {
+    grid-template-columns: 1fr;
+  }
+  .featured-botw-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .fi-card { padding: 20px; }
+}

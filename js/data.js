@@ -1722,6 +1722,19 @@ PLURGASM_DATA.featuredPost = {
   active: true
 };
 
+PLURGASM_DATA.featuredInfluencer = {
+  handle: '@jarren_ellis',
+  name: 'Jarren Ellis',
+  platform: 'instagram',
+  profileUrl: 'https://www.instagram.com/jarren_ellis/',
+  blurb: 'Rave culture content from inside the scene. Festival coverage, flow arts, and the kind of authentic community energy that is hard to fake. Worth a follow.',
+  posts: [
+    'DZGC_wdq-pc',
+    'DY5VhinysUB'
+  ],
+  active: true
+};
+
 PLURGASM_DATA.brandOfWeek = {
   name: 'PSYDE QUEST',
   badge: '✦',

@@ -1017,6 +1017,65 @@ function renderBlog() {
 }
 
 /* ════════════════════════════════════════════════
+   RENDER FEATURED INFLUENCER OF THE WEEK
+════════════════════════════════════════════════ */
+function renderFeaturedInfluencer() {
+  const fi = window.PLURGASM_DATA?.featuredInfluencer;
+  const container = document.getElementById('featured-influencer');
+  if (!container || !fi || !fi.active) {
+    if (container) container.style.display = 'none';
+    return;
+  }
+
+  const posts = fi.posts || [];
+  if (!posts.length) return;
+
+  const code = posts[Math.floor(Math.random() * posts.length)];
+  const postUrl = 'https://www.instagram.com/reel/' + code + '/';
+
+  container.innerHTML = `
+    <div class="fi-card">
+      <div class="fi-eyebrow-row">
+        <span class="fi-eyebrow">Influencer of the Week</span>
+        <span class="fi-platform">Instagram</span>
+      </div>
+      <a href="${fi.profileUrl}"
+        target="_blank" rel="noopener"
+        class="fi-handle">${fi.handle}</a>
+      <p class="fi-blurb">${fi.blurb}</p>
+      <div class="fi-embed-wrap">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="${postUrl}?utm_source=ig_embed&utm_campaign=loading"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;
+            border-radius:3px;
+            box-shadow:0 0 1px 0 rgba(0,0,0,0.5),
+              0 1px 10px 0 rgba(0,0,0,0.15);
+            margin:0;max-width:100%;
+            min-width:280px;padding:0;width:100%;">
+        </blockquote>
+      </div>
+      <a href="${fi.profileUrl}"
+        target="_blank" rel="noopener"
+        class="fi-follow-btn">
+        Follow ${fi.handle} on Instagram ↗
+      </a>
+    </div>
+  `;
+
+  if (window.instgrm) {
+    window.instgrm.Embeds.process();
+  } else {
+    const script = document.createElement('script');
+    script.src = '//www.instagram.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+}
+
+/* ════════════════════════════════════════════════
    RENDER BOTW — Brand of the Week (admin override)
 ════════════════════════════════════════════════ */
 function renderBotw() {
@@ -1115,6 +1174,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCategories();
   renderBrands('all');
   renderFeaturedPost();
+  renderFeaturedInfluencer();
   renderSocials();
   renderBotw();
   renderPlur();
