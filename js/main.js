@@ -846,6 +846,32 @@ function renderSocials() {
   applyMobileSocialLimit();
 }
 
+function applyMobileSocialLimit() {
+  if (window.innerWidth > 900) return;
+  const grid = document.getElementById('social-grid');
+  if (!grid) return;
+  const cards = [...grid.children];
+  const SHOW = 4;
+  if (cards.length <= SHOW) return;
+
+  cards.forEach((card, i) => {
+    if (i >= SHOW) card.style.display = 'none';
+  });
+
+  const existing = document.getElementById('social-more-btn');
+  if (existing) existing.remove();
+
+  const btn = document.createElement('button');
+  btn.id = 'social-more-btn';
+  btn.className = 'mobile-more-btn';
+  btn.textContent = `+ ${cards.length - SHOW} More`;
+  btn.onclick = () => {
+    cards.forEach(c => c.style.display = '');
+    btn.remove();
+  };
+  grid.parentElement.appendChild(btn);
+}
+
 /* ════════════════════════════════════════════════
    COUNTDOWN — auto-selects next upcoming festival
 ════════════════════════════════════════════════ */
