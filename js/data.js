@@ -127,8 +127,7 @@ const BRANDS = [
   { name:'INSOMNIAC', badge:'INS', cat:'events', badgeCls:'b-cyan', priceCls:'price-varies',                price:'Varies',  ship:'N/A',             loc:'California',     style:'Festival production, merch, collabs', tags:['events','festivals','merch','edm','edc','production'],                   desc:'Behind EDC, Project GLOW, Dreamstate, and more. The biggest name in US rave production.', ig:'@insomniac_events', url:'https://insomniac.com', logo:'https://insomniac.com/favicon.ico', featured:false, sortOrder:0 },
 ];
 
-const PLURGASM_DATA = {};
-PLURGASM_DATA.plurDefinitions = [
+window.PLURGASM_DATA.plurDefinitions = [
   {
     letter: 'P',
     word: 'PEACE',
@@ -1722,14 +1721,15 @@ PLURGASM_DATA.featuredPost = {
   active: true
 };
 
-PLURGASM_DATA.featuredInfluencer = {
+window.PLURGASM_DATA.featuredInfluencer = {
   name: 'Jarren Ellis',
   handle: '@jarren_ellis',
   image: 'images/jarren-ellis.jpg',
   blurb: 'One of the most genuine rave content creators in the community right now. Jarren covers festival culture, flow arts, harm reduction, and everything in between — from the inside, not from the sidelines. Give him a follow.',
   active: true,
   links: [
-    { platform: 'Instagram', url: 'https://www.instagram.com/jarren_ellis/' }
+    { platform: 'Instagram', url: '' },
+    { platform: 'Website',   url: '' }
   ]
 };
 

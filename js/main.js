@@ -1206,6 +1206,8 @@ function renderFeaturedInfluencer() {
     if (!container) return;
     if (!inf || !inf.active) { container.style.display = 'none'; return; }
 
+    container.style.display = '';
+
     const linksHtml = (inf.links || []).filter(l => l.url).map((l, i) =>
       `<a href="${l.url}" target="_blank" rel="noopener"
           class="fi-link-btn ${i === 0 ? 'fi-link-primary' : 'fi-link-secondary'}">
