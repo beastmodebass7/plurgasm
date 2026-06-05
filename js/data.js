@@ -1704,6 +1704,7 @@ PLURGASM_DATA.itemFilters = [
 ];
 
 const SOCIALS = [
+  { handle:'@beastmodebass', platform:'Instagram', type:'Meme Page', featured:true, desc:'Rave memes, festival culture, and community content. Also the people who built this site — so yeah, we put ourselves first. No shame. Follow us.', url:'https://www.instagram.com/beastmodebass/' },
   { handle:'@insomniac_events', platform:'Instagram', type:'Brand',    desc:'Official Insomniac page. Festival announcements, lineups, and behind-the-scenes from EDC and beyond.', featured:false },
   { handle:'@projectglowfest',  platform:'Instagram', type:'Festival', desc:'All official updates for Project GLOW DC — lineups, artist spotlights, and more.',                     featured:true  },
   { handle:'@edc_lasvegas',     platform:'Instagram', type:'Festival', desc:'The official EDC LV page. Your home for 30th anniversary content and headliner reveals.',                featured:true  },
