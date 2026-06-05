@@ -1220,8 +1220,7 @@ function renderFeaturedInfluencer() {
         </div>
         ${inf.image ? `
           <div class="fi-photo-wrap">
-            <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent"
-              onerror="this.parentElement.style.display='none'">
+            <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent">
           </div>` : ''}
         <div class="fi-name-row">
           <div>
