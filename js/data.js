@@ -1713,14 +1713,6 @@ const SOCIALS = [
 
 window.PLURGASM_DATA.socials = SOCIALS;
 
-PLURGASM_DATA.featuredPost = {
-  url: 'https://www.instagram.com/p/DZGC_wdq-pc/',
-  handle: '@jarren_ellis',
-  platform: 'instagram',
-  caption: 'Follow @jarren_ellis for rave culture content from inside the scene.',
-  active: true
-};
-
 window.PLURGASM_DATA.featuredInfluencer = {
   name: 'Jarren Ellis',
   handle: '@jarren_ellis',

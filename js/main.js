@@ -686,97 +686,6 @@ document.addEventListener('DOMContentLoaded', () => {
 window._currentCat = 'all';
 
 /* ════════════════════════════════════════════════
-   RENDER FEATURED POST
-════════════════════════════════════════════════ */
-function renderFeaturedPost() {
-  const fp = window.PLURGASM_DATA.featuredPost;
-  const container = document.getElementById('featured-post');
-  if (!container || !fp || !fp.active || !fp.url) {
-    if (container) container.style.display = 'none';
-    return;
-  }
-
-  function getEmbedHTML(fp) {
-    const url = fp.url;
-
-    if (fp.platform === 'tiktok' || url.includes('tiktok.com')) {
-      const videoId = url.split('/video/')[1]?.split('?')[0] || '';
-      return `
-        <div class="fp-embed fp-tiktok">
-          <blockquote
-            class="tiktok-embed"
-            cite="${url}"
-            data-video-id="${videoId}"
-            style="max-width:605px;min-width:325px;">
-          </blockquote>
-          <script async src="https://www.tiktok.com/embed.js"><\/script>
-        </div>`;
-    }
-
-    if (fp.platform === 'instagram' || url.includes('instagram.com')) {
-      return `
-        <a href="${fp.url}"
-          target="_blank"
-          rel="noopener"
-          class="fp-instagram-card">
-          <div class="fp-ig-icon">📸</div>
-          <div class="fp-ig-text">
-            <p class="fp-ig-handle">${fp.handle}</p>
-            <p class="fp-ig-cta">
-              Watch on Instagram →
-            </p>
-          </div>
-        </a>`;
-    }
-
-    if (fp.platform === 'youtube' || url.includes('youtube.com') || url.includes('youtu.be')) {
-      const videoId = url.includes('youtu.be')
-        ? url.split('youtu.be/')[1]?.split('?')[0]
-        : url.split('v=')[1]?.split('&')[0];
-      return `
-        <div class="fp-embed fp-youtube">
-          <iframe
-            src="https://www.youtube.com/embed/${videoId}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="width:100%;height:400px;">
-          </iframe>
-        </div>`;
-    }
-
-    return '';
-  }
-
-  const platformLabels = {
-    tiktok: 'TikTok',
-    instagram: 'Instagram',
-    youtube: 'YouTube',
-    facebook: 'Facebook'
-  };
-  const platformLabel = platformLabels[fp.platform] || fp.platform;
-
-  container.innerHTML = `
-    <div class="fp-card">
-      <div class="fp-header">
-        <div class="fp-meta">
-          <span class="fp-badge">${platformLabel}</span>
-          <span class="fp-handle">${fp.handle}</span>
-        </div>
-        <p class="fp-eyebrow">Featured Post</p>
-      </div>
-      ${fp.caption ? `<p class="fp-caption">${fp.caption}</p>` : ''}
-      ${getEmbedHTML(fp)}
-      <a href="${fp.url}"
-        target="_blank"
-        rel="noopener"
-        class="fp-view-link">
-        View on ${platformLabel} ↗
-      </a>
-    </div>`;
-}
-
-/* ════════════════════════════════════════════════
    CREATOR DIRECTORY
 ════════════════════════════════════════════════ */
 let _creatorPlatform = 'all';
@@ -1359,7 +1268,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCategories();
   renderBrands('all');
-  renderFeaturedPost();
   renderFeaturedInfluencer();
   renderSocials();
   renderCreatorDirectory();
