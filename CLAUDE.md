@@ -62,6 +62,11 @@ Socials: handle, platform, type, desc, featured
 - Fields: `id`, `title`, `slug`, `author`, `authorHandle`, `date`, `category`, `coverImage`, `excerpt`, `body`, `published`, `featured`
 - Categories: `festival-news`, `culture`, `fashion`, `safety`, `gear`
 
+## Nav — single source of truth
+The site header and mobile bottom nav are defined ONLY in `js/nav.js`.
+To change any nav link, icon, label, or add/remove an item — edit `nav.js`.
+Never edit nav markup in individual HTML pages; they all use `<div id="site-nav"></div>` and `<div id="site-bottom-nav"></div>` as placeholders that nav.js fills on DOMContentLoaded.
+
 ## Admin password (localStorage based for now)
 Currently saved in brand submission form — no real admin panel yet
 

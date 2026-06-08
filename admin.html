@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/nav.js" defer></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -631,29 +632,7 @@ select option { background: #15152a; }
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
-  <div class="mob-panel">
-    <div class="mob-header">
-      <span class="mob-logo">PLURGASM</span>
-      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
-    </div>
-    <ul class="mob-links">
-      <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
-      <li><a href="index.html#festivals" onclick="closeMobileMenu()">Festivals</a></li>
-      <li><a href="calendar.html">Festival Calendar</a></li>
-      <li><a href="index.html#categories" onclick="closeMobileMenu()">Categories</a></li>
-      <li><a href="index.html#brands" onclick="closeMobileMenu()">Brands</a></li>
-      <li><a href="index.html#social" onclick="closeMobileMenu()">Social</a></li>
-      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
-    </ul>
-    <div class="mob-footer">
-      <a href="partners.html" class="mob-cta">Partner With Us</a>
-      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
-    </div>
-  </div>
-</div>
+<div id="site-nav"></div>
 
 <!-- ══ LOGIN ══ -->
 <div id="login-screen">
@@ -1489,5 +1468,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMobileMenu();
 });
 </script>
+<div id="site-bottom-nav"></div>
 </body>
 </html>

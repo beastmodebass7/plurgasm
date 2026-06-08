@@ -35,6 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/nav.js" defer></script>
 <style>
 /* ─────── SAFETY PAGE ─────── */
 .sf-hero {
@@ -530,51 +531,7 @@
 <!-- SCROLL PROGRESS -->
 <div id="scroll-progress"></div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
-  <div class="mob-panel">
-    <div class="mob-header">
-      <span class="mob-logo">PLURGASM</span>
-      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
-    </div>
-    <ul class="mob-links">
-      <li><a href="index.html#brands"     onclick="closeMobileMenu()">Brands</a></li>
-      <li><a href="index.html#festivals"  onclick="closeMobileMenu()">Festivals</a></li>
-      <li><a href="calendar.html">Festival Calendar</a></li>
-      <li><a href="index.html#categories" onclick="closeMobileMenu()">Shop by Category</a></li>
-      <li><a href="social.html" onclick="closeMobileMenu()">Creators</a></li>
-      <li><a href="index.html#social"     onclick="closeMobileMenu()">Social</a></li>
-      <li><a href="blog.html">Blog &amp; News</a></li>
-      <li><a href="safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
-    </ul>
-    <div class="mob-footer">
-      <a href="partners.html" class="mob-cta">Partner With Us</a>
-      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
-    </div>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">PLURGASM</a>
-  <ul class="nav-links">
-    <li><a href="index.html#brands">Brands</a></li>
-    <li><a href="index.html#festivals">Festivals</a></li>
-    <li><a href="calendar.html">Calendar</a></li>
-    <li><a href="index.html#categories">Shop by Category</a></li>
-    <li><a href="social.html">Creators</a></li>
-    <li><a href="index.html#social">Social</a></li>
-    <li><a href="blog.html">Blog</a></li>
-  </ul>
-  <a href="partners.html" class="nav-cta">Partner With Us</a>
-  <button class="hamburger" id="hamburger"
-    onclick="toggleMobileMenu()"
-    aria-label="Open menu"
-    aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div id="site-nav"></div>
 
 <!-- HERO -->
 <header class="sf-hero">
@@ -1129,29 +1086,7 @@
   </div>
 </footer>
 
-<!-- BOTTOM NAV (mobile) -->
-<nav class="bottom-nav" id="bottom-nav">
-  <a href="index.html#brands" class="bn-item">
-    <img src="images/nav/icon-nav-brands.png" class="bn-icon-img" alt="Brands" loading="eager">
-    <span class="bn-label">Brands</span>
-  </a>
-  <a href="index.html#festivals" class="bn-item">
-    <img src="images/nav/icon-nav-festivals.png" class="bn-icon-img" alt="Festivals" loading="eager">
-    <span class="bn-label">Festivals</span>
-  </a>
-  <a href="social.html" class="bn-item">
-    <img src="images/nav/icon-nav-creators.png" class="bn-icon-img" alt="Creators" loading="eager" style="mix-blend-mode:screen">
-    <span class="bn-label">Creators</span>
-  </a>
-  <a href="blog.html" class="bn-item">
-    <img src="images/nav/icon-nav-blog.png" class="bn-icon-img" alt="Blog" loading="eager">
-    <span class="bn-label">Blog</span>
-  </a>
-  <a href="safety.html" class="bn-item">
-    <img src="images/nav/icon-nav-safety.png" class="bn-icon-img" alt="Safety" loading="eager">
-    <span class="bn-label">Safety</span>
-  </a>
-</nav>
+<div id="site-bottom-nav"></div>
 
 <script>
 /* ─────── MOBILE HAMBURGER MENU ─────── */

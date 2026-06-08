@@ -325,6 +325,7 @@
   .fd-title { font-size: clamp(52px, 14vw, 90px); }
 }
 </style>
+<script src="../js/nav.js" defer></script>
 </head>
 <body>
 
@@ -335,47 +336,7 @@
   <div class="pg-glow pg-g3"></div>
 </div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mob-backdrop" onclick="closeMobileMenu()"></div>
-  <div class="mob-panel">
-    <div class="mob-header">
-      <span class="mob-logo">PLURGASM</span>
-      <button class="mob-close" onclick="closeMobileMenu()">✕</button>
-    </div>
-    <ul class="mob-links">
-      <li><a href="../index.html#festivals">Festivals</a></li>
-      <li><a href="../index.html#categories">Categories</a></li>
-      <li><a href="../index.html#brands">Brands</a></li>
-      <li><a href="../index.html#social">Social</a></li>
-      <li><a href="../calendar.html">Festival Calendar</a></li>
-      <li><a href="../safety.html" class="mob-highlight">Safety &amp; PLUR</a></li>
-    </ul>
-    <div class="mob-footer">
-      <a href="../partners.html" class="mob-cta">Partner With Us</a>
-      <p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>
-    </div>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <a href="../index.html" class="nav-logo">PLURGASM</a>
-  <ul class="nav-links">
-    <li><a href="../index.html#festivals">Festivals</a></li>
-    <li><a href="../calendar.html">Calendar</a></li>
-    <li><a href="../index.html#categories">Categories</a></li>
-    <li><a href="../index.html#brands">Brands</a></li>
-    <li><a href="../index.html#social">Social</a></li>
-  </ul>
-  <a href="../partners.html" class="nav-cta">Partner With Us</a>
-  <button class="hamburger" id="hamburger"
-    onclick="toggleMobileMenu()"
-    aria-label="Open menu"
-    aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div id="site-nav"></div>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <div class="fd-hero">
@@ -800,5 +761,6 @@ function showDay(day, btn) {
 }
 </script>
 
+<div id="site-bottom-nav"></div>
 </body>
 </html>
