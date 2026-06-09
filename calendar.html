@@ -99,6 +99,7 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  margin-top: 36px;
   margin-bottom: 40px;
 }
 .cal-type-filters { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -454,18 +455,6 @@ body::after {
     <!-- CALENDAR OUTPUT -->
     <div id="cal-output"></div>
 
-    <!-- MAP LOCATION CONTROL — shown only in Map view -->
-    <div id="map-location-ctrl" style="display:none;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;padding:12px 16px;background:#0c0c1a;border:1px solid rgba(255,255,255,0.07);">
-      <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,238,255,0.42);flex-shrink:0;">Distance From:</span>
-      <input id="map-loc-input" type="text" placeholder="City, ZIP or address"
-        style="flex:1;min-width:160px;background:rgba(255,255,255,0.04);border:1px solid rgba(0,229,255,0.3);color:#f0eeff;font-family:'Chakra Petch',sans-serif;font-size:13px;padding:7px 12px;outline:none;caret-color:#00e5ff;"
-        onkeydown="if(event.key==='Enter')geocodeFromInput()">
-      <button onclick="geocodeFromInput()" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;background:transparent;border:1px solid rgba(0,229,255,0.4);color:#00e5ff;cursor:pointer;flex-shrink:0;">Search</button>
-      <button onclick="useMapGeoLocation()" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;background:transparent;border:1px solid rgba(255,45,120,0.4);color:#ff2d78;cursor:pointer;flex-shrink:0;">📍 My Location</button>
-      <button id="map-loc-clear" onclick="clearMapLocation()" style="display:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(240,238,255,0.42);cursor:pointer;flex-shrink:0;">✕ Clear</button>
-      <span id="map-loc-status" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:rgba(240,238,255,0.55);width:100%;"></span>
-    </div>
-
     <div id="fest-map"></div>
   </div>
 </div>
@@ -622,10 +611,6 @@ function renderTimeline(list) {
 
 let _leafletMap = null;
 let _markerGroup = null;
-let _linesGroup = null;
-let _mapUserMarker = null;
-let _mapUserLat = null;
-let _mapUserLng = null;
 
 function _buildFestPopup(f, distMiles) {
   const past = isPast(f);
@@ -657,13 +642,10 @@ function renderMap(list) {
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
       }).addTo(_leafletMap);
-      _linesGroup  = L.layerGroup().addTo(_leafletMap);
       _markerGroup = L.layerGroup().addTo(_leafletMap);
     }
     _leafletMap.invalidateSize();
-    _linesGroup.clearLayers();
     _markerGroup.clearLayers();
-    if (_mapUserMarker) { _mapUserMarker.remove(); _mapUserMarker = null; }
 
     list.forEach(f => {
       if (f.lat == null || f.lng == null) {
@@ -679,119 +661,15 @@ function renderMap(list) {
         iconSize: past ? [10,10] : [12,12],
         iconAnchor: past ? [5,5] : [6,6]
       });
-      const distMiles = (_mapUserLat != null && _mapUserLng != null)
-        ? Math.round(haversineDistance(_mapUserLat, _mapUserLng, f.lat, f.lng)) : null;
       const marker = L.marker([f.lat, f.lng], { icon });
-      marker.bindPopup(_buildFestPopup(f, distMiles));
+      marker.bindPopup(_buildFestPopup(f, null));
       marker.bindTooltip(
         `<strong>${f.name}</strong><br><span style="font-size:11px;opacity:0.8;">${f.dates}</span>`,
         { direction: 'top', className: 'map-pin-tooltip' }
       );
       marker.addTo(_markerGroup);
     });
-
-    // Distance lines when user location is set
-    if (_mapUserLat !== null && _mapUserLng !== null) {
-      _mapUserMarker = L.marker([_mapUserLat, _mapUserLng], {
-        icon: L.divIcon({
-          className: '',
-          html: `<div style="width:18px;height:18px;border-radius:50%;background:#ff2d78;box-shadow:0 0 12px 5px rgba(255,45,120,0.65);border:2px solid #fff;"></div>`,
-          iconSize: [18,18], iconAnchor: [9,9]
-        }),
-        zIndexOffset: 1000
-      });
-      _mapUserMarker.bindTooltip('You are here', { direction: 'top', className: 'map-pin-tooltip' });
-      _mapUserMarker.addTo(_leafletMap);
-
-      const bounds = [[_mapUserLat, _mapUserLng]];
-      list.forEach(f => {
-        if (f.lat == null || f.lng == null) return;
-        const dist  = haversineDistance(_mapUserLat, _mapUserLng, f.lat, f.lng);
-        const miles = Math.round(dist);
-        const tipHtml = `<div style="font-family:sans-serif;min-width:160px;line-height:1.4;">
-          <div style="font-size:13px;font-weight:700;margin-bottom:3px;">${f.name}</div>
-          <div style="font-size:11px;opacity:0.75;">${f.dates}</div>
-          <div style="font-size:11px;opacity:0.6;">📍 ${f.location}</div>
-          <div style="font-size:12px;color:#00e5ff;font-weight:600;margin-top:4px;">${miles} mi away</div>
-        </div>`;
-        const line = L.polyline([[_mapUserLat, _mapUserLng], [f.lat, f.lng]], {
-          color: '#00e5ff', weight: 3, opacity: 0.4, dashArray: '8 6'
-        });
-        line.bindTooltip(tipHtml, { sticky: true, className: 'map-pin-tooltip' });
-        line.bindPopup(_buildFestPopup(f, miles));
-        line.addTo(_linesGroup);
-        bounds.push([f.lat, f.lng]);
-      });
-      if (bounds.length > 1) _leafletMap.fitBounds(bounds, { padding: [50, 50] });
-    }
   } catch(e) { console.error('renderMap error:', e); }
-}
-
-function setMapLocation(lat, lng, label) {
-  try {
-    _mapUserLat = lat;
-    _mapUserLng = lng;
-    const status   = document.getElementById('map-loc-status');
-    const clearBtn = document.getElementById('map-loc-clear');
-    if (status)   status.textContent = '📍 ' + (label || 'Location set');
-    if (clearBtn) clearBtn.style.display = '';
-    renderActiveView();
-  } catch(e) { console.error('setMapLocation error:', e); }
-}
-
-function clearMapLocation() {
-  try {
-    _mapUserLat = null;
-    _mapUserLng = null;
-    const status   = document.getElementById('map-loc-status');
-    const clearBtn = document.getElementById('map-loc-clear');
-    const input    = document.getElementById('map-loc-input');
-    if (status)   status.textContent = '';
-    if (clearBtn) clearBtn.style.display = 'none';
-    if (input)    input.value = '';
-    renderActiveView();
-  } catch(e) { console.error('clearMapLocation error:', e); }
-}
-
-function useMapGeoLocation() {
-  try {
-    const status = document.getElementById('map-loc-status');
-    if (!navigator.geolocation) {
-      if (status) status.textContent = 'Geolocation not supported by your browser.';
-      return;
-    }
-    if (status) status.textContent = 'Getting your location…';
-    navigator.geolocation.getCurrentPosition(
-      pos => setMapLocation(pos.coords.latitude, pos.coords.longitude, 'Your current location'),
-      ()  => { if (status) status.textContent = 'Location access denied.'; },
-      { timeout: 10000 }
-    );
-  } catch(e) { console.error('useMapGeoLocation error:', e); }
-}
-
-function geocodeFromInput() {
-  try {
-    const input  = document.getElementById('map-loc-input');
-    const status = document.getElementById('map-loc-status');
-    const q = input ? input.value.trim() : '';
-    if (!q) return;
-    if (status) status.textContent = 'Searching…';
-    const url = 'https://nominatim.openstreetmap.org/search?format=json&countrycodes=us&limit=1&q=' + encodeURIComponent(q);
-    fetch(url, { headers: { 'Accept-Language': 'en' } })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.length) {
-          if (status) status.textContent = "Couldn't find that location. Try a city name or ZIP.";
-          return;
-        }
-        const result = data[0];
-        const label  = result.display_name.split(',').slice(0,2).join(',').trim();
-        setMapLocation(parseFloat(result.lat), parseFloat(result.lon), label);
-      })
-      .catch(() => {
-        if (status) status.textContent = "Couldn't reach geocoding service. Try 'My Location' instead.";
-      });
-  } catch(e) { console.error('geocodeFromInput error:', e); }
 }
 
 function renderActiveView() {
@@ -819,8 +697,6 @@ function setCalView(view, btn) {
   _calView = view;
   document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const ctrl = document.getElementById('map-location-ctrl');
-  if (ctrl) ctrl.style.display = view === 'map' ? 'flex' : 'none';
   renderActiveView();
 }
 
