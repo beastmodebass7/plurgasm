@@ -33,6 +33,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="js/nav.js" defer></script>
 <style>
 body::after {
@@ -326,6 +328,36 @@ body::after {
   }
   .arc-loc { display: none; }
 }
+
+#fest-map {
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  display: none;
+  margin-bottom: 40px;
+  border: 1px solid var(--border);
+}
+@media (max-width: 768px) {
+  #fest-map { height: 60vh; margin-bottom: 80px; }
+}
+.cal-row.past {
+  opacity: 0.5;
+  filter: saturate(0.35);
+}
+.cal-row.past:hover { opacity: 0.72; filter: saturate(0.5); }
+.past-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffb800;
+  background: rgba(255,184,0,0.1);
+  border: 1px solid rgba(255,184,0,0.3);
+  padding: 2px 7px;
+  margin-left: 8px;
+  flex-shrink: 0;
+  align-self: center;
+}
 </style>
 </head>
 <body>
@@ -416,10 +448,12 @@ body::after {
       <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-right:4px;">View:</span>
       <button class="view-btn cal-view-btn active" id="btn-list-view" onclick="setCalView('list',this)">List</button>
       <button class="view-btn cal-view-btn" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
+      <button class="view-btn cal-view-btn" id="btn-map-view" onclick="setCalView('map',this)">Map</button>
     </div>
 
     <!-- CALENDAR OUTPUT -->
     <div id="cal-output"></div>
+    <div id="fest-map"></div>
   </div>
 </div>
 
@@ -475,6 +509,8 @@ let _calView = 'list';
 
 let festivals = [];
 
+function isPast(f) { return (f.endDate || f.sortDate) < TODAY; }
+
 function getFilteredFestivals() {
   return festivals.filter(f => {
     const endDate = f.endDate || f.sortDate;
@@ -486,21 +522,23 @@ function getFilteredFestivals() {
     const genreOk = _genreFilter === ''    || (f.genres && f.genres.includes(_genreFilter));
     return timeOk && typeOk && genreOk;
   }).sort((a, b) => {
-    if (_timeFilter === 'past') return (b.sortDate||'').localeCompare(a.sortDate||'');
-    return (a.sortDate||'').localeCompare(b.sortDate||'');
+    const aPast = isPast(a), bPast = isPast(b);
+    if (aPast !== bPast) return aPast ? 1 : -1;
+    if (!aPast) return (a.sortDate||'').localeCompare(b.sortDate||'');
+    return (b.sortDate||'').localeCompare(a.sortDate||'');
   });
 }
 
 function festRowHTML(f) {
   try {
-    const isPast = (f.endDate || f.sortDate) < TODAY;
+    const past = isPast(f);
     const dayNum = f.sortDate ? parseInt(f.sortDate.split('-')[2]) : '?';
     const endNum = f.endDate  ? parseInt(f.endDate.split('-')[2])  : '';
     const startMon = f.sortDate ? MONTH_NAMES[parseInt(f.sortDate.split('-')[1])-1].slice(0,3).toUpperCase() : '???';
     const hasUrl = f.url && f.url !== '#';
     const cal = googleCalUrl(f);
     return `
-      <div class="cal-row ${isPast ? 'cal-row-past' : ''}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
+      <div class="cal-row${past ? ' cal-row-past past' : ''}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
         <div class="cal-date-col">
           <span class="cal-date-month">${startMon}</span>
           <span class="cal-date-day">${dayNum}</span>
@@ -509,10 +547,11 @@ function festRowHTML(f) {
         <div class="cal-info-col">
           <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
           <span class="cal-name">${f.name}</span>
+          ${past ? `<span class="past-badge">ENDED</span>` : ''}
           <span class="cal-loc">📍 ${f.location}</span>
           <span class="cal-loc" style="opacity:0.7;">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
           <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
-          ${cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
+          ${!past && cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
           ${hasUrl
             ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
                 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
@@ -568,11 +607,69 @@ function renderTimeline(list) {
   }).join('');
 }
 
+let _leafletMap = null;
+let _markerGroup = null;
+
+function renderMap(list) {
+  try {
+    if (!_leafletMap) {
+      _leafletMap = L.map('fest-map').setView([39.8, -98.6], 4);
+      _leafletMap.setMaxBounds([[15, -170], [72, -50]]);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
+      }).addTo(_leafletMap);
+      _markerGroup = L.layerGroup().addTo(_leafletMap);
+    }
+    _leafletMap.invalidateSize();
+    _markerGroup.clearLayers();
+
+    list.forEach(f => {
+      if (f.lat == null || f.lng == null) return;
+      const past = isPast(f);
+      const icon = L.divIcon({
+        className: '',
+        html: past
+          ? `<div style="width:10px;height:10px;border-radius:50%;background:#666;opacity:0.45;"></div>`
+          : `<div style="width:12px;height:12px;border-radius:50%;background:#00e5ff;box-shadow:0 0 8px 3px rgba(0,229,255,0.55);"></div>`,
+        iconSize: past ? [10, 10] : [12, 12],
+        iconAnchor: past ? [5, 5] : [6, 6]
+      });
+      const cal = googleCalUrl(f);
+      const headlineHtml = f.headliners && f.headliners.length
+        ? `<div style="margin-top:5px;font-size:11px;color:#bbb;">${f.headliners.slice(0,5).join(', ')}${f.headliners.length > 5 ? ' +more' : ''}</div>`
+        : '';
+      const calLink = !past && cal
+        ? `<a href="${cal}" target="_blank" rel="noopener" style="display:block;margin-top:5px;color:#00e5ff;font-size:11px;text-decoration:none;">+ Google Calendar</a>`
+        : (past ? `<div style="margin-top:5px;font-size:11px;color:#ffb800;">Past event</div>` : '');
+      const ticketLink = f.url && f.url !== '#'
+        ? `<a href="${f.url}" target="_blank" rel="noopener" style="display:inline-block;margin-top:7px;color:#00e5ff;font-size:12px;font-weight:600;text-decoration:none;">Get Tickets →</a>`
+        : '';
+      const popup = `<div style="min-width:180px;max-width:230px;font-family:sans-serif;line-height:1.4;">
+        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;">${f.name}</div>
+        <div style="font-size:11px;color:#aaa;">${f.dates}</div>
+        <div style="font-size:11px;color:#888;margin-top:2px;">📍 ${f.location}</div>
+        ${headlineHtml}${ticketLink}${calLink}
+      </div>`;
+      L.marker([f.lat, f.lng], { icon }).bindPopup(popup).addTo(_markerGroup);
+    });
+  } catch(e) { console.error('renderMap error:', e); }
+}
+
 function renderActiveView() {
   try {
     const list = getFilteredFestivals();
-    if (_calView === 'list') renderList(list);
-    else renderTimeline(list);
+    const mapEl = document.getElementById('fest-map');
+    const outEl = document.getElementById('cal-output');
+    if (_calView === 'map') {
+      outEl.style.display = 'none';
+      mapEl.style.display = 'block';
+      renderMap(list);
+    } else {
+      outEl.style.display = '';
+      mapEl.style.display = 'none';
+      if (_calView === 'list') renderList(list);
+      else renderTimeline(list);
+    }
   } catch(e) {
     console.error('renderActiveView error:', e);
     document.getElementById('cal-output').innerHTML = `<p class="cal-empty">Something went wrong loading the calendar.</p>`;
