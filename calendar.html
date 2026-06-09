@@ -446,6 +446,21 @@ const MONTH_NAMES = ['January','February','March','April','May','June','July','A
 const dotClass = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
 const TODAY = new Date().toISOString().slice(0,10);
 
+function googleCalUrl(f) {
+  try {
+    const start = f.sortDate.replace(/-/g, '');
+    const end = new Date(f.endDate + 'T00:00:00Z');
+    end.setUTCDate(end.getUTCDate() + 1);
+    const endStr = end.toISOString().slice(0,10).replace(/-/g,'');
+    const text = encodeURIComponent(f.name);
+    const loc = encodeURIComponent(f.location || '');
+    const lineup = (f.headliners && f.headliners.length) ? 'Lineup: ' + f.headliners.join(', ') + '\n\n' : '';
+    const details = encodeURIComponent(lineup + (f.desc || '') + (f.url ? '\n\nTickets: ' + f.url : ''));
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + text +
+           '&dates=' + start + '/' + endStr + '&details=' + details + '&location=' + loc;
+  } catch (e) { return null; }
+}
+
 let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
@@ -518,6 +533,7 @@ function render() {
                 <span class="cal-loc">📍 ${f.location}</span>
                 <span class="cal-loc" style="opacity:0.7;">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
                 <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
+                ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
                 ${hasUrl
                   ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
                       style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;

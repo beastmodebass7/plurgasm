@@ -931,6 +931,25 @@ nav {
 }
 .fest-card:hover .fest-arrow { opacity: 1; transform: translateX(5px); }
 
+.add-cal {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  border: 1px solid rgba(0,229,255,0.3);
+  padding: 3px 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.add-cal:hover {
+  color: #06060c;
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+
 .fest-card-glow {
   position: absolute;
   inset: 0;

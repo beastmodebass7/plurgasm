@@ -73,6 +73,24 @@ function setDistance(miles, btn) {
 }
 
 /* ════════════════════════════════════════════════
+   GOOGLE CALENDAR HELPER
+════════════════════════════════════════════════ */
+function googleCalUrl(f) {
+  try {
+    const start = f.sortDate.replace(/-/g, '');
+    const end = new Date(f.endDate + 'T00:00:00Z');
+    end.setUTCDate(end.getUTCDate() + 1);
+    const endStr = end.toISOString().slice(0,10).replace(/-/g,'');
+    const text = encodeURIComponent(f.name);
+    const loc = encodeURIComponent(f.location || '');
+    const lineup = (f.headliners && f.headliners.length) ? 'Lineup: ' + f.headliners.join(', ') + '\n\n' : '';
+    const details = encodeURIComponent(lineup + (f.desc || '') + (f.url ? '\n\nTickets: ' + f.url : ''));
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + text +
+           '&dates=' + start + '/' + endStr + '&details=' + details + '&location=' + loc;
+  } catch (e) { return null; }
+}
+
+/* ════════════════════════════════════════════════
    FESTIVAL FILTER STATE
 ════════════════════════════════════════════════ */
 let _festType   = 'all';
@@ -169,6 +187,7 @@ function renderFestivals() {
       <p class="fest-desc">${f.desc}</p>
       <div class="fest-footer">
         <div class="vibes">${f.genres.slice(0,4).map(g=>`<span class="vibe">${g}</span>`).join('')}</div>
+        ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
         <span class="fest-arrow" ${t ? `style="color:${t.accent};"` : ''}>→</span>
       </div>
     </div>
@@ -247,6 +266,7 @@ function renderCalendar() {
                 <span class="cal-name">${f.name}</span>
                 <span class="cal-loc">📍 ${f.location} &nbsp;·&nbsp; ${f.age}</span>
                 <div class="cal-genres">${f.genres.slice(0,3).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
+                ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
                 <span class="cal-arrow">→</span>
               </div>
             </div>`;
