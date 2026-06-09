@@ -1017,7 +1017,7 @@ PLURGASM_DATA.blogPosts = [
     authorHandle: '@plurgasm',
     date: '2026-04-20',
     category: 'culture',
-    coverImage: 'https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80',
+    coverImage: 'images/plur/plur-101-cover.svg',
     excerpt: 'New to raving? Here\'s everything you need to know about the culture, etiquette, kandi trading, and why PLUR isn\'t just a slogan — it\'s how we actually look out for each other on the dancefloor.',
     published: true,
     featured: false,

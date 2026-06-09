@@ -1,0 +1,40 @@
+<svg viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" font-family="'Bebas Neue','Oswald','Arial Narrow',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c0c1c"/>
+      <stop offset="1" stop-color="#06060c"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="0.5" stop-color="#b64dff"/>
+      <stop offset="1" stop-color="#ff2d78"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-90%" y="-90%" width="280%" height="280%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#bg)"/>
+
+  <circle cx="130" cy="90" r="120" fill="#00e5ff" opacity="0.18" filter="url(#soft)"/>
+  <circle cx="1080" cy="450" r="140" fill="#ff2d78" opacity="0.16" filter="url(#soft)"/>
+  <circle cx="600" cy="250" r="170" fill="#b64dff" opacity="0.10" filter="url(#soft)"/>
+
+  <g fill="none" stroke="#00e5ff" opacity="0.10" stroke-width="2">
+    <circle cx="600" cy="245" r="150"/>
+    <circle cx="600" cy="245" r="215"/>
+    <circle cx="600" cy="245" r="280"/>
+  </g>
+
+  <text x="600" y="268" font-size="150" fill="url(#title)" text-anchor="middle" letter-spacing="5" filter="url(#glow)">PLUR 101</text>
+
+  <text x="600" y="330" font-size="25" fill="#cfcfe0" text-anchor="middle" letter-spacing="6" font-family="'DM Mono',monospace">A BEGINNER&#39;S GUIDE TO RAVE CULTURE</text>
+
+  <text x="600" y="402" font-size="20" text-anchor="middle" letter-spacing="3" font-family="'DM Mono',monospace">
+    <tspan fill="#00e5ff">PEACE</tspan><tspan fill="#55556e">&#160;&#160;·&#160;&#160;</tspan><tspan fill="#ff2d78">LOVE</tspan><tspan fill="#55556e">&#160;&#160;·&#160;&#160;</tspan><tspan fill="#b64dff">UNITY</tspan><tspan fill="#55556e">&#160;&#160;·&#160;&#160;</tspan><tspan fill="#3dff85">RESPECT</tspan>
+  </text>
+</svg>
