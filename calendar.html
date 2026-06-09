@@ -411,6 +411,13 @@ body::after {
       </div>
     </div>
 
+    <!-- VIEW TOGGLE -->
+    <div style="display:flex;gap:4px;margin-bottom:20px;align-items:center;">
+      <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-right:4px;">View:</span>
+      <button class="view-btn cal-view-btn active" id="btn-list-view" onclick="setCalView('list',this)">List</button>
+      <button class="view-btn cal-view-btn" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
+    </div>
+
     <!-- CALENDAR OUTPUT -->
     <div id="cal-output"></div>
   </div>
@@ -464,10 +471,11 @@ function googleCalUrl(f) {
 let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
+let _calView = 'list';
 
 let festivals = [];
 
-function getFiltered() {
+function getFilteredFestivals() {
   return festivals.filter(f => {
     const endDate = f.endDate || f.sortDate;
     const timeOk =
@@ -477,22 +485,64 @@ function getFiltered() {
     const typeOk  = _typeFilter  === 'all' || f.type === _typeFilter;
     const genreOk = _genreFilter === ''    || (f.genres && f.genres.includes(_genreFilter));
     return timeOk && typeOk && genreOk;
-  });
-}
-
-function render() {
-  const list = getFiltered().sort((a,b) => {
+  }).sort((a, b) => {
     if (_timeFilter === 'past') return (b.sortDate||'').localeCompare(a.sortDate||'');
     return (a.sortDate||'').localeCompare(b.sortDate||'');
   });
+}
 
+function festRowHTML(f) {
+  try {
+    const isPast = (f.endDate || f.sortDate) < TODAY;
+    const dayNum = f.sortDate ? parseInt(f.sortDate.split('-')[2]) : '?';
+    const endNum = f.endDate  ? parseInt(f.endDate.split('-')[2])  : '';
+    const startMon = f.sortDate ? MONTH_NAMES[parseInt(f.sortDate.split('-')[1])-1].slice(0,3).toUpperCase() : '???';
+    const hasUrl = f.url && f.url !== '#';
+    const cal = googleCalUrl(f);
+    return `
+      <div class="cal-row ${isPast ? 'cal-row-past' : ''}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
+        <div class="cal-date-col">
+          <span class="cal-date-month">${startMon}</span>
+          <span class="cal-date-day">${dayNum}</span>
+          ${endNum && endNum !== dayNum ? `<span class="cal-date-end">– ${endNum}</span>` : ''}
+        </div>
+        <div class="cal-info-col">
+          <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
+          <span class="cal-name">${f.name}</span>
+          <span class="cal-loc">📍 ${f.location}</span>
+          <span class="cal-loc" style="opacity:0.7;">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
+          <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
+          ${cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
+          ${hasUrl
+            ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
+                style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+                       color:var(--cyan);margin-left:auto;white-space:nowrap;transition:opacity 0.2s;"
+                onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                Tickets →
+              </a>`
+            : `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
+          <span class="cal-arrow">→</span>
+        </div>
+      </div>`;
+  } catch(e) { return ''; }
+}
+
+function renderList(list) {
+  const out = document.getElementById('cal-output');
+  if (!list.length) {
+    out.innerHTML = `<p class="cal-empty">No festivals match these filters.</p>`;
+    return;
+  }
+  out.innerHTML = list.map(f => festRowHTML(f)).join('');
+}
+
+function renderTimeline(list) {
   const out = document.getElementById('cal-output');
   if (!list.length) {
     out.innerHTML = `<p class="cal-empty">No festivals match these filters.</p>`;
     return;
   }
 
-  // Group by month
   const byMonth = {};
   list.forEach(f => {
     const key = (f.sortDate || '2026-12').slice(0,7);
@@ -508,67 +558,53 @@ function render() {
     const [year, mo] = key.split('-');
     const monthName = MONTH_NAMES[parseInt(mo) - 1];
     const fests = byMonth[key];
-
     return `
       <div class="cal-month">
         <div class="cal-month-label">${year} <span>${monthName.toUpperCase()}</span>
           <span class="fest-count-badge">${fests.length} festival${fests.length !== 1 ? 's' : ''}</span>
         </div>
-        ${fests.map(f => {
-          const isPast = (f.endDate || f.sortDate) < TODAY;
-          const dayNum = f.sortDate ? parseInt(f.sortDate.split('-')[2]) : '?';
-          const endNum = f.endDate  ? parseInt(f.endDate.split('-')[2])  : '';
-          const startMon = f.sortDate ? MONTH_NAMES[parseInt(f.sortDate.split('-')[1])-1].slice(0,3).toUpperCase() : monthName.slice(0,3).toUpperCase();
-          const hasUrl = f.url && f.url !== '#';
-          return `
-            <div class="cal-row ${isPast ? 'cal-row-past' : ''}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
-              <div class="cal-date-col">
-                <span class="cal-date-month">${startMon}</span>
-                <span class="cal-date-day">${dayNum}</span>
-                ${endNum && endNum !== dayNum ? `<span class="cal-date-end">– ${endNum}</span>` : ''}
-              </div>
-              <div class="cal-info-col">
-                <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
-                <span class="cal-name">${f.name}</span>
-                <span class="cal-loc">📍 ${f.location}</span>
-                <span class="cal-loc" style="opacity:0.7;">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
-                <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
-                ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
-                ${hasUrl
-                  ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
-                      style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
-                             color:var(--cyan);margin-left:auto;white-space:nowrap;transition:opacity 0.2s;"
-                      onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-                      Tickets →
-                    </a>`
-                  : `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
-                <span class="cal-arrow">→</span>
-              </div>
-            </div>`;
-        }).join('')}
+        ${fests.map(f => festRowHTML(f)).join('')}
       </div>`;
   }).join('');
+}
+
+function renderActiveView() {
+  try {
+    const list = getFilteredFestivals();
+    if (_calView === 'list') renderList(list);
+    else renderTimeline(list);
+  } catch(e) {
+    console.error('renderActiveView error:', e);
+    document.getElementById('cal-output').innerHTML = `<p class="cal-empty">Something went wrong loading the calendar.</p>`;
+  }
+}
+
+function setCalView(view, btn) {
+  _calView = view;
+  document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderActiveView();
 }
 
 function setTimeFilter(val, btn) {
   _timeFilter = val;
   document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  render();
+  renderActiveView();
 }
 
 function setTypeFilter(val, btn) {
   _typeFilter = val;
   document.querySelectorAll('.cal-type-filters .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  render();
+  renderActiveView();
 }
 
 function setGenreFilter(val, btn) {
   _genreFilter = val;
   document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  render();
+  renderActiveView();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -580,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  render();
+  renderActiveView();
 });
 </script>
 <script>
