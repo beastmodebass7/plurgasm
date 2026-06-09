@@ -706,55 +706,22 @@ PLURGASM_DATA.blogPosts = [
     You treat the space like it belongs to everyone,
     because for one night it does.</p>
 
-    <h2>The Three Words</h2>
-
-    <p>The story most often repeated in rave history credits a DJ named
-    Frankie Bones with bringing the phrase to New York.
-    Frankie Bones had traveled to the UK in the late 80s and experienced
-    the British rave scene firsthand, where acid house parties had developed
-    their own version of collective culture rooted in the phrase
-    Peace, Love and Unity.</p>
-
-    <p>When he brought the sound back to New York, he brought the ethos with it.
-    At one of his early parties in Brooklyn in 1990,
-    a fight broke out in the crowd.
-    Frankie Bones stopped the music and got on the mic.
-    The speech he gave that night, depending on who tells it,
-    ended with something close to:
-    if you don't start showing some peace, love and unity,
-    I'll break your faces.</p>
-
-    <p>The threat and the philosophy in the same sentence.
-    That combination captured something real about what the scene
-    was trying to be versus what it sometimes was.</p>
+    <p>Walk into any show and you'll see it: four letters on a sign, a bracelet, a tattoo, a chant. P-L-U-R — Peace, Love, Unity, Respect, the closest thing rave culture has to a creed. But ask where it came from and you'll usually get a legend. The real story is messier, older, and honestly more beautiful, because no single person invented it. A whole community did.</p>
+    <h3>The legend</h3>
+    <p>The version most people know credits Frankie Bones, the Brooklyn DJ widely called the founding father of American raves through his early-'90s Storm Rave parties. As the story goes — told and retold on NE-RAVES, the University of Maryland mailing list where a lot of East Coast rave culture lived online — Bones finished a blistering set, stepped up, and explained what the scene was really about: peace, love, unity, and respect. The whole warehouse threw their hands in the air as one. It's a great story. It's also, according to someone who was in those rooms, not quite what happened.</p>
+    <h3>The correction</h3>
+    <p>In 1996, a DJ named Laura LaGassa posted her own account to that same list, and she'd been at nearly every Storm Rave. Her version pulls the credit apart and spreads it around. "Peace, love, unity" was already common slang in the New York scene by 1992. The missing piece — respect — came from elsewhere: a booklet called <em>Cybertribe Rising</em> by Geoff White, which laid out the "four pillars of the house community" and placed respect alongside the other three. The idea traveled east when San Francisco's Brian Behlendorf brought the literature to the coast.</p>
+    <p>Then came the moment that actually mattered. At a renegade party in the RFK Stadium parking lot in Washington DC in June 1993, Laura was talking about the spirit of raving and said "peace, love, unity" — and Brian immediately added the line that completed it: <em>and don't forget Respect</em>. That stuck with her. She wrote an essay tying all four words together and posted it to NE-RAVES. It didn't have a name yet. Shortly after, another list member, Rishad Quazi, signed off an email with the acronym <strong>PLUR</strong> — and it spread fast and never left.</p>
+    <h3>So what about Frankie Bones?</h3>
+    <p>Laura doesn't erase him — he was a real catalyst and a genuine figurehead for the whole movement. But the speeches she actually witnessed tended to land on "peace, love and unity" without the fourth word. Her favorite Frankie moment wasn't even a sermon: a fight broke out at a party, and he leapt onto the turntables and threatened to break some faces if the crowd didn't show a little peace, love, and unity, right then. Pure Brooklyn.</p>
+    <h3>Why the messy version is the right one</h3>
+    <p>Put it together and PLUR has no single author. It's a booklet from one coast, a phrase from another, one person who added the fourth word, one who wrote it down, and one who turned it into four letters that fit in an email signature. Which is about the most PLUR origin story imaginable — a bunch of strangers, connected by a scene, each adding a piece. As they used to say on those old mailing lists: we are all connected.</p>
+    <h3>The four words, then and now</h3>
+    <p><strong>Peace</strong> — with the room, and with yourself. <strong>Love</strong> — for friends, for strangers, for the version of you that showed up tonight. <strong>Unity</strong> — the thing that takes over when the bass drops and everybody, regardless of who they are, is in it together. <strong>Respect</strong> — for other people, for the music, and for your own body and limits. Thirty years on, ravers still argue about who said it first. Almost nobody argues about what it means.</p>
 
     <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80"
       alt="DJ performing at underground event"
       style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
-
-    <h2>The Fourth Word</h2>
-
-    <p>Peace, Love and Unity became the shorthand.
-    For a few years it circulated through the New York scene in that form,
-    three words, sometimes abbreviated PLU.</p>
-
-    <p>The fourth word, Respect, came later.
-    The exact moment of its addition is disputed,
-    as these things always are when a phrase evolves
-    organically through a subculture rather than being
-    invented by one person in one place.
-    What is not disputed is why it was necessary.</p>
-
-    <p>Peace, Love and Unity described an aspiration for how people
-    should feel in the space. Respect described how they should act.
-    Respect for each other's bodies, for personal space, for consent.
-    Respect for the music and the people making it.
-    Respect for the space itself and everyone in it.</p>
-
-    <p>With Respect added, PLUR became complete.
-    Not just a mood but a code of conduct.
-    Not just a vibe but a set of actual expectations
-    that the community could hold each other to.</p>
 
     <h2>The Kandi Handshake</h2>
 
