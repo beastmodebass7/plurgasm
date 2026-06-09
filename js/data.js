@@ -765,6 +765,8 @@ PLURGASM_DATA.blogPosts = [
     something to do with your hands during the long weeks between parties.
     The trading of them became a ritual.</p>
 
+    <img src="/images/plur/plur-handshake.png" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
+
     <p>The PLUR handshake formalized that ritual.
     Four gestures, one for each letter.
     Press palms together for Peace.
