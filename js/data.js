@@ -1024,8 +1024,6 @@ PLURGASM_DATA.blogPosts = [
 
       <p>This guide covers everything a first-time raver needs to know: what PLUR actually means, how kandi trading works, dancefloor etiquette, and how to have a safe and genuinely amazing time.</p>
 
-      <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=800&q=80" alt="Colorful kandi bracelets" style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
-
       <h2>What is PLUR?</h2>
       <p>PLUR stands for <strong>Peace, Love, Unity, Respect</strong>. It started in the early 90s New York rave scene as both a greeting and a philosophy — and it became the backbone of global rave culture for a reason.</p>
 
@@ -1051,6 +1049,17 @@ PLURGASM_DATA.blogPosts = [
       </ol>
 
       <p>A few etiquette rules: always ask before initiating. Accept a trade graciously even if the piece isn\'t your style — it\'s about the connection, not the bracelet. Never demand kandi or trade with someone who seems uncomfortable. You can always politely decline.</p>
+
+      <h2>How to Do the PLUR Handshake</h2>
+      <p>If you\'ve ever watched two ravers press their hands together and swap bracelets, you\'ve seen the PLUR handshake — the little ritual behind trading <em>kandi</em> (the beaded bracelets you\'ll see all over any show). It spells out the four words the whole scene is built on: Peace, Love, Unity, Respect. Here\'s how it goes.</p>
+      <img src="/images/plur/plur-handshake.png" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
+      <ol style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Peace</strong> — You each make a peace sign and touch your two fingers to theirs.</li>
+        <li><strong>Love</strong> — You each form half a heart with your hand and bring them together into one.</li>
+        <li><strong>Unity</strong> — Press your palms flat together, hands meeting in the middle.</li>
+        <li><strong>Respect</strong> — Interlock your fingers, then slide a kandi bracelet off your wrist and onto theirs.</li>
+      </ol>
+      <p>That\'s it. The bracelet you pass along is theirs to keep — a small piece of the night that says you\'re glad they\'re here. Don\'t overthink it; everyone\'s first trade is a little awkward, and that\'s half the fun.</p>
 
       <h2>Dancefloor Etiquette</h2>
       <p>Rave etiquette is mostly common sense, but here are the things that matter:</p>
