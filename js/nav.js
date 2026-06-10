@@ -29,8 +29,8 @@
     { label: 'Festivals',href: '/#festivals', icon: 'icon-nav-festivals.png' },
     { label: 'Search',   href: null,          icon: 'icon-nav-search.png',   isSearch: true },
     { label: 'Creators', href: '/social.html',icon: 'icon-nav-creators.png', imgStyle: 'mix-blend-mode:screen' },
-    { label: 'Blog',     href: '/blog.html',  icon: 'icon-nav-blog.png' },
-    { label: 'Safety',   href: '/safety.html',icon: 'icon-nav-safety.png' },
+    { label: 'Blog',     href: '/blog.html',      icon: 'icon-nav-blog.png' },
+    { label: 'Calendar', href: '/calendar.html', icon: 'icon-nav-calendar.png' },
   ];
 
   function init() {
