@@ -1147,7 +1147,7 @@ function renderFeaturedInfluencer() {
     container.innerHTML = `
       <div class="fi-card">
         <div class="fi-eyebrow-row">
-          <a href="social.html" class="fi-eyebrow">Influencer Spotlight</a>
+          <a href="social.html" class="fi-eyebrow">Influencer of the Week</a>
         </div>
         ${inf.image ? `
           <div class="fi-photo-wrap">
