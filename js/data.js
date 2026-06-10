@@ -186,7 +186,7 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-010',
-    title: 'Chase & Status in a Bond Game — What Electronic Music in Video Games Actually Means',
+    title: 'Chase & Status in a Bond Game: What Electronic Music in Video Games Actually Means',
     slug: 'chase-status-007-first-light-electronic-music-games',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -357,7 +357,7 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-009',
-    title: 'Bass Music 101 — A Complete Guide to the Subgenres, Artists, and Festivals',
+    title: 'Bass Music 101: A Complete Guide to the Subgenres, Artists, and Festivals',
     slug: 'bass-music-101-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -657,7 +657,7 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-008',
-    title: 'The History of PLUR — Where It Actually Came From',
+    title: 'The History of PLUR: Where It Actually Came From',
     slug: 'history-of-plur',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -706,18 +706,18 @@ PLURGASM_DATA.blogPosts = [
     You treat the space like it belongs to everyone,
     because for one night it does.</p>
 
-    <p>Walk into any show and you'll see it: four letters on a sign, a bracelet, a tattoo, a chant. P-L-U-R — Peace, Love, Unity, Respect, the closest thing rave culture has to a creed. But ask where it came from and you'll usually get a legend. The real story is messier, older, and honestly more beautiful, because no single person invented it. A whole community did.</p>
+    <p>Walk into any show and you'll see it: four letters on a sign, a bracelet, a tattoo, a chant. P-L-U-R: Peace, Love, Unity, Respect, the closest thing rave culture has to a creed. But ask where it came from and you'll usually get a legend. The real story is messier, older, and honestly more beautiful, because no single person invented it. A whole community did.</p>
     <h3>The legend</h3>
-    <p>The version most people know credits Frankie Bones, the Brooklyn DJ widely called the founding father of American raves through his early-'90s Storm Rave parties. As the story goes — told and retold on NE-RAVES, the University of Maryland mailing list where a lot of East Coast rave culture lived online — Bones finished a blistering set, stepped up, and explained what the scene was really about: peace, love, unity, and respect. The whole warehouse threw their hands in the air as one. It's a great story. It's also, according to someone who was in those rooms, not quite what happened.</p>
+    <p>The version most people know credits Frankie Bones, the Brooklyn DJ widely called the founding father of American raves through his early-'90s Storm Rave parties. As the story goes (told and retold on NE-RAVES, the University of Maryland mailing list where a lot of East Coast rave culture lived online), Bones finished a blistering set, stepped up, and explained what the scene was really about: peace, love, unity, and respect. The whole warehouse threw their hands in the air as one. It's a great story. It's also, according to someone who was in those rooms, not quite what happened.</p>
     <h3>The correction</h3>
-    <p>In 1996, a DJ named Laura LaGassa posted her own account to that same list, and she'd been at nearly every Storm Rave. Her version pulls the credit apart and spreads it around. "Peace, love, unity" was already common slang in the New York scene by 1992. The missing piece — respect — came from elsewhere: a booklet called <em>Cybertribe Rising</em> by Geoff White, which laid out the "four pillars of the house community" and placed respect alongside the other three. The idea traveled east when San Francisco's Brian Behlendorf brought the literature to the coast.</p>
-    <p>Then came the moment that actually mattered. At a renegade party in the RFK Stadium parking lot in Washington DC in June 1993, Laura was talking about the spirit of raving and said "peace, love, unity" — and Brian immediately added the line that completed it: <em>and don't forget Respect</em>. That stuck with her. She wrote an essay tying all four words together and posted it to NE-RAVES. It didn't have a name yet. Shortly after, another list member, Rishad Quazi, signed off an email with the acronym <strong>PLUR</strong> — and it spread fast and never left.</p>
+    <p>In 1996, a DJ named Laura LaGassa posted her own account to that same list, and she'd been at nearly every Storm Rave. Her version pulls the credit apart and spreads it around. "Peace, love, unity" was already common slang in the New York scene by 1992. The missing piece was respect, and it came from elsewhere: a booklet called <em>Cybertribe Rising</em> by Geoff White, which laid out the "four pillars of the house community" and placed respect alongside the other three. The idea traveled east when San Francisco's Brian Behlendorf brought the literature to the coast.</p>
+    <p>Then came the moment that actually mattered. At a renegade party in the RFK Stadium parking lot in Washington DC in June 1993, Laura was talking about the spirit of raving and said "peace, love, unity," and Brian immediately added the line that completed it: <em>and don't forget Respect</em>. That stuck with her. She wrote an essay tying all four words together and posted it to NE-RAVES. It didn't have a name yet. Shortly after, another list member, Rishad Quazi, signed off an email with the acronym <strong>PLUR</strong>, and it spread fast and never left.</p>
     <h3>So what about Frankie Bones?</h3>
-    <p>Laura doesn't erase him — he was a real catalyst and a genuine figurehead for the whole movement. But the speeches she actually witnessed tended to land on "peace, love and unity" without the fourth word. Her favorite Frankie moment wasn't even a sermon: a fight broke out at a party, and he leapt onto the turntables and threatened to break some faces if the crowd didn't show a little peace, love, and unity, right then. Pure Brooklyn.</p>
+    <p>Laura doesn't erase him. He was a real catalyst and a genuine figurehead for the whole movement. But the speeches she actually witnessed tended to land on "peace, love and unity" without the fourth word. Her favorite Frankie moment wasn't even a sermon: a fight broke out at a party, and he leapt onto the turntables and threatened to break some faces if the crowd didn't show a little peace, love, and unity, right then. Pure Brooklyn.</p>
     <h3>Why the messy version is the right one</h3>
-    <p>Put it together and PLUR has no single author. It's a booklet from one coast, a phrase from another, one person who added the fourth word, one who wrote it down, and one who turned it into four letters that fit in an email signature. Which is about the most PLUR origin story imaginable — a bunch of strangers, connected by a scene, each adding a piece. As they used to say on those old mailing lists: we are all connected.</p>
+    <p>Put it together and PLUR has no single author. It's a booklet from one coast, a phrase from another, one person who added the fourth word, one who wrote it down, and one who turned it into four letters that fit in an email signature. Which is about the most PLUR origin story imaginable: a bunch of strangers, connected by a scene, each adding a piece. As they used to say on those old mailing lists: we are all connected.</p>
     <h3>The four words, then and now</h3>
-    <p><strong>Peace</strong> — with the room, and with yourself. <strong>Love</strong> — for friends, for strangers, for the version of you that showed up tonight. <strong>Unity</strong> — the thing that takes over when the bass drops and everybody, regardless of who they are, is in it together. <strong>Respect</strong> — for other people, for the music, and for your own body and limits. Thirty years on, ravers still argue about who said it first. Almost nobody argues about what it means.</p>
+    <p><strong>Peace</strong>: with the room, and with yourself. <strong>Love</strong>: for friends, for strangers, for the version of you that showed up tonight. <strong>Unity</strong>: the thing that takes over when the bass drops and everybody, regardless of who they are, is in it together. <strong>Respect</strong>: for other people, for the music, and for your own body and limits. Thirty years on, ravers still argue about who said it first. Almost nobody argues about what it means.</p>
 
     <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80"
       alt="DJ performing at underground event"
@@ -853,7 +853,7 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-001',
-    title: 'Project GLOW 2026 — The Complete Guide',
+    title: 'Project GLOW 2026: The Complete Guide',
     slug: 'project-glow-2026-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -864,39 +864,39 @@ PLURGASM_DATA.blogPosts = [
     published: true,
     featured: true,
     body: `
-      <p>Project GLOW returns to Washington DC for its <strong>5th anniversary</strong> on May 30–31, 2026 at RFK Festival Grounds — and this year feels different. The lineup is the strongest it has ever been, the production is scaling up, and if you have been sleeping on this festival, this is the year to wake up.</p>
+      <p>Project GLOW returns to Washington DC for its <strong>5th anniversary</strong> on May 30–31, 2026 at RFK Festival Grounds, and this year feels different. The lineup is the strongest it has ever been, the production is scaling up, and if you have been sleeping on this festival, this is the year to wake up.</p>
 
-      <p>Born from <strong>Club GLOW</strong> — the longest-running electronic music promoter on the East Coast — Project GLOW has grown from a local DC staple into one of the most respected regional festivals in the country. Here is everything you need to know before you go.</p>
+      <p>Born from <strong>Club GLOW</strong>, the longest-running electronic music promoter on the East Coast, Project GLOW has grown from a local DC staple into one of the most respected regional festivals in the country. Here is everything you need to know before you go.</p>
 
       <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80" alt="Festival crowd under lights" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
 
       <h2>The Lineup</h2>
 
       <h3>🌐 Eternal Stage</h3>
-      <p>The main stage lineup for Day 1 is headlined by <strong>Eric Prydz</strong> — a name that needs no introduction. If you have never seen a Prydz set live, this is one of the most production-heavy shows in electronic music. Plan your Day 1 around being at the Eternal Stage by 9:45PM. Supporting him: Disco Lines, Sara Landry, DJ Mandy, Lilly Palmer, and Kream.</p>
-      <p>Day 2 closes with <strong>Porter Robinson</strong> followed by <strong>Excision B2B Sullivan King</strong> — two completely different energies back to back. Gryffin plays sunset. Alleycvt, Ninajirachi, YDG, and Probcause round out the afternoon.</p>
+      <p>The main stage lineup for Day 1 is headlined by <strong>Eric Prydz</strong>, a name that needs no introduction. If you have never seen a Prydz set live, this is one of the most production-heavy shows in electronic music. Plan your Day 1 around being at the Eternal Stage by 9:45PM. Supporting him: Disco Lines, Sara Landry, DJ Mandy, Lilly Palmer, and Kream.</p>
+      <p>Day 2 closes with <strong>Porter Robinson</strong> followed by <strong>Excision B2B Sullivan King</strong>: two completely different energies back to back. Gryffin plays sunset. Alleycvt, Ninajirachi, YDG, and Probcause round out the afternoon.</p>
 
       <h3>🔊 Pulse Stage</h3>
       <p>The bass stage is where it gets chaotic. <strong>Zeds Dead</strong> headlines Day 1 and <strong>Mau P</strong> closes Day 2. G Jones B2B Eprom, Wooli, Dimension, and Ray Volpe fill out a stage that runs hard from 1PM to 11PM both days.</p>
 
       <h3>🌿 Secret Garden</h3>
-      <p>The underground stage is the hidden gem of Project GLOW. <strong>Nicole Moudaber B2B Chasewest</strong> closes Day 1 in what should be one of the sets of the weekend. Day 2 brings Spencer Brown B2B Qrion, Cosmic Gate, Eli & Fur, and Cassian. If you are into deeper, darker sounds — spend time here.</p>
+      <p>The underground stage is the hidden gem of Project GLOW. <strong>Nicole Moudaber B2B Chasewest</strong> closes Day 1 in what should be one of the sets of the weekend. Day 2 brings Spencer Brown B2B Qrion, Cosmic Gate, Eli & Fur, and Cassian. If you are into deeper, darker sounds, spend time here.</p>
 
       <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80" alt="Concert stage lights" style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
 
       <h2>Getting There</h2>
-      <p>RFK Festival Grounds sits just off the <strong>Stadium-Armory Metro stop</strong> on the Orange, Blue, and Silver lines. If you are coming from anywhere in the DC/Maryland/Virginia area, metro is genuinely your best option. Parking is available but limited and expensive — budget an extra 30 minutes if you drive.</p>
-      <p>Rideshare dropoff zones are clearly marked on the festival map. Uber and Lyft surge hard after the show ends — consider walking to a nearby street before requesting or splitting with your group.</p>
+      <p>RFK Festival Grounds sits just off the <strong>Stadium-Armory Metro stop</strong> on the Orange, Blue, and Silver lines. If you are coming from anywhere in the DC/Maryland/Virginia area, metro is genuinely your best option. Parking is available but limited and expensive, so budget an extra 30 minutes if you drive.</p>
+      <p>Rideshare dropoff zones are clearly marked on the festival map. Uber and Lyft surge hard after the show ends, so consider walking to a nearby street before requesting or splitting with your group.</p>
 
       <h2>What to Bring</h2>
       <ul style="margin:16px 0 16px 20px;line-height:2;">
         <li>Small backpack (under 18 inches)</li>
-        <li>Sealed water bottle up to 32oz — refill stations are throughout the venue</li>
-        <li>Earplugs — seriously, your ears will thank you</li>
+        <li>Sealed water bottle up to 32oz (refill stations are throughout the venue)</li>
+        <li>Earplugs (seriously, your ears will thank you)</li>
         <li>Sunscreen (no aerosol)</li>
         <li>Kandi and flow toys (no sharp edges)</li>
         <li>Phone charger / portable battery</li>
-        <li>Cash and card — both accepted inside</li>
+        <li>Cash and card, both accepted inside</li>
       </ul>
 
       <h2>What NOT to Bring</h2>
@@ -910,18 +910,18 @@ PLURGASM_DATA.blogPosts = [
 
       <h2>Harm Reduction</h2>
       <p><strong>DanceSafe will be on-site both days.</strong> Free water stations are located throughout the venue. Medical tents with trained staff are clearly marked on the festival map. Cool-down zones are available if you need to step away from the crowd.</p>
-      <p>Project GLOW has a Good Samaritan policy — if someone needs help, seek it. You will not get in trouble for doing the right thing.</p>
+      <p>Project GLOW has a Good Samaritan policy: if someone needs help, seek it. You will not get in trouble for doing the right thing.</p>
 
       <h2>Tickets</h2>
-      <p>GA passes start at <strong>$119 all-in</strong> for both days. GA+ ($139) includes expedited entry and access to air-conditioned rest areas. VIP starts at $249. Layaway is available through Front Gate Tickets with a $5 deposit. Buy directly from the official site — never from third-party resellers or Facebook groups.</p>
+      <p>GA passes start at <strong>$119 all-in</strong> for both days. GA+ ($139) includes expedited entry and access to air-conditioned rest areas. VIP starts at $249. Layaway is available through Front Gate Tickets with a $5 deposit. Buy directly from the official site, never from third-party resellers or Facebook groups.</p>
 
-      <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;"><strong>Bottom line:</strong> Project GLOW is one of the best-run festivals on the East Coast. The stages are close together, the crowd is welcoming, and the production punches above its weight. If you are within driving distance of DC — go.</p>
+      <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;"><strong>Bottom line:</strong> Project GLOW is one of the best-run festivals on the East Coast. The stages are close together, the crowd is welcoming, and the production punches above its weight. If you are within driving distance of DC, go.</p>
     `
   },
 
   {
     id: 'post-002',
-    title: 'EDC Las Vegas 2026 — What to Expect at the 30th Anniversary',
+    title: 'EDC Las Vegas 2026: What to Expect at the 30th Anniversary',
     slug: 'edc-las-vegas-2026-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -932,7 +932,7 @@ PLURGASM_DATA.blogPosts = [
     published: true,
     featured: false,
     body: `
-      <p>Electric Daisy Carnival turns <strong>30 years old in 2026</strong> — and Insomniac is pulling out everything for the anniversary. EDC Las Vegas runs <strong>May 15–17</strong> at the Las Vegas Motor Speedway, and if you have ever considered going, this is the year.</p>
+      <p>Electric Daisy Carnival turns <strong>30 years old in 2026</strong>, and Insomniac is pulling out everything for the anniversary. EDC Las Vegas runs <strong>May 15–17</strong> at the Las Vegas Motor Speedway, and if you have ever considered going, this is the year.</p>
 
       <p>EDC is not just a festival. It is the single largest electronic music event in North America, and arguably the most important. Three nights. Nine stages. 200+ artists. 500,000 headliners from around the world, all under what Insomniac calls "the electric sky."</p>
 
@@ -941,36 +941,36 @@ PLURGASM_DATA.blogPosts = [
       <h2>The Stages</h2>
       <p>EDC's stage lineup is unlike anything else in festival production:</p>
       <ul style="margin:16px 0 16px 20px;line-height:2.2;">
-        <li><strong>kineticFIELD</strong> — the iconic mainstage. The centerpiece of the entire festival. Production that takes a full year to build.</li>
-        <li><strong>cosmicMEADOW</strong> — the second mainstage. Typically progressive house and techno.</li>
-        <li><strong>circuitGROUNDS</strong> — bass and hard dance. One of the loudest stages on the property.</li>
-        <li><strong>neonGARDEN</strong> — the underground techno stage. Dark, sweaty, and relentless.</li>
-        <li><strong>wasteLAND</strong> — the experimental and hard techno stage. Industrial and raw.</li>
-        <li><strong>basspod</strong> — dubstep, riddim, and bass music</li>
-        <li><strong>quantumVALLEY</strong> — trance and progressive</li>
-        <li><strong>stereoBLOOM</strong> — house and disco</li>
-        <li><strong>pixel forest</strong> — art installation with live music</li>
+        <li><strong>kineticFIELD</strong>: the iconic mainstage. The centerpiece of the entire festival. Production that takes a full year to build.</li>
+        <li><strong>cosmicMEADOW</strong>: the second mainstage. Typically progressive house and techno.</li>
+        <li><strong>circuitGROUNDS</strong>: bass and hard dance. One of the loudest stages on the property.</li>
+        <li><strong>neonGARDEN</strong>: the underground techno stage. Dark, sweaty, and relentless.</li>
+        <li><strong>wasteLAND</strong>: the experimental and hard techno stage. Industrial and raw.</li>
+        <li><strong>basspod</strong>: dubstep, riddim, and bass music</li>
+        <li><strong>quantumVALLEY</strong>: trance and progressive</li>
+        <li><strong>stereoBLOOM</strong>: house and disco</li>
+        <li><strong>pixel forest</strong>: art installation with live music</li>
       </ul>
 
       <h2>Confirmed Headliners</h2>
-      <p>The 30th anniversary lineup features Martin Garrix, Tiësto, Alesso, Excision, Seven Lions, Fisher, Eric Prydz, and Subtronics — with more names being announced in waves. Full lineup drops typically happen 2–3 months before the event on the official EDC website.</p>
+      <p>The 30th anniversary lineup features Martin Garrix, Tiësto, Alesso, Excision, Seven Lions, Fisher, Eric Prydz, and Subtronics, with more names being announced in waves. Full lineup drops typically happen 2–3 months before the event on the official EDC website.</p>
 
       <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80" alt="DJ on stage" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
 
-      <h2>Surviving EDC — The Practical Guide</h2>
-      <p>EDC is a 3-night outdoor desert festival. It runs from roughly <strong>7PM to 5AM</strong> each night. The Las Vegas desert can be cold at night even in May — temperatures drop significantly after midnight. Here is what veteran headliners recommend:</p>
+      <h2>Surviving EDC: The Practical Guide</h2>
+      <p>EDC is a 3-night outdoor desert festival. It runs from roughly <strong>7PM to 5AM</strong> each night. The Las Vegas desert can be cold at night even in May. Temperatures drop significantly after midnight. Here is what veteran headliners recommend:</p>
 
       <h3>Sleep and Recovery</h3>
-      <p>You will not sleep much. Plan for it. Book your hotel with blackout curtains and try to get 6+ hours during the day before each night. Most experienced EDC attendees stay at hotels directly on the Las Vegas Strip and use the official shuttle service to the speedway — this is strongly recommended over driving or rideshare.</p>
+      <p>You will not sleep much. Plan for it. Book your hotel with blackout curtains and try to get 6+ hours during the day before each night. Most experienced EDC attendees stay at hotels directly on the Las Vegas Strip and use the official shuttle service to the speedway, which is strongly recommended over driving or rideshare.</p>
 
       <h3>Hydration and Heat</h3>
-      <p>Hydration packs (up to 70oz) are allowed and highly recommended. The Speedway is massive — you will walk miles each night. Bring electrolyte packets. Water refill stations are throughout the venue and free. Do not drink alcohol without matching it with water.</p>
+      <p>Hydration packs (up to 70oz) are allowed and highly recommended. The Speedway is massive. You will walk miles each night. Bring electrolyte packets. Water refill stations are throughout the venue and free. Do not drink alcohol without matching it with water.</p>
 
       <h3>What to Wear</h3>
-      <p>Layers. Desert nights go from warm to cold fast. A pashmina or light jacket is essential. Comfortable shoes you can stand and dance in for 8+ hours. Bring earplugs — at EDC this is non-negotiable, the stages are loud.</p>
+      <p>Layers. Desert nights go from warm to cold fast. A pashmina or light jacket is essential. Comfortable shoes you can stand and dance in for 8+ hours. Bring earplugs. At EDC this is non-negotiable: the stages are loud.</p>
 
       <h2>Tickets and Cost</h2>
-      <p>GA 3-day passes start around <strong>$459 all-in</strong> with layaway available through Front Gate Tickets. GA+ and VIP options exist at higher price points. Hotel packages are available through Insomniac's official travel partners — these sell out fast and are worth booking early if you want on-site convenience.</p>
+      <p>GA 3-day passes start around <strong>$459 all-in</strong> with layaway available through Front Gate Tickets. GA+ and VIP options exist at higher price points. Hotel packages are available through Insomniac's official travel partners and sell out fast, so book early if you want on-site convenience.</p>
 
       <p style="margin-top:32px;padding:20px;background:rgba(182,77,255,0.06);border-left:3px solid #b64dff;"><strong>30 years is a milestone.</strong> EDC 2026 will be remembered. If there is one festival to splurge on this decade, this is it.</p>
     `
@@ -978,57 +978,57 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-003',
-    title: 'PLUR 101 — A Beginner\'s Guide to Rave Culture',
+    title: 'PLUR 101: A Beginner\'s Guide to Rave Culture',
     slug: 'plur-101-beginners-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-04-20',
     category: 'culture',
     coverImage: 'images/plur/plur-101-cover.svg',
-    excerpt: 'New to raving? Here\'s everything you need to know about the culture, etiquette, kandi trading, and why PLUR isn\'t just a slogan — it\'s how we actually look out for each other on the dancefloor.',
+    excerpt: 'New to raving? Here\'s everything you need to know about the culture, etiquette, kandi trading, and why PLUR isn\'t just a slogan: it\'s how we actually look out for each other on the dancefloor.',
     published: true,
     featured: false,
     body: `
-      <p>Everyone starts somewhere. Maybe a friend invited you to your first festival and you had no idea what to expect. Maybe you have been curious about rave culture for a while and finally decided to dive in. Either way — welcome. You are in the right place.</p>
+      <p>Everyone starts somewhere. Maybe a friend invited you to your first festival and you had no idea what to expect. Maybe you have been curious about rave culture for a while and finally decided to dive in. Either way, welcome. You are in the right place.</p>
 
       <p>This guide covers everything a first-time raver needs to know: what PLUR actually means, how kandi trading works, dancefloor etiquette, and how to have a safe and genuinely amazing time.</p>
 
       <h2>What is PLUR?</h2>
-      <p>PLUR stands for <strong>Peace, Love, Unity, Respect</strong>. It started in the early 90s New York rave scene as both a greeting and a philosophy — and it became the backbone of global rave culture for a reason.</p>
+      <p>PLUR stands for <strong>Peace, Love, Unity, Respect</strong>. It started in the early 90s New York rave scene as both a greeting and a philosophy, and it became the backbone of global rave culture for a reason.</p>
 
       <p>PLUR is not just a slogan. It is how the rave community actually operates at its best:</p>
 
       <ul style="margin:16px 0 16px 20px;line-height:2.2;">
-        <li><strong>Peace</strong> — no judgment, no gatekeeping, no ego. The dancefloor is a judgment-free zone. It doesn\'t matter what you\'re wearing, what music you like, or how long you\'ve been going to raves.</li>
-        <li><strong>Love</strong> — unconditional love for strangers. The kind that makes someone hand you water when you look overheated, or check on you if you\'re sitting alone outside a tent.</li>
-        <li><strong>Unity</strong> — one crowd, one energy. Every background, every genre preference, every body. The dancefloor erases all of it.</li>
-        <li><strong>Respect</strong> — for personal space, for consent, for the music, and for each other. Respect means looking out for people around you.</li>
+        <li><strong>Peace</strong>: no judgment, no gatekeeping, no ego. The dancefloor is a judgment-free zone. It doesn\'t matter what you\'re wearing, what music you like, or how long you\'ve been going to raves.</li>
+        <li><strong>Love</strong>: unconditional love for strangers. The kind that makes someone hand you water when you look overheated, or check on you if you\'re sitting alone outside a tent.</li>
+        <li><strong>Unity</strong>: one crowd, one energy. Every background, every genre preference, every body. The dancefloor erases all of it.</li>
+        <li><strong>Respect</strong>: for personal space, for consent, for the music, and for each other. Respect means looking out for people around you.</li>
       </ul>
 
-      <h2>Kandi — What It Is and How Trading Works</h2>
+      <h2>Kandi: What It Is and How Trading Works</h2>
       <p>Kandi are the colorful beaded bracelets you will see ravers wearing stacked up their arms. Each one was handmade by someone, worn, and traded. Every piece has a story.</p>
 
-      <p>Trading kandi is one of the most beloved rituals in rave culture. It happens through the <strong>PLUR handshake</strong> — a four-step gesture that physically represents each letter:</p>
+      <p>Trading kandi is one of the most beloved rituals in rave culture. It happens through the <strong>PLUR handshake</strong>, a four-step gesture that physically represents each letter:</p>
 
       <ol style="margin:16px 0 16px 20px;line-height:2.2;">
-        <li><strong>Peace</strong> — press your flat palms together (like a namaste)</li>
-        <li><strong>Love</strong> — interlock your fingers together</li>
-        <li><strong>Unity</strong> — hook your thumbs together, hands still joined</li>
-        <li><strong>Respect</strong> — slide the kandi bracelet from your wrist to theirs</li>
+        <li><strong>Peace</strong>: press your flat palms together (like a namaste)</li>
+        <li><strong>Love</strong>: interlock your fingers together</li>
+        <li><strong>Unity</strong>: hook your thumbs together, hands still joined</li>
+        <li><strong>Respect</strong>: slide the kandi bracelet from your wrist to theirs</li>
       </ol>
 
-      <p>A few etiquette rules: always ask before initiating. Accept a trade graciously even if the piece isn\'t your style — it\'s about the connection, not the bracelet. Never demand kandi or trade with someone who seems uncomfortable. You can always politely decline.</p>
+      <p>A few etiquette rules: always ask before initiating. Accept a trade graciously even if the piece isn\'t your style, because it\'s about the connection, not the bracelet. Never demand kandi or trade with someone who seems uncomfortable. You can always politely decline.</p>
 
       <h2>How to Do the PLUR Handshake</h2>
-      <p>If you\'ve ever watched two ravers press their hands together and swap bracelets, you\'ve seen the PLUR handshake — the little ritual behind trading <em>kandi</em> (the beaded bracelets you\'ll see all over any show). It spells out the four words the whole scene is built on: Peace, Love, Unity, Respect. Here\'s how it goes.</p>
+      <p>If you\'ve ever watched two ravers press their hands together and swap bracelets, you\'ve seen the PLUR handshake, the little ritual behind trading <em>kandi</em> (the beaded bracelets you\'ll see all over any show). It spells out the four words the whole scene is built on: Peace, Love, Unity, Respect. Here\'s how it goes.</p>
       <img src="/images/plur/plur-handshake.png" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
       <ol style="margin:16px 0 16px 20px;line-height:2.2;">
-        <li><strong>Peace</strong> — You each make a peace sign and touch your two fingers to theirs.</li>
-        <li><strong>Love</strong> — You each form half a heart with your hand and bring them together into one.</li>
-        <li><strong>Unity</strong> — Press your palms flat together, hands meeting in the middle.</li>
-        <li><strong>Respect</strong> — Interlock your fingers, then slide a kandi bracelet off your wrist and onto theirs.</li>
+        <li><strong>Peace</strong>: You each make a peace sign and touch your two fingers to theirs.</li>
+        <li><strong>Love</strong>: You each form half a heart with your hand and bring them together into one.</li>
+        <li><strong>Unity</strong>: Press your palms flat together, hands meeting in the middle.</li>
+        <li><strong>Respect</strong>: Interlock your fingers, then slide a kandi bracelet off your wrist and onto theirs.</li>
       </ol>
-      <p>That\'s it. The bracelet you pass along is theirs to keep — a small piece of the night that says you\'re glad they\'re here. Don\'t overthink it; everyone\'s first trade is a little awkward, and that\'s half the fun.</p>
+      <p>That\'s it. The bracelet you pass along is theirs to keep, a small piece of the night that says you\'re glad they\'re here. Don\'t overthink it; everyone\'s first trade is a little awkward, and that\'s half the fun.</p>
 
       <h2>Dancefloor Etiquette</h2>
       <p>Rave etiquette is mostly common sense, but here are the things that matter:</p>
@@ -1036,9 +1036,9 @@ PLURGASM_DATA.blogPosts = [
       <ul style="margin:16px 0 16px 20px;line-height:2.2;">
         <li><strong>Watch your space.</strong> Festivals are crowded. Be aware of the people around you, especially near the front of stages.</li>
         <li><strong>Ask before touching.</strong> Consent is non-negotiable. Always ask before hugging, dancing with, or touching anyone.</li>
-        <li><strong>Check on people.</strong> If someone looks unwell, check on them. If they need help, find a medic — that is what they are there for.</li>
+        <li><strong>Check on people.</strong> If someone looks unwell, check on them. If they need help, find a medic. That is what they are there for.</li>
         <li><strong>Don\'t push to the front.</strong> The people who got there early earned their spot.</li>
-        <li><strong>Leave space for flow artists.</strong> If someone is spinning or doing flow arts, give them room — it is genuinely beautiful to watch and dangerous to interrupt.</li>
+        <li><strong>Leave space for flow artists.</strong> If someone is spinning or doing flow arts, give them room. It is genuinely beautiful to watch and dangerous to interrupt.</li>
       </ul>
 
       <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Festival crowd dancing" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
@@ -1047,15 +1047,15 @@ PLURGASM_DATA.blogPosts = [
       <ul style="margin:16px 0 16px 20px;line-height:2.2;">
         <li>Tell someone where you\'re going and when you expect to be back</li>
         <li>Go with at least one person you trust</li>
-        <li>Agree on a meeting spot before you go in — phones die and crowds split groups</li>
+        <li>Agree on a meeting spot before you go in, because phones die and crowds split groups</li>
         <li>Drink water. Roughly 500ml per hour if you\'re dancing</li>
         <li>Bring earplugs. The music is loud and hearing damage is permanent</li>
         <li>Know where the medical tent is when you first arrive</li>
-        <li>DanceSafe is at most major festivals — find them for harm reduction information</li>
+        <li>DanceSafe is at most major festivals. Find them for harm reduction information</li>
       </ul>
 
       <h2>What to Wear</h2>
-      <p>Rave fashion is expressive and there are truly no rules — but practically speaking: wear shoes you can stand in for hours, bring a layer if you\'re at an outdoor event, and if you\'re in a crowd, wear something you\'re comfortable moving in.</p>
+      <p>Rave fashion is expressive and there are truly no rules, but practically speaking: wear shoes you can stand in for hours, bring a layer if you\'re at an outdoor event, and if you\'re in a crowd, wear something you\'re comfortable moving in.</p>
 
       <p>Kandi, LED accessories, and flow toys are all welcome at most festivals. Check the specific event\'s rules on what\'s allowed before you go.</p>
 
@@ -1065,37 +1065,37 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-004',
-    title: 'Electric Forest 2026 — Why This is Unlike Any Other Festival',
+    title: 'Electric Forest 2026: Why This is Unlike Any Other Festival',
     slug: 'electric-forest-2026-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-04-10',
     category: 'festival-news',
     coverImage: 'https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80',
-    excerpt: 'Electric Forest is not just a festival — it\'s a world built inside a Michigan pine forest. ILLENIUM, GRiZ, and Subtronics headline a 4-day experience that is genuinely unlike anything else.',
+    excerpt: 'Electric Forest is not just a festival. It\'s a world built inside a Michigan pine forest. ILLENIUM, GRiZ, and Subtronics headline a 4-day experience that is genuinely unlike anything else.',
     published: true,
     featured: false,
     body: `
-      <p>There is Electric Forest, and then there is every other festival. That sounds like hype — but ask anyone who has been and they will tell you the same thing. The forest changes people.</p>
+      <p>There is Electric Forest, and then there is every other festival. That sounds like hype, but ask anyone who has been and they will tell you the same thing. The forest changes people.</p>
 
-      <p>Electric Forest runs <strong>June 25–28, 2026</strong> at Double JJ Resort in Rothbury, Michigan. It is a 4-day camping festival built around and inside <strong>Sherwood Forest</strong> — a real pine forest that the production team spends an entire year transforming into something that defies description.</p>
+      <p>Electric Forest runs <strong>June 25–28, 2026</strong> at Double JJ Resort in Rothbury, Michigan. It is a 4-day camping festival built around and inside <strong>Sherwood Forest</strong>, a real pine forest that the production team spends an entire year transforming into something that defies description.</p>
 
       <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80" alt="Forest lights at night" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
 
-      <h2>Sherwood Forest — The Heart of It All</h2>
-      <p>Sherwood Forest is not a stage. It is a 24-hour art installation — a winding network of paths through the trees, each one lit differently, filled with art pieces, secret stages, performers, and moments that happen nowhere else on earth.</p>
+      <h2>Sherwood Forest: The Heart of It All</h2>
+      <p>Sherwood Forest is not a stage. It is a 24-hour art installation: a winding network of paths through the trees, each one lit differently, filled with art pieces, secret stages, performers, and moments that happen nowhere else on earth.</p>
 
       <p>You might turn a corner at 3AM and find a string quartet playing in a clearing. Or a fire performer. Or an entire crowd of people dancing to a DJ set underneath a canopy of lights strung through the trees. The forest runs all night and it is worth staying up for.</p>
 
       <h2>The 2026 Lineup</h2>
       <p>The headline acts for 2026 include <strong>ILLENIUM</strong>, <strong>GRiZ performing twice</strong> (a tradition at EF), and <strong>Subtronics</strong>. The booking that has everyone talking: <strong>Shaquille O\'Neal B2B T-Pain</strong> in a DJ set that will absolutely be unhinged in the best possible way.</p>
 
-      <p>Electric Forest\'s strength is always the depth of the lineup — bass music, jam bands, psychedelic electronic, house, and experimental acts fill 4 days across multiple stages. There is always something happening worth seeing.</p>
+      <p>Electric Forest\'s strength is always the depth of the lineup, with bass music, jam bands, psychedelic electronic, house, and experimental acts filling 4 days across multiple stages. There is always something happening worth seeing.</p>
 
       <h2>Camping is Part of the Experience</h2>
-      <p>Electric Forest is a camping festival in the truest sense. <strong>On-site camping is strongly recommended</strong> — the experience of waking up in the forest, walking to stages, and spending 4 full days in this environment is fundamentally different from commuting in each day.</p>
+      <p>Electric Forest is a camping festival in the truest sense. <strong>On-site camping is strongly recommended</strong>: the experience of waking up in the forest, walking to stages, and spending 4 full days in this environment is fundamentally different from commuting in each day.</p>
 
-      <p>General camping is included with GA Camping passes. Good Life (VIP) camping offers upgraded amenities. The campgrounds have showers, though lines get long — shower at off-peak hours (early morning or late afternoon).</p>
+      <p>General camping is included with GA Camping passes. Good Life (VIP) camping offers upgraded amenities. The campgrounds have showers, though lines get long, so shower at off-peak hours (early morning or late afternoon).</p>
 
       <img src="https://images.unsplash.com/photo-1478827387698-1527781a4887?w=800&q=80" alt="Camping at festival" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
 
@@ -1104,41 +1104,41 @@ PLURGASM_DATA.blogPosts = [
         <li><strong>Bring a wagon.</strong> You will haul gear from your car to your campsite and a wagon makes it manageable. Many people rent them on-site.</li>
         <li><strong>Michigan weather is unpredictable.</strong> Pack a poncho and a layer. June can be beautiful and it can also rain hard for a full day.</li>
         <li><strong>Get lost in the forest.</strong> The scheduled FOMO is real but some of the best Electric Forest moments happen when you wander with no plan.</li>
-        <li><strong>Bring lights for your campsite.</strong> String lights, LED stakes — anything to mark your tent so you can find it at 4AM.</li>
-        <li><strong>The Good Life Lounge</strong> is worth it if you can afford it — AC, private bathrooms, and a shaded viewing area.</li>
+        <li><strong>Bring lights for your campsite.</strong> String lights, LED stakes, anything to mark your tent so you can find it at 4AM.</li>
+        <li><strong>The Good Life Lounge</strong> is worth it if you can afford it: AC, private bathrooms, and a shaded viewing area.</li>
       </ul>
 
       <h2>Tickets</h2>
-      <p>GA Camping passes start around <strong>$399</strong>. Good Life (VIP) from $799. Day tickets are available at a lower price point if you cannot commit to all 4 days. Layaway is available — Electric Forest typically sells out well before the event, so do not wait.</p>
+      <p>GA Camping passes start around <strong>$399</strong>. Good Life (VIP) from $799. Day tickets are available at a lower price point if you cannot commit to all 4 days. Layaway is available. Electric Forest typically sells out well before the event, so do not wait.</p>
 
-      <p style="margin-top:32px;padding:20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;"><strong>If you can only go to one new festival this year, make it Electric Forest.</strong> It is the kind of experience that becomes a reference point — before and after.</p>
+      <p style="margin-top:32px;padding:20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;"><strong>If you can only go to one new festival this year, make it Electric Forest.</strong> It is the kind of experience that becomes a reference point, before and after.</p>
     `
   },
 
   {
     id: 'post-006',
-    title: 'The Coachella Effect — What Happens When the Mainstream Finds Our Festivals',
+    title: 'The Coachella Effect: What Happens When the Mainstream Finds Our Festivals',
     slug: 'coachella-effect-plur-culture',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-05-28',
     category: 'culture',
     coverImage: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80',
-    excerpt: 'Subtronics went viral on TikTok. Coachella booked Fisher. Bass music is everywhere. A new wave of fans is discovering our festivals — and some of them have never heard of PLUR. Here\'s what that means for the culture, and what we all have a responsibility to do about it.',
+    excerpt: 'Subtronics went viral on TikTok. Coachella booked Fisher. Bass music is everywhere. A new wave of fans is discovering our festivals, and some of them have never heard of PLUR. Here\'s what that means for the culture, and what we all have a responsibility to do about it.',
     published: true,
     featured: true,
     body: `
     <p>Something shifted in the last two years. Bass music started showing up in mainstream playlists. Subtronics went viral on TikTok. Coachella booked Fisher, then four Anyma sets. Your coworker who has never been to a festival suddenly bought EDC tickets. Your little brother discovered Excision through a YouTube algorithm rabbit hole.</p>
 
-    <p>This is not a bad thing. Growth is how culture survives. But it comes with a tension that anyone who has been in the rave scene for more than a few years can feel in real time — especially at festivals like Project Glow, which used to be a tight-knit East Coast family event and now draws crowds that include people who have genuinely never heard the word PLUR.</p>
+    <p>This is not a bad thing. Growth is how culture survives. But it comes with a tension that anyone who has been in the rave scene for more than a few years can feel in real time, especially at festivals like Project Glow, which used to be a tight-knit East Coast family event and now draws crowds that include people who have genuinely never heard the word PLUR.</p>
 
     <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80" alt="Festival crowd at night" style="width:100%;height:300px;object-fit:cover;margin:24px 0;border-radius:2px;">
 
     <h2>What the Coachella Effect Actually Is</h2>
 
-    <p>Coachella has always been a mainstream festival with an electronic component. But in 2024 and 2025 something changed — the electronic acts stopped being a side attraction and started being the reason people went. The Sahara tent became the most talked-about stage. Artists like Subtronics, Anyma, and Dom Dolla were pulling crowds that rivaled the headliners.</p>
+    <p>Coachella has always been a mainstream festival with an electronic component. But in 2024 and 2025 something changed: the electronic acts stopped being a side attraction and started being the reason people went. The Sahara tent became the most talked-about stage. Artists like Subtronics, Anyma, and Dom Dolla were pulling crowds that rivaled the headliners.</p>
 
-    <p>The result is a generation of fans who discovered electronic music through Coachella, through TikTok clips, through Spotify algorithmic playlists — and then bought tickets to underground and mid-sized festivals that were built on an entirely different set of values. They came for the music. They had no idea the music came with a culture.</p>
+    <p>The result is a generation of fans who discovered electronic music through Coachella, through TikTok clips, through Spotify algorithmic playlists, and then bought tickets to underground and mid-sized festivals that were built on an entirely different set of values. They came for the music. They had no idea the music came with a culture.</p>
 
     <p>That is not their fault. Nobody told them. And that is partly our fault as a community.</p>
 
@@ -1146,24 +1146,24 @@ PLURGASM_DATA.blogPosts = [
 
     <p>If you have been to Project Glow, Movement, or any regional festival in the last two years, you have probably felt it. The pushing at the rail. The phones held up blocking everyone behind them for forty-five minutes. The group that bulldozes through a crowd mid-set like they are walking through a shopping mall. The person who steps on your feet and does not turn around.</p>
 
-    <p>None of these people are villains. Most of them just do not know. They went to Coachella where the crowd behavior is different, or they went to a stadium show, and they carried those habits with them into spaces that operate on different rules. Rules that were never written down anywhere — because for a long time, everyone in the room already knew them.</p>
+    <p>None of these people are villains. Most of them just do not know. They went to Coachella where the crowd behavior is different, or they went to a stadium show, and they carried those habits with them into spaces that operate on different rules. Rules that were never written down anywhere, because for a long time, everyone in the room already knew them.</p>
 
     <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Crowd at electronic music festival" style="width:100%;height:280px;object-fit:cover;margin:24px 0;border-radius:2px;">
 
     <h2>Why PLUR Is Not Just a Slogan</h2>
 
-    <p>Peace, Love, Unity, Respect. It sounds like something you would print on a tote bag. But PLUR was never a marketing slogan — it was a code of conduct that developed organically in the early 90s New York rave scene because the people in those rooms needed one. Raves were illegal. The crowds were in basements and warehouses. Everyone was in an unfamiliar situation together, and the culture that emerged said: we look after each other here.</p>
+    <p>Peace, Love, Unity, Respect. It sounds like something you would print on a tote bag. But PLUR was never a marketing slogan. It was a code of conduct that developed organically in the early 90s New York rave scene because the people in those rooms needed one. Raves were illegal. The crowds were in basements and warehouses. Everyone was in an unfamiliar situation together, and the culture that emerged said: we look after each other here.</p>
 
-    <p>That ethos is what makes a rave different from a concert. At a concert you go to be entertained. At a rave you are part of the experience. The energy of the crowd is the experience. When the person next to you is looking out for you, when a stranger hands you water, when someone apologizes for bumping into you and you end up talking for an hour — that is PLUR working. That is what people who discovered this culture through a TikTok clip do not know they are missing.</p>
+    <p>That ethos is what makes a rave different from a concert. At a concert you go to be entertained. At a rave you are part of the experience. The energy of the crowd is the experience. When the person next to you is looking out for you, when a stranger hands you water, when someone apologizes for bumping into you and you end up talking for an hour. That is PLUR working. That is what people who discovered this culture through a TikTok clip do not know they are missing.</p>
 
     <p>And honestly? Once they experience it, most of them love it. The problem is someone has to introduce them to it.</p>
 
-    <h2>The Unwritten Rules — Written Down</h2>
+    <h2>The Unwritten Rules, Written Down</h2>
 
     <p>Consider this the handbook nobody gave you when you bought your first festival ticket.</p>
 
     <h3>Moving Through Crowds</h3>
-    <p>When you need to move through a crowd during a set — and sometimes you do — you say excuse me before you move, not after. You touch people on the shoulder gently to signal you are coming through. You say thank you when they make space. If you accidentally step on someone or knock into them, you turn around, you make eye contact, and you apologize. This is not optional. This is the baseline.</p>
+    <p>When you need to move through a crowd during a set (and sometimes you do), you say excuse me before you move, not after. You touch people on the shoulder gently to signal you are coming through. You say thank you when they make space. If you accidentally step on someone or knock into them, you turn around, you make eye contact, and you apologize. This is not optional. This is the baseline.</p>
 
     <p>The crowd is not an obstacle between you and the rail. The crowd is people who got there first and have as much right to their space as you do to yours.</p>
 
@@ -1171,16 +1171,16 @@ PLURGASM_DATA.blogPosts = [
     <p>Record the drop. Film the moment. Nobody is telling you to put your phone away forever. But holding your phone up for full sets, blocking the view of everyone behind you, is one of the most common complaints in the rave community right now and it comes almost entirely from the newer wave of festival attendees. Be present. Film thirty seconds. Put it down. The memory in your body is better than the video on your phone.</p>
 
     <h3>Flow Artists and Space</h3>
-    <p>If someone is spinning poi, using a flowstar, or doing any kind of flow art near you — give them room. Do not crowd into their space out of curiosity. Watch from a respectful distance. Flow artists are part of the event. Some of them have practiced for years. Bumping into someone mid-flow with an expensive LED prop is not a small thing.</p>
+    <p>If someone is spinning poi, using a flowstar, or doing any kind of flow art near you, give them room. Do not crowd into their space out of curiosity. Watch from a respectful distance. Flow artists are part of the event. Some of them have practiced for years. Bumping into someone mid-flow with an expensive LED prop is not a small thing.</p>
 
     <h3>Looking Out</h3>
-    <p>If someone near you looks unwell — too hot, too disoriented, too quiet — check on them. Ask if they are okay. If they are not, find medical staff. Do not step over someone sitting on the ground and assume someone else will handle it. PLUR is not a personal philosophy. It is a collective one. It only works when everyone participates.</p>
+    <p>If someone near you looks unwell (too hot, too disoriented, too quiet), check on them. Ask if they are okay. If they are not, find medical staff. Do not step over someone sitting on the ground and assume someone else will handle it. PLUR is not a personal philosophy. It is a collective one. It only works when everyone participates.</p>
 
     <h3>The Rail</h3>
     <p>Pushing to the front mid-set is one of the most universally disliked behaviors in rave crowds. The people at the rail got there early. They planned for it. They gave up their spot elsewhere for it. Forcing your way through to join them mid-set is taking something that was not yours to take. If you want the rail, get there early.</p>
 
     <h3>Kandi</h3>
-    <p>If someone initiates the PLUR handshake with you, participate or decline gracefully — do not leave them hanging. If you receive kandi, accept it with genuine appreciation even if you do not know what it is. Someone made it by hand, wore it, and chose you. That is a meaningful gesture in this culture. Treat it like one.</p>
+    <p>If someone initiates the PLUR handshake with you, participate or decline gracefully. Do not leave them hanging. If you receive kandi, accept it with genuine appreciation even if you do not know what it is. Someone made it by hand, wore it, and chose you. That is a meaningful gesture in this culture. Treat it like one.</p>
 
     <img src="https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80" alt="Colorful kandi bracelets" style="width:100%;height:260px;object-fit:cover;margin:24px 0;border-radius:2px;">
 
@@ -1190,7 +1190,7 @@ PLURGASM_DATA.blogPosts = [
 
     <p>That is not PLUR either.</p>
 
-    <p>If you see someone doing something that violates the norms of the space — phones up, pushing through crowds, not giving flow artists room — the response that serves the culture is not to glare at them or complain to your friends. It is to gently, non-aggressively, say something. "Hey, just so you know, at raves we usually do it this way." Most people, when told the culture exists, want to be part of it. They just needed someone to tell them.</p>
+    <p>If you see someone doing something that violates the norms of the space (phones up, pushing through crowds, not giving flow artists room), the response that serves the culture is not to glare at them or complain to your friends. It is to gently, non-aggressively, say something. "Hey, just so you know, at raves we usually do it this way." Most people, when told the culture exists, want to be part of it. They just needed someone to tell them.</p>
 
     <p>Subtronics going viral is good. More people discovering bass music is good. Project Glow selling out is good. A bigger tent means more resources, more artists, more production. But a bigger tent also means more people who need to be welcomed into what the tent actually stands for.</p>
 
@@ -1198,11 +1198,11 @@ PLURGASM_DATA.blogPosts = [
 
     <h2>To the New Ravers Reading This</h2>
 
-    <p>Welcome. Genuinely. The fact that you found this article — whether through an algorithm or a friend or a Google search after your first festival — means you are already doing something right. You are curious about the culture, not just the music.</p>
+    <p>Welcome. Genuinely. The fact that you found this article, whether through an algorithm or a friend or a Google search after your first festival, means you are already doing something right. You are curious about the culture, not just the music.</p>
 
     <p>The music is why you came. The culture is why you will stay.</p>
 
-    <p>PLUR is not a test you pass or fail. It is a practice. It is imperfect and it is ongoing and some days the crowd is beautiful and some days it is frustrating and that is true of every community that has ever existed. But at its best — at its actual best, the version that exists at 2AM when the bass is rattling your chest and a stranger hands you their last electrolyte packet because you look like you need it — there is nothing like it anywhere else in the world.</p>
+    <p>PLUR is not a test you pass or fail. It is a practice. It is imperfect and it is ongoing and some days the crowd is beautiful and some days it is frustrating and that is true of every community that has ever existed. But at its best, the version that exists at 2AM when the bass is rattling your chest and a stranger hands you their last electrolyte packet because you look like you need it, there is nothing like it anywhere else in the world.</p>
 
     <p>That is what we are protecting when we talk about PLUR. Not a slogan. A feeling. And it belongs to anyone willing to show up for it.</p>
 
@@ -1217,14 +1217,14 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-007',
-    title: 'The Complete Rave Packing List — What to Actually Bring',
+    title: 'The Complete Rave Packing List: What to Actually Bring',
     slug: 'complete-rave-packing-list',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-05-29',
     category: 'festival-news',
     coverImage: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
-    excerpt: 'The definitive festival packing list — built from real experience, not Pinterest boards. What you actually need, what you will definitely forget, what to leave at home, and why earplugs are the most important thing on this entire list.',
+    excerpt: 'The definitive festival packing list, built from real experience, not Pinterest boards. What you actually need, what you will definitely forget, what to leave at home, and why earplugs are the most important thing on this entire list.',
     published: true,
     featured: false,
     body: `
@@ -1234,7 +1234,7 @@ PLURGASM_DATA.blogPosts = [
     Occasionally it is socks.</p>
 
     <p>This is the list we wish someone had given us at our first festival.
-    Not the Pinterest version. The real one — built from experience,
+    Not the Pinterest version. The real one, built from experience,
     from mistakes, and from watching strangers suffer in the heat because
     they brought the wrong shoes.</p>
 
@@ -1245,11 +1245,11 @@ PLURGASM_DATA.blogPosts = [
     <h2>The Non-Negotiables</h2>
     <p>These are the items that if you forget them,
     your festival experience is actively worse.
-    Not just inconvenient — actually worse.</p>
+    Not just inconvenient: actually worse.</p>
 
-    <h3>🎧 Earplugs — the most important thing on this list</h3>
+    <h3>🎧 Earplugs: the most important thing on this list</h3>
     <p>We are putting this first because most people put it last and then forget it.
-    Festival stages are loud. Genuinely dangerously loud — sustained exposure
+    Festival stages are loud. Genuinely dangerously loud: sustained exposure
     above 85dB causes permanent hearing damage and festival main stages
     regularly hit 100dB+. High-fidelity earplugs (Eargasm, Loop, Earasers,
     Etymotic) reduce volume without killing sound quality.
@@ -1257,17 +1257,17 @@ PLURGASM_DATA.blogPosts = [
     <p>Foam disposable earplugs work in a pinch but muffle the sound badly.
     Invest $20-40 in a real pair. You will use them for years.</p>
 
-    <h3>💧 Water bottle — sealed, 32oz max</h3>
+    <h3>💧 Water bottle, sealed, 32oz max</h3>
     <p>Most festivals allow sealed water bottles up to 32oz.
     Bring one. Fill it at the free water stations that are
     located throughout every licensed festival.
-    Do not rely on buying water inside —
-    you will spend $8 per bottle and run out constantly.</p>
+    Do not rely on buying water inside.
+    You will spend $8 per bottle and run out constantly.</p>
 
-    <h3>🎒 Small backpack — under 18 inches</h3>
+    <h3>🎒 Small backpack, under 18 inches</h3>
     <p>The standard allowed size at most festivals.
     Measure yours before you go. A hydration pack (CamelBak style)
-    is even better if you are dancing heavily —
+    is even better if you are dancing heavily:
     hands free, always hydrated, up to 70oz allowed at most events.</p>
 
     <h3>🪪 ID and tickets</h3>
@@ -1276,8 +1276,8 @@ PLURGASM_DATA.blogPosts = [
     without signal. Your ID gets checked at entry and at
     any age-restricted area inside. Do not leave it in the car.</p>
 
-    <h3>💊 Electrolyte packets — 2 per day minimum</h3>
-    <p>Liquid IV, LMNT, Nuun tablets — whatever your preference.
+    <h3>💊 Electrolyte packets, 2 per day minimum</h3>
+    <p>Liquid IV, LMNT, Nuun tablets, whatever your preference.
     Dehydration at festivals is rarely about not drinking enough water.
     It is about drinking water without replacing the electrolytes
     lost through sweat. One packet dissolved in your water bottle
@@ -1307,7 +1307,7 @@ PLURGASM_DATA.blogPosts = [
     <p>Available over the counter at CVS, Walgreens, and Rite Aid.
     Reverses opioid overdoses.
     You do not need a prescription.
-    You do not need to know how to use it in advance —
+    You do not need to know how to use it in advance:
     the instructions are on the box.
     Keep it accessible in your bag, not buried at the bottom.</p>
 
@@ -1324,21 +1324,21 @@ PLURGASM_DATA.blogPosts = [
     and genuinely life-changing at an outdoor summer festival.
     Aim it at your wrists and neck for fastest cooling.</p>
 
-    <h3>☀️ Sunscreen — no aerosol</h3>
+    <h3>☀️ Sunscreen, no aerosol</h3>
     <p>Most festivals ban aerosol sunscreen for fire safety reasons.
     Bring lotion or spray in a non-aerosol bottle.
     SPF 50. Reapply every two hours if you are outdoors.
     Sunburn makes a three-day festival significantly less fun
     starting around hour six of day one.</p>
 
-    <h2>What to Wear — and What to Bring for Later</h2>
+    <h2>What to Wear, and What to Bring for Later</h2>
 
     <h3>👟 Shoes you can stand in for 8+ hours</h3>
     <p>This is where people make the biggest mistake.
     Platform boots look incredible.
     Platform boots after six hours of dancing on concrete
     feel like punishment. If you are going to wear platforms,
-    break them in first — wear them around the house,
+    break them in first. Wear them around the house,
     on walks, anywhere for at least a few weeks before the festival.
     Bring blister pads and moleskin regardless.</p>
 
@@ -1352,8 +1352,8 @@ PLURGASM_DATA.blogPosts = [
     This doubles as something to sit on during sets
     and a pillow if you end up somewhere unexpected.</p>
 
-    <h3>👙 Your actual outfit — plus a backup</h3>
-    <p>Bring one backup outfit element —
+    <h3>👙 Your actual outfit, plus a backup</h3>
+    <p>Bring one backup outfit element:
     a spare top, spare shorts, something.
     Festivals are unpredictable.
     Things spill, things tear, weather happens.
@@ -1373,19 +1373,19 @@ PLURGASM_DATA.blogPosts = [
     <h3>📿 Kandi to trade</h3>
     <p>You do not need to bring a lot.
     Even five or six pieces is enough for a meaningful trading experience.
-    If you do not have any, visit the PLURGASM brand directory —
+    If you do not have any, visit the PLURGASM brand directory:
     there are several shops that sell premade kandi
     ready to trade the same week you order.</p>
 
     <h3>🎨 Glitter, body jewels, accessories</h3>
     <p>Cosmetic glitter is fine.
-    Craft glitter is microplastic and bad for the environment
-    — most festivals are moving away from it.
-    Body jewels, face gems, LED accessories —
-    all great and all allowed at most events.
+    Craft glitter is microplastic and bad for the environment,
+    and most festivals are moving away from it.
+    Body jewels, face gems, and LED accessories are all great
+    and allowed at most events.
     Check the specific festival rules before you pack anything unconventional.</p>
 
-    <h3>🌀 Flow props — check rules first</h3>
+    <h3>🌀 Flow props: check rules first</h3>
     <p>Flowstars, poi, LED gloves, and most flow props are
     allowed at most festivals with the caveat that
     they cannot have sharp edges and cannot be used
@@ -1396,8 +1396,8 @@ PLURGASM_DATA.blogPosts = [
     <h2>Tech & Practical Gear</h2>
 
     <h3>📱 Screenshot everything</h3>
-    <p>Festival apps crash. Cell service at festivals is genuinely terrible
-    — 50,000 people in one field destroys tower capacity.
+    <p>Festival apps crash. Cell service at festivals is genuinely terrible:
+    50,000 people in one field destroys tower capacity.
     Screenshot your ticket, the festival map,
     the set times, your campsite location (if camping),
     and the address of where you are staying.
@@ -1422,24 +1422,24 @@ PLURGASM_DATA.blogPosts = [
     <p>What you leave at home matters as much as what you pack.</p>
 
     <ul style="margin:16px 0 24px 20px;line-height:2.2;">
-      <li><strong>Large backpacks over 18 inches</strong> —
+      <li><strong>Large backpacks over 18 inches</strong>:
         will be turned away at security. Measure first.</li>
-      <li><strong>Outside alcohol</strong> —
+      <li><strong>Outside alcohol</strong>:
         confiscated at every festival, no exceptions.</li>
-      <li><strong>Professional cameras with detachable lenses</strong> —
+      <li><strong>Professional cameras with detachable lenses</strong>:
         banned at most events.
         Your phone camera is genuinely good enough.</li>
-      <li><strong>Aerosol anything</strong> —
+      <li><strong>Aerosol anything</strong>:
         sunscreen, dry shampoo, body spray. All banned.</li>
-      <li><strong>Anything you cannot afford to lose</strong> —
+      <li><strong>Anything you cannot afford to lose</strong>:
         expensive jewelry, irreplaceable items,
         your grandmother's ring.
         Things get lost, things get stolen.
         Leave valuables at home.</li>
-      <li><strong>Drones</strong> — banned universally.</li>
-      <li><strong>Selfie sticks, laser pointers</strong> —
+      <li><strong>Drones</strong>: banned universally.</li>
+      <li><strong>Selfie sticks, laser pointers</strong>:
         confiscated immediately.</li>
-      <li><strong>More than you can comfortably carry</strong> —
+      <li><strong>More than you can comfortably carry</strong>:
         you will be carrying this bag for 8+ hours.
         If it feels heavy in your bedroom
         it will feel impossible at hour six.</li>
@@ -1523,7 +1523,7 @@ PLURGASM_DATA.blogPosts = [
       line-height:1.8;">
       <strong>One last thing:</strong> Agree on a physical
       meetup spot with your group before you walk in.
-      Not a general area — a specific landmark,
+      Not a general area. Pick a specific landmark,
       a specific stage entrance, something unmistakable.
       Cell service will fail at the worst moment.
       The meetup spot has saved more festival groups
@@ -1544,63 +1544,63 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-005',
-    title: 'The Best Rave Brands of 2026 — Community Picks',
+    title: 'The Best Rave Brands of 2026: Community Picks',
     slug: 'best-rave-brands-2026',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-03-28',
     category: 'fashion',
     coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    excerpt: 'We pulled together the most-recommended rave clothing, kandi, and accessory brands from community feedback. From affordable everyday sets to high-end fae pieces — here is what the community actually rates.',
+    excerpt: 'We pulled together the most-recommended rave clothing, kandi, and accessory brands from community feedback. From affordable everyday sets to high-end fae pieces. Here is what the community actually rates.',
     published: true,
     featured: false,
     body: `
       <p>Every season the rave fashion conversation cycles through the same questions: who is actually worth buying from? Which brands have quality issues? Who ships on time? Who has good return policies?</p>
 
-      <p>We pulled this list from real community feedback across rave subreddits, Facebook groups, and direct submissions. These are not sponsored picks — they are brands the community actually rates.</p>
+      <p>We pulled this list from real community feedback across rave subreddits, Facebook groups, and direct submissions. These are not sponsored picks. They are brands the community actually rates.</p>
 
       <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Festival fashion outfits" style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
 
-      <h2>Best for Everyday Rave Sets — All Price Points</h2>
+      <h2>Best for Everyday Rave Sets, All Price Points</h2>
 
-      <h3>Freedom Rave Wear — California · $–$$</h3>
-      <p>Consistently the most-recommended brand in the community for a reason. Quality spandex sets at reasonable prices, ships within a week, and one of the few brands that stocks solid options for all body types. They also carry men\'s shirts and tank tops — rare in the rave clothing space.</p>
+      <h3>Freedom Rave Wear, California · $–$$</h3>
+      <p>Consistently the most-recommended brand in the community for a reason. Quality spandex sets at reasonable prices, ships within a week, and one of the few brands that stocks solid options for all body types. They also carry men\'s shirts and tank tops, which is rare in the rave clothing space.</p>
 
-      <h3>iHeartRaves — California · $</h3>
+      <h3>iHeartRaves, California · $</h3>
       <p>The biggest rave clothing retailer in the US. Wide selection, artist collabs, and affordable prices. Note: no returns, only store credit. Quality can be inconsistent but they will replace defective items. Size generally runs true.</p>
 
-      <h3>Rage Kage — California · $</h3>
+      <h3>Rage Kage, California · $</h3>
       <p>Specifically beloved for long-torso-friendly bodysuits and affordable sequin looks. True to size, quick shipping, and MTO options available if you want something specific. Great entry point for fancier looks without the luxury price tag.</p>
 
       <h2>Best for Fae, Babydoll, and High-End Looks</h2>
 
-      <h3>Vanishing Fae — California · $$$–$$$$</h3>
-      <p>The community luxury pick. Intricate fae and babydoll aesthetics handmade at a premium price point. If you are investing in a statement piece, Vanishing Fae is consistently cited as worth it. Check if sets are lined before purchasing — some sequin pieces can cause irritation.</p>
+      <h3>Vanishing Fae, California · $$$–$$$$</h3>
+      <p>The community luxury pick. Intricate fae and babydoll aesthetics handmade at a premium price point. If you are investing in a statement piece, Vanishing Fae is consistently cited as worth it. Check if sets are lined before purchasing, as some sequin pieces can cause irritation.</p>
 
-      <h3>Little Kitty Raves — California · $$–$$$</h3>
+      <h3>Little Kitty Raves, California · $$–$$$</h3>
       <p>MTO fae and babydoll sets with a dedicated following. Expect 2–3 week turnaround for made-to-order pieces. The quality is consistently praised across community reviews.</p>
 
       <h2>Best Shoes</h2>
 
-      <h3>Demonia Cult — California · $–$$</h3>
+      <h3>Demonia Cult, California · $–$$</h3>
       <p>Still the undisputed king of rave shoes. Platform boots, trainers, pumps, and Gothic styles in a wide size range. Ships within a week. If you are buying your first pair of platform shoes for a festival, start here.</p>
 
-      <h3>YRU — California · $–$$$</h3>
+      <h3>YRU, California · $–$$$</h3>
       <p>A strong Demonia alternative with wider styles and a higher price ceiling. Chunky platforms, boots, and trainers with more experimental colorways. Worth browsing if you want something different.</p>
 
       <h2>Best Kandi Supplies</h2>
 
-      <h3>Kandies World — Florida · $</h3>
-      <p>The kandi supply headquarters. If you make your own kandi, this is your first stop — beads, perler beads, elastic, and accessories. Ships fast, prices are fair.</p>
+      <h3>Kandies World, Florida · $</h3>
+      <p>The kandi supply headquarters. If you make your own kandi, this is your first stop: beads, perler beads, elastic, and accessories. Ships fast, prices are fair.</p>
 
-      <h3>inPLUR — Louisiana · $</h3>
+      <h3>inPLUR, Louisiana · $</h3>
       <p>For those who want premade kandi ready to trade without making it themselves. One of the most loved kandi shops in the community. PLUR through and through.</p>
 
       <img src="https://images.unsplash.com/photo-1516450137517-162bfbeb8dba?w=800&q=80" alt="Rave accessories and kandi" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
 
       <h2>A Note on Red Flags</h2>
       <p>The rave clothing space has a dropshipping problem. Some warning signs: the website has no clear location listed, the same items appear on AliExpress at a fraction of the price, shipping takes 4–6 weeks with no explanation, and reviews are suspiciously generic.</p>
-      <p>Always check community reviews before buying from an unfamiliar brand. The Facebook groups and Reddit\'s r/festivals are good resources. When in doubt — stick to community-tested names.</p>
+      <p>Always check community reviews before buying from an unfamiliar brand. The Facebook groups and Reddit\'s r/festivals are good resources. When in doubt, stick to community-tested names.</p>
 
       <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;"><strong>All brands listed in this article are in the PLURGASM directory</strong> with full details on pricing, shipping times, and community notes. Click any brand name to see more.</p>
     `
