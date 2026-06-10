@@ -4,8 +4,14 @@
     {
       "name": "plurgasm",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3000", "."],
+      "runtimeArgs": ["serve", "-l", "3000", "--no-clean-urls", "."],
       "port": 3000
+    },
+    {
+      "name": "plurgasm-py",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3001"],
+      "port": 3001
     }
   ]
 }

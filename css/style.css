@@ -2627,6 +2627,11 @@ footer {
 .bottom-nav {
   display: none;
   position: fixed;
+  /* override the base nav rule (top: 0, height: 66px, border-bottom)
+     so this bar pins to the bottom instead of covering the header */
+  top: auto;
+  height: auto;
+  border-bottom: none;
   bottom: 0;
   left: 0;
   right: 0;
