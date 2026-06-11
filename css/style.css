@@ -936,7 +936,7 @@ nav {
 
 .add-cal {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--cyan);
@@ -1986,10 +1986,16 @@ footer {
 }
 .cal-loc {
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
+  font-size: 15px;
+  color: rgba(240,238,255,0.92);
   letter-spacing: 0.5px;
   flex: 1;
+}
+.cal-meta {
+  flex: 0 0 auto;
+  font-size: 14px;
+  color: rgba(240,238,255,0.85);
+  white-space: nowrap;
 }
 .cal-genres {
   display: flex;
@@ -1998,11 +2004,11 @@ footer {
 }
 .cal-genre {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1px;
-  padding: 2px 7px;
-  border: 1px solid var(--border);
-  color: var(--faint);
+  padding: 3px 9px;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(240,238,255,0.85);
 }
 .cal-type-dot {
   width: 8px;
@@ -3012,9 +3018,11 @@ footer {
     grid-template-columns: 80px 1fr;
   }
   .cal-name {
-    font-size: 16px;
+    font-size: 19px;
     min-width: 0;
   }
+  .cal-loc { font-size: 14px; flex-basis: 100%; }
+  .cal-meta { font-size: 13px; flex-basis: auto; }
 
   /* blog stacks vertically */
   .blog-newspaper-inner {

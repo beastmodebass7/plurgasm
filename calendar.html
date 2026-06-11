@@ -447,9 +447,9 @@ body::after {
     <!-- VIEW TOGGLE -->
     <div style="display:flex;gap:4px;margin-bottom:20px;align-items:center;">
       <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-right:4px;">View:</span>
-      <button class="view-btn cal-view-btn active" id="btn-list-view" onclick="setCalView('list',this)">List</button>
-      <button class="view-btn cal-view-btn" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
+      <button class="view-btn cal-view-btn active" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
       <button class="view-btn cal-view-btn" id="btn-map-view" onclick="setCalView('map',this)">Map</button>
+      <button class="view-btn cal-view-btn" id="btn-list-view" onclick="setCalView('list',this)">List</button>
     </div>
 
     <!-- CALENDAR OUTPUT -->
@@ -507,7 +507,7 @@ function googleCalUrl(f) {
 let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
-let _calView = 'list';
+let _calView = 'timeline';
 
 let festivals = [];
 
@@ -551,17 +551,17 @@ function festRowHTML(f) {
           <span class="cal-name">${f.name}</span>
           ${past ? `<span class="past-badge">ENDED</span>` : ''}
           <span class="cal-loc">📍 ${f.location}</span>
-          <span class="cal-loc" style="opacity:0.7;">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
+          <span class="cal-loc cal-meta">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
           <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
           ${!past && cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
           ${hasUrl
             ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
-                style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+                style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
                        color:var(--cyan);margin-left:auto;white-space:nowrap;transition:opacity 0.2s;"
                 onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
                 Tickets →
               </a>`
-            : `<span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
+            : `<span style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
           <span class="cal-arrow">→</span>
         </div>
       </div>`;
