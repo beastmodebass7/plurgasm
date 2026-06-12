@@ -28,7 +28,7 @@
     { label: 'Brands',   href: '/#brands',    icon: 'icon-nav-brands.png' },
     { label: 'Festivals',href: '/#festivals', icon: 'icon-nav-festivals.png' },
     { label: 'Search',   href: null,          icon: 'icon-nav-search.png',   isSearch: true },
-    { label: 'Creators', href: '/social',icon: 'icon-nav-creators.png', imgStyle: 'mix-blend-mode:screen' },
+    { label: 'Creators', href: '/social',icon: '/images/nav/icon-nav-creators.png' },
     { label: 'Blog',     href: '/blog',      icon: 'icon-nav-blog.png' },
     { label: 'Calendar', href: '/calendar', icon: 'icon-nav-calendar.png' },
   ];
@@ -95,6 +95,12 @@
         '</nav>';
 
       // ── bottom nav ──
+      // Icons starting with "/" are root-relative and used as-is (so they
+      // resolve on subfolder pages like /festivals/<name>); bare filenames
+      // get the page-relative imgBase prepended.
+      function iconSrc(icon) {
+        return icon.charAt(0) === '/' ? icon : imgBase + icon;
+      }
       var bottomHtml = '<nav class="bottom-nav" id="bottom-nav">' +
         BOTTOM_ITEMS.map(function (item) {
           if (item.isSearch) {
@@ -103,13 +109,13 @@
               ? ' onclick="document.getElementById(\'search-input\').focus();window.scrollTo({top:0,behavior:\'smooth\'});return false;"'
               : '';
             return '<a href="' + href + '" class="bn-item bn-search"' + onclick + '>' +
-              '<img src="' + imgBase + item.icon + '" class="bn-icon-img" alt="' + item.label + '" loading="eager">' +
+              '<img src="' + iconSrc(item.icon) + '" class="bn-icon-img" alt="' + item.label + '" loading="eager">' +
               '<span class="bn-label">' + item.label + '</span></a>';
           }
           var activeClass = isActive(item.href) ? ' active' : '';
           var imgStyle = item.imgStyle ? ' style="' + item.imgStyle + '"' : '';
           return '<a href="' + item.href + '" class="bn-item' + activeClass + '">' +
-            '<img src="' + imgBase + item.icon + '" class="bn-icon-img" alt="' + item.label + '" loading="eager"' + imgStyle + '>' +
+            '<img src="' + iconSrc(item.icon) + '" class="bn-icon-img" alt="' + item.label + '" loading="eager"' + imgStyle + '>' +
             '<span class="bn-label">' + item.label + '</span></a>';
         }).join('') +
         '</nav>';
