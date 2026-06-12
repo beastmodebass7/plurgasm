@@ -1,0 +1,39 @@
+name: Auto-update sitemap
+
+# Regenerate sitemap.xml whenever the data file changes.
+# Only triggers on js/data.js, so it won't loop on its own sitemap commits.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'js/data.js'
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate sitemap
+        run: node generate-sitemap.js
+
+      - name: Commit & push if sitemap changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- sitemap.xml robots.txt; then
+            echo "No sitemap changes — nothing to commit."
+          else
+            git add sitemap.xml robots.txt
+            git commit -m "auto-update sitemap.xml [skip ci]"
+            git push
+          fi

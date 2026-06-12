@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plurgasm.com/sitemap.xml
