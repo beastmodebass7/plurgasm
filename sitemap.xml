@@ -7,193 +7,193 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog.html</loc>
+    <loc>https://plurgasm.com/blog</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/calendar.html</loc>
+    <loc>https://plurgasm.com/calendar</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/partners.html</loc>
+    <loc>https://plurgasm.com/partners</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/safety.html</loc>
+    <loc>https://plurgasm.com/safety</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/social.html</loc>
+    <loc>https://plurgasm.com/social</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/submit-article.html</loc>
+    <loc>https://plurgasm.com/submit-article</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-010</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-010</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-009</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-009</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-008</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-008</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-001</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-001</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-002</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-002</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-003</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-003</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-004</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-004</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-006</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-006</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-007</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-007</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/blog-post.html?id=post-005</loc>
+    <loc>https://plurgasm.com/blog-post?id=post-005</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/festivals/edc-las-vegas.html</loc>
+    <loc>https://plurgasm.com/festivals/edc-las-vegas</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/festivals/movement-detroit.html</loc>
+    <loc>https://plurgasm.com/festivals/movement-detroit</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/festivals/project-glow.html</loc>
+    <loc>https://plurgasm.com/festivals/project-glow</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/festivals/electric-forest.html</loc>
+    <loc>https://plurgasm.com/festivals/electric-forest</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/festivals/tomorrowland.html</loc>
+    <loc>https://plurgasm.com/festivals/tomorrowland</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=fem-clothing</loc>
+    <loc>https://plurgasm.com/category?cat=fem-clothing</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=male-clothing</loc>
+    <loc>https://plurgasm.com/category?cat=male-clothing</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=shoes</loc>
+    <loc>https://plurgasm.com/category?cat=shoes</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=accessories</loc>
+    <loc>https://plurgasm.com/category?cat=accessories</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=kandi</loc>
+    <loc>https://plurgasm.com/category?cat=kandi</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=jerseys</loc>
+    <loc>https://plurgasm.com/category?cat=jerseys</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=events</loc>
+    <loc>https://plurgasm.com/category?cat=events</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=supplements</loc>
+    <loc>https://plurgasm.com/category?cat=supplements</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=gear</loc>
+    <loc>https://plurgasm.com/category?cat=gear</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=lights</loc>
+    <loc>https://plurgasm.com/category?cat=lights</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://plurgasm.com/category.html?cat=wellness</loc>
+    <loc>https://plurgasm.com/category?cat=wellness</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

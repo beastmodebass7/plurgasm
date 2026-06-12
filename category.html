@@ -16,7 +16,7 @@
 <meta name="keywords" content="rave brands, rave clothing categories, kandi, rave shoes, rave accessories, rave directory, PLURGASM">
 <meta name="author" content="PLURGASM">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://plurgasm.com/category.html">
+<meta property="og:url" content="https://plurgasm.com/category">
 <meta property="og:title" content="Browse by Category — PLURGASM">
 <meta property="og:description" content="Browse rave brands by category. Fem clothing, shoes, kandi, accessories, jerseys and more at PLURGASM.">
 <meta property="og:image" content="https://plurgasm.com/og-image.png">
@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="Browse by Category — PLURGASM">
 <meta name="twitter:description" content="Browse rave brands by category — fem clothing, shoes, kandi, and more.">
 <meta name="twitter:image" content="https://plurgasm.com/og-image.png">
-<link rel="canonical" href="https://plurgasm.com/category.html">
+<link rel="canonical" href="https://plurgasm.com/category">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -194,13 +194,13 @@
   <div class="footer-inner">
     <span class="footer-logo">PLURGASM</span>
     <ul class="footer-links">
-      <li><a href="index.html#festivals">Festivals</a></li>
-      <li><a href="calendar.html">Calendar</a></li>
-      <li><a href="index.html#categories">Categories</a></li>
-      <li><a href="index.html#brands">Brands</a></li>
-      <li><a href="index.html#social">Social</a></li>
-      <li><a href="partners.html">Partner With Us</a></li>
-      <li><a href="submit-article.html">Write for Us</a></li>
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Categories</a></li>
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
     </ul>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
       <a href="https://instagram.com/beastmodebass" target="_blank"
@@ -208,7 +208,7 @@
         onmouseover="this.style.color='var(--cyan)'"
         onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
       <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
-      <a href="admin.html" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--faint);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">admin</a>
+      <a href="/admin" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--faint);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">admin</a>
     </div>
   </div>
 </footer>
@@ -366,6 +366,18 @@
     if (e.key === 'Escape') { closeMobileMenu(); closeBrandModal(); }
   });
 
+  /* ── SELF-REFERENCING CANONICAL + META ── */
+  function setCanonical(url) {
+    let l = document.querySelector('link[rel="canonical"]');
+    if (!l) { l = document.createElement('link'); l.setAttribute('rel', 'canonical'); document.head.appendChild(l); }
+    l.setAttribute('href', url);
+  }
+  function setMetaDesc(txt) {
+    let m = document.querySelector('meta[name="description"]');
+    if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'description'); document.head.appendChild(m); }
+    m.setAttribute('content', txt);
+  }
+
   /* ── RENDER ── */
   let searchQuery = '';
 
@@ -421,15 +433,18 @@
     const page    = document.getElementById('cat-page');
 
     if (!cat) {
+      setCanonical('https://plurgasm.com/category');
       page.innerHTML = `
         <div class="cat-hero">
-          <a href="index.html" class="cat-back">← Back to PLURGASM</a>
-          <p style="color:var(--muted);font-size:16px;">Category not found. <a href="index.html" style="color:var(--cyan);">Browse all →</a></p>
+          <a href="/" class="cat-back">← Back to PLURGASM</a>
+          <p style="color:var(--muted);font-size:16px;">Category not found. <a href="/" style="color:var(--cyan);">Browse all →</a></p>
         </div>`;
       return;
     }
 
     document.title = `${cat.label} Brands — PLURGASM`;
+    setCanonical('https://plurgasm.com/category?cat=' + catId);
+    setMetaDesc((CAT_DESCRIPTIONS[catId] || ('Browse ' + cat.label + ' rave brands.')) + ' — on PLURGASM, the rave universe.');
 
     const glows    = CAT_GLOWS[catId]     || ['rgba(0,229,255,0.08)', 'rgba(182,77,255,0.05)'];
     const titleCls = CAT_TITLE_CLS[catId] || 'cat-title-cyan';
@@ -450,7 +465,7 @@
     /* hero */
     const heroHtml = `
       <div class="cat-hero">
-        <a href="index.html" class="cat-back">← All Categories</a>
+        <a href="/" class="cat-back">← All Categories</a>
         <span class="cat-icon-lg">${iconHtml}</span>
         <h1 class="cat-title ${titleCls}">${cat.label.toUpperCase()}</h1>
         <p class="cat-desc-text">${desc}</p>
@@ -465,7 +480,7 @@
         <p class="other-cats-label">More Categories</p>
         <div class="other-cats-pills">
           ${others.map(c => `
-            <a class="other-cat-pill" href="category.html?cat=${c.id}">
+            <a class="other-cat-pill" href="/category?cat=${c.id}">
               <span class="other-cat-pill-icon">${c.icon}</span>
               ${c.label}
               <span class="other-cat-pill-count">${c.count}</span>

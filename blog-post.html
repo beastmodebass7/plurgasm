@@ -38,14 +38,14 @@
   <div class="footer-inner">
     <span class="footer-logo">PLURGASM</span>
     <ul class="footer-links">
-      <li><a href="index.html#brands">Brands</a></li>
-      <li><a href="index.html#festivals">Festivals</a></li>
-      <li><a href="calendar.html">Calendar</a></li>
-      <li><a href="index.html#categories">Shop by Category</a></li>
-      <li><a href="index.html#social">Social</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="partners.html">Partner With Us</a></li>
-      <li><a href="submit-article.html">Write for Us</a></li>
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Shop by Category</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
     </ul>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
       <a href="https://instagram.com/beastmodebass" target="_blank"
@@ -108,6 +108,16 @@ function getLabel(cat) { return catLabels[cat] || cat; }
 function fmtDate(d) {
   return new Date(d).toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
 }
+function setCanonical(url) {
+  let l = document.querySelector('link[rel="canonical"]');
+  if (!l) { l = document.createElement('link'); l.setAttribute('rel', 'canonical'); document.head.appendChild(l); }
+  l.setAttribute('href', url);
+}
+function setMetaDesc(txt) {
+  let m = document.querySelector('meta[name="description"]');
+  if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'description'); document.head.appendChild(m); }
+  m.setAttribute('content', txt);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
@@ -121,20 +131,22 @@ document.addEventListener('DOMContentLoaded', () => {
       <div style="text-align:center;padding:80px 0;">
         <p style="font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:3px;color:var(--white);">POST NOT FOUND</p>
         <p style="color:var(--muted);margin:16px 0 32px;">This post doesn't exist or has been removed.</p>
-        <a href="blog.html" class="nav-cta">← Back to Blog</a>
+        <a href="/blog" class="nav-cta">← Back to Blog</a>
       </div>`;
     document.getElementById('more-section').style.display = 'none';
     return;
   }
 
   document.title = post.title + ' — PLURGASM';
+  setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
+  if (post.excerpt) setMetaDesc(post.excerpt);
 
   const color = getColor(post.category);
   const label = getLabel(post.category);
 
   main.innerHTML = `
     <div style="margin-bottom:32px;">
-      <a href="blog.html" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
+      <a href="/blog" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
         onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">← All Posts</a>
     </div>
 
@@ -182,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const l = getLabel(p.category);
     const d = new Date(p.date).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
     return `
-      <a class="blog-card" href="blog-post.html?id=${p.id}">
+      <a class="blog-card" href="/blog-post?id=${p.id}">
         <div class="blog-card-top">
           ${p.coverImage
             ? `<img src="${p.coverImage}" alt="${p.title}" class="blog-cover">`

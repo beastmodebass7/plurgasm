@@ -6,31 +6,31 @@
   var NAV_LINKS = [
     { label: 'Brands',           href: '/#brands' },
     { label: 'Festivals',        href: '/#festivals' },
-    { label: 'Calendar',         href: '/calendar.html' },
+    { label: 'Calendar',         href: '/calendar' },
     { label: 'Shop by Category', href: '/#categories' },
-    { label: 'Creators',         href: '/social.html' },
+    { label: 'Creators',         href: '/social' },
     { label: 'Social',           href: '/#social' },
-    { label: 'Blog',             href: '/blog.html' },
+    { label: 'Blog',             href: '/blog' },
   ];
 
   var MOBILE_LINKS = [
     { label: 'Brands',            href: '/#brands' },
     { label: 'Festivals',         href: '/#festivals' },
-    { label: 'Festival Calendar', href: '/calendar.html' },
+    { label: 'Festival Calendar', href: '/calendar' },
     { label: 'Shop by Category',  href: '/#categories' },
-    { label: 'Creators',          href: '/social.html' },
+    { label: 'Creators',          href: '/social' },
     { label: 'Social',            href: '/#social' },
-    { label: 'Blog &amp; News',   href: '/blog.html' },
-    { label: 'Safety &amp; PLUR', href: '/safety.html', cls: 'mob-highlight' },
+    { label: 'Blog &amp; News',   href: '/blog' },
+    { label: 'Safety &amp; PLUR', href: '/safety', cls: 'mob-highlight' },
   ];
 
   var BOTTOM_ITEMS = [
     { label: 'Brands',   href: '/#brands',    icon: 'icon-nav-brands.png' },
     { label: 'Festivals',href: '/#festivals', icon: 'icon-nav-festivals.png' },
     { label: 'Search',   href: null,          icon: 'icon-nav-search.png',   isSearch: true },
-    { label: 'Creators', href: '/social.html',icon: 'icon-nav-creators.png', imgStyle: 'mix-blend-mode:screen' },
-    { label: 'Blog',     href: '/blog.html',      icon: 'icon-nav-blog.png' },
-    { label: 'Calendar', href: '/calendar.html', icon: 'icon-nav-calendar.png' },
+    { label: 'Creators', href: '/social',icon: 'icon-nav-creators.png', imgStyle: 'mix-blend-mode:screen' },
+    { label: 'Blog',     href: '/blog',      icon: 'icon-nav-blog.png' },
+    { label: 'Calendar', href: '/calendar', icon: 'icon-nav-calendar.png' },
   ];
 
   function init() {
@@ -38,12 +38,22 @@
       var pathname = window.location.pathname;
       var inSubfolder = pathname.split('/').filter(Boolean).length > 1;
       var imgBase = inSubfolder ? '../images/nav/' : 'images/nav/';
-      var isHome = pathname === '/' || pathname === '' || /\/index\.html$/.test(pathname);
+      var isHome = pathname === '/' || pathname === '' || /\/index(\.html)?$/.test(pathname);
+
+      // Normalize a path for active-state matching: strip a trailing ".html"
+      // and any trailing slash so "/calendar", "/calendar.html" and
+      // "/calendar/" all compare equal. Home collapses to "/".
+      function normPath(p) {
+        if (!p) return '/';
+        p = p.replace(/\.html$/, '').replace(/\/index$/, '/');
+        if (p.length > 1) p = p.replace(/\/$/, '');
+        return p || '/';
+      }
 
       function isActive(href) {
         if (!href || href.indexOf('#') !== -1) return false;
         try {
-          return new URL(href, location.origin).pathname === pathname;
+          return normPath(new URL(href, location.origin).pathname) === normPath(pathname);
         } catch (e) { return false; }
       }
 
@@ -63,7 +73,7 @@
             '</div>' +
             '<ul class="mob-links">' + mobLinksHtml + '</ul>' +
             '<div class="mob-footer">' +
-              '<a href="/partners.html" class="mob-cta">Partner With Us</a>' +
+              '<a href="/partners" class="mob-cta">Partner With Us</a>' +
               '<p class="mob-plur">☮ Peace · ❤ Love · 🤝 Unity · 💫 Respect</p>' +
             '</div>' +
           '</div>' +
@@ -78,7 +88,7 @@
         '<nav>' +
           '<a href="/" class="nav-logo">PLURGASM</a>' +
           '<ul class="nav-links">' + navLinksHtml + '</ul>' +
-          '<a href="/partners.html" class="nav-cta">Partner With Us</a>' +
+          '<a href="/partners" class="nav-cta">Partner With Us</a>' +
           '<button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false">' +
             '<span></span><span></span><span></span>' +
           '</button>' +

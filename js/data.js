@@ -345,7 +345,7 @@ PLURGASM_DATA.blogPosts = [
       line-height:1.8;">
       New to drum and bass?
       Our
-      <a href="blog-post.html?id=post-009"
+      <a href="/blog-post?id=post-009"
         style="color:var(--cyan);">
         Bass Music 101 guide
       </a>
@@ -646,7 +646,7 @@ PLURGASM_DATA.blogPosts = [
       border-left:3px solid #00e5ff;
       line-height:1.8;">
       Find every bass music festival in one place on the
-      <a href="calendar.html" style="color:var(--cyan);">
+      <a href="/calendar" style="color:var(--cyan);">
         PLURGASM festival calendar
       </a>.
       Use the genre filter to show only Bass, Dubstep,
@@ -837,12 +837,12 @@ PLURGASM_DATA.blogPosts = [
       border-left:3px solid #b64dff;
       line-height:1.8;">
       New to rave culture? Read our
-      <a href="blog-post.html?id=post-003"
+      <a href="/blog-post?id=post-003"
         style="color:var(--cyan);">
         PLUR 101 beginner guide
       </a>
       and visit the
-      <a href="safety.html"
+      <a href="/safety"
         style="color:var(--cyan);">
         Safety and PLUR page
       </a>
@@ -1208,8 +1208,8 @@ PLURGASM_DATA.blogPosts = [
 
     <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;line-height:1.8;">
       <strong>New to raving?</strong> Check out our
-      <a href="blog-post.html?id=post-003" style="color:var(--cyan);">PLUR 101 guide</a>
-      and our <a href="safety.html" style="color:var(--cyan);">Safety & PLUR page</a>
+      <a href="/blog-post?id=post-003" style="color:var(--cyan);">PLUR 101 guide</a>
+      and our <a href="/safety" style="color:var(--cyan);">Safety & PLUR page</a>
       for everything you need to know before your first festival.
     </p>
   `
@@ -1535,7 +1535,7 @@ PLURGASM_DATA.blogPosts = [
       For full harm reduction resources, DanceSafe links,
       and what to do in an emergency at a festival,
       visit our
-      <a href="safety.html" style="color:var(--cyan);">
+      <a href="/safety" style="color:var(--cyan);">
         Safety & PLUR page →
       </a>
     </p>

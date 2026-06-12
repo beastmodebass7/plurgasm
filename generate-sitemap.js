@@ -43,31 +43,33 @@ function addUrl(loc, changefreq, priority) {
 }
 
 // --- Static pages (admin.html intentionally excluded) ---------------------
-addUrl('/',                   'daily',   '1.0');
-addUrl('/blog.html',          'daily',   '0.8');
-addUrl('/calendar.html',      'weekly',  '0.8');
-addUrl('/partners.html',      'monthly', '0.6');
-addUrl('/safety.html',        'monthly', '0.6');
-addUrl('/social.html',        'weekly',  '0.7'); // Creators page
-addUrl('/submit-article.html','monthly', '0.5');
+addUrl('/',                'daily',   '1.0');
+addUrl('/blog',            'daily',   '0.8');
+addUrl('/calendar',        'weekly',  '0.8');
+addUrl('/partners',        'monthly', '0.6');
+addUrl('/safety',          'monthly', '0.6');
+addUrl('/social',          'weekly',  '0.7'); // Creators page
+addUrl('/submit-article',  'monthly', '0.5');
 
 // --- Published blog posts -------------------------------------------------
 (data.blogPosts || [])
   .filter(post => post && post.published)
-  .forEach(post => addUrl('/blog-post.html?id=' + post.id, 'monthly', '0.7'));
+  .forEach(post => addUrl('/blog-post?id=' + post.id, 'monthly', '0.7'));
 
 // --- Festivals with a dedicated detail page -------------------------------
 (data.festivals || [])
   .filter(fest => fest && fest.detailPage)
   .forEach(fest => {
-    const page = fest.detailPage.replace(/^\/+/, ''); // normalize leading slash
+    const page = fest.detailPage
+      .replace(/^\/+/, '')      // normalize leading slash
+      .replace(/\.html$/, '');  // extensionless
     addUrl('/' + page, 'weekly', '0.7');
   });
 
 // --- Categories -----------------------------------------------------------
 (data.categories || [])
   .filter(cat => cat && cat.id)
-  .forEach(cat => addUrl('/category.html?cat=' + cat.id, 'weekly', '0.6'));
+  .forEach(cat => addUrl('/category?cat=' + cat.id, 'weekly', '0.6'));
 
 // --- Build XML ------------------------------------------------------------
 const body = urls.map(u => {

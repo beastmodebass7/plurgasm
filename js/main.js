@@ -147,6 +147,14 @@ function getDaysBadge(sortDate) {
 }
 
 /* ════════════════════════════════════════════════
+   FESTIVAL DETAIL HREF — extensionless internal URL
+════════════════════════════════════════════════ */
+function festDetailHref(f) {
+  if (!f.detailPage) return f.url;
+  return '/' + f.detailPage.replace(/^\/+/, '').replace(/\.html$/, '');
+}
+
+/* ════════════════════════════════════════════════
    RENDER — GRID VIEW
 ════════════════════════════════════════════════ */
 function renderFestivals() {
@@ -169,7 +177,7 @@ function renderFestivals() {
   if (expandEl) expandEl.style.display = fullList.length > _festLimit ? '' : 'none';
   const list = fullList.slice(0, _festLimit);
   document.getElementById('fest-grid').innerHTML = list.map(f => {
-    const dest   = f.detailPage || f.url;
+    const dest   = festDetailHref(f);
     const target = f.detailPage ? '_self' : '_blank';
     const t = f.cardTheme;
     const cardStyle    = t ? `style="background:${t.bg};border-color:${t.border};"` : '';
@@ -391,7 +399,7 @@ function renderCategories() {
       ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}">`
       : `<span class="cat-icon">${c.icon}</span>`;
     return `
-    <a class="cat-card" href="category.html?cat=${c.id}" style="text-decoration:none;">
+    <a class="cat-card" href="/category?cat=${c.id}" style="text-decoration:none;">
       ${iconHtml}
       <span class="cat-name">${c.label.toUpperCase()}</span>
       <span class="cat-count">${count > 0 ? count + ' Brands' : 'Coming Soon'}</span>
@@ -933,7 +941,7 @@ function initCountdown() {
   if (locEl)  locEl.textContent  = fest.location;
   if (dateEl) dateEl.textContent = fest.dates;
   if (linkEl && fest.url) {
-    linkEl.href = fest.detailPage || fest.url;
+    linkEl.href = festDetailHref(fest);
   }
 
   if (!timerEl) return;
@@ -1062,7 +1070,7 @@ function renderBlog() {
   container.innerHTML = `
     <div class="blog-newspaper-inner">
 
-      <a class="blog-feat" href="blog-post.html?id=${featured.id}">
+      <a class="blog-feat" href="/blog-post?id=${featured.id}">
         <div class="blog-feat-img">
           ${featured.coverImage
             ? `<img src="${featured.coverImage}" alt="${featured.title}">`
@@ -1091,7 +1099,7 @@ function renderBlog() {
 
       <div class="blog-sidebar">
         ${sidebar.map((p, i) => `
-          <a class="blog-thumb" href="blog-post.html?id=${p.id}">
+          <a class="blog-thumb" href="/blog-post?id=${p.id}">
             <div class="blog-thumb-img">
               ${p.coverImage
                 ? `<img src="${p.coverImage}" alt="${p.title}">`
@@ -1117,7 +1125,7 @@ function renderBlog() {
             ? '<div class="blog-thumb-divider"></div>'
             : ''}
         `).join('')}
-        <a href="blog.html" class="blog-sidebar-more">
+        <a href="/blog" class="blog-sidebar-more">
           View all posts →
         </a>
       </div>
@@ -1147,7 +1155,7 @@ function renderFeaturedInfluencer() {
     container.innerHTML = `
       <div class="fi-card">
         <div class="fi-eyebrow-row">
-          <a href="social.html" class="fi-eyebrow">Influencer of the Week</a>
+          <a href="/social" class="fi-eyebrow">Influencer of the Week</a>
         </div>
         ${inf.image ? `
           <div class="fi-photo-wrap">
