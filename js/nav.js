@@ -88,6 +88,7 @@
         '<nav>' +
           '<a href="/" class="nav-logo">PLURGASM</a>' +
           '<ul class="nav-links">' + navLinksHtml + '</ul>' +
+          '<div class="nav-auth" id="auth-slot"></div>' +
           '<a href="/partners" class="nav-cta">Partner With Us</a>' +
           '<button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false">' +
             '<span></span><span></span><span></span>' +
