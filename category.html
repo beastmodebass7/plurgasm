@@ -375,10 +375,20 @@
     if (!l) { l = document.createElement('link'); l.setAttribute('rel', 'canonical'); document.head.appendChild(l); }
     l.setAttribute('href', url);
   }
+  function clampDesc(txt) {
+    txt = (txt || '').replace(/\s+/g, ' ').trim();
+    if (txt.length > 160) {
+      txt = txt.slice(0, 160);
+      const sp = txt.lastIndexOf(' ');
+      if (sp > 120) txt = txt.slice(0, sp);
+      txt = txt.replace(/[\s.,;:!?-]+$/, '') + '…';
+    }
+    return txt;
+  }
   function setMetaDesc(txt) {
     let m = document.querySelector('meta[name="description"]');
     if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'description'); document.head.appendChild(m); }
-    m.setAttribute('content', txt);
+    m.setAttribute('content', clampDesc(txt));
   }
 
   /* ── RENDER ── */
