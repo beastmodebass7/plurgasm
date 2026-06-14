@@ -47,7 +47,9 @@ addUrl('/',                'daily',   '1.0');
 addUrl('/blog',            'daily',   '0.8');
 addUrl('/calendar',        'weekly',  '0.8');
 addUrl('/partners',        'monthly', '0.6');
+addUrl('/privacy',         'yearly',  '0.3');
 addUrl('/safety',          'monthly', '0.6');
+addUrl('/terms',           'yearly',  '0.3');
 addUrl('/social',          'weekly',  '0.7'); // Creators page
 addUrl('/submit-article',  'monthly', '0.5');
 

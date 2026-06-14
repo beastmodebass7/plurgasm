@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4QSZ7HPXPJ');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy for Plurgasm — what data we collect, how we use it, the third-party processors involved (Google, Supabase, Formspree, GitHub Pages), and how to access or delete your data.">
+<meta name="author" content="PLURGASM">
+<link rel="canonical" href="https://plurgasm.com/privacy">
+<title>Privacy Policy — PLURGASM</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/nav.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/auth.js"></script>
+<style>
+/* ─────── LEGAL PAGE ─────── */
+.legal-main { padding: 120px 24px 80px; }
+.legal-wrap { max-width: 820px; margin: 0 auto; }
+.legal-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+.legal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.95;
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.legal-updated {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--faint);
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.legal-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(240,238,255,0.88);
+}
+.legal-body h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 2px;
+  color: var(--white);
+  margin: 48px 0 18px;
+}
+.legal-body h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.legal-body p { margin-bottom: 18px; }
+.legal-body ul { margin: 0 0 18px; padding-left: 22px; }
+.legal-body li { margin-bottom: 10px; }
+.legal-body strong { color: var(--white); font-weight: 600; }
+.legal-body a { color: var(--cyan); text-decoration: none; }
+.legal-body a:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .legal-main { padding: 100px 18px 64px; }
+  .legal-body { font-size: 16.5px; }
+}
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="legal-main">
+  <div class="legal-wrap">
+    <p class="legal-eyebrow">The Fine Print</p>
+    <h1 class="legal-title">PRIVACY POLICY</h1>
+    <p class="legal-updated">Last updated: June 2026</p>
+
+    <div class="legal-body">
+      <p>
+        This Privacy Policy explains what information Plurgasm collects when you use
+        <strong>plurgasm.com</strong>, why we collect it, who we share it with, and the choices
+        you have over your own data. We have written it in plain English on purpose — you should
+        be able to understand exactly what happens to your information without a law degree.
+      </p>
+      <p>
+        By using the site you agree to the practices described below. If you do not agree, please
+        do not use the site. This policy works alongside our <a href="/terms">Terms of Service</a>.
+      </p>
+
+      <h2>Who We Are</h2>
+      <p>
+        Plurgasm is an independent rave-culture directory — a festival calendar, blog, creator and
+        brand directory, and community voting platform. The site is operated by Plurgasm
+        ("we," "us," or "our"). If you have any questions about this policy, about the data we hold
+        about you, or you want to exercise any of the rights described below, you can reach us at
+        <a href="mailto:beastmodebass7@gmail.com">beastmodebass7@gmail.com</a>.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>
+        We try to collect as little as we reasonably can. The information we do collect falls into
+        the following categories.
+      </p>
+
+      <h3>Account Information</h3>
+      <p>
+        When you sign in, you do so with <strong>Google Sign-In</strong>, handled through our
+        authentication provider, <strong>Supabase</strong>. As part of that process we receive
+        basic profile details from your Google account — typically your <strong>name, email
+        address, and profile picture</strong>. We use this to create and identify your account.
+        We never see and never store your Google password.
+      </p>
+
+      <h3>Usage & Analytics Data</h3>
+      <p>
+        We use <strong>Google Analytics</strong> to understand how the site is used. This
+        automatically collects information such as the <strong>pages you view</strong>, how long
+        you spend on them, the <strong>device and browser</strong> you use, and your
+        <strong>approximate (city-level) location</strong> derived from your IP address. This data
+        is aggregated and statistical — it helps us see what is popular and what is broken, not to
+        identify you personally.
+      </p>
+
+      <h3>Content You Submit</h3>
+      <p>
+        When you submit something through one of our forms — for example an
+        <strong>article submission</strong> or a <strong>partner / contact inquiry</strong> — that
+        submission is processed by <strong>Formspree</strong>, which delivers it to us by email.
+        This includes whatever you choose to put in the form, such as your name, email address,
+        and the content of your message.
+      </p>
+
+      <h3>Upvotes & Community Activity</h3>
+      <p>
+        Plurgasm lets signed-in users <strong>upvote</strong> creators and brands. The
+        <strong>votes you cast are stored together with your account</strong> in our Supabase
+        database. We use this both to prevent duplicate voting and to power the ranked,
+        community-sorted directory lists.
+      </p>
+
+      <h3>Cookies & Local Storage</h3>
+      <p>
+        We use cookies and your browser's local storage for two main purposes: to keep you
+        <strong>logged in</strong> by storing your session token, and to support
+        <strong>Google Analytics</strong> measurement. We do not use cookies to build advertising
+        profiles or to sell you to third parties. See "Cookies & Tracking" below for how to opt out.
+      </p>
+
+      <h2>How We Use Your Information</h2>
+      <p>
+        We use the information described above to:
+      </p>
+      <ul>
+        <li><strong>Authenticate you</strong> and keep you securely signed in.</li>
+        <li><strong>Run the community voting features</strong> and sort the creator and brand
+          directories by the votes our users cast.</li>
+        <li><strong>Respond to inquiries</strong> you send us through our forms, including
+          partnership and article submissions.</li>
+        <li><strong>Understand and measure</strong> how the site is used through analytics.</li>
+        <li><strong>Maintain, debug, and improve</strong> the site and its content.</li>
+      </ul>
+      <p>
+        We do not sell your personal information, and we do not share it for anyone else's
+        advertising.
+      </p>
+
+      <h2>Third-Party Processors</h2>
+      <p>
+        Running Plurgasm relies on a small number of trusted service providers. Each of them only
+        receives the data they need to perform their function, and each maintains its own privacy
+        practices:
+      </p>
+      <ul>
+        <li><strong>Google</strong> — provides Google Analytics (usage measurement) and Google
+          OAuth (the "Sign in with Google" login).</li>
+        <li><strong>Supabase</strong> — provides our authentication service and the database that
+          stores account information and your upvotes.</li>
+        <li><strong>Formspree</strong> — handles the delivery of our contact, partner, and article
+          submission forms.</li>
+        <li><strong>GitHub Pages</strong> — hosts and serves the website itself.</li>
+      </ul>
+      <p>
+        When you interact with these features, the relevant provider processes your data on our
+        behalf. We encourage you to review their respective privacy policies to understand their
+        practices in full.
+      </p>
+
+      <h2>Cookies & Tracking</h2>
+      <p>
+        As described above, we rely on cookies and local storage for login sessions and analytics.
+        You are in control of these:
+      </p>
+      <ul>
+        <li>You can clear or block cookies and local storage at any time through your
+          <strong>browser settings</strong>. Blocking login cookies will mean you cannot stay
+          signed in.</li>
+        <li>You can opt out of Google Analytics across all sites by installing the
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google
+          Analytics Opt-out Browser Add-on</a>.</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>
+        We keep account information and upvote records for as long as your account exists, so that
+        the features that depend on them keep working. Form submissions are retained as email
+        records for as long as we reasonably need them to respond to and follow up on your
+        inquiry. Analytics data is retained according to Google Analytics' standard retention
+        settings. When data is no longer needed, or when you ask us to delete your account, we
+        delete or anonymize it as described below.
+      </p>
+
+      <h2>Your Rights & Choices</h2>
+      <p>
+        Depending on where you live, you may have rights under laws such as the EU/UK
+        <strong>GDPR</strong> or the <strong>California Consumer Privacy Act (CCPA)</strong>. We
+        extend the core of these rights to everyone who uses Plurgasm. You have the right to:
+      </p>
+      <ul>
+        <li><strong>Access</strong> the personal information we hold about you.</li>
+        <li><strong>Correct</strong> information that is inaccurate.</li>
+        <li><strong>Delete</strong> your account and the personal data associated with it.</li>
+        <li><strong>Object to or restrict</strong> certain processing, and to opt out of analytics
+          as described above.</li>
+      </ul>
+      <p>
+        To request access to or deletion of your data, simply email us at
+        <a href="mailto:beastmodebass7@gmail.com">beastmodebass7@gmail.com</a> from the address
+        associated with your account, and we will action your request. We will never charge you to
+        exercise these rights.
+      </p>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        Plurgasm is not directed to children and is intended for a general adult audience. We do
+        not knowingly collect personal information from children. Please also note that
+        <strong>some festival listings on the site are age-restricted (often 18+ or 21+)</strong>;
+        those age requirements are set by the individual events, and you should always confirm them
+        with the official event organizer. If you believe a child has provided us with personal
+        information, contact us and we will delete it.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time as the site evolves or as the law
+        requires. When we do, we will revise the "Last updated" date at the top of this page.
+        Significant changes may be highlighted more prominently. Your continued use of the site
+        after an update means you accept the revised policy.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        Questions, requests, or concerns about this policy or your data? Email us any time at
+        <a href="mailto:beastmodebass7@gmail.com">beastmodebass7@gmail.com</a>.
+      </p>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Shop by Category</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <span class="footer-legal"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<div id="site-bottom-nav"></div>
+
+<script>
+/* ─────── MOBILE HAMBURGER MENU ─────── */
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+</body>
+</html>
