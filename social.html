@@ -343,6 +343,171 @@ body::after {
   .cc-actions { gap: 0; }
   .cc-desc { -webkit-line-clamp: 3; }
 }
+
+/* ════════════════════════════════════════════════
+   UPVOTE EXPLAINER STRIP (state-aware)
+════════════════════════════════════════════════ */
+.upvote-explainer {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 36px;
+  padding: 14px 18px;
+  border: 1px solid rgba(0,229,255,0.35);
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(0,229,255,0.07), rgba(182,77,255,0.05));
+  box-shadow: 0 0 18px rgba(0,229,255,0.12), inset 0 0 14px rgba(0,229,255,0.04);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.upvote-explainer.is-loggedout { cursor: pointer; }
+.upvote-explainer.is-loggedout:hover {
+  border-color: rgba(0,229,255,0.65);
+  box-shadow: 0 0 26px rgba(0,229,255,0.22), inset 0 0 14px rgba(0,229,255,0.05);
+}
+.ue-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--cyan);
+  border: 1px solid rgba(0,229,255,0.45);
+  background: rgba(0,229,255,0.10);
+  animation: uePulse 2.6s ease-in-out infinite;
+}
+.ue-text { min-width: 0; }
+@keyframes uePulse {
+  0%, 100% { box-shadow: 0 0 7px rgba(0,229,255,0.20); }
+  50%      { box-shadow: 0 0 16px rgba(0,229,255,0.48); }
+}
+
+/* ════════════════════════════════════════════════
+   FEATURED INFLUENCER — reframed for the wide page
+   (scoped to .creators-influencer-wrap so the homepage
+   column layout in style.css is untouched)
+════════════════════════════════════════════════ */
+.creators-influencer-wrap .fi-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 10px 32px;
+  align-items: start;
+  border: 1px solid rgba(182,77,255,0.28);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(182,77,255,0.06), rgba(0,229,255,0.03));
+  box-shadow: 0 0 30px rgba(182,77,255,0.10);
+}
+.creators-influencer-wrap .fi-eyebrow-row { grid-column: 1 / -1; }
+.creators-influencer-wrap .fi-media { grid-column: 1; grid-row: 2; }
+.creators-influencer-wrap .fi-content {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+}
+.creators-influencer-wrap .fi-photo-wrap {
+  width: 280px;
+  height: 320px;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(182,77,255,0.45);
+  box-shadow: 0 0 28px rgba(182,77,255,0.28), 0 0 0 1px rgba(0,229,255,0.10);
+}
+.creators-influencer-wrap .fi-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: normal;
+}
+.creators-influencer-wrap .fi-links {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.creators-influencer-wrap .fi-link-btn { min-width: 150px; }
+
+@media (max-width: 768px) {
+  .creators-influencer-wrap .fi-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .creators-influencer-wrap .fi-photo-wrap {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   UPVOTE ANIMATION
+════════════════════════════════════════════════ */
+.cc-vote { position: relative; }
+
+@keyframes ccVotePop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.16); }
+  60%  { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+@keyframes ccGlowPulse {
+  0%   { box-shadow: 0 0 0 rgba(0,229,255,0); }
+  40%  { box-shadow: 0 0 18px rgba(0,229,255,0.7), 0 0 34px rgba(0,229,255,0.35); }
+  100% { box-shadow: 0 0 12px rgba(0,229,255,0.25); }
+}
+@keyframes ccIconBounce {
+  0%   { transform: translateY(0) scale(1); }
+  30%  { transform: translateY(-4px) scale(1.35); }
+  55%  { transform: translateY(0) scale(0.9); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes ccCountBump {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.5); color: var(--cyan); }
+  100% { transform: scale(1); }
+}
+@keyframes ccSpark {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -26px))) scale(0.3); opacity: 0; }
+}
+@keyframes ccUnvote {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(0.82); opacity: 0.55; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cc-vote.cc-vote-celebrate { animation: ccVotePop 0.45s ease, ccGlowPulse 0.6s ease; }
+.cc-vote.cc-vote-celebrate .cc-vote-icon  { animation: ccIconBounce 0.5s ease; }
+.cc-vote.cc-vote-celebrate .cc-vote-count { animation: ccCountBump 0.45s ease; }
+
+.cc-vote.cc-vote-unvote .cc-vote-icon,
+.cc-vote.cc-vote-unvote .cc-vote-count { animation: ccUnvote 0.26s ease; }
+
+.cc-vote-spark {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ccSpark 0.7s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ue-icon { animation: none; }
+  .cc-vote.cc-vote-celebrate,
+  .cc-vote.cc-vote-celebrate .cc-vote-icon,
+  .cc-vote.cc-vote-celebrate .cc-vote-count,
+  .cc-vote.cc-vote-unvote .cc-vote-icon,
+  .cc-vote.cc-vote-unvote .cc-vote-count { animation: none; }
+  .cc-vote-spark { display: none; }
+}
 </style>
 </head>
 <body>
@@ -364,6 +529,12 @@ body::after {
     <p style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:40px;">
       Creators, accounts, and community worth following.
     </p>
+
+    <!-- Upvote explainer (state-aware: text updates on sign-in/out) -->
+    <div id="upvote-explainer" class="upvote-explainer is-loggedout" role="status" aria-live="polite">
+      <span class="ue-icon" aria-hidden="true">▲</span>
+      <span class="ue-text" id="upvote-explainer-text">Sign in to upvote your favorite creators and boost them up the list.</span>
+    </div>
 
     <!-- Featured Influencer Hero -->
     <div class="creators-influencer-wrap">
@@ -468,6 +639,58 @@ function closeMobileMenu() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMobileMenu();
 });
+
+/* ──────────────────────────────────────────────────
+   Upvote explainer — state-aware messaging.
+   Reuses window.sb (created by auth.js) and the same
+   onAuthStateChange pattern so the text flips live on
+   sign-in / sign-out. Logged out, the strip is a
+   shortcut to the Google sign-in flow.
+─────────────────────────────────────────────────── */
+(function initUpvoteExplainer() {
+  function setState(session) {
+    const el  = document.getElementById('upvote-explainer');
+    const txt = document.getElementById('upvote-explainer-text');
+    if (!el || !txt) return;
+    if (session && session.user) {
+      el.classList.remove('is-loggedout');
+      el.classList.add('is-loggedin');
+      txt.textContent = 'Tap the upvote on any creator to boost them up the rankings.';
+    } else {
+      el.classList.remove('is-loggedin');
+      el.classList.add('is-loggedout');
+      txt.textContent = 'Sign in to upvote your favorite creators and boost them up the list.';
+    }
+  }
+
+  const el = document.getElementById('upvote-explainer');
+  if (el) {
+    el.addEventListener('click', function () {
+      if (!el.classList.contains('is-loggedout')) return;
+      const sb = window.sb;
+      if (!sb) return;
+      try {
+        sb.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.href }
+        });
+      } catch (e) { console.warn('[social] explainer signIn', e); }
+    });
+  }
+
+  let tries = 0;
+  (function waitForSb() {
+    const sb = window.sb;
+    if (sb) {
+      sb.auth.getSession().then(function (res) {
+        setState(res && res.data ? res.data.session : null);
+      }).catch(function () { setState(null); });
+      sb.auth.onAuthStateChange(function (_event, session) { setState(session); });
+      return;
+    }
+    if (tries++ < 60) setTimeout(waitForSb, 50);
+  })();
+})();
 </script>
 </body>
 </html>

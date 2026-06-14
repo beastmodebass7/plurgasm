@@ -791,6 +791,7 @@ async function onCreatorVote(e, id) {
     }
 
     const countEl = btn.querySelector('.cc-vote-count');
+    let upvoted;
     if (_userVotes.has(id)) {
       const { error } = await sb.from('votes').delete()
         .eq('user_id', session.user.id)
@@ -800,6 +801,7 @@ async function onCreatorVote(e, id) {
       _userVotes.delete(id);
       _voteCounts[id] = Math.max(0, (_voteCounts[id] || 1) - 1);
       btn.classList.remove('active');
+      upvoted = false;
     } else {
       const { error } = await sb.from('votes').insert({
         user_id: session.user.id,
@@ -810,11 +812,75 @@ async function onCreatorVote(e, id) {
       _userVotes.add(id);
       _voteCounts[id] = (_voteCounts[id] || 0) + 1;
       btn.classList.add('active');
+      upvoted = true;
     }
     if (countEl) countEl.textContent = _voteCounts[id];
+    // Celebrate a fresh upvote; un-voting gets a subtle settle.
+    if (upvoted) playUpvoteAnimation(btn);
+    else playUnvoteAnimation(btn);
   } catch (e2) {
     console.error('onCreatorVote error:', e2);
   }
+}
+
+/* Whether the user has asked the OS/browser to minimize motion. */
+function prefersReducedMotion() {
+  return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+}
+
+/* Snappy on-brand celebration when an upvote lands: the button pops with a
+   neon glow, the icon bounces, the count bumps, and a few brand-colored
+   sparks drift up and fade. The class is removed on animationend so the next
+   vote can replay it. No-ops under prefers-reduced-motion. */
+function playUpvoteAnimation(btn) {
+  if (!btn || prefersReducedMotion()) return;
+  btn.classList.remove('cc-vote-celebrate');
+  void btn.offsetWidth; // force reflow so re-adding restarts the animation
+  btn.classList.add('cc-vote-celebrate');
+  function clear() {
+    btn.classList.remove('cc-vote-celebrate');
+    btn.removeEventListener('animationend', handler);
+  }
+  function handler(e) {
+    // Only clear when the button's own (longest) glow animation finishes —
+    // ignore the shorter icon/count/spark animations that also bubble here.
+    if (e.target !== btn || e.animationName !== 'ccGlowPulse') return;
+    clear();
+  }
+  btn.addEventListener('animationend', handler);
+  // Fallback so the class always clears (and can replay) even if animationend
+  // never fires — e.g. a backgrounded tab where animations don't run.
+  setTimeout(clear, 700);
+  emitVoteSparks(btn);
+}
+
+/* A handful of cyan/pink/purple dots that fan upward out of the button. */
+function emitVoteSparks(btn) {
+  const colors = ['#00e5ff', '#ff2d78', '#b64dff'];
+  const n = 6;
+  for (let i = 0; i < n; i++) {
+    const spark = document.createElement('span');
+    spark.className = 'cc-vote-spark';
+    const color = colors[i % colors.length];
+    spark.style.background = color;
+    spark.style.boxShadow = '0 0 6px ' + color;
+    const angle = (-90 + (i - (n - 1) / 2) * 17) * Math.PI / 180;
+    const dist = 22 + (i % 3) * 8;
+    spark.style.setProperty('--dx', (Math.cos(angle) * dist).toFixed(1) + 'px');
+    spark.style.setProperty('--dy', (Math.sin(angle) * dist).toFixed(1) + 'px');
+    spark.addEventListener('animationend', () => spark.remove());
+    setTimeout(() => spark.remove(), 800); // fallback if animationend never fires
+    btn.appendChild(spark);
+  }
+}
+
+/* Understated quick shrink/fade when a vote is toggled back off. */
+function playUnvoteAnimation(btn) {
+  if (!btn || prefersReducedMotion()) return;
+  btn.classList.remove('cc-vote-unvote');
+  void btn.offsetWidth;
+  btn.classList.add('cc-vote-unvote');
+  setTimeout(() => btn.classList.remove('cc-vote-unvote'), 320);
 }
 
 function renderCreatorDirectory() {
@@ -1279,17 +1345,21 @@ function renderFeaturedInfluencer() {
           <a href="/social" class="fi-eyebrow">Influencer of the Week</a>
         </div>
         ${inf.image ? `
-          <div class="fi-photo-wrap">
-            <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent">
+          <div class="fi-media">
+            <div class="fi-photo-wrap">
+              <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent">
+            </div>
           </div>` : ''}
-        <div class="fi-name-row">
-          <div>
-            <p class="fi-name">${inf.name}</p>
-            <span class="fi-handle">${inf.handle}</span>
+        <div class="fi-content">
+          <div class="fi-name-row">
+            <div>
+              <p class="fi-name">${inf.name}</p>
+              <span class="fi-handle">${inf.handle}</span>
+            </div>
           </div>
+          <p class="fi-blurb">${inf.blurb}</p>
+          ${linksHtml ? `<div class="fi-links">${linksHtml}</div>` : ''}
         </div>
-        <p class="fi-blurb">${inf.blurb}</p>
-        ${linksHtml ? `<div class="fi-links">${linksHtml}</div>` : ''}
       </div>
     `;
   } catch (e) {

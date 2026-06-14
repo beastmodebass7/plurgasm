@@ -3329,6 +3329,13 @@ footer {
   height: 100%;
   box-sizing: border-box;
 }
+/* Wraps name/blurb/links so the featured card can switch to a two-column
+   layout on the wide creators page; keeps the homepage column spacing. */
+.fi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .fi-eyebrow-row {
   display: flex;
   align-items: center;
