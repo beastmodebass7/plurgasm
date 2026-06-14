@@ -122,6 +122,9 @@
         return;
       }
       sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      // Expose the client site-wide so other scripts (e.g. the creators
+      // directory voting system in main.js) can reuse this single instance.
+      window.sb = sb;
 
       sb.auth.getSession().then(function (res) {
         var session = (res && res.data) ? res.data.session : null;

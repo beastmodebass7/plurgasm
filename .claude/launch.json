@@ -4,7 +4,7 @@
     {
       "name": "plurgasm",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3000", "--no-clean-urls", "."],
+      "runtimeArgs": ["-y", "serve", "-l", "3000", "--no-clean-urls", "."],
       "port": 3000
     },
     {

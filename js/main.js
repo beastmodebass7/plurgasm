@@ -158,6 +158,8 @@ function festDetailHref(f) {
    RENDER — GRID VIEW
 ════════════════════════════════════════════════ */
 function renderFestivals() {
+  const grid = document.getElementById('fest-grid');
+  if (!grid) return;
   const today = new Date();
   today.setHours(0,0,0,0);
   const fullList = getFilteredFests().slice().sort((a, b) => {
@@ -176,7 +178,7 @@ function renderFestivals() {
   const expandEl = document.getElementById('fests-expand');
   if (expandEl) expandEl.style.display = fullList.length > _festLimit ? '' : 'none';
   const list = fullList.slice(0, _festLimit);
-  document.getElementById('fest-grid').innerHTML = list.map(f => {
+  grid.innerHTML = list.map(f => {
     const dest   = festDetailHref(f);
     const target = f.detailPage ? '_self' : '_blank';
     const t = f.cardTheme;
@@ -500,6 +502,8 @@ let searchQuery = '';
 let _brandLimit = 6;
 
 function renderBrands(cat) {
+  const grid = document.getElementById('brand-grid');
+  if (!grid) return;
   let list = cat === 'all' ? BRANDS : BRANDS.filter(b => b.cat === cat);
   if (searchQuery) list = list.filter(b => {
     const text = [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags||[])].join(' ').toLowerCase();
@@ -520,7 +524,7 @@ function renderBrands(cat) {
   const expandEl = document.getElementById('brands-expand');
   if (expandEl) expandEl.style.display = list.length > _brandLimit ? '' : 'none';
   const visible = list.slice(0, _brandLimit);
-  document.getElementById('brand-grid').innerHTML = visible.map(b => {
+  grid.innerHTML = visible.map(b => {
     const catLabel = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
     const shortDesc = b.desc.length > 80 ? b.desc.slice(0, 80) + '...' : b.desc;
     const badgeHTML = b.logo
@@ -719,6 +723,100 @@ window._currentCat = 'all';
 let _creatorPlatform = 'all';
 let _creatorSearch   = '';
 
+/* Voting state. _voteCounts maps a creator's unique handle -> upvote count.
+   _userVotes is the set of handles the logged-in user has already upvoted.
+   Both are populated by loadCreatorVotes() and read during render/sort. */
+let _voteCounts = {};
+let _userVotes  = new Set();
+
+/* Each creator's unique vote id = its handle (e.g. "@beastmodebass"). */
+function creatorVoteId(s) { return s.handle; }
+
+/* Fetch vote counts + the current user's votes from Supabase, then re-render.
+   Everything is wrapped so a Supabase hiccup never blanks the directory — if
+   counts fail to load we simply render without vote-based ordering. */
+async function loadCreatorVotes() {
+  const sb = window.sb;
+  if (!sb) { return; }
+  try {
+    const { data, error } = await sb.rpc('get_vote_counts');
+    if (error) throw error;
+    const counts = {};
+    (data || []).forEach(row => {
+      if (row.target_type !== 'creator') return;
+      const n = row.count ?? row.vote_count ?? row.votes ?? 0;
+      counts[row.target_id] = Number(n) || 0;
+    });
+    _voteCounts = counts;
+
+    // If signed in, fetch this user's own creator votes (RLS scopes to them).
+    const { data: sessionData } = await sb.auth.getSession();
+    const session = sessionData ? sessionData.session : null;
+    if (session && session.user) {
+      const { data: mine, error: mineErr } = await sb
+        .from('votes')
+        .select('target_id')
+        .eq('target_type', 'creator');
+      if (mineErr) throw mineErr;
+      _userVotes = new Set((mine || []).map(r => r.target_id));
+    } else {
+      _userVotes = new Set();
+    }
+  } catch (e) {
+    console.error('loadCreatorVotes error:', e);
+  }
+  // Re-render with whatever we managed to load (possibly nothing).
+  renderCreatorDirectory();
+}
+
+/* Upvote button handler. The card itself is a link, so we stop the click from
+   navigating. Logged out -> trigger Google sign-in. Logged in -> toggle the
+   vote and update the count live (no re-sort, to avoid card jumpiness). */
+async function onCreatorVote(e, id) {
+  e.preventDefault();
+  e.stopPropagation();
+  const sb = window.sb;
+  if (!sb) return;
+  const btn = e.currentTarget;
+  try {
+    const { data: sessionData } = await sb.auth.getSession();
+    const session = sessionData ? sessionData.session : null;
+    if (!session || !session.user) {
+      // Signed out: prompt sign-in to vote (same OAuth flow as auth.js).
+      sb.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href }
+      });
+      return;
+    }
+
+    const countEl = btn.querySelector('.cc-vote-count');
+    if (_userVotes.has(id)) {
+      const { error } = await sb.from('votes').delete()
+        .eq('user_id', session.user.id)
+        .eq('target_type', 'creator')
+        .eq('target_id', id);
+      if (error) throw error;
+      _userVotes.delete(id);
+      _voteCounts[id] = Math.max(0, (_voteCounts[id] || 1) - 1);
+      btn.classList.remove('active');
+    } else {
+      const { error } = await sb.from('votes').insert({
+        user_id: session.user.id,
+        target_type: 'creator',
+        target_id: id
+      });
+      if (error) throw error;
+      _userVotes.add(id);
+      _voteCounts[id] = (_voteCounts[id] || 0) + 1;
+      btn.classList.add('active');
+    }
+    if (countEl) countEl.textContent = _voteCounts[id];
+  } catch (e2) {
+    console.error('onCreatorVote error:', e2);
+  }
+}
+
 function renderCreatorDirectory() {
   try {
     const container = document.getElementById('creator-grid');
@@ -738,7 +836,18 @@ function renderCreatorDirectory() {
       });
     }
 
-    socials.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+    // Featured/sponsored creators pinned on top by featuredOrder; everyone
+    // else ranked by upvote count (desc), tiebreak by name. Re-sort happens
+    // here on load / filter change, never on each individual vote click.
+    const featured = socials.filter(s => s.featured)
+      .sort((a, b) => (a.featuredOrder || 99) - (b.featuredOrder || 99));
+    const rest = socials.filter(s => !s.featured)
+      .sort((a, b) => {
+        const diff = (_voteCounts[creatorVoteId(b)] || 0) - (_voteCounts[creatorVoteId(a)] || 0);
+        if (diff !== 0) return diff;
+        return (a.name || a.handle).localeCompare(b.name || b.handle);
+      });
+    socials = featured.concat(rest);
 
     if (!socials.length) {
       container.innerHTML = '<p class="creator-empty">No creators match this filter.</p>';
@@ -757,6 +866,9 @@ function renderCreatorDirectory() {
       const color   = platformColors[s.platform] || 'var(--cyan)';
       const initials = handle.slice(0, 2).toUpperCase();
       const avatarUrl = s.image || ('https://unavatar.io/instagram/' + handle);
+      const voteId = creatorVoteId(s);
+      const count  = _voteCounts[voteId] || 0;
+      const voted  = _userVotes.has(voteId);
 
       return `
         <a class="creator-card" href="${s.url || '#'}" target="_blank" rel="noopener">
@@ -769,13 +881,22 @@ function renderCreatorDirectory() {
             <div class="cc-top">
               <span class="cc-name">${s.name || s.handle}</span>
               <span class="cc-platform" style="color:${color}">${s.platform}</span>
+              ${s.featured ? '<span class="cc-featured-badge">★ Featured</span>' : ''}
             </div>
             <span class="cc-handle" style="color:${color}">${s.handle}</span>
             <p class="cc-type">${s.type || ''}</p>
             <p class="cc-desc">${s.desc || ''}</p>
             ${s.tags && s.tags.length ? `<div class="cc-tags">${s.tags.slice(0,3).map(t=>`<span class="cc-tag">${t}</span>`).join('')}</div>` : ''}
           </div>
-          <span class="cc-arrow">→</span>
+          <div class="cc-actions">
+            <button type="button" class="cc-vote${voted ? ' active' : ''}"
+              onclick="onCreatorVote(event, '${voteId}')"
+              aria-label="Upvote ${(s.name || s.handle).replace(/'/g, '')}">
+              <span class="cc-vote-icon">▲</span>
+              <span class="cc-vote-count">${count}</span>
+            </button>
+            <span class="cc-arrow">→</span>
+          </div>
         </a>`;
     }).join('');
 
@@ -1298,7 +1419,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBrands('all');
   renderFeaturedInfluencer();
   renderSocials();
-  renderCreatorDirectory();
+  renderCreatorDirectory();   // immediate default list (works even if votes never load)
+  loadCreatorVotes();         // then fetch vote counts/user votes and re-render sorted
   renderBotw();
   renderPlur();
   renderBlog();
