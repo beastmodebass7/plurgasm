@@ -1192,31 +1192,6 @@ function initMarquee() {
 }
 
 /* ════════════════════════════════════════════════
-   RENDER PLUR CARDS
-════════════════════════════════════════════════ */
-function renderPlur() {
-  const container = document.getElementById('plur-cards');
-  if (!container) return;
-  const defs = window.PLURGASM_DATA &&
-    window.PLURGASM_DATA.plurDefinitions;
-  if (!defs) return; // safety guard
-  container.innerHTML = defs.map(p => `
-    <div class="plur-card-new" data-letter="${p.letter}" style="border-color:${p.borderColor};">
-      <div class="pcn-left">
-        <span class="pcn-letter" style="color:${p.color};">${p.letter}</span>
-        <span class="pcn-icon">${p.icon}</span>
-      </div>
-      <div class="pcn-right">
-        <p class="pcn-word" style="color:${p.color};">${p.word}</p>
-        <div class="pcn-lines">
-          ${p.lines.map(l => `<p>${l}</p>`).join('')}
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-/* ════════════════════════════════════════════════
    RENDER BLOG — newspaper layout
 ════════════════════════════════════════════════ */
 function renderBlog() {
@@ -1492,7 +1467,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCreatorDirectory();   // immediate default list (works even if votes never load)
   loadCreatorVotes();         // then fetch vote counts/user votes and re-render sorted
   renderBotw();
-  renderPlur();
   renderBlog();
   renderItemFilters();
   // stamp data-id on fest cards after render for search highlight
@@ -1586,7 +1560,7 @@ function initScrollAnimations() {
   document.querySelectorAll(
     '.section-title, .section-eyebrow, .eyebrow, ' +
     '.mission-headline, .mission-body, .mission-links, ' +
-    '.botw, .countdown-inner, .plur-cards'
+    '.botw, .countdown-inner'
   ).forEach(el => {
     if (!el.classList.contains('fade-up')) el.classList.add('fade-up');
   });
@@ -1604,11 +1578,6 @@ function initScrollAnimations() {
   document.querySelectorAll('.brand-card').forEach((el, i) => {
     el.classList.add('fade-up');
     el.dataset.delay = Math.min(i % 3 + 1, 6);
-  });
-
-  document.querySelectorAll('.plur-card').forEach((el, i) => {
-    el.classList.add('fade-up');
-    el.dataset.delay = i + 1;
   });
 
   const observer = new IntersectionObserver((entries) => {

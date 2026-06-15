@@ -127,61 +127,6 @@ const BRANDS = [
   { name:'INSOMNIAC', badge:'INS', cat:'events', badgeCls:'b-cyan', priceCls:'price-varies',                price:'Varies',  ship:'N/A',             loc:'California',     style:'Festival production, merch, collabs', tags:['events','festivals','merch','edm','edc','production'],                   desc:'Behind EDC, Project GLOW, Dreamstate, and more. The biggest name in US rave production.', ig:'@insomniac_events', url:'https://insomniac.com', logo:'https://insomniac.com/favicon.ico', featured:false, sortOrder:0 },
 ];
 
-window.PLURGASM_DATA.plurDefinitions = [
-  {
-    letter: 'P',
-    word: 'PEACE',
-    icon: '☮',
-    color: 'var(--pink)',
-    borderColor: 'rgba(255,45,120,0.4)',
-    bgColor: 'rgba(255,45,120,0.06)',
-    lines: [
-      'No judgment. No ego.',
-      'No gatekeeping.',
-      'Just the music and the people.'
-    ]
-  },
-  {
-    letter: 'L',
-    word: 'LOVE',
-    icon: '♥',
-    color: 'var(--cyan)',
-    borderColor: 'rgba(0,229,255,0.4)',
-    bgColor: 'rgba(0,229,255,0.06)',
-    lines: [
-      'For strangers.',
-      'For the moment.',
-      'For the floor.'
-    ]
-  },
-  {
-    letter: 'U',
-    word: 'UNITY',
-    icon: '⬡',
-    color: 'var(--purple)',
-    borderColor: 'rgba(182,77,255,0.4)',
-    bgColor: 'rgba(182,77,255,0.06)',
-    lines: [
-      'One crowd. One energy.',
-      'Every genre.',
-      'Every body. Every vibe.'
-    ]
-  },
-  {
-    letter: 'R',
-    word: 'RESPECT',
-    icon: '✦',
-    color: 'var(--green)',
-    borderColor: 'rgba(61,255,133,0.4)',
-    bgColor: 'rgba(61,255,133,0.06)',
-    lines: [
-      'For space. For consent.',
-      'For each other.',
-      'Leave it better than you found it.'
-    ]
-  }
-];
-
 PLURGASM_DATA.blogPosts = [
 
   {
