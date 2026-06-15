@@ -447,20 +447,33 @@ function renderItemFilters() {
   if (!window.PLURGASM_DATA) return; // safety guard
   const groups = PLURGASM_DATA.itemFilters || [];
 
-  container.innerHTML = groups.map(g => `
-    <div class="item-filter-group">
-      <p class="item-filter-group-label">${g.group}</p>
-      <div class="item-filter-pills">
-        ${g.items.map(item => `
-          <button class="item-pill"
-            data-tag="${item.tag}"
-            onclick="filterByItem('${item.tag}', this)">
-            ${item.label}
-          </button>
-        `).join('')}
-      </div>
+  // Compact accordion: a wrapping row of group-header chips, plus one
+  // collapsed-by-default pills panel per group. Clicking a header opens its
+  // panel and closes any other (single-open accordion) — same on mobile/desktop.
+  container.innerHTML = `
+    <div class="item-filter-headers">
+      ${groups.map((g, i) => `
+        <button class="item-group-header" data-group="${i}"
+          onclick="toggleItemGroup(${i})">
+          <span class="item-group-label">${g.group}</span>
+          <span class="item-group-chevron" aria-hidden="true">&#x25BE;</span>
+        </button>
+      `).join('')}
     </div>
-  `).join('');
+    ${groups.map((g, i) => `
+      <div class="item-group-panel" data-group="${i}">
+        <div class="item-filter-pills">
+          ${g.items.map(item => `
+            <button class="item-pill"
+              data-tag="${item.tag}"
+              onclick="filterByItem('${item.tag}', this)">
+              ${item.label}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `).join('')}
+  `;
 }
 
 function filterByItem(tag, btn) {
@@ -1395,9 +1408,23 @@ function renderBotw() {
 /* ════════════════════════════════════════════════
    ITEM GROUP TOGGLE
 ════════════════════════════════════════════════ */
-function toggleItemGroup(groupEl) {
-  if (!groupEl) return;
-  groupEl.classList.toggle('collapsed');
+function toggleItemGroup(index) {
+  const header = document.querySelector(`.item-group-header[data-group="${index}"]`);
+  const panel  = document.querySelector(`.item-group-panel[data-group="${index}"]`);
+  if (!header || !panel) return;
+
+  const willOpen = !header.classList.contains('open');
+
+  // Single-open accordion: collapse every group first.
+  document.querySelectorAll('.item-group-header.open')
+    .forEach(h => h.classList.remove('open'));
+  document.querySelectorAll('.item-group-panel.open')
+    .forEach(p => p.classList.remove('open'));
+
+  if (willOpen) {
+    header.classList.add('open');
+    panel.classList.add('open');
+  }
 }
 
 /* ════════════════════════════════════════════════

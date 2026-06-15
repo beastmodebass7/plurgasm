@@ -984,18 +984,60 @@ nav {
 }
 .item-filter-clear:hover { background: rgba(255,45,120,0.08); }
 
-.item-filter-group {
-  margin-bottom: 14px;
+/* Compact accordion — wrapping row of group-header chips */
+.item-filter-headers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.item-filter-group:last-child { margin-bottom: 0; }
-
-.item-filter-group-label {
+.item-group-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.item-group-header:hover {
+  border-color: rgba(0,229,255,0.4);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+}
+.item-group-header.open {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.09);
+  box-shadow: 0 0 14px rgba(0,229,255,0.18);
+}
+.item-group-chevron {
+  font-size: 9px;
+  opacity: 0.7;
+  transition: transform 0.22s ease;
+}
+.item-group-header.open .item-group-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Pills panel — collapsed by default, smooth drop-down when open */
+.item-group-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+}
+.item-group-panel.open {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 14px;
 }
 .item-filter-pills {
   display: flex;
