@@ -130,6 +130,128 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'flowstar-guide',
+    title: 'Flow Star Tutorial Guide: Every Trick from Beginner to Advanced',
+    slug: 'flow-star-tutorial-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-16',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+    excerpt: 'The complete flow star trick progression, from your first Pizza Toss to advanced barrel rolls and color switches, plus the master video library to learn every move.',
+    published: true,
+    featured: false,
+    body: `
+    <p>Of all the flow props, the flow star might be the most beginner-friendly and the most addictive. It is a soft, weighted fabric prop you spin from the wrist, letting momentum and gravity carry it as it folds, floats, and glides through the air. The modern flow star grew out of Chinese handkerchief spinning and took off after catching on in Spain in the 2010s, and today it is one of the fastest-spreading props in the festival scene.</p>
+    <p>The best part: you get instant fun on day one, but the trick ceiling is sky-high. Below is the full progression, from your first Pizza Toss to advanced barrel rolls and color switches, so you always know what to learn next.</p>
+
+    <h2>The Master Class: The Flowstar Tricktionary</h2>
+    <p>The single best video library for flow star tricks is the <a href="https://dawn-judo-111.notion.site/Tricktionary-51fe8ecf756941f6a56f886a7fdcf114" target="_blank" rel="noopener">Flowstar Tricktionary</a>, a community-built resource with a tutorial video for nearly every trick below, organized into Single Star, Two Star, and Partner Flow. Bookmark it &mdash; it is the closest thing the flow star world has to a complete encyclopedia. Use the progression on this page as your roadmap, and head to the Tricktionary to watch each trick broken down.</p>
+
+    <h2>Single Star Tricks</h2>
+
+    <h3>Beginner</h3>
+    <ul>
+    <li>Pizza Toss</li>
+    <li>Finger Spin</li>
+    <li>Finger Poke</li>
+    <li>Big Js</li>
+    <li>Vertical 8s (Reverse)</li>
+    <li>Vertical 8s (Forward)</li>
+    <li>Vertical 8 Hand Pass</li>
+    <li>Horizontal Figure 8s</li>
+    <li>Horizontal 8 Hand Pass</li>
+    <li>Pinky Horizontal 8s</li>
+    <li>Color Switch Break</li>
+    <li>Over Head Weave</li>
+    <li>Long Catch</li>
+    <li>Vertical Magic Color Switch</li>
+    <li>Drop Spin</li>
+    <li>J Spin</li>
+    <li>Open Hand Stall (Wipers)</li>
+    <li>Flowers</li>
+    <li>Waiter</li>
+    <li>Foot Swing Recovery</li>
+    <li>Stalls</li>
+    </ul>
+
+    <h3>Intermediate</h3>
+    <ul>
+    <li>2-Beat Figure 8 (Whipper Snipper)</li>
+    <li>Penguin Catch</li>
+    <li>Vertical Behind the Back Pass</li>
+    <li>Vertical Behind the Back Toss</li>
+    <li>Horizontal Behind the Back Pass</li>
+    <li>Horizontal Behind the Head Toss</li>
+    <li>Around the World</li>
+    <li>Around the World (Reverse)</li>
+    <li>Behind the Legs Toss</li>
+    <li>Under the Leg Toss</li>
+    <li>Kirby Wrap</li>
+    <li>Cross Over Wrist Spin (Money Hands/Bus Driver)</li>
+    <li>Nunchuck Pass</li>
+    <li>Buzz Saw (Reverse)</li>
+    <li>Vertical Pinch</li>
+    <li>Two Hand Drop Spin</li>
+    <li>Shoulder Roll</li>
+    <li>Above the Head Pass (Orbit)</li>
+    <li>ET Pass</li>
+    <li>Elbow Stall</li>
+    <li>U Spin Color Switch</li>
+    <li>Hand Wraps</li>
+    <li>Levitating Vertical Spin</li>
+    <li>2-Beat Drop Spin</li>
+    <li>Princess Spin (Vertical and Horizontal)</li>
+    <li>Horizontal Magic Switch</li>
+    <li>Ground Roll (Reverse)</li>
+    <li>Jelly Fish</li>
+    <li>Cross Over Wrist Spin Around the World</li>
+    <li>Flowers (Int.)</li>
+    <li>2-Beat Color Switch (Basic Color Switch)</li>
+    <li>Over the Shoulder Penguin Toss</li>
+    <li>Continuous Kirby Wraps</li>
+    <li>Horizontal 8 Color Switch Pass</li>
+    <li>Escalator</li>
+    <li>Horizontal Body Break</li>
+    <li>Big J Variations</li>
+    <li>Creating Variety in Your Flow - Catches and Body Orientation</li>
+    <li>Swipe Pinch Spin</li>
+    <li>Toss-Flicks</li>
+    <li>Vertical 8 to Pinch Transition</li>
+    <li>Horizontal Pinch</li>
+    <li>Horizontal Figure 8 to Pinch Transition</li>
+    <li>Reverse Elevator Slide</li>
+    <li>Around the World Hand Off</li>
+    </ul>
+
+    <h3>Advanced</h3>
+    <ul>
+    <li>2-Beat Figure Eights (Whipper Snipper) Variations</li>
+    <li>Diagonal Shoulder Roll (Elevator/Slides)</li>
+    <li>Flowers (Adv.)</li>
+    <li>Dino Roll (Reverse)</li>
+    <li>Pinch Spin (Barrel Rolls)</li>
+    <li>Dino Roll</li>
+    <li>Single Finger Behind the Back Pass Off</li>
+    <li>5-Beat Color Switch</li>
+    <li>Behind the Back Vertical Pinch Pass</li>
+    <li>Vertical Pinch Color Switch</li>
+    <li>Cross Over Wrist Spin (Money Hands) Anti-Spin</li>
+    <li>Cart-Wheel Around the World</li>
+    <li>Cross Over Wrist Spin (Money Hands) Color Switch</li>
+    <li>Snap Back - Combo</li>
+    <li>Over the Hill</li>
+    <li>Finger Spin to Vertical Pinch Transition</li>
+    </ul>
+
+    <p>Beyond single star, the Tricktionary also covers <strong>Two Star Flow</strong> and <strong>Partner Flow</strong> tricks once you are ready to add a second star or spin with a friend.</p>
+
+    <h2>How to Use This Progression</h2>
+    <p>Work top to bottom. Nail the beginner foundations &mdash; the tosses, spins, basic figure 8s and color switches &mdash; before chasing the flashy advanced combos, because almost everything later is built from those fundamentals. Practice with both hands, ride the momentum instead of forcing it, and film yourself to catch what to clean up. New to flow in general? Start with our <a href="/blog-post?id=flow-arts-guide">Ultimate Guide to Flow Arts</a> for the big picture.</p>
+  `
+  },
+
+  {
     id: 'post-010',
     title: 'Chase & Status in a Bond Game: What Electronic Music in Video Games Actually Means',
     slug: 'chase-status-007-first-light-electronic-music-games',
