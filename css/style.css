@@ -2366,6 +2366,18 @@ footer {
   font-size: 11px; letter-spacing: 1px; color: var(--muted);
 }
 
+/* per-post view counter badge — small, muted, with a little eye icon.
+   Used on blog cards and the post header. Kept subtle on purpose. */
+.views-badge-slot { display: inline-flex; align-items: center; }
+.views-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 1px;
+  color: var(--faint);
+  white-space: nowrap;
+}
+.views-badge .views-eye { width: 12px; height: 12px; opacity: 0.75; flex: 0 0 auto; }
+
 @media (max-width: 900px) {
   .blog-newspaper-inner { grid-template-columns: 1fr; }
   .blog-feat { border-right: none; border-bottom: 1px solid var(--border); }

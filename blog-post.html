@@ -18,6 +18,7 @@
 <script src="js/nav.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/auth.js"></script>
+<script src="/js/views.js"></script>
 </head>
 <body>
 
@@ -182,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div style="display:flex;align-items:center;gap:10px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:40px;flex-wrap:wrap;">
       <span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">By ${post.author}</span>
       ${post.authorHandle ? `<span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--cyan);">${post.authorHandle}</span>` : ''}
+      <span class="views-badge-slot" id="post-views-slot"></span>
       <button class="share-btn" onclick="sharePost()" style="margin-left:auto;">Share Article</button>
     </div>
 
@@ -192,6 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
     img.onerror = () => img.style.display = 'none';
     img.loading = 'lazy';
   });
+
+  // View counter — increment once per session, then show "<n> views".
+  (async () => {
+    if (!window.PlurViews) return;
+    const count = await PlurViews.recordAndGet(post.id);
+    const slot = document.getElementById('post-views-slot');
+    if (slot && count !== null) slot.innerHTML = PlurViews.badgeHtml(count);
+  })();
 
   const morePosts = posts
     .filter(p => p.id !== post.id)
@@ -220,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="blog-card-meta">
             <span class="blog-cat" style="color:${c};border-color:${c}33;">${l}</span>
             <span class="blog-date">${d}</span>
+            <span class="views-badge-slot" data-post-id="${p.id}"></span>
           </div>
           <h3 class="blog-title">${p.title}</h3>
           <p class="blog-excerpt">${p.excerpt}</p>
@@ -230,6 +241,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </a>`;
   }).join('');
+
+  if (window.PlurViews) PlurViews.fillBadges(document.getElementById('more-posts-grid'));
 });
 
 function sharePost() {

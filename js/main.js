@@ -1260,7 +1260,10 @@ function renderBlog() {
           </span>
         </div>
         <div class="blog-feat-body">
-          <p class="blog-feat-date">${dateStr(featured.date)}</p>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <p class="blog-feat-date">${dateStr(featured.date)}</p>
+            <span class="views-badge-slot" data-post-id="${featured.id}"></span>
+          </div>
           <h2 class="blog-feat-title">${featured.title}</h2>
           <p class="blog-feat-excerpt">${featured.excerpt}</p>
           <div class="blog-feat-author">
@@ -1291,6 +1294,7 @@ function renderBlog() {
                   ${label(p)}
                 </span>
                 <span class="blog-date">${dateStr(p.date)}</span>
+                <span class="views-badge-slot" data-post-id="${p.id}"></span>
               </div>
               <p class="blog-thumb-title">${p.title}</p>
               <p class="blog-thumb-author">By ${p.author}</p>
@@ -1306,6 +1310,9 @@ function renderBlog() {
       </div>
 
     </div>`;
+
+  // View-count badges (read-only — the homepage grid never increments).
+  if (window.PlurViews) PlurViews.fillBadges(container);
 }
 
 /* ════════════════════════════════════════════════

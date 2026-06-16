@@ -19,6 +19,7 @@
 <script src="js/nav.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/auth.js"></script>
+<script src="/js/views.js"></script>
 </head>
 <body>
 
@@ -183,6 +184,7 @@ function renderAll() {
           <div class="blog-card-meta">
             <span class="blog-cat" style="color:${color};border-color:${color}33;">${label}</span>
             <span class="blog-date">${dateStr}</span>
+            <span class="views-badge-slot" data-post-id="${p.id}"></span>
           </div>
           <h3 class="blog-title">${p.title}</h3>
           <p class="blog-excerpt">${p.excerpt}</p>
@@ -193,6 +195,9 @@ function renderAll() {
         </div>
       </a>`;
   }).join('');
+
+  // Fill view-count badges (read-only — the list never increments).
+  if (window.PlurViews) PlurViews.fillBadges(grid);
 }
 
 document.addEventListener('DOMContentLoaded', renderAll);
