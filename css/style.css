@@ -1855,7 +1855,7 @@ footer {
 
 .cal-row {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 120px 1fr auto;
   gap: 0;
   align-items: stretch;
   border: 1px solid var(--border);
@@ -1961,6 +1961,18 @@ footer {
   flex-shrink: 0;
 }
 .cal-row:hover .cal-arrow { opacity: 1; transform: translateX(3px); }
+
+/* Dedicated, non-reflowing action slot for the save (heart) button. Lives in
+   its own grid column so it sits in the exact same spot on every card —
+   sparse or full — instead of drifting around the wrapping info column. */
+.cal-save-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-left: 1px solid var(--border);
+  flex-shrink: 0;
+}
 
 /* ══════════════════════════════════════════════════
    BRAND DETAIL MODAL
@@ -2863,8 +2875,9 @@ footer {
 
   /* calendar rows full width */
   .cal-row {
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 80px 1fr auto;
   }
+  .cal-save-col { padding: 0 12px; }
   .cal-name {
     font-size: 19px;
     min-width: 0;

@@ -105,6 +105,59 @@ body::after {
   margin-top: 36px;
   margin-bottom: 40px;
 }
+
+/* All Festivals / Saved toggle. Own class (not .toggle-btn) so the time-filter's
+   active-state reset doesn't fight with it. Pink accent ties it to the heart. */
+.saved-mode-row { display: flex; gap: 4px; }
+.saved-mode-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.saved-mode-btn.active {
+  border-color: rgba(255,45,120,0.45);
+  color: var(--pink);
+  background: rgba(255,45,120,0.06);
+}
+.saved-mode-btn .smb-heart {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+/* Saved-mode placeholder panels (signed out / no saves yet). */
+.cal-saved-state { text-align: center; padding: 64px 24px; }
+.cal-saved-state-icon {
+  font-size: 42px;
+  line-height: 1;
+  color: var(--pink);
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 12px rgba(255,45,120,0.5));
+}
+.cal-saved-state-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 27px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.cal-saved-state-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
 .cal-type-filters { display: flex; gap: 8px; flex-wrap: wrap; }
 .cal-genre-filters {
   display: flex;
@@ -415,6 +468,15 @@ body::after {
 </div>
 
     <div class="cal-controls">
+      <!-- All Festivals / Saved toggle -->
+      <div class="saved-mode-row">
+        <button class="saved-mode-btn active" id="btn-mode-all" onclick="setSavedMode('all',this)">All Festivals</button>
+        <button class="saved-mode-btn" id="btn-mode-saved" onclick="setSavedMode('saved',this)">
+          <svg class="smb-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Saved
+        </button>
+      </div>
+
       <!-- Past / Upcoming toggle -->
       <div class="toggle-row">
         <button class="toggle-btn active" id="btn-upcoming" onclick="setTimeFilter('upcoming',this)">Upcoming</button>
@@ -512,6 +574,8 @@ let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
 let _calView = 'timeline';
+let _savedMode = 'all';   // 'all' | 'saved'
+let _session = null;      // current Supabase session, kept fresh via auth watcher
 
 let festivals = [];
 
@@ -526,7 +590,8 @@ function getFilteredFestivals() {
                                    endDate < TODAY;
     const typeOk  = _typeFilter  === 'all' || f.type === _typeFilter;
     const genreOk = _genreFilter === ''    || (f.genres && f.genres.includes(_genreFilter));
-    return timeOk && typeOk && genreOk;
+    const savedOk = _savedMode !== 'saved' || (window.PlurSaves && window.PlurSaves.isSaved(f.id));
+    return timeOk && typeOk && genreOk && savedOk;
   }).sort((a, b) => {
     const aPast = isPast(a), bPast = isPast(b);
     if (aPast !== bPast) return aPast ? 1 : -1;
@@ -566,8 +631,10 @@ function festRowHTML(f) {
                 Tickets →
               </a>`
             : `<span style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
-          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
           <span class="cal-arrow">→</span>
+        </div>
+        <div class="cal-save-col">
+          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
         </div>
       </div>`;
   } catch(e) { return ''; }
@@ -691,8 +758,62 @@ function renderMap(list) {
   } catch(e) { console.error('renderMap error:', e); }
 }
 
+function isLoggedIn() { return !!(_session && _session.user); }
+
+function savedIds() {
+  try {
+    return (window.PlurSaves && window.PlurSaves.ids) ? window.PlurSaves.ids() : [];
+  } catch (e) { console.error('savedIds error:', e); return []; }
+}
+
+// Friendly "sign in" / "no saves yet" panels shown in Saved mode. They take
+// over the calendar output area and hide the map so no stale view peeks through.
+function renderSavedPlaceholder(html) {
+  const mapEl = document.getElementById('fest-map');
+  const outEl = document.getElementById('cal-output');
+  if (mapEl) mapEl.style.display = 'none';
+  outEl.style.display = '';
+  outEl.innerHTML = html;
+}
+
+function showSavedSignedOut() {
+  renderSavedPlaceholder(`
+    <div class="cal-saved-state">
+      <div class="cal-saved-state-icon">♥</div>
+      <p class="cal-saved-state-title">Sign in to build your saved festival calendar</p>
+      <p class="cal-saved-state-sub">Save festivals with the heart and they'll show up here, ready to export.</p>
+      <button type="button" class="gsi-btn" onclick="plurSavedSignIn()">Sign in with Google</button>
+    </div>`);
+}
+
+function showSavedEmpty() {
+  renderSavedPlaceholder(`
+    <div class="cal-saved-state">
+      <div class="cal-saved-state-icon" style="color:var(--faint);filter:none;">♡</div>
+      <p class="cal-saved-state-title">You haven't saved any festivals yet</p>
+      <p class="cal-saved-state-sub">Tap the heart on a festival to add it to your saved calendar.</p>
+    </div>`);
+}
+
+function plurSavedSignIn() {
+  try {
+    if (window.sb) {
+      window.sb.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href }
+      });
+    }
+  } catch (e) { console.error('plurSavedSignIn error:', e); }
+}
+
 function renderActiveView() {
   try {
+    // Saved mode has two states that pre-empt the normal views: signed out, or
+    // signed in with zero saves. Both reuse PlurSaves so they stay in sync.
+    if (_savedMode === 'saved') {
+      if (!isLoggedIn()) { showSavedSignedOut(); return; }
+      if (!savedIds().length) { showSavedEmpty(); return; }
+    }
     const list = getFilteredFestivals();
     const mapEl = document.getElementById('fest-map');
     const outEl = document.getElementById('cal-output');
@@ -715,6 +836,13 @@ function renderActiveView() {
 function setCalView(view, btn) {
   _calView = view;
   document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderActiveView();
+}
+
+function setSavedMode(val, btn) {
+  _savedMode = val;
+  document.querySelectorAll('.saved-mode-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderActiveView();
 }
@@ -750,6 +878,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderActiveView();
+
+  // Keep Saved mode in sync with auth + the saved set. window.sb is created by
+  // auth.js, which may init after us, so poll briefly for it. Every Supabase
+  // touch is wrapped so a hiccup never blanks the calendar.
+  (function watchAuth() {
+    if (!window.sb) { setTimeout(watchAuth, 50); return; }
+    try {
+      window.sb.auth.getSession()
+        .then(res => {
+          _session = (res && res.data) ? res.data.session : null;
+          renderActiveView();
+        })
+        .catch(e => console.error('[calendar] getSession', e));
+      window.sb.auth.onAuthStateChange((_event, session) => {
+        _session = session;
+        renderActiveView();
+      });
+    } catch (e) {
+      console.error('[calendar] watchAuth', e);
+    }
+  })();
+
+  // saves.js fires this after the saved set loads or a heart is toggled — re-run
+  // so Saved mode reflects the latest saves (e.g. on login, or live un-saving).
+  document.addEventListener('plur:saves-changed', renderActiveView);
 });
 </script>
 <script>

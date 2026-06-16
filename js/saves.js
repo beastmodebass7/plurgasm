@@ -34,6 +34,17 @@
 
   function isSaved(id) { return _saved.has(String(id)); }
 
+  // Snapshot of the current saved festival ids. Lets other scripts (e.g. the
+  // calendar's "Saved" mode) read the set without reaching into our internals.
+  function ids() { return Array.prototype.slice.call(_saved); }
+
+  // Let interested pages know the saved set changed (initial load, sign in/out,
+  // or an individual toggle) so they can re-render. Fire-and-forget.
+  function emitChange() {
+    try { document.dispatchEvent(new CustomEvent('plur:saves-changed')); }
+    catch (e) { /* CustomEvent unsupported — nothing to do */ }
+  }
+
   function escapeAttr(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -129,6 +140,7 @@
           _saved.add(id);
         }
         markAll();
+        emitChange();
       } catch (e) {
         console.error('[saves.js] toggle', e);
       }
@@ -156,6 +168,7 @@
         console.error('[saves.js] loadSaves', e);
       }
       markAll();
+      emitChange();
     })();
   }
 
@@ -196,7 +209,8 @@
   window.PlurSaves = {
     buttonHtml: buttonHtml,
     markAll: markAll,
-    isSaved: isSaved
+    isSaved: isSaved,
+    ids: ids
   };
 
   if (document.readyState === 'loading') {
