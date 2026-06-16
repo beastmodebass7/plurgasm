@@ -198,6 +198,7 @@ function renderFestivals() {
       <div class="fest-footer">
         <div class="vibes">${f.genres.slice(0,4).map(g=>`<span class="vibe">${g}</span>`).join('')}</div>
         ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
+        ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
         <span class="fest-arrow" ${t ? `style="color:${t.accent};"` : ''}>→</span>
       </div>
     </div>
@@ -277,6 +278,7 @@ function renderCalendar() {
                 <span class="cal-loc">📍 ${f.location} &nbsp;·&nbsp; ${f.age}</span>
                 <div class="cal-genres">${f.genres.slice(0,3).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
                 ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
+                ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
                 <span class="cal-arrow">→</span>
               </div>
             </div>`;
