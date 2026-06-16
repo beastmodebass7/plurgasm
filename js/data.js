@@ -89,6 +89,27 @@ const BRANDS = [
     featured: false,
     sortOrder: 0
   },
+  {
+    id: 'trippysquid',
+    name: 'Trippy Squid',
+    badge: 'TS',
+    logo: null,
+    cat: 'accessories',
+    badgeCls: 'b-purple',
+    priceCls: 'price-budget',
+    price: '$',
+    ship: 'Free US shipping',
+    loc: 'USA',
+    style: 'Handmade UV-reactive flowstars & ravewear',
+    tags: ['flowstar','flow toys','uv','ravewear','led'],
+    desc: 'Founder-run rave brand making handmade, UV-reactive flowstars at some of the best prices around, plus ravewear and accessories. Free shipping on US orders.',
+    note: 'Use code PLURGASM for 10% off',
+    ig: null,
+    url: 'https://trippysquid.com/?ref=Plurgasm',
+    featured: true,
+    sortOrder: 0,
+    warning: null
+  },
   // ── NEW SHOES ──
   { id:'dr-martens', name:'DR. MARTENS', badge:'DM', cat:'shoes', badgeCls:'b-amber', priceCls:'price-mid', price:'$–$$', ship:'~1 week', loc:'Oregon', style:'Combat boots, platform boots', tags:['shoes','boots','combat','platform','grunge','alternative','goth','combat-boots'], desc:'The iconic combat boot. A rave staple for alternative and grunge aesthetics. Wide availability.', ig:'@drmartens', url:'https://drmartens.com', logo:'https://www.drmartens.com/favicon.ico', featured:false, sortOrder:0 },
   { id:'melissa-shoes', name:'MELISSA', badge:'MEL', cat:'shoes', badgeCls:'b-pink', priceCls:'price-mid', price:'$–$$', ship:'~1 week', loc:'USA', style:'Jelly shoes, platform boots, heels, sandals', tags:['shoes','jelly','platform','heels','sandals','colorful','fun'], desc:'Adult jelly shoes — platform boots, heels, and sandals. Playful and perfect for festival looks.', note:'Lower 48 US shipping only.', ig:'@melissashoes', url:'https://melissa.com.br/en', featured:false, sortOrder:0 },
@@ -129,6 +150,30 @@ const BRANDS = [
 
 PLURGASM_DATA.blogPosts = [
 
+  {
+    id: 'trippysquid-flowstars',
+    title: 'Trippy Squid Flowstars: Affordable UV Flow Toys (10% Off with Code PLURGASM)',
+    slug: 'trippysquid-flowstars',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-16',
+    category: 'gear',
+    coverImage: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+    excerpt: 'Trippy Squid makes handmade, UV-reactive flowstars at some of the best prices in the scene. Plurgasm readers get 10% off with code PLURGASM.',
+    published: true,
+    featured: true,
+    body: `
+    <p><em>Disclosure: Plurgasm earns a small commission when you shop through our link or use our code, at no extra cost to you. We only feature brands we actually rate.</em></p>
+    <p>If you have been eyeing your first flow star &mdash; or your fifth &mdash; <a href="https://trippysquid.com/?ref=Plurgasm" target="_blank" rel="noopener">Trippy Squid</a> is one of the best-value makers in the game, and Plurgasm readers get <strong>10% off with code PLURGASM</strong>.</p>
+    <h2>Who is Trippy Squid?</h2>
+    <p>Trippy Squid is a founder-run rave brand built by someone deep in the EDM scene, on a mission to make high-quality flow toys and ravewear affordable for everyone. Their handmade flowstars are known for vivid, UV-reactive patterns that light up under blacklight, at prices that undercut most of the market, plus free shipping on all U.S. orders.</p>
+    <h2>Why flowstars?</h2>
+    <p>Flowstars are the most beginner-friendly flow prop out there: soft, weighted fabric you spin from the wrist, fun from day one but with a trick ceiling that goes on forever. New to them? Start with our <a href="/blog-post?id=flowstar-guide">Flow Star Tutorial Guide</a> for the full beginner-to-advanced progression, or our <a href="/blog-post?id=flow-arts-guide">Ultimate Guide to Flow Arts</a> if you are exploring props in general.</p>
+    <h2>The deal: 10% off with code PLURGASM</h2>
+    <p>Head to <a href="https://trippysquid.com/?ref=Plurgasm" target="_blank" rel="noopener">trippysquid.com</a>, pick your star (UV-reactive and non-UV options, around 26 inches), and enter code <strong>PLURGASM</strong> at checkout for 10% off. UV-reactive patterns are the move if you spin at night sets and blacklight stages.</p>
+    <p>First star or fifth, Trippy Squid is a solid, affordable place to start. Tag <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener">@beastmodebass</a> when you get yours spinning.</p>
+    `,
+  },
   {
     id: 'flowstar-guide',
     title: 'Flow Star Tutorial Guide: Every Trick from Beginner to Advanced',
@@ -1771,13 +1816,13 @@ window.PLURGASM_DATA.featuredInfluencer = {
 };
 
 PLURGASM_DATA.brandOfWeek = {
-  name: 'PSYDE QUEST',
-  badge: '✦',
-  tagline: 'Kandi · Community · USA',
-  image: 'https://psydequestdesigns.com/cdn/shop/files/Untitled-1_584ceb26-1642-47c1-98c6-e8f67510406c.jpg',
-  desc: 'The official trading card of dance music. Psyde Quest makes beautifully designed cards meant to be gifted in-person at shows — a physical token of connection that lives in the PLUR spirit. Bring a pack to your next festival and watch what happens.',
-  ig: '@psydequestdesigns',
-  url: 'https://psydequestdesigns.com',
-  cat: 'Community'
+  name: 'Trippy Squid',
+  badge: 'TS',
+  tagline: 'Flowstars · Ravewear · USA',
+  image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+  desc: 'Founder-run rave brand making handmade, UV-reactive flowstars at some of the best prices around, plus ravewear and accessories. Free shipping on US orders. 10% off with code PLURGASM.',
+  ig: null,
+  url: 'https://trippysquid.com/?ref=Plurgasm',
+  cat: 'Flow Toys'
 };
 
