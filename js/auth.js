@@ -29,6 +29,13 @@
       '<path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>' +
     '</svg>';
 
+  // Fallback avatar when the Google account has no photo: a simple person/head
+  // glyph that inherits the surrounding text color via currentColor.
+  var PERSON_SVG =
+    '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">' +
+      '<path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.42 0-8 2.69-8 6v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.31-3.58-6-8-6z"/>' +
+    '</svg>';
+
   // Inject auth control styles once. Kept self-contained here so the look
   // doesn't depend on external CSS being loaded for the nav slot.
   function ensureStyles() {
@@ -43,11 +50,21 @@
         'transition:background-color .15s ease,box-shadow .15s ease}' +
       '.gsi-btn:hover{background:#f7f8f8;box-shadow:0 1px 2px rgba(0,0,0,.18)}' +
       '.gsi-btn svg{display:block;flex:0 0 auto}' +
-      // Signed-in: avatar + name + tidy sign-out link.
-      '.auth-user{display:inline-flex;align-items:center;gap:8px;color:#f0eeff;' +
-        'font-family:"Chakra Petch",system-ui,sans-serif;font-size:14px}' +
+      // Signed-in: a clickable avatar + name that links to /profile, plus a
+      // tidy sign-out link kept visible alongside it.
+      '.auth-profile{display:inline-flex;align-items:center;gap:8px;color:#f0eeff;' +
+        'font-family:"Chakra Petch",system-ui,sans-serif;font-size:14px;' +
+        'text-decoration:none;cursor:pointer;padding:3px 8px 3px 4px;border-radius:999px;' +
+        'border:1px solid transparent;transition:background-color .15s ease,border-color .15s ease}' +
+      '.auth-profile:hover,.auth-profile:focus-visible{background:rgba(0,229,255,.08);' +
+        'border-color:rgba(0,229,255,.35);outline:none}' +
+      '.auth-profile:hover .auth-avatar{border-color:rgba(0,229,255,.6)}' +
       '.auth-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;' +
-        'border:1px solid rgba(240,238,255,.25)}' +
+        'border:1px solid rgba(240,238,255,.25);flex:0 0 auto;transition:border-color .15s ease}' +
+      // Default (no-photo) avatar: same circle, centered person glyph.
+      '.auth-avatar-default{display:inline-flex;align-items:center;justify-content:center;' +
+        'background:rgba(240,238,255,.08);color:rgba(240,238,255,.6)}' +
+      '.auth-avatar-default svg{width:18px;height:18px;display:block}' +
       '.auth-signout{background:none;border:0;padding:0 2px;cursor:pointer;' +
         'color:rgba(240,238,255,.6);font-family:"DM Mono",monospace;font-size:12px;' +
         'text-transform:uppercase;letter-spacing:.04em;transition:color .15s ease}' +
@@ -85,9 +102,11 @@
         var avatar = meta.avatar_url
           ? '<img class="auth-avatar" src="' + escapeHtml(meta.avatar_url) + '" alt="" ' +
             'referrerpolicy="no-referrer">'
-          : '';
+          : '<span class="auth-avatar auth-avatar-default" aria-hidden="true">' + PERSON_SVG + '</span>';
         slot.innerHTML =
-          '<span class="auth-user">' + avatar + escapeHtml(name) + '</span>' +
+          '<a class="auth-profile" href="/profile" title="Your profile" aria-label="Your profile">' +
+            avatar + '<span class="auth-name">' + escapeHtml(name) + '</span>' +
+          '</a>' +
           '<button type="button" class="auth-signout" id="auth-signout">Sign out</button>';
         var out = document.getElementById('auth-signout');
         if (out) out.addEventListener('click', signOut);
