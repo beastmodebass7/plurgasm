@@ -1421,9 +1421,8 @@ function renderBotw() {
         onerror="this.parentElement.style.display='none'">
     </div>` : ''}
     <div class="botw-content">
-      <div class="botw-star">★</div>
       <div>
-        <p class="botw-eyebrow">Brand of the Week</p>
+        <p class="botw-eyebrow"><span class="botw-star">★</span>Brand of the Week</p>
         <p class="botw-name">${bw.name}</p>
         <p class="botw-tagline">${bw.tagline}</p>
       </div>

@@ -560,30 +560,33 @@ nav {
   grid-template-columns: auto 1fr auto;
   gap: 32px;
   align-items: center;
+  height: 100%;
+  box-sizing: border-box;
 }
+/* small amber accent star, sits inline with the eyebrow label */
 .botw-star {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 72px;
+  font-size: 14px;
   color: var(--amber);
-  opacity: 0.55;
   line-height: 1;
   text-shadow:
-    0 0 20px rgba(255,184,0,0.8),
-    0 0 40px rgba(255,184,0,0.5),
-    0 0 80px rgba(255,184,0,0.3);
+    0 0 10px rgba(255,184,0,0.9),
+    0 0 20px rgba(255,184,0,0.45);
   animation: starPulse 3s ease-in-out infinite;
 }
 @keyframes starPulse {
   0%, 100% {
-    opacity: 0.55;
-    text-shadow: 0 0 20px rgba(255,184,0,0.8), 0 0 40px rgba(255,184,0,0.5), 0 0 80px rgba(255,184,0,0.3);
+    opacity: 0.7;
+    text-shadow: 0 0 10px rgba(255,184,0,0.9), 0 0 20px rgba(255,184,0,0.45);
   }
   50% {
-    opacity: 0.9;
-    text-shadow: 0 0 30px rgba(255,184,0,1), 0 0 60px rgba(255,184,0,0.7), 0 0 120px rgba(255,184,0,0.4), 0 0 200px rgba(182,77,255,0.2);
+    opacity: 1;
+    text-shadow: 0 0 14px rgba(255,184,0,1), 0 0 28px rgba(255,184,0,0.6);
   }
 }
 .botw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'DM Mono', monospace;
   font-size: 14px;
   font-style: italic;
@@ -600,7 +603,8 @@ nav {
   letter-spacing: 3px;
   color: var(--white);
 }
-.botw-cat {
+.botw-cat,
+.botw-tagline {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 2px;
@@ -652,27 +656,34 @@ nav {
   color: var(--white);
 }
 
-/* botw with image — side by side layout */
+/* botw with image — logo slot beside the content */
 .botw-has-image {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 240px 1fr;
   gap: 0;
   align-items: stretch;
   padding: 0;
 }
 
+/* centered slot for the brand logo, set off with a subtle tinted panel */
 .botw-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
   overflow: hidden;
   position: relative;
-  min-height: 240px;
+  background: rgba(0,229,255,0.03);
+  border-right: 1px solid rgba(0,229,255,0.12);
 }
 
 .botw-image {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 200px;
+  width: auto;
+  height: auto;
   object-fit: contain;
   object-position: center;
-  padding: 18px;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -680,18 +691,11 @@ nav {
   transform: scale(1.04);
 }
 
-.botw-image-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: none;
-  pointer-events: none;
-}
-
 .botw-content {
   padding: 32px 36px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 12px;
 }
 
@@ -700,14 +704,15 @@ nav {
     grid-template-columns: 1fr;
   }
   .botw-image-wrap {
-    height: 200px;
-    min-height: unset;
+    padding: 24px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,229,255,0.12);
   }
-  .botw-image-wrap::after {
-    background: none;
+  .botw-image {
+    max-height: 150px;
   }
   .botw-content {
-    padding: 20px 20px;
+    padding: 24px 20px;
   }
 }
 
@@ -3160,21 +3165,22 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  gap: 0;
-  border: 1px solid var(--border);
+  gap: 24px;
   margin-bottom: 48px;
 }
 .featured-botw-col {
   flex: 7;
-  border-right: 1px solid var(--border);
   min-width: 0;
 }
 .featured-inf-col {
   flex: 3;
   min-width: 0;
-  background: var(--card);
 }
+/* same box treatment as the Brand of the Week card (.botw), tinted to the
+   influencer's purple accent so the two read as a consistent, intentional pair */
 .fi-card {
+  background: var(--card);
+  border: 1px solid rgba(182,77,255,0.2);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -3303,10 +3309,6 @@ footer {
   .featured-inf-col {
     flex: none;
     width: 100%;
-  }
-  .featured-botw-col {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
   }
   .fi-card { padding: 20px; }
 }
