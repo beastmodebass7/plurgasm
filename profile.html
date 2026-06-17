@@ -382,6 +382,38 @@
   color: var(--white);
 }
 
+/* Remove control on saved-festival rows (agenda + day panel). A small ✕ that
+   deletes the festival from the user's saved list. Pushed to the row's right. */
+.pf-remove-btn {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.pf-remove-btn:hover,
+.pf-remove-btn:focus-visible {
+  color: var(--pink, #ff2d78);
+  border-color: rgba(255,45,120,0.55);
+  background: rgba(255,45,120,0.1);
+  outline: none;
+}
+/* In the day panel the location already claims margin-left:auto, so the button
+   sits just after it rather than spanning the row. */
+.pf-cal-daypanel-loc + .pf-remove-btn { margin-left: 10px; }
+
 @media (max-width: 820px) {
   .pf-wrap { padding: 96px 18px 80px; }
   .pf-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -682,7 +714,7 @@
           rootEl.innerHTML =
             '<div class="pf-empty">' +
               '<p class="pf-empty-emoji">🤍</p>' +
-              '<p class="pf-empty-text">Save festivals with the heart to build your rave calendar</p>' +
+              '<p class="pf-empty-text">Add festivals from the calendar to build your rave calendar</p>' +
               '<a class="pf-empty-cta" href="/calendar">Browse the calendar →</a>' +
             '</div>';
           return;
@@ -840,9 +872,20 @@
             '<span class="pf-cal-daypanel-dot" style="background:' + c.accent + ';"></span>' +
             '<span class="pf-cal-daypanel-name">' + escapeHtml(f.name) + '</span>' +
             '<span class="pf-cal-daypanel-loc">' + escapeHtml(f.location || '') + '</span>' +
+            removeBtnHtml(f) +
           '</a>';
         }).join('') +
       '</div>';
+  }
+
+  // Small ✕ that removes a festival from the user's saved list. A role="button"
+  // span (not a <button>) so it's valid markup inside the anchor rows it lives
+  // in; the delegated handler in start() wires click + keyboard.
+  function removeBtnHtml(f) {
+    return '<span class="pf-remove-btn" role="button" tabindex="0"' +
+      ' data-remove-id="' + escapeHtml(String(f.id)) + '"' +
+      ' aria-label="Remove ' + escapeHtml(f.name) + ' from your saved festivals"' +
+      ' title="Remove from saved">✕</span>';
   }
 
   function agendaHTML() {
@@ -853,8 +896,50 @@
         '<span class="pf-agenda-dot" style="background:' + c.accent + ';"></span>' +
         '<span class="pf-agenda-date">' + escapeHtml(f.dates || '') + '</span>' +
         '<span class="pf-agenda-name">' + escapeHtml(f.name) + '</span>' +
+        removeBtnHtml(f) +
       '</a>';
     }).join('');
+  }
+
+  // Delete a saved festival (user_id + festival_id), then re-render the agenda +
+  // month grid in place so it disappears immediately — without a full reload, so
+  // the current month and any selected day are preserved.
+  function pfRemoveSaved(festId) {
+    var id = String(festId);
+    (async function () {
+      try {
+        var sb = window.sb;
+        if (!sb) return;
+        var res = await sb.auth.getSession();
+        var session = (res && res.data) ? res.data.session : null;
+        if (!session || !session.user) return;
+
+        var del = await sb.from('saved_festivals').delete()
+          .eq('user_id', session.user.id)
+          .eq('festival_id', id);
+        if (del.error) throw del.error;
+
+        _calList = _calList.filter(function (f) { return String(f.id) !== id; });
+        delete _calColor[id];
+
+        var rootEl = document.getElementById('pf-cal-root');
+        if (!rootEl) return;
+        if (!_calList.length) {
+          rootEl.innerHTML =
+            '<div class="pf-empty">' +
+              '<p class="pf-empty-emoji">🤍</p>' +
+              '<p class="pf-empty-text">No saved festivals yet — add some from the calendar</p>' +
+              '<a class="pf-empty-cta" href="/calendar">Browse the calendar →</a>' +
+            '</div>';
+          return;
+        }
+        var agendaList = rootEl.querySelector('.pf-cal-agenda-list');
+        if (agendaList) agendaList.innerHTML = agendaHTML();
+        drawMonth(); // redraw current month's grid + clear the day panel
+      } catch (e) {
+        console.error('[profile] pfRemoveSaved', e);
+      }
+    })();
   }
 
   function renderProfile() {
@@ -890,14 +975,35 @@
 
   function start() {
     watchAuth(0);
-    // When a heart is toggled (here or elsewhere), refresh the Rave Calendar so
-    // an un-saved festival drops off the list immediately.
+    // When a save is toggled elsewhere, refresh the Rave Calendar so an un-saved
+    // festival drops off the list immediately.
     document.addEventListener('plur:saves-changed', function () {
       if (_session && _session.user && _activeSection === 'rave-calendar') {
         var el = document.getElementById('pf-content');
         if (el) renderRaveCalendar(el);
       }
     });
+
+    // Delegated (capture-phase) handlers for the per-festival Remove control.
+    // stopPropagation keeps the click/keypress from triggering the surrounding
+    // anchor row's navigation.
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.pf-remove-btn') : null;
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var id = btn.getAttribute('data-remove-id');
+      if (id) pfRemoveSaved(id);
+    }, true);
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      var btn = e.target && e.target.closest ? e.target.closest('.pf-remove-btn') : null;
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var id = btn.getAttribute('data-remove-id');
+      if (id) pfRemoveSaved(id);
+    }, true);
   }
 
   if (document.readyState === 'loading') {

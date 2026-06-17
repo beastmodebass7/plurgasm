@@ -711,7 +711,7 @@ function festRowHTML(f) {
           <span class="cal-arrow">→</span>
         </div>
         <div class="cal-save-col">
-          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
+          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id, 'list') : ''}
         </div>
       </div>`;
   } catch(e) { return ''; }
@@ -858,7 +858,7 @@ function showSavedSignedOut() {
     <div class="cal-saved-state">
       <div class="cal-saved-state-icon">♥</div>
       <p class="cal-saved-state-title">Sign in to build your saved festival calendar</p>
-      <p class="cal-saved-state-sub">Save festivals with the heart and they'll show up here, ready to export.</p>
+      <p class="cal-saved-state-sub">Hit "+ Add to List" on a festival and it'll show up here, ready to export.</p>
       <button type="button" class="gsi-btn" onclick="plurSavedSignIn()">Sign in with Google</button>
     </div>`);
 }
@@ -868,7 +868,7 @@ function showSavedEmpty() {
     <div class="cal-saved-state">
       <div class="cal-saved-state-icon" style="color:var(--faint);filter:none;">♡</div>
       <p class="cal-saved-state-title">You haven't saved any festivals yet</p>
-      <p class="cal-saved-state-sub">Tap the heart on a festival to add it to your saved calendar.</p>
+      <p class="cal-saved-state-sub">Hit "+ Add to List" on a festival to add it to your saved calendar.</p>
     </div>`);
 }
 
@@ -1076,7 +1076,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
-  // saves.js fires this after the saved set loads or a heart is toggled — re-run
+  // saves.js fires this after the saved set loads or a save is toggled — re-run
   // so Saved mode reflects the latest saves (e.g. on login, or live un-saving).
   document.addEventListener('plur:saves-changed', renderActiveView);
 });

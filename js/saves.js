@@ -67,18 +67,42 @@
       '.pg-save-btn:hover{color:#ff2d78;border-color:rgba(255,45,120,0.5);background:rgba(255,45,120,0.08)}' +
       '.pg-save-btn:active{transform:scale(0.9)}' +
       '.pg-save-btn.saved{color:#ff2d78;border-color:rgba(255,45,120,0.6);background:rgba(255,45,120,0.12)}' +
-      '.pg-save-btn.saved svg{fill:#ff2d78;stroke:#ff2d78;filter:drop-shadow(0 0 5px rgba(255,45,120,0.7))}';
+      '.pg-save-btn.saved svg{fill:#ff2d78;stroke:#ff2d78;filter:drop-shadow(0 0 5px rgba(255,45,120,0.7))}' +
+      // List variant: a labeled text button ("+ Add to List" / "✓ Added") used on
+      // the calendar tab instead of the heart. Overrides the circular base above,
+      // so these rules must come after it. Styled to match the card's other
+      // actions (Google Calendar / Tickets) — DM Mono, cyan accent, green when added.
+      '.pg-save-list-btn{width:auto;height:auto;border-radius:6px;padding:8px 14px;gap:6px;' +
+        "font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;" +
+        'white-space:nowrap;color:var(--cyan,#00e5ff);' +
+        'border:1px solid rgba(0,229,255,0.4);background:rgba(0,229,255,0.06)}' +
+      '.pg-save-list-btn:hover{color:#00e5ff;border-color:rgba(0,229,255,0.7);background:rgba(0,229,255,0.12)}' +
+      '.pg-save-list-btn.saved{color:#3dff85;border-color:rgba(61,255,133,0.6);background:rgba(61,255,133,0.12)}' +
+      '.pg-save-list-btn.saved:hover{color:#3dff85;border-color:rgba(61,255,133,0.85);background:rgba(61,255,133,0.18)}' +
+      '.pg-save-list-label{pointer-events:none;line-height:1}';
     var el = document.createElement('style');
     el.id = 'pg-save-styles';
     el.textContent = css;
     (document.head || document.documentElement).appendChild(el);
   }
 
-  // Heart button markup for a given festival id, baked with current state so a
-  // re-render shows the right heart immediately.
-  function buttonHtml(festId) {
+  // Save-button markup for a given festival id, baked with current state so a
+  // re-render shows the right control immediately. Two presentations share the
+  // same .pg-save-btn wiring (delegated click + markAll):
+  //   variant 'list' -> labeled text button ("+ Add to List" / "✓ Added"), used
+  //                     on the calendar tab.
+  //   anything else  -> the heart icon (homepage + festival detail pages).
+  function buttonHtml(festId, variant) {
     var id = String(festId == null ? '' : festId);
     var on = _saved.has(id);
+    if (variant === 'list') {
+      return '<button type="button" class="pg-save-btn pg-save-list-btn' + (on ? ' saved' : '') + '"' +
+        ' data-fest-id="' + escapeAttr(id) + '"' +
+        ' aria-pressed="' + (on ? 'true' : 'false') + '"' +
+        ' aria-label="' + (on ? 'Added to your list — tap to remove' : 'Add festival to your list') + '"' +
+        ' title="' + (on ? 'Added to your list' : 'Add to your list') + '">' +
+        '<span class="pg-save-list-label">' + (on ? '✓ Added' : '+ Add to List') + '</span></button>';
+    }
     return '<button type="button" class="pg-save-btn' + (on ? ' saved' : '') + '"' +
       ' data-fest-id="' + escapeAttr(id) + '"' +
       ' aria-pressed="' + (on ? 'true' : 'false') + '"' +
@@ -92,13 +116,27 @@
     try {
       var btns = document.querySelectorAll('.pg-save-btn');
       Array.prototype.forEach.call(btns, function (btn) {
-        if (!btn.querySelector('svg')) btn.innerHTML = HEART_SVG;
         var id = btn.getAttribute('data-fest-id');
         var on = !!(id && _saved.has(id));
+        if (btn.classList.contains('pg-save-list-btn')) {
+          // Labeled text variant — keep the label text in sync, no heart icon.
+          var label = btn.querySelector('.pg-save-list-label');
+          if (!label) {
+            label = document.createElement('span');
+            label.className = 'pg-save-list-label';
+            btn.appendChild(label);
+          }
+          label.textContent = on ? '✓ Added' : '+ Add to List';
+          btn.setAttribute('aria-label', on ? 'Added to your list — tap to remove' : 'Add festival to your list');
+          btn.setAttribute('title', on ? 'Added to your list' : 'Add to your list');
+        } else {
+          // Heart variant — inject the icon into any empty (static) button.
+          if (!btn.querySelector('svg')) btn.innerHTML = HEART_SVG;
+          btn.setAttribute('aria-label', on ? 'Saved — tap to remove' : 'Save festival');
+          btn.setAttribute('title', on ? 'Saved' : 'Save festival');
+        }
         btn.classList.toggle('saved', on);
         btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-        btn.setAttribute('aria-label', on ? 'Saved — tap to remove' : 'Save festival');
-        btn.setAttribute('title', on ? 'Saved' : 'Save festival');
       });
     } catch (e) {
       console.error('[saves.js] markAll', e);
