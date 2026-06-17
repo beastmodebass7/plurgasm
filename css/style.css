@@ -789,6 +789,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px 14px;
   padding-top: 16px;
   border-top: 1px solid var(--border);
 }
@@ -828,6 +829,15 @@ nav {
   color: #06060c;
   background: var(--cyan);
   border-color: var(--cyan);
+}
+
+/* On phones the footer is nearly full-width, so the genre tags + Google
+   Calendar + heart + arrow can't share one line without crowding. Drop the
+   genres to their own line and let the action controls spread across the next
+   one, keeping a comfortable gap between the heart and its neighbors. */
+@media (max-width: 480px) {
+  .fest-footer { flex-wrap: wrap; }
+  .fest-footer .vibes { flex-basis: 100%; }
 }
 
 .fest-card-glow {
