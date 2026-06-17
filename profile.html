@@ -218,6 +218,170 @@
   max-width: 520px;
 }
 
+/* ─────── RAVE CALENDAR — month grid ─────── */
+.pf-cal-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.pf-cal-title {
+  flex: 1;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1;
+}
+.pf-cal-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.pf-cal-btn:hover {
+  color: var(--cyan);
+  border-color: rgba(0,229,255,0.4);
+  background: rgba(0,229,255,0.05);
+}
+.pf-cal-nav { font-size: 18px; line-height: 1; padding: 4px 12px; }
+.pf-cal-weekdays,
+.pf-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.pf-cal-weekdays { margin-bottom: 6px; }
+.pf-cal-weekday {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  padding: 4px 0;
+}
+.pf-cal-cell {
+  min-height: 98px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.015);
+  border-radius: 5px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+.pf-cal-cell.blank { background: transparent; border-color: transparent; }
+.pf-cal-cell.has-fest { cursor: pointer; }
+.pf-cal-cell.today {
+  border-color: rgba(0,229,255,0.5);
+  box-shadow: inset 0 0 0 1px rgba(0,229,255,0.25);
+}
+.pf-cal-cell.selected { border-color: rgba(0,229,255,0.6); background: rgba(0,229,255,0.05); }
+.pf-cal-daynum {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+.pf-cal-cell.today .pf-cal-daynum { color: var(--cyan); font-weight: 500; }
+.pf-cal-pills { display: flex; flex-direction: column; gap: 3px; }
+.pf-cal-pill {
+  display: block;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border-left: 2px solid;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pf-cal-pill:hover { filter: brightness(1.25); }
+.pf-cal-dots { display: none; flex-wrap: wrap; gap: 3px; }
+.pf-cal-dot { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; }
+
+/* day panel — mobile tap-to-expand (and desktop click) */
+.pf-cal-daypanel { margin-top: 16px; }
+.pf-cal-daypanel:empty { display: none; }
+.pf-cal-daypanel-card {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  border-radius: 5px;
+  padding: 14px 16px;
+}
+.pf-cal-daypanel-head {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+.pf-cal-daypanel-empty { font-family: 'Chakra Petch', sans-serif; font-size: 14px; color: var(--muted); }
+.pf-cal-daypanel-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+}
+.pf-cal-daypanel-row:first-of-type { border-top: none; }
+.pf-cal-daypanel-dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
+.pf-cal-daypanel-name { font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); }
+.pf-cal-daypanel-loc {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: auto;
+  text-align: right;
+}
+
+/* agenda — what's next */
+.pf-cal-agenda { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 22px; }
+.pf-cal-agenda-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.pf-agenda-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.pf-agenda-row:hover { background: rgba(255,255,255,0.03); }
+.pf-agenda-dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
+.pf-agenda-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  flex: 0 0 auto;
+  min-width: 150px;
+}
+.pf-agenda-name {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+}
+
 @media (max-width: 820px) {
   .pf-wrap { padding: 96px 18px 80px; }
   .pf-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -239,6 +403,22 @@
   .pf-header { gap: 16px; }
   .pf-avatar { width: 64px; height: 64px; }
   .pf-avatar-default svg { width: 30px; height: 30px; }
+}
+
+/* mobile calendar: shrink cells, swap full pills for dots, keep agenda prominent */
+@media (max-width: 560px) {
+  .pf-cal-weekdays, .pf-cal-grid { gap: 3px; }
+  .pf-cal-cell { min-height: 46px; padding: 4px 3px; border-radius: 4px; gap: 3px; }
+  .pf-cal-pills { display: none; }
+  .pf-cal-cell.has-fest .pf-cal-dots { display: flex; }
+  .pf-cal-daynum { font-size: 11px; }
+  .pf-cal-weekday { font-size: 9px; letter-spacing: 0; }
+  .pf-cal-title { font-size: 22px; }
+  .pf-cal-btn { padding: 7px 9px; font-size: 11px; }
+  .pf-cal-nav { padding: 4px 9px; }
+  .pf-agenda-row { flex-wrap: wrap; }
+  .pf-agenda-date { min-width: 0; flex-basis: 100%; order: 2; margin-left: 21px; }
+  .pf-agenda-name { flex-basis: calc(100% - 21px); }
 }
 </style>
 </head>
@@ -323,67 +503,10 @@
       '<path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.42 0-8 2.69-8 6v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.31-3.58-6-8-6z"/>' +
     '</svg>';
 
-  /* ── festival card (mirrors renderFestivals() in main.js) ── */
-  var typeClass = { mega: 't-mega', underground: 't-under', regional: 't-reg', playa: 't-playa', international: 't-intl' };
-
-  function getDaysBadge(sortDate) {
-    if (!sortDate) return '';
-    var today = new Date(); today.setHours(0, 0, 0, 0);
-    var fest = new Date(sortDate); fest.setHours(0, 0, 0, 0);
-    var diff = Math.round((fest - today) / 86400000);
-    if (diff < 0)   return '<span class="fest-days-badge days-past">Past</span>';
-    if (diff === 0) return '<span class="fest-days-badge days-soon">Today</span>';
-    if (diff <= 14) return '<span class="fest-days-badge days-soon">' + diff + ' days away</span>';
-    if (diff <= 60) return '<span class="fest-days-badge days-upcoming">' + diff + ' days away</span>';
-    return '<span class="fest-days-badge days-far">' + diff + ' days</span>';
-  }
-
-  function googleCalUrl(f) {
-    try {
-      var start = f.sortDate.replace(/-/g, '');
-      var end = new Date(f.endDate + 'T00:00:00Z');
-      end.setUTCDate(end.getUTCDate() + 1);
-      var endStr = end.toISOString().slice(0, 10).replace(/-/g, '');
-      var text = encodeURIComponent(f.name);
-      var loc = encodeURIComponent(f.location || '');
-      var lineup = (f.headliners && f.headliners.length) ? 'Lineup: ' + f.headliners.join(', ') + '\n\n' : '';
-      var details = encodeURIComponent(lineup + (f.desc || '') + (f.url ? '\n\nTickets: ' + f.url : ''));
-      return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + text +
-             '&dates=' + start + '/' + endStr + '&details=' + details + '&location=' + loc;
-    } catch (e) { return null; }
-  }
-
+  /* ── festival detail href — extensionless internal URL (mirrors main.js) ── */
   function festDetailHref(f) {
     if (!f.detailPage) return f.url;
     return '/' + f.detailPage.replace(/^\/+/, '').replace(/\.html$/, '');
-  }
-
-  function festCardHTML(f) {
-    var dest = festDetailHref(f);
-    var target = f.detailPage ? '_self' : '_blank';
-    var t = f.cardTheme;
-    var cardStyle = t ? 'style="background:' + t.bg + ';border-color:' + t.border + ';"' : '';
-    var glowStyle = t ? 'style="background:radial-gradient(ellipse 80% 40% at 50% 0%, ' + t.glow + ', transparent);"' : '';
-    var taglineColor = t ? 'style="color:' + t.label + ';"' : '';
-    var cal = googleCalUrl(f);
-    return '' +
-      '<div class="fest-card ' + (f.featured && !t ? 'fest-featured' : '') + '" data-id="' + f.id + '" ' + cardStyle +
-        ' onclick="window.open(\'' + dest + '\',\'' + target + '\')">' +
-        getDaysBadge(f.sortDate) +
-        '<div class="fest-card-glow" ' + glowStyle + '></div>' +
-        '<span class="fest-tag ' + (typeClass[f.type] || 't-reg') + '">' + f.typeLabel + '</span>' +
-        '<p class="fest-name">' + f.name + '</p>' +
-        (f.tagline ? '<p class="fest-tagline" ' + taglineColor + '>' + f.tagline + '</p>' : '') +
-        '<p class="fest-meta">' + f.location + ' &nbsp;·&nbsp; ' + f.dates + ' &nbsp;·&nbsp; ' +
-          f.days + ' Day' + (f.days > 1 ? 's' : '') + ' &nbsp;·&nbsp; ' + f.age + '</p>' +
-        '<p class="fest-desc">' + f.desc + '</p>' +
-        '<div class="fest-footer">' +
-          '<div class="vibes">' + (f.genres || []).slice(0, 4).map(function (g) { return '<span class="vibe">' + g + '</span>'; }).join('') + '</div>' +
-          (cal ? '<a class="add-cal" href="' + cal + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>' : '') +
-          (window.PlurSaves ? PlurSaves.buttonHtml(f.id) : '') +
-          '<span class="fest-arrow" ' + (t ? 'style="color:' + t.accent + ';"' : '') + '>→</span>' +
-        '</div>' +
-      '</div>';
   }
 
   /* ── sign-in (logged-out view) ── */
@@ -475,12 +598,54 @@
     renderRaveCalendar(el);
   }
 
-  /* ── Rave Calendar: saved UPCOMING festivals ── */
+  /* ── Rave Calendar: month-grid of saved UPCOMING festivals ── */
+  var CAL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'];
+  var CAL_DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  /* brand neon accents — one per festival so they're distinguishable on the grid */
+  var CAL_COLORS = [
+    { accent: '#00e5ff', bg: 'rgba(0,229,255,0.13)',  border: 'rgba(0,229,255,0.55)',  text: '#9defff' },
+    { accent: '#ff2d78', bg: 'rgba(255,45,120,0.13)', border: 'rgba(255,45,120,0.55)', text: '#ff9bc0' },
+    { accent: '#b64dff', bg: 'rgba(182,77,255,0.13)', border: 'rgba(182,77,255,0.55)', text: '#d6a8ff' },
+    { accent: '#3dff85', bg: 'rgba(61,255,133,0.13)', border: 'rgba(61,255,133,0.55)', text: '#a6ffc8' },
+    { accent: '#ffb800', bg: 'rgba(255,184,0,0.13)',  border: 'rgba(255,184,0,0.55)',  text: '#ffd97a' }
+  ];
+
+  var _calList = [];   // saved upcoming festivals, sorted by sortDate
+  var _calColor = {};  // festival id -> color object
+  var _calYear = 0;
+  var _calMonth = 0;   // 0-based
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function dayStr(y, m, d) { return y + '-' + pad2(m + 1) + '-' + pad2(d); } // m is 0-based
+
+  // festivals active on a given YYYY-MM-DD (string compare is safe for ISO dates)
+  function festsOnDay(ds) {
+    return _calList.filter(function (f) {
+      var s = f.sortDate, e = f.endDate || f.sortDate;
+      return s && s <= ds && ds <= e;
+    });
+  }
+
+  // does any saved festival touch the given month?
+  function monthHasFests(y, m) {
+    var first = dayStr(y, m, 1);
+    var last = dayStr(y, m, new Date(y, m + 1, 0).getDate());
+    return _calList.some(function (f) {
+      var s = f.sortDate, e = f.endDate || f.sortDate;
+      return s && s <= last && e >= first;
+    });
+  }
+
+  function festHref(f) { return festDetailHref(f); }
+  function festTarget(f) { return f.detailPage ? '_self' : '_blank'; }
+
   function renderRaveCalendar(el) {
     el.innerHTML =
       '<h2 class="pf-section-title">Rave Calendar</h2>' +
-      '<p class="pf-section-sub">Your saved upcoming festivals, sorted by date.</p>' +
-      '<div id="pf-cal-grid" class="pf-fest-grid"><p class="pf-loading">Loading your rave calendar…</p></div>';
+      '<p class="pf-section-sub">Your saved upcoming festivals, blocked out on the days they run.</p>' +
+      '<div id="pf-cal-root"><p class="pf-loading">Loading your rave calendar…</p></div>';
 
     (async function () {
       var savedIds = [];
@@ -499,34 +664,197 @@
         console.error('[profile] loadSavedFestivals', e);
       }
 
-      var grid = document.getElementById('pf-cal-grid');
-      if (!grid) return; // section changed while we were loading
+      var rootEl = document.getElementById('pf-cal-root');
+      if (!rootEl) return; // section changed while we were loading
 
-      var all = (window.PLURGASM_DATA && window.PLURGASM_DATA.festivals) || [];
-      var set = {};
-      savedIds.forEach(function (id) { set[String(id)] = true; });
+      try {
+        var all = (window.PLURGASM_DATA && window.PLURGASM_DATA.festivals) || [];
+        var set = {};
+        savedIds.forEach(function (id) { set[String(id)] = true; });
 
-      var list = all.filter(function (f) {
-        return set[String(f.id)] && !isPast(f);
-      }).sort(function (a, b) {
-        return String(a.sortDate || '').localeCompare(String(b.sortDate || ''));
-      });
+        _calList = all.filter(function (f) {
+          return set[String(f.id)] && !isPast(f);
+        }).sort(function (a, b) {
+          return String(a.sortDate || '').localeCompare(String(b.sortDate || ''));
+        });
 
-      if (!list.length) {
-        grid.className = '';
-        grid.innerHTML =
-          '<div class="pf-empty">' +
-            '<p class="pf-empty-emoji">🤍</p>' +
-            '<p class="pf-empty-text">Save festivals with the heart to build your rave calendar</p>' +
-            '<a class="pf-empty-cta" href="/calendar">Browse the calendar →</a>' +
-          '</div>';
-        return;
+        if (!_calList.length) {
+          rootEl.innerHTML =
+            '<div class="pf-empty">' +
+              '<p class="pf-empty-emoji">🤍</p>' +
+              '<p class="pf-empty-text">Save festivals with the heart to build your rave calendar</p>' +
+              '<a class="pf-empty-cta" href="/calendar">Browse the calendar →</a>' +
+            '</div>';
+          return;
+        }
+
+        // assign a stable brand color to each festival (by sorted order)
+        _calColor = {};
+        _calList.forEach(function (f, i) { _calColor[String(f.id)] = CAL_COLORS[i % CAL_COLORS.length]; });
+
+        // default month: current month, else the earliest saved festival's month
+        var now = new Date();
+        if (monthHasFests(now.getFullYear(), now.getMonth())) {
+          _calYear = now.getFullYear();
+          _calMonth = now.getMonth();
+        } else {
+          var p = String(_calList[0].sortDate).split('-');
+          _calYear = parseInt(p[0], 10);
+          _calMonth = parseInt(p[1], 10) - 1;
+        }
+
+        mountCalendar(rootEl);
+      } catch (e) {
+        console.error('[profile] renderRaveCalendar', e);
+        rootEl.innerHTML = '<p class="pf-loading">Couldn\'t load your calendar. Please refresh.</p>';
       }
-
-      grid.className = 'pf-fest-grid';
-      grid.innerHTML = list.map(festCardHTML).join('');
-      if (window.PlurSaves) PlurSaves.markAll();
     })();
+  }
+
+  function mountCalendar(rootEl) {
+    rootEl.innerHTML =
+      '<div class="pf-cal">' +
+        '<div class="pf-cal-head">' +
+          '<button type="button" class="pf-cal-btn pf-cal-nav" data-cal="prev" aria-label="Previous month">‹</button>' +
+          '<div class="pf-cal-title" id="pf-cal-title"></div>' +
+          '<button type="button" class="pf-cal-btn" data-cal="today">Today</button>' +
+          '<button type="button" class="pf-cal-btn pf-cal-nav" data-cal="next" aria-label="Next month">›</button>' +
+        '</div>' +
+        '<div class="pf-cal-weekdays">' +
+          CAL_DOW.map(function (d) { return '<div class="pf-cal-weekday">' + d + '</div>'; }).join('') +
+        '</div>' +
+        '<div class="pf-cal-grid" id="pf-cal-grid"></div>' +
+        '<div class="pf-cal-daypanel" id="pf-cal-daypanel"></div>' +
+        '<div class="pf-cal-agenda">' +
+          '<h3 class="pf-cal-agenda-title">What\'s next</h3>' +
+          '<div class="pf-cal-agenda-list">' + agendaHTML() + '</div>' +
+        '</div>' +
+      '</div>';
+
+    var navBtns = rootEl.querySelectorAll('[data-cal]');
+    Array.prototype.forEach.call(navBtns, function (b) {
+      b.addEventListener('click', function () {
+        var act = b.getAttribute('data-cal');
+        if (act === 'prev') stepMonth(-1);
+        else if (act === 'next') stepMonth(1);
+        else if (act === 'today') {
+          var n = new Date();
+          _calYear = n.getFullYear();
+          _calMonth = n.getMonth();
+          drawMonth();
+        }
+      });
+    });
+
+    drawMonth();
+  }
+
+  function stepMonth(delta) {
+    _calMonth += delta;
+    if (_calMonth < 0) { _calMonth = 11; _calYear--; }
+    else if (_calMonth > 11) { _calMonth = 0; _calYear++; }
+    drawMonth();
+  }
+
+  function drawMonth() {
+    var title = document.getElementById('pf-cal-title');
+    var grid = document.getElementById('pf-cal-grid');
+    var panel = document.getElementById('pf-cal-daypanel');
+    if (!title || !grid) return;
+    title.textContent = CAL_MONTHS[_calMonth] + ' ' + _calYear;
+    if (panel) panel.innerHTML = '';
+    grid.innerHTML = gridHTML();
+
+    var cells = grid.querySelectorAll('.pf-cal-cell.has-fest');
+    Array.prototype.forEach.call(cells, function (c) {
+      c.addEventListener('click', function (ev) {
+        if (ev.target.closest('a')) return; // let pill links navigate
+        selectDay(c.getAttribute('data-day'), c);
+      });
+    });
+  }
+
+  function gridHTML() {
+    var firstDow = new Date(_calYear, _calMonth, 1).getDay();
+    var daysIn = new Date(_calYear, _calMonth + 1, 0).getDate();
+    var cells = [];
+    var i;
+    for (i = 0; i < firstDow; i++) cells.push('<div class="pf-cal-cell blank"></div>');
+    for (var d = 1; d <= daysIn; d++) {
+      var ds = dayStr(_calYear, _calMonth, d);
+      var fests = festsOnDay(ds);
+      var isToday = ds === TODAY;
+      var cls = 'pf-cal-cell' + (isToday ? ' today' : '') + (fests.length ? ' has-fest' : '');
+      var pills = fests.map(function (f) {
+        var c = _calColor[String(f.id)] || CAL_COLORS[0];
+        return '<a class="pf-cal-pill" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
+          (f.detailPage ? '' : ' rel="noopener"') +
+          ' style="background:' + c.bg + ';border-left-color:' + c.border + ';color:' + c.text + ';"' +
+          ' onclick="event.stopPropagation()" title="' + escapeHtml(f.name) + '">' + escapeHtml(f.name) + '</a>';
+      }).join('');
+      var dots = fests.map(function (f) {
+        var c = _calColor[String(f.id)] || CAL_COLORS[0];
+        return '<span class="pf-cal-dot" style="background:' + c.accent + ';"></span>';
+      }).join('');
+      cells.push(
+        '<div class="' + cls + '" data-day="' + ds + '">' +
+          '<span class="pf-cal-daynum">' + d + '</span>' +
+          (fests.length ? '<div class="pf-cal-dots">' + dots + '</div>' : '') +
+          (fests.length ? '<div class="pf-cal-pills">' + pills + '</div>' : '') +
+        '</div>');
+    }
+    while (cells.length % 7 !== 0) cells.push('<div class="pf-cal-cell blank"></div>');
+    return cells.join('');
+  }
+
+  function selectDay(ds, cell) {
+    var panel = document.getElementById('pf-cal-daypanel');
+    if (!panel) return;
+    var grid = document.getElementById('pf-cal-grid');
+    if (grid) {
+      var sel = grid.querySelectorAll('.pf-cal-cell.selected');
+      Array.prototype.forEach.call(sel, function (c) { c.classList.remove('selected'); });
+    }
+    if (cell) cell.classList.add('selected');
+
+    var fests = festsOnDay(ds);
+    var p = ds.split('-');
+    var dObj = new Date(parseInt(p[0], 10), parseInt(p[1], 10) - 1, parseInt(p[2], 10));
+    var heading = CAL_DOW[dObj.getDay()] + ', ' + CAL_MONTHS[parseInt(p[1], 10) - 1] + ' ' + parseInt(p[2], 10);
+
+    if (!fests.length) {
+      panel.innerHTML =
+        '<div class="pf-cal-daypanel-card">' +
+          '<p class="pf-cal-daypanel-head">' + heading + '</p>' +
+          '<p class="pf-cal-daypanel-empty">No festivals this day.</p>' +
+        '</div>';
+      return;
+    }
+    panel.innerHTML =
+      '<div class="pf-cal-daypanel-card">' +
+        '<p class="pf-cal-daypanel-head">' + heading + '</p>' +
+        fests.map(function (f) {
+          var c = _calColor[String(f.id)] || CAL_COLORS[0];
+          return '<a class="pf-cal-daypanel-row" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
+            (f.detailPage ? '' : ' rel="noopener"') + '>' +
+            '<span class="pf-cal-daypanel-dot" style="background:' + c.accent + ';"></span>' +
+            '<span class="pf-cal-daypanel-name">' + escapeHtml(f.name) + '</span>' +
+            '<span class="pf-cal-daypanel-loc">' + escapeHtml(f.location || '') + '</span>' +
+          '</a>';
+        }).join('') +
+      '</div>';
+  }
+
+  function agendaHTML() {
+    return _calList.map(function (f) {
+      var c = _calColor[String(f.id)] || CAL_COLORS[0];
+      return '<a class="pf-agenda-row" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
+        (f.detailPage ? '' : ' rel="noopener"') + '>' +
+        '<span class="pf-agenda-dot" style="background:' + c.accent + ';"></span>' +
+        '<span class="pf-agenda-date">' + escapeHtml(f.dates || '') + '</span>' +
+        '<span class="pf-agenda-name">' + escapeHtml(f.name) + '</span>' +
+      '</a>';
+    }).join('');
   }
 
   function renderProfile() {
