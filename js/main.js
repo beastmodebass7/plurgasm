@@ -330,6 +330,39 @@ function makeExpandablePills(pills, container, activeClass) {
 }
 
 /* ════════════════════════════════════════════════
+   FILTER PILLS — built from the shared festival taxonomy
+   so the homepage and the calendar page never diverge. Rebuilds the vibe
+   and region rows from PLURGASM_DATA; the hardcoded pills in index.html
+   act as a static fallback if this never runs.
+════════════════════════════════════════════════ */
+function renderFestFilterPills() {
+  const D = window.PLURGASM_DATA;
+  if (!D) return;
+  const labelStyle = "font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;" +
+                     "text-transform:uppercase;color:var(--faint);display:flex;align-items:center;";
+
+  const genreRow = document.getElementById('genre-filters');
+  if (genreRow && typeof D.getFestivalGenres === 'function') {
+    genreRow.innerHTML =
+      `<span style="${labelStyle}">Vibe:</span>` +
+      `<button class="genre-pill active" onclick="filterGenre('',this)">All Vibes</button>` +
+      D.getFestivalGenres().map(g =>
+        `<button class="genre-pill" onclick="filterGenre('${g.value}',this)">${g.label}</button>`
+      ).join('');
+  }
+
+  const regionRow = document.getElementById('region-filters');
+  if (regionRow && typeof D.getFestivalRegions === 'function') {
+    regionRow.innerHTML =
+      `<span style="${labelStyle}">Region:</span>` +
+      `<button class="region-pill active" onclick="filterRegion('',this)">All Regions</button>` +
+      D.getFestivalRegions().map(r =>
+        `<button class="region-pill" onclick="filterRegion('${r.id}',this)">${r.label}</button>`
+      ).join('');
+  }
+}
+
+/* ════════════════════════════════════════════════
    FILTER ACTIONS
 ════════════════════════════════════════════════ */
 function filterFests(type, btn) {
@@ -1484,6 +1517,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  renderFestFilterPills();   // build vibe + region pills from data (in sync w/ calendar)
   renderFestivals();
 
   // after pills render on mobile only

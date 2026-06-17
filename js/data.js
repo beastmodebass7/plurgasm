@@ -1724,6 +1724,55 @@ window.PLURGASM_DATA.festivals  = FESTIVALS;
 window.PLURGASM_DATA.brands     = BRANDS;
 window.PLURGASM_DATA.categories = CATEGORIES;
 
+/* ════════════════════════════════════════════════
+   FESTIVAL FILTER TAXONOMY — single source of truth
+   Both the homepage festival section and the calendar page build their
+   vibe (genre) and region filter pills from these helpers, so the two
+   stay in sync automatically as festivals are added/changed rather than
+   diverging through hand-maintained pill lists.
+════════════════════════════════════════════════ */
+// Preferred display order for the vibe pills. Any genre present in the
+// festival data but missing from this list is appended (alphabetically),
+// so a brand-new genre always shows up without a code change.
+const FEST_GENRE_ORDER = [
+  'EDM','House','Techno','Bass','Trance','Dubstep','Psychedelic','Hip-Hop','Jam',
+  'DnB','Riddim','Progressive','Psy-Trance','Industrial','Experimental','Indie','Rock'
+];
+// A few genres read better with a friendlier label than the raw data value.
+const FEST_GENRE_LABELS = { 'Jam': 'Jam / Folk' };
+// Region id -> label + display order (US regions first, International last).
+const FEST_REGION_META = [
+  { id:'northeast',    label:'Northeast US' },
+  { id:'southeast',    label:'Southeast US' },
+  { id:'midwest',      label:'Midwest US' },
+  { id:'west',         label:'West Coast US' },
+  { id:'southwest',    label:'Southwest US' },
+  { id:'international', label:'🌐 International' },
+];
+
+// Returns [{ value, label }] for every genre that appears in the festival data.
+function getFestivalGenres() {
+  const present = new Set();
+  FESTIVALS.forEach(f => (f.genres || []).forEach(g => present.add(g)));
+  const ordered = FEST_GENRE_ORDER.filter(g => present.has(g));
+  [...present].filter(g => !FEST_GENRE_ORDER.includes(g)).sort()
+    .forEach(g => ordered.push(g));
+  return ordered.map(g => ({ value: g, label: FEST_GENRE_LABELS[g] || g }));
+}
+
+// Returns [{ id, label }] for every region that appears in the festival data.
+function getFestivalRegions() {
+  const present = new Set();
+  FESTIVALS.forEach(f => { if (f.region) present.add(f.region); });
+  const ordered = FEST_REGION_META.filter(r => present.has(r.id));
+  [...present].filter(id => !FEST_REGION_META.some(r => r.id === id)).sort()
+    .forEach(id => ordered.push({ id, label: id.charAt(0).toUpperCase() + id.slice(1) }));
+  return ordered;
+}
+
+window.PLURGASM_DATA.getFestivalGenres  = getFestivalGenres;
+window.PLURGASM_DATA.getFestivalRegions = getFestivalRegions;
+
 PLURGASM_DATA.itemFilters = [
   {
     group: 'Flow & LED',

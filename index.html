@@ -422,6 +422,13 @@
     </div>
   </div>
 
+  <!-- Discovery CTA (state-aware: text + behaviour flip on sign-in/out) -->
+  <div id="rave-cal-cta" class="discovery-cta is-loggedout" role="status" aria-live="polite">
+    <span class="dc-icon" aria-hidden="true">🗓️</span>
+    <span class="dc-text" id="rave-cal-cta-text">Sign in and save festivals to build your own rave calendar</span>
+    <a class="dc-link" id="rave-cal-cta-link" href="/profile" style="display:none;">Your rave calendar →</a>
+  </div>
+
   <!-- GRID VIEW -->
   <div class="fest-grid" id="fest-grid"></div>
   <div style="text-align:center;margin-top:32px;" id="fests-expand">
@@ -598,6 +605,63 @@
 
   // start after short delay
   setTimeout(() => requestAnimationFrame(type), 800);
+})();
+</script>
+<script>
+/* ──────────────────────────────────────────────────
+   Discovery CTA — "build your own rave calendar".
+   Reuses window.sb (created by auth.js) and the same onAuthStateChange
+   pattern as the creators-directory upvote explainer so the copy flips
+   live on sign-in / sign-out. Logged out, the strip is a shortcut to the
+   Google sign-in flow; logged in, it points to the user's rave calendar.
+─────────────────────────────────────────────────── */
+(function initRaveCalCta() {
+  function setState(session) {
+    const el   = document.getElementById('rave-cal-cta');
+    const txt  = document.getElementById('rave-cal-cta-text');
+    const link = document.getElementById('rave-cal-cta-link');
+    if (!el || !txt) return;
+    if (session && session.user) {
+      el.classList.remove('is-loggedout');
+      el.classList.add('is-loggedin');
+      txt.textContent = 'Tap the heart on any festival to add it to your rave calendar.';
+      if (link) link.style.display = '';
+    } else {
+      el.classList.remove('is-loggedin');
+      el.classList.add('is-loggedout');
+      txt.textContent = 'Sign in and save festivals to build your own rave calendar.';
+      if (link) link.style.display = 'none';
+    }
+  }
+
+  const el = document.getElementById('rave-cal-cta');
+  if (el) {
+    el.addEventListener('click', function (e) {
+      if (e.target.closest('.dc-link')) return;          // let the profile link work
+      if (!el.classList.contains('is-loggedout')) return;
+      const sb = window.sb;
+      if (!sb) return;
+      try {
+        sb.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.href }
+        });
+      } catch (err) { console.warn('[index] rave-cal CTA signIn', err); }
+    });
+  }
+
+  let tries = 0;
+  (function waitForSb() {
+    const sb = window.sb;
+    if (sb) {
+      sb.auth.getSession().then(function (res) {
+        setState(res && res.data ? res.data.session : null);
+      }).catch(function () { setState(null); });
+      sb.auth.onAuthStateChange(function (_event, session) { setState(session); });
+      return;
+    }
+    if (tries++ < 60) setTimeout(waitForSb, 50);
+  })();
 })();
 </script>
 </body>

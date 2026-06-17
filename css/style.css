@@ -3452,3 +3452,68 @@ footer {
 .map-pin-tooltip.leaflet-tooltip-bottom::before { border-bottom-color: rgba(0,229,255,0.25); }
 .map-pin-tooltip.leaflet-tooltip-left::before  { border-left-color:  rgba(0,229,255,0.25); }
 .map-pin-tooltip.leaflet-tooltip-right::before { border-right-color: rgba(0,229,255,0.25); }
+
+/* ════════════════════════════════════════════════
+   DISCOVERY CTA — "build your own rave calendar"
+   State-aware neon strip shared by the homepage festival section and the
+   calendar page. Subtle highlighted strip with a soft glow (matches the
+   creators-directory upvote explainer), not a loud banner. Text + behaviour
+   flip on sign-in/out via the page's onAuthStateChange watcher.
+════════════════════════════════════════════════ */
+.discovery-cta {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 28px;
+  padding: 14px 18px;
+  border: 1px solid rgba(0,229,255,0.35);
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(0,229,255,0.07), rgba(182,77,255,0.05));
+  box-shadow: 0 0 18px rgba(0,229,255,0.12), inset 0 0 14px rgba(0,229,255,0.04);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.discovery-cta.is-loggedout { cursor: pointer; }
+.discovery-cta.is-loggedout:hover {
+  border-color: rgba(0,229,255,0.65);
+  box-shadow: 0 0 26px rgba(0,229,255,0.22), inset 0 0 14px rgba(0,229,255,0.05);
+}
+.dc-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--cyan);
+  border: 1px solid rgba(0,229,255,0.45);
+  background: rgba(0,229,255,0.10);
+  animation: dcPulse 2.6s ease-in-out infinite;
+}
+.dc-text { min-width: 0; }
+.dc-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.dc-link:hover { opacity: 0.7; }
+@keyframes dcPulse {
+  0%, 100% { box-shadow: 0 0 7px rgba(0,229,255,0.20); }
+  50%      { box-shadow: 0 0 16px rgba(0,229,255,0.48); }
+}
+@media (max-width: 600px) {
+  .discovery-cta { flex-wrap: wrap; gap: 10px; }
+  .dc-link { margin-left: 0; }
+}

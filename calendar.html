@@ -437,6 +437,13 @@ body::after {
       Every rave. Every date. 2026 season.
     </p>
 
+    <!-- Discovery CTA (state-aware: text + behaviour flip on sign-in/out) -->
+    <div id="rave-cal-cta" class="discovery-cta is-loggedout" role="status" aria-live="polite">
+      <span class="dc-icon" aria-hidden="true">🗓️</span>
+      <span class="dc-text" id="rave-cal-cta-text">Sign in and save festivals to build your own rave calendar</span>
+      <a class="dc-link" id="rave-cal-cta-link" href="/profile" style="display:none;">Your rave calendar →</a>
+    </div>
+
     <div class="artist-finder">
   <div class="artist-finder-inner">
     <p class="artist-finder-eyebrow">
@@ -493,8 +500,8 @@ body::after {
         <button class="filter-btn" onclick="setTypeFilter('international',this)">International</button>
       </div>
 
-      <!-- Genre pills -->
-      <div class="cal-genre-filters">
+      <!-- Genre/Vibe pills (built from festival data — in sync with homepage) -->
+      <div class="cal-genre-filters" id="cal-genre-filters">
         <span class="cal-genre-label">Vibe:</span>
         <button class="genre-pill active" onclick="setGenreFilter('',this)">All Vibes</button>
         <button class="genre-pill" onclick="setGenreFilter('EDM',this)">EDM</button>
@@ -506,6 +513,46 @@ body::after {
         <button class="genre-pill" onclick="setGenreFilter('Psychedelic',this)">Psychedelic</button>
         <button class="genre-pill" onclick="setGenreFilter('Hip-Hop',this)">Hip-Hop</button>
         <button class="genre-pill" onclick="setGenreFilter('Jam',this)">Jam / Folk</button>
+      </div>
+
+      <!-- Region pills (built from festival data — in sync with homepage) -->
+      <div class="cal-genre-filters" id="cal-region-filters">
+        <span class="cal-genre-label">Region:</span>
+        <button class="region-pill active" onclick="setRegionFilter('',this)">All Regions</button>
+      </div>
+
+      <!-- Month pills -->
+      <div class="cal-genre-filters" id="cal-month-filters">
+        <span class="cal-genre-label">Month:</span>
+        <button class="month-pill active" onclick="setMonthFilter('',this)">All Months</button>
+        <button class="month-pill" onclick="setMonthFilter(1,this)">Jan</button>
+        <button class="month-pill" onclick="setMonthFilter(2,this)">Feb</button>
+        <button class="month-pill" onclick="setMonthFilter(3,this)">Mar</button>
+        <button class="month-pill" onclick="setMonthFilter(4,this)">Apr</button>
+        <button class="month-pill" onclick="setMonthFilter(5,this)">May</button>
+        <button class="month-pill" onclick="setMonthFilter(6,this)">Jun</button>
+        <button class="month-pill" onclick="setMonthFilter(7,this)">Jul</button>
+        <button class="month-pill" onclick="setMonthFilter(8,this)">Aug</button>
+        <button class="month-pill" onclick="setMonthFilter(9,this)">Sep</button>
+        <button class="month-pill" onclick="setMonthFilter(10,this)">Oct</button>
+        <button class="month-pill" onclick="setMonthFilter(11,this)">Nov</button>
+        <button class="month-pill" onclick="setMonthFilter(12,this)">Dec</button>
+      </div>
+
+      <!-- Near Me -->
+      <div class="cal-genre-filters" id="cal-nearme-row">
+        <span class="cal-genre-label">Near:</span>
+        <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
+        <div class="near-me-controls" id="cal-near-me-controls" style="display:none;width:100%;">
+          <div class="near-me-distance">
+            <span class="near-me-label">Within</span>
+            <button class="dist-btn active" data-miles="100" onclick="setCalDistance(100,this)">100mi</button>
+            <button class="dist-btn" data-miles="250" onclick="setCalDistance(250,this)">250mi</button>
+            <button class="dist-btn" data-miles="500" onclick="setCalDistance(500,this)">500mi</button>
+            <button class="dist-btn" data-miles="9999" onclick="setCalDistance(9999,this)">Any</button>
+          </div>
+          <p class="near-me-status" id="cal-near-me-status">Getting your location...</p>
+        </div>
       </div>
     </div>
 
@@ -573,9 +620,28 @@ function googleCalUrl(f) {
 let _timeFilter = 'upcoming';
 let _typeFilter = 'all';
 let _genreFilter = '';
+let _regionFilter = '';   // '' = all regions
+let _monthFilter = '';    // '' = all months, else 1-12
 let _calView = 'timeline';
 let _savedMode = 'all';   // 'all' | 'saved'
 let _session = null;      // current Supabase session, kept fresh via auth watcher
+
+// Near Me — geolocation distance filter (mirrors the homepage festival section).
+let _nearActive = false;
+let _userLat = null;
+let _userLng = null;
+let _maxMiles = 100;
+
+function haversineMiles(lat1, lng1, lat2, lng2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+    Math.sin(dLng/2) * Math.sin(dLng/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
 
 let festivals = [];
 
@@ -588,10 +654,21 @@ function getFilteredFestivals() {
       _timeFilter === 'all'      ? true :
       _timeFilter === 'upcoming' ? endDate >= TODAY :
                                    endDate < TODAY;
-    const typeOk  = _typeFilter  === 'all' || f.type === _typeFilter;
-    const genreOk = _genreFilter === ''    || (f.genres && f.genres.includes(_genreFilter));
-    const savedOk = _savedMode !== 'saved' || (window.PlurSaves && window.PlurSaves.isSaved(f.id));
-    return timeOk && typeOk && genreOk && savedOk;
+    const typeOk   = _typeFilter   === 'all' || f.type === _typeFilter;
+    const genreOk  = _genreFilter  === ''    || (f.genres && f.genres.includes(_genreFilter));
+    const regionOk = _regionFilter === ''    || f.region === _regionFilter;
+    const monthOk  = _monthFilter  === ''    || (f.sortDate && parseInt(f.sortDate.split('-')[1], 10) === _monthFilter);
+    const savedOk  = _savedMode !== 'saved'  || (window.PlurSaves && window.PlurSaves.isSaved(f.id));
+
+    // Near Me: when active, narrow to festivals within range. Festivals without
+    // coordinates (e.g. some international events) stay visible, matching the
+    // homepage behaviour rather than silently dropping them.
+    let nearOk = true;
+    if (_nearActive && _userLat != null && f.lat != null && f.lng != null) {
+      nearOk = haversineMiles(_userLat, _userLng, f.lat, f.lng) <= _maxMiles;
+    }
+
+    return timeOk && typeOk && genreOk && regionOk && monthOk && nearOk && savedOk;
   }).sort((a, b) => {
     const aPast = isPast(a), bPast = isPast(b);
     if (aPast !== bPast) return aPast ? 1 : -1;
@@ -863,9 +940,107 @@ function setTypeFilter(val, btn) {
 
 function setGenreFilter(val, btn) {
   _genreFilter = val;
-  document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#cal-genre-filters .genre-pill').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderActiveView();
+}
+
+function setRegionFilter(val, btn) {
+  _regionFilter = val;
+  document.querySelectorAll('#cal-region-filters .region-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderActiveView();
+}
+
+function setMonthFilter(val, btn) {
+  _monthFilter = val;
+  document.querySelectorAll('#cal-month-filters .month-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderActiveView();
+}
+
+function toggleCalNearMe() {
+  const btn      = document.getElementById('cal-near-me-btn');
+  const controls = document.getElementById('cal-near-me-controls');
+  const status   = document.getElementById('cal-near-me-status');
+
+  if (_nearActive) {
+    _nearActive = false;
+    _userLat = null;
+    _userLng = null;
+    btn.classList.remove('active');
+    controls.style.display = 'none';
+    renderActiveView();
+    return;
+  }
+
+  controls.style.display = 'block';
+  btn.classList.add('active');
+  status.textContent = 'Getting your location...';
+
+  if (!navigator.geolocation) {
+    status.textContent = 'Location not supported by your browser.';
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      _userLat = pos.coords.latitude;
+      _userLng = pos.coords.longitude;
+      _nearActive = true;
+      status.textContent = _maxMiles === 9999
+        ? '📍 Location found — showing all festivals'
+        : `📍 Location found — showing within ${_maxMiles} miles`;
+      renderActiveView();
+    },
+    () => {
+      status.textContent = 'Location access denied. Enable location in your browser settings.';
+      btn.classList.remove('active');
+      controls.style.display = 'none';
+    },
+    { timeout: 10000 }
+  );
+}
+
+function setCalDistance(miles, btn) {
+  _maxMiles = miles;
+  document.querySelectorAll('#cal-near-me-controls .dist-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const status = document.getElementById('cal-near-me-status');
+  if (status && _userLat != null) {
+    status.textContent = miles === 9999
+      ? '📍 Showing all festivals'
+      : `📍 Showing within ${miles} miles`;
+  }
+  renderActiveView();
+}
+
+// Build the vibe + region pills from the shared festival taxonomy so the
+// calendar always shows the same complete set as the homepage. The hardcoded
+// pills in the markup act as a static fallback if this never runs.
+function renderCalFilterPills() {
+  const D = window.PLURGASM_DATA;
+  if (!D) return;
+
+  const genreRow = document.getElementById('cal-genre-filters');
+  if (genreRow && typeof D.getFestivalGenres === 'function') {
+    genreRow.innerHTML =
+      `<span class="cal-genre-label">Vibe:</span>` +
+      `<button class="genre-pill active" onclick="setGenreFilter('',this)">All Vibes</button>` +
+      D.getFestivalGenres().map(g =>
+        `<button class="genre-pill" onclick="setGenreFilter('${g.value}',this)">${g.label}</button>`
+      ).join('');
+  }
+
+  const regionRow = document.getElementById('cal-region-filters');
+  if (regionRow && typeof D.getFestivalRegions === 'function') {
+    regionRow.innerHTML =
+      `<span class="cal-genre-label">Region:</span>` +
+      `<button class="region-pill active" onclick="setRegionFilter('',this)">All Regions</button>` +
+      D.getFestivalRegions().map(r =>
+        `<button class="region-pill" onclick="setRegionFilter('${r.id}',this)">${r.label}</button>`
+      ).join('');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -877,6 +1052,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  renderCalFilterPills();   // vibe + region pills from data (in sync w/ homepage)
   renderActiveView();
 
   // Keep Saved mode in sync with auth + the saved set. window.sb is created by
@@ -1015,6 +1191,61 @@ function closeMobileMenu() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMobileMenu();
 });
+</script>
+<script>
+/* ──────────────────────────────────────────────────
+   Discovery CTA — "build your own rave calendar".
+   Same state-aware pattern as the homepage: reuses window.sb + the
+   onAuthStateChange watcher so the copy flips live on sign-in / sign-out.
+─────────────────────────────────────────────────── */
+(function initRaveCalCta() {
+  function setState(session) {
+    const el   = document.getElementById('rave-cal-cta');
+    const txt  = document.getElementById('rave-cal-cta-text');
+    const link = document.getElementById('rave-cal-cta-link');
+    if (!el || !txt) return;
+    if (session && session.user) {
+      el.classList.remove('is-loggedout');
+      el.classList.add('is-loggedin');
+      txt.textContent = 'Tap the heart on any festival to add it to your rave calendar.';
+      if (link) link.style.display = '';
+    } else {
+      el.classList.remove('is-loggedin');
+      el.classList.add('is-loggedout');
+      txt.textContent = 'Sign in and save festivals to build your own rave calendar.';
+      if (link) link.style.display = 'none';
+    }
+  }
+
+  const el = document.getElementById('rave-cal-cta');
+  if (el) {
+    el.addEventListener('click', function (e) {
+      if (e.target.closest('.dc-link')) return;          // let the profile link work
+      if (!el.classList.contains('is-loggedout')) return;
+      const sb = window.sb;
+      if (!sb) return;
+      try {
+        sb.auth.signInWithOAuth({
+          provider: 'google',
+          options: { redirectTo: window.location.href }
+        });
+      } catch (err) { console.warn('[calendar] rave-cal CTA signIn', err); }
+    });
+  }
+
+  let tries = 0;
+  (function waitForSb() {
+    const sb = window.sb;
+    if (sb) {
+      sb.auth.getSession().then(function (res) {
+        setState(res && res.data ? res.data.session : null);
+      }).catch(function () { setState(null); });
+      sb.auth.onAuthStateChange(function (_event, session) { setState(session); });
+      return;
+    }
+    if (tries++ < 60) setTimeout(waitForSb, 50);
+  })();
+})();
 </script>
 
 <div id="site-bottom-nav"></div>
