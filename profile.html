@@ -871,6 +871,7 @@
             (f.detailPage ? '' : ' rel="noopener"') + '>' +
             '<span class="pf-cal-daypanel-dot" style="background:' + c.accent + ';"></span>' +
             '<span class="pf-cal-daypanel-name">' + escapeHtml(f.name) + '</span>' +
+            countdownHtml(f) +
             '<span class="pf-cal-daypanel-loc">' + escapeHtml(f.location || '') + '</span>' +
             removeBtnHtml(f) +
           '</a>';
