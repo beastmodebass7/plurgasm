@@ -2386,6 +2386,20 @@ footer {
   font-size: 11px; letter-spacing: 1px; color: var(--muted);
 }
 
+/* in-content links inside a blog post body — make them pop in the
+   cyan accent with an underline so they read clearly as links.
+   Scoped to #post-body only; nav/footer/button links unaffected. */
+#post-body a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s;
+}
+#post-body a:hover {
+  color: var(--pink);
+}
+
 /* per-post view counter badge — small, muted, with a little eye icon.
    Used on blog cards and the post header. Kept subtle on purpose. */
 .views-badge-slot { display: inline-flex; align-items: center; }
