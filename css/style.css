@@ -2883,9 +2883,24 @@ footer {
 
   /* calendar rows full width */
   .cal-row {
-    grid-template-columns: 80px 1fr auto;
+    grid-template-columns: 80px 1fr;
   }
-  .cal-save-col { padding: 0 12px; }
+  /* The date + info + "+ Add to List" button can't share one line on a narrow
+     phone, so the auto-width save column used to push the button past the card
+     edge. Drop it onto its own full-width row below the info column instead. */
+  .cal-save-col {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+  }
+  /* Trim the "+ Add to List" / "✓ Added" button so it sits comfortably inline. */
+  .cal-save-col .pg-save-list-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
   .cal-name {
     font-size: 19px;
     min-width: 0;
