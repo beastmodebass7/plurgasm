@@ -888,6 +888,35 @@
       ' title="Remove from saved">✕</span>';
   }
 
+  // Day-level countdown badge for a saved festival, computed once on render.
+  // Parses ISO parts by hand (NOT new Date(iso)) to avoid the UTC off-by-one,
+  // and is wrapped in try/catch so a malformed date can never break the row or
+  // the surrounding calendar render — it just yields no badge.
+  function countdownHtml(f) {
+    try {
+      if (!f || !f.sortDate) return '';
+      var sp = String(f.sortDate).split('-').map(Number);
+      var start = new Date(sp[0], sp[1] - 1, sp[2]);
+      var ep = String(f.endDate || f.sortDate).split('-').map(Number);
+      var end = new Date(ep[0], ep[1] - 1, ep[2]);
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (today < start) {
+        var days = Math.round((start - today) / 86400000);
+        var label = days === 1 ? 'TOMORROW' : days + ' DAYS TO GO';
+        return '<span class="fest-countdown">' + label + '</span>';
+      }
+      if (today <= end) {
+        return '<span class="fest-countdown is-live">HAPPENING NOW</span>';
+      }
+      return '<span class="fest-countdown is-over">ENDED</span>';
+    } catch (e) {
+      console.error('[profile] countdownHtml', e);
+      return '';
+    }
+  }
+
   function agendaHTML() {
     return _calList.map(function (f) {
       var c = _calColor[String(f.id)] || CAL_COLORS[0];
@@ -896,6 +925,7 @@
         '<span class="pf-agenda-dot" style="background:' + c.accent + ';"></span>' +
         '<span class="pf-agenda-date">' + escapeHtml(f.dates || '') + '</span>' +
         '<span class="pf-agenda-name">' + escapeHtml(f.name) + '</span>' +
+        countdownHtml(f) +
         removeBtnHtml(f) +
       '</a>';
     }).join('');
