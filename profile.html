@@ -646,8 +646,25 @@
 
   var _calList = [];   // saved upcoming festivals, sorted by sortDate
   var _calColor = {};  // festival id -> color object
+  var _calBudget = {}; // festival id -> saved budget JSON (in-memory, never refetched per keystroke)
   var _calYear = 0;
   var _calMonth = 0;   // 0-based
+
+  // Fixed budget categories, in display order. Keys match the persisted JSON shape:
+  // { tickets:{amount,split}, travel:{…}, lodging:{…}, food:{…}, other:{…}, groupSize }
+  var BUDGET_CATS = [
+    { key: 'tickets', label: 'Tickets' },
+    { key: 'travel',  label: 'Travel' },
+    { key: 'lodging', label: 'Lodging' },
+    { key: 'food',    label: 'Food' },
+    { key: 'other',   label: 'Other' }
+  ];
+
+  // Currency with thousands separators + 2 decimals, e.g. $1,234.50.
+  function fmtCurrency(n) {
+    var v = (typeof n === 'number' && isFinite(n)) ? n : 0;
+    return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
 
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
   function dayStr(y, m, d) { return y + '-' + pad2(m + 1) + '-' + pad2(d); } // m is 0-based
@@ -681,15 +698,19 @@
 
     (async function () {
       var savedIds = [];
+      _calBudget = {};
       try {
         var sb = window.sb;
         if (sb) {
           var res = await sb.auth.getSession();
           var session = (res && res.data) ? res.data.session : null;
           if (session && session.user) {
-            var q = await sb.from('saved_festivals').select('festival_id');
+            var q = await sb.from('saved_festivals').select('festival_id, budget');
             if (q.error) throw q.error;
-            savedIds = (q.data || []).map(function (r) { return r.festival_id; });
+            (q.data || []).forEach(function (r) {
+              savedIds.push(r.festival_id);
+              if (r.budget) _calBudget[String(r.festival_id)] = r.budget;
+            });
           }
         }
       } catch (e) {
@@ -921,15 +942,163 @@
   function agendaHTML() {
     return _calList.map(function (f) {
       var c = _calColor[String(f.id)] || CAL_COLORS[0];
-      return '<a class="pf-agenda-row" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
-        (f.detailPage ? '' : ' rel="noopener"') + '>' +
-        '<span class="pf-agenda-dot" style="background:' + c.accent + ';"></span>' +
-        '<span class="pf-agenda-date">' + escapeHtml(f.dates || '') + '</span>' +
-        '<span class="pf-agenda-name">' + escapeHtml(f.name) + '</span>' +
-        countdownHtml(f) +
-        removeBtnHtml(f) +
-      '</a>';
+      return '<div class="pf-agenda-item" data-fest-id="' + escapeHtml(String(f.id)) + '">' +
+        '<a class="pf-agenda-row" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
+          (f.detailPage ? '' : ' rel="noopener"') + '>' +
+          '<span class="pf-agenda-dot" style="background:' + c.accent + ';"></span>' +
+          '<span class="pf-agenda-date">' + escapeHtml(f.dates || '') + '</span>' +
+          '<span class="pf-agenda-name">' + escapeHtml(f.name) + '</span>' +
+          countdownHtml(f) +
+          removeBtnHtml(f) +
+        '</a>' +
+        budgetSectionHTML(f) +
+      '</div>';
     }).join('');
+  }
+
+  // ── Per-festival "💰 Budget" calculator ──────────────────────────────────
+  // Collapsible (collapsed by default) toggle + panel rendered after each
+  // agenda row. Inputs are pre-populated from the saved budget JSON in
+  // _calBudget so expanding shows whatever the user last saved. Wrapped in
+  // try/catch so a malformed budget can never break the agenda render.
+  function budgetSectionHTML(f) {
+    try {
+      var id = String(f.id);
+      var b = _calBudget[id] || {};
+      var groupSize = (typeof b.groupSize === 'number' && b.groupSize >= 1)
+        ? Math.floor(b.groupSize) : 1;
+
+      var rows = BUDGET_CATS.map(function (cat) {
+        var entry = b[cat.key] || {};
+        var amount = (typeof entry.amount === 'number' && entry.amount > 0) ? entry.amount : '';
+        var split = !!entry.split;
+        return '<div class="budget-row" data-cat="' + cat.key + '">' +
+          '<label class="budget-row-label">' + cat.label + '</label>' +
+          '<span class="budget-amount-wrap">' +
+            '<span class="budget-currency">$</span>' +
+            '<input type="text" inputmode="decimal" min="0" class="budget-amount"' +
+              ' value="' + escapeHtml(String(amount)) + '" placeholder="0"' +
+              ' aria-label="' + escapeHtml(cat.label) + ' amount">' +
+          '</span>' +
+          '<label class="budget-split-label">' +
+            '<input type="checkbox" class="budget-split"' + (split ? ' checked' : '') + '> Split' +
+          '</label>' +
+        '</div>';
+      }).join('');
+
+      return '<div class="budget-toggle-wrap">' +
+        '<button type="button" class="budget-toggle" data-budget-id="' + escapeHtml(id) + '"' +
+          ' aria-expanded="false">💰 Budget</button>' +
+        '<div class="budget-panel" data-budget-id="' + escapeHtml(id) + '" hidden>' +
+          rows +
+          '<div class="budget-group">' +
+            '<label class="budget-group-label">Group size</label>' +
+            '<input type="number" class="budget-groupsize" min="1" step="1" value="' + groupSize + '"' +
+              ' aria-label="Group size">' +
+          '</div>' +
+          '<div class="budget-result">' +
+            '<div class="budget-result-main">Your estimated cost: ' +
+              '<span class="budget-result-amount">' + fmtCurrency(0) + '</span></div>' +
+            '<div class="budget-breakdown"></div>' +
+            '<span class="budget-saved" role="status" aria-live="polite"></span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    } catch (e) {
+      console.error('[profile] budgetSectionHTML', e);
+      return '';
+    }
+  }
+
+  // Group size from a panel, clamped to a minimum of 1.
+  function panelGroupSize(panel) {
+    var gs = parseInt((panel.querySelector('.budget-groupsize') || {}).value, 10);
+    return (!gs || gs < 1) ? 1 : gs;
+  }
+
+  // Recompute the live result + per-category breakdown from current input values.
+  // Per category: contribution = split ? amount/groupSize : amount. Blank/NaN → 0.
+  function recalcBudget(panel) {
+    try {
+      if (!panel) return;
+      var groupSize = panelGroupSize(panel);
+      var yourShare = 0;
+      var parts = [];
+      BUDGET_CATS.forEach(function (cat) {
+        var row = panel.querySelector('.budget-row[data-cat="' + cat.key + '"]');
+        if (!row) return;
+        var amount = parseFloat((row.querySelector('.budget-amount') || {}).value);
+        if (isNaN(amount) || amount < 0) amount = 0;
+        var split = !!(row.querySelector('.budget-split') || {}).checked;
+        var contribution = split ? amount / groupSize : amount;
+        yourShare += contribution;
+        if (amount > 0) {
+          var line = cat.label + ': ' + fmtCurrency(amount);
+          if (split) line += ' ÷ ' + groupSize + ' = ' + fmtCurrency(contribution);
+          parts.push('<div class="budget-breakdown-row">' + line + '</div>');
+        }
+      });
+      var amtEl = panel.querySelector('.budget-result-amount');
+      if (amtEl) amtEl.textContent = fmtCurrency(yourShare);
+      var bd = panel.querySelector('.budget-breakdown');
+      if (bd) bd.innerHTML = parts.join('');
+    } catch (e) {
+      console.error('[profile] recalcBudget', e);
+    }
+  }
+
+  // Build the persisted JSON shape from current input values.
+  function readBudget(panel) {
+    var budget = { groupSize: panelGroupSize(panel) };
+    BUDGET_CATS.forEach(function (cat) {
+      var row = panel.querySelector('.budget-row[data-cat="' + cat.key + '"]');
+      var amount = 0, split = false;
+      if (row) {
+        amount = parseFloat((row.querySelector('.budget-amount') || {}).value);
+        if (isNaN(amount) || amount < 0) amount = 0;
+        split = !!(row.querySelector('.budget-split') || {}).checked;
+      }
+      budget[cat.key] = { amount: amount, split: split };
+    });
+    return budget;
+  }
+
+  // Debounce (~600ms) a save so we don't write on every keystroke.
+  function scheduleBudgetSave(panel) {
+    if (!panel) return;
+    if (panel._saveTimer) clearTimeout(panel._saveTimer);
+    panel._saveTimer = setTimeout(function () { saveBudget(panel); }, 600);
+  }
+
+  // Upsert the budget for this festival. RLS scopes the UPDATE to the current
+  // user's own row, so eq('festival_id', id) is enough. Keep _calBudget in sync
+  // so a re-render (e.g. after removing another festival) preserves the values.
+  function saveBudget(panel) {
+    var id = panel.getAttribute('data-budget-id');
+    if (!id) return;
+    (async function () {
+      try {
+        var sb = window.sb;
+        if (!sb) return;
+        var budget = readBudget(panel);
+        _calBudget[String(id)] = budget;
+        var res = await sb.from('saved_festivals').update({ budget: budget }).eq('festival_id', id);
+        if (res.error) throw res.error;
+        showSaved(panel);
+      } catch (e) {
+        console.error('[profile] saveBudget', e);
+      }
+    })();
+  }
+
+  // Subtle, auto-fading "Saved" indicator.
+  function showSaved(panel) {
+    var el = panel.querySelector('.budget-saved');
+    if (!el) return;
+    el.textContent = 'Saved ✓';
+    el.classList.add('show');
+    if (panel._savedTimer) clearTimeout(panel._savedTimer);
+    panel._savedTimer = setTimeout(function () { el.classList.remove('show'); }, 1600);
   }
 
   // Delete a saved festival (user_id + festival_id), then re-render the agenda +
@@ -952,6 +1121,7 @@
 
         _calList = _calList.filter(function (f) { return String(f.id) !== id; });
         delete _calColor[id];
+        delete _calBudget[id];
 
         var rootEl = document.getElementById('pf-cal-root');
         if (!rootEl) return;
@@ -1035,6 +1205,39 @@
       var id = btn.getAttribute('data-remove-id');
       if (id) pfRemoveSaved(id);
     }, true);
+
+    // ── Budget calculator: delegated handlers so they survive agenda re-renders ──
+    // Toggle expands/collapses the (collapsed-by-default) panel and refreshes the
+    // result on open.
+    document.addEventListener('click', function (e) {
+      var toggle = e.target && e.target.closest ? e.target.closest('.budget-toggle') : null;
+      if (!toggle) return;
+      var wrap = toggle.closest('.budget-toggle-wrap');
+      var panel = wrap ? wrap.querySelector('.budget-panel') : null;
+      if (!panel) return;
+      var opening = panel.hasAttribute('hidden');
+      if (opening) {
+        panel.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.classList.add('open');
+        recalcBudget(panel);
+      } else {
+        panel.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.classList.remove('open');
+      }
+    });
+
+    // Any edit recalculates immediately and debounces a save. 'input' covers typing
+    // in the amount/group-size fields; 'change' covers the Split checkboxes.
+    function onBudgetEdit(e) {
+      var panel = e.target && e.target.closest ? e.target.closest('.budget-panel') : null;
+      if (!panel) return;
+      recalcBudget(panel);
+      scheduleBudgetSave(panel);
+    }
+    document.addEventListener('input', onBudgetEdit);
+    document.addEventListener('change', onBudgetEdit);
   }
 
   if (document.readyState === 'loading') {

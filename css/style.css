@@ -3576,3 +3576,184 @@ footer {
   background: transparent;
   opacity: 0.6;
 }
+
+/* ─────── PER-FESTIVAL BUDGET + SPLIT CALCULATOR (profile) ─────── */
+/* Each saved festival in the "What's next" list gets a 💰 Budget toggle that
+   expands a small calculator. Styles live here as classes (not inline in the
+   profile's template literals) on purpose — complex inline styles in those
+   literals have broken the profile JS before. */
+.pf-agenda-item { border-bottom: 1px solid var(--border); }
+.pf-agenda-item .pf-agenda-row { border-bottom: none; }
+
+.budget-toggle-wrap { padding: 0 4px 10px; }
+.budget-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.budget-toggle:hover,
+.budget-toggle:focus-visible {
+  color: var(--cyan);
+  border-color: rgba(0,229,255,0.4);
+  background: rgba(0,229,255,0.06);
+  outline: none;
+}
+.budget-toggle.open {
+  color: var(--cyan);
+  border-color: rgba(0,229,255,0.4);
+  background: rgba(0,229,255,0.06);
+}
+
+.budget-panel {
+  margin: 2px 4px 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.015);
+}
+.budget-panel[hidden] { display: none; }
+
+.budget-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+}
+.budget-row + .budget-row { border-top: 1px solid var(--border); }
+.budget-row-label {
+  flex: 1 1 auto;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+}
+.budget-amount-wrap {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: rgba(0,0,0,0.25);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.budget-amount-wrap:focus-within { border-color: rgba(0,229,255,0.45); }
+.budget-currency {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 0 2px 0 9px;
+}
+/* font-size:16px keeps iOS Safari from zooming the page when a field is focused */
+.budget-amount {
+  width: 92px;
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  color: var(--white);
+  background: transparent;
+  border: 0;
+  padding: 8px 9px 8px 4px;
+}
+.budget-amount:focus { outline: none; }
+.budget-split-label {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.budget-split { width: 16px; height: 16px; accent-color: var(--cyan); cursor: pointer; }
+
+.budget-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.budget-group-label {
+  flex: 1 1 auto;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+}
+.budget-groupsize {
+  width: 72px;
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  color: var(--white);
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 9px;
+  transition: border-color 0.15s;
+}
+.budget-groupsize:focus { outline: none; border-color: rgba(0,229,255,0.45); }
+
+.budget-result {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--border);
+}
+.budget-result-main {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+}
+.budget-result-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  margin-left: 4px;
+}
+.budget-breakdown {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.budget-breakdown:empty { display: none; }
+.budget-breakdown-row {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+}
+.budget-saved {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.budget-saved.show { opacity: 1; }
+
+@media (max-width: 480px) {
+  .budget-amount { width: 78px; }
+}
