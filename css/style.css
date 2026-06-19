@@ -2045,16 +2045,109 @@ footer {
 }
 .cal-row:hover .cal-arrow { opacity: 1; transform: translateX(3px); }
 
-/* Dedicated, non-reflowing action slot for the save (heart) button. Lives in
-   its own grid column so it sits in the exact same spot on every card —
-   sparse or full — instead of drifting around the wrapping info column. */
-.cal-save-col {
+/* ──────────────────────────────────────────────────
+   TIMELINE / LIST CARD — three-zone layout (calendar.html).
+   Scoped to .cal-row--stack so the homepage's #cal-view calendar — which
+   reuses the base .cal-row / .cal-info-col rules — is left untouched.
+   Zones: date (left) · info (flexible, wraps) · actions (fixed right stack).
+─────────────────────────────────────────────────── */
+.cal-row--stack {
+  grid-template-columns: 120px 1fr 184px;
+  align-items: stretch;
+}
+/* INFO zone: stack name / location / meta / genres vertically and let long
+   names + locations wrap instead of forcing the row wider. min-width:0 lets
+   the flexible 1fr track actually shrink so overflow-wrap can break strings. */
+.cal-row--stack .cal-info-col {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+.cal-row--stack .cal-name-row {
   display: flex;
   align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cal-row--stack .cal-name {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.cal-row--stack .cal-loc,
+.cal-row--stack .cal-meta {
+  flex: 0 0 auto;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ACTIONS zone: fixed-width right column, vertical stack of equal-width
+   buttons (Add to List · Google Calendar · Tickets). */
+.cal-actions-col {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 0 18px;
+  gap: 8px;
+  padding: 14px 16px;
   border-left: 1px solid var(--border);
   flex-shrink: 0;
+}
+.cal-actions-col > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Google Calendar + Tickets share one pill shape with the rest of the site. */
+.cal-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 9px 10px;
+  border-radius: 6px;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid rgba(0,229,255,0.4);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.cal-action-btn:hover {
+  color: #00e5ff;
+  border-color: rgba(0,229,255,0.7);
+  background: rgba(0,229,255,0.12);
+}
+/* Tickets = primary CTA: fills in on hover so it reads as the main action. */
+.cal-action-btn--primary {
+  border-color: rgba(0,229,255,0.6);
+  background: rgba(0,229,255,0.12);
+}
+.cal-action-btn--primary:hover {
+  color: #06060c;
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+/* TBA placeholder — same footprint, muted + non-interactive. */
+.cal-action-btn--tba {
+  border-color: var(--border);
+  color: var(--faint);
+  background: transparent;
+  cursor: default;
+}
+/* The "+ Add to List" save toggle fills the column and matches the height of
+   the .cal-action-btn pills above (same padding / font) so the stack is even. */
+.cal-actions-col .pg-save-list-btn {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
 }
 
 /* ══════════════════════════════════════════════════
@@ -3029,22 +3122,29 @@ footer {
   .cal-row {
     grid-template-columns: 80px 1fr;
   }
-  /* The date + info + "+ Add to List" button can't share one line on a narrow
-     phone, so the auto-width save column used to push the button past the card
-     edge. Drop it onto its own full-width row below the info column instead. */
-  .cal-save-col {
+  /* On a narrow phone the actions can't sit to the right, so the whole stack
+     drops onto its own full-width row below the info. Buttons flow in a neat
+     row when they fit and wrap to full-width when they don't. */
+  .cal-row--stack {
+    grid-template-columns: 80px 1fr;
+  }
+  .cal-actions-col {
     grid-column: 1 / -1;
-    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
     border-left: none;
     border-top: 1px solid var(--border);
-    padding: 10px 16px;
+    padding: 12px 16px;
   }
-  /* Trim the "+ Add to List" / "✓ Added" button so it sits comfortably inline. */
-  .cal-save-col .pg-save-list-btn {
-    padding: 7px 12px;
-    font-size: 11px;
-    letter-spacing: 1px;
+  .cal-actions-col > * {
+    flex: 1 1 140px;
+    width: auto;
   }
+  /* In the column info layout, flex-basis would size HEIGHT — keep these auto
+     so the base mobile flex-basis (meant for the homepage row layout) can't
+     stretch them vertically. */
+  .cal-row--stack .cal-loc,
+  .cal-row--stack .cal-meta { flex-basis: auto; }
   .cal-name {
     font-size: 19px;
     min-width: 0;

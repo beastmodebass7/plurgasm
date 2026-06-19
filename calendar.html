@@ -677,32 +677,28 @@ function festRowHTML(f) {
     const hasUrl = f.url && f.url !== '#';
     const cal = googleCalUrl(f);
     return `
-      <div class="cal-row${past ? ' cal-row-past past' : ''}" data-id="${f.id}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
+      <div class="cal-row cal-row--stack${past ? ' cal-row-past past' : ''}" data-id="${f.id}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
         <div class="cal-date-col">
           <span class="cal-date-month">${startMon}</span>
           <span class="cal-date-day">${dayNum}</span>
           ${endNum && endNum !== dayNum ? `<span class="cal-date-end">– ${endNum}</span>` : ''}
         </div>
         <div class="cal-info-col">
-          <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
-          <span class="cal-name">${f.name}</span>
-          ${past ? `<span class="past-badge">ENDED</span>` : ''}
+          <div class="cal-name-row">
+            <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
+            <span class="cal-name">${f.name}</span>
+            ${past ? `<span class="past-badge">ENDED</span>` : ''}
+          </div>
           <span class="cal-loc">📍 ${f.location}</span>
-          <span class="cal-loc cal-meta">· ${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
-          <div class="cal-genres">${(f.genres||[]).slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
-          ${!past && cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
-          ${hasUrl
-            ? `<a href="${f.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
-                style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
-                       color:var(--cyan);margin-left:auto;white-space:nowrap;transition:opacity 0.2s;"
-                onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-                Tickets →
-              </a>`
-            : `<span style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--faint);margin-left:auto;">TBA</span>`}
-          <span class="cal-arrow">→</span>
+          <span class="cal-meta">${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
+          ${(f.genres && f.genres.length) ? `<div class="cal-genres">${f.genres.slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>` : ''}
         </div>
-        <div class="cal-save-col">
+        <div class="cal-actions-col" onclick="event.stopPropagation()">
           ${window.PlurSaves ? PlurSaves.buttonHtml(f.id, 'list') : ''}
+          ${!past && cal ? `<a class="cal-action-btn cal-action-btn--ghost" href="${cal}" target="_blank" rel="noopener">+ Google Calendar</a>` : ''}
+          ${hasUrl
+            ? `<a class="cal-action-btn cal-action-btn--primary" href="${f.url}" target="_blank" rel="noopener">Tickets →</a>`
+            : `<span class="cal-action-btn cal-action-btn--tba">TBA</span>`}
         </div>
       </div>`;
   } catch(e) { return ''; }
