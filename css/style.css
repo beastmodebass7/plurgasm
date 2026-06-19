@@ -268,11 +268,12 @@ nav {
   top: calc(100% + 8px);
   left: 0;
   right: 0;
-  background: rgba(15,15,26,0.97);
+  /* Solid card surface so content behind the panel (countdown digits,
+     section labels) can't bleed through. Opaque var(--card) — not an
+     rgba() with alpha, and not relying on backdrop-blur alone. */
+  background: var(--card);
   border: 1px solid rgba(0,229,255,0.22);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  z-index: 300;
+  z-index: 400;
   display: none;
   flex-direction: column;
   max-height: 480px;
@@ -292,7 +293,7 @@ nav {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: rgba(15,15,26,0.98);
+  background: var(--card);
 }
 .sr-item {
   display: flex;
