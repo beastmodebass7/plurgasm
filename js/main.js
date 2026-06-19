@@ -589,9 +589,14 @@ function renderBrands(cat) {
           <span class="brand-ship">⏱ ${b.ship}</span>
           <span class="brand-loc">📍 ${b.loc}</span>
         </div>
-        <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-bottom:6px;">${catLabel}</p>
-        <p class="brand-desc">${shortDesc}</p>
-        ${b.ig ? `<a class="brand-ig-btn" href="https://instagram.com/${b.ig.replace('@','')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${b.ig}</a>` : ''}
+<p class="brand-style">${b.style}</p>
+        <p class="brand-desc">${b.desc}</p>
+        ${b.ig ? `<a class="brand-ig-btn"
+  href="https://instagram.com/${b.ig.replace('@','')}"
+  target="_blank" rel="noopener"
+  onclick="event.stopPropagation()">
+  <span>${b.ig}</span>
+</a>` : ''}
       </div>
     </div>
   `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">No brands found${searchQuery ? ' for "'+searchQuery+'"':''} in this category.</p>`;
@@ -697,7 +702,7 @@ function openBrandModal(id) {
         ? `<a href="${b.url}" target="_blank" rel="noopener" class="bm-link-btn bm-link-primary">Visit Website →</a>`
         : `<span class="bm-link-btn bm-link-ghost" style="cursor:default;opacity:0.5;">No website listed</span>`}
       ${igHandle
-        ? `<a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener" class="brand-ig-btn">@${igHandle}</a>`
+        ? `<a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener" class="brand-ig-btn"><span>@${igHandle}</span></a>`
         : ''}
       <button onclick="shareBrand('${b.name}', '${b.url}')" class="share-btn">Share</button>
       <button onclick="closeBrandModal()" class="bm-link-btn bm-link-ghost" style="margin-left:auto;">Close</button>
