@@ -188,63 +188,56 @@ body::after {
   .cal-name { min-width: unset; }
 }
 
+/* Compact / secondary artist finder — smaller, more muted, sits directly
+   below the prominent festival search. Behaviour + IDs are unchanged. */
 .artist-finder {
-  background: var(--deep);
-  border-bottom: 1px solid var(--border);
-  padding: 56px 48px;
+  background: rgba(255,255,255,0.015);
+  border: 1px solid var(--border);
+  padding: 22px 24px;
   position: relative;
   overflow: hidden;
+  max-width: 620px;
+  margin-top: 22px;
 }
 .artist-finder::before {
-  content: 'FIND';
-  position: absolute;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 220px;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0,229,255,0.04);
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  letter-spacing: 10px;
-  line-height: 1;
+  display: none;   /* drop the big "FIND" watermark in compact mode */
 }
 .artist-finder-inner {
-  max-width: 680px;
+  max-width: 100%;
   position: relative;
   z-index: 2;
 }
 .artist-finder-eyebrow {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 4px;
+  font-size: 9px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 10px;
+  color: var(--muted);
+  margin-bottom: 6px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 .artist-finder-eyebrow::after {
   content: '';
-  width: 40px;
+  width: 28px;
   height: 1px;
-  background: var(--cyan);
-  opacity: 0.4;
+  background: var(--muted);
+  opacity: 0.35;
 }
 .artist-finder-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 6vw, 64px);
-  letter-spacing: 3px;
-  color: var(--white);
-  margin-bottom: 10px;
-  line-height: 1;
+  font-size: clamp(20px, 3vw, 26px);
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.05;
 }
 .artist-finder-sub {
-  font-size: 16px;
-  color: var(--muted);
-  margin-bottom: 28px;
-  line-height: 1.6;
+  font-size: 12px;
+  color: var(--faint);
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 .artist-search-wrap {
   position: relative;
@@ -253,22 +246,22 @@ body::after {
 }
 .artist-search-input {
   width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(0,229,255,0.35);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
   color: var(--white);
   font-family: 'Chakra Petch', sans-serif;
-  font-size: 18px;
-  padding: 16px 50px 16px 20px;
+  font-size: 16px;            /* keep >=16px so iOS doesn't zoom on focus */
+  padding: 11px 42px 11px 16px;
   outline: none;
   transition: border-color 0.2s;
   caret-color: var(--cyan);
 }
 .artist-search-input:focus {
-  border-color: rgba(0,229,255,0.7);
+  border-color: rgba(0,229,255,0.55);
 }
 .artist-search-input::placeholder {
   color: var(--faint);
-  font-size: 15px;
+  font-size: 14px;
 }
 .artist-clear-btn {
   position: absolute;
@@ -361,7 +354,7 @@ body::after {
 }
 
 @media (max-width: 768px) {
-  .artist-finder { padding: 40px 20px; }
+  .artist-finder { padding: 18px 16px; }
   .artist-result-card {
     grid-template-columns: auto 1fr;
     gap: 12px;
@@ -427,7 +420,35 @@ body::after {
       <a class="dc-link" id="rave-cal-cta-link" href="/profile" style="display:none;">Your rave calendar →</a>
     </div>
 
-    <div class="artist-finder">
+    <!-- FESTIVAL SEARCH — prominent bar mirroring the homepage search
+         (animated cycling placeholder, neon styling, live results dropdown).
+         Uses its OWN unique IDs (#fest-search-*) so it never collides with
+         the homepage search (#search-*). -->
+    <div class="fest-search-section">
+      <p class="fest-search-eyebrow">Festival Search</p>
+      <h2 class="fest-search-title">FIND A FESTIVAL</h2>
+      <p class="fest-search-sub">Search by name, city, or vibe — jump straight to it.</p>
+      <div class="search-wrap" id="fest-search-wrap">
+        <div class="search-form">
+          <div class="search-input-wrap">
+            <span class="search-cycle" id="fest-search-cycle-text"></span>
+            <input
+              type="text"
+              id="fest-search-input"
+              class="search-real-input"
+              placeholder=""
+              autocomplete="off"
+            />
+          </div>
+          <button class="search-btn" onclick="festDoSearch()">SEARCH</button>
+        </div>
+        <div class="search-results" id="fest-search-results"></div>
+      </div>
+    </div>
+
+    <!-- ARTIST FINDER — secondary, compact bar below the festival search.
+         Behaviour + IDs (#artist-input, #artist-results, searchArtist) unchanged. -->
+    <div class="artist-finder artist-finder--compact">
   <div class="artist-finder-inner">
     <p class="artist-finder-eyebrow">
       Artist Finder
@@ -656,7 +677,7 @@ function festRowHTML(f) {
     const hasUrl = f.url && f.url !== '#';
     const cal = googleCalUrl(f);
     return `
-      <div class="cal-row${past ? ' cal-row-past past' : ''}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
+      <div class="cal-row${past ? ' cal-row-past past' : ''}" data-id="${f.id}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
         <div class="cal-date-col">
           <span class="cal-date-month">${startMon}</span>
           <span class="cal-date-day">${dayNum}</span>
@@ -1133,6 +1154,209 @@ function clearArtistSearch() {
   document.getElementById('artist-results').innerHTML = '';
   document.getElementById('artist-clear').style.display = 'none';
   document.getElementById('artist-input').focus();
+}
+</script>
+<script>
+/* ──────────────────────────────────────────────────
+   FESTIVAL SEARCH — prominent bar that mirrors the homepage spotlight
+   search (animated cycling placeholder, neon styling, live dropdown) but
+   scoped to festivals only. Uses its own unique IDs (#fest-search-*) so it
+   can never collide with the homepage search (#search-*). The whole init is
+   wrapped in try/catch so any failure here can't break the calendar's
+   filters, views, or Near Me.
+─────────────────────────────────────────────────── */
+(function initFestSearch() {
+  try {
+    const input   = document.getElementById('fest-search-input');
+    const results = document.getElementById('fest-search-results');
+    const wrap    = document.getElementById('fest-search-wrap');
+    const cycleEl = document.getElementById('fest-search-cycle-text');
+    if (!input || !results || !wrap) return;
+
+    const getFests = () =>
+      (window.PLURGASM_DATA && window.PLURGASM_DATA.festivals) || [];
+
+    // higher score = better match, searching name (weighted) then tagline,
+    // location and genres — same idea as the homepage spotlight search.
+    function score(f, q) {
+      const name = (f.name || '').toLowerCase();
+      const blob = [f.name, f.tagline || '', f.location || '', (f.genres || []).join(' ')]
+        .join(' ').toLowerCase();
+      if (name === q)         return 100;
+      if (name.startsWith(q)) return 80;
+      if (name.includes(q))   return 60;
+      if (blob.includes(q))   return 30;
+      return 0;
+    }
+
+    function runSearch(raw) {
+      const q = (raw || '').trim().toLowerCase();
+      if (q.length < 2) { results.classList.remove('open'); results.innerHTML = ''; return; }
+
+      const scored = getFests()
+        .map(f => ({ f, s: score(f, q) }))
+        .filter(x => x.s > 0)
+        .sort((a, b) => b.s - a.s)
+        .slice(0, 8);
+
+      if (!scored.length) {
+        results.innerHTML =
+          `<p class="sr-empty">No festivals match "<strong style="color:var(--white)">${q}</strong>" — try a name, city, or vibe.</p>`;
+        results.classList.add('open');
+        return;
+      }
+
+      results.innerHTML =
+        `<div class="sr-group-label">🎪 Festivals</div>` +
+        scored.map(({ f }) => `
+          <div class="sr-item" onclick="goCalFestival('${f.id}')">
+            <div class="sr-icon">🎪</div>
+            <div class="sr-text">
+              <span class="sr-name">${f.name}</span>
+              <span class="sr-sub">${f.location} · ${f.dates}</span>
+            </div>
+            <span class="sr-badge sr-badge-fest">Festival</span>
+            <span class="sr-arrow">→</span>
+          </div>`).join('');
+      results.classList.add('open');
+    }
+
+    input.addEventListener('input', function () {
+      runSearch(this.value);
+      // hide the cycling placeholder while the user is typing (same trick as
+      // the homepage — the CSS sibling selector can't reach a preceding span).
+      if (cycleEl) cycleEl.style.opacity = this.value.length > 0 ? '0' : '1';
+    });
+    input.addEventListener('focus', function () {
+      if (this.value.trim().length >= 2) runSearch(this.value);
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') festDoSearch();
+      else if (e.key === 'Escape') results.classList.remove('open');
+    });
+
+    // close on outside click
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) results.classList.remove('open');
+    });
+
+    // SEARCH button / Enter → open results and jump to the top match
+    window.festDoSearch = function () {
+      const q = input.value.trim();
+      if (q.length < 2) return;
+      runSearch(q);
+      const first = results.querySelector('.sr-item');
+      if (first) first.click();
+    };
+
+    // Cycling placeholder — parallel to the homepage's, targeting THIS bar's
+    // own #fest-search-cycle-text with festival-relevant suggestions.
+    if (cycleEl) {
+      const cycleTerms = [
+        'EDC Las Vegas...',
+        'Electric Forest...',
+        'Tomorrowland...',
+        'Lost Lands...',
+        'Ultra Miami...',
+        'Movement Detroit...',
+        'Project GLOW...',
+        'Coachella...',
+        'Bonnaroo...',
+        'Dreamstate SoCal...',
+        'Bass Canyon...',
+        'EDC Orlando...',
+        'techno festivals...',
+        'bass festivals...',
+        'festivals near you...',
+      ];
+      let ti = 0, ci = 0, deleting = false, paused = false;
+      function type() {
+        if (paused) { setTimeout(() => { paused = false; requestAnimationFrame(type); }, 1800); return; }
+        const term = cycleTerms[ti];
+        if (!deleting) {
+          ci++;
+          cycleEl.textContent = term.slice(0, ci);
+          if (ci === term.length) { paused = true; deleting = true; }
+          setTimeout(() => requestAnimationFrame(type), 65);
+        } else {
+          ci--;
+          cycleEl.textContent = term.slice(0, ci);
+          if (ci === 0) { deleting = false; ti = (ti + 1) % cycleTerms.length; }
+          setTimeout(() => requestAnimationFrame(type), 30);
+        }
+      }
+      setTimeout(() => requestAnimationFrame(type), 800);
+    }
+  } catch (e) {
+    console.error('initFestSearch error:', e);
+  }
+})();
+
+// Navigate from a festival search result: open its detail page if it has one,
+// otherwise reveal + highlight the festival in the calendar list below.
+function goCalFestival(id) {
+  try {
+    const all = (typeof festivals !== 'undefined' && festivals.length)
+      ? festivals
+      : ((window.PLURGASM_DATA && window.PLURGASM_DATA.festivals) || []);
+    const f = all.find(x => x.id === id);
+    if (!f) return;
+    const wrap = document.getElementById('fest-search-wrap');
+    const resultsEl = document.getElementById('fest-search-results');
+    if (resultsEl) resultsEl.classList.remove('open');
+    if (f.detailPage) { window.location.href = f.detailPage; return; }
+    revealFestivalInList(id);
+  } catch (e) { console.error('goCalFestival error:', e); }
+}
+
+// Clear any filters that could be hiding the festival, render a row-based view,
+// then scroll to and flash-highlight the matching row.
+function revealFestivalInList(id) {
+  try {
+    _timeFilter = 'all';
+    _savedMode  = 'all';
+    _genreFilter = '';
+    _regionFilter = '';
+    _monthFilter = '';
+    _nearActive = false;
+
+    // sync the controls so the UI reflects the reset
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    const allTimeBtn = document.getElementById('btn-all-time');
+    if (allTimeBtn) allTimeBtn.classList.add('active');
+
+    document.querySelectorAll('.saved-mode-btn').forEach(b => b.classList.remove('active'));
+    const modeAllBtn = document.getElementById('btn-mode-all');
+    if (modeAllBtn) modeAllBtn.classList.add('active');
+
+    const vibeSel   = document.getElementById('cal-vibe-select');   if (vibeSel)   vibeSel.value = '';
+    const regionSel = document.getElementById('cal-region-select'); if (regionSel) regionSel.value = '';
+    const monthSel  = document.getElementById('cal-month-select');  if (monthSel)  monthSel.value = '';
+
+    const nearBtn = document.getElementById('cal-near-me-btn');
+    if (nearBtn) nearBtn.classList.remove('active');
+    const nearControls = document.getElementById('cal-near-me-controls');
+    if (nearControls) nearControls.style.display = 'none';
+
+    // the map view can't show a list row — switch to timeline if needed
+    if (_calView === 'map') {
+      _calView = 'timeline';
+      document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
+      const tlBtn = document.getElementById('btn-timeline-view');
+      if (tlBtn) tlBtn.classList.add('active');
+    }
+
+    renderActiveView();
+
+    setTimeout(() => {
+      const row = document.querySelector(`.cal-row[data-id="${id}"]`);
+      if (row) {
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        row.classList.add('cal-row-flash');
+        setTimeout(() => row.classList.remove('cal-row-flash'), 2600);
+      }
+    }, 80);
+  } catch (e) { console.error('revealFestivalInList error:', e); }
 }
 </script>
 <script>

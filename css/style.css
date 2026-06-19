@@ -2879,6 +2879,61 @@ footer {
 .search-right { display: none; }
 
 /* ══════════════════════════════════════════════════
+   CALENDAR — FESTIVAL SEARCH SECTION
+   Prominent festival search bar on calendar.html. Reuses the homepage
+   .search-wrap / .search-form / .search-input-wrap / .search-cycle /
+   .search-real-input / .search-btn styling above; this just frames it and
+   zeroes the homepage's big top margins (we provide our own spacing).
+══════════════════════════════════════════════════ */
+.fest-search-section { margin-top: 8px; margin-bottom: 4px; }
+.fest-search-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fest-search-eyebrow::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--cyan);
+  opacity: 0.4;
+}
+.fest-search-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.fest-search-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+.fest-search-section .search-wrap,
+.fest-search-section .search-form { margin-top: 0; }
+
+/* flash-highlight a calendar row when a search result with no detail page
+   jumps to it in the list. */
+.cal-row-flash {
+  outline: 1px solid var(--cyan);
+  outline-offset: 2px;
+  animation: calRowFlash 2.4s ease;
+}
+@keyframes calRowFlash {
+  0%   { background: rgba(0,229,255,0.16); }
+  100% { background: transparent; }
+}
+
+/* ══════════════════════════════════════════════════
    MOBILE — DEFINITIVE LAYOUT & OVERFLOW FIX
 ══════════════════════════════════════════════════ */
 @media (max-width: 900px) {
