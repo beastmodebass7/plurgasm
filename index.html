@@ -36,13 +36,14 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/nav.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/auth.js"></script>
-<script src="/js/views.js"></script>
-<script src="/js/saves.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/views.js" defer></script>
+<script src="/js/saves.js" defer></script>
 <style>
 @keyframes splashLine {
   to { transform: scaleX(1); }
@@ -175,6 +176,8 @@
         src="images/dancer-left.png"
         alt=""
         class="hero-title-dancer hero-title-dancer-left"
+        width="800"
+        height="1200"
         loading="eager"
         aria-hidden="true"
       >
@@ -186,6 +189,8 @@
         src="images/dancer.png"
         alt=""
         class="hero-title-dancer hero-title-dancer-right"
+        width="800"
+        height="1200"
         loading="eager"
         aria-hidden="true"
       >
@@ -242,12 +247,16 @@
     src="images/dancer.png"
     alt="Rave dancer throwing flowstar"
     class="hero-dancer"
+    width="800"
+    height="1200"
     loading="eager"
   >
   <img
     src="images/dancer-left.png"
     alt="Rave juggler with glowing orbs"
     class="hero-dancer-left"
+    width="800"
+    height="1200"
     loading="eager"
   >
 </div>
@@ -515,9 +524,9 @@
 
 <div id="site-bottom-nav"></div>
 
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
-<script src="js/search.js"></script>
+<script src="js/data.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/search.js" defer></script>
 <script>
 (function() {
   if (sessionStorage.getItem('pg_splashed')) {

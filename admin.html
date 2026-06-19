@@ -15,11 +15,12 @@
 <meta property="og:url" content="https://plurgasm.com/admin">
 <link rel="canonical" href="https://plurgasm.com/admin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/nav.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -1052,7 +1053,7 @@ select option { background: #15152a; }
   </div>
 </div>
 
-<script src="js/data.js"></script>
+<script src="js/data.js" defer></script>
 <script>
 const ADMIN_PASSWORD = 'plurgasm2026';
 
@@ -1445,7 +1446,10 @@ function flash(id) {
 /* ════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════ */
-if (localStorage.getItem('pg_admin_auth') === '1') showPanel();
+/* data.js is deferred — defer the auto-login render until it has loaded. */
+document.addEventListener('DOMContentLoaded', function () {
+  if (localStorage.getItem('pg_admin_auth') === '1') showPanel();
+});
 </script>
 <script>
 function toggleMobileMenu() {

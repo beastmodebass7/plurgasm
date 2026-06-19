@@ -15,6 +15,9 @@
 html { scroll-behavior: smooth; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; }
+/* responsive images — width/height attrs set the intrinsic ratio (reserves
+   space / fixes CLS) while the layout stays fluid. */
+img { max-width: 100%; height: auto; }
 
 /* ── TOKENS ── */
 :root {
@@ -575,14 +578,10 @@ nav {
   animation: starPulse 3s ease-in-out infinite;
 }
 @keyframes starPulse {
-  0%, 100% {
-    opacity: 0.7;
-    text-shadow: 0 0 10px rgba(255,184,0,0.9), 0 0 20px rgba(255,184,0,0.45);
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 14px rgba(255,184,0,1), 0 0 28px rgba(255,184,0,0.6);
-  }
+  /* opacity-only so it runs on the compositor (no text-shadow repaint).
+     .botw-star keeps its static text-shadow for the glow. */
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
 }
 .botw-eyebrow {
   display: inline-flex;
@@ -1697,6 +1696,8 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   .fade-up { opacity: 1; transform: none; transition: none; }
+  .botw-star,
+  .dc-icon::after { animation: none; }
 }
 
 /* ══════════════════════════════════════════════════
@@ -3754,6 +3755,19 @@ footer {
   color: var(--cyan);
   border: 1px solid rgba(0,229,255,0.45);
   background: rgba(0,229,255,0.10);
+  /* dim baseline glow is static; the bright pulse lives on ::after and
+     animates opacity only (composited — no box-shadow repaint). */
+  position: relative;
+  box-shadow: 0 0 7px rgba(0,229,255,0.20);
+}
+.dc-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 16px rgba(0,229,255,0.48);
+  opacity: 0;
+  pointer-events: none;
   animation: dcPulse 2.6s ease-in-out infinite;
 }
 .dc-text { min-width: 0; }
@@ -3771,8 +3785,8 @@ footer {
 }
 .dc-link:hover { opacity: 0.7; }
 @keyframes dcPulse {
-  0%, 100% { box-shadow: 0 0 7px rgba(0,229,255,0.20); }
-  50%      { box-shadow: 0 0 16px rgba(0,229,255,0.48); }
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 1; }
 }
 @media (max-width: 600px) {
   .discovery-cta { flex-wrap: wrap; gap: 10px; }

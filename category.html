@@ -26,11 +26,12 @@
 <meta name="twitter:image" content="https://plurgasm.com/og-image.png">
 <link rel="canonical" href="https://plurgasm.com/category">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/nav.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
 <style>
 /* ── BG GLOW ── */
 .cat-bg {
@@ -216,9 +217,11 @@
   </div>
 </footer>
 
-<script src="js/data.js"></script>
+<script src="js/data.js" defer></script>
 <script>
-(function () {
+/* data.js is deferred, so BRANDS/CATEGORIES aren't defined at parse time —
+   run everything once the DOM (and all deferred scripts) are ready. */
+document.addEventListener('DOMContentLoaded', function () {
   /* ── MERGE ADMIN BRANDS ── */
   try {
     const extra = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
@@ -466,7 +469,7 @@
     const isComing = !!(cat.comingSoon || count === 0);
     const isImage  = cat.icon && /\.(png|jpg|svg|webp)$/i.test(cat.icon);
     const iconHtml = isImage
-      ? `<img src="${cat.icon}" style="width:64px;height:64px;object-fit:contain;mix-blend-mode:screen;" alt="${cat.label}">`
+      ? `<img src="${cat.icon}" width="64" height="64" style="width:64px;height:64px;object-fit:contain;mix-blend-mode:screen;" alt="${cat.label}">`
       : cat.icon;
 
     /* set bg glow */
@@ -535,8 +538,8 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', renderPage);
-})();
+  renderPage();
+});
 </script>
 
 <div id="site-bottom-nav"></div>

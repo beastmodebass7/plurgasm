@@ -433,7 +433,7 @@ function renderCategories() {
     const count = BRANDS.filter(b => b.cat === c.id).length;
     const isImg = /\.(png|jpe?g|gif|webp|svg)$/i.test(c.icon);
     const iconHtml = isImg
-      ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}">`
+      ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}" width="64" height="64">`
       : `<span class="cat-icon">${c.icon}</span>`;
     return `
     <a class="cat-card" href="/category?cat=${c.id}" style="text-decoration:none;">

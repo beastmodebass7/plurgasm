@@ -31,14 +31,15 @@
 <meta name="twitter:image" content="https://plurgasm.com/og-image.png">
 <link rel="canonical" href="https://plurgasm.com/calendar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="js/nav.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/auth.js"></script>
-<script src="/js/saves.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/saves.js" defer></script>
 <style>
 body::after {
   content: '';
@@ -589,7 +590,7 @@ body::after {
   </div>
 </footer>
 
-<script src="js/data.js"></script>
+<script src="js/data.js" defer></script>
 <script>
 const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const dotClass = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
