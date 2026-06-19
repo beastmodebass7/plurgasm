@@ -158,23 +158,6 @@ body::after {
   color: var(--muted);
   margin-bottom: 24px;
 }
-.cal-type-filters { display: flex; gap: 8px; flex-wrap: wrap; }
-.cal-genre-filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-}
-.cal-genre-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--faint);
-  display: flex;
-  align-items: center;
-}
 
 .cal-empty {
   font-family: 'DM Mono', monospace;
@@ -491,68 +474,57 @@ body::after {
         <button class="toggle-btn" id="btn-all-time" onclick="setTimeFilter('all',this)">All</button>
       </div>
 
-      <!-- Type filters -->
-      <div class="cal-type-filters">
-        <button class="filter-btn active" onclick="setTypeFilter('all',this)">All</button>
-        <button class="filter-btn" onclick="setTypeFilter('mega',this)">Mega</button>
-        <button class="filter-btn" onclick="setTypeFilter('regional',this)">Regional</button>
-        <button class="filter-btn" onclick="setTypeFilter('underground',this)">Underground</button>
-        <button class="filter-btn" onclick="setTypeFilter('international',this)">International</button>
-      </div>
+      <!-- Filter dropdowns (Vibe / Region populated from festival data) + Near Me.
+           One row on desktop; stack full-width on mobile. -->
+      <div class="cal-filter-row">
+        <label class="cal-select-field">
+          <span class="cal-select-label">Vibe</span>
+          <select id="cal-vibe-select" class="cal-select" onchange="setGenreFilter(this.value)">
+            <option value="">All vibes</option>
+          </select>
+        </label>
 
-      <!-- Genre/Vibe pills (built from festival data — in sync with homepage) -->
-      <div class="cal-genre-filters" id="cal-genre-filters">
-        <span class="cal-genre-label">Vibe:</span>
-        <button class="genre-pill active" onclick="setGenreFilter('',this)">All Vibes</button>
-        <button class="genre-pill" onclick="setGenreFilter('EDM',this)">EDM</button>
-        <button class="genre-pill" onclick="setGenreFilter('House',this)">House</button>
-        <button class="genre-pill" onclick="setGenreFilter('Techno',this)">Techno</button>
-        <button class="genre-pill" onclick="setGenreFilter('Bass',this)">Bass</button>
-        <button class="genre-pill" onclick="setGenreFilter('Trance',this)">Trance</button>
-        <button class="genre-pill" onclick="setGenreFilter('Dubstep',this)">Dubstep</button>
-        <button class="genre-pill" onclick="setGenreFilter('Psychedelic',this)">Psychedelic</button>
-        <button class="genre-pill" onclick="setGenreFilter('Hip-Hop',this)">Hip-Hop</button>
-        <button class="genre-pill" onclick="setGenreFilter('Jam',this)">Jam / Folk</button>
-      </div>
+        <label class="cal-select-field">
+          <span class="cal-select-label">Region</span>
+          <select id="cal-region-select" class="cal-select" onchange="setRegionFilter(this.value)">
+            <option value="">All regions</option>
+          </select>
+        </label>
 
-      <!-- Region pills (built from festival data — in sync with homepage) -->
-      <div class="cal-genre-filters" id="cal-region-filters">
-        <span class="cal-genre-label">Region:</span>
-        <button class="region-pill active" onclick="setRegionFilter('',this)">All Regions</button>
-      </div>
+        <label class="cal-select-field">
+          <span class="cal-select-label">Month</span>
+          <select id="cal-month-select" class="cal-select" onchange="setMonthFilter(this.value)">
+            <option value="">All months</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </label>
 
-      <!-- Month pills -->
-      <div class="cal-genre-filters" id="cal-month-filters">
-        <span class="cal-genre-label">Month:</span>
-        <button class="month-pill active" onclick="setMonthFilter('',this)">All Months</button>
-        <button class="month-pill" onclick="setMonthFilter(1,this)">Jan</button>
-        <button class="month-pill" onclick="setMonthFilter(2,this)">Feb</button>
-        <button class="month-pill" onclick="setMonthFilter(3,this)">Mar</button>
-        <button class="month-pill" onclick="setMonthFilter(4,this)">Apr</button>
-        <button class="month-pill" onclick="setMonthFilter(5,this)">May</button>
-        <button class="month-pill" onclick="setMonthFilter(6,this)">Jun</button>
-        <button class="month-pill" onclick="setMonthFilter(7,this)">Jul</button>
-        <button class="month-pill" onclick="setMonthFilter(8,this)">Aug</button>
-        <button class="month-pill" onclick="setMonthFilter(9,this)">Sep</button>
-        <button class="month-pill" onclick="setMonthFilter(10,this)">Oct</button>
-        <button class="month-pill" onclick="setMonthFilter(11,this)">Nov</button>
-        <button class="month-pill" onclick="setMonthFilter(12,this)">Dec</button>
-      </div>
-
-      <!-- Near Me -->
-      <div class="cal-genre-filters" id="cal-nearme-row">
-        <span class="cal-genre-label">Near:</span>
-        <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
-        <div class="near-me-controls" id="cal-near-me-controls" style="display:none;width:100%;">
-          <div class="near-me-distance">
-            <span class="near-me-label">Within</span>
-            <button class="dist-btn active" data-miles="100" onclick="setCalDistance(100,this)">100mi</button>
-            <button class="dist-btn" data-miles="250" onclick="setCalDistance(250,this)">250mi</button>
-            <button class="dist-btn" data-miles="500" onclick="setCalDistance(500,this)">500mi</button>
-            <button class="dist-btn" data-miles="9999" onclick="setCalDistance(9999,this)">Any</button>
-          </div>
-          <p class="near-me-status" id="cal-near-me-status">Getting your location...</p>
+        <!-- Near Me — button lives in the row; controls expand below it -->
+        <div class="cal-nearme-field" id="cal-nearme-row">
+          <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
         </div>
+      </div>
+
+      <div class="near-me-controls" id="cal-near-me-controls" style="display:none;">
+        <div class="near-me-distance">
+          <span class="near-me-label">Within</span>
+          <button class="dist-btn active" data-miles="100" onclick="setCalDistance(100,this)">100mi</button>
+          <button class="dist-btn" data-miles="250" onclick="setCalDistance(250,this)">250mi</button>
+          <button class="dist-btn" data-miles="500" onclick="setCalDistance(500,this)">500mi</button>
+          <button class="dist-btn" data-miles="9999" onclick="setCalDistance(9999,this)">Any</button>
+        </div>
+        <p class="near-me-status" id="cal-near-me-status">Getting your location...</p>
       </div>
     </div>
 
@@ -618,7 +590,6 @@ function googleCalUrl(f) {
 }
 
 let _timeFilter = 'upcoming';
-let _typeFilter = 'all';
 let _genreFilter = '';
 let _regionFilter = '';   // '' = all regions
 let _monthFilter = '';    // '' = all months, else 1-12
@@ -654,7 +625,6 @@ function getFilteredFestivals() {
       _timeFilter === 'all'      ? true :
       _timeFilter === 'upcoming' ? endDate >= TODAY :
                                    endDate < TODAY;
-    const typeOk   = _typeFilter   === 'all' || f.type === _typeFilter;
     const genreOk  = _genreFilter  === ''    || (f.genres && f.genres.includes(_genreFilter));
     const regionOk = _regionFilter === ''    || f.region === _regionFilter;
     const monthOk  = _monthFilter  === ''    || (f.sortDate && parseInt(f.sortDate.split('-')[1], 10) === _monthFilter);
@@ -668,7 +638,7 @@ function getFilteredFestivals() {
       nearOk = haversineMiles(_userLat, _userLng, f.lat, f.lng) <= _maxMiles;
     }
 
-    return timeOk && typeOk && genreOk && regionOk && monthOk && nearOk && savedOk;
+    return timeOk && genreOk && regionOk && monthOk && nearOk && savedOk;
   }).sort((a, b) => {
     const aPast = isPast(a), bPast = isPast(b);
     if (aPast !== bPast) return aPast ? 1 : -1;
@@ -931,31 +901,23 @@ function setTimeFilter(val, btn) {
   renderActiveView();
 }
 
-function setTypeFilter(val, btn) {
-  _typeFilter = val;
-  document.querySelectorAll('.cal-type-filters .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderActiveView();
-}
-
-function setGenreFilter(val, btn) {
+// Filter setters now read directly off the native <select> value. The state
+// variables and the filtering logic in getFilteredFestivals() are unchanged —
+// only the input control swapped from clickable pills to dropdowns.
+function setGenreFilter(val) {
   _genreFilter = val;
-  document.querySelectorAll('#cal-genre-filters .genre-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   renderActiveView();
 }
 
-function setRegionFilter(val, btn) {
+function setRegionFilter(val) {
   _regionFilter = val;
-  document.querySelectorAll('#cal-region-filters .region-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   renderActiveView();
 }
 
-function setMonthFilter(val, btn) {
-  _monthFilter = val;
-  document.querySelectorAll('#cal-month-filters .month-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+function setMonthFilter(val) {
+  // '' = all months; otherwise coerce the select's string value back to the
+  // number 1-12 that getFilteredFestivals() compares against.
+  _monthFilter = (val === '' || val == null) ? '' : parseInt(val, 10);
   renderActiveView();
 }
 
@@ -1015,31 +977,35 @@ function setCalDistance(miles, btn) {
   renderActiveView();
 }
 
-// Build the vibe + region pills from the shared festival taxonomy so the
-// calendar always shows the same complete set as the homepage. The hardcoded
-// pills in the markup act as a static fallback if this never runs.
-function renderCalFilterPills() {
-  const D = window.PLURGASM_DATA;
-  if (!D) return;
+// Populate the Vibe + Region <select> options from the shared festival taxonomy
+// so the calendar always offers the same complete set as the homepage. The
+// static "All vibes"/"All regions" options in the markup act as a fallback if
+// this never runs. Wrapped in try/catch so a data hiccup can't break the rest
+// of the calendar.
+function populateCalFilterSelects() {
+  try {
+    const D = window.PLURGASM_DATA;
+    if (!D) return;
 
-  const genreRow = document.getElementById('cal-genre-filters');
-  if (genreRow && typeof D.getFestivalGenres === 'function') {
-    genreRow.innerHTML =
-      `<span class="cal-genre-label">Vibe:</span>` +
-      `<button class="genre-pill active" onclick="setGenreFilter('',this)">All Vibes</button>` +
-      D.getFestivalGenres().map(g =>
-        `<button class="genre-pill" onclick="setGenreFilter('${g.value}',this)">${g.label}</button>`
-      ).join('');
-  }
+    const vibeSel = document.getElementById('cal-vibe-select');
+    if (vibeSel && typeof D.getFestivalGenres === 'function') {
+      vibeSel.innerHTML =
+        `<option value="">All vibes</option>` +
+        D.getFestivalGenres().map(g =>
+          `<option value="${g.value}">${g.label}</option>`
+        ).join('');
+    }
 
-  const regionRow = document.getElementById('cal-region-filters');
-  if (regionRow && typeof D.getFestivalRegions === 'function') {
-    regionRow.innerHTML =
-      `<span class="cal-genre-label">Region:</span>` +
-      `<button class="region-pill active" onclick="setRegionFilter('',this)">All Regions</button>` +
-      D.getFestivalRegions().map(r =>
-        `<button class="region-pill" onclick="setRegionFilter('${r.id}',this)">${r.label}</button>`
-      ).join('');
+    const regionSel = document.getElementById('cal-region-select');
+    if (regionSel && typeof D.getFestivalRegions === 'function') {
+      regionSel.innerHTML =
+        `<option value="">All regions</option>` +
+        D.getFestivalRegions().map(r =>
+          `<option value="${r.id}">${r.label}</option>`
+        ).join('');
+    }
+  } catch (e) {
+    console.error('populateCalFilterSelects error:', e);
   }
 }
 
@@ -1052,7 +1018,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  renderCalFilterPills();   // vibe + region pills from data (in sync w/ homepage)
+  populateCalFilterSelects();   // vibe + region options from data (in sync w/ homepage)
   renderActiveView();
 
   // Keep Saved mode in sync with auth + the saved set. window.sb is created by

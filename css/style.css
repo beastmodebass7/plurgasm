@@ -1784,6 +1784,80 @@ footer {
   box-shadow: 0 0 12px rgba(0,229,255,0.15);
 }
 
+/* ══════════════════════════════════════════════════
+   CALENDAR FILTER DROPDOWNS (Vibe / Region / Month) + Near Me
+   One row on desktop; stack full-width on mobile.
+══════════════════════════════════════════════════ */
+.cal-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.cal-select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cal-select-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.cal-select {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;            /* ≥16px keeps iOS from zooming on focus */
+  letter-spacing: 1px;
+  color: var(--cyan);
+  background-color: rgba(0,229,255,0.06);
+  border: 1px solid rgba(0,229,255,0.35);
+  border-radius: 0;
+  padding: 10px 40px 10px 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* cyan chevron */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2300e5ff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+.cal-select:hover {
+  border-color: rgba(0,229,255,0.6);
+  background-color: rgba(0,229,255,0.1);
+}
+.cal-select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 12px rgba(0,229,255,0.15);
+}
+/* The open option list is the browser-native picker; force a dark, on-brand
+   palette for the options where the OS honours it. */
+.cal-select option {
+  background: #06060c;
+  color: var(--white);
+}
+
+/* Near Me sits in the same row; its button aligns to the bottom edge of the
+   selects, and the expandable controls drop below the whole row. */
+.cal-nearme-field {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (max-width: 700px) {
+  .cal-filter-row { flex-direction: column; align-items: stretch; }
+  .cal-select-field { width: 100%; }
+  .cal-select { width: 100%; }
+  .cal-nearme-field { width: 100%; }
+  .cal-nearme-field .near-me-btn { width: 100%; }
+}
+
 /* ── EXPANDABLE PILLS — +More button ── */
 .pill-more-btn {
   font-family: 'DM Mono', monospace;
