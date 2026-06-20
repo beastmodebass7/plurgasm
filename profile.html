@@ -280,36 +280,53 @@
   overflow: hidden;
 }
 .pf-cal-cell.blank { background: transparent; border-color: transparent; }
-.pf-cal-cell.has-fest { cursor: pointer; }
-.pf-cal-cell.today {
-  border-color: rgba(0,229,255,0.5);
-  box-shadow: inset 0 0 0 1px rgba(0,229,255,0.25);
+
+/* A day a saved festival covers: fill the WHOLE tile in that festival's color
+   — a semi-transparent wash plus a solid accent border in the same hue. The
+   per-cell color comes from CSS variables set on the cell (the festival's own
+   accent); the styling itself lives here as a class, not as inline rules. */
+.pf-cal-cell.has-fest {
+  cursor: pointer;
+  background: var(--fc-bg, rgba(255,255,255,0.015));
+  border-color: var(--fc-border, var(--border));
+  box-shadow: inset 0 0 0 1px var(--fc-border, transparent);
 }
-.pf-cal-cell.selected { border-color: rgba(0,229,255,0.6); background: rgba(0,229,255,0.05); }
+/* today + selected use an outline so they read clearly on top of a filled tile
+   without fighting the festival's border color */
+.pf-cal-cell.today { outline: 2px solid rgba(0,229,255,0.55); outline-offset: -2px; }
+.pf-cal-cell.selected { outline: 2px solid var(--cyan); outline-offset: -2px; }
 .pf-cal-daynum {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   color: var(--muted);
 }
 .pf-cal-cell.today .pf-cal-daynum { color: var(--cyan); font-weight: 500; }
-.pf-cal-pills { display: flex; flex-direction: column; gap: 3px; }
-.pf-cal-pill {
+/* keep the day number legible on top of the colored fill */
+.pf-cal-cell.has-fest .pf-cal-daynum {
+  color: var(--white);
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* festival name label(s) on the filled tile (shown at least on the first day
+   of a run). Each carries its own festival accent via --fl-* variables. */
+.pf-cal-fest-labels { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.pf-cal-fest-label {
   display: block;
   font-family: 'Chakra Petch', sans-serif;
   font-size: 11px;
-  font-weight: 500;
-  line-height: 1.3;
-  padding: 2px 6px;
-  border-radius: 3px;
-  border-left: 2px solid;
+  font-weight: 600;
+  line-height: 1.25;
+  padding-left: 5px;
+  border-left: 2px solid var(--fl-accent, var(--cyan));
+  color: var(--fl-text, var(--white));
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
-.pf-cal-pill:hover { filter: brightness(1.25); }
-.pf-cal-dots { display: none; flex-wrap: wrap; gap: 3px; }
-.pf-cal-dot { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; }
+.pf-cal-fest-label:hover { filter: brightness(1.2); text-decoration: underline; }
 
 /* day panel — mobile tap-to-expand (and desktop click) */
 .pf-cal-daypanel { margin-top: 16px; }
@@ -442,8 +459,9 @@
 @media (max-width: 560px) {
   .pf-cal-weekdays, .pf-cal-grid { gap: 3px; }
   .pf-cal-cell { min-height: 46px; padding: 4px 3px; border-radius: 4px; gap: 3px; }
-  .pf-cal-pills { display: none; }
-  .pf-cal-cell.has-fest .pf-cal-dots { display: flex; }
+  /* cells are too small for names here — keep the full-tile color fill and rely
+     on tap-to-expand (the day panel) to show which festival(s) a day holds */
+  .pf-cal-fest-labels { display: none; }
   .pf-cal-daynum { font-size: 11px; }
   .pf-cal-weekday { font-size: 9px; letter-spacing: 0; }
   .pf-cal-title { font-size: 22px; }
@@ -670,11 +688,28 @@
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
   function dayStr(y, m, d) { return y + '-' + pad2(m + 1) + '-' + pad2(d); } // m is 0-based
 
-  // festivals active on a given YYYY-MM-DD (string compare is safe for ISO dates)
+  // Parse 'YYYY-MM-DD' as a LOCAL date (NOT new Date(str), which is UTC and can
+  // shift the day by one). Returns null for missing/malformed input.
+  function parseLocalDate(str) {
+    if (!str) return null;
+    var p = String(str).split('-').map(Number);
+    if (p.length < 3 || isNaN(p[0]) || isNaN(p[1]) || isNaN(p[2])) return null;
+    return new Date(p[0], p[1] - 1, p[2]);
+  }
+
+  // Festivals that actually COVER a given YYYY-MM-DD, decided PER FESTIVAL:
+  // fest.sortDate <= day <= (fest.endDate || sortDate). This never spans the gap
+  // between two separate festivals — a day only counts if some single saved
+  // festival's own range includes it (so fests on 5–6 and 8–9 leave 7 empty).
   function festsOnDay(ds) {
+    var day = parseLocalDate(ds);
+    if (!day) return [];
+    var t = day.getTime();
     return _calList.filter(function (f) {
-      var s = f.sortDate, e = f.endDate || f.sortDate;
-      return s && s <= ds && ds <= e;
+      var s = parseLocalDate(f.sortDate);
+      if (!s) return false;
+      var e = parseLocalDate(f.endDate || f.sortDate) || s;
+      return s.getTime() <= t && t <= e.getTime();
     });
   }
 
@@ -811,21 +846,25 @@
   }
 
   function drawMonth() {
-    var title = document.getElementById('pf-cal-title');
-    var grid = document.getElementById('pf-cal-grid');
-    var panel = document.getElementById('pf-cal-daypanel');
-    if (!title || !grid) return;
-    title.textContent = CAL_MONTHS[_calMonth] + ' ' + _calYear;
-    if (panel) panel.innerHTML = '';
-    grid.innerHTML = gridHTML();
+    try {
+      var title = document.getElementById('pf-cal-title');
+      var grid = document.getElementById('pf-cal-grid');
+      var panel = document.getElementById('pf-cal-daypanel');
+      if (!title || !grid) return;
+      title.textContent = CAL_MONTHS[_calMonth] + ' ' + _calYear;
+      if (panel) panel.innerHTML = '';
+      grid.innerHTML = gridHTML();
 
-    var cells = grid.querySelectorAll('.pf-cal-cell.has-fest');
-    Array.prototype.forEach.call(cells, function (c) {
-      c.addEventListener('click', function (ev) {
-        if (ev.target.closest('a')) return; // let pill links navigate
-        selectDay(c.getAttribute('data-day'), c);
+      var cells = grid.querySelectorAll('.pf-cal-cell.has-fest');
+      Array.prototype.forEach.call(cells, function (c) {
+        c.addEventListener('click', function (ev) {
+          if (ev.target.closest('a')) return; // let festival labels navigate
+          selectDay(c.getAttribute('data-day'), c);
+        });
       });
-    });
+    } catch (e) {
+      console.error('[profile] drawMonth', e);
+    }
   }
 
   function gridHTML() {
@@ -837,24 +876,37 @@
     for (var d = 1; d <= daysIn; d++) {
       var ds = dayStr(_calYear, _calMonth, d);
       var fests = festsOnDay(ds);
+      var hasFest = fests.length > 0;
       var isToday = ds === TODAY;
-      var cls = 'pf-cal-cell' + (isToday ? ' today' : '') + (fests.length ? ' has-fest' : '');
-      var pills = fests.map(function (f) {
-        var c = _calColor[String(f.id)] || CAL_COLORS[0];
-        return '<a class="pf-cal-pill" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
-          (f.detailPage ? '' : ' rel="noopener"') +
-          ' style="background:' + c.bg + ';border-left-color:' + c.border + ';color:' + c.text + ';"' +
-          ' onclick="event.stopPropagation()" title="' + escapeHtml(f.name) + '">' + escapeHtml(f.name) + '</a>';
-      }).join('');
-      var dots = fests.map(function (f) {
-        var c = _calColor[String(f.id)] || CAL_COLORS[0];
-        return '<span class="pf-cal-dot" style="background:' + c.accent + ';"></span>';
-      }).join('');
+      var cls = 'pf-cal-cell' + (isToday ? ' today' : '') + (hasFest ? ' has-fest' : '');
+
+      // The tile fill = the first covering festival's color, exposed as CSS vars
+      // (the only thing set inline — the actual styling lives in .has-fest).
+      var fillVars = '';
+      var labels = '';
+      if (hasFest) {
+        var primary = _calColor[String(fests[0].id)] || CAL_COLORS[0];
+        fillVars = ' style="--fc-bg:' + primary.bg + ';--fc-border:' + primary.border + ';"';
+
+        // Festival name label — shown on the first day of its run (and on day 1
+        // when the run spilled in from a previous month). Each label links
+        // straight to the festival; the rest of the tile opens the day panel.
+        labels = fests.map(function (f) {
+          var isStart = (ds === f.sortDate) || (d === 1);
+          if (!isStart) return ''; // continuation day: colored fill only
+          var c = _calColor[String(f.id)] || CAL_COLORS[0];
+          return '<a class="pf-cal-fest-label" href="' + festHref(f) + '" target="' + festTarget(f) + '"' +
+            (f.detailPage ? '' : ' rel="noopener"') +
+            ' style="--fl-accent:' + c.accent + ';--fl-text:' + c.text + ';"' +
+            ' onclick="event.stopPropagation()" title="' + escapeHtml(f.name) + '">' +
+            escapeHtml(f.name) + '</a>';
+        }).join('');
+      }
+
       cells.push(
-        '<div class="' + cls + '" data-day="' + ds + '">' +
+        '<div class="' + cls + '"' + fillVars + ' data-day="' + ds + '">' +
           '<span class="pf-cal-daynum">' + d + '</span>' +
-          (fests.length ? '<div class="pf-cal-dots">' + dots + '</div>' : '') +
-          (fests.length ? '<div class="pf-cal-pills">' + pills + '</div>' : '') +
+          (labels ? '<div class="pf-cal-fest-labels">' + labels + '</div>' : '') +
         '</div>');
     }
     while (cells.length % 7 !== 0) cells.push('<div class="pf-cal-cell blank"></div>');
