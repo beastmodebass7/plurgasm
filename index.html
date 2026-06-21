@@ -198,12 +198,11 @@
     <p class="hero-sub">
   <span style="color:var(--white);font-size:19px;font-weight:500;
     display:block;margin-bottom:8px;">
-    Your one-stop rave universe.
+    THE HOME OF RAVE CULTURE
   </span>
   <span style="color:var(--muted);font-size:16px;display:block;
     line-height:1.8;">
-    Find festivals near you · Discover rave brands &amp; gear ·
-    Read rave culture news · All in one place.
+    Festivals, gear, creators, and PLUR culture — all in one place.
   </span>
 </p>
     <div class="hero-quick-links">
@@ -228,19 +227,11 @@
       </div>
       <div class="search-results" id="search-results"></div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="stat-num" style="color:var(--cyan);" id="stat-festivals">0+</span>
-        <span class="stat-label">Festivals</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num" style="color:var(--pink);" id="stat-brands">0+</span>
-        <span class="stat-label">Brands</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num" style="color:var(--purple);" id="stat-cats">0</span>
-        <span class="stat-label">Categories</span>
-      </div>
+    <div class="hero-tags">
+      <span class="hero-tag">Festival Calendar</span>
+      <span class="hero-tag">Brand Directory</span>
+      <span class="hero-tag">Creator Hub</span>
+      <span class="hero-tag">PLUR Resources</span>
     </div>
   </div>
   <img
@@ -281,83 +272,9 @@
   <div id="marquee-track" class="marquee-track" aria-hidden="true"></div>
 </div>
 
-<!-- BRAND OF THE WEEK + INFLUENCER OF THE WEEK -->
-<section class="section" style="padding-bottom:0;">
-  <div class="featured-row">
-    <div class="featured-botw-col">
-      <div class="botw" id="botw">
-        <div>
-          <p class="botw-eyebrow"><span class="botw-star">★</span>Brand of the Week</p>
-          <p class="botw-name" id="botw-name">FREEDOM RAVE WEAR</p>
-          <p class="botw-cat" id="botw-cat">Fem + Male Clothing · California</p>
-          <p class="botw-desc" id="botw-desc">One of the most trusted names in the community. Affordable, quality spandex sets for all body types — and one of the few brands that stocks solid male options too.</p>
-          <p class="botw-ig" id="botw-ig">@freedomravewear</p>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
-          <a href="https://freedomravewear.com" target="_blank" class="nav-cta" style="white-space:nowrap;" id="botw-url">Visit Site</a>
-        </div>
-      </div>
-    </div>
-    <div class="featured-inf-col">
-      <div id="featured-influencer"></div>
-    </div>
-  </div>
-</section>
-<div class="accent-line" style="margin-top:40px;"></div>
-
-<!-- BRANDS -->
-<section class="section" id="brands">
-  <p class="eyebrow">Chapter 01</p>
-  <div class="item-filter-wrap">
-    <div class="item-filter-header">
-      <p class="item-filter-title">WHAT ARE YOU LOOKING FOR?</p>
-      <button class="item-filter-clear"
-        id="item-clear-btn"
-        onclick="filterByItem(_activeItemTag, document.querySelector('.item-pill.active'))"
-        style="display:none;">
-        Clear &#x2715;
-      </button>
-    </div>
-    <div id="item-filters"></div>
-  </div>
-  <div class="section-header">
-    <h2 class="section-title">BRANDS</h2>
-    <div class="filters" style="margin-bottom:0;" id="brand-filters">
-      <button class="filter-btn active" onclick="filterBrands('all',this)">All</button>
-      <button class="filter-btn" onclick="filterBrands('fem-clothing',this)">Fem Clothing</button>
-      <button class="filter-btn" onclick="filterBrands('male-clothing',this)">Male Clothing</button>
-      <button class="filter-btn" onclick="filterBrands('shoes',this)">Shoes</button>
-      <button class="filter-btn" onclick="filterBrands('accessories',this)">Accessories</button>
-      <button class="filter-btn" onclick="filterBrands('kandi',this)">Kandi</button>
-      <button class="filter-btn" onclick="filterBrands('jerseys',this)">Jerseys & Merch</button>
-      <button class="filter-btn" onclick="filterBrands('events',this)">Events</button>
-    </div>
-  </div>
-  <div class="brand-grid" id="brand-grid"></div>
-  <div style="text-align:center;margin-top:32px;" id="brands-expand">
-    <button onclick="expandBrands()" style="
-      font-family:'DM Mono',monospace;
-      font-size:11px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      padding:13px 32px;
-      background:transparent;
-      border:1px solid rgba(0,229,255,0.4);
-      color:var(--cyan);
-      cursor:pointer;
-      transition:all 0.2s;
-    " onmouseover="this.style.background='rgba(0,229,255,0.08)'"
-       onmouseout="this.style.background='transparent'">
-      Browse All Brands ↓
-    </button>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- FESTIVALS -->
 <section class="section" id="festivals">
-  <p class="eyebrow">Chapter 02</p>
+  <p class="eyebrow">Chapter 01</p>
   <div class="section-header" style="align-items:flex-start;flex-direction:column;gap:16px;">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;width:100%;gap:16px;flex-wrap:wrap;">
       <h2 class="section-title" style="margin-bottom:0;">FESTIVALS</h2>
@@ -466,7 +383,7 @@
 <!-- SHOPPING -->
 <div class="cat-bg section-full" id="categories">
   <div class="section" style="padding-top:88px;padding-bottom:88px;">
-    <p class="eyebrow">Chapter 03</p>
+    <p class="eyebrow">Chapter 02</p>
     <h2 class="section-title">SHOP BY CATEGORY</h2>
     <div class="cat-grid" id="cat-grid"></div>
   </div>
@@ -476,7 +393,7 @@
 
 <!-- SOCIAL SPOTLIGHT -->
 <section class="section" id="social">
-  <p class="eyebrow">Chapter 04</p>
+  <p class="eyebrow">Chapter 03</p>
   <div class="section-header">
     <h2 class="section-title">SOCIAL SPOTLIGHT</h2>
     <a href="/social" class="nav-cta" style="white-space:nowrap;">View all creators →</a>
@@ -495,6 +412,80 @@
     </a>
   </div>
   <div class="blog-newspaper" id="blog-newspaper"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BRAND OF THE WEEK + INFLUENCER OF THE WEEK -->
+<section class="section" style="padding-bottom:0;">
+  <div class="featured-row">
+    <div class="featured-botw-col">
+      <div class="botw" id="botw">
+        <div>
+          <p class="botw-eyebrow"><span class="botw-star">★</span>Brand of the Week</p>
+          <p class="botw-name" id="botw-name">FREEDOM RAVE WEAR</p>
+          <p class="botw-cat" id="botw-cat">Fem + Male Clothing · California</p>
+          <p class="botw-desc" id="botw-desc">One of the most trusted names in the community. Affordable, quality spandex sets for all body types — and one of the few brands that stocks solid male options too.</p>
+          <p class="botw-ig" id="botw-ig">@freedomravewear</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
+          <a href="https://freedomravewear.com" target="_blank" class="nav-cta" style="white-space:nowrap;" id="botw-url">Visit Site</a>
+        </div>
+      </div>
+    </div>
+    <div class="featured-inf-col">
+      <div id="featured-influencer"></div>
+    </div>
+  </div>
+</section>
+<div class="accent-line" style="margin-top:40px;"></div>
+
+<!-- BRANDS -->
+<section class="section" id="brands">
+  <p class="eyebrow">Chapter 04</p>
+  <div class="item-filter-wrap">
+    <div class="item-filter-header">
+      <p class="item-filter-title">WHAT ARE YOU LOOKING FOR?</p>
+      <button class="item-filter-clear"
+        id="item-clear-btn"
+        onclick="filterByItem(_activeItemTag, document.querySelector('.item-pill.active'))"
+        style="display:none;">
+        Clear &#x2715;
+      </button>
+    </div>
+    <div id="item-filters"></div>
+  </div>
+  <div class="section-header">
+    <h2 class="section-title">BRANDS</h2>
+    <div class="filters" style="margin-bottom:0;" id="brand-filters">
+      <button class="filter-btn active" onclick="filterBrands('all',this)">All</button>
+      <button class="filter-btn" onclick="filterBrands('fem-clothing',this)">Fem Clothing</button>
+      <button class="filter-btn" onclick="filterBrands('male-clothing',this)">Male Clothing</button>
+      <button class="filter-btn" onclick="filterBrands('shoes',this)">Shoes</button>
+      <button class="filter-btn" onclick="filterBrands('accessories',this)">Accessories</button>
+      <button class="filter-btn" onclick="filterBrands('kandi',this)">Kandi</button>
+      <button class="filter-btn" onclick="filterBrands('jerseys',this)">Jerseys & Merch</button>
+      <button class="filter-btn" onclick="filterBrands('events',this)">Events</button>
+    </div>
+  </div>
+  <div class="brand-grid" id="brand-grid"></div>
+  <div style="text-align:center;margin-top:32px;" id="brands-expand">
+    <button onclick="expandBrands()" style="
+      font-family:'DM Mono',monospace;
+      font-size:11px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      padding:13px 32px;
+      background:transparent;
+      border:1px solid rgba(0,229,255,0.4);
+      color:var(--cyan);
+      cursor:pointer;
+      transition:all 0.2s;
+    " onmouseover="this.style.background='rgba(0,229,255,0.08)'"
+       onmouseout="this.style.background='transparent'">
+      Browse All Brands ↓
+    </button>
+  </div>
 </section>
 
 <!-- FOOTER -->

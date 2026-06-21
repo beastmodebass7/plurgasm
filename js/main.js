@@ -427,22 +427,30 @@ function refreshFestView() {
    RENDER CATEGORIES
 ════════════════════════════════════════════════ */
 function renderCategories() {
-  const container = document.getElementById('cat-grid');
-  if (!container) return;
-  container.innerHTML = CATEGORIES.map(c => {
-    const count = BRANDS.filter(b => b.cat === c.id).length;
-    const isImg = /\.(png|jpe?g|gif|webp|svg)$/i.test(c.icon);
-    const iconHtml = isImg
-      ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}" width="64" height="64">`
-      : `<span class="cat-icon">${c.icon}</span>`;
-    return `
-    <a class="cat-card" href="/category?cat=${c.id}" style="text-decoration:none;">
-      ${iconHtml}
-      <span class="cat-name">${c.label.toUpperCase()}</span>
-      <span class="cat-count">${count > 0 ? count + ' Brands' : 'Coming Soon'}</span>
-    </a>
-  `;}).join('');
-  applyMobileCategoryLimit();
+  try {
+    const container = document.getElementById('cat-grid');
+    if (!container) return;
+    // Only show categories that actually have at least one brand. Empty
+    // ("Coming Soon") categories stay in data.js but aren't rendered here;
+    // their /category?cat= links still work directly.
+    const populated = CATEGORIES.filter(c => BRANDS.some(b => b.cat === c.id));
+    container.innerHTML = populated.map(c => {
+      const count = BRANDS.filter(b => b.cat === c.id).length;
+      const isImg = /\.(png|jpe?g|gif|webp|svg)$/i.test(c.icon);
+      const iconHtml = isImg
+        ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}" width="64" height="64">`
+        : `<span class="cat-icon">${c.icon}</span>`;
+      return `
+      <a class="cat-card" href="/category?cat=${c.id}" style="text-decoration:none;">
+        ${iconHtml}
+        <span class="cat-name">${c.label.toUpperCase()}</span>
+        <span class="cat-count">${count} Brand${count === 1 ? '' : 's'}</span>
+      </a>
+    `;}).join('');
+    applyMobileCategoryLimit();
+  } catch (e) {
+    console.error('renderCategories error:', e);
+  }
 }
 
 function applyMobileCategoryLimit() {
@@ -1105,7 +1113,7 @@ function renderSocials() {
             </span>
           </div>
           <p class="sc-type">${s.type || ''}</p>
-          <p class="sc-desc">${s.desc || ''}</p>
+          ${s.desc ? `<p class="sc-desc">${s.desc}</p>` : ''}
         </div>
         <span class="sc-arrow">→</span>
       </a>`;
@@ -1240,6 +1248,21 @@ function initMarquee() {
 }
 
 /* ════════════════════════════════════════════════
+   READ TIME — strip HTML, ~200 wpm, min 1 min
+════════════════════════════════════════════════ */
+function readTimeBadge(body) {
+  try {
+    const text  = (body || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const words = text ? text.split(' ').length : 0;
+    const mins  = Math.max(1, Math.ceil(words / 200));
+    return `<span class="read-time-badge">⏱ ${mins} min read</span>`;
+  } catch (e) {
+    console.error('readTimeBadge error:', e);
+    return '';
+  }
+}
+
+/* ════════════════════════════════════════════════
    RENDER BLOG — newspaper layout
 ════════════════════════════════════════════════ */
 function renderBlog() {
@@ -1297,7 +1320,7 @@ function renderBlog() {
         <div class="blog-feat-body">
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
             <p class="blog-feat-date">${dateStr(featured.date)}</p>
-            <span class="views-badge-slot" data-post-id="${featured.id}"></span>
+            ${readTimeBadge(featured.body)}
           </div>
           <h2 class="blog-feat-title">${featured.title}</h2>
           <p class="blog-feat-excerpt">${featured.excerpt}</p>
@@ -1329,7 +1352,7 @@ function renderBlog() {
                   ${label(p)}
                 </span>
                 <span class="blog-date">${dateStr(p.date)}</span>
-                <span class="views-badge-slot" data-post-id="${p.id}"></span>
+                ${readTimeBadge(p.body)}
               </div>
               <p class="blog-thumb-title">${p.title}</p>
               <p class="blog-thumb-author">By ${p.author}</p>
@@ -1345,9 +1368,6 @@ function renderBlog() {
       </div>
 
     </div>`;
-
-  // View-count badges (read-only — the homepage grid never increments).
-  if (window.PlurViews) PlurViews.fillBadges(container);
 }
 
 /* ════════════════════════════════════════════════
