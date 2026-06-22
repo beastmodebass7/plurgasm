@@ -155,55 +155,87 @@ function festDetailHref(f) {
 }
 
 /* ════════════════════════════════════════════════
+   FESTIVAL CARD PLACEHOLDER PALETTE
+   Cards without a real `image` get a neon gradient cover. Prefer the
+   festival's own accent (cardTheme.accent) so themed festivals stay on-brand;
+   otherwise cycle through the site palette so a grid of placeholders still
+   reads as varied and intentional rather than broken.
+════════════════════════════════════════════════ */
+const FEST_PH_PALETTE = ['fest-ph-cyan','fest-ph-pink','fest-ph-purple','fest-ph-green','fest-ph-amber'];
+const FEST_PH_ACCENT  = {
+  '#00e5ff':'fest-ph-cyan', '#ff2d78':'fest-ph-pink', '#b64dff':'fest-ph-purple',
+  '#3dff85':'fest-ph-green', '#ffb800':'fest-ph-amber'
+};
+function festPlaceholderClass(f, i) {
+  const accent = f.cardTheme && f.cardTheme.accent ? f.cardTheme.accent.toLowerCase() : null;
+  if (accent && FEST_PH_ACCENT[accent]) return FEST_PH_ACCENT[accent];
+  return FEST_PH_PALETTE[i % FEST_PH_PALETTE.length];
+}
+
+/* ════════════════════════════════════════════════
    RENDER — GRID VIEW
+   Image-first cards: a festival photo (or neon placeholder) fills the top of
+   the card; the info band (date · name · location · age) reveals on hover on
+   desktop and is always visible on touch/mobile (see .fest-card-info CSS). The
+   bottom action bar (genres · Google Calendar · save heart) is always visible.
 ════════════════════════════════════════════════ */
 function renderFestivals() {
-  const grid = document.getElementById('fest-grid');
-  if (!grid) return;
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  const fullList = getFilteredFests().slice().sort((a, b) => {
-    const aDate = new Date(a.sortDate || '2099-01-01');
-    const bDate = new Date(b.sortDate || '2099-01-01');
-    const aPast = aDate < today;
-    const bPast = bDate < today;
-    if (aPast && !bPast) return 1;
-    if (!aPast && bPast) return -1;
-    if (!aPast && !bPast) {
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-    }
-    return aDate - bDate;
-  });
-  const expandEl = document.getElementById('fests-expand');
-  if (expandEl) expandEl.style.display = fullList.length > _festLimit ? '' : 'none';
-  const list = fullList.slice(0, _festLimit);
-  grid.innerHTML = list.map(f => {
-    const dest   = festDetailHref(f);
-    const target = f.detailPage ? '_self' : '_blank';
-    const t = f.cardTheme;
-    const cardStyle    = t ? `style="background:${t.bg};border-color:${t.border};"` : '';
-    const glowStyle    = t ? `style="background:radial-gradient(ellipse 80% 40% at 50% 0%, ${t.glow}, transparent);"` : '';
-    const taglineColor = t ? `style="color:${t.label};"` : '';
-    return `
-    <div class="fest-card ${f.featured && !t ? 'fest-featured' : ''}" data-id="${f.id}" ${cardStyle} onclick="window.open('${dest}','${target}')">
-      ${getDaysBadge(f.sortDate)}
-      <div class="fest-card-glow" ${glowStyle}></div>
-      <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
-      ${f._distanceMiles !== null ? `<span class="fest-distance-badge">📍 ${f._distanceMiles} mi away</span>` : ''}
-      <p class="fest-name">${f.name}</p>
-      ${f.tagline ? `<p class="fest-tagline" ${taglineColor}>${f.tagline}</p>` : ''}
-      <p class="fest-meta">${f.location} &nbsp;·&nbsp; ${f.dates} &nbsp;·&nbsp; ${f.days} Day${f.days>1?'s':''} &nbsp;·&nbsp; ${f.age}</p>
-      <p class="fest-desc">${f.desc}</p>
-      <div class="fest-footer">
-        <div class="vibes">${f.genres.slice(0,4).map(g=>`<span class="vibe">${g}</span>`).join('')}</div>
-        ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
-        ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
-        <span class="fest-arrow" ${t ? `style="color:${t.accent};"` : ''}>→</span>
+  try {
+    const grid = document.getElementById('fest-grid');
+    if (!grid) return;
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const fullList = getFilteredFests().slice().sort((a, b) => {
+      const aDate = new Date(a.sortDate || '2099-01-01');
+      const bDate = new Date(b.sortDate || '2099-01-01');
+      const aPast = aDate < today;
+      const bPast = bDate < today;
+      if (aPast && !bPast) return 1;
+      if (!aPast && bPast) return -1;
+      if (!aPast && !bPast) {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+      }
+      return aDate - bDate;
+    });
+    const expandEl = document.getElementById('fests-expand');
+    if (expandEl) expandEl.style.display = fullList.length > _festLimit ? '' : 'none';
+    const list = fullList.slice(0, _festLimit);
+    grid.innerHTML = list.map((f, i) => {
+      const dest   = festDetailHref(f);
+      const target = f.detailPage ? '_self' : '_blank';
+      const hasImg = !!f.image;
+      const cover  = hasImg
+        ? `<img class="fest-card-img-photo" src="${f.image}" alt="${f.name}" loading="lazy">`
+        : `<span class="fest-card-ph-name">${f.name}</span>`;
+      const cal = googleCalUrl(f);
+      return `
+    <div class="fest-card ${f.featured ? 'fest-featured' : ''}" data-id="${f.id}" onclick="window.open('${dest}','${target}')">
+      <div class="fest-card-img ${hasImg ? 'has-photo' : festPlaceholderClass(f, i)}">
+        ${cover}
+        ${getDaysBadge(f.sortDate)}
+        <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
+        ${f._distanceMiles != null ? `<span class="fest-distance-badge">📍 ${f._distanceMiles} mi away</span>` : ''}
+        <div class="fest-card-info">
+          <span class="fci-date">${f.dates}</span>
+          <span class="fci-name">${f.name}</span>
+          <span class="fci-loc">📍 ${f.location}</span>
+          <span class="fci-meta">${f.age} &nbsp;·&nbsp; ${f.days} Day${f.days>1?'s':''}</span>
+        </div>
+      </div>
+      <div class="fest-card-actions">
+        <div class="vibes">${f.genres.slice(0,3).map(g=>`<span class="vibe">${g}</span>`).join('')}</div>
+        <div class="fest-card-actions-btns">
+          ${cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
+          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
+        </div>
       </div>
     </div>
   `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:32px 0;">No festivals match this filter combo.</p>`;
-  applyMobileFestLimit();
+    applyMobileFestLimit();
+  } catch (e) {
+    console.error('[main.js] renderFestivals', e);
+  }
 }
 
 function applyMobileFestLimit() {

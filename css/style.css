@@ -747,29 +747,144 @@ nav {
 .fest-card {
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 28px 30px 24px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
   transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
-}
-.fest-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 35% at 50% 0%, rgba(0,229,255,0.07), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
 }
 .fest-card:hover {
   border-color: rgba(0,229,255,0.4);
   transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
-.fest-card:hover::before { opacity: 1; }
-.fest-featured { border-color: rgba(0,229,255,0.2); background: linear-gradient(145deg, var(--card), #0f0f20); }
+.fest-featured { border-color: rgba(0,229,255,0.25); }
+
+/* ── IMAGE-FIRST CARD: photo / placeholder cover ── */
+.fest-card-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fest-card-img-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.fest-card:hover .fest-card-img-photo { transform: scale(1.05); }
+
+/* Placeholder cover — neon gradient + festival name, no broken-image icon.
+   One class per site-palette accent; renderFestivals picks the festival's
+   themed accent when it has one, else cycles the palette. */
+.fest-ph-cyan   { background: linear-gradient(145deg, #04141c 0%, #063847 45%, #00e5ff 320%); }
+.fest-ph-pink   { background: linear-gradient(145deg, #1c0610 0%, #4a0a26 45%, #ff2d78 320%); }
+.fest-ph-purple { background: linear-gradient(145deg, #120820 0%, #2e0f4a 45%, #b64dff 320%); }
+.fest-ph-green  { background: linear-gradient(145deg, #04140a 0%, #0a3a1c 45%, #3dff85 320%); }
+.fest-ph-amber  { background: linear-gradient(145deg, #1a1200 0%, #4a3300 45%, #ffb800 320%); }
+.fest-card-ph-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(26px, 4.5vw, 40px);
+  letter-spacing: 2px;
+  line-height: 0.95;
+  text-align: center;
+  color: var(--white);
+  padding: 18px 22px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+  z-index: 1;
+}
+
+/* Tag + distance badges sit over the cover, top-left, under the days badge. */
+.fest-card-img .fest-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  margin-bottom: 0;
+  z-index: 3;
+  background: rgba(6,6,12,0.65);
+  backdrop-filter: blur(4px);
+}
+.fest-card-img .fest-distance-badge {
+  position: absolute;
+  top: 44px;
+  left: 14px;
+  margin-bottom: 0;
+  z-index: 3;
+  background: rgba(6,6,12,0.65);
+  backdrop-filter: blur(4px);
+}
+
+/* Info band — date · name · location · age. Hidden on desktop, slides up with a
+   dark scrim on hover; always visible on touch/small screens (media query below). */
+.fest-card-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 40px 20px 16px;
+  background: linear-gradient(to top, rgba(6,6,12,0.94) 0%, rgba(6,6,12,0.78) 55%, transparent 100%);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.fest-card:hover .fest-card-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fci-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.fci-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 1.5px;
+  line-height: 1.05;
+  color: var(--white);
+}
+.fci-loc {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13px;
+  color: rgba(240,238,255,0.85);
+}
+.fci-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+/* ── BOTTOM ACTION BAR — always visible (desktop + mobile) ── */
+.fest-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  flex-wrap: wrap;
+  padding: 14px 18px 16px;
+  border-top: 1px solid var(--border);
+}
+.fest-card-actions-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
 .fest-tag {
   font-family: 'DM Mono', monospace;
@@ -828,15 +943,6 @@ nav {
   border: 1px solid var(--border);
   color: rgba(240,238,255,0.8);
 }
-.fest-arrow {
-  color: var(--cyan);
-  font-size: 18px;
-  opacity: 0.5;
-  transition: opacity 0.2s, transform 0.2s;
-  flex-shrink: 0;
-}
-.fest-card:hover .fest-arrow { opacity: 1; transform: translateX(5px); }
-
 .add-cal {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
@@ -856,30 +962,31 @@ nav {
   border-color: var(--cyan);
 }
 
-/* On phones the footer is nearly full-width, so the genre tags + Google
-   Calendar + heart + arrow can't share one line without crowding. Drop the
-   genres to their own line and let the action controls spread across the next
-   one, keeping a comfortable gap between the heart and its neighbors. */
+/* On phones the action bar is nearly full-width, so the genre tags + Google
+   Calendar + heart can't share one line without crowding. Drop the genres to
+   their own line and let the action controls spread across the next one. */
 @media (max-width: 480px) {
-  .fest-footer { flex-wrap: wrap; }
-  .fest-footer .vibes { flex-basis: 100%; }
+  .fest-card-actions { flex-wrap: wrap; }
+  .fest-card-actions .vibes { flex-basis: 100%; }
 }
 
-.fest-card-glow {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-  z-index: 0;
+/* Touch / small screens: there is no hover, so the info band is always visible
+   as a solid bottom band (like the mobile layout intent) rather than a
+   hover-reveal. Covers both narrow viewports and any non-hover (touch) device.
+   The image shrinks to make room so the always-on band never hides the photo. */
+@media (max-width: 768px), (hover: none) {
+  .fest-card-info {
+    opacity: 1;
+    transform: none;
+    background: rgba(6,6,12,0.92);
+    padding: 14px 18px;
+  }
+  .fest-card-img { aspect-ratio: 16 / 10; }
+  /* No image zoom-on-hover where hover isn't a real interaction. */
+  .fest-card:hover .fest-card-img-photo { transform: none; }
 }
-.fest-card:hover .fest-card-glow { opacity: 1; }
 
-.fest-card > *:not(.fest-card-glow) { position: relative; z-index: 1; }
-
-.fest-card:hover {
-  filter: brightness(1.04);
-}
+.fest-card > * { position: relative; z-index: 1; }
 
 /* ── FESTIVAL DAYS BADGE ── */
 .fest-days-badge {
