@@ -401,26 +401,6 @@ nav {
   display: block;
 }
 
-/* Hero feature tags — value labels that replaced the numeric stat counters */
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 56px;
-}
-.hero-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 9px 18px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  color: var(--muted);
-  white-space: nowrap;
-}
-
 /* ══════════════════════════════════════════════════
    COUNTDOWN
 ══════════════════════════════════════════════════ */
