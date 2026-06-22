@@ -171,6 +171,7 @@ PLURGASM_DATA.blogPosts = [
     body: `
     <p><em>Disclosure: Plurgasm earns a small commission when you shop through our link or use our code, at no extra cost to you. We only feature brands we actually rate.</em></p>
     <p>If you have been eyeing your first flow star &mdash; or your fifth &mdash; <a href="https://trippysquid.com/?ref=Plurgasm" target="_blank" rel="noopener">Trippy Squid</a> is one of the best-value makers in the game, and Plurgasm readers get <strong>10% off with code PLURGASM</strong>.</p>
+    <a href="https://trippysquid.com/?ref=Plurgasm" target="_blank" rel="noopener sponsored"><img class="blog-brand-logo" src="/images/brands/trippysquid.webp" alt="Trippy Squid logo"></a>
     <h2>Who is Trippy Squid?</h2>
     <p>Trippy Squid is the work of Fahim, a Seattle-based founder who built the brand alongside his partner Yami. He comes from a family of entrepreneurs and struck out on his own at 23 &mdash; first with the viral Tiny Hand Finger Puppet (yes, the little hands) that became a festival sensation, and eventually with Trippy Squid, born from more than a decade deep in the EDM scene. The mission is simple: high-quality flow toys, ravewear, and accessories at prices anyone can afford &mdash; or as they put it, where raving meets affordability.</p>
     <h2>Why flowstars?</h2>

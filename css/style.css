@@ -2696,6 +2696,17 @@ footer {
   color: var(--pink);
 }
 
+/* centered, width-capped brand logo embedded near the top of a blog
+   post body (e.g. the Trippy Squid affiliate post). Kept in a class so
+   the data.js body template literal stays free of inline styles. */
+.blog-brand-logo {
+  display: block;
+  margin: 8px auto 18px;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+}
+
 /* per-post view counter badge — small, muted, with a little eye icon.
    Used on blog cards and the post header. Kept subtle on purpose. */
 .views-badge-slot { display: inline-flex; align-items: center; }
