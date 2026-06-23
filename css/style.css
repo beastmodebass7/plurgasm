@@ -2698,6 +2698,14 @@ footer {
   height: auto;
 }
 
+.blog-body-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1.5rem auto;
+}
+
 /* per-post view counter badge — small, muted, with a little eye icon.
    Used on blog cards and the post header. Kept subtle on purpose. */
 .views-badge-slot { display: inline-flex; align-items: center; }

@@ -157,6 +157,43 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'edc-orlando-2026-lineup',
+    title: 'EDC Orlando 2026 Lineup Breakdown: A House & Techno Takeover',
+    slug: 'edc-orlando-2026-lineup-breakdown',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-23',
+    category: 'festival-news',
+    coverImage: 'images/blog/edc-orlando-2026.webp',
+    excerpt: 'EDC Orlando 2026 is here — 100+ artists at Tinker Field this November. House and techno dominate, the mainstage is stacked, and one big bass name is missing. Our full breakdown.',
+    published: true,
+    featured: true,
+    body: `<p>The wait is over. EDC Orlando just dropped its 2026 lineup, and the rave internet lit up within minutes. Returning to <strong>Tinker Field</strong> from <strong>November 6–8</strong> for its 15th edition — all under the new <em>kineticJOURNEY</em> theme carried over from EDC Las Vegas' 30th anniversary — this year's bill runs more than 100 artists deep. Here's our honest breakdown of what stands out, and what's quietly missing.</p>
+
+<img class="blog-body-img" src="images/blog/edc-orlando-2026.webp" alt="EDC Orlando 2026 official lineup poster — Nov 6-8 at Tinker Field">
+
+<h2>The mainstage is absolutely stacked</h2>
+<p>Insomniac did not come to play. The top of the bill reads like a festival-house hall of fame: <strong>Martin Garrix, David Guetta, Hardwell, Alesso, Kaskade, Afrojack, Steve Aoki, Alan Walker,</strong> and <strong>Alison Wonderland</strong>. David Guetta in particular is a rare get for a US festival outside of Vegas and Ultra, so seeing him on an Orlando bill turned a lot of heads. Add sunset sets from Alesso, Alan Walker, Adventure Club, SLANDER, and Of The Trees, and the marquee alone could carry the weekend.</p>
+
+<h2>House and techno are the real winners</h2>
+<p>If there's a clear theme this year, it's that house and techno absolutely run the lineup. On the house side you've got <strong>Chris Lorenzo, Mau P, Disco Lines, Meduza, KREAM, Marlon Hoffstadt, Franky Rizardo, Joshwa,</strong> and <strong>Dennis Cruz</strong>. The techno and hard-techno contingent is even more notable — <strong>I Hate Models, Nico Moreno, Holy Priest, Klangkuenstler, Maddix, SHDW,</strong> and a <strong>Boys Noize b2b Brutalismus 3000</strong> set that reads like a dark-techno fever dream. The back-to-backs are a highlight all on their own: Deorro b2b Diesel, Bou b2b Kanine, Prospa b2b Josh Baker, and ACRAZE b2b CID. House and techno heads are eating very, very well.</p>
+
+<h2>Bass heads, we need to talk</h2>
+<p>Here's where the conversation gets spicy. Compared to recent years, the dubstep and riddim presence is noticeably lighter. There are still heaters — <strong>Jessica Audiffred, Kompany, Level Up, Wooli, Ray Volpe, ATLiens,</strong> the <strong>Skull Machine</strong> project (Black Tiger Sex Machine x Kai Wachi), and a "Wholesome Riddim" set from San Holo — but the depth isn't what bass fans have come to expect from Orlando.</p>
+<p>And then there's the elephant in the room: <strong>Subtronics isn't on the lineup.</strong> After becoming a near-annual fixture at EDC Orlando, his absence is easily the most talked-about omission of the drop, and bassheads are not thrilled. One quick PSA to save you some confusion — <strong>Subsonic</strong>, who <em>is</em> on the bill, is a drum & bass artist, not Subtronics. Easy mix-up, very different set.</p>
+
+<h2>No trance this year</h2>
+<p>Worth flagging for the uplifting crowd: there's essentially no trance presence on this lineup. No Tiësto, no Armin, no dedicated trance day. It's part of a broader trend at EDC's regional events, but trance fans are coming up empty in Orlando this year.</p>
+
+<h2>New for 2026: Hotel EDC comes east</h2>
+<p>The biggest non-music news is <strong>Hotel EDC Orlando</strong> — the first East Coast version of Insomniac's luxury festival hotel concept, taking over the Margaritaville Resort from November 6–9 in partnership with Vibee. Think festival-themed rooms, onsite concierge, and exclusive daytime and after-party events. If you've ever wanted the full immersive experience without the 4am drive home, this is it.</p>
+
+<h2>The details</h2>
+<p>EDC Orlando 2026 hits Tinker Field on <strong>November 6–8</strong>, 18+. Three-day GA, GA+, and 21+ VIP tickets go on sale <strong>Thursday, June 25 at 12pm EST</strong> through Insomniac. Stage takeovers come courtesy of Factory 93 and Bassrush, all under the kineticJOURNEY banner.</p>
+
+<p>Genre gripes aside, this is one of the deepest Orlando bills in years — and as the poster reminds everyone, the most important headliner of all is still <strong>you</strong>. <a href="/calendar">Add it to your calendar</a> and start planning your sets.</p>`,
+  },
+  {
     id: 'trippysquid-flowstars',
     title: 'Trippy Squid Flowstars: Affordable UV Flow Toys (10% Off with Code PLURGASM)',
     slug: 'trippysquid-flowstars',
