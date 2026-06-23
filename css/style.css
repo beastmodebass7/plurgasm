@@ -2484,26 +2484,33 @@ footer {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
-.blog-card-top { width:100%; height:160px; overflow:hidden; }
+.blog-card-top { width:100%; aspect-ratio:16 / 9; overflow:hidden; }
 .blog-cover {
   width:100%; height:100%;
-  object-fit:cover;
+  object-fit:cover; object-position:center;
   transition: transform 0.3s;
 }
 .blog-card:hover .blog-cover { transform: scale(1.04); }
 
-/* Single-post header media (image or video). Fills the header band like the old cover img did. */
+/* ── Blog media frames — one source of truth ──────────────────────────────
+   Post header  = short wide 21:9 cinematic banner (capped so it never gets
+                  too tall on ultrawide screens), like the "PLUR 101" header.
+   Card covers  = uniform 16:9 (see .blog-card-top / .blog-feat-img below).
+   Every image/video crops to fill its frame (object-fit:cover) and is
+   centered — a tall poster-shaped source ends up the same short banner as a
+   wide one. No stretching. Change the ratios here and headers + cards stay
+   consistent. */
 .blog-header-media {
-  width:100%; height:320px; overflow:hidden; margin-bottom:36px;
+  width:100%; aspect-ratio:21 / 9; max-height:380px;
+  overflow:hidden; margin-bottom:36px;
 }
 .blog-header-img,
 .blog-header-video {
   width:100%; height:100%;
-  object-fit:cover;
+  object-fit:cover; object-position:center;
   display:block;
 }
 .blog-header-placeholder {
-  height:200px;
   display:flex; align-items:center; justify-content:center;
   background: linear-gradient(135deg, color-mix(in srgb, var(--ph-color) 8%, transparent), transparent);
   border: 1px solid color-mix(in srgb, var(--ph-color) 14%, transparent);
@@ -2569,14 +2576,14 @@ footer {
 .blog-feat:hover { background: var(--card-hi); }
 .blog-feat-img {
   width: 100%;
-  height: 240px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   position: relative;
   background: var(--surface);
 }
 .blog-feat-img img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: cover; object-position: center;
   transition: transform 0.3s;
 }
 .blog-feat:hover .blog-feat-img img { transform: scale(1.03); }
