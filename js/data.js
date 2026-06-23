@@ -202,6 +202,9 @@ PLURGASM_DATA.blogPosts = [
     date: '2026-06-16',
     category: 'gear',
     coverImage: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+    // Optimized, silent, looping video header (webm first, mp4 fallback). coverImage is the poster/still.
+    headerVideo: '/images/blog/trippysquid-header.webm',
+    headerVideoMp4: '/images/blog/trippysquid-header.mp4',
     excerpt: 'Trippy Squid makes handmade, UV-reactive flowstars at some of the best prices in the scene. Plurgasm readers get 10% off with code PLURGASM.',
     published: true,
     featured: true,

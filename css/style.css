@@ -2491,6 +2491,28 @@ footer {
   transition: transform 0.3s;
 }
 .blog-card:hover .blog-cover { transform: scale(1.04); }
+
+/* Single-post header media (image or video). Fills the header band like the old cover img did. */
+.blog-header-media {
+  width:100%; height:320px; overflow:hidden; margin-bottom:36px;
+}
+.blog-header-img,
+.blog-header-video {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.blog-header-placeholder {
+  height:200px;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--ph-color) 8%, transparent), transparent);
+  border: 1px solid color-mix(in srgb, var(--ph-color) 14%, transparent);
+}
+.blog-header-placeholder span {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:100px; color: var(--ph-color); opacity:0.12;
+}
+
 .blog-cover-placeholder {
   width:100%; height:100%;
   display:flex; align-items:center; justify-content:center;

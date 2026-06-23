@@ -144,6 +144,33 @@ function setMetaDesc(txt) {
   if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'description'); document.head.appendChild(m); }
   m.setAttribute('content', clampDesc(txt));
 }
+// Header media: video (autoplay/muted/loop) when post.headerVideo is set and motion is allowed,
+// otherwise the coverImage still, otherwise a letter placeholder. Wrapped so it can never break
+// a post that has no video.
+function renderPostHeader(post, color) {
+  const imgHeader = post.coverImage
+    ? `<div class="blog-header-media">
+         <img src="${post.coverImage}" alt="${post.title}" class="blog-header-img" onerror="this.style.display='none'">
+       </div>`
+    : `<div class="blog-header-media blog-header-placeholder" style="--ph-color:${color};">
+         <span>${post.title ? post.title[0] : ''}</span>
+       </div>`;
+  try {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!post.headerVideo || reduceMotion) return imgHeader;
+    const poster = post.coverImage ? ` poster="${post.coverImage}"` : '';
+    const webm = `<source src="${post.headerVideo}" type="video/webm">`;
+    const mp4  = post.headerVideoMp4 ? `<source src="${post.headerVideoMp4}" type="video/mp4">` : '';
+    return `<div class="blog-header-media">
+         <video class="blog-header-video" autoplay muted loop playsinline preload="metadata"${poster}>
+           ${webm}${mp4}
+         </video>
+       </div>`;
+  } catch (e) {
+    console.error('renderPostHeader error:', e);
+    return imgHeader;
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
@@ -177,13 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">← All Posts</a>
     </div>
 
-    ${post.coverImage
-      ? `<div style="width:100%;height:320px;overflow:hidden;margin-bottom:36px;">
-           <img src="${post.coverImage}" alt="${post.title}" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;">
-         </div>`
-      : `<div style="width:100%;height:200px;background:linear-gradient(135deg,${color}12,transparent);border:1px solid ${color}22;display:flex;align-items:center;justify-content:center;margin-bottom:36px;">
-           <span style="font-family:'Bebas Neue',sans-serif;font-size:100px;color:${color};opacity:0.12;">${post.title[0]}</span>
-         </div>`}
+    ${renderPostHeader(post, color)}
 
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
       <span class="blog-cat" style="color:${color};border-color:${color}44;">${label}</span>
