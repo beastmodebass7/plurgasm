@@ -110,7 +110,7 @@ const BRANDS = [
     tags: ['flowstar','flow toys','uv','ravewear','led'],
     desc: 'Founder-run rave brand making handmade, UV-reactive flowstars at some of the best prices around, plus ravewear and accessories. Free shipping on US orders.',
     note: 'Use code PLURGASM for 10% off',
-    ig: null,
+    ig: '@trippysquidraver',
     url: 'https://trippysquid.com/?ref=Plurgasm',
     featured: true,
     sortOrder: 0,

@@ -1206,16 +1206,52 @@ nav {
 .brand-card {
   background: var(--card);
   border: 1px solid var(--border);
+  border-radius: 14px;
   padding: 20px 22px;
   display: flex;
   gap: 16px;
   align-items: flex-start;
   cursor: pointer;
   position: relative;
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
-.brand-card:hover { border-color: var(--border-hi); background: var(--card-hi); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.brand-card:hover {
+  border-color: var(--border-hi);
+  background: var(--card-hi);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 22px rgba(0,229,255,0.12);
+  transform: translateY(-4px);
+}
 .brand-card-featured { border-color: rgba(0,229,255,0.3); }
+@media (prefers-reduced-motion: reduce) {
+  .brand-card { transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; }
+  .brand-card:hover { transform: none; }
+}
+
+/* ── Homepage Rave Brands: equal-height flex-column cards ── */
+.brand-grid { align-items: stretch; }
+.brand-grid .brand-card {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  height: 100%;
+}
+.brand-grid .brand-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-grid .brand-name { margin-bottom: 0; min-width: 0; }
+.brand-grid .brand-meta { margin-bottom: 0; }
+.brand-grid .brand-cat-label { margin-bottom: 0; }
+.brand-grid .brand-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* IG/action button pinned to the bottom on a consistent baseline */
+.brand-grid .brand-ig-btn { margin-top: auto; align-self: flex-start; }
 .brand-featured-star {
   position: absolute;
   top: 10px;
@@ -1279,6 +1315,13 @@ nav {
   text-transform: uppercase;
   color: var(--faint);
   margin-bottom: 6px;
+}
+.brand-cat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 .brand-desc { font-size: 16px; color: var(--muted); line-height: 1.6; }
 .brand-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--faint); margin-top: 7px; line-height: 1.55; }

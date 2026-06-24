@@ -592,6 +592,7 @@ let _brandLimit = 6;
 function renderBrands(cat) {
   const grid = document.getElementById('brand-grid');
   if (!grid) return;
+  try {
   let list = cat === 'all' ? BRANDS : BRANDS.filter(b => b.cat === cat);
   if (searchQuery) list = list.filter(b => {
     const text = [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags||[])].join(' ').toLowerCase();
@@ -614,28 +615,31 @@ function renderBrands(cat) {
   const visible = list.slice(0, _brandLimit);
   grid.innerHTML = visible.map(b => {
     const catLabel = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
-    const shortDesc = b.desc.length > 80 ? b.desc.slice(0, 80) + '...' : b.desc;
     const badgeHTML = b.logo
       ? `<img src="${b.logo}" alt="${b.name}" style="width:100%;height:100%;object-fit:contain;padding:4px;" onerror="this.style.display='none';this.parentElement.innerHTML='${b.badge}';">`
       : b.badge;
     return `
     <div class="brand-card${b.featured ? ' brand-card-featured' : ''}" onclick="openBrandModal('${b.id}')">
       ${b.featured ? '<span class="brand-featured-star">★</span>' : ''}
-      <div class="brand-badge ${b.logo ? '' : b.badgeCls}">${badgeHTML}</div>
-      <div class="brand-info">
+      <div class="brand-card-head">
+        <div class="brand-badge ${b.logo ? '' : b.badgeCls}">${badgeHTML}</div>
         <p class="brand-name">${b.name}</p>
-        <div class="brand-meta">
-          <span class="brand-price ${b.priceCls}">${b.price}</span>
-          <span class="brand-ship">⏱ ${b.ship}</span>
-          <span class="brand-loc">📍 ${b.loc}</span>
-        </div>
-        <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-bottom:6px;">${catLabel}</p>
-        <p class="brand-desc">${shortDesc}</p>
-        ${b.ig ? `<a class="brand-ig-btn" href="https://instagram.com/${b.ig.replace('@','')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${b.ig}</a>` : ''}
       </div>
+      <div class="brand-meta">
+        <span class="brand-price ${b.priceCls}">${b.price}</span>
+        <span class="brand-ship">⏱ ${b.ship}</span>
+        <span class="brand-loc">📍 ${b.loc}</span>
+      </div>
+      <p class="brand-cat-label">${catLabel}</p>
+      <p class="brand-desc">${b.desc}</p>
+      ${b.ig ? `<a class="brand-ig-btn" href="https://instagram.com/${b.ig.replace('@','')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${b.ig}</a>` : ''}
     </div>
   `; }).join('') || `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">No brands found${searchQuery ? ' for "'+searchQuery+'"':''} in this category.</p>`;
   applyMobileBrandLimit();
+  } catch (err) {
+    console.error('renderBrands failed:', err);
+    grid.innerHTML = `<p style="color:var(--muted);grid-column:1/-1;font-size:15px;padding:24px 0;">Brands are temporarily unavailable.</p>`;
+  }
 }
 
 function applyMobileBrandLimit() {
