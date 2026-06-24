@@ -55,6 +55,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://plurgasm.com/blog-post?id=post-011</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://plurgasm.com/blog-post?id=edc-orlando-2026-lineup</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
