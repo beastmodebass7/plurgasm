@@ -164,7 +164,7 @@ PLURGASM_DATA.blogPosts = [
     authorHandle: '@plurgasm',
     date: '2026-06-23',
     category: 'festival-news',
-    coverImage: '/images/blog/edc-orlando-2026.webp',
+    coverImage: '/images/blog/edc-orlando-2026-header.jpg',
     excerpt: 'EDC Orlando 2026 is here — 100+ artists at Tinker Field this November. House and techno dominate, the mainstage is stacked, and one big bass name is missing. Our full breakdown.',
     published: true,
     featured: true,
