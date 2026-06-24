@@ -320,77 +320,39 @@ function renderCalendar() {
 }
 
 /* ════════════════════════════════════════════════
-   EXPANDABLE PILLS — mobile show/hide
-════════════════════════════════════════════════ */
-function makeExpandablePills(pills, container, activeClass) {
-  const isMobile = window.innerWidth <= 900;
-  const SHOW = 4; // show first 4 on mobile
-
-  if (!isMobile || pills.length <= SHOW) {
-    // desktop or few pills — show all normally
-    return;
-  }
-
-  // hide pills after index SHOW
-  const allPills = container.querySelectorAll(
-    '.genre-pill, .filter-btn'
-  );
-  let expanded = false;
-
-  allPills.forEach((pill, i) => {
-    if (i >= SHOW) pill.style.display = 'none';
-  });
-
-  // add +More button
-  const moreBtn = document.createElement('button');
-  const hiddenCount = allPills.length - SHOW;
-  moreBtn.className = 'pill-more-btn';
-  moreBtn.textContent = `+${hiddenCount} More`;
-  container.appendChild(moreBtn);
-
-  moreBtn.addEventListener('click', () => {
-    expanded = !expanded;
-    allPills.forEach((pill, i) => {
-      if (i >= SHOW) {
-        pill.style.display = expanded ? '' : 'none';
-      }
-    });
-    moreBtn.textContent = expanded
-      ? 'Show Less ↑'
-      : `+${hiddenCount} More`;
-  });
-}
-
-/* ════════════════════════════════════════════════
    FILTER PILLS — built from the shared festival taxonomy
    so the homepage and the calendar page never diverge. Rebuilds the vibe
    and region rows from PLURGASM_DATA; the hardcoded pills in index.html
    act as a static fallback if this never runs.
 ════════════════════════════════════════════════ */
+// Populate the homepage Vibe + Region <select> dropdowns from the festival data
+// (same source/shape the calendar's dropdowns use, so the two pages stay in
+// sync). Wrapped in try/catch so a data hiccup can't break other homepage
+// renders. Month options are static in the HTML (1-12).
 function renderFestFilterPills() {
-  const D = window.PLURGASM_DATA;
-  if (!D) return;
-  const labelStyle = "font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;" +
-                     "text-transform:uppercase;color:var(--faint);display:flex;align-items:center;";
+  try {
+    const D = window.PLURGASM_DATA;
+    if (!D) return;
 
-  const genreRow = document.getElementById('genre-filters');
-  if (genreRow && typeof D.getFestivalGenres === 'function') {
-    genreRow.innerHTML =
-      `<span style="${labelStyle}">Vibe:</span>` +
-      `<button class="genre-pill active" onclick="filterGenre('',this)">All Vibes</button>` +
-      D.getFestivalGenres().map(g =>
-        `<button class="genre-pill" onclick="filterGenre('${g.value}',this)">${g.label}</button>`
-      ).join('');
-  }
+    const vibeSel = document.getElementById('fest-vibe-select');
+    if (vibeSel && typeof D.getFestivalGenres === 'function') {
+      vibeSel.innerHTML =
+        `<option value="">All vibes</option>` +
+        D.getFestivalGenres().map(g =>
+          `<option value="${g.value}">${g.label}</option>`
+        ).join('');
+    }
 
-  const regionRow = document.getElementById('region-filters');
-  if (regionRow && typeof D.getFestivalRegions === 'function') {
-    regionRow.innerHTML =
-      `<span style="${labelStyle}">Region:</span>` +
-      `<button class="region-pill active" onclick="filterRegion('',this)">All Regions</button>` +
-      D.getFestivalRegions().map(r =>
-        `<button class="region-pill" onclick="filterRegion('${r.id}',this)">${r.label}</button>`
-      ).join('');
+    const regionSel = document.getElementById('fest-region-select');
+    if (regionSel && typeof D.getFestivalRegions === 'function') {
+      regionSel.innerHTML =
+        `<option value="">All regions</option>` +
+        D.getFestivalRegions().map(r =>
+          `<option value="${r.id}">${r.label}</option>`
+        ).join('');
+    }
+  } catch (e) {
+    console.error('renderFestFilterPills error:', e);
   }
 }
 
@@ -404,34 +366,32 @@ function filterFests(type, btn) {
   _festLimit  = 6;
   document.querySelectorAll('#festivals .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.region-pill').forEach(b => b.classList.remove('active'));
-  document.querySelector('.region-pill')?.classList.add('active');
-  document.querySelectorAll('.month-pill').forEach(b => b.classList.remove('active'));
-  document.querySelector('.month-pill')?.classList.add('active');
+  // Reset the region/month dropdowns to "All" so they reflect the cleared state.
+  const regionSel = document.getElementById('fest-region-select'); if (regionSel) regionSel.value = '';
+  const monthSel  = document.getElementById('fest-month-select');  if (monthSel)  monthSel.value  = '';
   refreshFestView();
 }
 
-function filterGenre(genre, btn) {
+// The filter setters below now read straight off the native <select> value. The
+// state variables and getFilteredFests() logic are unchanged — only the input
+// control swapped from clickable pills to dropdowns (matches calendar.html).
+function filterGenre(genre) {
   _festGenre = genre;
   _festLimit = 6;
-  document.querySelectorAll('.genre-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   refreshFestView();
 }
 
-function filterRegion(region, btn) {
+function filterRegion(region) {
   _festRegion = region;
   _festLimit  = 6;
-  document.querySelectorAll('.region-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   refreshFestView();
 }
 
-function filterMonth(month, btn) {
-  _festMonth = month;
+function filterMonth(month) {
+  // '' = all months; otherwise coerce the select's string value back to the
+  // number 1-12 that getFilteredFests() compares against (strict ===).
+  _festMonth = (month === '' || month == null) ? '' : parseInt(month, 10);
   _festLimit = 6;
-  document.querySelectorAll('.month-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   refreshFestView();
 }
 
@@ -1572,18 +1532,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  renderFestFilterPills();   // build vibe + region pills from data (in sync w/ calendar)
+  renderFestFilterPills();   // populate vibe + region dropdowns from data (in sync w/ calendar)
   renderFestivals();
-
-  // after pills render on mobile only
-  if (window.innerWidth <= 900) {
-    const vibeRow   = document.getElementById('genre-filters');
-    const regionRow = document.getElementById('region-filters');
-    const monthRow  = document.getElementById('month-filters');
-    if (vibeRow)   makeExpandablePills(vibeRow.querySelectorAll('.genre-pill'),   vibeRow);
-    if (regionRow) makeExpandablePills(regionRow.querySelectorAll('.genre-pill'), regionRow);
-    if (monthRow)  makeExpandablePills(monthRow.querySelectorAll('.genre-pill'),  monthRow);
-  }
 
   renderCategories();
   renderBrands('all');

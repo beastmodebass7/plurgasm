@@ -1861,91 +1861,9 @@ footer {
   .dc-icon::after { animation: none; }
 }
 
-/* ══════════════════════════════════════════════════
-   GENRE / VIBE FILTER PILLS
-══════════════════════════════════════════════════ */
-.genre-filter-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-}
-.genre-pill {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: var(--white);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.genre-pill:hover {
-  border-color: rgba(182,77,255,0.6);
-  color: var(--purple);
-  background: rgba(182,77,255,0.1);
-}
-.genre-pill.active {
-  border-color: rgba(182,77,255,0.7);
-  color: var(--purple);
-  background: rgba(182,77,255,0.14);
-  box-shadow: 0 0 12px rgba(182,77,255,0.15);
-}
-
-.region-pill {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: rgba(240,238,255,0.8);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.region-pill:hover {
-  border-color: rgba(255,184,0,0.6);
-  color: var(--amber);
-  background: rgba(255,184,0,0.1);
-}
-.region-pill.active {
-  border-color: rgba(255,184,0,0.7);
-  color: var(--amber);
-  background: rgba(255,184,0,0.14);
-  box-shadow: 0 0 12px rgba(255,184,0,0.15);
-}
-
-.month-pill {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: rgba(240,238,255,0.8);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.month-pill:hover {
-  border-color: rgba(0,229,255,0.6);
-  color: var(--cyan);
-  background: rgba(0,229,255,0.1);
-}
-.month-pill.active {
-  border-color: rgba(0,229,255,0.7);
-  color: var(--cyan);
-  background: rgba(0,229,255,0.14);
-  box-shadow: 0 0 12px rgba(0,229,255,0.15);
-}
+/* Homepage festival filters use native <select> dropdowns (the .cal-select
+   classes shared with calendar.html, defined below) — the old genre/region/
+   month pill styles were removed when those scrolling pill rows were replaced. */
 
 /* ══════════════════════════════════════════════════
    CALENDAR FILTER DROPDOWNS (Vibe / Region / Month) + Near Me
@@ -2019,27 +1937,6 @@ footer {
   .cal-select { width: 100%; }
   .cal-nearme-field { width: 100%; }
   .cal-nearme-field .near-me-btn { width: 100%; }
-}
-
-/* ── EXPANDABLE PILLS — +More button ── */
-.pill-more-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,229,255,0.35);
-  background: rgba(0,229,255,0.06);
-  color: var(--cyan);
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.pill-more-btn:hover {
-  background: rgba(0,229,255,0.12);
-  border-color: rgba(0,229,255,0.6);
 }
 
 /* view toggle */
@@ -2810,9 +2707,8 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* festival filter rows — scroll horizontally
+  /* festival type filter row — scroll horizontally
      instead of wrapping to multiple lines */
-  .genre-filter-row,
   .filters {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -2823,11 +2719,9 @@ footer {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .genre-filter-row::-webkit-scrollbar,
   .filters::-webkit-scrollbar { display: none; }
 
   /* stop pills shrinking on mobile */
-  .genre-pill,
   .filter-btn,
   .item-pill {
     flex-shrink: 0;
@@ -2844,15 +2738,6 @@ footer {
     text-align: center;
     font-size: 10px;
     padding: 8px 10px;
-  }
-
-  /* festival filter label text smaller */
-  .genre-filter-row > span,
-  [style*="VIBE:"],
-  [style*="REGION:"],
-  [style*="MONTH:"] {
-    font-size: 9px;
-    flex-shrink: 0;
   }
 
   /* brand grid single column on small phones */
@@ -3006,10 +2891,6 @@ footer {
     padding: 10px 16px;
     font-size: 11px;
   }
-  .genre-pill {
-    min-height: 40px;
-    padding: 8px 16px;
-  }
   .item-pill {
     min-height: 40px;
   }
@@ -3092,18 +2973,15 @@ footer {
   }
 
   /* FILTER ROWS horizontal scroll */
-  .filters,
-  .genre-filter-row {
+  .filters {
     flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 6px;
   }
-  .filters::-webkit-scrollbar,
-  .genre-filter-row::-webkit-scrollbar { display: none; }
-  .filter-btn,
-  .genre-pill { flex-shrink: 0; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter-btn { flex-shrink: 0; }
 }
 
 /* ══════════════════════════════════════════════════
@@ -3271,12 +3149,8 @@ footer {
     overflow: visible;
   }
 
-  /* every filter row — horizontal scroll, no wrap */
-  .filters,
-  .genre-filter-row,
-  #genre-filters,
-  #region-filters,
-  #month-filters {
+  /* festival type filter row — horizontal scroll, no wrap */
+  .filters {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
@@ -3288,12 +3162,10 @@ footer {
     box-sizing: border-box;
     max-width: 100%;
   }
-  .filters::-webkit-scrollbar,
-  .genre-filter-row::-webkit-scrollbar { display: none; }
+  .filters::-webkit-scrollbar { display: none; }
 
   /* every pill/button never shrinks */
   .filter-btn,
-  .genre-pill,
   .view-btn {
     flex-shrink: 0 !important;
     white-space: nowrap !important;

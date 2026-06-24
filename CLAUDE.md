@@ -38,7 +38,7 @@ so data.js must stay first. `nav.js`, `auth.js`, `views.js`, `saves.js` are defe
 
 ## Homepage section flow (index.html) — reordered, chapters renumbered
 Hero → Countdown strip → Marquee → then sections:
-1. **Chapter 01 — FESTIVALS** `#festivals` (grid/calendar toggle, vibe/region/month pills, Near Me)
+1. **Chapter 01 — FESTIVALS** `#festivals` (grid/calendar toggle, vibe/region/month dropdowns, Near Me)
 2. **Chapter 02 — SHOP BY CATEGORY** `#categories`
 3. **Chapter 03 — SOCIAL SPOTLIGHT** `#social`
 4. **"From the Community" — RAVE NEWS & CULTURE** `#blog` (newspaper layout; *no chapter number*)
@@ -60,7 +60,7 @@ Renders are wired by ID — a typo'd/missing container makes that render silentl
 | `countdown`, `countdown-fest-name`, `countdown-fest-loc`, `countdown-fest-date`, `countdown-fest-link` | `initCountdown()` |
 | `marquee-track` | `initMarquee()` |
 | `fest-grid`, `cal-view`, `fests-expand` | `renderFestivals()` / `renderCalendar()` |
-| `genre-filters`, `region-filters`, `month-filters` | `renderFestFilterPills()` |
+| `fest-vibe-select`, `fest-region-select`, `fest-month-select` | festival filter dropdowns (Vibe/Region populated by `renderFestFilterPills()`; Month is static) |
 | `near-me-btn`, `near-me-controls`, `near-me-status` | `toggleNearMe()` |
 | `rave-cal-cta`, `rave-cal-cta-text`, `rave-cal-cta-link` | inline rave-calendar CTA (uses `window.sb`) |
 | `cat-grid` | `renderCategories()` |
@@ -114,7 +114,7 @@ Festival logic: `getFilteredFests`, `getDaysBadge`, `festDetailHref`, `festPlace
 `googleCalUrl`, `haversineDistance`, `getNextFestival`.
 Filters/handlers: `filterFests`, `filterGenre`, `filterRegion`, `filterMonth`, `filterBrands`,
 `filterByItem`, `setView`, `refreshFestView`, `expandFests`, `expandBrands`, `toggleNearMe`,
-`setDistance`, `toggleItemGroup`, `makeExpandablePills`, `priceChipClass`.
+`setDistance`, `toggleItemGroup`, `priceChipClass`.
 Brand modal: `openBrandModal`, `closeBrandModal`, `shareBrand`.
 Creator voting (Supabase): `loadCreatorVotes`, `onCreatorVote`, `creatorVoteId` + upvote animations.
 Init (in `DOMContentLoaded`): merges `pg_admin_*` localStorage data, applies admin ordering, then
