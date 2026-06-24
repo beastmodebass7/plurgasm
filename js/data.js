@@ -157,6 +157,52 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'post-011',
+    title: 'Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis',
+    slug: 'cercle-cancels-mexico-festival-financial-crisis',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-24',
+    category: 'festival-news',
+    coverImage: 'images/cercle-mexico-cancelled.webp',
+    excerpt: 'Cercle has pulled its upcoming Mexico festival and gone public with serious money trouble — and for the first time in a decade, the team is asking fans for help.',
+    published: true,
+    featured: true,
+    body: `<p>One of electronic music's most recognizable brands just delivered news nobody in the scene wanted to hear. <strong>Cercle has canceled its upcoming festival in Mexico</strong>, and founder Derek Barbolla says the company is in serious financial trouble.</p>
+
+<p>If you've spent any late night falling down a YouTube rabbit hole, you know Cercle even if you didn't know the name. For ten years they've been the crew filming the world's biggest DJs in places that shouldn't be possible — the Eiffel Tower, a Bolivian salt flat, châteaux, mountaintops, ancient landmarks — and streaming it all for free. More than 200 shows. Millions of viewers. They basically invented a genre of livestream and made the location part of the music.</p>
+
+<p>That's what makes this one sting.</p>
+
+<h2>What happened</h2>
+
+<p>In a statement posted to Instagram, Barbolla said the Mexico festival could no longer be delivered under the conditions it was built and planned for, and that the team couldn't run it to Cercle's own standard. Anyone holding a ticket will be refunded automatically within 24 to 48 hours.</p>
+
+<p>The reasons are the same ones squeezing live events everywhere right now. Cercle started a decade ago on a 10,000-euro budget — some GoPros, mics, a laptop, a mixer — and scaled into a 35-person operation producing massive shows around the globe. After COVID, Barbolla says, costs climbed, taxes climbed, and margins got thinner and thinner. The balance the team had always managed to hold finally stopped holding.</p>
+
+<h2>The ask — for the first time ever</h2>
+
+<p>Here's the part that makes this different from a normal cancellation. Barbolla wrote that fans have asked for years how they could support Cercle directly, and that today, for the first time, the company actually needs that help. They've opened a way to donate at <a href="https://www.cercle.io" target="_blank" rel="noopener">cercle.io</a>.</p>
+
+<p>He was clear it isn't pay-to-play: if you can't give money, a like, a share, or a kind comment genuinely helps too. Everything they've already filmed stays free on YouTube for as long as it's in their control.</p>
+
+<p>We're not here to tell you to open your wallet or keep it shut — that's a personal call. If Cercle has soundtracked your 2am, the link is right there. If not, no judgment. We just think the scene deserves to know the option exists.</p>
+
+<h2>The community showed up</h2>
+
+<p>The comments under the post turned into something rare. Artists offered to play fundraiser shows for free. DJs floated no-fee benefit events to help the books recover. Fans flooded in with stories about the shows that changed how they heard music. There was some sharper criticism too — a few pointed to ticket pricing and logistics on past Odyssey dates as warning signs — but the overwhelming tone was gratitude and a refusal to treat this as the end.</p>
+
+<p>One detail we keep coming back to: the post closed with a small line noting it had been handwritten. After a decade of cinematic 4K productions, the goodbye-for-now came as a person typing out something real. That's about as PLUR as a corporate statement gets.</p>
+
+<h2>Where this leaves us</h2>
+
+<p>Cercle says it's working to keep the dream alive and will share next steps as they come. Nothing about the brand's future is fully settled yet.</p>
+
+<p>Zoom out and this is bigger than one festival. When a brand this beloved and this established hits a wall, it says something uncomfortable about how hard it's become to actually produce live electronic music — even when the art is undeniable and the audience is right there. The whole scene runs on people betting everything on a feeling. Sometimes the math catches up with the magic.</p>
+
+<p>Peace, love, unity, respect — and to the Cercle team, gratitude for ten years of making the world feel a little less alone at 2am.</p>`,
+  },
+  {
     id: 'edc-orlando-2026-lineup',
     title: 'EDC Orlando 2026 Lineup Breakdown: A House & Techno Takeover',
     slug: 'edc-orlando-2026-lineup-breakdown',
