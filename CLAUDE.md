@@ -187,6 +187,10 @@ nav.js fills them on `DOMContentLoaded`. **Never edit nav markup in individual H
   kebab-case; CSS colors via `var(--name)`. IG handles include the leading `@`.
 - **Git workflow**: work happens **directly on `main`** — no feature branches / PRs. Sync first
   (`git fetch origin main && git checkout main && git pull origin main`), make the change, then
-  `git add -A && git commit && git push origin main`. Pages auto-deploys in ~30s.
+  run the **Session End Template**:
+  `node generate-sitemap.js && git add -A && git commit -m "..." && git push origin main`.
+  Pages auto-deploys in ~30s.
+- **After adding or editing a published blog post**, run `node generate-sitemap.js` **before
+  committing** so `sitemap.xml` stays in sync.
 - After adding/removing festival detail pages or static routes, regenerate `sitemap.xml` with
   `node generate-sitemap.js`.
