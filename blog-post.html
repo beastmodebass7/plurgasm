@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PLURGASM Blog — Rave news and culture">
 <title>PLURGASM — Blog</title>
+<!-- Canonical + og:url are filled in by JS once the ?id= post is resolved (extensionless form, matching sitemap.xml). No hardcoded href on purpose. -->
+<link rel="canonical" id="canonical-link">
+<meta property="og:url" content="">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -175,6 +178,18 @@ function renderPostHeader(post, color) {
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
+
+  // Point canonical + og:url at the extensionless URL (matches sitemap.xml) as soon as
+  // the id is known, so GitHub Pages serving this page at both /blog-post.html?id= and
+  // /blog-post?id= collapses to one indexed URL. Wrapped so a throw here can't kill render.
+  try {
+    const canonicalUrl = 'https://plurgasm.com/blog-post?id=' + id;
+    document.getElementById('canonical-link').href = canonicalUrl;
+    let og = document.querySelector('meta[property="og:url"]');
+    if (!og) { og = document.createElement('meta'); og.setAttribute('property', 'og:url'); document.head.appendChild(og); }
+    og.setAttribute('content', canonicalUrl);
+  } catch (e) { console.error('canonical/og:url error:', e); }
+
   const posts = (PLURGASM_DATA.blogPosts || []).filter(p => p.published);
   const post = posts.find(p => p.id === id);
   const main = document.getElementById('post-main');
