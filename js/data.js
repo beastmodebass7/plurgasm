@@ -157,6 +157,123 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'post-012',
+    title: 'How Many Days Is Each US Festival? A Length Guide to the Majors',
+    slug: 'how-many-days-us-music-festivals',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-25',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
+    excerpt: 'Wondering how many days a festival runs before you book travel? Here is a scannable guide to the typical length of the major US music festivals — EDM, multi-genre, country, rock, and jam.',
+    published: true,
+    featured: false,
+    body: `<p>One of the first questions anyone asks before pulling the trigger on a festival is simple: how many days is this thing? Two-day send or a four-day marathon changes everything — your PTO, your travel budget, how much kandi you need to make.</p>
+
+<p>So here's a clean, scannable rundown of how long the major US festivals typically run, grouped by genre. Use it to plan, then lock in the details.</p>
+
+<p><strong>One important note:</strong> the lengths below are the <em>typical</em> format. Festivals shift dates and add or drop days year to year, so always confirm the current-year dates on the official site (or our calendar) before booking anything. A <strong>*</strong> marks events that have notably changed length or format recently.</p>
+
+<h2>EDM &amp; Electronic Festivals</h2>
+
+<ul>
+<li><strong>EDC Las Vegas</strong> — 3 days * (per weekend; expanding to two weekends and a 12-day "Dusk Till Dawn" run in 2027)</li>
+<li><strong>Ultra Music Festival</strong> (Miami) — 3 days</li>
+<li><strong>Electric Forest</strong> — 4 days * (has alternated between one and two weekends over the years)</li>
+<li><strong>EDC Orlando</strong> — 3 days * (expanded from 2 days)</li>
+<li><strong>Lost Lands</strong> — 3 days * (often adds a Thursday pre-party; has steadily grown)</li>
+<li><strong>Lightning in a Bottle</strong> — 5 days (one of the longest in the US)</li>
+<li><strong>Bass Canyon</strong> — 3 days</li>
+<li><strong>North Coast</strong> (Chicago) — 3 days</li>
+<li><strong>Imagine Music Festival</strong> — 3 days</li>
+<li><strong>Dancefestopia</strong> — 4 days</li>
+<li><strong>Wakaan Music Festival</strong> — 3 days</li>
+<li><strong>Elements Music &amp; Arts Festival</strong> — 3 days</li>
+<li><strong>Dirtybird CampINN</strong> — 3 days</li>
+<li><strong>Okeechobee</strong> — 4 days</li>
+<li><strong>Sonic Bloom</strong> (CO) — 4 days</li>
+<li><strong>Gem &amp; Jam</strong> (AZ) — 4 days</li>
+<li><strong>Beyond Wonderland at the Gorge</strong> — 2 days</li>
+<li><strong>Beyond Wonderland SoCal</strong> — 2 days</li>
+<li><strong>Project GLOW</strong> (DC) — 2 days</li>
+<li><strong>Forbidden Kingdom</strong> — 2 days</li>
+<li><strong>Escape Halloween</strong> — 2 days</li>
+<li><strong>Hard Summer</strong> — 2 days</li>
+<li><strong>Nocturnal Wonderland</strong> — 2 days</li>
+<li><strong>Countdown NYE</strong> — 2 days</li>
+<li><strong>Dreamstate SoCal</strong> — 2 days</li>
+<li><strong>ARC Music Festival</strong> (Chicago) — 3 days</li>
+<li><strong>CRSSD Festival</strong> (San Diego) — 2 days</li>
+<li><strong>Sunset Music Festival</strong> (Tampa) — 2 days</li>
+<li><strong>Decadence</strong> (CO / AZ, NYE) — 2 days</li>
+<li><strong>Global Dance Festival</strong> — 2 days</li>
+<li><strong>Lights All Night</strong> — 2 days</li>
+<li><strong>Ubbi Dubbi</strong> — 2 days</li>
+<li><strong>Freaky Deaky</strong> — 2 days</li>
+<li><strong>Goldrush</strong> (AZ) — 2 days</li>
+<li><strong>Phoenix Lights</strong> — 2 days</li>
+<li><strong>Same Same But Different</strong> — 3 days</li>
+<li><strong>Northern Nights</strong> — 3 days</li>
+<li><strong>Desert Hearts</strong> — 3 days</li>
+<li><strong>Infrasound</strong> (MN) — 3 days</li>
+<li><strong>Breakaway Festival series</strong> (Ohio, Boston, Carolina, Nashville, and many more cities) — typically 2 days each</li>
+</ul>
+
+<h2>Major Multi-Genre Festivals</h2>
+
+<ul>
+<li><strong>Coachella</strong> — 3 days per weekend, across 2 weekends</li>
+<li><strong>Bonnaroo</strong> — 4 days</li>
+<li><strong>Lollapalooza</strong> — 4 days * (grew from 3 days)</li>
+<li><strong>Austin City Limits</strong> — 3 days per weekend, across 2 weekends</li>
+<li><strong>Outside Lands</strong> — 3 days</li>
+<li><strong>Governors Ball</strong> — 3 days</li>
+<li><strong>Life Is Beautiful</strong> — 3 days * (has gone through format changes)</li>
+<li><strong>Hangout Music Festival</strong> — 3 days</li>
+<li><strong>Sea.Hear.Now</strong> — 2 days</li>
+</ul>
+
+<h2>Country Festivals</h2>
+
+<ul>
+<li><strong>Country Thunder</strong> (Arizona &amp; Wisconsin) — 4 days</li>
+<li><strong>Stagecoach</strong> — 3 days</li>
+<li><strong>Watershed</strong> — 3 days</li>
+<li><strong>Tortuga Music Festival</strong> — 3 days</li>
+<li><strong>Faster Horses</strong> — 3 days</li>
+</ul>
+
+<h2>Rock / Alternative / Metal</h2>
+
+<ul>
+<li><strong>Aftershock</strong> — 4 days</li>
+<li><strong>Sonic Temple</strong> — 4 days</li>
+<li><strong>Welcome to Rockville</strong> — 4 days</li>
+<li><strong>Louder Than Life</strong> — 4 days</li>
+<li><strong>Riot Fest</strong> — 3 days</li>
+<li><strong>Inkcarceration</strong> — 3 days</li>
+</ul>
+
+<h2>Jam / Camping Festivals</h2>
+
+<ul>
+<li><strong>Hulaween</strong> — 4 days</li>
+<li><strong>Peach Music Festival</strong> — 4 days</li>
+<li><strong>High Sierra Music Festival</strong> — 4 days</li>
+<li><strong>Summer Camp Music Festival</strong> — historically 3 days * (cancelled for 2026)</li>
+</ul>
+
+<h2>The Longest US Festivals</h2>
+
+<p>If you want maximum days per trip, these go the longest: <strong>Lightning in a Bottle</strong> leads at 5 days, followed by a big cluster of 4-day events — <strong>Bonnaroo, Electric Forest, Country Thunder, Aftershock, Sonic Temple, Welcome to Rockville, Louder Than Life, Lollapalooza, Hulaween, Okeechobee,</strong> and more.</p>
+
+<h2>The short version</h2>
+
+<p>Most US festivals land at 2 or 3 days, the big destination camping events run 4, and a rare few stretch to 5. But the only number that actually matters is the one on this year's official lineup — formats change, weekends get added, and events get cancelled (RIP Summer Camp 2026). When in doubt, check the source before you book the flight.</p>
+
+<p>Find your next one on the <a href="/calendar">PLURGASM festival calendar</a>. Peace, love, unity, respect — and may all your sets run long. 🌈</p>`
+  },
+  {
     id: 'post-011',
     title: 'Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis',
     slug: 'cercle-cancels-mexico-festival-financial-crisis',
