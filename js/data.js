@@ -164,7 +164,7 @@ PLURGASM_DATA.blogPosts = [
     authorHandle: '@plurgasm',
     date: '2026-06-26',
     category: 'festival-news',
-    coverImage: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1612852098567-8b5d42ee6a52?w=800&q=80',
     excerpt: 'Defqon.1 2026 was called off mid-weekend after the Netherlands issued its first-ever Code Red heat warning. Here is what happened, why it was the right call, and what it signals for outdoor raves everywhere.',
     published: true,
     featured: true,
