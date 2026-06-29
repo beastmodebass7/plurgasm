@@ -157,6 +157,41 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'electric-forest-2026-evacuated',
+    title: 'Electric Forest 2026 Evacuated as Severe Storms Shut Down the Final Night',
+    slug: 'electric-forest-2026-evacuated-storm',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-28',
+    category: 'festival-news',
+    coverImage: 'images/electric-forest-2026-storm.webp',
+    excerpt: 'Tens of thousands were evacuated from Electric Forest on its final night as a severe storm line rolled in off Lake Michigan, cutting Griz’s set short. Here is what happened.',
+    published: true,
+    featured: true,
+    body: `<p>Electric Forest 2026 ended not with a closing set, but with an evacuation order. On Sunday night, June 28, tens of thousands of festivalgoers were sent streaming out of the Double JJ Resort in Rothbury, Michigan as a line of severe storms pushed in off Lake Michigan on the festival’s final evening.</p>
+
+<h2>The storms rolled in fast</h2>
+<p>A long band of storms tracked across the lake into Muskegon and Oceana counties and the wider West Michigan area, some of it potentially severe. Lightning lit the sky and heavy rain started to fall as the system closed in. The evacuation order went out around 8:45 p.m. — right as the crowd packed Sherwood Court for Michigan native Griz and his much-anticipated Golden Hours set. He was only about half an hour in when the call came.</p>
+<p>The alert was blunt and to the point: severe weather approaching, exit the way you came, shelter in your vehicle or a protected area. Festivalgoers turned and headed for the exits, filtering back toward the campground and other cover. Organizers told everyone to watch the official Electric Forest app for updates on whether the grounds would reopen.</p>
+<h2>What the night was supposed to be</h2>
+<p>The final night had one of the weekend’s biggest lineups still to come, with music scheduled until roughly 2 a.m. Monday and headlining sets from Kaskade, Illenium, and LSDREAM on the board. The evacuation threw all of it into question. It also capped a weekend that had been running full-throttle — Saturday night’s late hours stretched until 4 a.m.</p>
+<p>This isn’t the first time weather has cut Electric Forest’s final day short. Severe storms have forced the festival to pull the plug on its closing stretch in past years too, a recurring hazard of a late-June outdoor event in the Midwest.</p>
+<h2>Part of a brutal stretch for festivals</h2>
+<p>Electric Forest is now the second major festival in a matter of days to be shut down by extreme weather. Just before this, <a href="https://plurgasm.com/blog-post?id=defqon1-2026-cancelled-heat">Defqon.1 in the Netherlands was cancelled entirely</a> after the country issued its first-ever Code Red warning for extreme heat. Different hemisphere of the weather spectrum — one fried by heat, one drowned by storms — but the same takeaway: outdoor festivals are increasingly at the mercy of volatile, dangerous weather, and organizers are being forced to make hard calls in real time.</p>
+<h2>If you’re ever in a festival evacuation</h2>
+<p>Storm evacuations are not a buzzkill to grumble through — lightning and high winds at an open-air venue are genuinely lethal, and the safest place is almost never the dancefloor. A few things worth keeping in your head:</p>
+<ul>
+<li><strong>Move immediately, don’t wait it out.</strong> The gap between “looks fine” and a lightning strike is short. Follow the order the first time.</li>
+<li><strong>A hard-topped vehicle is real shelter; a tent or canopy is not.</strong> Get to your car if you can.</li>
+<li><strong>Stay off high ground and away from metal, poles, and stage rigging.</strong></li>
+<li><strong>Keep your group together and check the official app</strong> rather than chasing rumors about whether things reopen.</li>
+</ul>
+<h2>A heavier note from this weekend</h2>
+<p>Separately, and far more soberly: Michigan State Police confirmed that the body of a newborn was found Sunday morning in a portable restroom in the festival’s camping area, discovered by a restroom-servicing employee during routine maintenance. Authorities say there is no known threat to the public and have released no further details as the investigation continues. Anyone who was in the area and may have relevant information has been asked to contact the Michigan State Police. Our thoughts are with everyone affected.</p>
+<p>To everyone who made the trek to the Forest this year — get home safe, look out for the people next to you, and hold the good moments close. That’s the whole point of this thing we do.</p>`
+  },
+
+  {
     id: 'defqon1-2026-cancelled-heat',
     title: 'Defqon.1 2026 Cancelled: How a Historic Code Red Shut Down the World’s Biggest Hardstyle Festival',
     slug: 'defqon-1-2026-cancelled-heat',
