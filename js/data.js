@@ -171,15 +171,15 @@ PLURGASM_DATA.blogPosts = [
     body: `<p>Electric Forest 2026 ended not with a closing set, but with an evacuation order. On Sunday night, June 28, tens of thousands of festivalgoers were sent streaming out of the Double JJ Resort in Rothbury, Michigan as a line of severe storms pushed in off Lake Michigan on the festival’s final evening.</p>
 
 <h2>The storms rolled in fast</h2>
-<p>A long band of storms tracked across the lake into Muskegon and Oceana counties and the wider West Michigan area, some of it potentially severe. Lightning lit the sky and heavy rain started to fall as the system closed in. The evacuation order went out around 8:45 p.m. — right as the crowd packed Sherwood Court for Michigan native Griz and his much-anticipated Golden Hours set. He was only about half an hour in when the call came.</p>
+<p>A long band of storms tracked across the lake into Muskegon and Oceana counties and the wider West Michigan area, some of it potentially severe. Lightning lit the sky and heavy rain started to fall as the system closed in. The evacuation order went out around 8:45 p.m., right as the crowd packed Sherwood Court for Michigan native Griz and his much-anticipated Golden Hours set. He was only about half an hour in when the call came.</p>
 <p>The alert was blunt and to the point: severe weather approaching, exit the way you came, shelter in your vehicle or a protected area. Festivalgoers turned and headed for the exits, filtering back toward the campground and other cover. Organizers told everyone to watch the official Electric Forest app for updates on whether the grounds would reopen.</p>
 <h2>What the night was supposed to be</h2>
-<p>The final night had one of the weekend’s biggest lineups still to come, with music scheduled until roughly 2 a.m. Monday and headlining sets from Kaskade, Illenium, and LSDREAM on the board. The evacuation threw all of it into question. It also capped a weekend that had been running full-throttle — Saturday night’s late hours stretched until 4 a.m.</p>
+<p>The final night had one of the weekend’s biggest lineups still to come, with music scheduled until roughly 2 a.m. Monday and headlining sets from Kaskade, Illenium, and LSDREAM on the board. The evacuation threw all of it into question. It also capped a weekend that had been running full-throttle: Saturday night’s late hours stretched until 4 a.m.</p>
 <p>This isn’t the first time weather has cut Electric Forest’s final day short. Severe storms have forced the festival to pull the plug on its closing stretch in past years too, a recurring hazard of a late-June outdoor event in the Midwest.</p>
 <h2>Part of a brutal stretch for festivals</h2>
-<p>Electric Forest is now the second major festival in a matter of days to be shut down by extreme weather. Just before this, <a href="https://plurgasm.com/blog-post?id=defqon1-2026-cancelled-heat">Defqon.1 in the Netherlands was cancelled entirely</a> after the country issued its first-ever Code Red warning for extreme heat. Different hemisphere of the weather spectrum — one fried by heat, one drowned by storms — but the same takeaway: outdoor festivals are increasingly at the mercy of volatile, dangerous weather, and organizers are being forced to make hard calls in real time.</p>
+<p>Electric Forest is now the second major festival in a matter of days to be shut down by extreme weather. Just before this, <a href="https://plurgasm.com/blog-post?id=defqon1-2026-cancelled-heat">Defqon.1 in the Netherlands was cancelled entirely</a> after the country issued its first-ever Code Red warning for extreme heat. Different hemisphere of the weather spectrum, one fried by heat and one drowned by storms, but the same takeaway: outdoor festivals are increasingly at the mercy of volatile, dangerous weather, and organizers are being forced to make hard calls in real time.</p>
 <h2>If you’re ever in a festival evacuation</h2>
-<p>Storm evacuations are not a buzzkill to grumble through — lightning and high winds at an open-air venue are genuinely lethal, and the safest place is almost never the dancefloor. A few things worth keeping in your head:</p>
+<p>Storm evacuations are not a buzzkill to grumble through. Lightning and high winds at an open-air venue are genuinely lethal, and the safest place is almost never the dancefloor. A few things worth keeping in your head:</p>
 <ul>
 <li><strong>Move immediately, don’t wait it out.</strong> The gap between “looks fine” and a lightning strike is short. Follow the order the first time.</li>
 <li><strong>A hard-topped vehicle is real shelter; a tent or canopy is not.</strong> Get to your car if you can.</li>
@@ -188,7 +188,7 @@ PLURGASM_DATA.blogPosts = [
 </ul>
 <h2>A heavier note from this weekend</h2>
 <p>Separately, and far more soberly: Michigan State Police confirmed that the body of a newborn was found Sunday morning in a portable restroom in the festival’s camping area, discovered by a restroom-servicing employee during routine maintenance. Authorities say there is no known threat to the public and have released no further details as the investigation continues. Anyone who was in the area and may have relevant information has been asked to contact the Michigan State Police. Our thoughts are with everyone affected.</p>
-<p>To everyone who made the trek to the Forest this year — get home safe, look out for the people next to you, and hold the good moments close. That’s the whole point of this thing we do.</p>`
+<p>To everyone who made the trek to the Forest this year, get home safe, look out for the people next to you, and hold the good moments close. That’s the whole point of this thing we do.</p>`
   },
 
   {
@@ -203,42 +203,42 @@ PLURGASM_DATA.blogPosts = [
     excerpt: 'Defqon.1 2026 was called off mid-weekend after the Netherlands issued its first-ever Code Red heat warning. Here is what happened, why it was the right call, and what it signals for outdoor raves everywhere.',
     published: true,
     featured: true,
-    body: `<p>The unthinkable happened. On Friday, June 26, Q-dance pulled the plug on the rest of Defqon.1 2026 in Biddinghuizen, Netherlands — the largest hard dance festival on Earth — with tens of thousands of campers already on the grounds. The reason was not a lineup collapse or a logistical failure. It was the weather.</p>
+    body: `<p>The unthinkable happened. On Friday, June 26, Q-dance pulled the plug on the rest of Defqon.1 2026 in Biddinghuizen, Netherlands (the largest hard dance festival on Earth) with tens of thousands of campers already on the grounds. The reason was not a lineup collapse or a logistical failure. It was the weather.</p>
 
 <h2>The first Code Red for heat in Dutch history</h2>
 
-<p>The Royal Netherlands Meteorological Institute (KNMI) issued a Code Red warning for extreme heat, the first time the country has ever done so for high temperatures rather than storms or snow. Forecasts called for 36–39°C across much of the country, with isolated pockets pushing toward 40°C (104°F). A Code Red in the Netherlands is not triggered by temperature alone — it factors in the broader threat to public safety, emergency services, and critical infrastructure. With that warning in place and authorities on board, Q-dance said it had no choice but to cancel the remaining days.</p>
+<p>The Royal Netherlands Meteorological Institute (KNMI) issued a Code Red warning for extreme heat, the first time the country has ever done so for high temperatures rather than storms or snow. Forecasts called for 36–39°C across much of the country, with isolated pockets pushing toward 40°C (104°F). A Code Red in the Netherlands is not triggered by temperature alone: it factors in the broader threat to public safety, emergency services, and critical infrastructure. With that warning in place and authorities on board, Q-dance said it had no choice but to cancel the remaining days.</p>
 
 <h2>It did not happen all at once</h2>
 
-<p>The cancellation came in stages. The day before, organizers had already scrapped Friday and Saturday day tickets, trimming the crowd down to weekend campers in an attempt to keep the event running at a safer capacity. When the Code Red landed, that compromise was no longer enough. The festival that draws more than 250,000 fans from over 100 countries each year went from a fully operational site — stages built, artists ready, gates open — to a shutdown in a matter of hours.</p>
+<p>The cancellation came in stages. The day before, organizers had already scrapped Friday and Saturday day tickets, trimming the crowd down to weekend campers in an attempt to keep the event running at a safer capacity. When the Code Red landed, that compromise was no longer enough. The festival that draws more than 250,000 fans from over 100 countries each year went from a fully operational site (stages built, artists ready, gates open) to a shutdown in a matter of hours.</p>
 
 <h2>The human cost</h2>
 
-<p>This is the part that stings. Defqon.1 is a pilgrimage. Fans plan for it for months, book flights and accommodation far in advance, and travel from across the globe — including a contingent of American Weekend Warriors who flew transatlantic for a lifelong-bucket-list weekend. Many got the cancellation notice while already on site, mid-trip, with non-refundable flights home days away. Reports from the campground described stunned silence, and in some pockets, frustration that spilled over into unrest. For the artists, several of whom were set to debut new music on the festival’s coveted RED stage, a year of buildup evaporated overnight.</p>
+<p>This is the part that stings. Defqon.1 is a pilgrimage. Fans plan for it for months, book flights and accommodation far in advance, and travel from across the globe, including a contingent of American Weekend Warriors who flew transatlantic for a lifelong-bucket-list weekend. Many got the cancellation notice while already on site, mid-trip, with non-refundable flights home days away. Reports from the campground described stunned silence, and in some pockets, frustration that spilled over into unrest. For the artists, several of whom were set to debut new music on the festival’s coveted RED stage, a year of buildup evaporated overnight.</p>
 
 <h2>What happens now</h2>
 
 <ul>
 <li><strong>Refunds:</strong> Q-dance confirmed all tickets bought through official channels will be refunded, with early refund requests opening July 2.</li>
 <li><strong>Getting home safely:</strong> The campgrounds and essential facilities stayed open Friday so attendees could rest and arrange their departure rather than being forced out into the heat immediately.</li>
-<li><strong>Extra costs:</strong> Organizers said they cannot cover additional travel or accommodation costs — a hard reminder of why travel insurance with a cancellation option matters for any international festival trip.</li>
+<li><strong>Extra costs:</strong> Organizers said they cannot cover additional travel or accommodation costs, a hard reminder of why travel insurance with a cancellation option matters for any international festival trip.</li>
 <li><strong>Compensation beyond refunds:</strong> Q-dance said more information would come after the weekend.</li>
 </ul>
 
-<h2>Why this was the right call — even though it hurts</h2>
+<h2>Why this was the right call, even though it hurts</h2>
 
 <p>It is easy to be angry. Plenty of fans pointed out that festivals in Las Vegas, Australia, and the Gulf run in comparable or worse heat. But the comparison misses the math that makes a hardstyle festival uniquely dangerous in a heatwave: enormous, dense crowds, sustained high-intensity dancing for hours, and widespread use of stimulants that suppress thirst and sabotage the body’s ability to regulate temperature. Stack those on top of 40°C and high humidity, and you approach conditions where the human body cannot cool itself fast enough. A mass heat-casualty event at that scale would overwhelm any on-site medical team within hours. Cancelling a festival is devastating. Evacuating one mid-crisis, with thousands already in distress, is catastrophic.</p>
 
 <h2>The bigger picture for ravers everywhere</h2>
 
-<p>Defqon.1 did not happen in a vacuum. The same heatwave pushed the UK to its hottest June day on record and hit France and Spain hard. Europe’s summers are getting hotter and more volatile, and large outdoor events are increasingly forced to adapt on the fly. That is not just a European problem. American festivals — from desert mega-events to summer camping weekends — are facing the same trajectory, and the Defqon.1 cancellation is a preview of conversations US organizers will be having more often: more shade, more free water, misting and cooling infrastructure, smarter set times that move peak hours out of the midday sun, and the willingness to make a brutal call when the forecast demands it.</p>
+<p>Defqon.1 did not happen in a vacuum. The same heatwave pushed the UK to its hottest June day on record and hit France and Spain hard. Europe’s summers are getting hotter and more volatile, and large outdoor events are increasingly forced to adapt on the fly. That is not just a European problem. American festivals, from desert mega-events to summer camping weekends, are facing the same trajectory, and the Defqon.1 cancellation is a preview of conversations US organizers will be having more often: more shade, more free water, misting and cooling infrastructure, smarter set times that move peak hours out of the midday sun, and the willingness to make a brutal call when the forecast demands it.</p>
 
 <h2>If you’re raving in the heat, take it seriously</h2>
 
-<p>Whether you’re at a mega-festival or a daytime set, heat is not a vibe to push through. Hydrate constantly with water and electrolytes, not just whatever’s in your cup. Find shade and actually use it. Know that stimulants dramatically raise your risk of overheating and mask the warning signs your body sends. Watch your friends — confusion, stopping sweating, or dizziness are emergencies, not someone who needs to walk it off. The whole point of PLUR is that we get each other home.</p>
+<p>Whether you’re at a mega-festival or a daytime set, heat is not a vibe to push through. Hydrate constantly with water and electrolytes, not just whatever’s in your cup. Find shade and actually use it. Know that stimulants dramatically raise your risk of overheating and mask the warning signs your body sends. Watch your friends: confusion, stopping sweating, or dizziness are emergencies, not someone who needs to walk it off. The whole point of PLUR is that we get each other home.</p>
 
-<p>To every Weekend Warrior stuck far from home tonight: this one is brutal, and it is okay to be gutted. The tribe is bigger than one weekend. Get home safe — and we’ll see you on the dancefloor again.</p>`
+<p>To every Weekend Warrior stuck far from home tonight: this one is brutal, and it is okay to be gutted. The tribe is bigger than one weekend. Get home safe, and we’ll see you on the dancefloor again.</p>`
   },
 
   {
@@ -250,10 +250,10 @@ PLURGASM_DATA.blogPosts = [
     date: '2026-06-25',
     category: 'culture',
     coverImage: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
-    excerpt: 'Wondering how many days a festival runs before you book travel? Here is a scannable guide to the typical length of the major US music festivals — EDM, multi-genre, country, rock, and jam.',
+    excerpt: 'Wondering how many days a festival runs before you book travel? Here is a scannable guide to the typical length of the major US music festivals: EDM, multi-genre, country, rock, and jam.',
     published: true,
     featured: false,
-    body: `<p>One of the first questions anyone asks before pulling the trigger on a festival is simple: how many days is this thing? Two-day send or a four-day marathon changes everything — your PTO, your travel budget, how much kandi you need to make.</p>
+    body: `<p>One of the first questions anyone asks before pulling the trigger on a festival is simple: how many days is this thing? Two-day send or a four-day marathon changes everything: your PTO, your travel budget, how much kandi you need to make.</p>
 
 <p>So here's a clean, scannable rundown of how long the major US festivals typically run, grouped by genre. Use it to plan, then lock in the details.</p>
 
@@ -262,101 +262,101 @@ PLURGASM_DATA.blogPosts = [
 <h2>EDM &amp; Electronic Festivals</h2>
 
 <ul>
-<li><strong>EDC Las Vegas</strong> — 3 days * (per weekend; expanding to two weekends and a 12-day "Dusk Till Dawn" run in 2027)</li>
-<li><strong>Ultra Music Festival</strong> (Miami) — 3 days</li>
-<li><strong>Electric Forest</strong> — 4 days * (has alternated between one and two weekends over the years)</li>
-<li><strong>EDC Orlando</strong> — 3 days * (expanded from 2 days)</li>
-<li><strong>Lost Lands</strong> — 3 days * (often adds a Thursday pre-party; has steadily grown)</li>
-<li><strong>Lightning in a Bottle</strong> — 5 days (one of the longest in the US)</li>
-<li><strong>Bass Canyon</strong> — 3 days</li>
-<li><strong>North Coast</strong> (Chicago) — 3 days</li>
-<li><strong>Imagine Music Festival</strong> — 3 days</li>
-<li><strong>Dancefestopia</strong> — 4 days</li>
-<li><strong>Wakaan Music Festival</strong> — 3 days</li>
-<li><strong>Elements Music &amp; Arts Festival</strong> — 3 days</li>
-<li><strong>Dirtybird CampINN</strong> — 3 days</li>
-<li><strong>Okeechobee</strong> — 4 days</li>
-<li><strong>Sonic Bloom</strong> (CO) — 4 days</li>
-<li><strong>Gem &amp; Jam</strong> (AZ) — 4 days</li>
-<li><strong>Beyond Wonderland at the Gorge</strong> — 2 days</li>
-<li><strong>Beyond Wonderland SoCal</strong> — 2 days</li>
-<li><strong>Project GLOW</strong> (DC) — 2 days</li>
-<li><strong>Forbidden Kingdom</strong> — 2 days</li>
-<li><strong>Escape Halloween</strong> — 2 days</li>
-<li><strong>Hard Summer</strong> — 2 days</li>
-<li><strong>Nocturnal Wonderland</strong> — 2 days</li>
-<li><strong>Countdown NYE</strong> — 2 days</li>
-<li><strong>Dreamstate SoCal</strong> — 2 days</li>
-<li><strong>ARC Music Festival</strong> (Chicago) — 3 days</li>
-<li><strong>CRSSD Festival</strong> (San Diego) — 2 days</li>
-<li><strong>Sunset Music Festival</strong> (Tampa) — 2 days</li>
-<li><strong>Decadence</strong> (CO / AZ, NYE) — 2 days</li>
-<li><strong>Global Dance Festival</strong> — 2 days</li>
-<li><strong>Lights All Night</strong> — 2 days</li>
-<li><strong>Ubbi Dubbi</strong> — 2 days</li>
-<li><strong>Freaky Deaky</strong> — 2 days</li>
-<li><strong>Goldrush</strong> (AZ) — 2 days</li>
-<li><strong>Phoenix Lights</strong> — 2 days</li>
-<li><strong>Same Same But Different</strong> — 3 days</li>
-<li><strong>Northern Nights</strong> — 3 days</li>
-<li><strong>Desert Hearts</strong> — 3 days</li>
-<li><strong>Infrasound</strong> (MN) — 3 days</li>
-<li><strong>Breakaway Festival series</strong> (Ohio, Boston, Carolina, Nashville, and many more cities) — typically 2 days each</li>
+<li><strong>EDC Las Vegas</strong>: 3 days * (per weekend; expanding to two weekends and a 12-day "Dusk Till Dawn" run in 2027)</li>
+<li><strong>Ultra Music Festival</strong> (Miami): 3 days</li>
+<li><strong>Electric Forest</strong>: 4 days * (has alternated between one and two weekends over the years)</li>
+<li><strong>EDC Orlando</strong>: 3 days * (expanded from 2 days)</li>
+<li><strong>Lost Lands</strong>: 3 days * (often adds a Thursday pre-party; has steadily grown)</li>
+<li><strong>Lightning in a Bottle</strong>: 5 days (one of the longest in the US)</li>
+<li><strong>Bass Canyon</strong>: 3 days</li>
+<li><strong>North Coast</strong> (Chicago): 3 days</li>
+<li><strong>Imagine Music Festival</strong>: 3 days</li>
+<li><strong>Dancefestopia</strong>: 4 days</li>
+<li><strong>Wakaan Music Festival</strong>: 3 days</li>
+<li><strong>Elements Music &amp; Arts Festival</strong>: 3 days</li>
+<li><strong>Dirtybird CampINN</strong>: 3 days</li>
+<li><strong>Okeechobee</strong>: 4 days</li>
+<li><strong>Sonic Bloom</strong> (CO): 4 days</li>
+<li><strong>Gem &amp; Jam</strong> (AZ): 4 days</li>
+<li><strong>Beyond Wonderland at the Gorge</strong>: 2 days</li>
+<li><strong>Beyond Wonderland SoCal</strong>: 2 days</li>
+<li><strong>Project GLOW</strong> (DC): 2 days</li>
+<li><strong>Forbidden Kingdom</strong>: 2 days</li>
+<li><strong>Escape Halloween</strong>: 2 days</li>
+<li><strong>Hard Summer</strong>: 2 days</li>
+<li><strong>Nocturnal Wonderland</strong>: 2 days</li>
+<li><strong>Countdown NYE</strong>: 2 days</li>
+<li><strong>Dreamstate SoCal</strong>: 2 days</li>
+<li><strong>ARC Music Festival</strong> (Chicago): 3 days</li>
+<li><strong>CRSSD Festival</strong> (San Diego): 2 days</li>
+<li><strong>Sunset Music Festival</strong> (Tampa): 2 days</li>
+<li><strong>Decadence</strong> (CO / AZ, NYE): 2 days</li>
+<li><strong>Global Dance Festival</strong>: 2 days</li>
+<li><strong>Lights All Night</strong>: 2 days</li>
+<li><strong>Ubbi Dubbi</strong>: 2 days</li>
+<li><strong>Freaky Deaky</strong>: 2 days</li>
+<li><strong>Goldrush</strong> (AZ): 2 days</li>
+<li><strong>Phoenix Lights</strong>: 2 days</li>
+<li><strong>Same Same But Different</strong>: 3 days</li>
+<li><strong>Northern Nights</strong>: 3 days</li>
+<li><strong>Desert Hearts</strong>: 3 days</li>
+<li><strong>Infrasound</strong> (MN): 3 days</li>
+<li><strong>Breakaway Festival series</strong> (Ohio, Boston, Carolina, Nashville, and many more cities): typically 2 days each</li>
 </ul>
 
 <h2>Major Multi-Genre Festivals</h2>
 
 <ul>
-<li><strong>Coachella</strong> — 3 days per weekend, across 2 weekends</li>
-<li><strong>Bonnaroo</strong> — 4 days</li>
-<li><strong>Lollapalooza</strong> — 4 days * (grew from 3 days)</li>
-<li><strong>Austin City Limits</strong> — 3 days per weekend, across 2 weekends</li>
-<li><strong>Outside Lands</strong> — 3 days</li>
-<li><strong>Governors Ball</strong> — 3 days</li>
-<li><strong>Life Is Beautiful</strong> — 3 days * (has gone through format changes)</li>
-<li><strong>Hangout Music Festival</strong> — 3 days</li>
-<li><strong>Sea.Hear.Now</strong> — 2 days</li>
+<li><strong>Coachella</strong>: 3 days per weekend, across 2 weekends</li>
+<li><strong>Bonnaroo</strong>: 4 days</li>
+<li><strong>Lollapalooza</strong>: 4 days * (grew from 3 days)</li>
+<li><strong>Austin City Limits</strong>: 3 days per weekend, across 2 weekends</li>
+<li><strong>Outside Lands</strong>: 3 days</li>
+<li><strong>Governors Ball</strong>: 3 days</li>
+<li><strong>Life Is Beautiful</strong>: 3 days * (has gone through format changes)</li>
+<li><strong>Hangout Music Festival</strong>: 3 days</li>
+<li><strong>Sea.Hear.Now</strong>: 2 days</li>
 </ul>
 
 <h2>Country Festivals</h2>
 
 <ul>
-<li><strong>Country Thunder</strong> (Arizona &amp; Wisconsin) — 4 days</li>
-<li><strong>Stagecoach</strong> — 3 days</li>
-<li><strong>Watershed</strong> — 3 days</li>
-<li><strong>Tortuga Music Festival</strong> — 3 days</li>
-<li><strong>Faster Horses</strong> — 3 days</li>
+<li><strong>Country Thunder</strong> (Arizona &amp; Wisconsin): 4 days</li>
+<li><strong>Stagecoach</strong>: 3 days</li>
+<li><strong>Watershed</strong>: 3 days</li>
+<li><strong>Tortuga Music Festival</strong>: 3 days</li>
+<li><strong>Faster Horses</strong>: 3 days</li>
 </ul>
 
 <h2>Rock / Alternative / Metal</h2>
 
 <ul>
-<li><strong>Aftershock</strong> — 4 days</li>
-<li><strong>Sonic Temple</strong> — 4 days</li>
-<li><strong>Welcome to Rockville</strong> — 4 days</li>
-<li><strong>Louder Than Life</strong> — 4 days</li>
-<li><strong>Riot Fest</strong> — 3 days</li>
-<li><strong>Inkcarceration</strong> — 3 days</li>
+<li><strong>Aftershock</strong>: 4 days</li>
+<li><strong>Sonic Temple</strong>: 4 days</li>
+<li><strong>Welcome to Rockville</strong>: 4 days</li>
+<li><strong>Louder Than Life</strong>: 4 days</li>
+<li><strong>Riot Fest</strong>: 3 days</li>
+<li><strong>Inkcarceration</strong>: 3 days</li>
 </ul>
 
 <h2>Jam / Camping Festivals</h2>
 
 <ul>
-<li><strong>Hulaween</strong> — 4 days</li>
-<li><strong>Peach Music Festival</strong> — 4 days</li>
-<li><strong>High Sierra Music Festival</strong> — 4 days</li>
-<li><strong>Summer Camp Music Festival</strong> — historically 3 days * (cancelled for 2026)</li>
+<li><strong>Hulaween</strong>: 4 days</li>
+<li><strong>Peach Music Festival</strong>: 4 days</li>
+<li><strong>High Sierra Music Festival</strong>: 4 days</li>
+<li><strong>Summer Camp Music Festival</strong>: historically 3 days * (cancelled for 2026)</li>
 </ul>
 
 <h2>The Longest US Festivals</h2>
 
-<p>If you want maximum days per trip, these go the longest: <strong>Lightning in a Bottle</strong> leads at 5 days, followed by a big cluster of 4-day events — <strong>Bonnaroo, Electric Forest, Country Thunder, Aftershock, Sonic Temple, Welcome to Rockville, Louder Than Life, Lollapalooza, Hulaween, Okeechobee,</strong> and more.</p>
+<p>If you want maximum days per trip, these go the longest: <strong>Lightning in a Bottle</strong> leads at 5 days, followed by a big cluster of 4-day events: <strong>Bonnaroo, Electric Forest, Country Thunder, Aftershock, Sonic Temple, Welcome to Rockville, Louder Than Life, Lollapalooza, Hulaween, Okeechobee,</strong> and more.</p>
 
 <h2>The short version</h2>
 
-<p>Most US festivals land at 2 or 3 days, the big destination camping events run 4, and a rare few stretch to 5. But the only number that actually matters is the one on this year's official lineup — formats change, weekends get added, and events get cancelled (RIP Summer Camp 2026). When in doubt, check the source before you book the flight.</p>
+<p>Most US festivals land at 2 or 3 days, the big destination camping events run 4, and a rare few stretch to 5. But the only number that actually matters is the one on this year's official lineup: formats change, weekends get added, and events get cancelled (RIP Summer Camp 2026). When in doubt, check the source before you book the flight.</p>
 
-<p>Find your next one on the <a href="/calendar">PLURGASM festival calendar</a>. Peace, love, unity, respect — and may all your sets run long. 🌈</p>`
+<p>Find your next one on the <a href="/calendar">PLURGASM festival calendar</a>. Peace, love, unity, respect, and may all your sets run long. 🌈</p>`
   },
   {
     id: 'post-011',
@@ -367,12 +367,12 @@ PLURGASM_DATA.blogPosts = [
     date: '2026-06-24',
     category: 'festival-news',
     coverImage: 'images/cercle-mexico-cancelled.webp',
-    excerpt: 'Cercle has pulled its upcoming Mexico festival and gone public with serious money trouble — and for the first time in a decade, the team is asking fans for help.',
+    excerpt: 'Cercle has pulled its upcoming Mexico festival and gone public with serious money trouble, and for the first time in a decade, the team is asking fans for help.',
     published: true,
     featured: true,
     body: `<p>One of electronic music's most recognizable brands just delivered news nobody in the scene wanted to hear. <strong>Cercle has canceled its upcoming festival in Mexico</strong>, and founder Derek Barbolla says the company is in serious financial trouble.</p>
 
-<p>If you've spent any late night falling down a YouTube rabbit hole, you know Cercle even if you didn't know the name. For ten years they've been the crew filming the world's biggest DJs in places that shouldn't be possible — the Eiffel Tower, a Bolivian salt flat, châteaux, mountaintops, ancient landmarks — and streaming it all for free. More than 200 shows. Millions of viewers. They basically invented a genre of livestream and made the location part of the music.</p>
+<p>If you've spent any late night falling down a YouTube rabbit hole, you know Cercle even if you didn't know the name. For ten years they've been the crew filming the world's biggest DJs in places that shouldn't be possible (the Eiffel Tower, a Bolivian salt flat, châteaux, mountaintops, ancient landmarks) and streaming it all for free. More than 200 shows. Millions of viewers. They basically invented a genre of livestream and made the location part of the music.</p>
 
 <p>That's what makes this one sting.</p>
 
@@ -380,19 +380,19 @@ PLURGASM_DATA.blogPosts = [
 
 <p>In a statement posted to Instagram, Barbolla said the Mexico festival could no longer be delivered under the conditions it was built and planned for, and that the team couldn't run it to Cercle's own standard. Anyone holding a ticket will be refunded automatically within 24 to 48 hours.</p>
 
-<p>The reasons are the same ones squeezing live events everywhere right now. Cercle started a decade ago on a 10,000-euro budget — some GoPros, mics, a laptop, a mixer — and scaled into a 35-person operation producing massive shows around the globe. After COVID, Barbolla says, costs climbed, taxes climbed, and margins got thinner and thinner. The balance the team had always managed to hold finally stopped holding.</p>
+<p>The reasons are the same ones squeezing live events everywhere right now. Cercle started a decade ago on a 10,000-euro budget (some GoPros, mics, a laptop, a mixer) and scaled into a 35-person operation producing massive shows around the globe. After COVID, Barbolla says, costs climbed, taxes climbed, and margins got thinner and thinner. The balance the team had always managed to hold finally stopped holding.</p>
 
-<h2>The ask — for the first time ever</h2>
+<h2>The ask, for the first time ever</h2>
 
 <p>Here's the part that makes this different from a normal cancellation. Barbolla wrote that fans have asked for years how they could support Cercle directly, and that today, for the first time, the company actually needs that help. They've opened a way to donate at <a href="https://www.cercle.io" target="_blank" rel="noopener">cercle.io</a>.</p>
 
 <p>He was clear it isn't pay-to-play: if you can't give money, a like, a share, or a kind comment genuinely helps too. Everything they've already filmed stays free on YouTube for as long as it's in their control.</p>
 
-<p>We're not here to tell you to open your wallet or keep it shut — that's a personal call. If Cercle has soundtracked your 2am, the link is right there. If not, no judgment. We just think the scene deserves to know the option exists.</p>
+<p>We're not here to tell you to open your wallet or keep it shut. That's a personal call. If Cercle has soundtracked your 2am, the link is right there. If not, no judgment. We just think the scene deserves to know the option exists.</p>
 
 <h2>The community showed up</h2>
 
-<p>The comments under the post turned into something rare. Artists offered to play fundraiser shows for free. DJs floated no-fee benefit events to help the books recover. Fans flooded in with stories about the shows that changed how they heard music. There was some sharper criticism too — a few pointed to ticket pricing and logistics on past Odyssey dates as warning signs — but the overwhelming tone was gratitude and a refusal to treat this as the end.</p>
+<p>The comments under the post turned into something rare. Artists offered to play fundraiser shows for free. DJs floated no-fee benefit events to help the books recover. Fans flooded in with stories about the shows that changed how they heard music. There was some sharper criticism too: a few pointed to ticket pricing and logistics on past Odyssey dates as warning signs. But the overwhelming tone was gratitude and a refusal to treat this as the end.</p>
 
 <p>One detail we keep coming back to: the post closed with a small line noting it had been handwritten. After a decade of cinematic 4K productions, the goodbye-for-now came as a person typing out something real. That's about as PLUR as a corporate statement gets.</p>
 
@@ -400,9 +400,9 @@ PLURGASM_DATA.blogPosts = [
 
 <p>Cercle says it's working to keep the dream alive and will share next steps as they come. Nothing about the brand's future is fully settled yet.</p>
 
-<p>Zoom out and this is bigger than one festival. When a brand this beloved and this established hits a wall, it says something uncomfortable about how hard it's become to actually produce live electronic music — even when the art is undeniable and the audience is right there. The whole scene runs on people betting everything on a feeling. Sometimes the math catches up with the magic.</p>
+<p>Zoom out and this is bigger than one festival. When a brand this beloved and this established hits a wall, it says something uncomfortable about how hard it's become to actually produce live electronic music, even when the art is undeniable and the audience is right there. The whole scene runs on people betting everything on a feeling. Sometimes the math catches up with the magic.</p>
 
-<p>Peace, love, unity, respect — and to the Cercle team, gratitude for ten years of making the world feel a little less alone at 2am.</p>`,
+<p>Peace, love, unity, respect, and to the Cercle team, gratitude for ten years of making the world feel a little less alone at 2am.</p>`,
   },
   {
     id: 'edc-orlando-2026-lineup',
@@ -413,33 +413,33 @@ PLURGASM_DATA.blogPosts = [
     date: '2026-06-23',
     category: 'festival-news',
     coverImage: '/images/blog/edc-orlando-2026-header.jpg',
-    excerpt: 'EDC Orlando 2026 is here — 100+ artists at Tinker Field this November. House and techno dominate, the mainstage is stacked, and one big bass name is missing. Our full breakdown.',
+    excerpt: 'EDC Orlando 2026 is here: 100+ artists at Tinker Field this November. House and techno dominate, the mainstage is stacked, and one big bass name is missing. Our full breakdown.',
     published: true,
     featured: true,
-    body: `<p>The wait is over. EDC Orlando just dropped its 2026 lineup, and the rave internet lit up within minutes. Returning to <strong>Tinker Field</strong> from <strong>November 6–8</strong> for its 15th edition — all under the new <em>kineticJOURNEY</em> theme carried over from EDC Las Vegas' 30th anniversary — this year's bill runs more than 100 artists deep. Here's our honest breakdown of what stands out, and what's quietly missing.</p>
+    body: `<p>The wait is over. EDC Orlando just dropped its 2026 lineup, and the rave internet lit up within minutes. Returning to <strong>Tinker Field</strong> from <strong>November 6–8</strong> for its 15th edition (all under the new <em>kineticJOURNEY</em> theme carried over from EDC Las Vegas' 30th anniversary), this year's bill runs more than 100 artists deep. Here's our honest breakdown of what stands out, and what's quietly missing.</p>
 
-<img class="blog-body-img" src="/images/blog/edc-orlando-2026.webp" alt="EDC Orlando 2026 official lineup poster — Nov 6-8 at Tinker Field">
+<img class="blog-body-img" src="/images/blog/edc-orlando-2026.webp" alt="EDC Orlando 2026 official lineup poster, Nov 6-8 at Tinker Field">
 
 <h2>The mainstage is absolutely stacked</h2>
 <p>Insomniac did not come to play. The top of the bill reads like a festival-house hall of fame: <strong>Martin Garrix, David Guetta, Hardwell, Alesso, Kaskade, Afrojack, Steve Aoki, Alan Walker,</strong> and <strong>Alison Wonderland</strong>. David Guetta in particular is a rare get for a US festival outside of Vegas and Ultra, so seeing him on an Orlando bill turned a lot of heads. Add sunset sets from Alesso, Alan Walker, Adventure Club, SLANDER, and Of The Trees, and the marquee alone could carry the weekend.</p>
 
 <h2>House and techno are the real winners</h2>
-<p>If there's a clear theme this year, it's that house and techno absolutely run the lineup. On the house side you've got <strong>Chris Lorenzo, Mau P, Disco Lines, Meduza, KREAM, Marlon Hoffstadt, Franky Rizardo, Joshwa,</strong> and <strong>Dennis Cruz</strong>. The techno and hard-techno contingent is even more notable — <strong>I Hate Models, Nico Moreno, Holy Priest, Klangkuenstler, Maddix, SHDW,</strong> and a <strong>Boys Noize b2b Brutalismus 3000</strong> set that reads like a dark-techno fever dream. The back-to-backs are a highlight all on their own: Deorro b2b Diesel, Bou b2b Kanine, Prospa b2b Josh Baker, and ACRAZE b2b CID. House and techno heads are eating very, very well.</p>
+<p>If there's a clear theme this year, it's that house and techno absolutely run the lineup. On the house side you've got <strong>Chris Lorenzo, Mau P, Disco Lines, Meduza, KREAM, Marlon Hoffstadt, Franky Rizardo, Joshwa,</strong> and <strong>Dennis Cruz</strong>. The techno and hard-techno contingent is even more notable: <strong>I Hate Models, Nico Moreno, Holy Priest, Klangkuenstler, Maddix, SHDW,</strong> and a <strong>Boys Noize b2b Brutalismus 3000</strong> set that reads like a dark-techno fever dream. The back-to-backs are a highlight all on their own: Deorro b2b Diesel, Bou b2b Kanine, Prospa b2b Josh Baker, and ACRAZE b2b CID. House and techno heads are eating very, very well.</p>
 
 <h2>Bass heads, we need to talk</h2>
-<p>Here's where the conversation gets spicy. Compared to recent years, the dubstep and riddim presence is noticeably lighter. There are still heaters — <strong>Jessica Audiffred, Kompany, Level Up, Wooli, Ray Volpe, ATLiens,</strong> the <strong>Skull Machine</strong> project (Black Tiger Sex Machine x Kai Wachi), and a "Wholesome Riddim" set from San Holo — but the depth isn't what bass fans have come to expect from Orlando.</p>
-<p>And then there's the elephant in the room: <strong>Subtronics isn't on the lineup.</strong> After becoming a near-annual fixture at EDC Orlando, his absence is easily the most talked-about omission of the drop, and bassheads are not thrilled. One quick PSA to save you some confusion — <strong>Subsonic</strong>, who <em>is</em> on the bill, is a drum & bass artist, not Subtronics. Easy mix-up, very different set.</p>
+<p>Here's where the conversation gets spicy. Compared to recent years, the dubstep and riddim presence is noticeably lighter. There are still heaters: <strong>Jessica Audiffred, Kompany, Level Up, Wooli, Ray Volpe, ATLiens,</strong> the <strong>Skull Machine</strong> project (Black Tiger Sex Machine x Kai Wachi), and a "Wholesome Riddim" set from San Holo. But the depth isn't what bass fans have come to expect from Orlando.</p>
+<p>And then there's the elephant in the room: <strong>Subtronics isn't on the lineup.</strong> After becoming a near-annual fixture at EDC Orlando, his absence is easily the most talked-about omission of the drop, and bassheads are not thrilled. One quick PSA to save you some confusion: <strong>Subsonic</strong>, who <em>is</em> on the bill, is a drum & bass artist, not Subtronics. Easy mix-up, very different set.</p>
 
 <h2>No trance this year</h2>
 <p>Worth flagging for the uplifting crowd: there's essentially no trance presence on this lineup. No Tiësto, no Armin, no dedicated trance day. It's part of a broader trend at EDC's regional events, but trance fans are coming up empty in Orlando this year.</p>
 
 <h2>New for 2026: Hotel EDC comes east</h2>
-<p>The biggest non-music news is <strong>Hotel EDC Orlando</strong> — the first East Coast version of Insomniac's luxury festival hotel concept, taking over the Margaritaville Resort from November 6–9 in partnership with Vibee. Think festival-themed rooms, onsite concierge, and exclusive daytime and after-party events. If you've ever wanted the full immersive experience without the 4am drive home, this is it.</p>
+<p>The biggest non-music news is <strong>Hotel EDC Orlando</strong>, the first East Coast version of Insomniac's luxury festival hotel concept, taking over the Margaritaville Resort from November 6–9 in partnership with Vibee. Think festival-themed rooms, onsite concierge, and exclusive daytime and after-party events. If you've ever wanted the full immersive experience without the 4am drive home, this is it.</p>
 
 <h2>The details</h2>
 <p>EDC Orlando 2026 hits Tinker Field on <strong>November 6–8</strong>, 18+. Three-day GA, GA+, and 21+ VIP tickets go on sale <strong>Thursday, June 25 at 12pm EST</strong> through Insomniac. Stage takeovers come courtesy of Factory 93 and Bassrush, all under the kineticJOURNEY banner.</p>
 
-<p>Genre gripes aside, this is one of the deepest Orlando bills in years — and as the poster reminds everyone, the most important headliner of all is still <strong>you</strong>. <a href="/calendar">Add it to your calendar</a> and start planning your sets.</p>`,
+<p>Genre gripes aside, this is one of the deepest Orlando bills in years, and as the poster reminds everyone, the most important headliner of all is still <strong>you</strong>. <a href="/calendar">Add it to your calendar</a> and start planning your sets.</p>`,
   },
   {
     id: 'trippysquid-flowstars',
