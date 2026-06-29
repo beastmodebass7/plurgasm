@@ -297,12 +297,13 @@ function renderCalendar() {
         ${fests.map(f => {
           const dayNum = f.sortDate ? parseInt(f.sortDate.split('-')[2]) : '?';
           const endNum = f.endDate  ? parseInt(f.endDate.split('-')[2])  : '';
+          // Multi-day → "17 – 26" as one unit; single-day → just "17" (no dash).
+          const dayRange = (endNum && endNum !== dayNum) ? `${dayNum} – ${endNum}` : `${dayNum}`;
           return `
             <div class="cal-row" onclick="window.open('${f.url}','_blank')">
               <div class="cal-date-col">
                 <span class="cal-date-month">${monthName.slice(0,3).toUpperCase()}</span>
-                <span class="cal-date-day">${dayNum}</span>
-                ${endNum ? `<span class="cal-date-end">– ${endNum}</span>` : ''}
+                <span class="cal-date-day">${dayRange}</span>
               </div>
               <div class="cal-info-col">
                 <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>

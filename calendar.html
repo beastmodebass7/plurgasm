@@ -674,6 +674,8 @@ function festRowHTML(f) {
     const past = isPast(f);
     const dayNum = f.sortDate ? parseInt(f.sortDate.split('-')[2]) : '?';
     const endNum = f.endDate  ? parseInt(f.endDate.split('-')[2])  : '';
+    // Multi-day → "17 – 26" as one unit; single-day → just "17" (no dash).
+    const dayRange = (endNum && endNum !== dayNum) ? `${dayNum} – ${endNum}` : `${dayNum}`;
     const startMon = f.sortDate ? MONTH_NAMES[parseInt(f.sortDate.split('-')[1])-1].slice(0,3).toUpperCase() : '???';
     const hasUrl = f.url && f.url !== '#';
     const cal = googleCalUrl(f);
@@ -681,8 +683,7 @@ function festRowHTML(f) {
       <div class="cal-row cal-row--stack${past ? ' cal-row-past past' : ''}" data-id="${f.id}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
         <div class="cal-date-col">
           <span class="cal-date-month">${startMon}</span>
-          <span class="cal-date-day">${dayNum}</span>
-          ${endNum && endNum !== dayNum ? `<span class="cal-date-end">– ${endNum}</span>` : ''}
+          <span class="cal-date-day">${dayRange}</span>
         </div>
         <div class="cal-info-col">
           <div class="cal-name-row">

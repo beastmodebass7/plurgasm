@@ -2033,12 +2033,7 @@ footer {
   letter-spacing: 1px;
   color: var(--cyan);
   line-height: 1;
-}
-.cal-date-end {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  color: var(--faint);
-  letter-spacing: 1px;
+  white-space: nowrap;   /* keep the full "17 – 26" range on one line */
 }
 
 .cal-info-col {
