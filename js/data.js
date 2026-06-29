@@ -418,7 +418,7 @@ PLURGASM_DATA.blogPosts = [
     featured: true,
     body: `<p>The wait is over. EDC Orlando just dropped its 2026 lineup, and the rave internet lit up within minutes. Returning to <strong>Tinker Field</strong> from <strong>November 6–8</strong> for its 15th edition (all under the new <em>kineticJOURNEY</em> theme carried over from EDC Las Vegas' 30th anniversary), this year's bill runs more than 100 artists deep. Here's our honest breakdown of what stands out, and what's quietly missing.</p>
 
-<img class="blog-body-img" src="/images/blog/edc-orlando-2026.webp" alt="EDC Orlando 2026 official lineup poster, Nov 6-8 at Tinker Field">
+<img class="blog-body-img" src="/images/blog/edc-orlando-2026.webp" alt="EDC Orlando 2026 official lineup poster — Nov 6-8 at Tinker Field">
 
 <h2>The mainstage is absolutely stacked</h2>
 <p>Insomniac did not come to play. The top of the bill reads like a festival-house hall of fame: <strong>Martin Garrix, David Guetta, Hardwell, Alesso, Kaskade, Afrojack, Steve Aoki, Alan Walker,</strong> and <strong>Alison Wonderland</strong>. David Guetta in particular is a rare get for a US festival outside of Vegas and Ultra, so seeing him on an Orlando bill turned a lot of heads. Add sunset sets from Alesso, Alan Walker, Adventure Club, SLANDER, and Of The Trees, and the marquee alone could carry the weekend.</p>
