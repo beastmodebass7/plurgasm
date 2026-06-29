@@ -226,8 +226,8 @@ function renderFestivals() {
       <div class="fest-card-actions">
         <div class="vibes">${f.genres.slice(0,3).map(g=>`<span class="vibe">${g}</span>`).join('')}</div>
         <div class="fest-card-actions-btns">
+          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id, 'list') : ''}
           ${cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''}
-          ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
         </div>
       </div>
     </div>
