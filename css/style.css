@@ -2181,15 +2181,20 @@ footer {
   border-color: rgba(0,229,255,0.7);
   background: rgba(0,229,255,0.12);
 }
-/* Tickets = primary CTA: fills in on hover so it reads as the main action. */
+/* Tickets = primary CTA: SOLID green fill with dark text so it reads as the
+   main action and stands apart from the cyan-outline secondary buttons. Only
+   the fill/border/text colour change here — padding, border-radius and width
+   are still inherited from .cal-action-btn so the stacked buttons stay aligned.
+   Green (#3dff85) on near-black (#06060c) ≈ 14.9:1 contrast (AA/AAA). */
 .cal-action-btn--primary {
-  border-color: rgba(0,229,255,0.6);
-  background: rgba(0,229,255,0.12);
+  border-color: var(--green);
+  background: var(--green);
+  color: #06060c;
 }
 .cal-action-btn--primary:hover {
   color: #06060c;
-  background: var(--cyan);
-  border-color: var(--cyan);
+  background: #5fff9b;
+  border-color: #5fff9b;
 }
 /* TBA placeholder — same footprint, muted + non-interactive. */
 .cal-action-btn--tba {
