@@ -208,6 +208,7 @@ PLURGASM_DATA.blogPosts = [
 <li><strong>Banger / heater</strong>: A track so good it sets the room on fire.</li>
 <li><strong>Edit / bootleg</strong>: An unofficial rework of a song made without the original stems.</li>
 <li><strong>Set times</strong>: The schedule of who plays which stage and when. Plan your day around them or risk missing your favorite.</li>
+<li><strong>Sunrise set (or sunset set)</strong>: A set timed to the rising or setting sun, usually a slower, more melodic, emotional vibe. Watching the sky change with the right track playing is one of the most sacred experiences in the scene, and the artists who own that slot become legends for it.</li>
 </ul>
 
 <h2>Dancing and Flow</h2>
