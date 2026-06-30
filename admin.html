@@ -642,7 +642,7 @@ select option { background: #15152a; }
   <div class="login-box">
     <p class="login-logo">PLURGASM</p>
     <p class="login-sub">Admin Panel</p>
-    <input type="password" id="pw-input" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <input type="password" id="pw-input" placeholder="••••••••••••" aria-label="Admin password" onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">Enter Panel</button>
     <p class="login-error" id="login-error">Incorrect password — try again</p>
     <p class="login-hint">
@@ -741,27 +741,27 @@ select option { background: #15152a; }
     <div class="admin-form">
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Brand Name</label>
+          <label for="botw-name">Brand Name</label>
           <input type="text" id="botw-name" placeholder="FREEDOM RAVE WEAR">
         </div>
         <div class="form-row">
-          <label>Category · Location <span class="form-hint" style="display:inline;margin-left:4px;">(shown under name)</span></label>
+          <label for="botw-cat">Category · Location <span class="form-hint" style="display:inline;margin-left:4px;">(shown under name)</span></label>
           <input type="text" id="botw-cat" placeholder="Fem + Male Clothing · California">
         </div>
       </div>
       <div class="form-row">
-        <label>Description</label>
+        <label for="botw-desc">Description</label>
         <textarea id="botw-desc" placeholder="Why this brand deserves the spotlight this week..."></textarea>
         <p class="form-hint">Keep it 1–2 sentences. Appears directly below the brand name on the homepage.</p>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Instagram Handle</label>
+          <label for="botw-ig">Instagram Handle</label>
           <input type="text" id="botw-ig" placeholder="@brandhandle">
           <p class="form-hint">Include the @ symbol.</p>
         </div>
         <div class="form-row">
-          <label>Website URL</label>
+          <label for="botw-url-input">Website URL</label>
           <input type="url" id="botw-url-input" placeholder="https://brand.com">
           <p class="form-hint">Used for the "Visit Site" button.</p>
         </div>
@@ -801,51 +801,51 @@ select option { background: #15152a; }
     <div class="admin-form">
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Festival Name <span class="req">*</span></label>
+          <label for="af-name">Festival Name <span class="req">*</span></label>
           <input type="text" id="af-name" placeholder="BASS CANYON">
         </div>
         <div class="form-row">
-          <label>Tagline / Subtitle</label>
+          <label for="af-tagline">Tagline / Subtitle</label>
           <input type="text" id="af-tagline" placeholder="Deep Bass in the Gorge">
           <p class="form-hint">Shown in small text below the festival name.</p>
         </div>
       </div>
       <div class="form-row">
-        <label>Location <span class="req">*</span></label>
+        <label for="af-location">Location <span class="req">*</span></label>
         <input type="text" id="af-location" placeholder="Quincy, Washington">
         <p class="form-hint">City, State format. Shown on the card and calendar row.</p>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Display Dates <span class="req">*</span></label>
+          <label for="af-dates">Display Dates <span class="req">*</span></label>
           <input type="text" id="af-dates" placeholder="Aug 14–16, 2026">
           <p class="form-hint">Human-readable. Shown on the card.</p>
         </div>
         <div class="form-row">
-          <label>Start Date <span class="req">*</span></label>
+          <label for="af-sortdate">Start Date <span class="req">*</span></label>
           <input type="text" id="af-sortdate" placeholder="2026-08-14">
           <p class="form-hint">YYYY-MM-DD. Used for sorting and calendar grouping.</p>
         </div>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>End Date</label>
+          <label for="af-enddate">End Date</label>
           <input type="text" id="af-enddate" placeholder="2026-08-16">
           <p class="form-hint">YYYY-MM-DD. Used to determine past/upcoming status.</p>
         </div>
         <div class="form-row">
-          <label>Duration (days)</label>
+          <label for="af-days">Duration (days)</label>
           <input type="number" id="af-days" placeholder="3" min="1">
         </div>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Age Restriction</label>
+          <label for="af-age">Age Restriction</label>
           <input type="text" id="af-age" placeholder="18+">
           <p class="form-hint">e.g. 18+, 21+, All Ages</p>
         </div>
         <div class="form-row">
-          <label>Type</label>
+          <label for="af-type">Type</label>
           <select id="af-type">
             <option value="mega">Mega Festival (pink tag)</option>
             <option value="regional" selected>Regional (green tag)</option>
@@ -856,22 +856,22 @@ select option { background: #15152a; }
         </div>
       </div>
       <div class="form-row">
-        <label>Type Label</label>
+        <label for="af-typelabel">Type Label</label>
         <input type="text" id="af-typelabel" placeholder="e.g. East Coast, World, Underground">
         <p class="form-hint">The text inside the tag badge on the card. Keep it short.</p>
       </div>
       <div class="form-row">
-        <label>Genres (comma-separated)</label>
+        <label for="af-genres">Genres (comma-separated)</label>
         <input type="text" id="af-genres" placeholder="Bass, Dubstep, Riddim">
         <p class="form-hint">Powers the vibe filter pills. Match existing genres where possible.</p>
       </div>
       <div class="form-row">
-        <label>Description <span class="req">*</span></label>
+        <label for="af-desc">Description <span class="req">*</span></label>
         <textarea id="af-desc" placeholder="What makes this festival special. Lineup highlights, vibe, history..."></textarea>
         <p class="form-hint">2–4 sentences. Shown on the festival card.</p>
       </div>
       <div class="form-row">
-        <label>Ticket / Website URL</label>
+        <label for="af-url">Ticket / Website URL</label>
         <input type="url" id="af-url" placeholder="https://festival.com">
         <p class="form-hint">Clicking the festival card opens this URL. Leave blank if tickets aren't live yet.</p>
       </div>
@@ -896,18 +896,18 @@ select option { background: #15152a; }
     <div class="admin-form">
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Brand Name <span class="req">*</span></label>
+          <label for="ab-name">Brand Name <span class="req">*</span></label>
           <input type="text" id="ab-name" placeholder="VANISHING FAE">
         </div>
         <div class="form-row">
-          <label>Badge (2–4 letters)</label>
+          <label for="ab-badge">Badge (2–4 letters)</label>
           <input type="text" id="ab-badge" placeholder="VF" maxlength="4">
           <p class="form-hint">Shown in the colored square. Auto-fills from name if blank.</p>
         </div>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Category <span class="req">*</span></label>
+          <label for="ab-cat">Category <span class="req">*</span></label>
           <select id="ab-cat">
             <option value="fem-clothing">Fem Clothing</option>
             <option value="male-clothing">Male Clothing</option>
@@ -922,7 +922,7 @@ select option { background: #15152a; }
           </select>
         </div>
         <div class="form-row">
-          <label>Badge Color</label>
+          <label for="ab-badgecls">Badge Color</label>
           <select id="ab-badgecls">
             <option value="b-cyan">Cyan — techwear, EDM, general</option>
             <option value="b-pink">Pink — fem, romantic, soft</option>
@@ -934,7 +934,7 @@ select option { background: #15152a; }
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Price Range</label>
+          <label for="ab-price">Price Range</label>
           <select id="ab-price">
             <option value="$">$ — Under $100</option>
             <option value="$–$$" selected>$–$$ — Budget to Mid</option>
@@ -946,7 +946,7 @@ select option { background: #15152a; }
           </select>
         </div>
         <div class="form-row">
-          <label>Price Tag Color</label>
+          <label for="ab-pricecls">Price Tag Color</label>
           <select id="ab-pricecls">
             <option value="price-budget">Budget — green</option>
             <option value="price-mid" selected>Mid — cyan</option>
@@ -958,43 +958,43 @@ select option { background: #15152a; }
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Location / State</label>
+          <label for="ab-loc">Location / State</label>
           <input type="text" id="ab-loc" placeholder="California">
         </div>
         <div class="form-row">
-          <label>Typical Shipping Time</label>
+          <label for="ab-ship">Typical Shipping Time</label>
           <input type="text" id="ab-ship" placeholder="~1 week">
           <p class="form-hint">e.g. ~1 week, MTO 2–4 weeks, Check website</p>
         </div>
       </div>
       <div class="form-row">
-        <label>Style / What They Sell</label>
+        <label for="ab-style">Style / What They Sell</label>
         <input type="text" id="ab-style" placeholder="Fae, babydoll, sequin sets — high end handmade">
         <p class="form-hint">Short descriptor shown in small text on the card. What makes this brand unique.</p>
       </div>
       <div class="form-row">
-        <label>Description <span class="req">*</span></label>
+        <label for="ab-desc">Description <span class="req">*</span></label>
         <textarea id="ab-desc" placeholder="About the brand — reputation, what they're known for, who buys from them..."></textarea>
         <p class="form-hint">2–3 sentences. This is what people read on the card.</p>
       </div>
       <div class="form-row">
-        <label>Community Notes / Warnings</label>
+        <label for="ab-note">Community Notes / Warnings</label>
         <textarea id="ab-note" placeholder="Sizing tips, return policy quirks, things to know before ordering..."></textarea>
         <p class="form-hint">Optional. Shown as a callout box in the brand detail modal. Being honest builds trust.</p>
       </div>
       <div class="form-grid-2">
         <div class="form-row">
-          <label>Instagram Handle</label>
+          <label for="ab-ig">Instagram Handle</label>
           <input type="text" id="ab-ig" placeholder="@brandhandle">
           <p class="form-hint">Include the @ symbol.</p>
         </div>
         <div class="form-row">
-          <label>Website URL</label>
+          <label for="ab-url">Website URL</label>
           <input type="url" id="ab-url" placeholder="https://brand.com">
         </div>
       </div>
       <div class="form-row">
-        <label>Tags (comma-separated)</label>
+        <label for="ab-tags">Tags (comma-separated)</label>
         <input type="text" id="ab-tags" placeholder="fem, sets, spandex, rts, luxury">
         <p class="form-hint">Used by the search engine. Include style, fit, gender, and type keywords.</p>
       </div>
@@ -1418,7 +1418,7 @@ function renderSocialList() {
           <div class="social-platform">${s.platform} · ${s.type}</div>
         </div>
         <label class="toggle-switch">
-          <input type="checkbox" id="soc-${i}" ${featured ? 'checked' : ''}>
+          <input type="checkbox" id="soc-${i}" aria-label="Feature ${s.handle} on homepage" ${featured ? 'checked' : ''}>
           <div class="toggle-track"></div>
         </label>
         <span class="feat-label" style="color:${featured?'var(--cyan)':'var(--faint)'};">${featured?'Featured':'Default'}</span>
