@@ -157,6 +157,104 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'rave-slang-dictionary',
+    title: 'The Rave Dictionary: Every Slang Term and Phrase You Need to Know',
+    slug: 'rave-slang-dictionary',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-06-30',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
+    excerpt: 'New to the scene or just want to sound like you have been here for years? Here is the full glossary of rave slang, from PLUR and kandi to riding rail and sending it.',
+    published: true,
+    featured: false,
+    body: `<p>Every scene has its own language, and rave culture has one of the richest. Walk into your first festival and you will hear people talk about riding rail, trading kandi, catching an ID, and sending it, and none of it will make sense unless someone breaks it down. So here is that breakdown. Bookmark it, share it with your rave babies, and welcome to the family.</p>
+
+<h2>The Core (PLUR and the Philosophy)</h2>
+<ul>
+<li><strong>PLUR</strong>: Peace, Love, Unity, Respect. The four-word moral code of rave culture, born in the 90s and still the heartbeat of the scene.</li>
+<li><strong>PLURR</strong>: The same idea with a second R added for Responsibility. The reminder that looking out for each other is part of the deal, not an afterthought.</li>
+<li><strong>PLURNT</strong>: PLUR plus turnt. When someone is living the PLUR values and going absolutely all in at the same time.</li>
+<li><strong>Rave fam (rave family)</strong>: Your people. The crew you go to every show with, whether they are your everyday best friends or the friends you only ever see on a dancefloor.</li>
+<li><strong>Rave mom / rave dad</strong>: The nurturer of the group. Carries the water, the gum, the snacks, and the spare hair tie. Earns the title through care, not age or gender.</li>
+<li><strong>Rave baby</strong>: Someone at their first few shows, still wide-eyed and figuring out their style and favorite genre. Be kind to them. We all were one.</li>
+<li><strong>Vibe / vibe check</strong>: The energy of a space or a person. A vibe check is a quick read of whether everyone around you is good.</li>
+</ul>
+
+<h2>The People You will Meet</h2>
+<ul>
+<li><strong>Basshead</strong>: Someone who lives for heavy low-end music, dubstep, riddim, drum and bass. If the speakers are rattling their chest, they are home.</li>
+<li><strong>Rail rider</strong>: A person who claims a spot at the front barrier and holds it all set (or all day). See "riding rail" below.</li>
+<li><strong>Flowstar / flow artist</strong>: A performer who spins, whips, and dances with flow toys, orbits, levitation wands, and other light props.</li>
+<li><strong>Wook</strong>: Affectionate (and sometimes teasing) slang for a scene veteran with a very lived-in, festival-worn, free-spirited look. Wear it with pride or use it carefully.</li>
+<li><strong>Headliner</strong>: The marquee act, the one whose name sells the ticket and usually closes the night.</li>
+<li><strong>Opener / support</strong>: The artist who warms up the crowd before the headliner.</li>
+</ul>
+
+<h2>Kandi and Gifting</h2>
+<ul>
+<li><strong>Kandi</strong>: Handmade beaded bracelets, often spelling words or phrases, that ravers create to trade with each other as tokens of connection.</li>
+<li><strong>Perler</strong>: Beads melted together into a flat design, often worn as a pin or charm rather than a bracelet.</li>
+<li><strong>Kandi trade (the PLUR handshake)</strong>: The ritual of exchanging kandi. Hands form Peace, then Love, then Unity, then Respect, and the bracelet slides from one wrist to the other.</li>
+<li><strong>Totem</strong>: A tall handmade sign or object held above the crowd so your group can find each other. Also just a great excuse to be creative.</li>
+</ul>
+
+<h2>The Music</h2>
+<ul>
+<li><strong>The drop</strong>: The payoff. The moment after the build when the bass and rhythm hit full force and the whole crowd goes off.</li>
+<li><strong>The build (build-up)</strong>: The rising tension before the drop, designed to make the release hit harder.</li>
+<li><strong>ID</strong>: An unreleased or unidentified track. If a set lists "ID - ID," nobody officially knows the artist or title yet.</li>
+<li><strong>B2B (back to back)</strong>: Two or more DJs sharing one set, trading tracks in turn.</li>
+<li><strong>Banger / heater</strong>: A track so good it sets the room on fire.</li>
+<li><strong>Edit / bootleg</strong>: An unofficial rework of a song made without the original stems.</li>
+<li><strong>Set times</strong>: The schedule of who plays which stage and when. Plan your day around them or risk missing your favorite.</li>
+</ul>
+
+<h2>Dancing and Flow</h2>
+<ul>
+<li><strong>Shuffle</strong>: The signature rave dance, all sliding, kicking footwork and bouncing rhythm.</li>
+<li><strong>Flow arts</strong>: Movement-based performance with props like poi, hoops, fans, and levitation wands.</li>
+<li><strong>Gloving</strong>: Finger-light shows performed with LED-tipped gloves, often given to someone one-on-one.</li>
+<li><strong>Light show</strong>: A close-up display of LED gloves or orbits performed for one person, a small act of PLUR generosity.</li>
+<li><strong>Throwing down</strong>: Dancing hard and fully committing to the moment.</li>
+</ul>
+
+<h2>The Venue and the Logistics</h2>
+<ul>
+<li><strong>Riding rail (the rail)</strong>: Posting up at the front barrier against the stage. The closest you can get, at the cost of freedom to move, hydrate, or hit the bathroom.</li>
+<li><strong>Rave train (also called an Asian train)</strong>: A single-file line of people holding onto each other's shoulders or hands to move through a packed crowd without getting separated. Done courteously it is a clever way to keep a group together; done by shoving through people's spots it is bad etiquette. The name comes from the groups it was first associated with, but most ravers now just call it a rave train.</li>
+<li><strong>Massive</strong>: A huge dance event, essentially festival-scale, with major headliners and a big production.</li>
+<li><strong>GA vs VIP</strong>: General Admission is the standard ticket. VIP usually buys better viewing areas, shorter lines, and nicer facilities.</li>
+<li><strong>Afters (afterparty)</strong>: The smaller party that keeps going once the main event ends.</li>
+<li><strong>Pregame</strong>: Gathering with your crew to get hyped before heading in.</li>
+<li><strong>Silent disco</strong>: A set where the music plays through wireless headphones instead of speakers, so you can switch channels and dance in near silence.</li>
+</ul>
+
+<h2>The Attitude</h2>
+<ul>
+<li><strong>Send it / full send</strong>: To go all in with zero hesitation.</li>
+<li><strong>Rage / rage cage</strong>: To party as hard as possible. A rage cage is the room or space made for exactly that.</li>
+<li><strong>Heady (headie)</strong>: Describes music, art, or visuals that are deep, trippy, and immersive.</li>
+<li><strong>Rinsed</strong>: A track or sound that has been played absolutely everywhere all season.</li>
+</ul>
+
+<h2>Safety and Harm Reduction</h2>
+<p>You will hear these too, and knowing them is part of keeping the family safe. We list them plainly so you can recognize a situation and look out for the people around you. For the real guidance, read our <a href="https://plurgasm.com/safety">safety guide</a>.</p>
+<ul>
+<li><strong>Molly / candy</strong>: Street slang for MDMA. What gets sold under these names is frequently not pure and can be cut with other substances, which is exactly why testing exists.</li>
+<li><strong>Rolling</strong>: Being under the influence of MDMA.</li>
+<li><strong>The comedown</strong>: The depleted, low feeling in the days after, as the brain rebalances. Rest, food, and water matter here.</li>
+<li><strong>Gurning</strong>: Involuntary jaw clenching and face tension associated with stimulants.</li>
+<li><strong>K-hole</strong>: A heavy dissociative state from ketamine. Listed so you recognize when someone needs help, never as a goal.</li>
+<li><strong>Candy flipping</strong>: Slang for combining LSD and MDMA. Mixing substances stacks the risk, and our safety guide explains why.</li>
+<li><strong>Test kit / fent strips</strong>: Reagent kits and fentanyl test strips used to check what a substance actually is. The single most important harm-reduction tool at any event.</li>
+<li><strong>Harm reduction</strong>: The whole philosophy in two words. Hydrate, know your limits, never use alone, test everything, and watch out for the people next to you.</li>
+</ul>
+
+<p>Did we miss one? The scene is always inventing new slang, so if there is a phrase you swear by that is not here, send it our way and we will keep this dictionary growing. Until then: stay hydrated, trade some kandi, and we will see you on the rail. PLUR.</p>`
+  },
+
+  {
     id: 'electric-forest-2026-evacuated',
     title: 'Electric Forest 2026 Evacuated as Severe Storms Shut Down the Final Night',
     slug: 'electric-forest-2026-evacuated-storm',
