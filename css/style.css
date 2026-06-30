@@ -2660,6 +2660,22 @@ footer {
   color: var(--pink);
 }
 
+/* bulleted / numbered lists inside a blog post body — indent them in from
+   the left margin so list content has breathing room and reads as a clear
+   sub-level under the paragraphs. padding-left supplies the bullet indent and
+   makes wrapped lines hang neatly under the text (not under the bullet); the
+   small margin-left nudges the whole list in a touch more. Scoped to
+   #post-body only, so nav/footer/card/filter lists are untouched. */
+#post-body ul,
+#post-body ol {
+  padding-left: 2em;
+  margin-left: 0.5em;
+}
+#post-body li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
 /* centered, width-capped brand logo embedded near the top of a blog
    post body (e.g. the Trippy Squid affiliate post). Kept in a class so
    the data.js body template literal stays free of inline styles. */
@@ -2710,6 +2726,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+  /* dial the blog-post list indent back on narrow screens so it doesn't
+     eat horizontal space or crowd the text against the right edge */
+  #post-body ul,
+  #post-body ol {
+    padding-left: 1.25em;
+    margin-left: 0.25em;
+  }
 
   /* festival type filter row — scroll horizontally
      instead of wrapping to multiple lines */
