@@ -33,17 +33,17 @@ const FESTIVALS = [
 ];
 
 const CATEGORIES = [
-  { id:'fem-clothing',  label:'Fem Clothing',   icon:'images/categories/icon-fem-clothing.png' },
-  { id:'male-clothing', label:'Male Clothing',   icon:'images/categories/icon-male-clothing.png' },
-  { id:'shoes',         label:'Shoes',           icon:'images/categories/icon-shoes.png' },
-  { id:'accessories',   label:'Accessories',     icon:'images/categories/icon-accessories.png' },
-  { id:'kandi',         label:'Kandi',           icon:'images/categories/icon-kandi.png' },
-  { id:'jerseys',       label:'Jerseys & Merch', icon:'images/categories/icon-jerseymerch.png' },
-  { id:'events',        label:'Events',          icon:'images/categories/icon-events.png' },
-  { id:'supplements',   label:'Supplements',     icon:'images/categories/icon-supplements.png', comingSoon:true },
-  { id:'gear',          label:'Gear & Audio',    icon:'images/categories/icon-headphones.png', comingSoon:true },
-  { id:'lights',        label:'Lights & Toys',   icon:'images/categories/icon-lightsandtoys.png', comingSoon:true },
-  { id:'wellness',      label:'Wellness',        icon:'images/categories/icon-wellness.png', comingSoon:true },
+  { id:'fem-clothing',  label:'Fem Clothing',   icon:'images/categories/icon-fem-clothing.webp' },
+  { id:'male-clothing', label:'Male Clothing',   icon:'images/categories/icon-male-clothing.webp' },
+  { id:'shoes',         label:'Shoes',           icon:'images/categories/icon-shoes.webp' },
+  { id:'accessories',   label:'Accessories',     icon:'images/categories/icon-accessories.webp' },
+  { id:'kandi',         label:'Kandi',           icon:'images/categories/icon-kandi.webp' },
+  { id:'jerseys',       label:'Jerseys & Merch', icon:'images/categories/icon-jerseymerch.webp' },
+  { id:'events',        label:'Events',          icon:'images/categories/icon-events.webp' },
+  { id:'supplements',   label:'Supplements',     icon:'images/categories/icon-supplements.webp', comingSoon:true },
+  { id:'gear',          label:'Gear & Audio',    icon:'images/categories/icon-headphones.webp', comingSoon:true },
+  { id:'lights',        label:'Lights & Toys',   icon:'images/categories/icon-lightsandtoys.webp', comingSoon:true },
+  { id:'wellness',      label:'Wellness',        icon:'images/categories/icon-wellness.webp', comingSoon:true },
 ];
 
 const BRANDS = [
@@ -412,7 +412,7 @@ PLURGASM_DATA.blogPosts = [
     authorHandle: '@plurgasm',
     date: '2026-06-23',
     category: 'festival-news',
-    coverImage: '/images/blog/edc-orlando-2026-header.jpg',
+    coverImage: '/images/blog/edc-orlando-2026-header.webp',
     excerpt: 'EDC Orlando 2026 is here: 100+ artists at Tinker Field this November. House and techno dominate, the mainstage is stacked, and one big bass name is missing. Our full breakdown.',
     published: true,
     featured: true,
@@ -2151,7 +2151,7 @@ window.PLURGASM_DATA.socials = SOCIALS;
 window.PLURGASM_DATA.featuredInfluencer = {
   name: 'Jarren Ellis',
   handle: '@jarren_ellis',
-  image: 'images/jarren-ellis.jpg',
+  image: 'images/jarren-ellis.webp',
   blurb: 'One of the most genuine rave content creators in the community right now. Jarren covers festival culture, flow arts, harm reduction, and everything in between — from the inside, not from the sidelines. Give him a follow.',
   active: true,
   links: [

@@ -25,12 +25,12 @@
   ];
 
   var BOTTOM_ITEMS = [
-    { label: 'Brands',   href: '/#brands',    icon: 'icon-nav-brands.png' },
-    { label: 'Festivals',href: '/#festivals', icon: 'icon-nav-festivals.png' },
-    { label: 'Search',   href: null,          icon: 'icon-nav-search.png',   isSearch: true },
-    { label: 'Creators', href: '/social',icon: '/images/nav/icon-nav-creators.png' },
-    { label: 'Blog',     href: '/blog',      icon: 'icon-nav-blog.png' },
-    { label: 'Calendar', href: '/calendar', icon: 'icon-nav-calendar.png' },
+    { label: 'Brands',   href: '/#brands',    icon: 'icon-nav-brands.webp' },
+    { label: 'Festivals',href: '/#festivals', icon: 'icon-nav-festivals.webp' },
+    { label: 'Search',   href: null,          icon: 'icon-nav-search.webp',   isSearch: true },
+    { label: 'Creators', href: '/social',icon: '/images/nav/icon-nav-creators.webp' },
+    { label: 'Blog',     href: '/blog',      icon: 'icon-nav-blog.webp' },
+    { label: 'Calendar', href: '/calendar', icon: 'icon-nav-calendar.webp' },
   ];
 
   function init() {

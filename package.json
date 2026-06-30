@@ -1,0 +1,24 @@
+{
+  "name": "plurgasm",
+  "version": "1.0.0",
+  "description": "The rave universe. Festival calendar, brand directory, and community hub.",
+  "main": "generate-sitemap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beastmodebass7/plurgasm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/beastmodebass7/plurgasm/issues"
+  },
+  "homepage": "https://github.com/beastmodebass7/plurgasm#readme",
+  "devDependencies": {
+    "sharp": "^0.35.2"
+  }
+}
