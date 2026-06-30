@@ -64,6 +64,12 @@ const JOBS = [
     resize: { width: 600, fit: 'inside', withoutEnlargement: true },
     quality: 82,
   },
+  {
+    name: '7. Blog-body images (<=1200px wide)',
+    files: ['images/plur/plur-handshake.png', 'images/blog/edc-orlando-2026.webp'],
+    resize: { width: 1200, fit: 'inside', withoutEnlargement: true },
+    quality: 80,
+  },
 ];
 
 function glob(dir, re) {
@@ -108,6 +114,20 @@ async function run() {
       const inputBuf = fs.readFileSync(inAbs);
       let pipeline = sharp(inputBuf);
       const meta = await pipeline.metadata();
+
+      // Idempotency guard: when re-encoding a .webp IN PLACE (output path ==
+      // input path) and it's already no wider than the target, skip it.
+      // Otherwise a re-run would lossily re-encode an already-optimized webp
+      // every time and slowly degrade it. Format conversions (png/jpg -> webp)
+      // are unaffected: they always re-derive from the pristine original, so
+      // re-runs are already lossless-stable.
+      const targetW = job.resize && job.resize.width;
+      const inPlace = path.resolve(inAbs) === path.resolve(outAbs);
+      if (inPlace && targetW && meta.width <= targetW) {
+        console.log(`  skip     ${rel}  (already ${meta.width}px wide <= ${targetW}px)`);
+        continue;
+      }
+
       if (job.resize) pipeline = pipeline.resize(job.resize);
       // WebP keeps the alpha channel, so mix-blend-mode screen/lighten on a
       // black bg keeps removing the black. Lossy q80-85 is plenty here.

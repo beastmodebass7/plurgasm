@@ -1139,7 +1139,7 @@ PLURGASM_DATA.blogPosts = [
     something to do with your hands during the long weeks between parties.
     The trading of them became a ritual.</p>
 
-    <img src="/images/plur/plur-handshake.png" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
+    <img src="/images/plur/plur-handshake.webp" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
 
     <p>The PLUR handshake formalized that ritual.
     Four gestures, one for each letter.
@@ -1428,7 +1428,7 @@ PLURGASM_DATA.blogPosts = [
 
       <h2>How to Do the PLUR Handshake</h2>
       <p>If you\'ve ever watched two ravers press their hands together and swap bracelets, you\'ve seen the PLUR handshake, the little ritual behind trading <em>kandi</em> (the beaded bracelets you\'ll see all over any show). It spells out the four words the whole scene is built on: Peace, Love, Unity, Respect. Here\'s how it goes.</p>
-      <img src="/images/plur/plur-handshake.png" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
+      <img src="/images/plur/plur-handshake.webp" alt="The PLUR handshake: Peace, Love, Unity and Respect hand gestures showing how to trade kandi" style="width:100%;max-width:100%;margin:24px 0;" />
       <ol style="margin:16px 0 16px 20px;line-height:2.2;">
         <li><strong>Peace</strong>: You each make a peace sign and touch your two fingers to theirs.</li>
         <li><strong>Love</strong>: You each form half a heart with your hand and bring them together into one.</li>
