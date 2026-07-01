@@ -57,6 +57,9 @@
   margin-bottom: 8px;
 }
 .hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 2px;
@@ -68,6 +71,14 @@
   text-decoration: none;
   transition: all 0.2s;
   white-space: nowrap;
+}
+.hero-chip-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  /* custom neon icons have black backgrounds — screen blend drops the black */
+  mix-blend-mode: screen;
+  flex-shrink: 0;
 }
 .hero-chip:hover {
   border-color: rgba(0,229,255,0.4);
@@ -206,10 +217,10 @@
   </span>
 </p>
     <div class="hero-quick-links">
-  <a href="#festivals" class="hero-chip">🎪 Festivals</a>
-  <a href="#brands" class="hero-chip">🏷️ Brands</a>
-  <a href="#blog" class="hero-chip">📰 News</a>
-  <a href="/social" class="hero-chip">🎧 Creators</a>
+  <a href="#festivals" class="hero-chip"><img src="images/nav/icon-nav-festivals.webp" class="hero-chip-icon" alt="" loading="eager">Festivals</a>
+  <a href="#brands" class="hero-chip"><img src="images/nav/icon-nav-brands.webp" class="hero-chip-icon" alt="" loading="eager">Brands</a>
+  <a href="#blog" class="hero-chip"><img src="images/nav/icon-nav-blog.webp" class="hero-chip-icon" alt="" loading="eager">News</a>
+  <a href="/social" class="hero-chip"><img src="images/nav/icon-nav-creators.webp" class="hero-chip-icon" alt="" loading="eager">Creators</a>
 </div>
     <div class="search-wrap" id="search-wrap">
       <div class="search-form">
