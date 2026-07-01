@@ -9,7 +9,7 @@ Plurgasm is a guide to the American rave and electronic music scene. It maps out
 - [Home](https://plurgasm.com/): Landing page with featured festivals, brands, categories, creators, and the latest from the community.
 - [Festival Calendar](https://plurgasm.com/calendar): Full US festival calendar with map view, plus vibe, region, and Near Me filters.
 - [Rave Brands](https://plurgasm.com/#brands): Directory of rave clothing, kandi, shoes, accessory, and event brands, filterable by category and item type.
-- [Shop by Category](https://plurgasm.com/#categories): Browse brands by category — fem/male clothing, shoes, accessories, kandi, jerseys & merch, and events.
+- [Shop Rave Brands](https://plurgasm.com/#categories): Browse brands by category — fem/male clothing, shoes, accessories, kandi, jerseys & merch, and events.
 - [Creators](https://plurgasm.com/social): Directory of rave-scene creators and influencers to follow across platforms.
 - [Social Spotlight](https://plurgasm.com/#social): Featured creators highlighted on the homepage.
 - [Blog](https://plurgasm.com/blog): Rave news and culture — festival guides, PLUR history, gear, fashion, and safety.
