@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PLURGASM Blog — Rave news and culture">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PLURGASM — Blog">
+<meta property="og:description" content="PLURGASM Blog — Rave news and culture">
+<meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PLURGASM — Blog">
+<meta name="twitter:description" content="PLURGASM Blog — Rave news and culture">
+<meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
 <title>PLURGASM — Blog</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved (extensionless form, matching sitemap.xml). No hardcoded href on purpose. -->
 <link rel="canonical" id="canonical-link">
@@ -213,6 +223,28 @@ document.addEventListener('DOMContentLoaded', () => {
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));
+
+  // Per-post social tags — override the static defaults with this post's title,
+  // excerpt and cover image. coverImage may be relative, so force an ABSOLUTE URL
+  // (scrapers reject relative og:image paths); fall back to the site default image.
+  try {
+    const absUrl = (u) => !u ? '' : (/^https?:\/\//i.test(u) ? u
+      : 'https://plurgasm.com/' + String(u).replace(/^\//, ''));
+    const ogImg  = post.coverImage ? absUrl(post.coverImage) : 'https://plurgasm.com/images/og-default.webp';
+    const ogDesc = clampDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));
+    const setMeta = (attrName, key, val) => {
+      let m = document.querySelector(`meta[${attrName}="${key}"]`);
+      if (!m) { m = document.createElement('meta'); m.setAttribute(attrName, key); document.head.appendChild(m); }
+      m.setAttribute('content', val);
+    };
+    setMeta('property', 'og:type', 'article');
+    setMeta('property', 'og:title', post.title + ' — PLURGASM');
+    setMeta('property', 'og:description', ogDesc);
+    setMeta('property', 'og:image', ogImg);
+    setMeta('name', 'twitter:title', post.title + ' — PLURGASM');
+    setMeta('name', 'twitter:description', ogDesc);
+    setMeta('name', 'twitter:image', ogImg);
+  } catch (e) { console.error('per-post og tags error:', e); }
 
   const color = getColor(post.category);
   const label = getLabel(post.category);
