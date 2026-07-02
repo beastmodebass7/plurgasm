@@ -31,7 +31,7 @@
     var reduceMotion = !!(window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
-    var DPR = Math.min(window.devicePixelRatio || 1, 2); // cap to avoid retina overdraw
+    var DPR = Math.min(window.devicePixelRatio || 1, 1.5); // cap to avoid retina overdraw
     var cssW = 1, cssH = 1;
     var particles = [];
     var mouse = { x: 0, y: 0, active: false };
@@ -42,9 +42,9 @@
     function rand(min, max) { return min + Math.random() * (max - min); }
 
     function particleCount() {
-      var n = Math.round((cssW * cssH) / 24000);
-      if (cssW < 640) return Math.max(16, Math.min(32, n)); // lighter on mobile
-      return Math.max(40, Math.min(58, n));                 // ~40-58 on desktop
+      var n = Math.round((cssW * cssH) / 40000);
+      if (cssW < 640) return Math.max(10, Math.min(16, n)); // much lighter on mobile
+      return Math.max(20, Math.min(32, n));                 // ~20-32 on desktop
     }
 
     function makeParticle() {
@@ -110,8 +110,16 @@
     var CURSOR = 170, CURSOR2 = CURSOR * CURSOR; // attraction + cursor-link radius
     var margin = 30;
 
-    function frame() {
+    var FRAME_MS = 1000 / 30;   // throttle to ~30fps (skip frames) to halve main-thread cost
+    var lastDraw = 0;
+
+    function frame(now) {
       if (!running) return;
+      rafId = window.requestAnimationFrame(frame); // keep the clock ticking
+      // frame-rate cap: bail early on frames that arrive sooner than ~33ms
+      if (now - lastDraw < FRAME_MS) return;
+      lastDraw = now;
+
       ctx.clearRect(0, 0, cssW, cssH);
 
       var i, j, p, q, dx, dy, d2, d;
@@ -177,20 +185,18 @@
         }
       }
 
-      // particles (additive glow)
+      // particles — additive ('lighter') blending gives a soft glow without the
+      // per-arc shadowBlur, which was the single most expensive op in the loop.
       for (i = 0; i < particles.length; i++) {
         p = particles[i];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = rgba(p.c, p.a);
-        ctx.shadowColor = rgba(p.c, 0.9);
-        ctx.shadowBlur = 8;
         ctx.fill();
       }
 
-      ctx.shadowBlur = 0;
       ctx.globalCompositeOperation = 'source-over';
-      rafId = window.requestAnimationFrame(frame);
+      // next frame already scheduled at the top of frame()
     }
 
     function start() {
@@ -235,16 +241,23 @@
       });
 
       var heroVisible = true;
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          heroVisible = entries[0].isIntersecting;
-          if (heroVisible && !document.hidden) start();
-          else stop();
-        }, { threshold: 0 });
-        io.observe(hero);
-      } else {
-        start();
+      // Don't compete with first paint — wire up the observer / start on idle.
+      function whenIdle(fn) {
+        if (window.requestIdleCallback) window.requestIdleCallback(fn, { timeout: 2000 });
+        else setTimeout(fn, 400);
       }
+      whenIdle(function () {
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            heroVisible = entries[0].isIntersecting;
+            if (heroVisible && !document.hidden) start();
+            else stop();
+          }, { threshold: 0 });
+          io.observe(hero);
+        } else {
+          start();
+        }
+      });
     }
   } catch (err) {
     if (window.console && console.warn) console.warn('hero-fx disabled:', err);
