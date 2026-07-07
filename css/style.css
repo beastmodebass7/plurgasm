@@ -4122,3 +4122,9 @@ footer {
 @media (max-width: 480px) {
   .budget-amount { width: 78px; }
 }
+
+/* Blog post sources / footnotes */
+#post-body .sources { margin-top: 2em; padding-top: 1em; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.9em; opacity: 0.85; }
+#post-body .sources li { margin-bottom: 0.5em; }
+#post-body .sources a { color: var(--cyan); word-break: break-word; }
+#post-body sup.fn a { color: var(--cyan); text-decoration: none; font-size: 0.75em; }

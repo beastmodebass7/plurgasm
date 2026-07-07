@@ -287,7 +287,14 @@ PLURGASM_DATA.blogPosts = [
 </ul>
 <h2>A heavier note from this weekend</h2>
 <p>Separately, and far more soberly: Michigan State Police confirmed that the body of a newborn was found Sunday morning in a portable restroom in the festival’s camping area, discovered by a restroom-servicing employee during routine maintenance. Authorities say there is no known threat to the public and have released no further details as the investigation continues. Anyone who was in the area and may have relevant information has been asked to contact the Michigan State Police. Our thoughts are with everyone affected.</p>
-<p>To everyone who made the trek to the Forest this year, get home safe, look out for the people next to you, and hold the good moments close. That’s the whole point of this thing we do.</p>`
+<p>To everyone who made the trek to the Forest this year, get home safe, look out for the people next to you, and hold the good moments close. That’s the whole point of this thing we do.</p>
+<h2>Sources</h2>
+<ol class="sources">
+<li id="src-1">MLive, Joel Bissell, "Tens of thousands of festivalgoers forced to evacuate on final night of Electric Forest 2026": <a href="https://www.yahoo.com/news/weather-news/articles/tens-thousands-festivalgoers-forced-evacuate-035152635.html" target="_blank" rel="noopener noreferrer">mlive.com (syndicated)</a></li>
+<li id="src-2">Local Spins, Electric Forest 2026 highlights and storm-paused finale: <a href="https://localspins.com/electric-forest-highlights-deep-woods-grooves-gems-and-a-storm-local-spins/" target="_blank" rel="noopener noreferrer">localspins.com</a></li>
+<li id="src-3">CBS News Detroit, Nick Lentz, on the Michigan State Police investigation into the newborn found in the camping area.</li>
+<li id="src-4">Electric Forest official site and event app: <a href="https://www.electricforest.com/" target="_blank" rel="noopener noreferrer">electricforest.com</a></li>
+</ol>`
   },
 
   {
@@ -337,7 +344,14 @@ PLURGASM_DATA.blogPosts = [
 
 <p>Whether you’re at a mega-festival or a daytime set, heat is not a vibe to push through. Hydrate constantly with water and electrolytes, not just whatever’s in your cup. Find shade and actually use it. Know that stimulants dramatically raise your risk of overheating and mask the warning signs your body sends. Watch your friends: confusion, stopping sweating, or dizziness are emergencies, not someone who needs to walk it off. The whole point of PLUR is that we get each other home.</p>
 
-<p>To every Weekend Warrior stuck far from home tonight: this one is brutal, and it is okay to be gutted. The tribe is bigger than one weekend. Get home safe, and we’ll see you on the dancefloor again.</p>`
+<p>To every Weekend Warrior stuck far from home tonight: this one is brutal, and it is okay to be gutted. The tribe is bigger than one weekend. Get home safe, and we’ll see you on the dancefloor again.</p>
+<h2>Sources</h2>
+<ol class="sources">
+<li id="src-1">Q-dance official cancellation statement, posted to the Defqon.1 Instagram and the Q-dance site, June 2026: <a href="https://www.q-dance.com/l/defqon1-2026" target="_blank" rel="noopener noreferrer">q-dance.com</a></li>
+<li id="src-2">Q-dance refund and compensation update: <a href="https://www.q-dance.com/l/defqon1-2026-important-update" target="_blank" rel="noopener noreferrer">q-dance.com (important update)</a></li>
+<li id="src-3">EDM.com, coverage of the first-ever Code Red heat cancellation: <a href="https://edm.com/events/defqon-1-festival-2026-cancelled-first-ever-code-red-heat-warning-netherlands/" target="_blank" rel="noopener noreferrer">edm.com</a></li>
+<li id="src-4">EDM Identity, cancellation report and European heatwave context: <a href="https://edmidentity.com/2026/06/25/defqon-1-weekend-festival-2026-canceled/" target="_blank" rel="noopener noreferrer">edmidentity.com</a></li>
+</ol>`
   },
 
   {
