@@ -157,6 +157,56 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'post-014',
+    title: 'Where to Party in Cape Verde: A Festival & Nightlife Guide',
+    slug: 'cape-verde-festivals-nightlife-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-07-08',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80',
+    excerpt: 'Cape Verde stole hearts at the World Cup, and now everyone wants to visit. Here is where to catch live music, beach festivals, and late-night dancing across the islands.',
+    published: true,
+    featured: false,
+    body: `<p>Cape Verde just pulled off one of the great World Cup stories ever, and suddenly everyone is Googling this ten-island archipelago off the coast of West Africa. If the Blue Sharks' run put the islands on your travel radar, here's the honest rundown of the party and music scene you'll actually find there.</p>
+
+<p>First, a reality check: Cape Verde is not an EDC-style rave destination. Its soul is live music, born from a blend of African and Portuguese roots, and it runs deep in daily life. Think Morna (the soulful, melancholic ballad style), the accordion-driven Funaná, the drum-and-dance Batuku, plus Coladeira, Kizomba, and Zouk. The real magic here is festivals and live sets on the beach, not warehouse bass. But if you want to dance late, there's a scene for that too.</p>
+
+<h2>The big festivals worth planning around</h2>
+
+<p><strong>Festival de Baía das Gatas</strong> (São Vicente) — The heartbeat of the islands. Held around the August full moon on the beach at Baía das Gatas, this is one of the oldest and largest open-air music festivals in West Africa, drawing tens of thousands. Families camp on the sand, the lagoon stays warm, and the music runs till sunrise.</p>
+
+<p><strong>Mindelo Carnival</strong> (São Vicente) — Often called the "little Rio." Held in February or March around Shrove Tuesday, it's the country's most visually stunning event: floats, feathers, sequins, and competing dance troupes that prepare all year.</p>
+
+<p><strong>Gamboa Festival</strong> (Praia, Santiago) — Typically in May, the capital's premier music event and a great place to hear modern, high-energy Funaná.</p>
+
+<p><strong>Kriol Jazz Festival</strong> (Praia) — Usually in April, an internationally acclaimed festival blending Creole rhythms with world-class jazz.</p>
+
+<p><strong>Santa Maria Music Festival / "Sal Stage"</strong> (Sal) — Usually mid-September on Santa Maria beach, geared toward the island's big international tourist crowd, mixing folk, pop, and world music steps from the water.</p>
+
+<p><strong>Tabanka</strong> (Santiago) — More cultural ritual than party: rhythmic drum-and-conch processions rooted in the history of resistance and mutual aid, peaking around late spring feast days.</p>
+
+<h2>Where to actually dance (Sal Island)</h2>
+
+<p>Most of the club-style nightlife is concentrated on Sal, in the tourist hub of Santa Maria. A few spots that come up repeatedly:</p>
+
+<ul>
+<li><strong>Bikini Beach Club</strong> (Algodoeiro Beach) — An upscale beach club with daybeds, poolside sets, guest DJs, and big Friday-night parties.</li>
+<li><strong>Club One</strong> (Santa Maria) — European-style clubbing with resident DJs spinning commercial house and electronic, busiest on Fridays and Saturdays.</li>
+<li><strong>Disco Pirata</strong> — One of Santa Maria's longest-running dance spots; heavy on Latin and Afro-pop with electronic mixed in late.</li>
+<li><strong>Ocean Café</strong> (main square, Santa Maria) — A solid pre-club spot for drinks and DJ sets before you head out.</li>
+</ul>
+
+<p>Heads up on timing: Cape Verde nightlife starts <em>late</em>. Things rarely get going before 11:30 PM, and clubs often run until 4 to 6 AM.</p>
+
+<h2>Practical tips</h2>
+
+<p>Inter-island flights sell out weeks ahead during big festivals like Baía das Gatas and Carnival, so book early. A little Kriolu goes a long way ("Obrigadu" for thank you). And since venues and exact festival dates shift year to year, confirm everything on official sources before you book travel; treat the specifics above as a starting point, not a guarantee.</p>
+
+<p>It's a different flavor than a US mainstage weekend, but the spirit is the same: music, community, and dancing under the stars. Peace, love, unity, respect, wherever the beat takes you. 🌍</p>`
+  },
+
+  {
     id: 'post-013',
     title: 'EDC Orlando 2026 Lineup by Day: Who Plays Friday, Saturday & Sunday',
     slug: 'edc-orlando-2026-lineup-by-day',
