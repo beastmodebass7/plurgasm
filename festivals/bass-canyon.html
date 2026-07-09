@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bass Canyon 2026 — PLURGASM</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<meta name="description" content="Excision curates three nights of pure bass at the Gorge, one of the most beautiful venues in North America. Camping under the stars on the Columbia River.">
+<meta name="keywords" content="Bass Canyon, Bass Canyon 2026, Excision, Gorge Amphitheatre, dubstep festival, bass music, riddim, rave">
+<meta name="author" content="PLURGASM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plurgasm.com/festivals/bass-canyon">
+<meta property="og:title" content="Bass Canyon 2026 — PLURGASM">
+<meta property="og:description" content="Bass Canyon Aug 14–16, 2026 at Gorge Amphitheatre, George, WA. Full lineup, tickets &amp; festival info on PLURGASM.">
+<meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bass Canyon 2026 — PLURGASM">
+<meta name="twitter:description" content="Bass Canyon Aug 14–16, 2026 at Gorge Amphitheatre, George, WA. Full lineup, tickets &amp; festival info on PLURGASM.">
+<meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
+<link rel="canonical" href="https://plurgasm.com/festivals/bass-canyon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/nav.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/saves.js" defer></script>
+<style>
+.pg-bg { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
+.pg-glow { position:absolute;border-radius:50%;filter:blur(140px); }
+.pg-g1 { width:600px;height:600px;background:rgba(0,229,255,0.07);top:-200px;left:-150px; }
+.pg-g2 { width:500px;height:500px;background:rgba(255,45,120,0.06);top:100px;right:-150px; }
+.pg-g3 { width:400px;height:400px;background:rgba(182,77,255,0.04);bottom:0;left:30%; }
+
+.fd-hero { position:relative;z-index:1;padding:72px 48px 64px;max-width:1380px;margin:0 auto; }
+.fd-back { display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;margin-bottom:36px; }
+.fd-back:hover { color:var(--cyan); }
+.fd-hero-grid { display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start; }
+.fd-eyebrow { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px; }
+.fd-title { font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,130px);line-height:0.9;letter-spacing:2px;background:linear-gradient(135deg,var(--cyan) 0%,rgba(0,229,255,0.65) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px; }
+.fd-subtitle { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:6px;color:var(--pink);margin-bottom:28px; }
+.fd-chips { display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px; }
+.fd-chip { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;padding:8px 16px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--muted);white-space:nowrap; }
+.fd-desc { font-size:16px;color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:32px; }
+.fd-btns { display:flex;gap:12px;flex-wrap:wrap; }
+.fd-btn-primary { font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;background:linear-gradient(90deg,var(--cyan),var(--purple));color:var(--black);font-weight:600;transition:opacity 0.2s;white-space:nowrap; }
+.fd-btn-primary:hover { opacity:0.85; }
+.fd-btn-ghost { font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid rgba(0,229,255,0.35);color:var(--cyan);background:rgba(0,229,255,0.06);transition:background 0.2s,border-color 0.2s;white-space:nowrap; }
+.fd-btn-ghost:hover { background:rgba(0,229,255,0.12);border-color:rgba(0,229,255,0.6); }
+
+.fd-ticket-box { min-width:240px;max-width:280px;border:1px solid rgba(0,229,255,0.25);background:rgba(0,229,255,0.04);padding:24px; }
+.fd-ticket-label { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-bottom:16px; }
+.fd-ticket-row { display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;font-size:12px;gap:16px; }
+.fd-ticket-row:last-of-type { border-bottom:none; }
+.fd-ticket-tier { color:var(--muted);letter-spacing:1px;white-space:nowrap; }
+.fd-ticket-price { color:var(--white);font-weight:500;text-align:right; }
+.fd-ticket-note { margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--faint);line-height:1.6; }
+
+.fd-stats-bar { position:relative;z-index:1;background:rgba(0,229,255,0.04);border-top:1px solid rgba(0,229,255,0.15);border-bottom:1px solid rgba(0,229,255,0.15); }
+.fd-stats-inner { max-width:1380px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-around; }
+.fd-stat-item { font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:var(--muted);padding:18px 0;text-align:center;transition:color 0.2s; }
+.fd-stat-item:hover { color:var(--cyan); }
+
+.fd-lineup { position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:80px 48px; }
+.fd-section-eyebrow { margin-bottom:8px; }
+.fd-section-title { font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;margin-bottom:36px; }
+
+.fd-headliners-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:64px; }
+.fd-headliner-card {
+  padding:22px 20px;border:1px solid rgba(0,229,255,0.25);background:rgba(0,229,255,0.04);
+  box-shadow:0 0 20px rgba(0,229,255,0.06);transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;
+}
+.fd-headliner-card:hover { transform:translateY(-2px);border-color:rgba(0,229,255,0.5);box-shadow:0 8px 32px rgba(0,229,255,0.12); }
+.fd-headliner-name { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;color:var(--cyan);margin-bottom:6px; }
+.fd-headliner-badge { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(0,229,255,0.4);color:var(--cyan);background:rgba(0,229,255,0.08);display:inline-block; }
+
+/* Full-lineup clean list */
+.fd-lineup-list { list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0 32px; }
+.fd-lineup-list li { font-family:'Chakra Petch',sans-serif;font-size:14px;letter-spacing:0.3px;color:var(--muted);padding:9px 2px;border-bottom:1px solid var(--border);transition:color 0.15s; }
+.fd-lineup-list li:hover { color:var(--cyan); }
+.fd-lineup-count { font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--faint);margin-top:20px; }
+
+.fd-info { position:relative;z-index:1;background:rgba(255,255,255,0.015);border-top:1px solid var(--border); }
+.fd-info-inner { max-width:1380px;margin:0 auto;padding:80px 48px; }
+.fd-info-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px; }
+.fd-info-card { padding:28px 24px;border:1px solid var(--border);background:rgba(255,255,255,0.025);transition:border-color 0.2s; }
+.fd-info-card:hover { border-color:rgba(255,255,255,0.15); }
+.fd-info-card-icon { font-size:24px;margin-bottom:12px;display:block; }
+.fd-info-card-title { font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--white);margin-bottom:12px; }
+.fd-info-card-body { font-family:'Chakra Petch',sans-serif;font-size:1rem;color:var(--muted);line-height:1.6; }
+.fd-info-card-body span { display:block; }
+.fd-info-card-body a { color:var(--cyan);transition:opacity 0.2s; }
+.fd-info-card-body a:hover { opacity:0.7; }
+
+@media (max-width:1000px) { .fd-hero-grid{grid-template-columns:1fr;} .fd-ticket-box{max-width:100%;} .fd-info-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:700px) { .fd-hero,.fd-lineup,.fd-info-inner{padding-left:20px;padding-right:20px;} .fd-stats-inner{padding:0 20px;gap:0;} .fd-stat-item{font-size:11px;letter-spacing:2px;} .fd-info-grid{grid-template-columns:1fr;} .fd-title{font-size:clamp(52px,14vw,90px);} }
+</style>
+</head>
+<body>
+
+<div class="pg-bg">
+  <div class="pg-glow pg-g1"></div>
+  <div class="pg-glow pg-g2"></div>
+  <div class="pg-glow pg-g3"></div>
+</div>
+
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<div class="fd-hero">
+  <a href="/#festivals" class="fd-back">← All Festivals</a>
+
+  <div class="fd-hero-grid">
+    <div>
+      <p class="fd-eyebrow">Excision Presents · The Gorge</p>
+      <h1 class="fd-title">BASS<br>CANYON</h1>
+      <p class="fd-subtitle">CURATED BY EXCISION</p>
+
+      <div class="fd-chips">
+        <span class="fd-chip">📅 Aug 14–16, 2026</span>
+        <span class="fd-chip">📍 Gorge Amphitheatre, George, WA</span>
+        <span class="fd-chip">🔞 18+</span>
+        <span class="fd-chip">🎵 3 Days</span>
+        <span class="fd-chip">🎧 Dubstep · Bass · Riddim</span>
+      </div>
+
+      <p class="fd-desc">Excision curates three nights of pure bass at the Gorge, one of the most beautiful venues in North America. Camping under the stars on the Columbia River.</p>
+
+      <div class="fd-btns">
+        <a href="https://www.basscanyon.com" target="_blank" rel="noopener" class="fd-btn-primary">GET TICKETS →</a>
+        <a href="https://www.basscanyon.com" target="_blank" rel="noopener" class="fd-btn-ghost">OFFICIAL SITE</a>
+        <button class="share-btn" onclick="sharePage()">Share</button>
+        <button class="pg-save-btn" data-fest-id="bass-canyon"></button>
+      </div>
+    </div>
+
+    <div class="fd-ticket-box">
+      <p class="fd-ticket-label">🎟 Festival Info</p>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">Dates</span>
+        <span class="fd-ticket-price">Aug 14–16, 2026</span>
+      </div>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">Age</span>
+        <span class="fd-ticket-price">18+</span>
+      </div>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">Length</span>
+        <span class="fd-ticket-price">3 Days</span>
+      </div>
+      <div class="fd-ticket-row">
+        <span class="fd-ticket-tier">Artists</span>
+        <span class="fd-ticket-price">88+</span>
+      </div>
+      <p class="fd-ticket-note">Tickets, tiers, and full details at the <a href="https://www.basscanyon.com" target="_blank" rel="noopener" style="color:var(--cyan);">official site</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="fd-stats-bar">
+  <div class="fd-stats-inner">
+    <span class="fd-stat-item">3 DAYS</span>
+    <span class="fd-stat-item">18+</span>
+    <span class="fd-stat-item">88+ ARTISTS</span>
+    <span class="fd-stat-item">DUBSTEP</span>
+    <span class="fd-stat-item">WEST</span>
+  </div>
+</div>
+
+<!-- LINEUP -->
+<div class="fd-lineup">
+  <p class="eyebrow fd-section-eyebrow">Top Billing</p>
+  <h2 class="fd-section-title">HEADLINERS</h2>
+
+  <div class="fd-headliners-grid">
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">Excision</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">ILLENIUM</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">SLANDER</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">SVDDEN DEATH</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">MUZZ</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">Big Gigantic</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">Ganja White Night</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+    <div class="fd-headliner-card">
+      <p class="fd-headliner-name">Sullivan King</p>
+      <span class="fd-headliner-badge">Headliner</span>
+    </div>
+  </div>
+
+  <p class="eyebrow fd-section-eyebrow">Every Artist</p>
+  <h2 class="fd-section-title">FULL LINEUP</h2>
+
+  <ul class="fd-lineup-list">
+    <li>ALLEYCVT</li>
+    <li>ATLiens (Sunset Set)</li>
+    <li>Avello</li>
+    <li>Barely Alive</li>
+    <li>Bear Grillz</li>
+    <li>Big Gigantic</li>
+    <li>Borgore</li>
+    <li>Calcium</li>
+    <li>Canabliss</li>
+    <li>Culture Shock</li>
+    <li>Dion Timmer</li>
+    <li>Dirtyphonics</li>
+    <li>Eazybaked</li>
+    <li>Emorfik</li>
+    <li>Excision</li>
+    <li>Excision (Detox Set)</li>
+    <li>Excision b2b SLANDER</li>
+    <li>Funtcase</li>
+    <li>Ganja White Night (Sunset Set)</li>
+    <li>Ghastly</li>
+    <li>Ghengar</li>
+    <li>Heyz</li>
+    <li>ILLENIUM b2b Dabin</li>
+    <li>INZO</li>
+    <li>Jkyl &amp; Hyde</li>
+    <li>Kanine</li>
+    <li>Kill Safari</li>
+    <li>Level Up</li>
+    <li>Mersiv (Sunset Set)</li>
+    <li>MUZZ</li>
+    <li>NGHTMRE</li>
+    <li>Nikita the Wicked</li>
+    <li>Pegboard Nerds</li>
+    <li>Ravenscoon b2b Jantsen</li>
+    <li>Ray Volpe</li>
+    <li>The Resistance</li>
+    <li>Sigma with Armanni Reign</li>
+    <li>Smith.</li>
+    <li>Smoakland</li>
+    <li>Stoog3s</li>
+    <li>Sullivan King</li>
+    <li>Svdden Death Presents: VOYD</li>
+    <li>Trivecta</li>
+    <li>Virtual Riot</li>
+    <li>Wankdat (Crankdat b2b Wooli)</li>
+    <li>Whipped Cream</li>
+    <li>William Black</li>
+    <li>SJ</li>
+    <li>All The Reason</li>
+    <li>Austeria</li>
+    <li>BadKlaat b2b Wiley</li>
+    <li>Brainrack</li>
+    <li>Capochino</li>
+    <li>Crumb Pit</li>
+    <li>Dennett</li>
+    <li>Dodge &amp; Fuski</li>
+    <li>Domina</li>
+    <li>Dream Takers</li>
+    <li>Flozone</li>
+    <li>Hekler</li>
+    <li>Hexxa</li>
+    <li>Hostage Situation</li>
+    <li>Ivory</li>
+    <li>Izadi</li>
+    <li>Justin Hawkes</li>
+    <li>KLO</li>
+    <li>Liquid Smoak</li>
+    <li>Luci</li>
+    <li>Machaki</li>
+    <li>Neotek</li>
+    <li>Otsukare</li>
+    <li>Paper Skies</li>
+    <li>Phrva</li>
+    <li>Pretty Sweet</li>
+    <li>Richard Finger</li>
+    <li>Rossy</li>
+    <li>Seth David</li>
+    <li>Siren</li>
+    <li>Sumthin Sumthin</li>
+    <li>Super Future</li>
+    <li>Tripp St.</li>
+    <li>TwoPercent</li>
+    <li>Tynan</li>
+    <li>Usaybflow</li>
+    <li>Vaski</li>
+    <li>Versa</li>
+    <li>Yosuf</li>
+    <li>Z3LLA</li>
+  </ul>
+  <p class="fd-lineup-count">88 artists announced · lineup subject to change</p>
+</div>
+
+<!-- PRACTICAL INFO -->
+<div class="fd-info">
+  <div class="fd-info-inner">
+    <p class="eyebrow">Know Before You Go</p>
+    <h2 class="fd-section-title">FESTIVAL INFO</h2>
+
+    <div class="fd-info-grid">
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">📍</span>
+        <p class="fd-info-card-title">VENUE</p>
+        <div class="fd-info-card-body">
+          <span>Gorge Amphitheatre, George, WA</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">📅</span>
+        <p class="fd-info-card-title">WHEN</p>
+        <div class="fd-info-card-body">
+          <span>Aug 14–16, 2026</span>
+          <span>3 days · 18+</span>
+          <span>Dubstep · Bass · Riddim</span>
+        </div>
+      </div>
+
+      <div class="fd-info-card">
+        <span class="fd-info-card-icon">🎟️</span>
+        <p class="fd-info-card-title">TICKETS</p>
+        <div class="fd-info-card-body">
+          <span>On sale &amp; full info at the official site.</span>
+          <span>&nbsp;</span>
+          <span><a href="https://www.basscanyon.com" target="_blank" rel="noopener">www.basscanyon.com</a></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Categories</a></li>
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@PlurgasmHQ ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <span class="footer-legal"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      text: document.querySelector('meta[name="description"]')
+        ?.content || 'Check out this festival on PLURGASM',
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied!');
+  }
+}
+</script>
+
+<div id="site-bottom-nav"></div>
+</body>
+</html>
