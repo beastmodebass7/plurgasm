@@ -3144,15 +3144,23 @@ footer {
 .fest-search-section .search-form { margin-top: 0; }
 
 /* flash-highlight a calendar row when a search result with no detail page
-   jumps to it in the list. */
+   jumps to it in the list (either the on-page fest search or a deep-link
+   arriving via /calendar?festival=<id>). Neon cyan/pink pulse that fades out
+   over ~2s; the other rows stay untouched and visible. */
 .cal-row-flash {
   outline: 1px solid var(--cyan);
   outline-offset: 2px;
-  animation: calRowFlash 2.4s ease;
+  animation: calRowFlash 2s ease;
 }
 @keyframes calRowFlash {
-  0%   { background: rgba(0,229,255,0.16); }
-  100% { background: transparent; }
+  0%   { background: rgba(0,229,255,0.18); box-shadow: 0 0 0 0 rgba(0,229,255,0.55), 0 0 22px 4px rgba(255,45,120,0.22); }
+  55%  { background: rgba(0,229,255,0.09); box-shadow: 0 0 0 3px rgba(0,229,255,0.32), 0 0 26px 6px rgba(255,45,120,0.16); }
+  100% { background: transparent;         box-shadow: 0 0 0 0 rgba(0,229,255,0),    0 0 0 0 rgba(255,45,120,0); }
+}
+/* Accessibility: reduced-motion users skip the pulse (they still get scrolled
+   to the card, and a static cyan outline marks it). */
+@media (prefers-reduced-motion: reduce) {
+  .cal-row-flash { animation: none; }
 }
 
 /* ══════════════════════════════════════════════════

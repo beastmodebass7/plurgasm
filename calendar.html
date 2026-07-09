@@ -1048,6 +1048,14 @@ document.addEventListener('DOMContentLoaded', () => {
   populateCalFilterSelects();   // vibe + region options from data (in sync w/ homepage)
   renderActiveView();
 
+  // Deep-link highlight: a homepage festival search result with no detail page
+  // links here as /calendar?festival=<id>. Reveal + flash that festival's card
+  // so it's easy to spot — all festivals stay visible, nothing is filtered out.
+  try {
+    const festParam = new URLSearchParams(window.location.search).get('festival');
+    if (festParam) revealFestivalInList(festParam);
+  } catch (e) { console.error('[calendar] festival highlight param', e); }
+
   // Keep Saved mode in sync with auth + the saved set. window.sb is created by
   // auth.js, which may init after us, so poll briefly for it. Every Supabase
   // touch is wrapped so a hiccup never blanks the calendar.

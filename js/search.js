@@ -28,7 +28,7 @@
       _blob: [f.name, f.tagline||'', f.location, f.dates, ...f.genres, f.desc].join(' ').toLowerCase(),
       render: () => `
         <div class="sr-item" onclick="goFestival('${f.id}')">
-          <div class="sr-icon">🎪</div>
+          <div class="sr-icon"><img src="images/nav/icon-nav-festivals.webp" alt="" loading="lazy" style="width:22px;height:22px;object-fit:contain;mix-blend-mode:screen;"></div>
           <div class="sr-text">
             <span class="sr-name">${f.name}</span>
             <span class="sr-sub">${f.location} · ${f.dates} · ${f.genres.slice(0,3).join(', ')}</span>
@@ -128,18 +128,21 @@
 
   // ── NAVIGATE ACTIONS ────────────────────────────────────────
   window.goFestival = function(id) {
-    closeSearch();
-    document.getElementById('festivals').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(() => {
-      // highlight the matching card
-      document.querySelectorAll('.fest-card').forEach(c => c.style.outline = '');
-      const card = document.querySelector(`.fest-card[data-id="${id}"]`);
-      if (card) {
-        card.style.outline = '1px solid var(--cyan)';
-        card.scrollIntoView({ behavior:'smooth', block:'center' });
-        setTimeout(() => card.style.outline = '', 2500);
+    try {
+      closeSearch();
+      const f = FESTIVALS.find(x => x.id === id);
+      if (!f) return;
+      // Detail page → open it (root-relative, e.g. '/festivals/bass-canyon.html').
+      // No detail page → send to the calendar with a highlight param so the
+      // festival's card flashes there.
+      if (f.detailPage) {
+        window.location.href = '/' + f.detailPage.replace(/^\/+/, '');
+      } else {
+        window.location.href = '/calendar?festival=' + encodeURIComponent(f.id);
       }
-    }, 400);
+    } catch (e) {
+      console.error('goFestival error:', e);
+    }
   };
 
   window.goBrand = function(id) {
