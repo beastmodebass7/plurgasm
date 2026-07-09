@@ -302,12 +302,15 @@ body::after {
   flex-direction: column;
   gap: 10px;
 }
+/* Uniform result card: fixed 4-row stack so every card aligns identically.
+   Row 1 header (dot + name + arrow) · Row 2 location · Row 3 dates · ages ·
+   Row 4 matched-artist chips. */
 .artist-result-card {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 112px;
+  padding: 16px;
   background: var(--card);
   border: 1px solid var(--border);
   text-decoration: none;
@@ -318,6 +321,12 @@ body::after {
   border-color: rgba(0,229,255,0.3);
   background: var(--card-hi);
 }
+/* Row 1 — header */
+.arc-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .arc-dot {
   width: 8px;
   height: 8px;
@@ -325,27 +334,18 @@ body::after {
   flex-shrink: 0;
 }
 .arc-fest {
+  flex: 1;
+  min-width: 0;                 /* allow ellipsis inside the flex row */
   font-family: 'Bebas Neue', sans-serif;
   font-size: 20px;
   letter-spacing: 2px;
   color: var(--white);
-  display: block;
-  margin-bottom: 3px;
-}
-.arc-dates {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 1px;
-}
-.arc-loc {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--faint);
-  text-align: right;
-  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .arc-arrow {
+  flex-shrink: 0;
   color: var(--cyan);
   opacity: 0.5;
   font-size: 16px;
@@ -355,14 +355,41 @@ body::after {
   opacity: 1;
   transform: translateX(3px);
 }
+/* Row 2 — location (left-aligned, no more right float) */
+.arc-loc {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.5px;
+}
+/* Row 3 — dates · ages */
+.arc-dates {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+/* Row 4 — matched-artist chips */
+.arc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.arc-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  color: var(--cyan);
+  background: rgba(0,229,255,0.10);
+  border: 1px solid rgba(0,229,255,0.25);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
 
 @media (max-width: 768px) {
   .artist-finder { padding: 18px 16px; }
-  .artist-result-card {
-    grid-template-columns: auto 1fr;
-    gap: 12px;
-  }
-  .arc-loc { display: none; }
 }
 
 #fest-map {
@@ -1092,75 +1119,78 @@ const TYPE_DOTS = {
 };
 
 function searchArtist(query) {
-  const q = query.trim().toLowerCase();
-  const clearBtn = document.getElementById('artist-clear');
-  const results  = document.getElementById('artist-results');
+  // Wrapped so a render failure here can't take down the rest of the page.
+  try {
+    const q = query.trim().toLowerCase();
+    const clearBtn = document.getElementById('artist-clear');
+    const results  = document.getElementById('artist-results');
+    if (!results) return;
 
-  clearBtn.style.display = q ? 'block' : 'none';
+    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
 
-  if (!q || q.length < 2) {
-    results.innerHTML = '';
-    return;
-  }
-
-  const festivals = window.PLURGASM_DATA?.festivals || [];
-  const matches = [];
-
-  festivals.forEach(f => {
-    const headliners = f.headliners || [];
-    const matchedArtists = headliners.filter(a =>
-      a.toLowerCase().includes(q)
-    );
-    if (matchedArtists.length > 0) {
-      matches.push({ fest: f, artists: matchedArtists });
+    if (!q || q.length < 2) {
+      results.innerHTML = '';
+      return;
     }
-  });
 
-  if (!matches.length) {
+    const festivals = window.PLURGASM_DATA?.festivals || [];
+    const matches = [];
+
+    festivals.forEach(f => {
+      const headliners = f.headliners || [];
+      const matchedArtists = headliners.filter(a =>
+        a.toLowerCase().includes(q)
+      );
+      if (matchedArtists.length > 0) {
+        matches.push({ fest: f, artists: matchedArtists });
+      }
+    });
+
+    if (!matches.length) {
+      results.innerHTML = `
+        <p class="artist-result-none">
+          No results for "${query}" —
+          lineups update as announcements drop
+        </p>`;
+      return;
+    }
+
+    const artistDisplay = [...new Set(
+      matches.flatMap(m => m.artists)
+    )].join(', ');
+
     results.innerHTML = `
-      <p class="artist-result-none">
-        No results for "${query}" —
-        lineups update as announcements drop
-      </p>`;
-    return;
+      <p class="artist-result-label">
+        Found ${matches.length} festival${matches.length > 1 ? 's' : ''}
+        featuring ${artistDisplay}
+      </p>
+      <div class="artist-result-cards">
+        ${matches.map(m => {
+          const f = m.fest;
+          const dot = TYPE_DOTS[f.type] || '#888';
+          const href = f.detailPage || f.url || '#';
+          const chips = m.artists.map(a =>
+            `<span class="arc-chip">${a}</span>`
+          ).join('');
+          return `
+            <a class="artist-result-card"
+              href="${href}"
+              target="${f.detailPage ? '_self' : '_blank'}"
+              rel="noopener">
+              <div class="arc-head">
+                <span class="arc-dot" style="background:${dot};"></span>
+                <span class="arc-fest">${f.name}</span>
+                <span class="arc-arrow">→</span>
+              </div>
+              <span class="arc-loc">${f.location}</span>
+              <span class="arc-dates">${f.dates} · ${f.age}</span>
+              <div class="arc-chips">${chips}</div>
+            </a>`;
+        }).join('')}
+      </div>`;
+  } catch (err) {
+    console.error('searchArtist failed:', err);
   }
-
-  const artistDisplay = [...new Set(
-    matches.flatMap(m => m.artists)
-  )].join(', ');
-
-  results.innerHTML = `
-    <p class="artist-result-label">
-      Found ${matches.length} festival${matches.length > 1 ? 's' : ''}
-      featuring ${artistDisplay}
-    </p>
-    <div class="artist-result-cards">
-      ${matches.map(m => {
-        const f = m.fest;
-        const dot = TYPE_DOTS[f.type] || '#888';
-        const href = f.detailPage || f.url || '#';
-        return `
-          <a class="artist-result-card"
-            href="${href}"
-            target="${f.detailPage ? '_self' : '_blank'}"
-            rel="noopener">
-            <div class="arc-dot"
-              style="background:${dot};">
-            </div>
-            <div class="arc-info">
-              <span class="arc-fest">${f.name}</span>
-              <span class="arc-dates">
-                ${f.dates} · ${f.age} ·
-                <span style="color:var(--cyan);">
-                  ${m.artists.join(', ')}
-                </span>
-              </span>
-            </div>
-            <span class="arc-loc">${f.location}</span>
-            <span class="arc-arrow">→</span>
-          </a>`;
-      }).join('')}
-    </div>`;
 }
 
 function clearArtistSearch() {
