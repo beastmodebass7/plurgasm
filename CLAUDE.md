@@ -73,6 +73,7 @@ Renders are wired by ID — a typo'd/missing container makes that render silentl
 | `btn-grid`, `btn-cal` | view toggle |
 
 Other pages: `calendar.html` → `cal-output`, `fest-map`, `cal-vibe-select`, `cal-region-select`,
+`cal-month-select`, `cal-organizer-select`,
 `cal-near-me-btn/-controls/-status`, `artist-input/-results/-clear`, `fest-search-input/-results/-wrap/-cycle-text`.
 `category.html` → `cat-page`, `cat-search`, `cat-result-count`, `cat-brand-grid` (+ shared brand-modal IDs).
 `blog-post.html` → `post-main`, `post-body`, `more-section`, `more-posts-grid`.
@@ -84,7 +85,9 @@ Everything attaches to **`window.PLURGASM_DATA`**. Arrays are built as `const FE
 then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
 
 - **Festivals** (`PLURGASM_DATA.festivals`): `id, name, tagline, location, dates, sortDate, endDate,
-  days, age, type, typeLabel, genres[], desc, headliners[], url, featured, detailPage, region`.
+  days, age, type, typeLabel, genres[], desc, headliners[], url, featured, detailPage, region,
+  organizer` (promoter string, e.g. `'Insomniac'` — or `null` when unknown; null never matches a
+  specific organizer selection in the calendar filter, only "All organizers").
   Optional: `lat, lng` (needed for map + Near Me), `cardTheme{bg,border,glow,accent,label}`, `image`, `warning`.
   `sortDate`/`endDate` are **`YYYY-MM-DD` strings**.
 - **Brands** (`PLURGASM_DATA.brands`): `id, name, badge, cat, badgeCls, priceCls, price, ship, loc,
@@ -105,6 +108,8 @@ then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
 - Helpers: `getFestivalGenres()` / `getFestivalRegions()` derive the homepage **and** calendar filter
   pills from the data (driven by `FEST_GENRE_ORDER`, `FEST_GENRE_LABELS`, `FEST_REGION_META`) so the
   two pages stay in sync. A new genre/region in the data shows up automatically.
+  `getFestivalOrganizers()` does the same for the calendar's Organizer dropdown (unique non-null
+  `organizer` values, alphabetical).
 
 ### Blog post id / URL convention
 `blog-post.html` routes on `?id=…`, so a blog post's `id` **is** its public URL.

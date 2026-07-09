@@ -563,6 +563,13 @@ body::after {
           </select>
         </label>
 
+        <label class="cal-select-field">
+          <span class="cal-select-label">Organizer</span>
+          <select id="cal-organizer-select" class="cal-select" onchange="setOrganizerFilter(this.value)">
+            <option value="">All organizers</option>
+          </select>
+        </label>
+
         <!-- Near Me — button lives in the row; controls expand below it -->
         <div class="cal-nearme-field" id="cal-nearme-row">
           <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
@@ -650,6 +657,7 @@ let _timeFilter = 'upcoming';
 let _genreFilter = '';
 let _regionFilter = '';   // '' = all regions
 let _monthFilter = '';    // '' = all months, else 1-12
+let _organizerFilter = ''; // '' = all organizers
 let _calView = 'timeline';
 let _savedMode = 'all';   // 'all' | 'saved'
 let _session = null;      // current Supabase session, kept fresh via auth watcher
@@ -685,6 +693,8 @@ function getFilteredFestivals() {
     const genreOk  = _genreFilter  === ''    || (f.genres && f.genres.includes(_genreFilter));
     const regionOk = _regionFilter === ''    || f.region === _regionFilter;
     const monthOk  = _monthFilter  === ''    || (f.sortDate && parseInt(f.sortDate.split('-')[1], 10) === _monthFilter);
+    // organizer:null (or missing, e.g. admin-added fests) only matches "All organizers".
+    const organizerOk = _organizerFilter === '' || f.organizer === _organizerFilter;
     const savedOk  = _savedMode !== 'saved'  || (window.PlurSaves && window.PlurSaves.isSaved(f.id));
 
     // Near Me: when active, narrow to festivals within range. Festivals without
@@ -695,7 +705,7 @@ function getFilteredFestivals() {
       nearOk = haversineMiles(_userLat, _userLng, f.lat, f.lng) <= _maxMiles;
     }
 
-    return timeOk && genreOk && regionOk && monthOk && nearOk && savedOk;
+    return timeOk && genreOk && regionOk && monthOk && organizerOk && nearOk && savedOk;
   }).sort((a, b) => {
     const aPast = isPast(a), bPast = isPast(b);
     if (aPast !== bPast) return aPast ? 1 : -1;
@@ -975,6 +985,11 @@ function setMonthFilter(val) {
   renderActiveView();
 }
 
+function setOrganizerFilter(val) {
+  _organizerFilter = val;
+  renderActiveView();
+}
+
 function toggleCalNearMe() {
   const btn      = document.getElementById('cal-near-me-btn');
   const controls = document.getElementById('cal-near-me-controls');
@@ -1056,6 +1071,17 @@ function populateCalFilterSelects() {
         `<option value="">All regions</option>` +
         D.getFestivalRegions().map(r =>
           `<option value="${r.id}">${r.label}</option>`
+        ).join('');
+    }
+
+    // Organizer options come straight from the data (unique, non-null,
+    // alphabetical) so the dropdown stays in sync as festivals change.
+    const organizerSel = document.getElementById('cal-organizer-select');
+    if (organizerSel && typeof D.getFestivalOrganizers === 'function') {
+      organizerSel.innerHTML =
+        `<option value="">All organizers</option>` +
+        D.getFestivalOrganizers().map(o =>
+          `<option value="${o}">${o}</option>`
         ).join('');
     }
   } catch (e) {
@@ -1362,6 +1388,7 @@ function revealFestivalInList(id) {
     _genreFilter = '';
     _regionFilter = '';
     _monthFilter = '';
+    _organizerFilter = '';
     _nearActive = false;
 
     // sync the controls so the UI reflects the reset
@@ -1376,6 +1403,7 @@ function revealFestivalInList(id) {
     const vibeSel   = document.getElementById('cal-vibe-select');   if (vibeSel)   vibeSel.value = '';
     const regionSel = document.getElementById('cal-region-select'); if (regionSel) regionSel.value = '';
     const monthSel  = document.getElementById('cal-month-select');  if (monthSel)  monthSel.value = '';
+    const organizerSel = document.getElementById('cal-organizer-select'); if (organizerSel) organizerSel.value = '';
 
     const nearBtn = document.getElementById('cal-near-me-btn');
     if (nearBtn) nearBtn.classList.remove('active');

@@ -1870,7 +1870,7 @@ footer {
    month pill styles were removed when those scrolling pill rows were replaced. */
 
 /* ══════════════════════════════════════════════════
-   CALENDAR FILTER DROPDOWNS (Vibe / Region / Month) + Near Me
+   CALENDAR FILTER DROPDOWNS (Vibe / Region / Month / Organizer) + Near Me
    One row on desktop; stack full-width on mobile.
 ══════════════════════════════════════════════════ */
 .cal-filter-row {
