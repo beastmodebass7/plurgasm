@@ -157,6 +157,42 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'post-013',
+    title: 'EDC Orlando 2026 Lineup by Day: Who Plays Friday, Saturday & Sunday',
+    slug: 'edc-orlando-2026-lineup-by-day',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-07-08',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
+    excerpt: 'The EDC Orlando 2026 daily lineup is here. See exactly who plays Friday, Saturday, and Sunday at Tinker Field, November 6 to 8.',
+    published: true,
+    featured: true,
+    body: `<p>The full lineup poster already dropped, but now Insomniac has broken <strong>EDC Orlando 2026</strong> down by day, so you can start building your set schedule. The festival returns to Tinker Field <strong>November 6, 7, and 8</strong>. Here's who plays each night.</p>
+
+<p>(Want the full poster and headliner rundown? Check our <a href="/blog-post?id=edc-orlando-2026-lineup">EDC Orlando 2026 lineup post</a>.)</p>
+
+<h2>Friday, November 6</h2>
+
+<p>AAT, Adventure Club (Sunset Set), Afrojack, Alesso (Sunset Set), Azzecca, Benda b2b Vastive, Big Florida, Bou b2b Kanine, Brunello (Sunset Set), Bullet Tooth b2b Sidney Charles, Chris Lorenzo, David Guetta, HAYLA, IDEMI, Inbal, Interplanetary Criminal, JOA, Josh Baker, Joshwa, Kompany, KREAM, Level Up, Levity, MALUGI (Sunset Set), Matthias, Mau P, MPH, Omar+, Pegassi, Prospa b2b Josh Baker, Prospa, RAJE, Sloth, Whethan, Wooli, Zack Martino.</p>
+
+<h2>Saturday, November 7</h2>
+
+<p>Aaron Hibell, ACRAZE b2b CID, Alan Walker (Sunset Set), Alison Wonderland, ALLEYCVT, Alves, AVELLO, AYYBO, ChaseWest, Dennis Cruz, Devault (Sunset Set), Discip, Disco Lines, Fallon, Franky Rizardo, Fury with MC Dino, Gabss, Greg 99, Jkyl & Hyde, Kaskade, KinAhau, LAYZ, MADVKTM, Mai Iachetti, Max Dean b2b Luke Dean, Me n ü, Miguelle & Tons, Monoky, Nico Moreno, Ray Volpe, Roddy Lima, Rossi. (Sunset Set), Skull Machine (Black Tiger Sex Machine x Kai Wachi), Steve Aoki, Subsonic, Twinsick.</p>
+
+<h2>Sunday, November 8</h2>
+
+<p>A Little Sound, Adrián Mills, Alok, AR/CO, ATLiens, Boogie T, Boys Noize b2b Brutalismus 3000, Chef Boyarbeatz, CØNTRA, Deorro b2b DJ Diesel, Discovery Project, ESSE, Hardwell, Holy Priest, I Hate Models, Ian Asher, Jessica Audiffred, Kaivon, KI/KI, Klangkuenstler, Know Good, M81!, Maddix, Marlon Hoffstadt (Sunset Set), Martin Garrix, Meduza, Of The Trees (Sunset Set), phrva, Ravenscoon, San Holo (Wholesome Riddim Set), SHDW, Sippy, SLANDER (Sunset Set), Taiki Nulight, TroyBoi, Ultrathem.</p>
+
+<h2>A couple of notes</h2>
+
+<p>The "Sunset Set" tag means that artist plays a special set timed to golden hour, usually a looser, more melodic vibe than their peak-time slot. And "b2b" (back to back) means two artists share the decks and trade tracks live, so those slots are often the most unpredictable and fun of the weekend.</p>
+
+<p>Single-day pass holders can eye which day stacks up best for their taste, while weekend headliners get all three. And as Insomniac always reminds you, the most important headliner of all is you. See you at Tinker Field.</p>
+
+<p>Track dates and more on the <a href="/calendar">PLURGASM festival calendar</a>. Peace, love, unity, respect. ⚡</p>`,
+  },
+  {
     id: 'rave-slang-dictionary',
     title: 'The Rave Dictionary: Every Slang Term and Phrase You Need to Know',
     slug: 'rave-slang-dictionary',
