@@ -106,6 +106,26 @@ then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
   pills from the data (driven by `FEST_GENRE_ORDER`, `FEST_GENRE_LABELS`, `FEST_REGION_META`) so the
   two pages stay in sync. A new genre/region in the data shows up automatically.
 
+### Blog post id / URL convention
+`blog-post.html` routes on `?id=…`, so a blog post's `id` **is** its public URL.
+
+- **New posts: descriptive, keyword-rich slug ids.** For every NEW blog post, set `id` to a
+  descriptive slug (e.g. `'cercle-cancels-mexico-festival'`), **not** a sequential number like
+  `'post-012'`. Since the id is the public URL, a descriptive id gives better SEO and click-through
+  than a numbered one.
+- **`id === slug`.** Make the `id` match the post's `slug` field so there's no ambiguity.
+- **Keep ids URL-safe:** lowercase, words separated by hyphens, no spaces, no special characters,
+  no `.html`.
+
+#### NEVER RENAME EXISTING IDS (critical)
+- **Do NOT change the id of any already-published post.** Older posts use numbered ids
+  (`post-001` … `post-011`); those URLs are already in `sitemap.xml` and likely indexed by Google.
+- GitHub Pages is static with **no server-side redirects**, so a renamed id breaks the old URL with
+  no way to 301 it — losing ranking equity and breaking any external links. The minor inconsistency
+  between old numbered ids and new descriptive ids is **acceptable and must be left as-is**.
+- If a task ever asks to "clean up" or "standardize" old post ids, **flag this rule and stop** rather
+  than renaming.
+
 ## main.js — function inventory (renderers + handlers)
 Renderers: `renderFestivals`, `renderCalendar`, `renderFestFilterPills`, `renderCategories`,
 `renderItemFilters`, `renderBrands`, `renderSocials`, `renderCreatorDirectory`, `renderBlog`,
