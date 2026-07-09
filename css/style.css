@@ -3703,6 +3703,102 @@ footer {
 }
 
 /* ══════════════════════════════════════════════════
+   SPOTLIGHT TRAVELING-LIGHT BORDER — BOTW + INFLUENCER
+   ::before = oversized square conic "beam", spun with transform only
+   (compositor-friendly — no per-frame paint). ::after = solid card
+   panel inset 2px, so the beam reads as a thin traveling ring.
+   overflow:hidden clips the beam; the glow box-shadow is static.
+══════════════════════════════════════════════════ */
+.botw,
+.fi-card {
+  position: relative;
+  overflow: hidden;
+}
+.botw {
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--cyan) 16%, transparent),
+    0 0 60px color-mix(in srgb, var(--cyan) 9%, transparent);
+}
+.fi-card {
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--pink) 16%, transparent),
+    0 0 60px color-mix(in srgb, var(--pink) 9%, transparent);
+}
+.botw::before,
+.fi-card::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* square sized off the width so rotation covers the card's corners
+     even in the tall stacked mobile layout */
+  width: 300%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.botw::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 280deg,
+    color-mix(in srgb, var(--cyan) 45%, transparent) 318deg,
+    var(--cyan) 340deg,
+    color-mix(in srgb, var(--white) 90%, var(--cyan)) 350deg,
+    var(--cyan) 356deg,
+    transparent 360deg
+  );
+  animation: spotlightBeamSpin 6s linear infinite;
+}
+.fi-card::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 280deg,
+    color-mix(in srgb, var(--purple) 45%, transparent) 318deg,
+    var(--purple) 336deg,
+    var(--pink) 346deg,
+    color-mix(in srgb, var(--white) 80%, var(--pink)) 352deg,
+    var(--pink) 357deg,
+    transparent 360deg
+  );
+  animation: spotlightBeamSpin 5s linear infinite;
+}
+@keyframes spotlightBeamSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.botw::after,
+.fi-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--card);
+  z-index: 0;
+}
+/* lift card content above the beam/panel pseudo-elements */
+.botw > *,
+.fi-card > * {
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* no travel — a static accent ring in each card's colors instead */
+  .botw::before,
+  .fi-card::before {
+    animation: none;
+  }
+  .botw::before {
+    background: color-mix(in srgb, var(--cyan) 55%, transparent);
+  }
+  .fi-card::before {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--pink) 60%, transparent),
+      color-mix(in srgb, var(--purple) 60%, transparent)
+    );
+  }
+}
+
+/* ══════════════════════════════════════════════════
    LEAFLET POPUP / TOOLTIP — DARK THEME
 ══════════════════════════════════════════════════ */
 /* selectors carry a .leaflet-popup ancestor so they out-specify leaflet.css,
