@@ -1394,7 +1394,8 @@ function renderFeaturedInfluencer() {
         ${inf.image ? `
           <div class="fi-media">
             <div class="fi-photo-wrap">
-              <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent">
+              <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent"
+                   onerror="this.closest('.fi-media').style.display='none'">
             </div>
           </div>` : ''}
         <div class="fi-content">

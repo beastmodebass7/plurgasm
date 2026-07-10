@@ -2368,14 +2368,13 @@ const SOCIALS = [
 window.PLURGASM_DATA.socials = SOCIALS;
 
 window.PLURGASM_DATA.featuredInfluencer = {
-  name: 'Jarren Ellis',
-  handle: '@jarren_ellis',
-  image: 'images/jarren-ellis.webp',
-  blurb: 'One of the most genuine rave content creators in the community right now. Jarren covers festival culture, flow arts, harm reduction, and everything in between — from the inside, not from the sidelines. Give him a follow.',
+  name: "I'M PEAKING",
+  handle: '@impeakingpod',
+  image: 'images/impeakingpod.jpg',
+  blurb: "The rave scene's favorite podcast — EDM, festivals, and culture by ravers, for ravers, with new episodes every other Wednesday. Known for candid artist interviews and championing harm reduction alongside End Overdose. A voice that actually lives the culture.",
   active: true,
   links: [
-    { platform: 'Instagram', url: '' },
-    { platform: 'Website',   url: '' }
+    { platform: 'Instagram', url: 'https://www.instagram.com/impeakingpod/' }
   ]
 };
 
