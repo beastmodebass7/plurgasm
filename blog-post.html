@@ -41,7 +41,7 @@
 <div id="site-nav"></div>
 
 <!-- POST CONTENT -->
-<div style="max-width:860px;margin:0 auto;padding:60px 48px 0;" id="post-main"></div>
+<div id="post-main"></div>
 
 <!-- MORE POSTS -->
 <div class="section" style="max-width:860px;padding-top:48px;" id="more-section">
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <button class="share-btn" onclick="sharePost()" style="margin-left:auto;">Share Article</button>
     </div>
 
-    <div id="post-body" style="font-size:18px;color:#ececf2;line-height:1.75;">${post.body}</div>
+    <div id="post-body" class="post-body">${post.body}</div>
   `;
 
   document.querySelectorAll('#post-body img').forEach(img => {

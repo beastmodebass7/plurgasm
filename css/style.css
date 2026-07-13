@@ -2646,34 +2646,190 @@ footer {
   font-size: 11px; letter-spacing: 1px; color: var(--muted);
 }
 
-/* in-content links inside a blog post body — make them pop in the
-   cyan accent with an underline so they read clearly as links.
-   Scoped to #post-body only; nav/footer/button links unaffected. */
-#post-body a {
-  color: var(--cyan);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-  transition: color 0.2s;
+/* the single-post page column (was inline style on blog-post.html;
+   moved here so the side padding can relax on a phone) */
+#post-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 48px 0;
 }
-#post-body a:hover {
-  color: var(--pink);
+@media (max-width: 768px) {
+  #post-main { padding: 44px 20px 0; }
 }
 
-/* bulleted / numbered lists inside a blog post body — indent them in from
-   the left margin so list content has breathing room and reads as a clear
-   sub-level under the paragraphs. padding-left supplies the bullet indent and
-   makes wrapped lines hang neatly under the text (not under the bullet); the
-   small margin-left nudges the whole list in a touch more. Scoped to
-   #post-body only, so nav/footer/card/filter lists are untouched. */
-#post-body ul,
-#post-body ol {
-  padding-left: 2em;
-  margin-left: 0.5em;
+/* ══════════════════════════════════════════════════
+   BLOG POST READING SYSTEM (.post-body)
+   Editorial treatment for everything rendered from post.body —
+   scoped under .post-body so no other page is touched. Hierarchy
+   comes from type, rules and whitespace; no cards, no glass, no
+   gradients. The global reset zeroes all margins, so every vertical
+   rhythm value the article needs is (re)declared here.
+══════════════════════════════════════════════════ */
+.post-body {
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(240,238,255,0.92);
 }
-#post-body li {
-  margin-bottom: 0.5em;
+
+/* Reading measure: text blocks cap at ~72 characters per line and sit on
+   the LEFT edge of the 860px column — the uneven right margin is
+   deliberate (zine, not dashboard). Chakra Petch's ch unit is wide
+   (11.3px at 18px), so 52ch ≈ 590px ≈ 72 real characters. Images and
+   .lineup blocks break out to the full column width for contrast. */
+.post-body > * { max-width: 52ch; }
+.post-body > img,
+.post-body > .blog-body-img,
+.post-body > .lineup { max-width: 100%; }
+
+.post-body p { margin: 0 0 1.4em; }
+.post-body > p:last-child { margin-bottom: 0; }
+
+/* Lede: the opening paragraph reads as a standfirst — a touch larger
+   and brighter than running text. */
+.post-body > p:first-child {
+  font-size: 21px;
   line-height: 1.6;
+  color: var(--white);
+  margin-bottom: 1.6em;
+}
+
+/* HEADINGS — one motif, applied consistently: a short 2px cyan bar
+   above the heading, with a big block of air before it so sections
+   separate through space, not boxes. */
+.post-body h2,
+.post-body h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.post-body h2 {
+  font-size: clamp(27px, 3.4vw, 34px);
+  letter-spacing: 2.5px;
+  margin: 64px 0 18px;
+}
+.post-body h3 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin: 44px 0 12px;
+}
+.post-body h2::before,
+.post-body h3::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--cyan);
+  margin-bottom: 14px;
+}
+.post-body h2::before { width: 36px; }
+.post-body h3::before { width: 20px; margin-bottom: 10px; }
+.post-body > h2:first-child,
+.post-body > h3:first-child { margin-top: 0; }
+.post-body h2 + h3 { margin-top: 24px; }
+
+/* LISTS — liner-notes index: no default bullets; each item is a "row"
+   separated by hairline rules, marker in the left gutter, wrapped lines
+   hang under the text. <strong> terms read as the aligned left column
+   in reference posts (name → value). */
+.post-body ul,
+.post-body ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2em;
+  border-top: 1px solid var(--border);
+}
+.post-body li {
+  position: relative;
+  padding: 0.6em 0 0.6em 1.5em;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.post-body ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6em;
+  color: var(--cyan);
+}
+/* ordered lists count in mono leading-zero — tracklist style */
+.post-body ol { counter-reset: post-ol; }
+.post-body ol li { padding-left: 2.3em; }
+.post-body ol li::before {
+  counter-increment: post-ol;
+  content: counter(post-ol, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+}
+.post-body li strong { color: var(--white); }
+
+/* LINEUP — long comma-separated artist runs flow into narrow columns
+   separated by hairline rules, framed top and bottom like a printed
+   flyer block. `columns: 3 200px` self-collapses: 3 cols on desktop,
+   1 on a phone, no media query needed. Wrap a run in
+   <p class="lineup">…</p> to opt in. */
+.post-body .lineup {
+  columns: 3 200px;
+  column-gap: 36px;
+  column-rule: 1px solid var(--border);
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--muted);
+  padding: 20px 0;
+  margin: 0 0 2em;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* inline accents */
+.post-body strong { color: var(--white); font-weight: 600; }
+.post-body em { color: var(--white); }
+.post-body a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(0,229,255,0.4);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.post-body a:hover {
+  color: var(--pink);
+  text-decoration-color: rgba(255,45,120,0.5);
+}
+
+/* pull quotes: a single pink rule and larger type — no box */
+.post-body blockquote {
+  margin: 2.2em 0;
+  padding-left: 22px;
+  border-left: 2px solid var(--pink);
+  font-size: 21px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--white);
+}
+
+.post-body hr {
+  border: none;
+  height: 1px;
+  margin: 3em 0;
+  background: linear-gradient(90deg, var(--border-hi), transparent);
+}
+
+/* sources / footnotes stay compact — no row rules between entries
+   (their top divider comes from the existing #post-body .sources rule) */
+.post-body .sources li {
+  border-bottom: none;
+  padding: 0.15em 0 0.15em 2.3em;
 }
 
 /* centered, width-capped brand logo embedded near the top of a blog
@@ -2727,13 +2883,14 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* dial the blog-post list indent back on narrow screens so it doesn't
-     eat horizontal space or crowd the text against the right edge */
-  #post-body ul,
-  #post-body ol {
-    padding-left: 1.25em;
-    margin-left: 0.25em;
-  }
+  /* blog post reading system on a phone: slightly smaller body size
+     (measure is handled by the viewport itself), tighter section air,
+     and the lede steps down with it */
+  .post-body { font-size: 17px; }
+  .post-body > p:first-child { font-size: 19px; }
+  .post-body h2 { margin-top: 48px; }
+  .post-body h3 { margin-top: 36px; }
+  .post-body .lineup { column-gap: 28px; }
 
   /* festival type filter row — scroll horizontally
      instead of wrapping to multiple lines */
