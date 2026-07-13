@@ -2368,14 +2368,14 @@ const SOCIALS = [
 window.PLURGASM_DATA.socials = SOCIALS;
 
 window.PLURGASM_DATA.featuredInfluencer = {
-  name: "I'M PEAKING",
   handle: '@impeakingpod',
-  image: 'images/impeakingpod.jpg',
+  name: "I'M PEAKING",
+  image: 'images/impeakingpod.webp',
+  platform: 'Instagram',
+  profileUrl: 'https://www.instagram.com/impeakingpod/',
   blurb: "The rave scene's favorite podcast — EDM, festivals, and culture by ravers, for ravers, with new episodes every other Wednesday. Known for candid artist interviews and championing harm reduction alongside End Overdose. A voice that actually lives the culture.",
-  active: true,
-  links: [
-    { platform: 'Instagram', url: 'https://www.instagram.com/impeakingpod/' }
-  ]
+  posts: [],
+  active: true
 };
 
 PLURGASM_DATA.brandOfWeek = {

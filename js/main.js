@@ -1379,7 +1379,10 @@ function renderFeaturedInfluencer() {
 
     container.style.display = '';
 
-    const linksHtml = (inf.links || []).filter(l => l.url).map((l, i) =>
+    const links = (inf.links && inf.links.length)
+      ? inf.links
+      : (inf.profileUrl ? [{ platform: inf.platform || 'Profile', url: inf.profileUrl }] : []);
+    const linksHtml = links.filter(l => l.url).map((l, i) =>
       `<a href="${l.url}" target="_blank" rel="noopener"
           class="fi-link-btn ${i === 0 ? 'fi-link-primary' : 'fi-link-secondary'}">
         ${l.platform} ↗
@@ -1394,7 +1397,8 @@ function renderFeaturedInfluencer() {
         ${inf.image ? `
           <div class="fi-media">
             <div class="fi-photo-wrap">
-              <img src="${inf.image}" alt="${inf.name}" class="fi-photo fi-photo-transparent"
+              <img src="${inf.image}" alt="${inf.name}"
+                   class="fi-photo${/\.png$/i.test(inf.image) ? ' fi-photo-transparent' : ''}"
                    onerror="this.closest('.fi-media').style.display='none'">
             </div>
           </div>` : ''}
