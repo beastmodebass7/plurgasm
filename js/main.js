@@ -1379,18 +1379,21 @@ function renderFeaturedInfluencer() {
 
     container.style.display = '';
 
+    // the card also renders on /social itself — no point making it link there
+    const onCreatorsPage = /\/social(\.html)?\/?$/.test(location.pathname);
+
     const links = (inf.links && inf.links.length)
       ? inf.links
       : (inf.profileUrl ? [{ platform: inf.platform || 'Profile', url: inf.profileUrl }] : []);
     const linksHtml = links.filter(l => l.url).map((l, i) =>
-      `<a href="${l.url}" target="_blank" rel="noopener"
+      `<a href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
           class="fi-link-btn ${i === 0 ? 'fi-link-primary' : 'fi-link-secondary'}">
         ${l.platform} ↗
       </a>`
     ).join('');
 
     container.innerHTML = `
-      <div class="fi-card">
+      <div class="fi-card${onCreatorsPage ? '' : ' fi-card-link'}">
         <div class="fi-eyebrow-row">
           <a href="/social" class="fi-eyebrow">Influencer of the Week</a>
         </div>
@@ -1406,14 +1409,26 @@ function renderFeaturedInfluencer() {
           <div class="fi-name-row">
             <div>
               <p class="fi-name">${inf.name}</p>
-              <span class="fi-handle">${inf.handle}</span>
+              ${inf.profileUrl
+                ? `<a href="${inf.profileUrl}" target="_blank" rel="noopener" class="fi-handle"
+                      onclick="event.stopPropagation()">${inf.handle}</a>`
+                : `<span class="fi-handle">${inf.handle}</span>`}
             </div>
           </div>
           <p class="fi-blurb">${inf.blurb}</p>
           ${linksHtml ? `<div class="fi-links">${linksHtml}</div>` : ''}
         </div>
+        ${onCreatorsPage ? '' : `<a href="/social" class="fi-see-all">See all creators →</a>`}
       </div>
     `;
+
+    if (!onCreatorsPage) {
+      const card = container.querySelector('.fi-card');
+      if (card) card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return; // inner links (profile, see-all) win
+        window.location.href = '/social';
+      });
+    }
   } catch (e) {
     console.error('renderFeaturedInfluencer:', e);
   }

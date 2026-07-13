@@ -3689,6 +3689,31 @@ footer {
   background: rgba(182,77,255,0.08);
   border-color: rgba(182,77,255,0.6);
 }
+/* whole card navigates to /social (added by main.js everywhere except the
+   creators page itself) — same affordance as the other clickable cards */
+.fi-card-link {
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.fi-card-link:hover {
+  border-color: rgba(182,77,255,0.45);
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--pink) 28%, transparent),
+    0 0 60px color-mix(in srgb, var(--pink) 16%, transparent);
+}
+/* mirrors .blog-sidebar-more ("VIEW ALL POSTS →"), tinted purple to match the card */
+.fi-see-all {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--purple);
+  padding: 14px 0 0;
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  display: block;
+  margin-top: auto;
+  transition: color 0.2s;
+}
+.fi-see-all:hover { color: var(--pink); }
 
 @media (max-width: 900px) {
   .featured-row {
