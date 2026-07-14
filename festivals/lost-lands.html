@@ -35,78 +35,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="/js/auth.js" defer></script>
 <script src="/js/saves.js" defer></script>
-<style>
-.pg-bg { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
-.pg-glow { position:absolute;border-radius:50%;filter:blur(140px); }
-.pg-g1 { width:600px;height:600px;background:rgba(0,229,255,0.07);top:-200px;left:-150px; }
-.pg-g2 { width:500px;height:500px;background:rgba(255,45,120,0.06);top:100px;right:-150px; }
-.pg-g3 { width:400px;height:400px;background:rgba(182,77,255,0.04);bottom:0;left:30%; }
-
-.fd-hero { position:relative;z-index:1;padding:72px 48px 64px;max-width:1380px;margin:0 auto; }
-.fd-back { display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;margin-bottom:36px; }
-.fd-back:hover { color:var(--cyan); }
-.fd-hero-grid { display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start; }
-.fd-eyebrow { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px; }
-.fd-title { font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,130px);line-height:0.9;letter-spacing:2px;background:linear-gradient(135deg,var(--cyan) 0%,rgba(0,229,255,0.65) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px; }
-.fd-subtitle { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:6px;color:var(--pink);margin-bottom:28px; }
-.fd-chips { display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px; }
-.fd-chip { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;padding:8px 16px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--muted);white-space:nowrap; }
-.fd-desc { font-size:16px;color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:32px; }
-.fd-btns { display:flex;gap:12px;flex-wrap:wrap; }
-.fd-btn-primary { font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;background:linear-gradient(90deg,var(--cyan),var(--purple));color:var(--black);font-weight:600;transition:opacity 0.2s;white-space:nowrap; }
-.fd-btn-primary:hover { opacity:0.85; }
-.fd-btn-ghost { font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid rgba(0,229,255,0.35);color:var(--cyan);background:rgba(0,229,255,0.06);transition:background 0.2s,border-color 0.2s;white-space:nowrap; }
-.fd-btn-ghost:hover { background:rgba(0,229,255,0.12);border-color:rgba(0,229,255,0.6); }
-
-.fd-ticket-box { min-width:240px;max-width:280px;border:1px solid rgba(0,229,255,0.25);background:rgba(0,229,255,0.04);padding:24px; }
-.fd-ticket-label { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-bottom:16px; }
-.fd-ticket-row { display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;font-size:12px;gap:16px; }
-.fd-ticket-row:last-of-type { border-bottom:none; }
-.fd-ticket-tier { color:var(--muted);letter-spacing:1px;white-space:nowrap; }
-.fd-ticket-price { color:var(--white);font-weight:500;text-align:right; }
-.fd-ticket-note { margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--faint);line-height:1.6; }
-
-.fd-stats-bar { position:relative;z-index:1;background:rgba(0,229,255,0.04);border-top:1px solid rgba(0,229,255,0.15);border-bottom:1px solid rgba(0,229,255,0.15); }
-.fd-stats-inner { max-width:1380px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-around; }
-.fd-stat-item { font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:var(--muted);padding:18px 0;text-align:center;transition:color 0.2s; }
-.fd-stat-item:hover { color:var(--cyan); }
-
-.fd-lineup { position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:80px 48px; }
-.fd-section-eyebrow { margin-bottom:8px; }
-.fd-section-title { font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;margin-bottom:36px; }
-
-.fd-headliners-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:64px; }
-.fd-headliner-card {
-  padding:22px 20px;border:1px solid rgba(0,229,255,0.25);background:rgba(0,229,255,0.04);
-  box-shadow:0 0 20px rgba(0,229,255,0.06);transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;
-}
-.fd-headliner-card:hover { transform:translateY(-2px);border-color:rgba(0,229,255,0.5);box-shadow:0 8px 32px rgba(0,229,255,0.12); }
-.fd-headliner-name { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;color:var(--cyan);margin-bottom:6px; }
-.fd-headliner-badge { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(0,229,255,0.4);color:var(--cyan);background:rgba(0,229,255,0.08);display:inline-block; }
-
-/* Full-lineup clean list */
-.fd-lineup-list { list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0 32px; }
-.fd-lineup-list li { font-family:'Chakra Petch',sans-serif;font-size:14px;letter-spacing:0.3px;color:var(--muted);padding:9px 2px;border-bottom:1px solid var(--border);transition:color 0.15s; }
-.fd-lineup-list li:hover { color:var(--cyan); }
-.fd-lineup-count { font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--faint);margin-top:20px; }
-
-.fd-info { position:relative;z-index:1;background:rgba(255,255,255,0.015);border-top:1px solid var(--border); }
-.fd-info-inner { max-width:1380px;margin:0 auto;padding:80px 48px; }
-.fd-info-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px; }
-.fd-info-card { padding:28px 24px;border:1px solid var(--border);background:rgba(255,255,255,0.025);transition:border-color 0.2s; }
-.fd-info-card:hover { border-color:rgba(255,255,255,0.15); }
-.fd-info-card-icon { font-size:24px;margin-bottom:12px;display:block; }
-.fd-info-card-title { font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--white);margin-bottom:12px; }
-.fd-info-card-body { font-family:'Chakra Petch',sans-serif;font-size:1rem;color:var(--muted);line-height:1.6; }
-.fd-info-card-body span { display:block; }
-.fd-info-card-body a { color:var(--cyan);transition:opacity 0.2s; }
-.fd-info-card-body a:hover { opacity:0.7; }
-
-@media (max-width:1000px) { .fd-hero-grid{grid-template-columns:1fr;} .fd-ticket-box{max-width:100%;} .fd-info-grid{grid-template-columns:repeat(2,1fr);} }
-@media (max-width:700px) { .fd-hero,.fd-lineup,.fd-info-inner{padding-left:20px;padding-right:20px;} .fd-stats-inner{padding:0 20px;gap:0;} .fd-stat-item{font-size:11px;letter-spacing:2px;} .fd-info-grid{grid-template-columns:1fr;} .fd-title{font-size:clamp(52px,14vw,90px);} }
-</style>
+<script src="/js/festival.js" defer></script>
 </head>
-<body>
+<body class="festival-page">
 
 <div class="pg-bg">
   <div class="pg-glow pg-g1"></div>
@@ -116,371 +47,302 @@
 
 <div id="site-nav"></div>
 
-<!-- HERO -->
-<div class="fd-hero">
-  <a href="/#festivals" class="fd-back">← All Festivals</a>
+<!-- MASTHEAD -->
+<header class="fd-hero">
+  <div class="fd-topbar"><a href="/#festivals" class="fd-back">← All Festivals</a></div>
 
-  <div class="fd-hero-grid">
-    <div>
-      <p class="fd-eyebrow">Excision Presents · Legend Valley</p>
-      <h1 class="fd-title">LOST<br>LANDS</h1>
-      <p class="fd-subtitle">THE HEAVIEST 3 DAYS IN BASS</p>
+  <p class="fd-kicker">Excision Presents · Legend Valley</p>
+  <h1 class="fd-title">LOST<br>LANDS</h1>
+  <p class="fd-subtitle">THE HEAVIEST 3 DAYS IN BASS</p>
 
-      <div class="fd-chips">
-        <span class="fd-chip">📅 Sep 18–20, 2026</span>
-        <span class="fd-chip">📍 Legend Valley, Thornville, OH</span>
-        <span class="fd-chip">🔞 18+</span>
-        <span class="fd-chip">🎵 3 Days</span>
-        <span class="fd-chip">🎧 Dubstep · Bass · Riddim</span>
-      </div>
-
-      <p class="fd-desc">Excision prehistoric bass mecca and the heaviest three days in dubstep. Camping, dinosaurs, and the filthiest drops on the planet.</p>
-
-      <div class="fd-btns">
-        <a href="https://www.lostlandsfestival.com" target="_blank" rel="noopener" class="fd-btn-primary">GET TICKETS →</a>
-        <a href="https://www.lostlandsfestival.com" target="_blank" rel="noopener" class="fd-btn-ghost">OFFICIAL SITE</a>
-        <button class="share-btn" onclick="sharePage()">Share</button>
-        <button class="pg-save-btn" data-fest-id="lost-lands"></button>
-      </div>
-    </div>
-
-    <div class="fd-ticket-box">
-      <p class="fd-ticket-label">🎟 Festival Info</p>
-      <div class="fd-ticket-row">
-        <span class="fd-ticket-tier">Dates</span>
-        <span class="fd-ticket-price">Sep 18–20, 2026</span>
-      </div>
-      <div class="fd-ticket-row">
-        <span class="fd-ticket-tier">Age</span>
-        <span class="fd-ticket-price">18+</span>
-      </div>
-      <div class="fd-ticket-row">
-        <span class="fd-ticket-tier">Length</span>
-        <span class="fd-ticket-price">3 Days</span>
-      </div>
-      <div class="fd-ticket-row">
-        <span class="fd-ticket-tier">Artists</span>
-        <span class="fd-ticket-price">208+</span>
-      </div>
-      <p class="fd-ticket-note">Tickets, tiers, and full details at the <a href="https://www.lostlandsfestival.com" target="_blank" rel="noopener" style="color:var(--cyan);">official site</a>.</p>
-    </div>
+  <div class="fd-factrow">
+    <span class="fd-fact-date">Sep 18–20, 2026</span>
+    <span>Legend Valley · Thornville, OH</span>
+    <span>18+</span>
+    <span>3 Days · Camping</span>
+    <span>Dubstep · Bass · Riddim</span>
   </div>
-</div>
 
-<!-- STATS BAR -->
-<div class="fd-stats-bar">
-  <div class="fd-stats-inner">
-    <span class="fd-stat-item">3 DAYS</span>
-    <span class="fd-stat-item">18+</span>
-    <span class="fd-stat-item">208+ ARTISTS</span>
-    <span class="fd-stat-item">DUBSTEP</span>
-    <span class="fd-stat-item">MIDWEST</span>
+  <p class="fd-desc">Excision prehistoric bass mecca and the heaviest three days in dubstep. Camping, dinosaurs, and the filthiest drops on the planet.</p>
+
+  <div class="fd-btns">
+    <a href="https://www.lostlandsfestival.com" target="_blank" rel="noopener" class="fd-btn-primary">GET TICKETS →</a>
+    <a href="https://www.lostlandsfestival.com" target="_blank" rel="noopener" class="fd-btn-ghost">OFFICIAL SITE</a>
+    <button class="share-btn" onclick="sharePage()">Share</button>
+    <button class="pg-save-btn" data-fest-id="lost-lands"></button>
   </div>
-</div>
+</header>
 
 <!-- LINEUP -->
-<div class="fd-lineup">
-  <p class="eyebrow fd-section-eyebrow">Top Billing</p>
-  <h2 class="fd-section-title">HEADLINERS</h2>
+<section class="fd-lineup">
+  <p class="fd-kicker">208 artists · Is yours playing?</p>
+  <h2 class="fd-section-title">THE LINEUP</h2>
 
-  <div class="fd-headliners-grid">
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Excision</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Subtronics</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">ILLENIUM</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">SLANDER</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Seven Lions</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Wooli</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">NGHTMRE</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Ganja White Night</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Kai Wachi</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
-    <div class="fd-headliner-card">
-      <p class="fd-headliner-name">Zomboy</p>
-      <span class="fd-headliner-badge">Headliner</span>
-    </div>
+  <div class="fl-search">
+    <input id="artist-search" type="search" placeholder="Find an artist…" autocomplete="off" aria-label="Find an artist in the lineup">
+    <span id="artist-search-count" aria-live="polite"></span>
   </div>
 
-  <p class="eyebrow fd-section-eyebrow">Every Artist</p>
-  <h2 class="fd-section-title">FULL LINEUP</h2>
+  <div class="fl-tier fl-tier1">
+    <span class="fl-name">Excision</span>
+    <span class="fl-name">Subtronics</span>
+    <span class="fl-name">ILLENIUM</span>
+    <span class="fl-name">SLANDER</span>
+    <span class="fl-name">Seven Lions</span>
+    <span class="fl-name">Wooli</span>
+    <span class="fl-name">NGHTMRE</span>
+    <span class="fl-name">Ganja White Night</span>
+    <span class="fl-name">Kai Wachi</span>
+    <span class="fl-name">Zomboy</span>
+  </div>
 
-  <ul class="fd-lineup-list">
-    <li>Excision (2 Hour Set)</li>
-    <li>Excision (Detox Set)</li>
-    <li>Excision b2b Space Laces</li>
-    <li>Adventure Club</li>
-    <li>Æon:Mode</li>
-    <li>ALLEYCVT</li>
-    <li>ARMNHMR</li>
-    <li>ATLiens</li>
-    <li>Audiofreq</li>
-    <li>Barely Alive</li>
-    <li>Bear Grillz</li>
-    <li>Benda</li>
-    <li>Blossom</li>
-    <li>Boogie T</li>
-    <li>Borgore</li>
-    <li>Bou</li>
-    <li>Calcium</li>
-    <li>Canabliss</li>
-    <li>Caspa</li>
-    <li>Crankdat</li>
-    <li>Craze</li>
-    <li>Culture Shock</li>
-    <li>Cyclops</li>
-    <li>Delta Heavy</li>
-    <li>Dieselboy</li>
-    <li>Dion Timmer</li>
-    <li>Dirt Monkey</li>
-    <li>Dirtyphonics</li>
-    <li>Distinct Motive</li>
-    <li>Doctor P</li>
-    <li>Dr. Fresch</li>
-    <li>Drinkurwater</li>
-    <li>Effin</li>
-    <li>Emorfik</li>
-    <li>Eptic</li>
-    <li>Flosstradamus</li>
-    <li>Flux Pavilion</li>
-    <li>Funtcase</li>
-    <li>Ganja White Night</li>
-    <li>Ghastly</li>
-    <li>Ghengar</li>
-    <li>Gladde Paling</li>
-    <li>Grabbitz</li>
-    <li>Hairitage</li>
-    <li>Hedex</li>
-    <li>Heyz</li>
-    <li>HOL!</li>
-    <li>ILLENIUM</li>
-    <li>INFEKT</li>
-    <li>Ivy Lab</li>
-    <li>Jantsen</li>
-    <li>Jessica Audiffred</li>
-    <li>Jkyl &amp; Hyde</li>
-    <li>Kai Wachi</li>
-    <li>Know Good</li>
-    <li>Kompany</li>
-    <li>Krewella</li>
-    <li>LAYZ</li>
-    <li>Level Up</li>
-    <li>Levity</li>
-    <li>Lil Texas</li>
-    <li>Liquid Stranger</li>
-    <li>LYNY</li>
-    <li>Mefjus</li>
-    <li>NGHTMRE</li>
-    <li>Oliverse</li>
-    <li>Passport</li>
-    <li>PhaseOne</li>
-    <li>Ravenscoon</li>
-    <li>Ray Volpe</li>
-    <li>Reaper</li>
-    <li>The Resistance</li>
-    <li>Riot Ten</li>
-    <li>Samplifire</li>
-    <li>Seven Lions</li>
-    <li>Sigma</li>
-    <li>Sippy</li>
-    <li>SLANDER</li>
-    <li>Smoakland</li>
-    <li>SoDown</li>
-    <li>Stumpi</li>
-    <li>Subtronics</li>
-    <li>Sullivan King</li>
-    <li>Taiki Nulight</li>
-    <li>Trivecta</li>
-    <li>Truth</li>
-    <li>Virtual Riot</li>
-    <li>Wax Motif</li>
-    <li>Whethan</li>
-    <li>The Widdler</li>
-    <li>William Black</li>
-    <li>Wonkywilla</li>
-    <li>Wooli</li>
-    <li>Yookie</li>
-    <li>Zingara</li>
-    <li>Zomboy</li>
-    <li>SJ</li>
-    <li>2DY4</li>
-    <li>AlienPark</li>
-    <li>All The Reason</li>
-    <li>Arlo</li>
-    <li>AU5</li>
-    <li>Austeria</li>
-    <li>Avello</li>
-    <li>BadKlaat</li>
-    <li>Basstripper</li>
-    <li>Bella Renee</li>
-    <li>Big Florida</li>
-    <li>Brainrack</li>
-    <li>Capochino</li>
-    <li>Casey Club</li>
-    <li>Champagne Drip</li>
-    <li>Chassi</li>
-    <li>Chozen</li>
-    <li>Codd Dubz</li>
-    <li>Crizzly</li>
-    <li>Crumb Pit</li>
-    <li>Crystal Skies</li>
-    <li>Darksiderz</li>
-    <li>Deadcrow</li>
-    <li>Dirtysnatcha</li>
-    <li>Distant Matter</li>
-    <li>Dodge &amp; Fuski</li>
-    <li>Dr. Ushuu</li>
-    <li>Dream Takers</li>
-    <li>Dubscribe</li>
-    <li>Finnuh</li>
-    <li>Future Exit</li>
-    <li>Gardella</li>
-    <li>Green Matter</li>
-    <li>Haliene</li>
-    <li>Hershe</li>
-    <li>Hostage Situation</li>
-    <li>Hurtbox</li>
-    <li>HVDES</li>
-    <li>Hydraulix</li>
-    <li>IMANU</li>
-    <li>Ivory</li>
-    <li>Izadi</li>
-    <li>Izzy Vadim</li>
-    <li>Jaenga</li>
-    <li>Josh Teed</li>
-    <li>Killmatter</li>
-    <li>Kliptic</li>
-    <li>KLO</li>
-    <li>Lazrus</li>
-    <li>Leotrix</li>
-    <li>Lowcation</li>
-    <li>Luci</li>
-    <li>Lumasi</li>
-    <li>Machaki</li>
-    <li>Mad Dubz</li>
-    <li>Madgrrl</li>
-    <li>Mile32</li>
-    <li>Mindset</li>
-    <li>Modal Nodes</li>
-    <li>Mozey</li>
-    <li>Mport</li>
-    <li>Muerte</li>
-    <li>Myrias</li>
-    <li>MYTHM</li>
-    <li>Neotek</li>
-    <li>Neumonic</li>
-    <li>Nikita the Wicked</li>
-    <li>Nimda</li>
-    <li>Noetika</li>
-    <li>OG Nixin</li>
-    <li>Onara</li>
-    <li>Paper Skies</li>
-    <li>Pegboard Nerds</li>
-    <li>Phrva</li>
-    <li>Poni</li>
-    <li>Pretty Sweet</li>
-    <li>ProbCause</li>
-    <li>Prosecute</li>
-    <li>Remk</li>
-    <li>Richard Finger</li>
-    <li>Riot</li>
-    <li>ROI*</li>
-    <li>RSUN</li>
-    <li>Ryns</li>
-    <li>RZRKT</li>
-    <li>Saint Miller</li>
-    <li>Seth David</li>
-    <li>Shlump</li>
-    <li>Sisto</li>
-    <li>Skilah</li>
-    <li>Space Wizard</li>
-    <li>Sportmode</li>
-    <li>SQISH</li>
-    <li>Stoned Level</li>
-    <li>Subsonic</li>
-    <li>Super Future</li>
-    <li>Tisoki</li>
-    <li>Tokyo Machine</li>
-    <li>TwoPercent</li>
-    <li>Tynan</li>
-    <li>Vampa</li>
-    <li>VKTM</li>
-    <li>Warlord</li>
-    <li>Whales</li>
-    <li>Wiley</li>
-    <li>Wraz</li>
-    <li>Xotix</li>
-    <li>Yetep</li>
-    <li>YVM3</li>
-    <li>Zen Selekta</li>
-    <li>Zero</li>
+  <div class="fl-tier fl-tier2">
+    <span class="fl-name">Adventure Club</span>
+    <span class="fl-name">Æon:Mode</span>
+    <span class="fl-name">ALLEYCVT</span>
+    <span class="fl-name">ARMNHMR</span>
+    <span class="fl-name">ATLiens</span>
+    <span class="fl-name">Audiofreq</span>
+    <span class="fl-name">Barely Alive</span>
+    <span class="fl-name">Bear Grillz</span>
+    <span class="fl-name">Benda</span>
+    <span class="fl-name">Blossom</span>
+    <span class="fl-name">Boogie T</span>
+    <span class="fl-name">Borgore</span>
+    <span class="fl-name">Bou</span>
+    <span class="fl-name">Calcium</span>
+    <span class="fl-name">Canabliss</span>
+    <span class="fl-name">Caspa</span>
+    <span class="fl-name">Crankdat</span>
+    <span class="fl-name">Craze</span>
+    <span class="fl-name">Culture Shock</span>
+    <span class="fl-name">Cyclops</span>
+    <span class="fl-name">Delta Heavy</span>
+    <span class="fl-name">Dieselboy</span>
+    <span class="fl-name">Dion Timmer</span>
+    <span class="fl-name">Dirt Monkey</span>
+    <span class="fl-name">Dirtyphonics</span>
+    <span class="fl-name">Distinct Motive</span>
+    <span class="fl-name">Doctor P</span>
+    <span class="fl-name">Dr. Fresch</span>
+    <span class="fl-name">Drinkurwater</span>
+    <span class="fl-name">Effin</span>
+    <span class="fl-name">Emorfik</span>
+    <span class="fl-name">Eptic</span>
+    <span class="fl-name">Excision (2 Hour Set)</span>
+    <span class="fl-name">Excision (Detox Set)</span>
+    <span class="fl-name">Excision b2b Space Laces</span>
+    <span class="fl-name">Flosstradamus</span>
+    <span class="fl-name">Flux Pavilion</span>
+    <span class="fl-name">Funtcase</span>
+    <span class="fl-name">Ghastly</span>
+    <span class="fl-name">Ghengar</span>
+    <span class="fl-name">Gladde Paling</span>
+    <span class="fl-name">Grabbitz</span>
+    <span class="fl-name">Hairitage</span>
+    <span class="fl-name">Hedex</span>
+    <span class="fl-name">Heyz</span>
+    <span class="fl-name">HOL!</span>
+    <span class="fl-name">INFEKT</span>
+    <span class="fl-name">Ivy Lab</span>
+    <span class="fl-name">Jantsen</span>
+    <span class="fl-name">Jessica Audiffred</span>
+    <span class="fl-name">Jkyl &amp; Hyde</span>
+    <span class="fl-name">Know Good</span>
+    <span class="fl-name">Kompany</span>
+    <span class="fl-name">Krewella</span>
+    <span class="fl-name">LAYZ</span>
+    <span class="fl-name">Level Up</span>
+    <span class="fl-name">Levity</span>
+    <span class="fl-name">Lil Texas</span>
+    <span class="fl-name">Liquid Stranger</span>
+    <span class="fl-name">LYNY</span>
+    <span class="fl-name">Mefjus</span>
+    <span class="fl-name">Oliverse</span>
+    <span class="fl-name">Passport</span>
+    <span class="fl-name">PhaseOne</span>
+    <span class="fl-name">Ravenscoon</span>
+    <span class="fl-name">Ray Volpe</span>
+    <span class="fl-name">Reaper</span>
+    <span class="fl-name">Riot Ten</span>
+    <span class="fl-name">Samplifire</span>
+    <span class="fl-name">Sigma</span>
+    <span class="fl-name">Sippy</span>
+    <span class="fl-name">Smoakland</span>
+    <span class="fl-name">SoDown</span>
+    <span class="fl-name">Stumpi</span>
+    <span class="fl-name">Sullivan King</span>
+    <span class="fl-name">Taiki Nulight</span>
+    <span class="fl-name">The Resistance</span>
+    <span class="fl-name">The Widdler</span>
+    <span class="fl-name">Trivecta</span>
+    <span class="fl-name">Truth</span>
+    <span class="fl-name">Virtual Riot</span>
+    <span class="fl-name">Wax Motif</span>
+    <span class="fl-name">Whethan</span>
+    <span class="fl-name">William Black</span>
+    <span class="fl-name">Wonkywilla</span>
+    <span class="fl-name">Yookie</span>
+    <span class="fl-name">Zingara</span>
+  </div>
+
+  <div class="fl-rule"><span>The Small Print · A–Z</span></div>
+
+  <ul class="fl-tier3">
+    <li class="fl-name">2DY4</li>
+    <li class="fl-name">AlienPark</li>
+    <li class="fl-name">All The Reason</li>
+    <li class="fl-name">Arlo</li>
+    <li class="fl-name">AU5</li>
+    <li class="fl-name">Austeria</li>
+    <li class="fl-name">Avello</li>
+    <li class="fl-name">BadKlaat</li>
+    <li class="fl-name">Basstripper</li>
+    <li class="fl-name">Bella Renee</li>
+    <li class="fl-name">Big Florida</li>
+    <li class="fl-name">Brainrack</li>
+    <li class="fl-name">Capochino</li>
+    <li class="fl-name">Casey Club</li>
+    <li class="fl-name">Champagne Drip</li>
+    <li class="fl-name">Chassi</li>
+    <li class="fl-name">Chozen</li>
+    <li class="fl-name">Codd Dubz</li>
+    <li class="fl-name">Crizzly</li>
+    <li class="fl-name">Crumb Pit</li>
+    <li class="fl-name">Crystal Skies</li>
+    <li class="fl-name">Darksiderz</li>
+    <li class="fl-name">Deadcrow</li>
+    <li class="fl-name">Dirtysnatcha</li>
+    <li class="fl-name">Distant Matter</li>
+    <li class="fl-name">Dodge &amp; Fuski</li>
+    <li class="fl-name">Dr. Ushuu</li>
+    <li class="fl-name">Dream Takers</li>
+    <li class="fl-name">Dubscribe</li>
+    <li class="fl-name">Finnuh</li>
+    <li class="fl-name">Future Exit</li>
+    <li class="fl-name">Gardella</li>
+    <li class="fl-name">Green Matter</li>
+    <li class="fl-name">Haliene</li>
+    <li class="fl-name">Hershe</li>
+    <li class="fl-name">Hostage Situation</li>
+    <li class="fl-name">Hurtbox</li>
+    <li class="fl-name">HVDES</li>
+    <li class="fl-name">Hydraulix</li>
+    <li class="fl-name">IMANU</li>
+    <li class="fl-name">Ivory</li>
+    <li class="fl-name">Izadi</li>
+    <li class="fl-name">Izzy Vadim</li>
+    <li class="fl-name">Jaenga</li>
+    <li class="fl-name">Josh Teed</li>
+    <li class="fl-name">Killmatter</li>
+    <li class="fl-name">Kliptic</li>
+    <li class="fl-name">KLO</li>
+    <li class="fl-name">Lazrus</li>
+    <li class="fl-name">Leotrix</li>
+    <li class="fl-name">Lowcation</li>
+    <li class="fl-name">Luci</li>
+    <li class="fl-name">Lumasi</li>
+    <li class="fl-name">Machaki</li>
+    <li class="fl-name">Mad Dubz</li>
+    <li class="fl-name">Madgrrl</li>
+    <li class="fl-name">Mile32</li>
+    <li class="fl-name">Mindset</li>
+    <li class="fl-name">Modal Nodes</li>
+    <li class="fl-name">Mozey</li>
+    <li class="fl-name">Mport</li>
+    <li class="fl-name">Muerte</li>
+    <li class="fl-name">Myrias</li>
+    <li class="fl-name">MYTHM</li>
+    <li class="fl-name">Neotek</li>
+    <li class="fl-name">Neumonic</li>
+    <li class="fl-name">Nikita the Wicked</li>
+    <li class="fl-name">Nimda</li>
+    <li class="fl-name">Noetika</li>
+    <li class="fl-name">OG Nixin</li>
+    <li class="fl-name">Onara</li>
+    <li class="fl-name">Paper Skies</li>
+    <li class="fl-name">Pegboard Nerds</li>
+    <li class="fl-name">Phrva</li>
+    <li class="fl-name">Poni</li>
+    <li class="fl-name">Pretty Sweet</li>
+    <li class="fl-name">ProbCause</li>
+    <li class="fl-name">Prosecute</li>
+    <li class="fl-name">Remk</li>
+    <li class="fl-name">Richard Finger</li>
+    <li class="fl-name">Riot</li>
+    <li class="fl-name">ROI*</li>
+    <li class="fl-name">RSUN</li>
+    <li class="fl-name">Ryns</li>
+    <li class="fl-name">RZRKT</li>
+    <li class="fl-name">Saint Miller</li>
+    <li class="fl-name">Seth David</li>
+    <li class="fl-name">Shlump</li>
+    <li class="fl-name">Sisto</li>
+    <li class="fl-name">SJ</li>
+    <li class="fl-name">Skilah</li>
+    <li class="fl-name">Space Wizard</li>
+    <li class="fl-name">Sportmode</li>
+    <li class="fl-name">SQISH</li>
+    <li class="fl-name">Stoned Level</li>
+    <li class="fl-name">Subsonic</li>
+    <li class="fl-name">Super Future</li>
+    <li class="fl-name">Tisoki</li>
+    <li class="fl-name">Tokyo Machine</li>
+    <li class="fl-name">TwoPercent</li>
+    <li class="fl-name">Tynan</li>
+    <li class="fl-name">Vampa</li>
+    <li class="fl-name">VKTM</li>
+    <li class="fl-name">Warlord</li>
+    <li class="fl-name">Whales</li>
+    <li class="fl-name">Wiley</li>
+    <li class="fl-name">Wraz</li>
+    <li class="fl-name">Xotix</li>
+    <li class="fl-name">Yetep</li>
+    <li class="fl-name">YVM3</li>
+    <li class="fl-name">Zen Selekta</li>
+    <li class="fl-name">Zero</li>
   </ul>
+
   <p class="fd-lineup-count">208 artists announced · lineup subject to change</p>
-</div>
+</section>
 
 <!-- PRACTICAL INFO -->
-<div class="fd-info">
+<section class="fd-info">
   <div class="fd-info-inner">
-    <p class="eyebrow">Know Before You Go</p>
+    <p class="fd-kicker">Know Before You Go</p>
     <h2 class="fd-section-title">FESTIVAL INFO</h2>
 
     <div class="fd-info-grid">
 
-      <div class="fd-info-card">
-        <span class="fd-info-card-icon">📍</span>
-        <p class="fd-info-card-title">VENUE</p>
-        <div class="fd-info-card-body">
+      <div class="fd-info-item">
+        <h3>VENUE</h3>
+        <p>
           <span>Legend Valley, Thornville, OH</span>
-        </div>
+          <span>On-site camping all weekend</span>
+        </p>
       </div>
 
-      <div class="fd-info-card">
-        <span class="fd-info-card-icon">📅</span>
-        <p class="fd-info-card-title">WHEN</p>
-        <div class="fd-info-card-body">
+      <div class="fd-info-item">
+        <h3>WHEN</h3>
+        <p>
           <span>Sep 18–20, 2026</span>
           <span>3 days · 18+</span>
           <span>Dubstep · Bass · Riddim</span>
-        </div>
+        </p>
       </div>
 
-      <div class="fd-info-card">
-        <span class="fd-info-card-icon">🎟️</span>
-        <p class="fd-info-card-title">TICKETS</p>
-        <div class="fd-info-card-body">
+      <div class="fd-info-item">
+        <h3>TICKETS</h3>
+        <p>
           <span>On sale &amp; full info at the official site.</span>
           <span>&nbsp;</span>
           <span><a href="https://www.lostlandsfestival.com" target="_blank" rel="noopener">www.lostlandsfestival.com</a></span>
-        </div>
+        </p>
       </div>
 
     </div>
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
