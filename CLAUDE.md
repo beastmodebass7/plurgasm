@@ -36,16 +36,17 @@ On the homepage `data.js` → `main.js` → `search.js` are loaded **in that ord
 end of `<body>`. `main.js` reads the globals `FESTIVALS`/`BRANDS`/`CATEGORIES` defined in `data.js`,
 so data.js must stay first. `nav.js`, `auth.js`, `views.js`, `saves.js` are deferred in `<head>`.
 
-## Homepage section flow (index.html) — reordered, chapters renumbered
-Hero → Countdown strip → Marquee → then sections:
-1. **Chapter 01 — FESTIVALS** `#festivals` (grid/calendar toggle, vibe/region/month dropdowns, Near Me)
-2. **Chapter 02 — SHOP BY CATEGORY** `#categories`
-3. **Chapter 03 — SOCIAL SPOTLIGHT** `#social`
-4. **"From the Community" — RAVE NEWS & CULTURE** `#blog` (newspaper layout; *no chapter number*)
-5. Brand of the Week + Influencer of the Week (no chapter number)
-6. **Chapter 04 — RAVE BRANDS** `#brands` (item-filter pills + category filters)
-> Note the order: festivals are now first (Ch.01) and brands are last (Ch.04). Keep chapter
-> eyebrows in sync if you add/move a section.
+## Homepage section flow (index.html)
+Hero → Countdown strip → then sections:
+1. **FESTIVALS** `#festivals` (grid/calendar toggle, vibe/region/month dropdowns, Near Me)
+2. **SHOP BY CATEGORY** `#categories`
+3. **SOCIAL SPOTLIGHT** `#social`
+4. **"From the Community" — RAVE NEWS & CULTURE** `#blog` (newspaper layout)
+5. Brand of the Week + Influencer of the Week
+6. **RAVE BRANDS** `#brands` (item-filter pills + category filters)
+> The numbered "Chapter NN" eyebrows and the scrolling marquee were removed in July 2026 —
+> don't reintroduce them. The `.eyebrow` class itself is still used for non-numbered labels
+> (e.g. "From the Community").
 
 ## Element-ID table (verified against current HTML)
 Renders are wired by ID — a typo'd/missing container makes that render silently no-op.
@@ -58,7 +59,6 @@ Renders are wired by ID — a typo'd/missing container makes that render silentl
 | `brand-modal`, `brand-modal-inner`, `brand-modal-content` | brand detail modal |
 | `search-wrap`, `search-input`, `search-results`, `search-cycle-text` | hero search |
 | `countdown`, `countdown-fest-name`, `countdown-fest-loc`, `countdown-fest-date`, `countdown-fest-link` | `initCountdown()` |
-| `marquee-track` | `initMarquee()` |
 | `fest-grid`, `cal-view`, `fests-expand` | `renderFestivals()` / `renderCalendar()` |
 | `fest-vibe-select`, `fest-region-select`, `fest-month-select` | festival filter dropdowns (Vibe/Region populated by `renderFestFilterPills()`; Month is static) |
 | `near-me-btn`, `near-me-controls`, `near-me-status` | `toggleNearMe()` |
@@ -144,7 +144,7 @@ Brand modal: `openBrandModal`, `closeBrandModal`, `shareBrand`.
 Creator voting (Supabase): `loadCreatorVotes`, `onCreatorVote`, `creatorVoteId` + upvote animations.
 Init (in `DOMContentLoaded`): merges `pg_admin_*` localStorage data, applies admin ordering, then
 `renderFestFilterPills → renderFestivals → renderCategories → renderBrands → … → initCountdown,
-initMarquee, initCountUp, initScrollAnimations, initBottomNav`. Mobile-only `applyMobile*Limit()`
+initCountUp, initScrollAnimations, initBottomNav`. Mobile-only `applyMobile*Limit()`
 helpers cap visible cards.
 
 ## Nav — single source of truth

@@ -1216,35 +1216,6 @@ function initCountdown() {
 }
 
 /* ════════════════════════════════════════════════
-   MARQUEE — upcoming festivals sorted by date
-════════════════════════════════════════════════ */
-function initMarquee() {
-  const track = document.getElementById('marquee-track');
-  if (!track) return;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const sorted = (window.PLURGASM_DATA?.festivals || [])
-    .filter(f => {
-      if (!f.sortDate) return false;
-      const festDate = new Date(f.endDate || f.sortDate);
-      festDate.setHours(23, 59, 59, 999);
-      return festDate >= today;
-    })
-    .sort((a, b) => new Date(a.sortDate) - new Date(b.sortDate));
-
-  if (!sorted.length) return;
-
-  // Double the list so the CSS marquee loop is seamless
-  const items = [...sorted, ...sorted]
-    .map(f => `<span class="marquee-item">${f.name.toUpperCase()} <span>${f.dates}</span></span>`)
-    .join('');
-
-  track.innerHTML = items;
-}
-
-/* ════════════════════════════════════════════════
    READ TIME — strip HTML, ~200 wpm, min 1 min
 ════════════════════════════════════════════════ */
 function readTimeBadge(body) {
@@ -1575,7 +1546,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCountUp();
   initCountdown();
-  initMarquee();
   initBottomNav();
 });
 

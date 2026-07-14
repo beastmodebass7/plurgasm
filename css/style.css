@@ -485,34 +485,6 @@ nav {
 .cd-btn:hover { background: var(--cyan); color: var(--black); }
 
 /* ══════════════════════════════════════════════════
-   MARQUEE
-══════════════════════════════════════════════════ */
-.marquee-bar {
-  overflow: hidden;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 13px 0;
-  background: var(--surface);
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 95s linear infinite;
-}
-.marquee-item {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0 28px;
-  white-space: nowrap;
-  border-right: 1px solid var(--border);
-}
-.marquee-item span { color: var(--cyan); }
-@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-/* ══════════════════════════════════════════════════
    SECTION COMMON
 ══════════════════════════════════════════════════ */
 .section { padding: 88px 48px; max-width: 1380px; margin: 0 auto; }
