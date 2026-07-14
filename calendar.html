@@ -56,7 +56,7 @@ body::after {
 }
 
 .cal-page-hero {
-  padding: 72px 48px 56px;
+  padding: 40px 48px 48px;
   max-width: 1380px;
   margin: 0 auto;
   position: relative;
@@ -81,7 +81,6 @@ body::after {
 .toggle-row {
   display: flex;
   gap: 4px;
-  margin-bottom: 28px;
 }
 .toggle-btn {
   font-family: 'DM Mono', monospace;
@@ -101,12 +100,260 @@ body::after {
   background: rgba(0,229,255,0.06);
 }
 
-.cal-controls {
+/* style.css sets body{overflow-x:hidden}, which silently turns <body> into a
+   scroll container and kills position:sticky for everything inside it.
+   overflow-x:clip clips identically but does NOT create a scroll container,
+   so the control bar + month labels below can actually stick. This inline
+   sheet loads after style.css (incl. its 900px media rule), so it wins.
+   Calendar page only — no other page is touched. */
+body { overflow-x: clip; }
+
+/* ══════════════════════════════════════════════════
+   CONTROL BAR — one slim sticky row above the results:
+   live count · FILTERS toggle · Near Me · (mobile) search · view switch.
+   Same translucent-blur recipe as the site nav so rows fade under it.
+══════════════════════════════════════════════════ */
+.cal-control-bar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 36px;
-  margin-bottom: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  margin-top: 8px;
+  background: rgba(6,6,12,0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.ccb-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+.ccb-count strong { color: var(--cyan); font-weight: 500; }
+.ccb-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.ccb-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.ccb-btn.active {
+  border-color: rgba(0,229,255,0.45);
+  color: var(--cyan);
+  background: rgba(0,229,255,0.06);
+}
+.ccb-badge {
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--pink);
+  color: #06060c;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-align: center;
+}
+.ccb-views { margin-left: auto; display: flex; gap: 4px; }
+.ccb-search-btn { display: none; }   /* mobile only — desktop search is always visible */
+
+/* ── Active-filter tokens (removable) + clear all ── */
+.cal-active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cal-active-filters.has-chips { margin: 14px 0 6px; }
+.cal-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0,229,255,0.06);
+  border: 1px solid rgba(0,229,255,0.35);
+  color: var(--cyan);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cal-chip:hover { border-color: var(--cyan); background: rgba(0,229,255,0.12); }
+.cal-chip .cal-chip-x { opacity: 0.55; }
+.cal-chip:hover .cal-chip-x { opacity: 1; }
+.cal-chip--clear { background: transparent; border-color: var(--border); color: var(--muted); }
+.cal-chip--clear:hover {
+  color: var(--pink);
+  border-color: rgba(255,45,120,0.5);
+  background: rgba(255,45,120,0.05);
+}
+
+/* ── Collapsible filter panel (all filter groups live here) ── */
+.cal-filter-backdrop { display: none; }
+.cal-filter-panel {
+  display: none;
+  margin-top: 16px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  background: #0a0a14;
+}
+.cal-filter-panel.open { display: block; }
+.cfp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.cfp-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2.5px;
+  color: var(--white);
+}
+.cfp-close {
+  background: none;
+  border: none;
+  color: var(--faint);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.cfp-close:hover { color: var(--white); }
+.cfp-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 16px;
+}
+.cfp-group { display: flex; flex-direction: column; gap: 8px; }
+.cfp-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.cfp-clear, .cfp-done {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cfp-clear { color: var(--muted); }
+.cfp-clear:hover {
+  color: var(--pink);
+  border-color: rgba(255,45,120,0.5);
+  background: rgba(255,45,120,0.05);
+}
+.cfp-done {
+  color: var(--cyan);
+  border-color: rgba(0,229,255,0.45);
+  background: rgba(0,229,255,0.06);
+}
+.cfp-done:hover { background: rgba(0,229,255,0.12); border-color: var(--cyan); }
+
+/* ── Sticky month headers — chronology is the page's spine, so each month
+   label pins just below the control bar while its rows scroll. Height of
+   the bar is measured into --cal-bar-h by JS. ── */
+.cal-page-hero .cal-month-label {
+  position: sticky;
+  top: var(--cal-bar-h, 47px);
+  z-index: 30;
+  background: rgba(6,6,12,0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 10px 0 12px;
+}
+
+/* ── Empty state — never a blank void ── */
+.cal-empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  border: 1px dashed var(--border);
+}
+.ces-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.ces-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.ces-sub strong { color: var(--cyan); font-weight: 500; }
+
+/* ── Mobile: filters collapse to a bottom sheet; search collapses behind a
+   bar button; results are the first thing after the compact header. ── */
+@media (max-width: 700px) {
+  .ccb-count { flex-basis: 100%; margin-right: 0; }
+  .ccb-search-btn { display: inline-flex; }
+  .ccb-views { margin-left: 0; }
+  /* id selector so this beats the base .cal-search-zone{display:grid} rule,
+     which appears later in this style block */
+  #cal-search-zone { display: none; }
+  #cal-search-zone.open { display: grid; }
+
+  .cal-filter-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 390;
+    background: rgba(6,6,12,0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .cal-filter-backdrop.open { opacity: 1; pointer-events: auto; }
+  .cal-filter-panel {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 400;
+    max-height: 78vh;
+    overflow-y: auto;
+    margin: 0;
+    border: none;
+    border-top: 1px solid rgba(0,229,255,0.35);
+    padding: 20px 18px calc(24px + env(safe-area-inset-bottom));
+    transform: translateY(105%);
+    visibility: hidden;
+    transition: transform 0.28s, visibility 0.28s;
+  }
+  .cal-filter-panel.open { transform: translateY(0); visibility: visible; }
+  body.cal-sheet-lock { overflow: hidden; }
 }
 
 /* All Festivals / Saved toggle. Own class (not .toggle-btn) so the time-filter's
@@ -186,61 +433,40 @@ body::after {
 }
 
 @media (max-width: 900px) {
-  .cal-page-hero { padding: 48px 20px 40px; }
+  .cal-page-hero { padding: 26px 16px 36px; }
   .cal-info-col { flex-wrap: wrap; }
   .cal-name { min-width: unset; }
 }
 
-/* Compact / secondary artist finder — smaller, more muted, sits directly
-   below the prominent festival search. Behaviour + IDs are unchanged. */
-.artist-finder {
-  background: rgba(255,255,255,0.015);
-  border: 1px solid var(--border);
-  padding: 22px 24px;
-  position: relative;
-  overflow: hidden;
-  max-width: 620px;
-  margin-top: 22px;
+/* ── SEARCH ZONE — festival search + artist finder as one compact two-column
+   strip (no more stacked hero blocks). All ids/behaviour unchanged. ── */
+.cal-search-zone {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  margin: 22px 0 26px;
 }
-.artist-finder::before {
-  display: none;   /* drop the big "FIND" watermark in compact mode */
-}
-.artist-finder-inner {
-  max-width: 100%;
-  position: relative;
-  z-index: 2;
-}
-.artist-finder-eyebrow {
+.csz-label {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.artist-finder-eyebrow::after {
+.csz-label::after {
   content: '';
   width: 28px;
   height: 1px;
   background: var(--muted);
   opacity: 0.35;
 }
-.artist-finder-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(20px, 3vw, 26px);
-  letter-spacing: 2px;
-  color: var(--muted);
-  margin-bottom: 6px;
-  line-height: 1.05;
-}
-.artist-finder-sub {
-  font-size: 12px;
-  color: var(--faint);
-  margin-bottom: 16px;
-  line-height: 1.5;
+@media (max-width: 900px) {
+  .cal-search-zone { grid-template-columns: 1fr; gap: 20px; }
 }
 .artist-search-wrap {
   position: relative;
@@ -279,7 +505,7 @@ body::after {
 .artist-clear-btn:hover { color: var(--white); }
 
 #artist-results {
-  margin-top: 20px;
+  margin-top: 14px;
 }
 .artist-result-none {
   font-family: 'DM Mono', monospace;
@@ -388,9 +614,6 @@ body::after {
   white-space: nowrap;
 }
 
-@media (max-width: 768px) {
-  .artist-finder { padding: 18px 16px; }
-}
 
 #fest-map {
   width: 100%;
@@ -436,10 +659,10 @@ body::after {
 <div class="cal-page-hero">
   <div class="cal-page-inner">
     <p class="eyebrow">Full Schedule</p>
-    <h1 class="section-title" style="font-size:clamp(52px,8vw,100px);margin-bottom:8px;">
-      FESTIVAL<br>CALENDAR
+    <h1 class="section-title" style="font-size:clamp(42px,6.5vw,78px);margin-bottom:6px;">
+      FESTIVAL CALENDAR
     </h1>
-    <p style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:40px;">
+    <p style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:20px;">
       Every rave. Every date. 2026 season.
     </p>
 
@@ -450,85 +673,113 @@ body::after {
       <a class="dc-link" id="rave-cal-cta-link" href="/profile" style="display:none;">Your rave calendar →</a>
     </div>
 
-    <!-- FESTIVAL SEARCH — prominent bar mirroring the homepage search
-         (animated cycling placeholder, neon styling, live results dropdown).
-         Uses its OWN unique IDs (#fest-search-*) so it never collides with
-         the homepage search (#search-*). -->
-    <div class="fest-search-section">
-      <p class="fest-search-eyebrow">Festival Search</p>
-      <h2 class="fest-search-title">FIND A FESTIVAL</h2>
-      <p class="fest-search-sub">Search by name, city, or vibe — jump straight to it.</p>
-      <div class="search-wrap" id="fest-search-wrap">
-        <div class="search-form">
-          <div class="search-input-wrap">
-            <span class="search-cycle" id="fest-search-cycle-text"></span>
-            <input
-              type="text"
-              id="fest-search-input"
-              class="search-real-input"
-              placeholder=""
-              aria-label="Search festivals by name, city, or vibe"
-              autocomplete="off"
-            />
+    <!-- SEARCH ZONE — festival search + artist finder, one compact strip.
+         Both keep their own unique IDs (#fest-search-* / #artist-*) and
+         behaviour; only the oversized headers/boxes around them are gone.
+         On mobile the whole zone hides behind the control bar's SEARCH button. -->
+    <div class="cal-search-zone" id="cal-search-zone">
+      <div class="fest-search-section">
+        <p class="csz-label">Festival Search</p>
+        <div class="search-wrap" id="fest-search-wrap">
+          <div class="search-form">
+            <div class="search-input-wrap">
+              <span class="search-cycle" id="fest-search-cycle-text"></span>
+              <input
+                type="text"
+                id="fest-search-input"
+                class="search-real-input"
+                placeholder=""
+                aria-label="Search festivals by name, city, or vibe"
+                autocomplete="off"
+              />
+            </div>
+            <button class="search-btn" onclick="festDoSearch()">SEARCH</button>
           </div>
-          <button class="search-btn" onclick="festDoSearch()">SEARCH</button>
+          <div class="search-results" id="fest-search-results"></div>
         </div>
-        <div class="search-results" id="fest-search-results"></div>
+      </div>
+
+      <div>
+        <p class="csz-label">Artist Finder</p>
+        <div class="artist-search-wrap">
+          <input
+            type="text"
+            id="artist-input"
+            class="artist-search-input"
+            placeholder="Chasing an artist? e.g. John Summit..."
+            aria-label="Search for an artist to see which festivals they are playing"
+            autocomplete="off"
+            oninput="searchArtist(this.value)"
+          >
+          <button class="artist-clear-btn"
+            id="artist-clear"
+            onclick="clearArtistSearch()"
+            style="display:none">✕</button>
+        </div>
+        <div id="artist-results"></div>
       </div>
     </div>
 
-    <!-- ARTIST FINDER — secondary, compact bar below the festival search.
-         Behaviour + IDs (#artist-input, #artist-results, searchArtist) unchanged. -->
-    <div class="artist-finder artist-finder--compact">
-  <div class="artist-finder-inner">
-    <p class="artist-finder-eyebrow">
-      Artist Finder
-    </p>
-    <h2 class="artist-finder-title">
-      WHO ARE YOU CHASING?
-    </h2>
-    <p class="artist-finder-sub">
-      Type an artist name to find which
-      festivals they are playing in 2026.
-    </p>
-    <div class="artist-search-wrap">
-      <input
-        type="text"
-        id="artist-input"
-        class="artist-search-input"
-        placeholder="e.g. John Summit, Carl Cox, ILLENIUM..."
-        aria-label="Search for an artist to see which festivals they are playing"
-        autocomplete="off"
-        oninput="searchArtist(this.value)"
-      >
-      <button class="artist-clear-btn"
-        id="artist-clear"
-        onclick="clearArtistSearch()"
-        style="display:none">✕</button>
+    <!-- CONTROL BAR — sticky. Live count · FILTERS toggle (opens the panel
+         below) · Near Me (kept as its own prominent control) · SEARCH toggle
+         (mobile only) · view switch. All filter ids/handlers unchanged. -->
+    <div class="cal-control-bar" id="cal-control-bar">
+      <span class="ccb-count" id="cal-result-count" role="status" aria-live="polite"></span>
+      <button class="ccb-btn" id="cal-filters-toggle" onclick="toggleCalFilters()" aria-expanded="false" aria-controls="cal-filter-panel">
+        Filters <span class="ccb-badge" id="cal-filters-badge" style="display:none;"></span>
+      </button>
+      <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
+      <button class="ccb-btn ccb-search-btn" id="cal-search-toggle" onclick="toggleCalSearch()">🔍 Search</button>
+      <div class="ccb-views">
+        <button class="view-btn cal-view-btn active" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
+        <button class="view-btn cal-view-btn" id="btn-map-view" onclick="setCalView('map',this)">Map</button>
+        <button class="view-btn cal-view-btn" id="btn-list-view" onclick="setCalView('list',this)">List</button>
+      </div>
     </div>
-    <div id="artist-results"></div>
-  </div>
-</div>
 
-    <div class="cal-controls">
-      <!-- All Festivals / Saved toggle -->
-      <div class="saved-mode-row">
-        <button class="saved-mode-btn active" id="btn-mode-all" onclick="setSavedMode('all',this)">All Festivals</button>
-        <button class="saved-mode-btn" id="btn-mode-saved" onclick="setSavedMode('saved',this)">
-          <svg class="smb-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          Saved
-        </button>
+    <!-- Near Me distance controls — expand right under the bar when active -->
+    <div class="near-me-controls" id="cal-near-me-controls" style="display:none;">
+      <div class="near-me-distance">
+        <span class="near-me-label">Within</span>
+        <button class="dist-btn active" data-miles="100" onclick="setCalDistance(100,this)">100mi</button>
+        <button class="dist-btn" data-miles="250" onclick="setCalDistance(250,this)">250mi</button>
+        <button class="dist-btn" data-miles="500" onclick="setCalDistance(500,this)">500mi</button>
+        <button class="dist-btn" data-miles="9999" onclick="setCalDistance(9999,this)">Any</button>
+      </div>
+      <p class="near-me-status" id="cal-near-me-status">Getting your location...</p>
+    </div>
+
+    <!-- FILTER PANEL — every filter group in one collapsible place.
+         In-flow panel on desktop; fixed bottom sheet on mobile. -->
+    <div class="cal-filter-backdrop" id="cal-filter-backdrop" onclick="toggleCalFilters(false)"></div>
+    <div class="cal-filter-panel" id="cal-filter-panel">
+      <div class="cfp-head">
+        <span class="cfp-title">FILTER FESTIVALS</span>
+        <button class="cfp-close" onclick="toggleCalFilters(false)" aria-label="Close filters">✕</button>
       </div>
 
-      <!-- Past / Upcoming toggle -->
-      <div class="toggle-row">
-        <button class="toggle-btn active" id="btn-upcoming" onclick="setTimeFilter('upcoming',this)">Upcoming</button>
-        <button class="toggle-btn" id="btn-past" onclick="setTimeFilter('past',this)">Past</button>
-        <button class="toggle-btn" id="btn-all-time" onclick="setTimeFilter('all',this)">All</button>
+      <div class="cfp-groups">
+        <div class="cfp-group">
+          <span class="cal-select-label">Show</span>
+          <div class="saved-mode-row">
+            <button class="saved-mode-btn active" id="btn-mode-all" onclick="setSavedMode('all',this)">All Festivals</button>
+            <button class="saved-mode-btn" id="btn-mode-saved" onclick="setSavedMode('saved',this)">
+              <svg class="smb-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              Saved
+            </button>
+          </div>
+        </div>
+
+        <div class="cfp-group">
+          <span class="cal-select-label">When</span>
+          <div class="toggle-row">
+            <button class="toggle-btn active" id="btn-upcoming" onclick="setTimeFilter('upcoming',this)">Upcoming</button>
+            <button class="toggle-btn" id="btn-past" onclick="setTimeFilter('past',this)">Past</button>
+            <button class="toggle-btn" id="btn-all-time" onclick="setTimeFilter('all',this)">All</button>
+          </div>
+        </div>
       </div>
 
-      <!-- Filter dropdowns (Vibe / Region populated from festival data) + Near Me.
-           One row on desktop; stack full-width on mobile. -->
       <div class="cal-filter-row">
         <label class="cal-select-field">
           <span class="cal-select-label">Vibe</span>
@@ -569,32 +820,16 @@ body::after {
             <option value="">All organizers</option>
           </select>
         </label>
-
-        <!-- Near Me — button lives in the row; controls expand below it -->
-        <div class="cal-nearme-field" id="cal-nearme-row">
-          <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
-        </div>
       </div>
 
-      <div class="near-me-controls" id="cal-near-me-controls" style="display:none;">
-        <div class="near-me-distance">
-          <span class="near-me-label">Within</span>
-          <button class="dist-btn active" data-miles="100" onclick="setCalDistance(100,this)">100mi</button>
-          <button class="dist-btn" data-miles="250" onclick="setCalDistance(250,this)">250mi</button>
-          <button class="dist-btn" data-miles="500" onclick="setCalDistance(500,this)">500mi</button>
-          <button class="dist-btn" data-miles="9999" onclick="setCalDistance(9999,this)">Any</button>
-        </div>
-        <p class="near-me-status" id="cal-near-me-status">Getting your location...</p>
+      <div class="cfp-foot">
+        <button class="cfp-clear" onclick="clearAllCalFilters()">Clear all filters</button>
+        <button class="cfp-done" onclick="toggleCalFilters(false)">Done</button>
       </div>
     </div>
 
-    <!-- VIEW TOGGLE -->
-    <div style="display:flex;gap:4px;margin-bottom:20px;align-items:center;">
-      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);margin-right:4px;">View:</span>
-      <button class="view-btn cal-view-btn active" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
-      <button class="view-btn cal-view-btn" id="btn-map-view" onclick="setCalView('map',this)">Map</button>
-      <button class="view-btn cal-view-btn" id="btn-list-view" onclick="setCalView('list',this)">List</button>
-    </div>
+    <!-- Active-filter tokens (removable) + clear all — rendered by JS -->
+    <div class="cal-active-filters" id="cal-active-filters"></div>
 
     <!-- CALENDAR OUTPUT -->
     <div id="cal-output"></div>
@@ -754,7 +989,7 @@ function festRowHTML(f) {
 function renderList(list) {
   const out = document.getElementById('cal-output');
   if (!list.length) {
-    out.innerHTML = `<p class="cal-empty">No festivals match these filters.</p>`;
+    out.innerHTML = calEmptyStateHTML();
     return;
   }
   out.innerHTML = list.map(f => festRowHTML(f)).join('');
@@ -763,7 +998,7 @@ function renderList(list) {
 function renderTimeline(list) {
   const out = document.getElementById('cal-output');
   if (!list.length) {
-    out.innerHTML = `<p class="cal-empty">No festivals match these filters.</p>`;
+    out.innerHTML = calEmptyStateHTML();
     return;
   }
 
@@ -922,10 +1157,11 @@ function renderActiveView() {
     // Saved mode has two states that pre-empt the normal views: signed out, or
     // signed in with zero saves. Both reuse PlurSaves so they stay in sync.
     if (_savedMode === 'saved') {
-      if (!isLoggedIn()) { showSavedSignedOut(); return; }
-      if (!savedIds().length) { showSavedEmpty(); return; }
+      if (!isLoggedIn()) { showSavedSignedOut(); updateCalStatus([]); return; }
+      if (!savedIds().length) { showSavedEmpty(); updateCalStatus([]); return; }
     }
     const list = getFilteredFestivals();
+    updateCalStatus(list);
     const mapEl = document.getElementById('fest-map');
     const outEl = document.getElementById('cal-output');
     if (_calView === 'map') {
@@ -1046,6 +1282,206 @@ function setCalDistance(miles, btn) {
   renderActiveView();
 }
 
+/* ──────────────────────────────────────────────────
+   CONTROL BAR + FILTER PANEL — UI-layer only. The filter state variables and
+   getFilteredFestivals() are untouched; these functions just open/close the
+   panel, report what's active (count, badge, removable tokens) and offer
+   escape hatches (remove one filter / clear all).
+─────────────────────────────────────────────────── */
+function toggleCalFilters(force) {
+  try {
+    const panel    = document.getElementById('cal-filter-panel');
+    const backdrop = document.getElementById('cal-filter-backdrop');
+    const btn      = document.getElementById('cal-filters-toggle');
+    if (!panel) return;
+    const open = (typeof force === 'boolean') ? force : !panel.classList.contains('open');
+    panel.classList.toggle('open', open);
+    if (backdrop) backdrop.classList.toggle('open', open);
+    if (btn) {
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    // scroll lock only matters for the mobile bottom sheet
+    document.body.classList.toggle('cal-sheet-lock', open && window.innerWidth <= 700);
+  } catch (e) { console.error('toggleCalFilters error:', e); }
+}
+
+// Mobile-only: the search zone hides behind the bar's SEARCH button.
+function toggleCalSearch(force) {
+  try {
+    const zone = document.getElementById('cal-search-zone');
+    const btn  = document.getElementById('cal-search-toggle');
+    if (!zone) return;
+    const open = (typeof force === 'boolean') ? force : !zone.classList.contains('open');
+    zone.classList.toggle('open', open);
+    if (btn) btn.classList.toggle('active', open);
+    if (open) {
+      const inp = document.getElementById('fest-search-input');
+      if (inp) inp.focus();
+    }
+  } catch (e) { console.error('toggleCalSearch error:', e); }
+}
+
+// Human-readable label straight off the select so chips always match the UI.
+function _calSelLabel(id) {
+  try {
+    const s = document.getElementById(id);
+    return (s && s.selectedIndex > -1) ? s.options[s.selectedIndex].text : '';
+  } catch (e) { return ''; }
+}
+
+// Every non-default filter as {kind, group, label} — drives the chips, the
+// badge on the FILTERS button, and the empty-state hint.
+function getActiveCalFilters() {
+  const active = [];
+  try {
+    if (_savedMode === 'saved') active.push({ kind: 'saved', group: 'Saved', label: '♥ Saved only' });
+    if (_timeFilter !== 'upcoming') active.push({ kind: 'time', group: 'When', label: _timeFilter === 'past' ? 'Past events' : 'All time' });
+    if (_genreFilter) active.push({ kind: 'genre', group: 'Vibe', label: 'Vibe: ' + (_calSelLabel('cal-vibe-select') || _genreFilter) });
+    if (_regionFilter) active.push({ kind: 'region', group: 'Region', label: 'Region: ' + (_calSelLabel('cal-region-select') || _regionFilter) });
+    if (_monthFilter !== '') active.push({ kind: 'month', group: 'Month', label: MONTH_NAMES[_monthFilter - 1] || 'Month' });
+    if (_organizerFilter) active.push({ kind: 'organizer', group: 'Organizer', label: _organizerFilter });
+    if (_nearActive) active.push({ kind: 'near', group: 'Near Me', label: _maxMiles === 9999 ? 'Near me' : 'Near me · ' + _maxMiles + ' mi' });
+  } catch (e) { console.error('getActiveCalFilters error:', e); }
+  return active;
+}
+
+// Live "Showing X of Y" + filter tokens + badge. Called on every render.
+function updateCalStatus(list) {
+  try {
+    const countEl = document.getElementById('cal-result-count');
+    if (countEl && list) {
+      countEl.innerHTML = `Showing <strong>${list.length}</strong> of ${festivals.length}`;
+    }
+
+    const active = getActiveCalFilters();
+
+    const badge = document.getElementById('cal-filters-badge');
+    if (badge) {
+      // Near Me has its own always-visible button state, so it doesn't count
+      // toward the FILTERS badge.
+      const n = active.filter(a => a.kind !== 'near').length;
+      badge.textContent = n;
+      badge.style.display = n ? '' : 'none';
+    }
+
+    const wrap = document.getElementById('cal-active-filters');
+    if (wrap) {
+      if (!active.length) {
+        wrap.innerHTML = '';
+        wrap.classList.remove('has-chips');
+      } else {
+        wrap.classList.add('has-chips');
+        wrap.innerHTML = active.map(a =>
+          `<button class="cal-chip" onclick="removeCalFilter('${a.kind}')" title="Remove this filter">${a.label}<span class="cal-chip-x">✕</span></button>`
+        ).join('') +
+        `<button class="cal-chip cal-chip--clear" onclick="clearAllCalFilters()">Clear all</button>`;
+      }
+    }
+  } catch (e) { console.error('updateCalStatus error:', e); }
+}
+
+// Shared reset used by both the chips and clear-all. Only touches UI state +
+// the existing filter variables — filtering logic itself is unchanged.
+function _calResetFilter(kind) {
+  switch (kind) {
+    case 'saved': {
+      _savedMode = 'all';
+      document.querySelectorAll('.saved-mode-btn').forEach(b => b.classList.remove('active'));
+      const b = document.getElementById('btn-mode-all');
+      if (b) b.classList.add('active');
+      break;
+    }
+    case 'time': {
+      _timeFilter = 'upcoming';
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      const b = document.getElementById('btn-upcoming');
+      if (b) b.classList.add('active');
+      break;
+    }
+    case 'genre': {
+      _genreFilter = '';
+      const s = document.getElementById('cal-vibe-select');
+      if (s) s.value = '';
+      break;
+    }
+    case 'region': {
+      _regionFilter = '';
+      const s = document.getElementById('cal-region-select');
+      if (s) s.value = '';
+      break;
+    }
+    case 'month': {
+      _monthFilter = '';
+      const s = document.getElementById('cal-month-select');
+      if (s) s.value = '';
+      break;
+    }
+    case 'organizer': {
+      _organizerFilter = '';
+      const s = document.getElementById('cal-organizer-select');
+      if (s) s.value = '';
+      break;
+    }
+    case 'near': {
+      _nearActive = false;
+      _userLat = null;
+      _userLng = null;
+      const b = document.getElementById('cal-near-me-btn');
+      if (b) b.classList.remove('active');
+      const c = document.getElementById('cal-near-me-controls');
+      if (c) c.style.display = 'none';
+      break;
+    }
+  }
+}
+
+function removeCalFilter(kind) {
+  try {
+    _calResetFilter(kind);
+    renderActiveView();
+  } catch (e) { console.error('removeCalFilter error:', e); }
+}
+
+function clearAllCalFilters() {
+  try {
+    ['saved', 'time', 'genre', 'region', 'month', 'organizer', 'near'].forEach(_calResetFilter);
+    renderActiveView();
+  } catch (e) { console.error('clearAllCalFilters error:', e); }
+}
+
+// Empty state — names the first active filter as the likely culprit and
+// always offers a one-click way out.
+function calEmptyStateHTML() {
+  try {
+    const active = getActiveCalFilters();
+    const hint = active.length
+      ? `Try clearing <strong>${active[0].group}</strong>, or reset everything below.`
+      : `Check back soon — new dates drop as they're announced.`;
+    const clearBtn = active.length
+      ? `<button class="cfp-clear" onclick="clearAllCalFilters()">Clear all filters</button>`
+      : '';
+    return `
+      <div class="cal-empty-state">
+        <p class="ces-title">NO FESTIVALS MATCH</p>
+        <p class="ces-sub">${hint}</p>
+        ${clearBtn}
+      </div>`;
+  } catch (e) {
+    console.error('calEmptyStateHTML error:', e);
+    return `<p class="cal-empty">No festivals match these filters.</p>`;
+  }
+}
+
+// Sticky month labels pin just below the control bar — measure the bar (it
+// can wrap to two lines on small screens) into a CSS var.
+function setCalBarHeight() {
+  try {
+    const bar = document.getElementById('cal-control-bar');
+    if (bar) document.documentElement.style.setProperty('--cal-bar-h', bar.offsetHeight + 'px');
+  } catch (e) { console.error('setCalBarHeight error:', e); }
+}
+
 // Populate the Vibe + Region <select> options from the shared festival taxonomy
 // so the calendar always offers the same complete set as the homepage. The
 // static "All vibes"/"All regions" options in the markup act as a fallback if
@@ -1100,6 +1536,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   populateCalFilterSelects();   // vibe + region options from data (in sync w/ homepage)
   renderActiveView();
+
+  // Sticky offsets: keep --cal-bar-h in sync with the control bar's real
+  // height. The bar re-wraps when web fonts swap in and on narrow screens,
+  // so observe it directly rather than measuring once.
+  setCalBarHeight();
+  window.addEventListener('resize', setCalBarHeight);
+  try {
+    if (window.ResizeObserver) {
+      const bar = document.getElementById('cal-control-bar');
+      if (bar) new ResizeObserver(setCalBarHeight).observe(bar);
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setCalBarHeight);
+  } catch (e) { console.error('cal-bar-h observer error:', e); }
+
+  // Esc closes the filter panel / mobile sheet
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') toggleCalFilters(false);
+  });
 
   // Deep-link highlight: a homepage festival search result with no detail page
   // links here as /calendar?festival=<id>. Reveal + flash that festival's card
