@@ -167,6 +167,63 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'tomorrowland-2026-fireworks-ban',
+    title: 'Tomorrowland Hit With Fireworks Ban for Weekend 1 as Drought Grips Belgium',
+    slug: 'tomorrowland-2026-fireworks-ban',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-07-15',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=800&q=80',
+    excerpt: 'Days before gates open, Belgian authorities banned fireworks and pyro at Tomorrowland Weekend 1 over wildfire risk. Here is what happened and what it means for the spectacle.',
+    published: true,
+    featured: true,
+    body: `<p>One of Tomorrowland's most iconic traditions is going dark for its opening weekend. Days before gates open, Belgian authorities have banned all fireworks and pyrotechnics at the world's biggest EDM festival for Weekend 1, citing extreme drought and wildfire risk around the Boom site.<sup>1</sup></p>
+
+<p>Here is the breakdown.</p>
+
+<h2>What got banned</h2>
+
+<p>The ban covers both traditional aerial fireworks and on-stage pyrotechnics for Weekend 1 (July 17 to 19). It applies to the festival grounds at De Schorre in Boom and the neighboring DreamVille campsite in Rumst, where thousands of attendees camp.<sup>2</sup> The decision came from the mayors of Boom and Rumst together with Antwerp Provincial Governor Cathy Berx, acting on advice from the fire department.<sup>1</sup></p>
+
+<h2>Why</h2>
+
+<p>Belgium is baking. The region is under a Code Orange warning, the second-highest wildfire risk level in the country, after a stretch of extreme heat left the area dangerously dry. As the mayor of Rumst put it, it is simply too dry, and officials said the assessment would not change in the 48 hours before the festival.<sup>2</sup></p>
+
+<p>The caution is not abstract. Last year, Tomorrowland's famous mainstage burned to the ground just two days before the festival, and a recent Belgian report suggests the blaze may have been caused by an ethanol spill during pyrotechnic testing.<sup>3</sup> That history hangs over every spark decision this year.</p>
+
+<h2>No easy plan B</h2>
+
+<p>The obvious alternative, a drone light show like the one Tomorrowland Brasil has used, is off the table here. The Boom site sits too close to Antwerp International Airport for drones to fly legally.<sup>1</sup> Lasers and lighting will continue, but as spokesperson Debby Wilmsen admitted, replacing the fireworks with something equally magical is a real challenge.<sup>2</sup></p>
+
+<h2>Organizers say they were blindsided</h2>
+
+<p>Tomorrowland says it found out about the ban through the media rather than directly from officials, and that neither the festival nor its pyro experts were consulted first. Wilmsen called the lack of communication very regrettable.<sup>1</sup> The mayor of Rumst disputes that, saying organizers were told as soon as the decision was final.<sup>2</sup></p>
+
+<h2>What about Weekend 2?</h2>
+
+<p>For now, the ban is Weekend 1 only. A decision on fireworks for Weekend 2 (July 24 to 26) will be made closer to the time, pending conditions and a final security meeting.<sup>2</sup> So the spectacle could return for the second wave, or the drought could keep it grounded.</p>
+
+<h2>The bigger picture</h2>
+
+<p>This is not happening in a vacuum. Europe's heatwave is battering festival season across the continent. Just next door in the Netherlands, Defqon.1 was called off entirely under the country's first-ever Code Red warning.<sup>4</sup> Tomorrowland losing its fireworks, frustrating as it is, counts as getting off relatively easy.</p>
+
+<p>The show goes on either way. Nearly 25,000 fans from over 100 countries are already flying in, and more than 200,000 people will fill De Schorre across the weekend.<sup>2</sup> Fireworks or not, Tomorrowland is still Tomorrowland.</p>
+
+<p>Want to plan your sets? You can browse the full lineup and timetable on <a href="https://belgium.tomorrowland.com/en/line-up/?day=2026-07-17" target="_blank" rel="noopener">Tomorrowland's official lineup page</a>.</p>
+
+<p>Stay tuned to <a href="/">plurgasm.com</a> (@plurgasm) for updates on the Weekend 2 call. Peace, love, unity, respect. ⚡</p>
+
+<h3>Sources</h3>
+<ol class="sources">
+<li><a href="https://edm.com/news/tomorrowland-fireworks-ban-2026-festival/" target="_blank" rel="noopener">EDM.com — Tomorrowland Organizers Blindsided by Fireworks Ban</a></li>
+<li><a href="https://djmag.com/news/tomorrowland-2026-fireworks-and-pyrotechnics-banned-weekend-one-due-fire-risk" target="_blank" rel="noopener">DJ Mag — Fireworks and pyrotechnics banned for weekend one</a></li>
+<li><a href="https://djmag.com/news/tomorrowland-2025-mainstage-fire-reportedly-caused-ethanol-spill-during-testing" target="_blank" rel="noopener">DJ Mag — 2025 mainstage fire reportedly caused by ethanol spill</a></li>
+<li><a href="https://edmidentity.com/2026/07/15/tomorrowland-2025-no-fireworks/" target="_blank" rel="noopener">EDM Identity — Tomorrowland Banned From Lighting Fireworks</a></li>
+</ol>`
+  },
+
+  {
     id: 'post-014',
     title: 'Where to Party in Cape Verde: A Festival & Nightlife Guide',
     slug: 'cape-verde-festivals-nightlife-guide',
