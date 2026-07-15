@@ -28,7 +28,9 @@
     { label: 'Brands',   href: '/#brands',    icon: 'icon-nav-brands.webp' },
     { label: 'Festivals',href: '/#festivals', icon: 'icon-nav-festivals.webp' },
     { label: 'Search',   href: null,          icon: 'icon-nav-search.webp',   isSearch: true },
-    { label: 'Creators', href: '/social',icon: '/images/nav/icon-nav-creators.webp' },
+    // icon-creator.webp has a real transparent bg — override the
+    // .bn-icon-img screen blend meant for the black-bg nav icons.
+    { label: 'Creators', href: '/social', icon: '/images/icons/icon-creator.webp', imgStyle: 'mix-blend-mode:normal;' },
     { label: 'Blog',     href: '/blog',      icon: 'icon-nav-blog.webp' },
     { label: 'Calendar', href: '/calendar', icon: 'icon-nav-calendar.webp' },
   ];

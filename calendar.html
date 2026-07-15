@@ -728,7 +728,7 @@ body { overflow-x: clip; }
       <button class="ccb-btn" id="cal-filters-toggle" onclick="toggleCalFilters()" aria-expanded="false" aria-controls="cal-filter-panel">
         Filters <span class="ccb-badge" id="cal-filters-badge" style="display:none;"></span>
       </button>
-      <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()">📍 Near Me</button>
+      <button class="filter-btn near-me-btn" id="cal-near-me-btn" onclick="toggleCalNearMe()"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"> Near Me</button>
       <button class="ccb-btn ccb-search-btn" id="cal-search-toggle" onclick="toggleCalSearch()">🔍 Search</button>
       <div class="ccb-views">
         <button class="view-btn cal-view-btn active" id="btn-timeline-view" onclick="setCalView('timeline',this)">Timeline</button>
@@ -872,6 +872,8 @@ body { overflow-x: clip; }
 const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const dotClass = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
 const TODAY = new Date().toISOString().slice(0,10);
+// Branded location pin (transparent bg — keep mix-blend-mode normal)
+const PIN_ICON_HTML = '<img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location">';
 
 function googleCalUrl(f) {
   try {
@@ -971,7 +973,7 @@ function festRowHTML(f) {
             <span class="cal-name">${f.name}</span>
             ${past ? `<span class="past-badge">ENDED</span>` : ''}
           </div>
-          <span class="cal-loc">📍 ${f.location}</span>
+          <span class="cal-loc"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"> ${f.location}</span>
           <span class="cal-meta">${f.age}${f.days ? ` · ${f.days}d` : ''}</span>
           ${(f.genres && f.genres.length) ? `<div class="cal-genres">${f.genres.slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>` : ''}
         </div>
@@ -1061,7 +1063,7 @@ function _buildFestPopup(f, distMiles) {
   return `<div class="map-popup">
     <div class="mp-name">${f.name}</div>
     <div class="mp-dates">${f.dates}</div>
-    <div class="mp-loc">📍 ${f.location}</div>
+    <div class="mp-loc"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"> ${f.location}</div>
     ${distHtml}${genresHtml}${headlineHtml}${actionsHtml}${pastNote}${detailLink}
   </div>`;
 }
@@ -1089,9 +1091,9 @@ function renderMap(list) {
         className: '',
         html: past
           ? `<div style="width:10px;height:10px;border-radius:50%;background:#666;opacity:0.45;"></div>`
-          : `<div style="width:12px;height:12px;border-radius:50%;background:#00e5ff;box-shadow:0 0 8px 3px rgba(0,229,255,0.55);"></div>`,
-        iconSize: past ? [10,10] : [12,12],
-        iconAnchor: past ? [5,5] : [6,6]
+          : `<img src="images/icons/icon-pin.webp" alt="" style="width:16px;height:22px;object-fit:contain;filter:drop-shadow(0 0 5px rgba(182,77,255,0.7));">`,
+        iconSize: past ? [10,10] : [16,22],
+        iconAnchor: past ? [5,5] : [8,22]
       });
       const marker = L.marker([f.lat, f.lng], { icon });
       marker.bindPopup(_buildFestPopup(f, null));
@@ -1255,9 +1257,9 @@ function toggleCalNearMe() {
       _userLat = pos.coords.latitude;
       _userLng = pos.coords.longitude;
       _nearActive = true;
-      status.textContent = _maxMiles === 9999
-        ? '📍 Location found — showing all festivals'
-        : `📍 Location found — showing within ${_maxMiles} miles`;
+      status.innerHTML = _maxMiles === 9999
+        ? `${PIN_ICON_HTML} Location found — showing all festivals`
+        : `${PIN_ICON_HTML} Location found — showing within ${_maxMiles} miles`;
       renderActiveView();
     },
     () => {
@@ -1275,9 +1277,9 @@ function setCalDistance(miles, btn) {
   btn.classList.add('active');
   const status = document.getElementById('cal-near-me-status');
   if (status && _userLat != null) {
-    status.textContent = miles === 9999
-      ? '📍 Showing all festivals'
-      : `📍 Showing within ${miles} miles`;
+    status.innerHTML = miles === 9999
+      ? `${PIN_ICON_HTML} Showing all festivals`
+      : `${PIN_ICON_HTML} Showing within ${miles} miles`;
   }
   renderActiveView();
 }

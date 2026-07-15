@@ -3549,6 +3549,24 @@ footer {
   display: block;
 }
 
+/* ── BRANDED TRANSPARENT ICONS (images/icons/) ──
+   These PNGs/WebPs already have transparent backgrounds. The screen-blend
+   trick above is ONLY for the old black-background icons — it would wash
+   out these icons' colors, so they must always render with normal blending. */
+.icon-pin-inline {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: -0.12em;
+  mix-blend-mode: normal;
+}
+/* opt-out class for spots where a parent rule applies screen blending
+   (e.g. .hero-chip-icon, .bn-icon-img) — img+class outranks a lone class */
+img.icon-true-color {
+  mix-blend-mode: normal;
+}
+
 .bn-item:hover .bn-icon-img {
   opacity: 1;
   transform: scale(1.1);

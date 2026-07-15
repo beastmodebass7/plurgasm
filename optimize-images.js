@@ -70,6 +70,16 @@ const JOBS = [
     resize: { width: 1200, fit: 'inside', withoutEnlargement: true },
     quality: 80,
   },
+  {
+    name: '8. Branded transparent icons (128x128)',
+    // These already have transparent backgrounds (no black bg, no
+    // mix-blend-mode trick). Trim the large transparent margins first so the
+    // glyph fills the canvas like the emoji it replaces at ~1em sizes.
+    files: glob('images/icons', /^icon-.*\.png$/i),
+    trim: 25,
+    resize: { width: 128, height: 128, fit: 'inside', withoutEnlargement: true },
+    quality: 85,
+  },
 ];
 
 function glob(dir, re) {
@@ -128,6 +138,9 @@ async function run() {
         continue;
       }
 
+      // Trim borders matching the top-left pixel (transparent for the icon
+      // set) before resizing; job.trim is the sharp trim threshold.
+      if (job.trim) pipeline = pipeline.trim({ threshold: job.trim });
       if (job.resize) pipeline = pipeline.resize(job.resize);
       // WebP keeps the alpha channel, so mix-blend-mode screen/lighten on a
       // black bg keeps removing the black. Lossy q80-85 is plenty here.

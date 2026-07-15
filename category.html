@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="bm-chips">
         <span class="bm-chip ${priceChipClass(b.price)}"><span class="bm-chip-icon">💰</span>${b.price || 'Price varies'}</span>
         ${b.ship ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">⏱</span>${b.ship}</span>` : ''}
-        ${b.loc  ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">📍</span>${b.loc}</span>` : ''}
+        ${b.loc  ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"></span>${b.loc}</span>` : ''}
         ${b.ig   ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">📱</span>${b.ig}</span>` : ''}
       </div>
       <div class="bm-body">
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="brand-meta">
             <span class="brand-price ${b.priceCls}">${b.price}</span>
             <span class="brand-ship">⏱ ${b.ship}</span>
-            <span class="brand-loc">📍 ${b.loc}</span>
+            <span class="brand-loc"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"> ${b.loc}</span>
           </div>
           <p class="brand-style">${b.style}</p>
           <p class="brand-desc">${b.desc}</p>

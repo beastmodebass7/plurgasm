@@ -1,6 +1,9 @@
 ﻿/* ════════════════════════════════════════════════
    NEAR ME — location filter
 ════════════════════════════════════════════════ */
+// Branded location pin (transparent bg — keep mix-blend-mode normal)
+const PIN_ICON_HTML = '<img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location">';
+
 function haversineDistance(lat1, lng1, lat2, lng2) {
   const R = 3958.8;
   const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -47,7 +50,7 @@ function toggleNearMe() {
       _userLat = pos.coords.latitude;
       _userLng = pos.coords.longitude;
       _nearMeActive = true;
-      status.textContent = `📍 Location found — showing within ${_maxMiles} miles`;
+      status.innerHTML = `${PIN_ICON_HTML} Location found — showing within ${_maxMiles} miles`;
       refreshFestView();
     },
     () => {
@@ -65,9 +68,9 @@ function setDistance(miles, btn) {
   btn.classList.add('active');
   const status = document.getElementById('near-me-status');
   if (status && _userLat) {
-    status.textContent = miles === 9999
-      ? '📍 Showing all festivals'
-      : `📍 Showing within ${miles} miles`;
+    status.innerHTML = miles === 9999
+      ? `${PIN_ICON_HTML} Showing all festivals`
+      : `${PIN_ICON_HTML} Showing within ${miles} miles`;
   }
   refreshFestView();
 }
@@ -215,11 +218,11 @@ function renderFestivals() {
         ${cover}
         ${getDaysBadge(f.sortDate)}
         <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
-        ${f._distanceMiles != null ? `<span class="fest-distance-badge">📍 ${f._distanceMiles} mi away</span>` : ''}
+        ${f._distanceMiles != null ? `<span class="fest-distance-badge">${PIN_ICON_HTML} ${f._distanceMiles} mi away</span>` : ''}
         <div class="fest-card-info">
           <span class="fci-date">${f.dates}</span>
           <span class="fci-name">${f.name}</span>
-          <span class="fci-loc">📍 ${f.location}</span>
+          <span class="fci-loc">${PIN_ICON_HTML} ${f.location}</span>
           <span class="fci-meta">${f.age} &nbsp;·&nbsp; ${f.days} Day${f.days>1?'s':''}</span>
         </div>
       </div>
@@ -308,7 +311,7 @@ function renderCalendar() {
               <div class="cal-info-col">
                 <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
                 <span class="cal-name">${f.name}</span>
-                <span class="cal-loc">📍 ${f.location} &nbsp;·&nbsp; ${f.age}</span>
+                <span class="cal-loc">${PIN_ICON_HTML} ${f.location} &nbsp;·&nbsp; ${f.age}</span>
                 <div class="cal-genres">${f.genres.slice(0,3).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
                 ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}
                 ${window.PlurSaves ? PlurSaves.buttonHtml(f.id) : ''}
@@ -589,7 +592,7 @@ function renderBrands(cat) {
       <div class="brand-meta">
         <span class="brand-price ${b.priceCls}">${b.price}</span>
         <span class="brand-ship">⏱ ${b.ship}</span>
-        <span class="brand-loc">📍 ${b.loc}</span>
+        <span class="brand-loc">${PIN_ICON_HTML} ${b.loc}</span>
       </div>
       <p class="brand-cat-label">${catLabel}</p>
       <p class="brand-desc">${b.desc}</p>
@@ -672,7 +675,7 @@ function openBrandModal(id) {
         <span class="bm-chip-icon">💰</span>${b.price || 'Price varies'}
       </span>
       ${b.ship ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">⏱</span>${b.ship}</span>` : ''}
-      ${b.loc  ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">📍</span>${b.loc}</span>` : ''}
+      ${b.loc  ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">${PIN_ICON_HTML}</span>${b.loc}</span>` : ''}
       ${b.ig   ? `<span class="bm-chip chip-neutral"><span class="bm-chip-icon">📱</span>${b.ig}</span>` : ''}
     </div>
 
