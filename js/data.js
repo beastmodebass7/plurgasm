@@ -167,6 +167,79 @@ const BRANDS = [
 PLURGASM_DATA.blogPosts = [
 
   {
+    id: 'rave-harm-reduction-organizations',
+    title: 'The Harm Reduction Heroes of Rave Culture: Who They Are and How They Keep Us Alive',
+    slug: 'rave-harm-reduction-organizations',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-07-16',
+    category: 'safety',
+    coverImage: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80',
+    excerpt: 'Rave culture and drug use have always been linked. These organizations show up to festivals to keep people alive, and knowing who they are might let you save a life too.',
+    published: true,
+    featured: true,
+    body: `<p>Let's be honest about something the rave scene doesn't always say out loud: electronic music culture and drug use have been intertwined for decades. That's not an endorsement, it's just reality. And with today's drug supply more dangerous than ever, pretending otherwise costs lives. The beautiful thing about PLUR is that our community has never been about judgment. It's about looking out for each other. That's exactly what harm reduction is.</p>
+
+<p>Harm reduction is a simple, evidence-based idea: meet people where they are and reduce the dangers of drug use without demanding abstinence first.<sup>1</sup> Instead of "just don't," it's "if you're going to, here's how to stay alive, and here's help if something goes wrong." For a culture that packs hundreds of thousands of people into fields every summer, that mindset saves real lives.</p>
+
+<h2>Why this matters more than ever</h2>
+
+<p>The single biggest reason is fentanyl. This synthetic opioid is showing up in counterfeit pills and contaminating non-opioid drugs, meaning people can take something laced with a potentially lethal opioid without ever knowing it.<sup>2</sup> Newer threats like nitazenes (which can be even more potent than fentanyl) and xylazine (a sedative that naloxone can't reverse) are making an already dangerous supply worse.<sup>3</sup></p>
+
+<p>The one tool everyone should know about is naloxone, better known by the brand name Narcan. It's an opioid antagonist: if someone's breathing has slowed or stopped from an opioid overdose, naloxone can knock the opioids off their brain receptors and restore normal breathing within minutes.<sup>4</sup> It's a nasal spray, it's safe to give even if you're not sure opioids are involved, it has no potential for abuse, and anyone can carry it and use it.<sup>4</sup> The scale of need is real: one festival-focused harm reduction nonprofit distributed 16,755 doses of Narcan in a single year.<sup>5</sup> Fentanyl's potency means it can take multiple doses, and you should always call 911.<sup>4</sup></p>
+
+<p>Here's the PLUR part: if a volunteer at a festival hands you Narcan, take it. Clip it to your backpack or fanny pack. You may never need it, but you could be the person standing next to someone who does, someone whose supply got tampered with, or who never got a good education on any of this. Carrying it costs you nothing and could let you save a stranger's life. That's about as rave-family as it gets.</p>
+
+<h2>The organizations doing the work</h2>
+
+<p>These are the groups you'll see setting up tents, training volunteers, and handing out supplies at festivals across the country. Get to know them, and if you see them at a show, say thank you.</p>
+
+<h3>DanceSafe</h3>
+<p>The best-known harm reduction nonprofit in North American rave culture, and the only nonprofit manufacturer of drug-checking kits in the country, setting the standard since 1999.<sup>6</sup> They provide reagent testing kits, fentanyl test strips, nonjudgmental drug education literature, a mail-in secondary drug-checking service, and even consent education through their WeLoveConsent program.<sup>6</sup> You'll find their booths at major festivals across the continent.<sup>7</sup></p>
+
+<h3>End Overdose</h3>
+<p>Focused on overdose prevention through free naloxone (Narcan) training and education. Their free virtual training takes about 20 minutes and teaches you how to recognize and respond to an opioid overdose.<sup>7</sup> They're a frequent presence at EDM festivals and concerts, and their mission is exactly the "everyone can save a life" ethos.</p>
+
+<h3>Bunk Police</h3>
+<p>Longtime providers of drug-checking supplies and education, known for distributing testing kits at festivals like Electric Forest.<sup>8</sup> They've been a fixture of the on-site testing movement, though which festivals allow drug checking varies year to year as promoters navigate the legal gray area.<sup>9</sup></p>
+
+<h3>DrugsData (formerly EcstasyData)</h3>
+<p>An independent laboratory testing database run by Erowid. People anonymously submit pills, powders, and crystals, and the lab publishes what's actually in them, one of the most trusted public records of what's circulating.</p>
+
+<h3>Erowid</h3>
+<p>A long-running, extensively referenced library of drug information, effects, risks, and health resources. It's frequently cited by harm reduction organizations as a factual reference.</p>
+
+<h3>RollSafe</h3>
+<p>An education resource focused specifically on MDMA harm reduction, covering topics like hydration, overheating, recovery, and common myths, aimed at helping people understand the risks.</p>
+
+<h3>Rave Safe Inc.</h3>
+<p>A regional nonprofit serving the Kansas City and St. Louis areas, providing naloxone education, fentanyl test strip information, and festival outreach at the local level, the grassroots backbone of this movement.</p>
+
+<h2>What you'll see at festivals</h2>
+
+<p>Increasingly, festivals themselves are embracing this. Naloxone is now as standard on-site as first aid kits, medics carry it, and some events have installed Narcan vending machines.<sup>3</sup> Drug checking is more contested, some promoters allow DanceSafe or similar groups to run fentanyl-testing tents, while others still won't, wary of appearing to condone drug use.<sup>9</sup> You'll also see peer support and welfare teams (sometimes called sanctuary or ground control spaces) trained to help someone having a hard time.</p>
+
+<h2>Be the help</h2>
+
+<p>You don't have to use anything to be part of this. Learn the signs of an overdose. Take a free 20-minute Narcan training. Carry naloxone. Check on the person sitting down alone who doesn't look right. Keep an eye on your crew and the strangers around you. In a scene built on peace, love, unity, and respect, looking out for each other isn't extra, it's the whole point.</p>
+
+<p>This is a sensitive topic, and if you or someone you know is struggling with substance use, reaching out to a doctor or a support service is always worth it. But at the festival, right now, knowing this stuff could mean someone goes home to their family. That's the most PLUR thing there is.</p>
+
+<h3>Sources</h3>
+<ol class="sources">
+<li><a href="https://www.grata-health.com/blog/harm-reduction-at-music-events" target="_blank" rel="noopener">Grata Health — Harm Reduction at Music Festivals</a></li>
+<li><a href="https://kffhealthnews.org/news/article/music-festivals-overdose-reversal-drugs-fentanyl-testing-kits-naloxone/" target="_blank" rel="noopener">KFF Health News — Music Festivals Embrace Overdose Reversal Drugs</a></li>
+<li><a href="https://www.festivalpro.com/festival-management/5340/news/2026/2/2/Drug-Safety-and-Harm-Reduction-for-Music-Festivals.html" target="_blank" rel="noopener">FestivalPro — Drug Safety and Harm Reduction for Music Festivals</a></li>
+<li><a href="https://magazine.medlineplus.gov/article/how-naloxone-reverses-opioid-overdoses-and-why-its-important-to-have-on-hand" target="_blank" rel="noopener">NIH MedlinePlus — How Naloxone Reverses Opioid Overdoses</a></li>
+<li><a href="https://stilldetox.com/staying-safe-at-music-festivals-drug-risks-and-safety-tips-for-festival-goers/" target="_blank" rel="noopener">Still Detox — Narcan distribution at festivals</a></li>
+<li><a href="https://dancesafe.org/" target="_blank" rel="noopener">DanceSafe — official site</a></li>
+<li><a href="https://raveival.com/harm-reduction-resources-ravers/" target="_blank" rel="noopener">Raveival — Harm Reduction Resources for Ravers</a></li>
+<li><a href="https://stilldetox.com/staying-safe-at-music-festivals-drug-risks-and-safety-tips-for-festival-goers/" target="_blank" rel="noopener">Still Detox — Bunk Police at Electric Forest</a></li>
+<li><a href="https://kffhealthnews.org/news/article/music-festivals-overdose-reversal-drugs-fentanyl-testing-kits-naloxone/" target="_blank" rel="noopener">KFF Health News — drug checking remains contested</a></li>
+</ol>`
+  },
+
+  {
     id: 'tomorrowland-2026-fireworks-ban',
     title: 'Tomorrowland Hit With Fireworks Ban for Weekend 1 as Drought Grips Belgium',
     slug: 'tomorrowland-2026-fireworks-ban',
