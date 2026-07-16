@@ -4224,6 +4224,14 @@ img.icon-true-color {
   pointer-events: none;
   animation: dcPulse 2.6s ease-in-out infinite;
 }
+/* branded nav icon (black bg) — screen blend drops the black, like .bn-icon-img */
+.dc-icon img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
 .dc-text { min-width: 0; }
 .dc-link {
   margin-left: auto;

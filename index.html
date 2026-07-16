@@ -349,7 +349,7 @@
 
   <!-- Discovery CTA (state-aware: text + behaviour flip on sign-in/out) -->
   <div id="rave-cal-cta" class="discovery-cta is-loggedout" role="status" aria-live="polite">
-    <span class="dc-icon" aria-hidden="true">🗓️</span>
+    <span class="dc-icon" aria-hidden="true"><img src="images/nav/icon-nav-calendar.webp" alt="" width="18" height="18" loading="lazy"></span>
     <span class="dc-text" id="rave-cal-cta-text">Sign in and save festivals to build your own rave calendar</span>
     <a class="dc-link" id="rave-cal-cta-link" href="/profile" style="display:none;">Your rave calendar →</a>
   </div>
@@ -625,7 +625,7 @@
     if (session && session.user) {
       el.classList.remove('is-loggedout');
       el.classList.add('is-loggedin');
-      txt.textContent = 'Tap the heart on any festival to add it to your rave calendar.';
+      txt.textContent = 'Tap + Add to List on any festival to add it to your rave calendar.';
       if (link) link.style.display = '';
     } else {
       el.classList.remove('is-loggedin');
