@@ -2804,6 +2804,63 @@ footer {
   padding: 0.15em 0 0.15em 2.3em;
 }
 
+/* ORG ACCORDION — native <details>/<summary> rows (no JS: safety-page
+   content must survive script failure and stay indexable). Each org
+   name is a clickable hairline row; a mono "+" rotates to "×" when
+   open. Scoped to .org-accordion so nothing leaks to other pages. */
+.post-body details.org-accordion {
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+}
+.post-body details.org-accordion:first-of-type {
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.post-body details.org-accordion:last-of-type { margin-bottom: 2em; }
+.post-body .org-accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 2px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--display);
+  font-size: 22px;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  color: var(--white);
+  transition: color 0.2s;
+}
+.post-body .org-accordion summary::-webkit-details-marker { display: none; }
+.post-body .org-accordion summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1;
+  color: var(--cyan);
+  transition: transform 0.25s ease;
+}
+.post-body .org-accordion summary:hover,
+.post-body .org-accordion[open] summary { color: var(--cyan); }
+.post-body .org-accordion[open] summary::after { transform: rotate(45deg); }
+.post-body .org-accordion summary:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: 2px;
+}
+.post-body .org-accordion > p {
+  margin: 0;
+  padding: 2px 2px 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .post-body .org-accordion summary,
+  .post-body .org-accordion summary::after { transition: none; }
+}
+
 /* centered, width-capped brand logo embedded near the top of a blog
    post body (e.g. the Trippy Squid affiliate post). Kept in a class so
    the data.js body template literal stays free of inline styles. */

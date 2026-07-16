@@ -194,26 +194,40 @@ PLURGASM_DATA.blogPosts = [
 
 <p>These are the groups you'll see setting up tents, training volunteers, and handing out supplies at festivals across the country. Get to know them, and if you see them at a show, say thank you.</p>
 
-<h3>DanceSafe</h3>
+<details class="org-accordion">
+<summary>DanceSafe</summary>
 <p>The best-known harm reduction nonprofit in North American rave culture, and the only nonprofit manufacturer of drug-checking kits in the country, setting the standard since 1999.<sup>6</sup> They provide reagent testing kits, fentanyl test strips, nonjudgmental drug education literature, a mail-in secondary drug-checking service, and even consent education through their WeLoveConsent program.<sup>6</sup> You'll find their booths at major festivals across the continent.<sup>7</sup></p>
+</details>
 
-<h3>End Overdose</h3>
+<details class="org-accordion">
+<summary>End Overdose</summary>
 <p>Focused on overdose prevention through free naloxone (Narcan) training and education. Their free virtual training takes about 20 minutes and teaches you how to recognize and respond to an opioid overdose.<sup>7</sup> They're a frequent presence at EDM festivals and concerts, and their mission is exactly the "everyone can save a life" ethos.</p>
+</details>
 
-<h3>Bunk Police</h3>
+<details class="org-accordion">
+<summary>Bunk Police</summary>
 <p>Longtime providers of drug-checking supplies and education, known for distributing testing kits at festivals like Electric Forest.<sup>8</sup> They've been a fixture of the on-site testing movement, though which festivals allow drug checking varies year to year as promoters navigate the legal gray area.<sup>9</sup></p>
+</details>
 
-<h3>DrugsData (formerly EcstasyData)</h3>
+<details class="org-accordion">
+<summary>DrugsData (formerly EcstasyData)</summary>
 <p>An independent laboratory testing database run by Erowid. People anonymously submit pills, powders, and crystals, and the lab publishes what's actually in them, one of the most trusted public records of what's circulating.</p>
+</details>
 
-<h3>Erowid</h3>
+<details class="org-accordion">
+<summary>Erowid</summary>
 <p>A long-running, extensively referenced library of drug information, effects, risks, and health resources. It's frequently cited by harm reduction organizations as a factual reference.</p>
+</details>
 
-<h3>RollSafe</h3>
+<details class="org-accordion">
+<summary>RollSafe</summary>
 <p>An education resource focused specifically on MDMA harm reduction, covering topics like hydration, overheating, recovery, and common myths, aimed at helping people understand the risks.</p>
+</details>
 
-<h3>Rave Safe Inc.</h3>
+<details class="org-accordion">
+<summary>Rave Safe Inc.</summary>
 <p>A regional nonprofit serving the Kansas City and St. Louis areas, providing naloxone education, fentanyl test strip information, and festival outreach at the local level, the grassroots backbone of this movement.</p>
+</details>
 
 <h2>What you'll see at festivals</h2>
 
