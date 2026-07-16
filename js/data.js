@@ -1103,20 +1103,25 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-009',
-    title: 'Bass Music 101: A Complete Guide to the Subgenres, Artists, and Festivals',
+    title: 'Bass Music Subgenres: A Complete Guide to Every Sound',
     slug: 'bass-music-101-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-06-01',
     category: 'culture',
     coverImage: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80',
-    excerpt: 'Dubstep, riddim, melodic bass, future bass, midtempo, bass house. If you are new to the bass music world, the subgenres can feel overwhelming. This is your complete guide to what each one sounds like, who the key artists are, and which festivals to go to based on where you live.',
+    excerpt: 'Bass music subgenres explained: dubstep, riddim, melodic bass, future bass, midtempo, bass house, and drum & bass — plus key artists and festivals.',
     published: true,
     featured: false,
     body: `
-    <p>Bass music is not one thing. It is a family of related genres that
-    share a foundation of heavy low-end frequencies and high-energy production,
-    but branch in wildly different directions from there.
+    <h2>What Is Bass Music?</h2>
+    <p>Bass music is an umbrella term for electronic dance music genres built
+    around heavy sub-bass frequencies and high-energy sound design —
+    a family that includes dubstep, riddim, melodic bass, future bass,
+    midtempo, bass house, and drum & bass.</p>
+
+    <p>It is not one thing. The subgenres branch in wildly different directions
+    from that shared foundation.
     Riddim sounds nothing like melodic bass.
     Future bass sounds nothing like midtempo.
     The artists who dominate one corner of the scene
@@ -1132,10 +1137,11 @@ PLURGASM_DATA.blogPosts = [
       alt="Bass music festival crowd"
       style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
 
-    <h2>Dubstep</h2>
-    <p>The origin point. Dubstep started in South London in the late 1990s
-    as a dark, minimal genre built around half-time rhythms and deep sub bass.
-    The original sound was spacious and atmospheric with a strong reggae and dub influence.
+    <h2>What Is Dubstep?</h2>
+    <p>Dubstep is a bass music genre built on half-time rhythms, deep sub bass,
+    and heavy, aggressive drops. It started in South London in the late 1990s
+    as a dark, minimal sound — spacious and atmospheric,
+    with a strong reggae and dub influence.
     By 2010 the American version had developed its own character entirely,
     emphasizing aggressive drops, distorted bass wobbles, and high-energy buildups.
     This American take is what most people mean when they say dubstep today.</p>
@@ -1151,11 +1157,12 @@ PLURGASM_DATA.blogPosts = [
     collaborations from 2011 to understand where modern dubstep came from,
     then follow Excision forward to hear how it evolved.</p>
 
-    <h2>Riddim</h2>
-    <p>Riddim split from dubstep around 2015 and developed its own dedicated following.
+    <h2>What Is Riddim?</h2>
+    <p>Riddim is a stripped-back subgenre of dubstep built around a repeating
+    bass pattern, a simple rhythm, and precise, mechanical sound design.
+    It split from dubstep around 2015 and developed its own dedicated following.
     The key difference is minimalism. Where traditional dubstep piles on complexity,
-    riddim strips everything back to a repeating bass pattern,
-    a simple rhythm, and precise sound design.
+    riddim strips everything back.
     The wobbles are cleaner and more mechanical.
     The drops feel like machinery rather than chaos.</p>
 
@@ -1170,11 +1177,11 @@ PLURGASM_DATA.blogPosts = [
     and work backward through the Virtual Riot catalog
     to understand how the sound developed.</p>
 
-    <h2>Melodic Bass / Melodic Dubstep</h2>
-    <p>The most emotionally accessible corner of the bass world.
-    Melodic bass keeps the weight and energy of dubstep
-    but wraps it in cinematic melodies, vocal chops,
-    and song structures that feel closer to pop than underground club music.
+    <h2>What Is Melodic Bass?</h2>
+    <p>Melodic bass (also called melodic dubstep) is a bass music subgenre
+    that pairs the weight and energy of dubstep with cinematic melodies,
+    vocal chops, and song structures closer to pop than underground club music.
+    It is the most emotionally accessible corner of the bass world.
     The drops still hit hard but you are also likely to feel something in your chest
     that has nothing to do with the volume.</p>
 
@@ -1196,11 +1203,11 @@ PLURGASM_DATA.blogPosts = [
       alt="Festival crowd with lights"
       style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
 
-    <h2>Future Bass</h2>
-    <p>Future bass sits at the intersection of bass music and pop electronic music.
-    The signature sound is a bright, chord-heavy drop built around
-    supersaw synths, pitched-up vocal chops, and melodies
-    that feel almost overwhelmingly euphoric.
+    <h2>What Is Future Bass?</h2>
+    <p>Future bass is a bright, euphoric bass music subgenre built around
+    chord-heavy drops, supersaw synths, and pitched-up vocal chops.
+    It sits at the intersection of bass music and pop electronic music,
+    with melodies that feel almost overwhelmingly euphoric.
     The energy is uplifting rather than aggressive.
     The crowds tend to be younger and the festival bookings
     often overlap with EDM mainstage programming.</p>
@@ -1216,11 +1223,11 @@ PLURGASM_DATA.blogPosts = [
     defined the genre. San Holo's album1
     pushed it in a more emotional direction worth exploring.</p>
 
-    <h2>Midtempo</h2>
-    <p>Midtempo is one of the more recently defined subgenres and
-    sits in interesting territory.
-    The tempo is slower than most bass music, usually around 90 to 110 BPM,
+    <h2>What Is Midtempo?</h2>
+    <p>Midtempo is a dark, cinematic bass music subgenre that runs slower
+    than most bass music — usually around 90 to 110 BPM —
     which creates a heaviness that feels less frantic and more deliberate.
+    It is one of the more recently defined subgenres.
     The bass is deep, the atmospheres are dark,
     and the music tends to have a cinematic quality
     that rewards headphone listening as much as festival sound systems.</p>
@@ -1236,9 +1243,9 @@ PLURGASM_DATA.blogPosts = [
     is the definitive midtempo record.
     Start there and follow the Rezz Nation rabbit hole.</p>
 
-    <h2>Bass House</h2>
-    <p>Bass house fuses the four-on-the-floor structure of house music
-    with the distorted, driving bass lines of bass music.
+    <h2>What Is Bass House?</h2>
+    <p>Bass house is a subgenre that fuses the four-on-the-floor structure
+    of house music with the distorted, driving bass lines of bass music.
     The result is something that works on a house dancefloor
     but hits considerably harder than traditional house.
     It is one of the most DJ-friendly subgenres in the bass world
@@ -1246,23 +1253,23 @@ PLURGASM_DATA.blogPosts = [
     of the last five years.</p>
 
     <p><strong>Key artists:</strong> Habstrakt, Valentino Khan,
-    Walker and Royce, AC Slater, Jauz, Joyryde, Habstrakt, Tchami</p>
+    Walker and Royce, AC Slater, Jauz, Joyryde, Tchami</p>
 
     <p><strong>Gateway track:</strong> Valentino Khan's Deep Down Low
     became a crossover moment for the genre.
     Habstrakt's catalog is the most consistent entry point
     for understanding the full sonic range.</p>
 
-    <h2>Drum and Bass</h2>
-    <p>Drum and bass is the oldest genre in this guide
+    <h2>What Is Drum & Bass?</h2>
+    <p>Drum & bass (DnB) is a fast electronic genre, running 160 to 180 BPM,
+    defined by syncopated breakbeat drums and deep, rolling basslines.
+    It is the oldest genre in this guide
     and the one with the most developed culture outside of America.
     It emerged from the UK jungle scene in the early 1990s
-    and developed into a sprawling genre with multiple subgenres of its own,
-    including liquid DnB, neurofunk, jump-up, and techstep.</p>
+    and grew into a sprawling genre with multiple subgenres of its own.</p>
 
-    <p>The defining feature is tempo.
-    DnB runs at 160 to 180 BPM,
-    making it significantly faster than any other genre in this guide.
+    <p>The defining feature is tempo,
+    significantly faster than any other genre in this guide.
     The drums are syncopated and complex,
     the bass lines deep and rolling.
     A good DnB set in a club with a proper sound system
@@ -1271,6 +1278,38 @@ PLURGASM_DATA.blogPosts = [
     <p>The American DnB scene is smaller than the UK scene
     but has grown substantially in the last few years,
     particularly on the West Coast.</p>
+
+    <h3>Drum & Bass Subgenres</h3>
+    <p>The main drum and bass subgenres are liquid, neurofunk, jump-up,
+    and jungle, each with its own sound and its own scene.
+    Here is how to tell them apart.</p>
+
+    <p><strong>Liquid DnB</strong> is the smooth, melodic side of drum & bass.
+    It keeps the fast breakbeats but layers them with soulful vocals,
+    jazzy chords, and warm, rolling basslines —
+    the most accessible entry point for new listeners.
+    Key artists: Netsky, Logistics, Calibre, Hybrid Minds.</p>
+
+    <p><strong>Neurofunk</strong> is the dark, technical end of the spectrum,
+    built on twisting, heavily processed basslines and surgical sound design.
+    It is the DnB subgenre closest in spirit to the heavier corners of dubstep.
+    Key artists: Noisia, Black Sun Empire, Mefjus, Phace.</p>
+
+    <p><strong>Jump-up</strong> is the rowdiest, most party-focused strain,
+    driven by bouncy, hooky basslines engineered for maximum crowd reaction.
+    It dominates the current UK club and festival circuit.
+    Key artists: Hedex, Macky Gee, DJ Guv, Turno.</p>
+
+    <p><strong>Jungle</strong> is where the whole genre started:
+    chopped Amen breaks, reggae and dancehall samples,
+    and raw, bass-heavy production.
+    A modern jungle revival has brought the sound back to festival stages.
+    Key artists: Congo Natty, Shy FX, Nia Archives, Goldie.</p>
+
+    <p>You will also hear techstep (a harder, colder 90s strain that fed
+    into neurofunk) and rollers (stripped-back, groove-focused DnB)
+    mentioned, but liquid, neurofunk, jump-up, and jungle
+    cover most of what gets booked today.</p>
 
     <p><strong>Key artists:</strong> Chase and Status, Andy C, Noisia,
     Pendulum, Dimension, Netsky, Shy FX, Sub Focus, Wilkinson,
