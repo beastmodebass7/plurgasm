@@ -987,7 +987,7 @@ function renderCreatorDirectory() {
       const handle  = (s.handle || '').replace('@', '');
       const color   = platformColors[s.platform] || 'var(--cyan)';
       const initials = handle.slice(0, 2).toUpperCase();
-      const avatarUrl = s.image || ('https://unavatar.io/instagram/' + handle);
+      const avatarUrl = s.image || null; // no image -> initials fallback (no external hotlinks)
       const voteId = creatorVoteId(s);
       const count  = _voteCounts[voteId] || 0;
       const voted  = _userVotes.has(voteId);
@@ -995,9 +995,9 @@ function renderCreatorDirectory() {
       return `
         <a class="creator-card" href="${s.url || '#'}" target="_blank" rel="noopener">
           <div class="cc-avatar-wrap">
-            <img src="${avatarUrl}" alt="${s.handle}" class="cc-avatar"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-            <div class="cc-avatar-fallback" style="display:none;background:${color}22;color:${color};">${initials}</div>
+            ${avatarUrl ? `<img src="${avatarUrl}" alt="${s.handle}" class="cc-avatar"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">` : ''}
+            <div class="cc-avatar-fallback" style="display:${avatarUrl ? 'none' : 'flex'};background:${color}22;color:${color};">${initials}</div>
           </div>
           <div class="cc-body">
             <div class="cc-top">
@@ -1078,8 +1078,8 @@ function renderSocials() {
     const color = platformColors[s.platform]
       || 'var(--cyan)';
     const initials = handle.slice(0,2).toUpperCase();
-    const avatarUrl =
-      'https://unavatar.io/instagram/' + handle;
+    // no image -> initials fallback (no external hotlinks)
+    const avatarUrl = s.image || null;
 
     return `
       <a class="social-card"
@@ -1087,16 +1087,16 @@ function renderSocials() {
         target="_blank"
         rel="noopener">
         <div class="sc-avatar-wrap">
-          <img
+          ${avatarUrl ? `<img
             src="${avatarUrl}"
             alt="${s.handle}"
             class="sc-avatar"
             onerror="this.style.display='none';
               this.nextElementSibling
                 .style.display='flex';"
-          >
+          >` : ''}
           <div class="sc-avatar-fallback"
-            style="display:none;
+            style="display:${avatarUrl ? 'none' : 'flex'};
               background:${color}22;
               color:${color};">
             ${initials}
