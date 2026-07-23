@@ -68,6 +68,11 @@ addUrl('/submit-article',  'monthly', '0.5');
     addUrl('/' + page, 'weekly', '0.7');
   });
 
+// --- Artist profiles ------------------------------------------------------
+(data.artists || [])
+  .filter(artist => artist && artist.id)
+  .forEach(artist => addUrl('/artist?id=' + artist.id, 'weekly', '0.7'));
+
 // --- Categories -----------------------------------------------------------
 (data.categories || [])
   .filter(cat => cat && cat.id)

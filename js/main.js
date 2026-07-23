@@ -1496,6 +1496,162 @@ function searchArtist(query) {
 /* ════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════
+   ARTIST PROFILE PAGE  (/artist?id=…)
+   Renders into #artist-main on artist.html; no-ops everywhere else.
+════════════════════════════════════════════════ */
+/* Internal href for a festival: its detail page if it has one, otherwise the
+   calendar deep-link (calendar.html reveals + flashes ?festival=<id>). */
+function artistFestHref(f) {
+  if (f.detailPage) return '/' + f.detailPage.replace(/^\/+/, '').replace(/\.html$/, '');
+  return '/calendar?festival=' + f.id;
+}
+
+/* "YYYY-MM-DD" -> "Jul 16, 2026" parsed as LOCAL date (string-split to dodge
+   the UTC off-by-one, see CLAUDE.md). */
+function artistFmtIso(iso) {
+  const p = String(iso || '').split('-');
+  if (p.length !== 3) return iso || '';
+  return new Date(+p[0], +p[1] - 1, +p[2])
+    .toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function renderArtist() {
+  try {
+    const main = document.getElementById('artist-main');
+    if (!main) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    // Canonical + og:url -> extensionless URL (same pattern as blog-post.html),
+    // set from the id as soon as it's known so /artist.html?id= and /artist?id=
+    // collapse to one indexed URL.
+    try {
+      const canonicalUrl = 'https://plurgasm.com/artist?id=' + id;
+      let link = document.querySelector('link[rel="canonical"]');
+      if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); }
+      link.setAttribute('href', canonicalUrl);
+      let og = document.querySelector('meta[property="og:url"]');
+      if (!og) { og = document.createElement('meta'); og.setAttribute('property', 'og:url'); document.head.appendChild(og); }
+      og.setAttribute('content', canonicalUrl);
+    } catch (e) { console.error('artist canonical error:', e); }
+
+    const artists = (window.PLURGASM_DATA && PLURGASM_DATA.artists) || [];
+    const artist = artists.find(a => a.id === id);
+
+    if (!artist) {
+      main.innerHTML = `
+        <div class="artist-page" style="text-align:center;padding-top:120px;">
+          <p style="font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:3px;color:var(--white);">ARTIST NOT FOUND</p>
+          <p style="color:var(--muted);margin:16px 0 32px;">This artist profile doesn't exist or has been removed.</p>
+          <a href="/" class="nav-cta">← Back to PLURGASM</a>
+        </div>`;
+      return;
+    }
+
+    const dates = [...(artist.tourDates || [])]
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+
+    // Today as a local YYYY-MM-DD string; ISO strings compare correctly.
+    const now = new Date();
+    const todayStr = now.getFullYear() + '-' +
+      String(now.getMonth() + 1).padStart(2, '0') + '-' +
+      String(now.getDate()).padStart(2, '0');
+    const isPast = td => (td.endDate || td.date) < todayStr;
+
+    // Dynamic title + meta description, year taken from the first upcoming date.
+    const upcoming = dates.filter(td => !isPast(td));
+    const tourYear = (upcoming[0] || dates[dates.length - 1] || {}).date;
+    const yearStr  = tourYear ? tourYear.slice(0, 4) : String(now.getFullYear());
+    const pageTitle = artist.name + ' Tour Dates ' + yearStr + ' | PLURGASM';
+    document.title = pageTitle;
+    const descTxt = (artist.name + ' tour dates, tickets and festival appearances — ' +
+      (artist.tagline ? artist.tagline + '. ' : '') + (artist.desc || '')).slice(0, 160);
+    try {
+      const setMeta = (attrName, key, val) => {
+        let m = document.querySelector(`meta[${attrName}="${key}"]`);
+        if (!m) { m = document.createElement('meta'); m.setAttribute(attrName, key); document.head.appendChild(m); }
+        m.setAttribute('content', val);
+      };
+      setMeta('name', 'description', descTxt);
+      setMeta('property', 'og:title', pageTitle);
+      setMeta('property', 'og:description', descTxt);
+      setMeta('name', 'twitter:title', pageTitle);
+      setMeta('name', 'twitter:description', descTxt);
+    } catch (e) { console.error('artist meta error:', e); }
+
+    const FESTS = (window.PLURGASM_DATA && PLURGASM_DATA.festivals) || [];
+    const SOCIAL_LABELS = { instagram: 'Instagram', twitter: 'Twitter / X', youtube: 'YouTube', facebook: 'Facebook', tiktok: 'TikTok', soundcloud: 'SoundCloud', spotify: 'Spotify' };
+    const socialLinks = Object.entries(artist.socials || {}).map(([k, url]) =>
+      `<a href="${url}" target="_blank" rel="noopener">${SOCIAL_LABELS[k] || (k.charAt(0).toUpperCase() + k.slice(1))} ↗</a>`
+    );
+    if (artist.officialUrl) socialLinks.unshift(`<a href="${artist.officialUrl}" target="_blank" rel="noopener">Official Site ↗</a>`);
+
+    const rows = dates.map(td => {
+      const fest = td.festivalId ? FESTS.find(f => f.id === td.festivalId) : null;
+      // When the row links to one of our festivals, the festival record is the
+      // source of truth for venue/location; the row also cross-links to it.
+      const venue = fest ? fest.name : td.venue;
+      const city  = fest ? fest.location : td.city;
+      const past  = isPast(td);
+      // Skip a note that just repeats the displayed venue (e.g. note "EDC Orlando"
+      // on a row already titled EDC ORLANDO via its festival record).
+      const note = td.note && td.note.trim().toLowerCase() !== String(venue).trim().toLowerCase()
+        ? td.note : null;
+      const festLink = fest
+        ? `<a class="atr-fest-link" href="${artistFestHref(fest)}">${fest.name} on PLURGASM →</a>` : '';
+      const action = past
+        ? `<span class="atr-past-label">Past</span>`
+        : `<a class="atr-tickets" href="${td.ticketUrl}" target="_blank" rel="noopener">Tickets</a>`;
+      return `
+        <li class="artist-tour-row${past ? ' is-past' : ''}">
+          <span class="atr-date">${td.dateLabel}</span>
+          <div class="atr-info">
+            <span class="atr-venue">${venue}</span>
+            <span class="atr-city">${city}</span>
+            ${note ? `<span class="atr-note">${note}</span>` : ''}
+            ${festLink}
+          </div>
+          <div class="atr-action">${action}</div>
+        </li>`;
+    }).join('');
+
+    main.innerHTML = `
+      <div class="artist-page">
+        <a href="/" class="artist-back">← PLURGASM</a>
+
+        <div class="artist-hero">
+          <div class="artist-hero-info">
+            <h1 class="artist-name">${artist.name}</h1>
+            ${artist.tagline ? `<p class="artist-tagline">${artist.tagline}</p>` : ''}
+            <div class="artist-genres">${(artist.genres || []).map(g => `<span>${g}</span>`).join('')}</div>
+            <p class="artist-desc">${artist.desc || ''}</p>
+            <div class="artist-socials">${socialLinks.join('')}</div>
+          </div>
+          <div class="artist-photo-wrap" id="artist-photo-wrap">
+            <span class="artist-photo-fallback" aria-hidden="true">${artist.name ? artist.name[0] : ''}</span>
+            ${artist.image ? `<img class="artist-photo" src="${artist.image}" alt="${artist.name}"
+              onerror="this.remove()">` : ''}
+          </div>
+        </div>
+
+        <div class="artist-tour-head">
+          <h2>Tour Dates</h2>
+          <p class="artist-tour-verified">
+            Last verified ${artistFmtIso(artist.toursLastVerified)} — dates can change.
+            ${artist.tourUrl ? `Confirm on the <a href="${artist.tourUrl}" target="_blank" rel="noopener">official tour page ↗</a>` : ''}
+          </p>
+        </div>
+        ${dates.length
+          ? `<ul class="artist-tour-list">${rows}</ul>`
+          : `<p class="artist-desc">No tour dates on file right now — check the <a href="${artist.tourUrl || artist.officialUrl}" target="_blank" rel="noopener" style="color:var(--cyan);">official site</a>.</p>`}
+      </div>`;
+  } catch (e) {
+    console.error('renderArtist error:', e);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Merge admin-added festivals and brands from localStorage
   const extraFests = JSON.parse(localStorage.getItem('pg_admin_festivals') || '[]');
@@ -1539,6 +1695,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBotw();
   renderBlog();
   renderItemFilters();
+  renderArtist();             // artist.html only — no-ops when #artist-main is absent
   // stamp data-id on fest cards after render for search highlight
   setTimeout(() => {
     document.querySelectorAll('.fest-card').forEach((card, i) => {

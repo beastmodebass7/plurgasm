@@ -33,6 +33,51 @@ const FESTIVALS = [
   { id:'countdown-nye', name:'COUNTDOWN NYE', tagline:'Ring in the New Year', location:'NOS Event Center, San Bernardino CA', dates:'Dec 31, 2026', sortDate:'2026-12-31', endDate:'2026-12-31', days:1, age:'18+', type:'mega', typeLabel:'Mega Festival', genres:['EDM','House','Techno','Bass','Trance'], desc:'Insomniac\'s massive New Year\'s Eve festival. Midnight countdown, confetti, and a stacked lineup. One of the largest NYE events in the US.', headliners: [], url:'https://countdownnye.com', featured:false, detailPage:null, region:'west', organizer:null, lat:34.1967, lng:-117.3703, image:null },
 ];
 
+/* ── ARTISTS — profile pages at /artist?id=… (rendered by renderArtist in main.js) ──
+   Tour date rows: date/endDate are YYYY-MM-DD strings (sorting + past-date checks);
+   dateLabel is the display string. festivalId links a row to PLURGASM_DATA.festivals
+   so the artist page can cross-link to our festival page. */
+const ARTISTS = [
+  {
+    id: 'slander',
+    name: 'SLANDER',
+    tagline: 'Heaven Sounds Like This',
+    genres: ['Melodic Bass','Dubstep','Heaven Trap'],
+    desc: 'The LA duo of Derek Andersen and Scott Land, pioneers of melodic bass and the heaven trap sound. Known for emotional drops, massive collabs, and one of the most devoted fanbases in bass music.',
+    image: 'images/artists/slander.webp',
+    officialUrl: 'https://slanderofficial.com',
+    tourUrl: 'https://slanderofficial.com/pages/slander-tour-dates',
+    socials: {
+      instagram: 'https://www.instagram.com/slanderofficial/',
+      twitter: 'https://twitter.com/SlanderOfficial',
+      youtube: 'https://www.youtube.com/channel/UC_D7aoxoyj5drj_1PKQNyMw',
+      facebook: 'https://www.facebook.com/slanderofficial/'
+    },
+    featured: true,
+    toursLastVerified: '2026-07-16',
+    tourDates: [
+      { date:'2026-07-24', endDate:null, dateLabel:'Jul 24, 2026', venue:'Treefort Music Hall', city:'Boise, ID', note:null, festivalId:null, ticketUrl:'https://link.seated.com/d01f9af7-0a72-4ba3-a0db-f4d45e558aac' },
+      { date:'2026-07-25', endDate:null, dateLabel:'Jul 25, 2026', venue:'Encore Beach Club', city:'Las Vegas, NV', note:null, festivalId:null, ticketUrl:'https://link.seated.com/8752a6d0-3392-403b-9360-1c9f0b26f946' },
+      { date:'2026-07-31', endDate:'2026-08-02', dateLabel:'Jul 31 - Aug 2, 2026', venue:'Veld Festival', city:'Toronto, ON', note:null, festivalId:null, ticketUrl:'https://link.seated.com/ce6bd656-d733-454c-95ed-1be26147e92a' },
+      { date:'2026-07-31', endDate:null, dateLabel:'Jul 31, 2026', venue:'Echostage', city:'Washington, DC', note:null, festivalId:null, ticketUrl:'https://link.seated.com/04d80a6b-7d20-4916-8018-65808e3c1b5e' },
+      { date:'2026-08-01', endDate:null, dateLabel:'Aug 1, 2026', venue:'Echostage', city:'Washington, DC', note:null, festivalId:null, ticketUrl:'https://link.seated.com/2159a87a-b682-477c-b603-a5a7f0650e9b' },
+      { date:'2026-08-07', endDate:null, dateLabel:'Aug 7, 2026', venue:'The Armory', city:'Minneapolis, MN', note:null, festivalId:null, ticketUrl:'https://link.seated.com/e2246f01-0809-439e-8a8d-748667d515d7' },
+      { date:'2026-08-08', endDate:null, dateLabel:'Aug 8, 2026', venue:'The Armory', city:'Minneapolis, MN', note:null, festivalId:null, ticketUrl:'https://link.seated.com/2dcd6f7f-1a99-4089-b821-b95e0dc1600a' },
+      { date:'2026-08-16', endDate:null, dateLabel:'Aug 16, 2026', venue:'The Gorge Amphitheatre', city:'George, WA', note:'Bass Canyon — SLANDER B2B Excision', festivalId:'bass-canyon', ticketUrl:'https://link.seated.com/5eb02a4c-8af2-45b7-8a11-7e239df251f1' },
+      // VENUE CONFLICT: SLANDER's official tour page lists this show at "Northerly Island",
+      // but our north-coast-music-festival record says SeatGeek Stadium, Bridgeview IL.
+      // The artist page displays the linked festival record's venue — verify which is right.
+      { date:'2026-09-06', endDate:null, dateLabel:'Sep 6, 2026', venue:'North Coast Festival', city:'Chicago, IL', note:'SLANDER B2B ILLENIUM', festivalId:'north-coast-music-festival', ticketUrl:'https://link.seated.com/5cfc1feb-5e4d-434b-979b-9297968bd849' },
+      { date:'2026-09-11', endDate:null, dateLabel:'Sep 11, 2026', venue:'Global Dance Festival', city:'Denver, CO', note:null, festivalId:null, ticketUrl:'https://link.seated.com/3ab08b15-a665-4e5c-98c3-1b9fb51ca0d5' },
+      { date:'2026-09-12', endDate:null, dateLabel:'Sep 12, 2026', venue:'Skydeck at Assembly Food Hall', city:'Nashville, TN', note:null, festivalId:null, ticketUrl:'https://link.seated.com/bd3847b8-5b48-4596-8b4c-1da52c84dc06' },
+      { date:'2026-09-18', endDate:'2026-09-20', dateLabel:'Sep 18-20, 2026', venue:'Lost Lands Music Festival', city:'Thornville, OH', note:null, festivalId:'lost-lands', ticketUrl:'https://link.seated.com/df6d01a0-ae51-40e8-b4a1-a7c32eac3e85' },
+      { date:'2026-10-31', endDate:null, dateLabel:'Oct 31, 2026', venue:'Freaky Deaky', city:'Austin, TX', note:null, festivalId:null, ticketUrl:'https://link.seated.com/ade75041-7ed4-4443-a8bd-2b22ac533e7b' },
+      { date:'2026-11-06', endDate:'2026-11-08', dateLabel:'Nov 6-8, 2026', venue:'Tinker Field', city:'Orlando, FL', note:'EDC Orlando', festivalId:'edc-orlando', ticketUrl:'https://link.seated.com/ac04020a-d49e-43f1-8d11-abd51e734544' },
+      { date:'2026-11-27', endDate:null, dateLabel:'Nov 27, 2026', venue:'San Jose Convention Center', city:'San Jose, CA', note:'SLANDER B2B Seven Lions', festivalId:null, ticketUrl:'https://link.seated.com/49f64be0-a92f-4ff0-8f71-525ef8bb921a' },
+    ]
+  },
+];
+
 const CATEGORIES = [
   { id:'fem-clothing',  label:'Fem Clothing',   icon:'images/categories/icon-fem-clothing.webp' },
   { id:'male-clothing', label:'Male Clothing',   icon:'images/categories/icon-male-clothing.webp' },
@@ -2410,6 +2455,7 @@ PLURGASM_DATA.blogPosts = [
 window.PLURGASM_DATA.festivals  = FESTIVALS;
 window.PLURGASM_DATA.brands     = BRANDS;
 window.PLURGASM_DATA.categories = CATEGORIES;
+window.PLURGASM_DATA.artists    = ARTISTS;
 
 /* ════════════════════════════════════════════════
    FESTIVAL FILTER TAXONOMY — single source of truth

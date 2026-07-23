@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Artist tour dates, tickets, and festival appearances — PLURGASM.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Artist Tour Dates — PLURGASM">
+<meta property="og:description" content="Artist tour dates, tickets, and festival appearances — PLURGASM.">
+<meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Artist Tour Dates — PLURGASM">
+<meta name="twitter:description" content="Artist tour dates, tickets, and festival appearances — PLURGASM.">
+<meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
+<title>Artist Tour Dates — PLURGASM</title>
+<!-- Canonical + og:url are filled in by renderArtist() (main.js) once the ?id= artist is resolved (extensionless form, matching sitemap.xml). No hardcoded href on purpose. -->
+<link rel="canonical" id="canonical-link">
+<meta property="og:url" content="">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/nav.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<div id="site-nav"></div>
+
+<!-- ARTIST PROFILE (rendered by renderArtist() in main.js) -->
+<div id="artist-main"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Shop Rave Brands</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@PlurgasmHQ ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <span class="footer-legal"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js" defer></script>
+<script src="js/main.js" defer></script>
+
+<div id="site-bottom-nav"></div>
+</body>
+</html>

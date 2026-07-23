@@ -4585,3 +4585,65 @@ img.icon-true-color {
 @media (max-width: 360px) {
   .festival-page .fl-tier3 { columns: 1; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ARTIST PROFILE PAGE (/artist?id=…) — gig-poster listing.
+   Hierarchy from type + rules only: no cards, no panels.
+   ═══════════════════════════════════════════════════════════════ */
+.artist-page { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 56px 48px 96px; }
+
+.artist-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); transition: color 0.2s; margin-bottom: 44px; }
+.artist-back:hover { color: var(--cyan); }
+
+/* ── hero ── */
+.artist-hero { display: flex; gap: 48px; align-items: flex-start; justify-content: space-between; margin-bottom: 72px; }
+.artist-hero-info { flex: 1; min-width: 0; }
+.artist-name { font-family: var(--display); font-size: clamp(64px,11vw,130px); line-height: 0.88; letter-spacing: 2px; color: var(--white); margin-bottom: 10px; }
+.artist-tagline { font-family: var(--display); font-size: clamp(16px,2.4vw,24px); letter-spacing: 6px; color: var(--pink); margin-bottom: 20px; }
+.artist-genres { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.artist-genres span { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,229,255,0.3); padding: 5px 12px; }
+.artist-desc { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 56ch; margin-bottom: 26px; }
+.artist-socials { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.artist-socials a { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+.artist-socials a:hover { color: var(--cyan); }
+.artist-socials a:first-child { color: var(--cyan); }
+
+/* photo — square, ruled frame; the Bebas initial shows until/unless the image loads */
+.artist-photo-wrap { position: relative; flex: 0 0 280px; width: 280px; aspect-ratio: 1; border: 1px solid var(--border-hi); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.artist-photo-fallback { font-family: var(--display); font-size: 140px; line-height: 1; color: var(--border-hi); user-select: none; }
+.artist-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ── tour dates — the listing ── */
+.artist-tour-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 3px solid var(--white); padding-top: 18px; margin-bottom: 6px; }
+.artist-tour-head h2 { font-family: var(--display); font-size: clamp(34px,5vw,52px); letter-spacing: 3px; color: var(--white); }
+.artist-tour-verified { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); line-height: 1.9; max-width: 380px; }
+.artist-tour-verified a { color: var(--cyan); }
+.artist-tour-verified a:hover { opacity: 0.7; }
+
+.artist-tour-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border-hi); }
+.artist-tour-row { display: grid; grid-template-columns: 168px 1fr auto; gap: 8px 28px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.atr-date { font-family: var(--mono); font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyan); }
+.atr-info { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.atr-venue { font-family: var(--display); font-size: 25px; letter-spacing: 1.5px; line-height: 1.05; color: var(--white); }
+.atr-city { font-family: 'Chakra Petch', sans-serif; font-size: 13px; color: var(--muted); }
+.atr-note { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-top: 3px; }
+.atr-fest-link { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pink); margin-top: 3px; transition: opacity 0.2s; }
+.atr-fest-link:hover { opacity: 0.7; }
+.atr-tickets { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,229,255,0.35); padding: 10px 22px; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+.atr-tickets:hover { background: var(--cyan); color: var(--black); }
+
+/* past shows: kept in the chronology but visually demoted, no ticket button */
+.artist-tour-row.is-past { opacity: 0.32; }
+.atr-past-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
+@media (max-width: 860px) {
+  .artist-page { padding: 40px 20px 72px; }
+  .artist-hero { flex-direction: column-reverse; gap: 32px; margin-bottom: 56px; }
+  .artist-photo-wrap { flex-basis: auto; width: min(280px, 60vw); }
+}
+@media (max-width: 640px) {
+  .artist-tour-row { grid-template-columns: 1fr auto; padding: 16px 0; }
+  .atr-date { grid-column: 1 / -1; }
+  .atr-venue { font-size: 22px; }
+  .atr-tickets { padding: 9px 16px; }
+}
