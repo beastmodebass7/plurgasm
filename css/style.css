@@ -283,19 +283,31 @@ nav {
   left: 0;
   right: 0;
   /* Solid card surface so content behind the panel (countdown digits,
-     section labels) can't bleed through. Opaque var(--card) — not an
+     section labels) can't bleed through. Opaque var(--card-hi) — lifted a
+     step above the page bg so the panel reads as a distinct layer; not an
      rgba() with alpha, and not relying on backdrop-blur alone. */
-  background: var(--card);
-  border: 1px solid rgba(0,229,255,0.22);
+  background: var(--card-hi);
+  border: 1px solid rgba(0,229,255,0.45);
   z-index: 400;
   display: none;
   flex-direction: column;
-  max-height: 480px;
+  /* taller panel, but never past the viewport — internal scroll takes over */
+  max-height: min(72vh, 640px);
   overflow-y: auto;
   text-align: left;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,229,255,0.06);
+  box-shadow: 0 32px 90px rgba(0,0,0,0.8), 0 0 40px rgba(0,229,255,0.1);
 }
 .search-results.open { display: flex; }
+/* Desktop: let the panel run wider than the input so long names/descriptions
+   truncate less. 40px per side stays inside the 48px section padding, so no
+   horizontal overflow on any page that reuses this dropdown. Mobile keeps the
+   default left/right:0 (full input width, no viewport overflow). */
+@media (min-width: 901px) {
+  .search-results {
+    left: -40px;
+    right: -40px;
+  }
+}
 
 .sr-group-label {
   font-family: 'DM Mono', monospace;
@@ -307,7 +319,7 @@ nav {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--card);
+  background: var(--card-hi);
 }
 .sr-item {
   display: flex;
@@ -345,6 +357,7 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.sr-hl { color: var(--cyan); }
 .sr-sub {
   font-family: 'DM Mono', monospace;
   font-size: 11px;

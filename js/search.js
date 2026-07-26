@@ -143,7 +143,7 @@
     const grouped = {};
     scored.forEach(({ item }) => {
       if (!grouped[item.type]) grouped[item.type] = [];
-      if (grouped[item.type].length < 4) grouped[item.type].push(item);
+      if (grouped[item.type].length < 6) grouped[item.type].push(item);
     });
 
     let html = '';
@@ -154,8 +154,27 @@
     });
 
     results.innerHTML = html;
+    highlightNames(q);
     results.classList.add('open');
     activeIdx = -1;
+  }
+
+  // Wrap the matched substring of each rendered result NAME in a
+  // <span class="sr-hl">. Operates on text nodes via indexOf — the query is
+  // never interpreted as HTML or regex, so special characters are inert.
+  // Names that don't contain the query (blob-only matches) are left as-is.
+  function highlightNames(q) {
+    results.querySelectorAll('.sr-name').forEach(el => {
+      const text = el.textContent;
+      const idx = text.toLowerCase().indexOf(q);
+      if (idx === -1) return;
+      const hl = document.createElement('span');
+      hl.className = 'sr-hl';
+      hl.textContent = text.slice(idx, idx + q.length);
+      el.textContent = text.slice(0, idx);
+      el.appendChild(hl);
+      el.appendChild(document.createTextNode(text.slice(idx + q.length)));
+    });
   }
 
   // ── NAVIGATE ACTIONS ────────────────────────────────────────
