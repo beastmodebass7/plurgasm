@@ -369,6 +369,7 @@ nav {
 .sr-badge-brand { color:var(--pink);   border-color:rgba(255,45,120,0.3); }
 .sr-badge-cat   { color:var(--purple); border-color:rgba(182,77,255,0.3); }
 .sr-badge-social{ color:var(--green);  border-color:rgba(61,255,133,0.3); }
+.sr-badge-artist{ color:var(--amber);  border-color:rgba(255,184,0,0.3);  }
 
 .sr-empty {
   padding: 24px 18px;

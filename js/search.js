@@ -55,22 +55,52 @@
         </div>`,
     }));
 
-    // Categories
-    CATEGORIES.forEach(c => allItems.push({
-      type: 'category',
-      _name: c.label.toLowerCase(),
-      _blob: [c.label, c.id].join(' ').toLowerCase(),
-      render: () => `
+    // Categories — icon may be an image path (see renderCategories in main.js);
+    // count is derived, the data no longer carries a count field.
+    CATEGORIES.forEach(c => {
+      const iconHtml = /\.(png|jpe?g|gif|webp|svg)$/i.test(c.icon)
+        ? `<img src="${c.icon}" alt="" loading="lazy" style="width:22px;height:22px;object-fit:contain;">`
+        : c.icon;
+      const count = BRANDS.filter(b => b.cat === c.id).length;
+      allItems.push({
+        type: 'category',
+        _name: c.label.toLowerCase(),
+        _blob: [c.label, c.id].join(' ').toLowerCase(),
+        render: () => `
         <div class="sr-item" onclick="goCat('${c.id}')">
-          <div class="sr-icon">${c.icon}</div>
+          <div class="sr-icon">${iconHtml}</div>
           <div class="sr-text">
             <span class="sr-name">${c.label.toUpperCase()}</span>
-            <span class="sr-sub">${c.count} brands in this category</span>
+            <span class="sr-sub">${count} brand${count === 1 ? '' : 's'} in this category</span>
           </div>
           <span class="sr-badge sr-badge-cat">Category</span>
           <span class="sr-arrow">→</span>
         </div>`,
-    }));
+      });
+    });
+
+    // Artists — profile pages at /artist?id=… (matchable by name AND genres)
+    try {
+      const ARTIST_LIST = (window.PLURGASM_DATA && PLURGASM_DATA.artists) || [];
+      ARTIST_LIST.forEach(a => {
+        if (!a || !a.id) return;
+        allItems.push({
+          type: 'artist',
+          _name: (a.name || '').toLowerCase(),
+          _blob: [a.name, a.tagline || '', ...(a.genres || []), a.desc || ''].join(' ').toLowerCase(),
+          render: () => `
+            <div class="sr-item" onclick="goArtist('${a.id}')">
+              <div class="sr-icon"><img src="images/icons/icon-creator.webp" alt="" loading="lazy" style="width:22px;height:22px;object-fit:contain;mix-blend-mode:screen;"></div>
+              <div class="sr-text">
+                <span class="sr-name">${a.name}</span>
+                <span class="sr-sub">${(a.genres || []).slice(0,3).join(', ')} · Tour dates & profile</span>
+              </div>
+              <span class="sr-badge sr-badge-artist">Artist</span>
+              <span class="sr-arrow">→</span>
+            </div>`,
+        });
+      });
+    } catch (e) { console.error('artist search index error:', e); }
 
     // Socials
     SOCIALS.forEach(s => allItems.push({
@@ -106,8 +136,10 @@
     }
 
     // Group by type in order
-    const order   = ['festival','brand','category','social'];
-    const labels  = { festival:'🎪 Festivals', brand:'🏷️ Brands', category:'🗂️ Categories', social:'📱 Social' };
+    // Artists lead: the roster is tiny, so the group only appears on a direct
+    // hit (name/genre) — and then it's almost always what was searched for.
+    const order   = ['artist','festival','brand','category','social'];
+    const labels  = { artist:'🎤 Artists', festival:'🎪 Festivals', brand:'🏷️ Brands', category:'🗂️ Categories', social:'📱 Social' };
     const grouped = {};
     scored.forEach(({ item }) => {
       if (!grouped[item.type]) grouped[item.type] = [];
@@ -142,6 +174,19 @@
       }
     } catch (e) {
       console.error('goFestival error:', e);
+    }
+  };
+
+  window.goArtist = function(id) {
+    try {
+      closeSearch();
+      const list = (window.PLURGASM_DATA && PLURGASM_DATA.artists) || [];
+      const a = list.find(x => x.id === id);
+      if (!a) return;
+      // Extensionless profile URL, matching sitemap.xml + the canonical form.
+      window.location.href = '/artist?id=' + encodeURIComponent(a.id);
+    } catch (e) {
+      console.error('goArtist error:', e);
     }
   };
 
