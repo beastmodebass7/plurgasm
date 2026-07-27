@@ -691,6 +691,14 @@ nav {
   border-right: 1px solid rgba(0,229,255,0.12);
 }
 
+/* anchor wrapper (referral link) — sized by the img, invisible to the layout */
+.botw-image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
 .botw-image {
   max-width: 100%;
   max-height: 200px;

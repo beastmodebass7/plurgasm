@@ -2611,7 +2611,7 @@ PLURGASM_DATA.brandOfWeek = {
   name: 'iEDM',
   badge: 'IE',
   tagline: 'Rave Apparel · Accessories · USA',
-  image: null,
+  image: 'images/brands/iedm-botw.webp',
   desc: 'One of the largest online rave and festival clothing retailers, iEDM is packed with vibrant all-over-print apparel, LED gear, and accessories for guys and girls. Everything is handcrafted in the USA with eco-friendly materials, backed by free US shipping over $125 and a 110% price-match guarantee.',
   ig: '@iedm',
   url: 'https://iedm.com/?rfsn=9251280.404170',

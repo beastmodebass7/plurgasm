@@ -1425,11 +1425,13 @@ function renderBotw() {
   botwCard.innerHTML = `
     ${bw.image ? `
     <div class="botw-image-wrap">
+      ${bw.url && bw.url !== '#' ? `<a href="${bw.url}" target="_blank" rel="noopener sponsored" class="botw-image-link" aria-label="Shop ${bw.name}">` : ''}
       <img src="${bw.image}"
         alt="${bw.name}"
         class="botw-image"
         loading="lazy"
-        onerror="this.parentElement.style.display='none'">
+        onerror="this.closest('.botw-image-wrap').style.display='none'">
+      ${bw.url && bw.url !== '#' ? `</a>` : ''}
     </div>` : ''}
     <div class="botw-content">
       <div>
