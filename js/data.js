@@ -2608,13 +2608,13 @@ window.PLURGASM_DATA.featuredInfluencer = {
 };
 
 PLURGASM_DATA.brandOfWeek = {
-  name: 'Trippy Squid',
-  badge: 'TS',
-  tagline: 'Flowstars · Ravewear · USA',
-  image: '/images/brands/trippysquid.webp',
-  desc: 'Founder-run rave brand making handmade, UV-reactive flowstars at some of the best prices around, plus ravewear and accessories. Free shipping on US orders. 10% off with code PLURGASM.',
-  ig: null,
-  url: 'https://trippysquid.com/?ref=Plurgasm',
-  cat: 'Flow Toys'
+  name: 'iEDM',
+  badge: 'IE',
+  tagline: 'Rave Apparel · Accessories · USA',
+  image: null,
+  desc: 'One of the largest online rave and festival clothing retailers, iEDM is packed with vibrant all-over-print apparel, LED gear, and accessories for guys and girls. Everything is handcrafted in the USA with eco-friendly materials, backed by free US shipping over $125 and a 110% price-match guarantee.',
+  ig: '@iedm',
+  url: 'https://iedm.com/?rfsn=9251280.404170',
+  cat: 'Rave Apparel · Accessories'
 };
 
