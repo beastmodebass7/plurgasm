@@ -48,7 +48,7 @@
           <div class="sr-icon" style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:1px;">${b.badge}</div>
           <div class="sr-text">
             <span class="sr-name">${b.name}</span>
-            <span class="sr-sub">${b.style} · ${b.loc} · ${b.price}</span>
+            <span class="sr-sub">${[b.price, b.style, b.loc].filter(Boolean).join(' · ')}</span>
           </div>
           <span class="sr-badge sr-badge-brand">Brand</span>
           <span class="sr-arrow">→</span>

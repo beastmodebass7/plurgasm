@@ -319,21 +319,24 @@ nav {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--card-hi);
+  /* Subtle cool-tinted band over the opaque panel surface so each section
+     header reads as a distinct strip. Gradient-over-solid keeps the sticky
+     header opaque — rows scrolling beneath it can't bleed through. */
+  background: linear-gradient(rgba(0,180,255,0.07), rgba(0,180,255,0.07)), var(--card-hi);
 }
-/* hairline between groups — definition comes from the colored header + this
+/* hairline between groups — definition comes from the header band + this
    rule + spacing, not boxes */
 .sr-group-label:not(:first-child) {
   margin-top: 4px;
   border-top: 1px solid var(--border-hi);
 }
-/* Consistent per-type header colors (matches the row badges) so the color
-   becomes a learnable scanning cue. */
-.sr-group-artist   { color: var(--pink);   }
-.sr-group-festival { color: var(--cyan);   }
-.sr-group-brand    { color: var(--purple); }
-.sr-group-category { color: var(--amber);  }
-.sr-group-social   { color: var(--green);  }
+/* Headers share one cool blue/ice family (variations on --cyan) so they read
+   as a single palette; the row badges keep the per-type accent colors. */
+.sr-group-artist   { color: #cdf4ff; } /* brightest icy tint */
+.sr-group-festival { color: var(--cyan); }
+.sr-group-brand    { color: #7fd8ff; } /* soft sky blue */
+.sr-group-category { color: #4fb2ff; } /* mid blue */
+.sr-group-social   { color: #3d8bff; } /* deeper blue */
 .sr-item {
   display: flex;
   align-items: center;
