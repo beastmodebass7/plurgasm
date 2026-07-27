@@ -149,7 +149,7 @@
     let html = '';
     order.forEach(type => {
       if (!grouped[type]) return;
-      html += `<div class="sr-group-label">${labels[type]}</div>`;
+      html += `<div class="sr-group-label sr-group-${type}">${labels[type]}</div>`;
       html += grouped[type].map(i => i.render()).join('');
     });
 
