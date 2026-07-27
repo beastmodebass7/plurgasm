@@ -449,7 +449,7 @@ body { overflow-x: clip; }
 }
 .csz-label {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -465,6 +465,18 @@ body { overflow-x: clip; }
   background: var(--muted);
   opacity: 0.35;
 }
+/* Calendar-only: larger festival-search text (input + cycling placeholder).
+   Scoped under .cal-search-zone so the homepage hero search keeps its 16px. */
+.cal-search-zone .search-real-input,
+.cal-search-zone .search-cycle {
+  font-size: 18px;            /* keep >=16px so iOS doesn't zoom on focus */
+}
+/* style.css's mobile iOS-zoom guard (.search-form input { font-size:16px
+   !important }) would shrink the calendar input back to 16px under 768px;
+   18px still satisfies the no-zoom minimum, so re-assert it here. */
+@media (max-width: 768px) {
+  .cal-search-zone .search-form input { font-size: 18px !important; }
+}
 @media (max-width: 900px) {
   .cal-search-zone { grid-template-columns: 1fr; gap: 20px; }
 }
@@ -479,7 +491,7 @@ body { overflow-x: clip; }
   border: 1px solid var(--border);
   color: var(--white);
   font-family: 'Chakra Petch', sans-serif;
-  font-size: 16px;            /* keep >=16px so iOS doesn't zoom on focus */
+  font-size: 18px;            /* keep >=16px so iOS doesn't zoom on focus */
   padding: 11px 42px 11px 16px;
   outline: none;
   transition: border-color 0.2s;
@@ -490,7 +502,7 @@ body { overflow-x: clip; }
 }
 .artist-search-input::placeholder {
   color: var(--faint);
-  font-size: 14px;
+  font-size: 16px;
 }
 .artist-clear-btn {
   position: absolute;
@@ -1925,7 +1937,7 @@ document.addEventListener('keydown', e => {
     if (session && session.user) {
       el.classList.remove('is-loggedout');
       el.classList.add('is-loggedin');
-      txt.textContent = 'Tap the heart on any festival to add it to your rave calendar.';
+      txt.textContent = 'Tap "+ Add to List" on any festival to add it to your rave calendar.';
       if (link) link.style.display = '';
     } else {
       el.classList.remove('is-loggedin');
