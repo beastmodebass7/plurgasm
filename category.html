@@ -165,6 +165,85 @@
   color: var(--muted); margin-left: 2px;
 }
 
+/* ── FILTER RAIL ── */
+.cat-layout {
+  display: grid; grid-template-columns: 232px minmax(0, 1fr);
+  gap: 44px; align-items: start;
+}
+.cat-layout.no-rail { grid-template-columns: 1fr; }
+.cat-layout.no-rail .cat-rail { display: none; }
+.cat-rail { position: sticky; top: 88px; }
+.cat-rail-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border-hi);
+}
+.cat-rail-title {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted);
+}
+.cat-rail-clear {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--cyan);
+}
+.cat-rail-clear:hover { text-decoration: underline; }
+.fgroup { border-bottom: 1px solid var(--border); }
+.fgroup-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; cursor: pointer; list-style: none;
+  font-family: 'Chakra Petch', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--white);
+}
+.fgroup-head::-webkit-details-marker { display: none; }
+.fgroup-caret {
+  font-size: 11px; color: var(--faint);
+  transition: transform 0.2s;
+}
+.fgroup[open] .fgroup-caret { transform: rotate(180deg); }
+.fgroup-opts { display: flex; flex-direction: column; gap: 10px; padding: 2px 0 16px; }
+.fgroup-opts-scroll { max-height: 236px; overflow-y: auto; padding-right: 6px; }
+.fopt {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  font-family: 'Chakra Petch', sans-serif; font-size: 13px; color: var(--muted);
+  transition: color 0.15s;
+}
+.fopt:hover { color: var(--white); }
+.fopt input {
+  appearance: none; -webkit-appearance: none;
+  width: 15px; height: 15px; flex: 0 0 15px; margin: 0;
+  border: 1px solid var(--border-hi); background: var(--surface);
+  cursor: pointer; position: relative;
+  transition: border-color 0.15s, background 0.15s;
+}
+.fopt input:hover { border-color: var(--cyan); }
+.fopt input:checked { background: var(--cyan); border-color: var(--cyan); }
+.fopt input:checked::after {
+  content: ''; position: absolute; left: 4px; top: 1px;
+  width: 4px; height: 8px;
+  border: solid var(--black); border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.fopt input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.fopt input:checked ~ .fopt-label { color: var(--white); }
+.fopt-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fopt-count { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--faint); }
+.cat-filter-toggle {
+  display: none; align-items: center; justify-content: center; gap: 8px;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 10px 16px; cursor: pointer;
+  border: 1px solid var(--border-hi); background: var(--surface); color: var(--white);
+}
+.cat-ft-caret { font-size: 10px; color: var(--faint); transition: transform 0.2s; }
+.cat-filter-toggle.open .cat-ft-caret { transform: rotate(180deg); }
+.fclear-inline {
+  display: inline-block; margin-top: 18px; padding: 9px 20px; cursor: pointer;
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; background: none;
+  border: 1px solid var(--cyan); color: var(--cyan);
+  transition: background 0.15s;
+}
+.fclear-inline:hover { background: rgba(0,229,255,0.08); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .cat-hero    { padding: 64px 20px 48px; }
@@ -174,6 +253,16 @@
   .cat-brand-grid { grid-template-columns: 1fr; }
   .cat-controls-inner { flex-direction: column; align-items: stretch; }
   .cat-search { max-width: 100%; }
+  .cat-layout { display: block; }
+  .cat-rail {
+    position: static; display: none;
+    border: 1px solid var(--border); background: rgba(255,255,255,0.02);
+    padding: 4px 16px 16px; margin-bottom: 24px;
+  }
+  .cat-rail.open { display: block; }
+  .cat-rail-head { padding-top: 12px; }
+  .cat-filter-toggle { display: flex; }
+  .cat-layout.no-rail .cat-filter-toggle { display: none; }
 }
 </style>
 </head>
@@ -228,14 +317,18 @@
 /* data.js is deferred, so BRANDS/CATEGORIES aren't defined at parse time —
    run everything once the DOM (and all deferred scripts) are ready. */
 document.addEventListener('DOMContentLoaded', function () {
+  /* ── DATA (from window.PLURGASM_DATA, set by data.js) ── */
+  const DATA_BRANDS = (window.PLURGASM_DATA && PLURGASM_DATA.brands)     || [];
+  const DATA_CATS   = (window.PLURGASM_DATA && PLURGASM_DATA.categories) || [];
+
   /* ── MERGE ADMIN BRANDS ── */
   try {
     const extra = JSON.parse(localStorage.getItem('pg_admin_brands') || '[]');
-    if (extra.length) BRANDS.push(...extra);
+    if (extra.length) DATA_BRANDS.push(...extra);
   } catch (e) {}
 
   /* ── NORMALIZE BRAND IDS (original 20 brands lack id field) ── */
-  BRANDS.forEach(b => {
+  DATA_BRANDS.forEach(b => {
     if (!b.id) b.id = b.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   });
 
@@ -293,11 +386,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   window.openBrandModal = function (id) {
-    const b = BRANDS.find(x => x.id === id);
+    const b = DATA_BRANDS.find(x => x.id === id);
     if (!b) return;
     const igHandle = b.ig ? b.ig.replace(/^@/, '') : null;
     const hasUrl   = b.url && b.url !== '#';
-    const catLabel = (CATEGORIES.find(c => c.id === b.cat) || {}).label || b.cat;
+    const catLabel = (DATA_CATS.find(c => c.id === b.cat) || {}).label || b.cat;
 
     document.getElementById('brand-modal-content').innerHTML = `
       <div class="bm-header">
@@ -402,10 +495,152 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ── RENDER ── */
   let searchQuery = '';
+  let currentCatId = '';
+
+  /* ── FACETED FILTERS ──
+     Groups built from the data actually present in this category.
+     Within a group checks are OR; across groups AND. */
+  const activeFilters = { price: new Set(), tag: new Set(), loc: new Set() };
+  let facetGroups = [];
+
+  const PRICE_LABELS = { 1: '$', 2: '$$', 3: '$$$', 4: '$$$$' };
+
+  /* '$–$$$' covers levels 1..3; 'Varies' covers none */
+  function parsePriceLevels(p) {
+    const runs = (p || '').match(/\$+/g);
+    if (!runs || !runs.length) return [];
+    const lens = runs.map(r => Math.min(r.length, 4));
+    const min = Math.min(...lens), max = Math.max(...lens);
+    const out = [];
+    for (let l = min; l <= max; l++) out.push(String(l));
+    return out;
+  }
+
+  function brandFacetValues(b, key) {
+    if (key === 'price') return parsePriceLevels(b.price);
+    if (key === 'tag')   return b.tags || [];
+    if (key === 'loc')   return b.loc ? [b.loc] : [];
+    return [];
+  }
+
+  function buildFacets(list) {
+    const groups = [];
+
+    const priceCounts = {};
+    list.forEach(b => parsePriceLevels(b.price).forEach(l => { priceCounts[l] = (priceCounts[l] || 0) + 1; }));
+    const priceOpts = Object.keys(priceCounts).sort()
+      .map(l => ({ value: l, label: PRICE_LABELS[l] || l, count: priceCounts[l] }));
+    if (priceOpts.length >= 2) groups.push({ key: 'price', label: 'Price', options: priceOpts });
+
+    const tagCounts = {};
+    list.forEach(b => new Set(b.tags || []).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; }));
+    const tagOpts = Object.keys(tagCounts)
+      .filter(t => tagCounts[t] < list.length) /* a tag on every brand can't narrow anything */
+      .sort((a, b) => tagCounts[b] - tagCounts[a] || a.localeCompare(b))
+      .map(t => ({ value: t, label: t, count: tagCounts[t] }));
+    if (tagOpts.length >= 2) groups.push({ key: 'tag', label: 'Tags', options: tagOpts, scroll: tagOpts.length > 9 });
+
+    const locCounts = {};
+    list.forEach(b => { if (b.loc) locCounts[b.loc] = (locCounts[b.loc] || 0) + 1; });
+    const locVals = Object.keys(locCounts);
+    const topShare = list.length ? Math.max(0, ...locVals.map(l => locCounts[l])) / list.length : 1;
+    if (locVals.length >= 2 && topShare <= 0.85) { /* skip when nearly all share one value */
+      groups.push({
+        key: 'loc', label: 'Location',
+        options: locVals.sort((a, b) => locCounts[b] - locCounts[a] || a.localeCompare(b))
+          .map(l => ({ value: l, label: l, count: locCounts[l] })),
+      });
+    }
+    return groups;
+  }
+
+  function matchesFilters(b) {
+    return Object.keys(activeFilters).every(key => {
+      const set = activeFilters[key];
+      if (!set.size) return true;
+      return brandFacetValues(b, key).some(v => set.has(v));
+    });
+  }
+
+  function hasActiveFilters() {
+    return Object.keys(activeFilters).some(k => activeFilters[k].size > 0);
+  }
+
+  function escAttr(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  function renderFilterRail(baseList) {
+    const rail   = document.getElementById('cat-rail');
+    const wrap   = document.getElementById('cat-filter-groups');
+    const layout = document.getElementById('cat-layout');
+    const toggle = document.getElementById('cat-filter-toggle');
+    if (!rail || !wrap) return;
+    try {
+      facetGroups = buildFacets(baseList);
+    } catch (err) {
+      console.error('buildFacets failed:', err);
+      facetGroups = [];
+    }
+    if (!facetGroups.length) {
+      if (layout) layout.classList.add('no-rail');
+      if (toggle) toggle.style.display = 'none';
+      return;
+    }
+    wrap.innerHTML = facetGroups.map(g => `
+      <details class="fgroup" open>
+        <summary class="fgroup-head">${g.label}<span class="fgroup-caret">▾</span></summary>
+        <div class="fgroup-opts${g.scroll ? ' fgroup-opts-scroll' : ''}">
+          ${g.options.map(o => `
+            <label class="fopt">
+              <input type="checkbox" data-group="${g.key}" value="${escAttr(o.value)}">
+              <span class="fopt-label">${escAttr(o.label)}</span>
+              <span class="fopt-count">${o.count}</span>
+            </label>`).join('')}
+        </div>
+      </details>`).join('');
+    wrap.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', onFilterChange);
+    });
+  }
+
+  function onFilterChange() {
+    try {
+      Object.keys(activeFilters).forEach(k => activeFilters[k].clear());
+      document.querySelectorAll('#cat-filter-groups input:checked').forEach(cb => {
+        const g = cb.getAttribute('data-group');
+        if (activeFilters[g]) activeFilters[g].add(cb.value);
+      });
+      updateFilterMeta();
+      renderGrid(currentCatId);
+    } catch (err) {
+      console.error('onFilterChange failed:', err);
+    }
+  }
+
+  window.clearCatFilters = function () {
+    try {
+      Object.keys(activeFilters).forEach(k => activeFilters[k].clear());
+      document.querySelectorAll('#cat-filter-groups input:checked').forEach(cb => { cb.checked = false; });
+      updateFilterMeta();
+      renderGrid(currentCatId);
+    } catch (err) {
+      console.error('clearCatFilters failed:', err);
+    }
+  };
+
+  function updateFilterMeta() {
+    let n = 0;
+    Object.keys(activeFilters).forEach(k => { n += activeFilters[k].size; });
+    const clearBtn = document.getElementById('cat-clear-filters');
+    if (clearBtn) clearBtn.hidden = n === 0;
+    const ftCount = document.getElementById('cat-ft-count');
+    if (ftCount) ftCount.textContent = n ? '· ' + n : '';
+  }
 
   function renderBrandCard(b) {
     return `
-      <div class="brand-card" onclick="openBrandModal(${JSON.stringify(b.id)})">
+      <div class="brand-card" onclick="openBrandModal('${b.id}')">
         <div class="brand-badge ${b.badgeCls}">${b.badge}</div>
         <div class="brand-info">
           <p class="brand-name">${b.name}</p>
@@ -423,7 +658,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function renderGrid(catId) {
-    let list = BRANDS.filter(b => b.cat === catId);
+    const base = DATA_BRANDS.filter(b => b.cat === catId);
+    let list = base;
+    try {
+      list = list.filter(matchesFilters);
+    } catch (err) {
+      console.error('facet filtering failed:', err);
+    }
     if (searchQuery) {
       list = list.filter(b =>
         [b.name, b.cat, b.style, b.loc, b.desc, b.ig, ...(b.tags || [])].join(' ').toLowerCase().includes(searchQuery)
@@ -435,24 +676,32 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!grid) return;
 
     if (!list.length) {
-      grid.innerHTML = `
+      grid.innerHTML = hasActiveFilters() ? `
+        <div class="empty-cat">
+          <span class="empty-cat-icon">🔍</span>
+          No brands match these filters — try clearing one.<br>
+          <button type="button" class="fclear-inline" onclick="clearCatFilters()">Clear all filters</button>
+        </div>` : `
         <div class="empty-cat">
           <span class="empty-cat-icon">🔍</span>
           ${searchQuery ? `No brands match "<strong>${searchQuery}</strong>"` : 'No brands listed in this category yet.'}
         </div>`;
-      if (countEl) countEl.textContent = '0 results';
+      if (countEl) countEl.textContent = 'Showing 0 of ' + base.length;
       return;
     }
 
     grid.innerHTML = list.map(renderBrandCard).join('');
-    if (countEl) countEl.textContent = list.length + ' brand' + (list.length !== 1 ? 's' : '');
+    if (countEl) countEl.textContent = list.length === base.length
+      ? base.length + ' brand' + (base.length !== 1 ? 's' : '')
+      : 'Showing ' + list.length + ' of ' + base.length;
   }
 
   function renderPage() {
     const params  = new URLSearchParams(window.location.search);
     const catId   = params.get('cat') || '';
-    const cat     = CATEGORIES.find(c => c.id === catId);
+    const cat     = DATA_CATS.find(c => c.id === catId);
     const page    = document.getElementById('cat-page');
+    currentCatId  = catId;
 
     if (!cat) {
       setCanonical('https://plurgasm.com/category');
@@ -471,7 +720,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const glows    = CAT_GLOWS[catId]     || ['rgba(0,229,255,0.08)', 'rgba(182,77,255,0.05)'];
     const titleCls = CAT_TITLE_CLS[catId] || 'cat-title-cyan';
     const desc     = CAT_DESCRIPTIONS[catId] || '';
-    const count    = BRANDS.filter(b => b.cat === catId).length;
+    const count    = DATA_BRANDS.filter(b => b.cat === catId).length;
     const isComing = !!(cat.comingSoon || count === 0);
     const isImage  = cat.icon && /\.(png|jpg|svg|webp)$/i.test(cat.icon);
     const iconHtml = isImage
@@ -496,7 +745,7 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
 
     /* other categories strip (exclude current, exclude coming-soon) */
-    const others = CATEGORIES.filter(c => c.id !== catId && c.count > 0);
+    const others = DATA_CATS.filter(c => c.id !== catId && c.count > 0);
     const othersHtml = others.length ? `
       <div class="other-cats">
         <p class="other-cats-label">More Categories</p>
@@ -529,19 +778,50 @@ document.addEventListener('DOMContentLoaded', function () {
           <input type="text" class="cat-search" id="cat-search"
             placeholder="Search ${cat.label.toLowerCase()} brands…"
             aria-label="Search ${cat.label.toLowerCase()} brands" autocomplete="off">
+          <button type="button" class="cat-filter-toggle" id="cat-filter-toggle"
+            aria-expanded="false" aria-controls="cat-rail">
+            <span>Filters</span><span id="cat-ft-count"></span><span class="cat-ft-caret">▾</span>
+          </button>
           <span class="cat-result-count" id="cat-result-count"></span>
         </div>
       </div>
       <div class="cat-content">
-        <div class="cat-brand-grid" id="cat-brand-grid"></div>
+        <div class="cat-layout" id="cat-layout">
+          <aside class="cat-rail" id="cat-rail" aria-label="Filter ${cat.label.toLowerCase()} brands">
+            <div class="cat-rail-head">
+              <span class="cat-rail-title">Filter</span>
+              <button type="button" class="cat-rail-clear" id="cat-clear-filters" hidden
+                onclick="clearCatFilters()">Clear all</button>
+            </div>
+            <div id="cat-filter-groups"></div>
+          </aside>
+          <div class="cat-results">
+            <div class="cat-brand-grid" id="cat-brand-grid"></div>
+          </div>
+        </div>
       </div>
     ` + othersHtml;
 
+    try {
+      renderFilterRail(DATA_BRANDS.filter(b => b.cat === catId));
+    } catch (err) {
+      console.error('renderFilterRail failed:', err);
+    }
     renderGrid(catId);
 
     document.getElementById('cat-search').addEventListener('input', e => {
       searchQuery = e.target.value.trim().toLowerCase();
       renderGrid(catId);
+    });
+
+    const ftBtn = document.getElementById('cat-filter-toggle');
+    if (ftBtn) ftBtn.addEventListener('click', () => {
+      const rail = document.getElementById('cat-rail');
+      if (!rail) return;
+      const opening = !rail.classList.contains('open');
+      rail.classList.toggle('open', opening);
+      ftBtn.classList.toggle('open', opening);
+      ftBtn.setAttribute('aria-expanded', String(opening));
     });
   }
 
