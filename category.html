@@ -16,7 +16,7 @@
 <meta name="keywords" content="rave brands, rave clothing categories, kandi, rave shoes, rave accessories, rave directory, PLURGASM">
 <meta name="author" content="PLURGASM">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://plurgasm.com/category">
+<meta property="og:url" content="">
 <meta property="og:title" content="Browse by Category — PLURGASM">
 <meta property="og:description" content="Browse rave brands by category. Fem clothing, shoes, kandi, accessories, jerseys and more at PLURGASM.">
 <meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
@@ -26,7 +26,8 @@
 <meta name="twitter:title" content="Browse by Category — PLURGASM">
 <meta name="twitter:description" content="Browse rave brands by category — fem clothing, shoes, kandi, and more.">
 <meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
-<link rel="canonical" href="https://plurgasm.com/category">
+<!-- Canonical + og:url are filled in by JS once the ?cat= category is resolved (extensionless form, matching sitemap.xml). No hardcoded href on purpose. -->
+<link rel="canonical" id="canonical-link">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -471,11 +472,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') { closeMobileMenu(); closeBrandModal(); }
   });
 
-  /* ── SELF-REFERENCING CANONICAL + META ── */
+  /* ── SELF-REFERENCING CANONICAL + META ──
+     Extensionless form (matches sitemap.xml). Wrapped so a throw here can't kill render. */
   function setCanonical(url) {
-    let l = document.querySelector('link[rel="canonical"]');
-    if (!l) { l = document.createElement('link'); l.setAttribute('rel', 'canonical'); document.head.appendChild(l); }
-    l.setAttribute('href', url);
+    try {
+      let l = document.getElementById('canonical-link') || document.querySelector('link[rel="canonical"]');
+      if (!l) { l = document.createElement('link'); l.setAttribute('rel', 'canonical'); document.head.appendChild(l); }
+      l.setAttribute('href', url);
+      let og = document.querySelector('meta[property="og:url"]');
+      if (!og) { og = document.createElement('meta'); og.setAttribute('property', 'og:url'); document.head.appendChild(og); }
+      og.setAttribute('content', url);
+    } catch (e) { console.error('canonical/og:url error:', e); }
   }
   function clampDesc(txt) {
     txt = (txt || '').replace(/\s+/g, ' ').trim();
