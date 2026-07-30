@@ -15,6 +15,8 @@
     function norm(s) {
       s = s.toLowerCase();
       try { s = s.normalize('NFD').replace(COMBINING, ''); } catch (e) {}
+      // stroked letters don't decompose under NFD, so "laszewo" finds "Łaszewo"
+      s = s.replace(/ł/g, 'l').replace(/ø/g, 'o').replace(/đ/g, 'd');
       return s;
     }
     var haystack = names.map(function (el) { return norm(el.textContent); });
