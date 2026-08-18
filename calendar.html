@@ -1194,11 +1194,59 @@ function renderActiveView() {
   }
 }
 
+// --- View <-> URL ---------------------------------------------------------
+// The three calendar views are addressable via ?view= so a map link can be
+// shared (plurgasm.com/calendar?view=map). Timeline is the default and carries
+// no param, so plain /calendar keeps working exactly as before.
+const CAL_VIEW_BTN_IDS = {
+  timeline: 'btn-timeline-view',
+  map:      'btn-map-view',
+  list:     'btn-list-view'
+};
+const CAL_DEFAULT_VIEW = 'timeline';
+
+function highlightCalViewBtn(view, btn) {
+  try {
+    const target = btn || document.getElementById(CAL_VIEW_BTN_IDS[view]);
+    document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
+    if (target) target.classList.add('active');
+  } catch (e) { console.error('highlightCalViewBtn error:', e); }
+}
+
+// Rewrite only the `view` param in place — ?festival= and anything else the URL
+// is carrying survives untouched. replaceState so there's no reload and no pile
+// of history entries from toggling back and forth.
+function syncCalViewToUrl(view) {
+  try {
+    if (!window.history || !window.history.replaceState) return;
+    const params = new URLSearchParams(window.location.search);
+    if (view === CAL_DEFAULT_VIEW) params.delete('view');
+    else params.set('view', view);
+    const qs = params.toString();
+    window.history.replaceState(null, '',
+      window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+  } catch (e) { console.error('syncCalViewToUrl error:', e); }
+}
+
+// Deep link: read ?view= on load. Sets state + button only — the caller renders,
+// so this doesn't cause a double render. Unknown values fall through to timeline.
+function applyCalViewFromUrl() {
+  try {
+    const view = new URLSearchParams(window.location.search).get('view');
+    if (!view || !CAL_VIEW_BTN_IDS[view]) return;
+    _calView = view;
+    highlightCalViewBtn(view);
+  } catch (e) { console.error('applyCalViewFromUrl error:', e); }
+}
+
 function setCalView(view, btn) {
-  _calView = view;
-  document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderActiveView();
+  try {
+    if (!CAL_VIEW_BTN_IDS[view]) return;
+    _calView = view;
+    highlightCalViewBtn(view, btn);
+    syncCalViewToUrl(view);
+    renderActiveView();
+  } catch (e) { console.error('setCalView error:', e); }
 }
 
 function setSavedMode(val, btn) {
@@ -1549,6 +1597,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   populateCalFilterSelects();   // vibe + region options from data (in sync w/ homepage)
+  applyCalViewFromUrl();        // ?view=map / ?view=list deep link, before the first render
   renderActiveView();
 
   // Sticky offsets: keep --cal-bar-h in sync with the control bar's real
@@ -1878,12 +1927,13 @@ function revealFestivalInList(id) {
     const nearControls = document.getElementById('cal-near-me-controls');
     if (nearControls) nearControls.style.display = 'none';
 
-    // the map view can't show a list row — switch to timeline if needed
+    // The map view can't show a list row — switch to timeline if needed. A
+    // ?festival= deep link therefore beats ?view=map; drop the now-wrong view
+    // param so the URL doesn't advertise a view the page isn't showing.
     if (_calView === 'map') {
-      _calView = 'timeline';
-      document.querySelectorAll('.cal-view-btn').forEach(b => b.classList.remove('active'));
-      const tlBtn = document.getElementById('btn-timeline-view');
-      if (tlBtn) tlBtn.classList.add('active');
+      _calView = CAL_DEFAULT_VIEW;
+      highlightCalViewBtn(CAL_DEFAULT_VIEW);
+      syncCalViewToUrl(CAL_DEFAULT_VIEW);
     }
 
     renderActiveView();
