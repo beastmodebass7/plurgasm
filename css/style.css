@@ -4659,6 +4659,25 @@ img.icon-true-color {
   .festival-page .fl-tier3 { columns: 1; }
 }
 
+/* ── "from the blog" strip on festival detail pages ──
+   Deliberately UNSCOPED (not under .festival-page): only edc-las-vegas.html
+   carries that body class — the other detail pages use a bare <body> plus their
+   own inline fd-* styles. A ruled list of links, not a card block. */
+.fd-related { position: relative; z-index: 1; border-top: 1px solid var(--border); }
+.fd-related-inner { max-width: 1180px; margin: 0 auto; padding: 44px 48px 56px; }
+.fd-related-label { font-family: var(--mono); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
+.fd-related-list { list-style: none; margin: 0; padding: 0; }
+.fd-related-list li { border-top: 1px solid var(--border-hi); }
+.fd-related-list a { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 14px 0; font-family: 'Chakra Petch', sans-serif; font-size: 15px; line-height: 1.45; color: var(--muted); transition: color 0.2s; }
+.fd-related-list a:hover { color: var(--cyan); }
+.fd-related-list a::after { content: '→'; font-family: var(--mono); font-size: 12px; color: var(--faint); transition: color 0.2s, transform 0.2s; }
+.fd-related-list a:hover::after { color: var(--cyan); transform: translateX(3px); }
+
+@media (max-width: 700px) {
+  .fd-related-inner { padding: 36px 20px 44px; }
+  .fd-related-list a { font-size: 14px; gap: 14px; }
+}
+
 /* ═══════════════════════════════════════════════════════════════
    ARTIST PROFILE PAGE (/artist?id=…) — gig-poster listing.
    Hierarchy from type + rules only: no cards, no panels.

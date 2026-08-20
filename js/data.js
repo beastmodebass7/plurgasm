@@ -314,7 +314,7 @@ PLURGASM_DATA.blogPosts = [
     excerpt: 'Days before gates open, Belgian authorities banned fireworks and pyro at Tomorrowland Weekend 1 over wildfire risk. Here is what happened and what it means for the spectacle.',
     published: true,
     featured: true,
-    body: `<p>One of Tomorrowland's most iconic traditions is going dark for its opening weekend. Days before gates open, Belgian authorities have banned all fireworks and pyrotechnics at the world's biggest EDM festival for Weekend 1, citing extreme drought and wildfire risk around the Boom site.<sup>1</sup></p>
+    body: `<p>One of <a href="/festivals/tomorrowland">Tomorrowland</a>'s most iconic traditions is going dark for its opening weekend. Days before gates open, Belgian authorities have banned all fireworks and pyrotechnics at the world's biggest EDM festival for Weekend 1, citing extreme drought and wildfire risk around the Boom site.<sup>1</sup></p>
 
 <p>Here is the breakdown.</p>
 
@@ -556,7 +556,7 @@ PLURGASM_DATA.blogPosts = [
     excerpt: 'Tens of thousands were evacuated from Electric Forest on its final night as a severe storm line rolled in off Lake Michigan, cutting Griz’s set short. Here is what happened.',
     published: true,
     featured: true,
-    body: `<p>Electric Forest 2026 ended not with a closing set, but with an evacuation order. On Sunday night, June 28, tens of thousands of festivalgoers were sent streaming out of the Double JJ Resort in Rothbury, Michigan as a line of severe storms pushed in off Lake Michigan on the festival’s final evening.</p>
+    body: `<p><a href="/festivals/electric-forest">Electric Forest</a> 2026 ended not with a closing set, but with an evacuation order. On Sunday night, June 28, tens of thousands of festivalgoers were sent streaming out of the Double JJ Resort in Rothbury, Michigan as a line of severe storms pushed in off Lake Michigan on the festival’s final evening.</p>
 
 <h2>The storms rolled in fast</h2>
 <p>A long band of storms tracked across the lake into Muskegon and Oceana counties and the wider West Michigan area, some of it potentially severe. Lightning lit the sky and heavy rain started to fall as the system closed in. The evacuation order went out around 8:45 p.m., right as the crowd packed Sherwood Court for Michigan native Griz and his much-anticipated Golden Hours set. He was only about half an hour in when the call came.</p>
@@ -1714,7 +1714,7 @@ PLURGASM_DATA.blogPosts = [
     body: `
       <p>Project GLOW returns to Washington DC for its <strong>5th anniversary</strong> on May 30–31, 2026 at RFK Festival Grounds, and this year feels different. The lineup is the strongest it has ever been, the production is scaling up, and if you have been sleeping on this festival, this is the year to wake up.</p>
 
-      <p>Born from <strong>Club GLOW</strong>, the longest-running electronic music promoter on the East Coast, Project GLOW has grown from a local DC staple into one of the most respected regional festivals in the country. Here is everything you need to know before you go.</p>
+      <p>Born from <strong>Club GLOW</strong>, the longest-running electronic music promoter on the East Coast, <a href="/festivals/project-glow">Project GLOW</a> has grown from a local DC staple into one of the most respected regional festivals in the country. Here is everything you need to know before you go.</p>
 
       <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80" alt="Festival crowd under lights" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
 
@@ -1780,7 +1780,7 @@ PLURGASM_DATA.blogPosts = [
     published: true,
     featured: false,
     body: `
-      <p>Electric Daisy Carnival turns <strong>30 years old in 2026</strong>, and Insomniac is pulling out everything for the anniversary. EDC Las Vegas runs <strong>May 15–17</strong> at the Las Vegas Motor Speedway, and if you have ever considered going, this is the year.</p>
+      <p>Electric Daisy Carnival turns <strong>30 years old in 2026</strong>, and Insomniac is pulling out everything for the anniversary. <a href="/festivals/edc-las-vegas">EDC Las Vegas</a> runs <strong>May 15–17</strong> at the Las Vegas Motor Speedway, and if you have ever considered going, this is the year.</p>
 
       <p>EDC is not just a festival. It is the single largest electronic music event in North America, and arguably the most important. Three nights. Nine stages. 200+ artists. 500,000 headliners from around the world, all under what Insomniac calls "the electric sky."</p>
 
@@ -1926,7 +1926,7 @@ PLURGASM_DATA.blogPosts = [
     body: `
       <p>There is Electric Forest, and then there is every other festival. That sounds like hype, but ask anyone who has been and they will tell you the same thing. The forest changes people.</p>
 
-      <p>Electric Forest runs <strong>June 25–28, 2026</strong> at Double JJ Resort in Rothbury, Michigan. It is a 4-day camping festival built around and inside <strong>Sherwood Forest</strong>, a real pine forest that the production team spends an entire year transforming into something that defies description.</p>
+      <p><a href="/festivals/electric-forest">Electric Forest</a> runs <strong>June 25–28, 2026</strong> at Double JJ Resort in Rothbury, Michigan. It is a 4-day camping festival built around and inside <strong>Sherwood Forest</strong>, a real pine forest that the production team spends an entire year transforming into something that defies description.</p>
 
       <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80" alt="Forest lights at night" style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
 
