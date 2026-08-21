@@ -1985,6 +1985,10 @@ function initScrollAnimations() {
      is a known way to break this codebase.
    · Layout choice lives in a module variable, NOT localStorage — it resets each
      visit on purpose and can't get wedged into a broken state.
+   · The desktop vertical layout (centred spine, events alternating left/right)
+     and the full-bleed horizontal track are entirely CSS — the only thing JS
+     contributes is the --tl-vw custom property below. If that ever fails the
+     CSS falls back to 100vw and the page still renders.
 ════════════════════════════════════════════════ */
 
 // tier -> marker diameter in px. An event's `sizeOverride` beats this.
@@ -2022,6 +2026,19 @@ function tlEsc(s) {
 
 function tlSlug(s) {
   return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+/* Publishes the viewport width (MINUS the scrollbar gutter) as --tl-vw so the
+   horizontal track can break out of the 1080px page column and span the whole
+   screen. CSS can't do this alone: 100vw includes the scrollbar, so a 100vw
+   track would overhang by ~15px and give the page a sideways scroll. */
+function tlSyncViewportWidth() {
+  try {
+    const w = document.documentElement.clientWidth;
+    if (w > 0) document.documentElement.style.setProperty('--tl-vw', w + 'px');
+  } catch (e) {
+    /* leave the property unset — the CSS var() fallback (100vw) takes over */
+  }
 }
 
 function renderTimeline() {
@@ -2103,6 +2120,10 @@ function renderTimeline() {
       <ol class="tl-list" id="tl-list">${itemsHtml}</ol>`;
 
     root.addEventListener('click', onTimelineClick);
+
+    // full-bleed horizontal track needs the live viewport width
+    tlSyncViewportWidth();
+    window.addEventListener('resize', tlSyncViewportWidth, { passive: true });
 
     // Mobile is vertical-only. If the viewport drops under 768px while the
     // horizontal layout is on, snap back — otherwise you are stranded in a

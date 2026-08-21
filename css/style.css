@@ -4881,12 +4881,28 @@ img.icon-true-color {
 @media (min-width: 768px) {
   .tl-list.is-horizontal {
     display: flex; flex-direction: row; align-items: flex-start;
-    padding: 62px 4px 28px; overflow-x: auto; overflow-y: hidden;
+    padding: 62px 28px 28px; overflow-x: auto; overflow-y: hidden;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
+    /* FULL-BLEED: break out of the 1080px page column so the track is as wide
+       as the screen and far more of the chronology is visible before scrolling.
+       --tl-vw is documentElement.clientWidth, set by renderTimeline() — i.e. the
+       viewport MINUS the scrollbar gutter, which 100vw would wrongly include and
+       hand the page a sideways scrollbar. Only this track scrolls horizontally. */
+    width: var(--tl-vw, 100vw);
+    max-width: var(--tl-vw, 100vw);
+    margin-left: calc(50% - (var(--tl-vw, 100vw) / 2));
     /* the spine reads as the horizontal axis instead */
     border-top: none;
   }
-  .tl-list.is-horizontal::before { left: 0; right: 0; top: 62px; bottom: auto; width: auto; height: 1px; }
+  /* the axis is drawn per-column (below) instead of once on the list: an
+     absolutely-positioned line inside a scroll container is only as wide as the
+     visible box, so it used to stop after the first screenful. */
+  .tl-list.is-horizontal::before { display: none; }
+  .tl-list.is-horizontal .tl-event::after {
+    content: ''; position: absolute; left: -1px; right: 0; top: 0; height: 1px;
+    background: var(--border-hi); pointer-events: none;
+  }
 
   .tl-list.is-horizontal .tl-event {
     flex: 0 0 250px; width: 250px; scroll-snap-align: start;
@@ -4909,6 +4925,64 @@ img.icon-true-color {
   }
   .tl-list.is-horizontal .tl-desc { font-size: 14px; }
   .tl-list.is-horizontal .tl-img { max-width: 100%; }
+}
+
+/* ── DESKTOP VERTICAL (≥768px) — centred spine, events alternating L / R ──
+   Pure CSS and pure document flow: each event is a 50%-wide block hugging one
+   side of the centre line, so an opened panel grows inside its own column and
+   can never shove the spine or the opposite side sideways.
+   Mobile (<768px) deliberately gets NONE of this — it keeps the original
+   spine-left / cards-right layout, which is far less cramped on a phone. */
+@media (min-width: 768px) {
+  .tl-list:not(.is-horizontal) { padding: 4px 0; }
+
+  /* The spine: a gently waving hairline rather than a dead-straight rule.
+     Amplitude is ~6px either side of centre while the markers are 14-46px wide,
+     so a marker always still sits ON the line at any height — the wave is
+     decorative and cannot fall out of alignment with anything. */
+  .tl-list:not(.is-horizontal)::before {
+    left: calc(50% - 10px); right: auto; top: 0; bottom: 0; width: 20px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='240'%20viewBox='0%200%2020%20240'%3E%3Cpath%20d='M10%200%20C2%2040%202%2080%2010%20120%20C18%20160%2018%20200%2010%20240'%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.16'%20stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 20px 240px;
+  }
+
+  .tl-list:not(.is-horizontal) > .tl-event { width: 50%; }
+  .tl-list:not(.is-horizontal) .tl-title { font-size: clamp(24px, 2.3vw, 34px); }
+
+  /* odd events sit LEFT of the spine — mirrored so the head reads into it */
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) { margin-left: 0; padding-right: 44px; }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-dot {
+    left: auto; right: 0; transform: translate(50%, -50%);
+  }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-head { text-align: right; }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-meta { justify-content: flex-end; }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-head::after {
+    float: left; margin-left: 0; margin-right: 20px;
+  }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-panel {
+    border-left: none; border-right: 2px solid var(--tl-cat, var(--white));
+    padding-left: 0; padding-right: 20px; text-align: right;
+  }
+  /* prose stays left-aligned — only the short mono bits mirror */
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-desc { text-align: left; }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd) .tl-img { margin-left: auto; }
+
+  /* even events sit RIGHT of the spine, keeping the original orientation */
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(even) { margin-left: 50%; padding-left: 44px; }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(even) .tl-dot {
+    left: 0; right: auto; transform: translate(-50%, -50%);
+  }
+}
+
+/* narrow desktop — same alternating layout, tighter gutters so a 300px-ish
+   column still has room for a Bebas title */
+@media (min-width: 768px) and (max-width: 899px) {
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(odd)  { padding-right: 30px; }
+  .tl-list:not(.is-horizontal) > .tl-event:nth-child(even) { padding-left: 30px; }
+  .tl-list:not(.is-horizontal) .tl-title { font-size: 24px; }
 }
 
 /* ── RESPONSIVE ── */
