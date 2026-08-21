@@ -1619,6 +1619,26 @@ function renderArtist() {
         </li>`;
     }).join('');
 
+    // Highlights: optional past-set rows. Same festival cross-link helper as the
+    // tour rows; the outbound link opens in a new tab.
+    const highlights = artist.highlights || [];
+    const highlightRows = highlights.map(h => {
+      const fest = h.festivalId ? FESTS.find(f => f.id === h.festivalId) : null;
+      const festLink = fest
+        ? `<a class="ahl-fest-link" href="${artistFestHref(fest)}">${fest.name} on PLURGASM →</a>` : '';
+      const link = h.linkUrl
+        ? `<a class="ahl-link" href="${h.linkUrl}" target="_blank" rel="noopener">${h.linkLabel || 'Watch'} ↗</a>` : '';
+      return `
+        <li class="artist-highlight">
+          <div class="ahl-info">
+            <span class="ahl-title">${h.title}</span>
+            ${h.blurb ? `<span class="ahl-blurb">${h.blurb}</span>` : ''}
+            ${festLink}
+          </div>
+          <div class="ahl-action">${link}</div>
+        </li>`;
+    }).join('');
+
     main.innerHTML = `
       <div class="artist-page">
         <a href="/" class="artist-back">← PLURGASM</a>
@@ -1648,6 +1668,12 @@ function renderArtist() {
         ${dates.length
           ? `<ul class="artist-tour-list">${rows}</ul>`
           : `<p class="artist-desc">No tour dates on file right now — check the <a href="${artist.tourUrl || artist.officialUrl}" target="_blank" rel="noopener" style="color:var(--cyan);">official site</a>.</p>`}
+
+        ${highlights.length ? `
+        <div class="artist-tour-head artist-highlights-head">
+          <h2>Highlights</h2>
+        </div>
+        <ul class="artist-highlight-list">${highlightRows}</ul>` : ''}
       </div>`;
   } catch (e) {
     console.error('renderArtist error:', e);

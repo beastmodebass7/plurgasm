@@ -58,6 +58,17 @@ const ARTISTS = [
     },
     featured: true,
     toursLastVerified: '2026-07-16',
+    /* Highlights — notable past sets worth linking out to. Optional per artist.
+       festivalId cross-links to PLURGASM_DATA.festivals exactly like a tour row. */
+    highlights: [
+      {
+        title: 'Excision B2B SLANDER — Bass Canyon 2026',
+        blurb: "Bass Canyon 2026 at the Gorge — SLANDER went back to back with Excision at his own festival on August 16. The full set is online in one piece.",
+        festivalId: 'bass-canyon',
+        linkUrl: 'https://www.youtube.com/watch?v=unkwxvBWQFo',
+        linkLabel: 'Watch the full set'
+      }
+    ],
     tourDates: [
       { date:'2026-07-24', endDate:null, dateLabel:'Jul 24, 2026', venue:'Treefort Music Hall', city:'Boise, ID', note:null, festivalId:null, ticketUrl:'https://link.seated.com/d01f9af7-0a72-4ba3-a0db-f4d45e558aac' },
       { date:'2026-07-25', endDate:null, dateLabel:'Jul 25, 2026', venue:'Encore Beach Club', city:'Las Vegas, NV', note:null, festivalId:null, ticketUrl:'https://link.seated.com/8752a6d0-3392-403b-9360-1c9f0b26f946' },
@@ -2621,4 +2632,4 @@ PLURGASM_DATA.brandOfWeek = {
   url: 'https://iedm.com/?rfsn=9251280.404170',
   cat: 'Rave Apparel · Accessories'
 };
-
+

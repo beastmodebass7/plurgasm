@@ -4728,6 +4728,19 @@ img.icon-true-color {
 .artist-tour-row.is-past { opacity: 0.32; }
 .atr-past-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 
+/* ── highlights ── past sets worth watching; same row rhythm as a tour date,
+   purple action button so it never reads as a ticket link ── */
+.artist-highlights-head { margin-top: 64px; }
+.artist-highlight-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border-hi); }
+.artist-highlight { display: grid; grid-template-columns: 1fr auto; gap: 8px 28px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.ahl-info { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.ahl-title { font-family: var(--display); font-size: 25px; letter-spacing: 1.5px; line-height: 1.05; color: var(--white); }
+.ahl-blurb { font-family: 'Chakra Petch', sans-serif; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.ahl-fest-link { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pink); margin-top: 3px; transition: opacity 0.2s; }
+.ahl-fest-link:hover { opacity: 0.7; }
+.ahl-link { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); border: 1px solid rgba(182,77,255,0.35); padding: 10px 22px; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+.ahl-link:hover { background: var(--purple); color: var(--black); }
+
 @media (max-width: 860px) {
   .artist-page { padding: 40px 20px 72px; }
   .artist-hero { flex-direction: column-reverse; gap: 32px; margin-bottom: 56px; }
@@ -4738,4 +4751,8 @@ img.icon-true-color {
   .atr-date { grid-column: 1 / -1; }
   .atr-venue { font-size: 22px; }
   .atr-tickets { padding: 9px 16px; }
+  .artist-highlights-head { margin-top: 44px; }
+  .artist-highlight { padding: 16px 0; }
+  .ahl-title { font-size: 22px; }
+  .ahl-link { padding: 9px 16px; }
 }
