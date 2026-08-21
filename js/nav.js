@@ -11,6 +11,7 @@
     { label: 'Creators',         href: '/social' },
     { label: 'Social',           href: '/#social' },
     { label: 'Blog',             href: '/blog' },
+    { label: 'History',          href: '/history' },
   ];
 
   var MOBILE_LINKS = [
@@ -21,6 +22,7 @@
     { label: 'Creators',          href: '/social' },
     { label: 'Social',            href: '/#social' },
     { label: 'Blog &amp; News',   href: '/blog' },
+    { label: 'History of Rave',   href: '/history' },
     { label: 'Safety &amp; PLUR', href: '/safety', cls: 'mob-highlight' },
   ];
 

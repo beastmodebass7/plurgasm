@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Unofficial Official History of Rave — an interactive timeline of the moments, artists, festivals and turning points that built dance music culture.">
+<meta name="keywords" content="history of rave, rave timeline, edm history, dance music history, rave culture, PLURGASM">
+<meta name="author" content="PLURGASM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plurgasm.com/history">
+<meta property="og:title" content="The History of Rave | PLURGASM">
+<meta property="og:description" content="The Unofficial Official History of Rave — an interactive timeline of the moments that built dance music culture.">
+<meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The History of Rave | PLURGASM">
+<meta name="twitter:description" content="An interactive timeline of the moments that built rave culture.">
+<meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
+<title>The History of Rave | PLURGASM</title>
+<!-- Static page, no query params — canonical is the extensionless URL in sitemap.xml. -->
+<link rel="canonical" href="https://plurgasm.com/history">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/nav.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<div id="site-nav"></div>
+
+<div class="history-page">
+
+  <a href="/" class="history-back">← Back to PLURGASM</a>
+
+  <p class="history-kicker">The Unofficial Official</p>
+  <h1 class="history-title">History of Rave</h1>
+
+  <p class="history-intro">
+    Dance music didn't arrive fully formed. It got built — in warehouses and basements, on
+    sound systems hauled into fields, by people who kept showing up. This is our running
+    chronology of the moments that got us here: the breakthroughs, the festivals, the
+    hardware, the losses, and the small footnotes that turned out to matter.
+  </p>
+  <p class="history-intro">
+    <strong>Tap any marker to open it.</strong> Bigger markers mean bigger moments, and the
+    colour tells you what kind of moment it was. On desktop you can flip the whole thing
+    sideways.
+  </p>
+
+  <!-- TIMELINE (rendered by renderTimeline() in main.js from PLURGASM_DATA.timeline) -->
+  <div id="rave-timeline"></div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Shop Rave Brands</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/history">History of Rave</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@PlurgasmHQ ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <span class="footer-legal"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js" defer></script>
+<script src="js/main.js" defer></script>
+
+<div id="site-bottom-nav"></div>
+</body>
+</html>

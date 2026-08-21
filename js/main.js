@@ -1965,3 +1965,221 @@ function initScrollAnimations() {
   }, { passive: true });
 })();
 
+
+/* ════════════════════════════════════════════════
+   HISTORY OF RAVE TIMELINE — /history
+   Renders PLURGASM_DATA.timeline into a spine + markers. No-ops on every other
+   page (the #rave-timeline container only exists on history.html).
+
+   Marker SIZE comes from `tier`, marker COLOR from `category` — both maps are
+   right below and are the only thing to edit if a new tier/category shows up.
+
+   UX notes:
+   · Expand is an ACCORDION — one event open at a time. With markers this close
+     together on the spine, letting several open at once pushed everything
+     around and made the chronology hard to follow.
+   · The head of each event is a real <button>, so Enter/Space, focus rings and
+     screen-reader expanded state all come for free (no div-with-onclick).
+   · Clicks are DELEGATED off the container rather than inline onclick= — event
+     titles are free text and an apostrophe inside an inline handler attribute
+     is a known way to break this codebase.
+   · Layout choice lives in a module variable, NOT localStorage — it resets each
+     visit on purpose and can't get wedged into a broken state.
+════════════════════════════════════════════════ */
+
+// tier -> marker diameter in px. An event's `sizeOverride` beats this.
+const TL_TIER_SIZE = { minor: 14, notable: 22, major: 32, historic: 46 };
+
+// category -> palette var for the marker fill, its glow, and the panel rule.
+const TL_CAT_COLOR = {
+  'artist-milestone': 'var(--cyan)',
+  'festival-moment':  'var(--pink)',
+  'cultural-moment':  'var(--purple)',
+  'tragedy':          'var(--amber)',
+  'tech':             'var(--green)',
+  'other':            'var(--white)',
+};
+
+// Short uppercase label shown next to the date on the marker row.
+const TL_CAT_LABEL = {
+  'artist-milestone': 'Artist',
+  'festival-moment':  'Festival',
+  'cultural-moment':  'Culture',
+  'tragedy':          'Tragedy',
+  'tech':             'Tech',
+  'other':            'Milestone',
+};
+
+// Session-only UI state — deliberately not persisted.
+let _tlLayout = 'vertical';   // 'vertical' | 'horizontal'
+let _tlOpenId = null;         // id of the one expanded event, or null
+
+function tlEsc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function tlSlug(s) {
+  return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function renderTimeline() {
+  try {
+    const root = document.getElementById('rave-timeline');
+    if (!root) return;   // not the history page — nothing to do
+
+    const events = ((window.PLURGASM_DATA && PLURGASM_DATA.timeline) || [])
+      .filter(ev => ev && ev.date && ev.title)
+      .slice()
+      // ISO YYYY-MM-DD strings sort correctly lexically — no Date(), no UTC drift.
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+
+    if (!events.length) {
+      root.innerHTML = '<p class="tl-empty">No events on the timeline yet.</p>';
+      return;
+    }
+
+    const seen = Object.create(null);
+    const itemsHtml = events.map(ev => {
+      const cat   = TL_CAT_COLOR[ev.category] ? ev.category : 'other';
+      const color = TL_CAT_COLOR[cat];
+      const size  = Number(ev.sizeOverride) > 0
+        ? Number(ev.sizeOverride)
+        : (TL_TIER_SIZE[ev.tier] || TL_TIER_SIZE.notable);
+
+      // Unique DOM id even if two events share a slug (or none was given).
+      let id = tlSlug(ev.id) || tlSlug(ev.date + '-' + ev.title) || 'event';
+      if (seen[id]) { id = id + '-' + (++seen[id]); } else { seen[id] = 1; }
+
+      const label = tlEsc(ev.dateLabel || String(ev.date).slice(0, 4));
+
+      const panelBits = [];
+      if (ev.location) {
+        panelBits.push(`<p class="tl-loc">${tlEsc(ev.location)}</p>`);
+      }
+      if (ev.image) {
+        panelBits.push(
+          `<img class="tl-img" src="${tlEsc(ev.image)}" alt="${tlEsc(ev.title)}" loading="lazy">`);
+      }
+      // description is authored HTML (like a blog body) — injected as-is.
+      panelBits.push(`<div class="tl-desc">${ev.description || ''}</div>`);
+      if (ev.linkUrl) {
+        panelBits.push(
+          `<a class="tl-link" href="${tlEsc(ev.linkUrl)}" target="_blank" rel="noopener noreferrer">` +
+          `${tlEsc(ev.linkLabel || 'Source')} ↗</a>`);
+      }
+
+      return `
+        <li class="tl-event" data-tl-cat="${tlEsc(cat)}" data-tl-tier="${tlEsc(ev.tier || '')}"
+            style="--tl-cat:${color};--tl-size:${size}px;">
+          <button type="button" class="tl-head" id="tl-head-${id}"
+                  data-tl-id="${id}" aria-expanded="false" aria-controls="tl-panel-${id}">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-head-text">
+              <span class="tl-meta">
+                <span class="tl-date">${label}</span>
+                <span class="tl-cat">${tlEsc(TL_CAT_LABEL[cat])}</span>
+              </span>
+              <span class="tl-title">${tlEsc(ev.title)}</span>
+            </span>
+          </button>
+          <div class="tl-panel" id="tl-panel-${id}" role="region"
+               aria-labelledby="tl-head-${id}" hidden>${panelBits.join('')}</div>
+        </li>`;
+    }).join('');
+
+    const firstYear = String(events[0].date).slice(0, 4);
+    const lastYear  = String(events[events.length - 1].date).slice(0, 4);
+
+    root.innerHTML = `
+      <div class="tl-toolbar">
+        <span class="tl-count">${events.length} ${events.length === 1 ? 'entry' : 'entries'} · ${tlEsc(firstYear)}–${tlEsc(lastYear)}</span>
+        <div class="tl-layout-toggle" role="group" aria-label="Timeline layout">
+          <button type="button" class="tl-lay-btn is-on" data-tl-layout="vertical"   aria-pressed="true">Vertical</button>
+          <button type="button" class="tl-lay-btn"       data-tl-layout="horizontal" aria-pressed="false">Horizontal</button>
+        </div>
+      </div>
+      <ol class="tl-list" id="tl-list">${itemsHtml}</ol>`;
+
+    root.addEventListener('click', onTimelineClick);
+
+    // Mobile is vertical-only. If the viewport drops under 768px while the
+    // horizontal layout is on, snap back — otherwise you are stranded in a
+    // layout whose toggle is hidden.
+    // The CSS is the real guarantee here — every horizontal rule is scoped to
+    // (min-width: 768px), so a narrow viewport renders vertically no matter what
+    // this state says. This just keeps the toggle's button state honest to match.
+    // Both listeners on purpose: matchMedia change is the right event but is
+    // unreliable in some embedded/automated webviews, resize always fires.
+    const mq = window.matchMedia('(max-width: 767px)');
+    const enforce = () => { if (mq.matches && _tlLayout !== 'vertical') setTimelineLayout('vertical'); };
+    if (mq.addEventListener) mq.addEventListener('change', enforce);
+    else if (mq.addListener) mq.addListener(enforce);
+    window.addEventListener('resize', enforce, { passive: true });
+    enforce();
+  } catch (e) {
+    console.error('renderTimeline failed:', e);
+  }
+}
+
+/* Delegated handler for both the layout toggle and the expand buttons. */
+function onTimelineClick(e) {
+  try {
+    const layBtn = e.target.closest('.tl-lay-btn');
+    if (layBtn) { setTimelineLayout(layBtn.dataset.tlLayout); return; }
+
+    const head = e.target.closest('.tl-head');
+    if (head) { toggleTimelineEvent(head.dataset.tlId); }
+  } catch (err) {
+    console.error('timeline click failed:', err);
+  }
+}
+
+/* Accordion: opening one event closes whichever was open. */
+function toggleTimelineEvent(id) {
+  const list = document.getElementById('tl-list');
+  if (!list || !id) return;
+
+  const closing = (_tlOpenId === id);
+
+  if (_tlOpenId) {
+    const prevHead  = document.getElementById('tl-head-'  + _tlOpenId);
+    const prevPanel = document.getElementById('tl-panel-' + _tlOpenId);
+    if (prevHead) {
+      prevHead.setAttribute('aria-expanded', 'false');
+      prevHead.closest('.tl-event').classList.remove('is-open');
+    }
+    if (prevPanel) prevPanel.hidden = true;
+    _tlOpenId = null;
+  }
+  if (closing) return;   // second click on the open one = just close it
+
+  const head  = document.getElementById('tl-head-'  + id);
+  const panel = document.getElementById('tl-panel-' + id);
+  if (!head || !panel) return;
+  head.setAttribute('aria-expanded', 'true');
+  head.closest('.tl-event').classList.add('is-open');
+  panel.hidden = false;
+  _tlOpenId = id;
+
+  // Horizontal mode scrolls sideways — keep the opened column in view.
+  if (_tlLayout === 'horizontal') {
+    head.closest('.tl-event').scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+  }
+}
+
+/* Vertical <-> horizontal. State is a plain module variable (session only). */
+function setTimelineLayout(layout) {
+  const list = document.getElementById('tl-list');
+  if (!list) return;
+  _tlLayout = (layout === 'horizontal') ? 'horizontal' : 'vertical';
+  list.classList.toggle('is-horizontal', _tlLayout === 'horizontal');
+  document.querySelectorAll('.tl-lay-btn').forEach(btn => {
+    const on = btn.dataset.tlLayout === _tlLayout;
+    btn.classList.toggle('is-on', on);
+    btn.setAttribute('aria-pressed', String(on));
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderTimeline);

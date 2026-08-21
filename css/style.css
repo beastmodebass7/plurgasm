@@ -4756,3 +4756,186 @@ img.icon-true-color {
   .ahl-title { font-size: 22px; }
   .ahl-link { padding: 9px 16px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   HISTORY OF RAVE TIMELINE (/history) — flyer chronology.
+   Same rules-and-type discipline as the artist page: a hairline spine,
+   Bebas years, mono labels. No cards, no panels, no gradient fills —
+   the hierarchy is carried by marker size, type scale and whitespace.
+
+   Marker size comes from --tl-size (set inline from the event's tier),
+   marker colour from --tl-cat (set inline from its category).
+═══════════════════════════════════════════════════════════════ */
+.history-page { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 56px 48px 96px; }
+
+.history-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); transition: color 0.2s; margin-bottom: 44px; }
+.history-back:hover { color: var(--cyan); }
+
+.history-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--pink); margin-bottom: 14px; }
+.history-title { font-family: var(--display); font-size: clamp(56px,10vw,132px); line-height: 0.86; letter-spacing: 2px; color: var(--white); margin-bottom: 18px; }
+.history-intro { font-size: 16px; color: var(--muted); line-height: 1.75; max-width: 62ch; }
+.history-intro + .history-intro { margin-top: 14px; }
+.history-intro strong { color: var(--white); }
+
+/* ── toolbar: entry count + the desktop layout toggle ── */
+.tl-toolbar {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  border-top: 3px solid var(--white); padding-top: 16px; margin-top: 56px; margin-bottom: 34px;
+}
+.tl-count { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--faint); }
+
+.tl-layout-toggle { display: flex; }
+.tl-lay-btn {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--faint); background: none; border: 1px solid var(--border-hi);
+  padding: 8px 16px; transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.tl-lay-btn + .tl-lay-btn { border-left: none; }
+.tl-lay-btn:hover { color: var(--white); border-color: var(--white); }
+.tl-lay-btn.is-on { color: var(--black); background: var(--cyan); border-color: var(--cyan); }
+.tl-lay-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.tl-empty { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--faint); padding: 40px 0; }
+
+/* ── VERTICAL (default, and the only layout under 768px) ── */
+.tl-list { list-style: none; margin: 0; padding: 4px 0 4px 78px; position: relative; }
+/* the spine */
+.tl-list::before {
+  content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 1px;
+  background: var(--border-hi);
+}
+
+.tl-event { position: relative; border-bottom: 1px solid var(--border); }
+.tl-event:first-child { border-top: 1px solid var(--border); }
+
+/* the marker — size and colour are both data-driven */
+.tl-dot {
+  position: absolute; left: -48px; top: 30px;
+  width: var(--tl-size, 22px); height: var(--tl-size, 22px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%; background: var(--tl-cat, var(--white));
+  box-shadow: 0 0 0 5px var(--black), 0 0 14px -1px var(--tl-cat, var(--white));
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* the clickable head: marker row + date/category + title */
+.tl-head {
+  display: block; width: 100%; text-align: left; background: none; border: none;
+  color: inherit; font: inherit; padding: 18px 0 18px 0;
+}
+.tl-head:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.tl-head-text { display: block; }
+
+.tl-meta { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 4px; }
+.tl-date { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--tl-cat, var(--white)); }
+.tl-cat  { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--faint); }
+
+.tl-title {
+  display: block; font-family: var(--display); font-size: clamp(26px,3.4vw,40px);
+  line-height: 1.02; letter-spacing: 1.5px; color: var(--white);
+  transition: color 0.2s;
+}
+.tl-head:hover .tl-title { color: var(--tl-cat, var(--white)); }
+.tl-head:hover .tl-dot,
+.tl-event.is-open .tl-dot { box-shadow: 0 0 0 5px var(--black), 0 0 26px 2px var(--tl-cat, var(--white)); }
+.tl-event.is-open .tl-title { color: var(--tl-cat, var(--white)); }
+
+/* a hairline "+ / −" affordance so a collapsed row reads as openable */
+.tl-head::after {
+  content: '+'; float: right; margin-left: 20px;
+  font-family: var(--mono); font-size: 18px; line-height: 1; color: var(--faint);
+  transition: color 0.2s;
+}
+.tl-event.is-open .tl-head::after { content: '–'; color: var(--tl-cat, var(--white)); }
+
+/* ── the expanded detail — indented text against a category-coloured rule ── */
+.tl-panel {
+  border-left: 2px solid var(--tl-cat, var(--white));
+  padding: 2px 0 26px 20px; margin-bottom: 4px;
+  animation: tl-open 0.28s ease both;
+}
+.tl-panel[hidden] { display: none; }
+@keyframes tl-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+.tl-loc { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
+.tl-img { display: block; width: 100%; max-width: 520px; margin-bottom: 16px; border: 1px solid var(--border-hi); }
+.tl-desc { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 62ch; }
+.tl-desc p + p { margin-top: 12px; }
+.tl-desc strong { color: var(--white); }
+.tl-desc em { color: var(--white); font-style: italic; }
+.tl-desc a { color: var(--cyan); border-bottom: 1px solid rgba(0,229,255,0.35); }
+.tl-desc a:hover { opacity: 0.75; }
+.tl-desc ul, .tl-desc ol { margin: 12px 0 0 20px; }
+.tl-desc li { margin-bottom: 6px; }
+.tl-desc code { font-family: var(--mono); font-size: 13px; color: var(--amber); }
+.tl-link {
+  display: inline-block; margin-top: 18px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--tl-cat, var(--white)); border: 1px solid currentColor; padding: 9px 18px;
+  transition: background 0.2s, color 0.2s;
+}
+.tl-link:hover { background: var(--tl-cat, var(--white)); color: var(--black); }
+
+/* ── HORIZONTAL (desktop only — the toggle is hidden below 768px, and these
+   rules are scoped to the same breakpoint so the class is inert on mobile) ── */
+@media (min-width: 768px) {
+  .tl-list.is-horizontal {
+    display: flex; flex-direction: row; align-items: flex-start;
+    padding: 62px 4px 28px; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    /* the spine reads as the horizontal axis instead */
+    border-top: none;
+  }
+  .tl-list.is-horizontal::before { left: 0; right: 0; top: 62px; bottom: auto; width: auto; height: 1px; }
+
+  .tl-list.is-horizontal .tl-event {
+    flex: 0 0 250px; width: 250px; scroll-snap-align: start;
+    border-bottom: none; border-top: none;
+    border-left: 1px solid var(--border); padding: 0 22px;
+    transition: flex-basis 0.3s ease, width 0.3s ease;
+  }
+  .tl-list.is-horizontal .tl-event:first-child { border-top: none; }
+  .tl-list.is-horizontal .tl-event:last-child  { border-right: 1px solid var(--border); }
+  .tl-list.is-horizontal .tl-event.is-open { flex-basis: 430px; width: 430px; }
+
+  /* marker sits ON the axis, at the column's left edge */
+  .tl-list.is-horizontal .tl-dot { left: 0; top: 0; transform: translate(-50%, -50%); }
+  .tl-list.is-horizontal .tl-head { padding: 26px 0 14px; }
+  .tl-list.is-horizontal .tl-title { font-size: clamp(22px,2vw,28px); }
+  .tl-list.is-horizontal .tl-panel {
+    border-left: none; border-top: 2px solid var(--tl-cat, var(--white));
+    padding: 14px 0 8px; margin-bottom: 0;
+    max-height: 340px; overflow-y: auto;
+  }
+  .tl-list.is-horizontal .tl-desc { font-size: 14px; }
+  .tl-list.is-horizontal .tl-img { max-width: 100%; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .history-page { padding: 40px 24px 80px; }
+}
+@media (max-width: 767px) {
+  /* mobile is vertical-only — the layout toggle has nothing to offer here */
+  .tl-layout-toggle { display: none; }
+}
+@media (max-width: 480px) {
+  .history-page { padding: 32px 18px 72px; }
+  .history-back { margin-bottom: 30px; }
+  .tl-toolbar { margin-top: 40px; margin-bottom: 26px; }
+  .tl-list { padding-left: 52px; }
+  .tl-list::before { left: 20px; }
+  /* markers scale down so a 46px "historic" dot can't crowd the text column */
+  .tl-dot { left: -32px; top: 26px; width: calc(var(--tl-size, 22px) * 0.72); height: calc(var(--tl-size, 22px) * 0.72); }
+  .tl-head { padding: 15px 0; }        /* row stays ≥44px tall — comfortable tap target */
+  .tl-title { font-size: 24px; }
+  .tl-panel { padding-left: 14px; padding-bottom: 22px; }
+  .tl-desc { font-size: 14.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-panel { animation: none; }
+  .tl-dot,
+  .tl-title,
+  .tl-list.is-horizontal .tl-event { transition: none; }
+}

@@ -2633,3 +2633,129 @@ PLURGASM_DATA.brandOfWeek = {
   cat: 'Rave Apparel · Accessories'
 };
 
+
+/* ════════════════════════════════════════════════
+   HISTORY OF RAVE TIMELINE — powers /history
+   Rendered by renderTimeline() in js/main.js.
+
+   ADDING AN EVENT = ADDING ONE OBJECT TO THIS ARRAY. Nothing else to touch.
+   Only four fields are required — date, title, tier, description — so a quick
+   entry is two lines and a rich one can carry an image, a link and several
+   paragraphs.
+
+   FIELDS
+     id           url-safe slug, unique. Used for the DOM id + open/close state.
+                  Omit it and one is derived from the date + title.
+     date         'YYYY-MM-DD' ISO string — this is what the sort uses. If only
+                  the year is known use 'YYYY-01-01'. Compared as a STRING, so
+                  there is no UTC off-by-one to worry about.
+     dateLabel    what humans actually see ('1988', 'Aug 2019', 'Summer 1989').
+                  Defaults to the year pulled off `date`.
+     title        the headline.
+     tier         'minor' | 'notable' | 'major' | 'historic' — drives marker SIZE:
+                    minor 14px · notable 22px · major 32px · historic 46px
+     sizeOverride optional number (px) that beats the tier size. null = use tier.
+     category     'artist-milestone' | 'festival-moment' | 'cultural-moment'
+                  | 'tragedy' | 'tech' | 'other' — drives the marker COLOR:
+                    artist-milestone → cyan    festival-moment → pink
+                    cultural-moment  → purple  tragedy         → amber
+                    tech             → green   other           → off-white
+                  An unknown/omitted value falls back to 'other'.
+     location     optional string.
+     image        optional local image path (e.g. 'images/history/foo.webp').
+     linkUrl      optional source / external link.  linkLabel: its link text.
+     description  HTML string shown when the event is expanded. Same rules as a
+                  blog `body`: it's a template literal, so escape any backtick or
+                  `${` you actually want to display.
+
+   ⚠ The five entries below are PLACEHOLDER SAMPLES, not researched history —
+     they exist so the page renders and the tier sizing / category colors are
+     visible. Replace them with real events; delete any you don't want.
+════════════════════════════════════════════════ */
+const TIMELINE = [
+  {
+    id: 'sample-warehouse-era',
+    date: '1985-01-01',
+    dateLabel: '1985',
+    title: 'Sample Entry — The Warehouse Era',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: null,
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>Sample entry — replace with a real event.</strong> This one shows
+      what a <em>major</em> / <em>cultural-moment</em> marker looks like: a mid-size dot in
+      purple. The description accepts full HTML, so it can be one sentence or several
+      paragraphs with <em>emphasis</em>, links and lists.</p>`
+  },
+  {
+    id: 'sample-first-massive',
+    date: '1993-08-01',
+    dateLabel: 'Aug 1993',
+    title: 'Sample Entry — The First Massive',
+    tier: 'historic',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: 'Somewhere, USA',
+    image: null,
+    linkUrl: 'https://plurgasm.com/blog-post?id=history-of-plur',
+    linkLabel: 'Read: The History of PLUR',
+    description: `<p><strong>Sample entry — replace with a real event.</strong> The largest
+      marker size (<em>historic</em>) in pink for <em>festival-moment</em>. This one also
+      demonstrates the optional <code>location</code> and <code>linkUrl</code> fields.</p>
+      <p>A second paragraph, just to show the panel handles longer bodies without the layout
+      falling apart.</p>`
+  },
+  {
+    id: 'sample-gear-shift',
+    date: '2001-01-01',
+    dateLabel: '2001',
+    title: 'Sample Entry — A Gear Shift',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'tech',
+    location: null,
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>Sample entry — replace with a real event.</strong> A
+      <em>notable</em> marker in green for the <em>tech</em> category — production, hardware
+      and software turning points go here.</p>`
+  },
+  {
+    id: 'sample-breakout-artist',
+    date: '2010-01-01',
+    dateLabel: '2010',
+    title: 'Sample Entry — A Breakout Artist',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'artist-milestone',
+    location: null,
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>Sample entry — replace with a real event.</strong> A
+      <em>major</em> marker in cyan for <em>artist-milestone</em> — debut sets, defining
+      releases, and the moments an act broke through.</p>`
+  },
+  {
+    id: 'sample-quiet-footnote',
+    date: '2019-01-01',
+    dateLabel: '2019',
+    title: 'Sample Entry — A Quiet Footnote',
+    tier: 'minor',
+    sizeOverride: null,
+    category: 'other',
+    location: null,
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>Sample entry — replace with a real event.</strong> The smallest
+      marker (<em>minor</em>) in off-white for <em>other</em> — small but worth recording.
+      This is the shortest an entry can reasonably be.</p>`
+  },
+];
+
+window.PLURGASM_DATA.timeline = TIMELINE;
