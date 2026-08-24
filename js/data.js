@@ -2668,51 +2668,156 @@ PLURGASM_DATA.brandOfWeek = {
                   blog `body`: it's a template literal, so escape any backtick or
                   `${` you actually want to display.
 
-   ⚠ The five entries below are PLACEHOLDER SAMPLES, not researched history —
-     they exist so the page renders and the tier sizing / category colors are
-     visible. Replace them with real events; delete any you don't want.
+   ⚠ The entries below are DRAFTS, not verified history. Dates are approximate
+     anchors chosen for sorting, and every description opens with a
+     "[DRAFT — verify date & details]" marker. Leave that marker in place until
+     the entry has been checked against a real source — then remove it, tighten
+     the wording, and add a linkUrl.
 ════════════════════════════════════════════════ */
 const TIMELINE = [
   {
-    id: 'sample-warehouse-era',
-    date: '1985-01-01',
-    dateLabel: '1985',
-    title: 'Sample Entry — The Warehouse Era',
-    tier: 'major',
+    id: 'second-summer-of-love',
+    date: '1988-01-01',
+    dateLabel: 'Late 1980s',
+    title: 'The Second Summer of Love',
+    tier: 'historic',
     sizeOverride: null,
     category: 'cultural-moment',
-    location: null,
+    location: 'United Kingdom',
     image: null,
     linkUrl: null,
     linkLabel: null,
-    description: `<p><strong>Sample entry — replace with a real event.</strong> This one shows
-      what a <em>major</em> / <em>cultural-moment</em> marker looks like: a mid-size dot in
-      purple. The description accepts full HTML, so it can be one sentence or several
-      paragraphs with <em>emphasis</em>, links and lists.</p>`
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Acid house
+      broke out of the clubs and into warehouses and fields across Britain, and the parties
+      that followed became known as the Second Summer of Love. Cheap sound systems, imported
+      Chicago and Detroit records, and a word-of-mouth network of one-off events turned a
+      niche club sound into a mass youth movement.</p>
+      <p>This is the moment most histories treat as the start of rave culture as we know it
+      &mdash; the template of an all-night crowd, a DJ instead of a band, and a scene built
+      outside the licensed venue system.</p>`
   },
   {
-    id: 'sample-first-massive',
-    date: '1993-08-01',
-    dateLabel: 'Aug 1993',
-    title: 'Sample Entry — The First Massive',
+    id: 'berlin-techno-after-the-wall',
+    date: '1990-01-01',
+    dateLabel: 'Early 1990s',
+    title: 'Berlin Techno Erupts After the Wall',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: 'Berlin, Germany',
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> With the Wall
+      down and large stretches of the city sitting empty, abandoned buildings and bunkers in
+      Berlin filled up with sound systems. Tresor opened in this window and became one of the
+      clubs that defined the sound, linking the city directly to Detroit techno.</p>
+      <p>Within a few years Berlin had gone from divided city to global techno capital &mdash;
+      a reputation it has held ever since.</p>`
+  },
+  {
+    id: 'uk-free-party-jungle-era',
+    date: '1992-01-01',
+    dateLabel: 'Early–mid 1990s',
+    title: 'Free Parties, Breakbeat and the Rise of Jungle',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: 'United Kingdom',
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> The UK
+      free-party circuit peaked and then collided with a crackdown on unlicensed gatherings.
+      As the open-air parties were pushed back, the music sped up and got heavier: chopped
+      breakbeats and deep sub-bass turned into hardcore, then jungle, then drum and bass.</p>
+      <p>This is the era where rave stopped being one sound and started splintering into the
+      genre family tree the scene still runs on.</p>`
+  },
+  {
+    id: 'electronica-breaks-us-mainstream',
+    date: '1996-01-01',
+    dateLabel: 'Mid–late 1990s',
+    title: 'Electronic Music Breaks Into the US Mainstream',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: 'United States',
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> American
+      labels and radio decided electronic music was the next big thing and marketed it under
+      the banner of &ldquo;electronica.&rdquo; A handful of acts crossed over into heavy MTV
+      rotation and mainstream press, and for a few years dance music had a real foothold in
+      the US charts.</p>
+      <p>The push faded, but it planted the sound with a generation of American listeners well
+      before the festival boom arrived.</p>`
+  },
+  {
+    id: 'dubstep-emerges-south-london',
+    date: '2002-01-01',
+    dateLabel: '2000s',
+    title: 'Dubstep Emerges from South London',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: 'South London, UK',
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Out of the UK
+      garage scene in South London came something slower, darker and built around weight rather
+      than speed: half-time drums, long stretches of space, and sub-bass meant to be felt in
+      the chest. Small club nights and pirate radio carried it first.</p>
+      <p>Within a few years the sound had travelled well beyond London and become one of the
+      most exported UK genres of the decade.</p>`
+  },
+  {
+    id: 'us-edm-boom-mainstage-era',
+    date: '2010-01-01',
+    dateLabel: 'Late 2000s – early 2010s',
+    title: 'The US EDM Boom and the Mainstage Era',
     tier: 'historic',
     sizeOverride: null,
     category: 'festival-moment',
-    location: 'Somewhere, USA',
+    location: 'United States',
     image: null,
-    linkUrl: 'https://plurgasm.com/blog-post?id=history-of-plur',
-    linkLabel: 'Read: The History of PLUR',
-    description: `<p><strong>Sample entry — replace with a real event.</strong> The largest
-      marker size (<em>historic</em>) in pink for <em>festival-moment</em>. This one also
-      demonstrates the optional <code>location</code> and <code>linkUrl</code> fields.</p>
-      <p>A second paragraph, just to show the panel handles longer bodies without the layout
-      falling apart.</p>`
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> American
+      festival culture went from regional parties to stadium-scale production in the space of
+      a few years. Multi-day events with enormous mainstages, pyro and LED walls became the
+      default image of dance music, and &ldquo;EDM&rdquo; became the umbrella term for all of
+      it.</p>
+      <p>This is the period that built most of the festival brands, touring circuits and
+      economics the scene still runs on &mdash; and the one that pulled rave aesthetics into
+      the mainstream.</p>`
   },
   {
-    id: 'sample-gear-shift',
-    date: '2001-01-01',
-    dateLabel: '2001',
-    title: 'Sample Entry — A Gear Shift',
+    id: 'bass-music-crosses-over-us',
+    date: '2011-01-01',
+    dateLabel: 'Early 2010s',
+    title: 'Heavy Bass Crosses Into the US Mainstream',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'artist-milestone',
+    location: 'United States',
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> A louder, more
+      aggressive take on dubstep found a mass American audience. Bass-led acts moved from side
+      stages to headline slots, picked up major-label deals and awards attention, and the drop
+      became the central structural idea in popular dance music.</p>
+      <p>Purists argued about what got lost in translation, but the wave brought an entire
+      generation into bass music.</p>`
+  },
+  {
+    id: 'streaming-livestream-sets',
+    date: '2013-01-01',
+    dateLabel: '2010s',
+    title: 'Streaming and Livestreamed Sets Reshape Discovery',
     tier: 'notable',
     sizeOverride: null,
     category: 'tech',
@@ -2720,41 +2825,90 @@ const TIMELINE = [
     image: null,
     linkUrl: null,
     linkLabel: null,
-    description: `<p><strong>Sample entry — replace with a real event.</strong> A
-      <em>notable</em> marker in green for the <em>tech</em> category — production, hardware
-      and software turning points go here.</p>`
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Streaming
+      platforms, free mix hosting and officially livestreamed festival sets changed how fans
+      found new music. A set played to a field could be watched worldwide the same night, and
+      an unsigned producer could reach an audience without a label or a radio slot.</p>
+      <p>Discovery shifted from record shops and radio to feeds, playlists and archived
+      sets.</p>`
   },
   {
-    id: 'sample-breakout-artist',
-    date: '2010-01-01',
-    dateLabel: '2010',
-    title: 'Sample Entry — A Breakout Artist',
+    id: 'pandemic-shutdown-virtual-raves',
+    date: '2020-03-01',
+    dateLabel: '2020',
+    title: 'Pandemic Shutdown and the Virtual Rave',
     tier: 'major',
     sizeOverride: null,
-    category: 'artist-milestone',
+    category: 'cultural-moment',
     location: null,
     image: null,
     linkUrl: null,
     linkLabel: null,
-    description: `<p><strong>Sample entry — replace with a real event.</strong> A
-      <em>major</em> marker in cyan for <em>artist-milestone</em> — debut sets, defining
-      releases, and the moments an act broke through.</p>`
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Festivals and
+      clubs worldwide shut down, cancelling or postponing effectively an entire season. The
+      scene moved online: livestreamed DJ sets, virtual festivals and in-game events stood in
+      for the dancefloor for the better part of two years.</p>
+      <p>Many independent venues did not survive the gap, and the reopening reshaped touring
+      schedules and ticket pricing for years afterward.</p>`
   },
   {
-    id: 'sample-quiet-footnote',
-    date: '2019-01-01',
-    dateLabel: '2019',
-    title: 'Sample Entry — A Quiet Footnote',
-    tier: 'minor',
+    id: 'harm-reduction-goes-mainstream',
+    date: '2022-01-01',
+    dateLabel: '2020s',
+    title: 'Harm Reduction Goes Mainstream at Festivals',
+    tier: 'major',
     sizeOverride: null,
-    category: 'other',
+    category: 'cultural-moment',
     location: null,
     image: null,
     linkUrl: null,
     linkLabel: null,
-    description: `<p><strong>Sample entry — replace with a real event.</strong> The smallest
-      marker (<em>minor</em>) in off-white for <em>other</em> — small but worth recording.
-      This is the shortest an entry can reasonably be.</p>`
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Against the
+      backdrop of the fentanyl crisis, harm reduction moved from something volunteers did
+      quietly at the edge of a festival to something promoters advertise. Naloxone on site,
+      drug-checking supplies, free water and dedicated care teams became expectations rather
+      than favours.</p>
+      <p>The legal ground varies a lot by state and by country, so what is actually offered
+      still differs sharply from event to event.</p>`
+  },
+  {
+    id: 'the-mud-year',
+    date: '2015-01-01',
+    dateLabel: 'Mid 2010s',
+    title: 'The Year the Rain Won',
+    tier: 'minor',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: null,
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details; which festival and
+      which year both still need to be pinned down]</strong> A washed-out weekend the crowd
+      ends up talking about more than the lineup: campsites underwater, shuttles stuck, and a
+      field churned into mud by the second night. Ponchos and taped-up boots as the unofficial
+      dress code.</p>
+      <p>Every scene has one of these years. It is a footnote, but it is the kind people still
+      bring up a decade later.</p>`
+  },
+  {
+    id: 'surprise-b2b-set',
+    date: '2017-01-01',
+    dateLabel: 'Late 2010s',
+    title: 'The Surprise B2B Nobody Had on the Lineup',
+    tier: 'minor',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: null,
+    image: null,
+    linkUrl: null,
+    linkLabel: null,
+    description: `<p><strong>[DRAFT &mdash; verify date &amp; details; artists and event still
+      to be confirmed]</strong> An unannounced back-to-back set on a small stage that spreads
+      by word of mouth mid-set, pulls a crowd well past the tent capacity, and gets traded
+      around as a shaky phone recording for years afterward.</p>
+      <p>Small enough to miss on the schedule, big enough that the people who were there still
+      lead with it.</p>`
   },
 ];
 
