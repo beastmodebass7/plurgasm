@@ -1085,8 +1085,14 @@ function renderMap(list) {
     if (!_leafletMap) {
       _leafletMap = L.map('fest-map').setView([39.8, -98.6], 4);
       _leafletMap.setMaxBounds([[15, -170], [72, -50]]);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
+      // CARTO's free basemap tiles now return an "API KEY REQUIRED" placeholder,
+      // so use Esri's keyless Dark Gray canvas (base + labels overlay) instead.
+      const esri = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
+      L.tileLayer(esri + 'World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ', maxZoom: 16
+      }).addTo(_leafletMap);
+      L.tileLayer(esri + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 16
       }).addTo(_leafletMap);
       _markerGroup = L.layerGroup().addTo(_leafletMap);
     }
