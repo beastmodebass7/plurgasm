@@ -225,6 +225,72 @@ const BRANDS = [
 ];
 
 PLURGASM_DATA.blogPosts = [
+  {
+    id: 'us-rave-festival-season-2027-dates',
+    title: 'US Rave & Festival Season 2027: Dates to Know',
+    slug: 'us-rave-festival-season-2027-dates',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-10-09',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
+    excerpt: 'A month-by-month look at the 2027 US rave and festival season: EDC Las Vegas, Project GLOW, Electric Forest, Bass Canyon, Up in the Sky and more, with timing and links to each festival page.',
+    published: true,
+    featured: true,
+    body: `<p>The 2027 rave and festival season is already taking shape. Early dates are landing, headliner rumors are circulating, and the usual crowd is booking flights before lineups even drop. Here is a month-by-month guide to the major US festivals worth planning around, with links to every festival page we have built.</p>
+
+<p><strong>A quick honesty note:</strong> most 2027 dates are still unannounced or unconfirmed. Where a festival has not published its 2027 dates, we say when it <em>typically</em> runs. Always confirm on the festival's official site before you buy tickets or book travel. Want to see everything in one place? Use the <a href="/calendar">raves near me festival calendar</a> and filter by region or distance.</p>
+
+<h2>Spring 2027: The season kicks off</h2>
+<p>The big Southern California and Miami weekends open the year. <a href="/calendar">Ultra Miami</a>, <a href="/calendar">Beyond Wonderland</a> and Coachella typically fall between March and April, and are all listed on the calendar.</p>
+
+<h2>May 2027: Vegas and Detroit</h2>
+<ul>
+<li><a href="/festivals/edc-las-vegas">EDC Las Vegas</a>: typically mid-May at the Las Vegas Motor Speedway, and the biggest electronic music festival in the country. Our calendar lists May 14-16 and 21-23, 2027.</li>
+<li><a href="/festivals/movement-detroit">Movement Detroit</a>: typically Memorial Day weekend at Hart Plaza, the birthplace of techno. Listed for May 29-31, 2027.</li>
+<li><a href="/calendar">Lightning in a Bottle</a>: typically late May in Bakersfield, California.</li>
+</ul>
+
+<h2>June 2027: East Coast and the Michigan woods</h2>
+<ul>
+<li><a href="/festivals/project-glow">Project GLOW</a>: typically early June at RFK Festival Grounds in Washington, DC. The calendar lists June 5-6, 2027.</li>
+<li><a href="/festivals/electric-forest">Electric Forest</a>: typically the last full weekend of June in Rothbury, Michigan. Currently estimated at June 24-27, 2027.</li>
+</ul>
+
+<h2>July 2027: Summer peaks</h2>
+<ul>
+<li><a href="/festivals/tomorrowland">Tomorrowland</a>: typically two weekends in mid to late July in Boom, Belgium. Not in the US, but a bucket-list trip for many American ravers.</li>
+<li><a href="/calendar">HARD Summer</a> and <a href="/calendar">Dirtybird Campout x Northern Nights</a> usually land in late July or early August in California.</li>
+</ul>
+
+<h2>August 2027: Mountains, canyons and bass</h2>
+<ul>
+<li><a href="/festivals/elements-music-arts-festival">Elements Music &amp; Arts Festival</a>: typically early August at Pocono Raceway in Pennsylvania.</li>
+<li><a href="/festivals/up-in-the-sky">Up in the Sky</a>: typically early August in Aspen, Colorado, at Buttermilk.</li>
+<li><a href="/festivals/bass-canyon">Bass Canyon</a>: typically mid-August at the Gorge Amphitheatre in George, Washington, curated by Excision.</li>
+</ul>
+
+<h2>Fall 2027: Heavy bass and Halloween</h2>
+<p>The fall run is stacked with bass and trance. Based on the 2026 season, expect these to return around the same time of year:</p>
+<ul>
+<li><a href="/festivals/basscon-wasteland">Basscon Wasteland</a> and <a href="/festivals/north-coast-music-festival">North Coast Music Festival</a>: typically early September.</li>
+<li><a href="/festivals/bridge-city-block-party">Bridge City Block Party</a>: typically September in Portland, Oregon.</li>
+<li><a href="/festivals/lost-lands">Lost Lands</a>: typically mid to late September in Thornville, Ohio.</li>
+<li><a href="/festivals/nocturnal-wonderland">Nocturnal Wonderland</a>: typically September at Glen Helen in San Bernardino.</li>
+<li><a href="/festivals/breakaway-massachusetts">Breakaway Massachusetts</a>: typically late summer in Worcester.</li>
+</ul>
+
+<h2>How to plan your 2027 season</h2>
+<ol>
+<li><strong>Start with the calendar.</strong> Filter by region, genre or organizer on the <a href="/calendar">festival calendar</a>, or tap Near Me to find raves close to you.</li>
+<li><strong>Save the ones you want.</strong> Sign in and save festivals to build your own rave calendar.</li>
+<li><strong>Book flexible.</strong> Because many dates are not final, choose refundable hotels and flights until your festival confirms.</li>
+<li><strong>Buy tickets from official sources only.</strong> Resale scams spike every season. See our <a href="/safety">safety guide</a>.</li>
+</ol>
+
+<p>We will update the calendar as 2027 dates are announced. Bookmark <a href="/calendar">plurgasm.com/calendar</a> and check back often.</p>`
+  },
+
 
   {
     id: 'rave-harm-reduction-organizations',
