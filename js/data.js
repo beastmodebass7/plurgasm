@@ -378,7 +378,7 @@ PLURGASM_DATA.blogPosts = [
     excerpt: 'Rave culture and drug use have always been linked. These organizations show up to festivals to keep people alive, and knowing who they are might let you save a life too.',
     published: true,
     featured: true,
-    body: `<p>Let's be honest about something the rave scene doesn't always say out loud: electronic music culture and drug use have been intertwined for decades. That's not an endorsement, it's just reality. And with today's drug supply more dangerous than ever, pretending otherwise costs lives. The beautiful thing about PLUR is that our community has never been about judgment. It's about looking out for each other. That's exactly what harm reduction is.</p>
+    body: `<p>Let's be honest about something the rave scene doesn't always say out loud: electronic music culture and drug use have been intertwined for decades. That's not an endorsement, it's just reality. And with today's drug supply more dangerous than ever, pretending otherwise costs lives. PLUR (Peace, Love, Unity, Respect) is the code that PLUR festivals and rave culture were built on, and our community has never been about judgment. It's about looking out for each other. That's exactly what harm reduction is.</p>
 
 <p>Harm reduction is a simple, evidence-based idea: meet people where they are and reduce the dangers of drug use without demanding abstinence first.<sup>1</sup> Instead of "just don't," it's "if you're going to, here's how to stay alive, and here's help if something goes wrong." For a culture that packs hundreds of thousands of people into fields every summer, that mindset saves real lives.</p>
 
