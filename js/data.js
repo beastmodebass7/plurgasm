@@ -229,6 +229,77 @@ const BRANDS = [
 
 PLURGASM_DATA.blogPosts = [
   {
+    id: 'canadian-rave-festival-guide',
+    title: 'The Ultimate Guide to Canadian Rave & Festival Culture: By Season and Province',
+    slug: 'canadian-rave-festival-guide',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-10-23',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
+    excerpt: 'From dancing in a Montreal winter at Igloofest to BC mountain bass at Shambhala, here is your cross-country guide to Canada\'s electronic music festivals, by season and province.',
+    published: true,
+    featured: true,
+    body: `<p>Canada has one of the most distinct rave scenes on the planet. Where else can you dance outdoors in a snowsuit at -20°C, camp in the Kootenay mountains for a family-run bass gathering, and catch a stadium-sized EDM weekend in the same year? The country's festival circuit is shaped by its geography: brutal winters, huge open spaces, and a handful of cities (Montreal above all) with deep underground roots.</p>
+
+<p>This guide breaks Canadian electronic and rave festivals down <strong>by season first, then by province</strong>. It is built to stay useful year after year. Where a 2027 date is confirmed we give it; where it is not, we say when the festival <em>typically</em> runs. It is also a great starting point for US ravers planning a cross-border trip: many of these festivals are a short drive or flight from the border, and the exchange rate and the lineups are both worth the passport stamp.</p>
+
+<h2>Winter</h2>
+
+<h3>Quebec</h3>
+<ul>
+<li><a href="/festivals/igloofest"><strong>Igloofest</strong></a> (Montreal, QC): the world's coldest festival. Outdoor winter raving in Old Montreal, running <strong>January 14 to February 6, 2027</strong> across four weekends. Layer up, wear the snowsuit, and dance to stay warm. It is a rite of passage for Canadian ravers. See the full <a href="/festivals/igloofest">Igloofest festival page</a> for details.</li>
+</ul>
+
+<h2>Summer</h2>
+<p>Almost the entire Canadian festival calendar lives between June and September, and each region has its own flavour.</p>
+
+<h3>British Columbia: the heartland</h3>
+<p>BC is home to Canada's most beloved boutique and camping festivals, set in mountains, forests and river valleys.</p>
+<ul>
+<li><a href="https://shambhalamusicfestival.com" target="_blank" rel="noopener"><strong>Shambhala Music Festival</strong></a> (Salmo, BC): Canada's largest and longest-running electronic festival, running since 1998. It is family-run with no corporate sponsorship, and it is a pillar of the country's rave community. Confirmed for <strong>July 23-26, 2027</strong>.</li>
+<li><a href="https://basscoast.ca" target="_blank" rel="noopener"><strong>Bass Coast</strong></a> (Merritt, BC): a boutique, artist-owned, DIY celebration of bass music and electronic culture. It is 19+ and confirmed for <strong>July 9-12, 2027</strong>.</li>
+<li><a href="https://www.fvdedinthepark.com" target="_blank" rel="noopener"><strong>FVDED in the Park</strong></a> (Vancouver area): a big-production EDM and hip-hop weekend in the Vancouver area each summer.</li>
+</ul>
+
+<h3>Ontario</h3>
+<ul>
+<li><a href="/festivals/veld-music-festival"><strong>Veld Music Festival</strong></a> (Toronto, ON): Canada's second-biggest EDM festival, pulling roughly 105,000 people to Downsview Park. It typically runs in late July or early August. Details on the <a href="/festivals/veld-music-festival">Veld festival page</a>.</li>
+<li><a href="https://www.escapademf.com" target="_blank" rel="noopener"><strong>Escapade Music Festival</strong></a> (Ottawa, ON): a major EDM festival in the capital since 2010, held in summer.</li>
+<li><a href="https://www.electricisland.to" target="_blank" rel="noopener"><strong>Electric Island</strong></a> (Toronto, ON): a summer electronic concert and picnic series on the Toronto waterfront, a lower-key, house-and-techno-friendly alternative to the big mainstage weekends.</li>
+</ul>
+
+<h3>Quebec</h3>
+<p>Montreal has an underground heritage few cities can match, and in summer it hosts both the biggest and the deepest events in the country.</p>
+<ul>
+<li><a href="https://ilesoniq.com" target="_blank" rel="noopener"><strong>ÎleSoniq</strong></a> (Montreal, QC): now Canada's biggest EDM festival at roughly 76,000 people, held at Parc Jean-Drapeau in early August. We list it on our <a href="/calendar">festival calendar</a>.</li>
+<li><a href="/festivals/osheaga"><strong>Osheaga</strong></a> (Montreal, QC): a massive multi-genre festival blending electronic acts with indie and hip-hop, also at Parc Jean-Drapeau in early August. See the <a href="/festivals/osheaga">Osheaga festival page</a>.</li>
+<li><a href="https://mutek.org" target="_blank" rel="noopener"><strong>MUTEK</strong></a> (Montreal, QC): more than 27 years of underground electronic music and digital arts, typically in late August. If you want the thinking-person's rave, this is it.</li>
+<li><a href="https://piknicelectronik.com" target="_blank" rel="noopener"><strong>Piknic Électronik</strong></a> (Montreal, QC): a weekly outdoor electronic series that runs all summer. It is the easiest way to experience Montreal's scene without buying a festival ticket.</li>
+</ul>
+
+<h3>Prairies and the East</h3>
+<ul>
+<li><strong>Chasing Summer</strong> (Calgary, AB): a summer EDM festival in Alberta's biggest city.</li>
+<li><strong>Badlands</strong> (Calgary, AB): an electronic and hip-hop festival timed to the Calgary Stampede in July.</li>
+<li><a href="https://futureforest.ca" target="_blank" rel="noopener"><strong>Future Forest</strong></a> (near Fredericton, NB): an off-grid forest electronic festival with stages built from salvaged materials, typically in early August. A true Maritime hidden gem.</li>
+</ul>
+
+<h2>Planning your trip</h2>
+<ol>
+<li><strong>Expect announcements in spring.</strong> Most Canadian summer 2027 lineups and dates are announced in spring. Check each festival's official site, and keep an eye on our <a href="/calendar">festival calendar</a>, where we add dates as they land.</li>
+<li><strong>Heading up from the US?</strong> Bring a valid passport, check the border rules for your situation, and book flexible travel until dates are locked. Many festivals sit within a few hours of the border, or a short flight from a major US hub.</li>
+<li><strong>Check age limits.</strong> Canadian festivals range from all-ages to 19+ (the legal age varies by province), so confirm before you buy.</li>
+<li><strong>Buy from official sources only.</strong> Use the festival's own site or its listed ticketing partner to avoid scams.</li>
+</ol>
+
+<h2>Stay safe out there</h2>
+<p>Whether you are in a Montreal snowbank or a BC mountain meadow, look after yourself and the people around you. Drink water, take breaks (and dress for the weather, especially at winter events), know where the medical and harm-reduction tents are, and never let a friend go it alone. Read our <a href="/safety">safety guide</a> for more.</p>
+
+<p>Ready to plan? Browse every date we have in the <a href="/calendar">PLURGASM festival calendar</a> and filter by Canada. Peace, love, unity, respect.</p>`
+  },
+
+  {
     id: 'us-rave-festival-season-2027-dates',
     title: 'US Rave & Festival Season 2027: Dates to Know',
     slug: 'us-rave-festival-season-2027-dates',
