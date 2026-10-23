@@ -244,6 +244,9 @@ PLURGASM_DATA.blogPosts = [
 
 <p>This guide breaks Canadian electronic and rave festivals down <strong>by season first, then by province</strong>. It is built to stay useful year after year. Where a 2027 date is confirmed we give it; where it is not, we say when the festival <em>typically</em> runs. It is also a great starting point for US ravers planning a cross-border trip: many of these festivals are a short drive or flight from the border, and the exchange rate and the lineups are both worth the passport stamp.</p>
 
+<div id="post-canada-map" class="post-embed-map"></div>
+<p class="post-embed-caption">Canadian festivals on the map — tap a pin for details</p>
+
 <h2>Winter</h2>
 
 <h3>Quebec</h3>

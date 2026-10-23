@@ -2690,7 +2690,9 @@ footer {
 .post-body > * { max-width: 52ch; }
 .post-body > img,
 .post-body > .blog-body-img,
-.post-body > .lineup { max-width: 100%; }
+.post-body > .lineup,
+.post-body > .post-embed-map,
+.post-body > .post-embed-caption { max-width: 100%; }
 
 .post-body p { margin: 0 0 1.4em; }
 .post-body > p:last-child { margin-bottom: 0; }
@@ -5012,4 +5014,28 @@ img.icon-true-color {
   .tl-dot,
   .tl-title,
   .tl-list.is-horizontal .tl-event { transition: none; }
+}
+
+/* Embedded festival map inside a blog post (see js/festival-map.js) */
+.post-embed-map {
+  width: 100%;
+  height: 360px;
+  margin: 1.6em 0 0.5em;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0c0c1c;
+  position: relative;
+  z-index: 0;
+}
+.post-embed-caption {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 2em;
+}
+@media (max-width: 768px) {
+  .post-embed-map { height: 300px; }
 }

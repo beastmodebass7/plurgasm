@@ -33,6 +33,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="/js/auth.js" defer></script>
 <script src="/js/views.js" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="/js/festival-map.js" defer></script>
 </head>
 <body>
 
@@ -278,6 +281,21 @@ document.addEventListener('DOMContentLoaded', () => {
     img.onerror = () => img.style.display = 'none';
     img.loading = 'lazy';
   });
+
+  // Embedded region map (scripts inside post.body never execute, so init here).
+  // Currently only the Canada guide has the #post-canada-map placeholder.
+  try {
+    const mapEl = document.getElementById('post-canada-map');
+    if (mapEl && window.buildFestivalMap && window.L) {
+      const canadaFests = (PLURGASM_DATA.festivals || []).filter(f => f.region === 'canada');
+      buildFestivalMap(mapEl, canadaFests, {
+        center: [56, -96], zoom: 3,
+        scrollWheelZoom: false,   // let the page scroll past the map
+        dragging: !L.Browser.mobile, // touch: one-finger swipe scrolls the page; pinch / +- still zoom
+        fitToMarkers: true, fitMaxZoom: 5
+      });
+    }
+  } catch (e) { console.error('post map error:', e); }
 
   // View tracking — keep incrementing once per session so data still accrues,
   // even though the visible badge now shows read time instead of the count.

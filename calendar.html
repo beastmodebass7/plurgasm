@@ -38,6 +38,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="js/festival-map.js" defer></script>
 <script src="js/nav.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="/js/auth.js" defer></script>
@@ -1044,86 +1045,20 @@ function renderTimeline(list) {
   }).join('');
 }
 
-let _leafletMap = null;
-let _markerGroup = null;
+let _festMap = null;
 
-function _buildFestPopup(f, distMiles) {
-  const past = isPast(f);
-  const cal = googleCalUrl(f);
-
-  const distHtml = distMiles != null
-    ? `<div class="mp-dist">${distMiles} mi away</div>` : '';
-
-  const genresHtml = (f.genres && f.genres.length)
-    ? `<div class="cal-genres mp-genres">${f.genres.slice(0,4).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>`
-    : '';
-
-  const headlineHtml = f.headliners && f.headliners.length
-    ? `<div class="mp-headliners"><span>Lineup</span> ${f.headliners.slice(0,5).join(', ')}${f.headliners.length > 5 ? ' +more' : ''}</div>`
-    : '';
-
-  const ticketBtn = f.url && f.url !== '#'
-    ? `<a class="mp-btn mp-btn-primary" href="${f.url}" target="_blank" rel="noopener">Get Tickets →</a>`
-    : '';
-  const calBtn = !past && cal
-    ? `<a class="mp-btn mp-btn-ghost" href="${cal}" target="_blank" rel="noopener">+ Google Calendar</a>`
-    : '';
-  const actionsHtml = (ticketBtn || calBtn)
-    ? `<div class="mp-actions">${ticketBtn}${calBtn}</div>` : '';
-
-  const pastNote = past ? `<div class="mp-past">Past event</div>` : '';
-  const detailLink = f.detailPage
-    ? `<a class="mp-detail" href="${f.detailPage}">View details →</a>` : '';
-
-  return `<div class="map-popup">
-    <div class="mp-name">${f.name}</div>
-    <div class="mp-dates">${f.dates}</div>
-    <div class="mp-loc"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"> ${f.location}</div>
-    ${distHtml}${genresHtml}${headlineHtml}${actionsHtml}${pastNote}${detailLink}
-  </div>`;
-}
-
+// Map construction (tiles, markers, popups, lat/lng guard) lives in js/festival-map.js,
+// shared with the embedded maps on blog posts.
 function renderMap(list) {
   try {
-    if (!_leafletMap) {
-      _leafletMap = L.map('fest-map').setView([39.8, -98.6], 4);
-      _leafletMap.setMaxBounds([[15, -170], [72, -50]]);
-      // CARTO's free basemap tiles now return an "API KEY REQUIRED" placeholder,
-      // so use Esri's keyless Dark Gray canvas (base + labels overlay) instead.
-      const esri = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
-      L.tileLayer(esri + 'World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ', maxZoom: 16
-      }).addTo(_leafletMap);
-      L.tileLayer(esri + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 16
-      }).addTo(_leafletMap);
-      _markerGroup = L.layerGroup().addTo(_leafletMap);
-    }
-    _leafletMap.invalidateSize();
-    _markerGroup.clearLayers();
-
-    list.forEach(f => {
-      if (f.lat == null || f.lng == null) {
-        console.warn('[PLURGASM map] Missing lat/lng:', f.name, '(id:', f.id + ')');
-        return;
-      }
-      const past = isPast(f);
-      const icon = L.divIcon({
-        className: '',
-        html: past
-          ? `<div style="width:10px;height:10px;border-radius:50%;background:#666;opacity:0.45;"></div>`
-          : `<img src="images/icons/icon-pin.webp" alt="" style="width:16px;height:22px;object-fit:contain;filter:drop-shadow(0 0 5px rgba(182,77,255,0.7));">`,
-        iconSize: past ? [10,10] : [16,22],
-        iconAnchor: past ? [5,5] : [8,22]
+    if (!_festMap) {
+      _festMap = createFestivalMap('fest-map', {
+        center: [39.8, -98.6], zoom: 4,
+        maxBounds: [[15, -170], [72, -50]],
+        isPast: isPast, calUrl: googleCalUrl
       });
-      const marker = L.marker([f.lat, f.lng], { icon });
-      marker.bindPopup(_buildFestPopup(f, null));
-      marker.bindTooltip(
-        `<strong>${f.name}</strong><br><span style="font-size:11px;opacity:0.8;">${f.dates}</span>`,
-        { direction: 'top', className: 'map-pin-tooltip' }
-      );
-      marker.addTo(_markerGroup);
-    });
+    }
+    if (_festMap) _festMap.render(list);
   } catch(e) { console.error('renderMap error:', e); }
 }
 
