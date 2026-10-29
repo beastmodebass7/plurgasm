@@ -2831,6 +2831,45 @@ footer {
   color: var(--white);
 }
 
+/* SLANG OF THE MONTH — reusable featured callout (<aside class="slang-of-month">).
+   Cyan-bordered tinted panel with a pink left accent; flat, no blur. */
+.post-body .slang-of-month {
+  margin: 2.2em 0;
+  padding: 22px 24px;
+  background: rgba(0,229,255,0.06);
+  border: 1px solid rgba(0,229,255,0.45);
+  border-left: 4px solid var(--pink);
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.post-body .slang-of-month p { margin: 0 0 1em; }
+.post-body .slang-of-month > :last-child { margin-bottom: 0; }
+.post-body .slang-of-month .slang-of-month__title {
+  font-family: var(--display);
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+  margin-bottom: 0.6em;
+}
+.post-body .slang-of-month .slang-of-month__def { color: var(--white); font-size: 17px; }
+.post-body .slang-of-month .slang-of-month__takeaway {
+  color: var(--white);
+  font-weight: 600;
+  padding-top: 0.9em;
+  border-top: 1px solid rgba(0,229,255,0.25);
+}
+.post-body .slang-of-month .slang-of-month__credit {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+}
+@media (max-width: 480px) {
+  .post-body .slang-of-month { padding: 18px 16px; }
+  .post-body .slang-of-month .slang-of-month__title { font-size: 25px; }
+}
+
 .post-body hr {
   border: none;
   height: 1px;

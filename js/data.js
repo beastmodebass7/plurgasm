@@ -613,6 +613,15 @@ PLURGASM_DATA.blogPosts = [
     featured: false,
     body: `<p>Every scene has its own language, and rave culture has one of the richest. Walk into your first festival and you will hear people talk about riding rail, trading kandi, catching an ID, and sending it, and none of it will make sense unless someone breaks it down. So here is that breakdown. Bookmark it, share it with your rave babies, and welcome to the family.</p>
 
+<aside class="slang-of-month">
+<p class="slang-of-month__title">🔊 SLANG OF THE MONTH: #StayPLUR</p>
+<p class="slang-of-month__def"><strong>#StayPLUR</strong>: a rallying cry (used both sincerely and half-jokingly) reminding ravers to look out for each other even when the pit gets wild.</p>
+<p>The phrase blew up after UK tearout artist Nimda's set at Lost Lands 2026. Mid-set, as the mosh pit got brutal, he stopped the music to check on the crowd, telling everyone that as hard as they were going, they needed to actually look after each other: go hard, but look out for each other, with consent.</p>
+<p>The set went viral on TikTok and Instagram, partly for how chaotic the crowd got (one attendee reportedly stapled their own lip, which is extreme and not something to copy). The #StayPLUR tag spread as a nod to the contrast: the heaviest, most aggressive music paired with an explicit "look out for one another" rule.</p>
+<p class="slang-of-month__takeaway">It's all love. People do crazy stuff out there, and it's definitely not for everyone. But the real message stuck: go hard, but keep your crew (and strangers) safe. That's PLUR.</p>
+<p class="slang-of-month__credit">Promoters like Stupid UK Tearout and firehouse666 helped spread the #StayPLUR tag. Looking out for each other is the whole idea behind <a href="/blog-post?id=rave-harm-reduction-organizations">rave harm reduction</a>.</p>
+</aside>
+
 <h2>The Core (PLUR and the Philosophy)</h2>
 <ul>
 <li><strong>PLUR</strong>: Peace, Love, Unity, Respect. The four-word moral code of rave culture, born in the 90s and still the heartbeat of the scene.</li>
