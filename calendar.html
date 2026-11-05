@@ -976,9 +976,10 @@ function festRowHTML(f) {
     const dayRange = (endNum && endNum !== dayNum) ? `${dayNum} – ${endNum}` : `${dayNum}`;
     const startMon = f.sortDate ? MONTH_NAMES[parseInt(f.sortDate.split('-')[1])-1].slice(0,3).toUpperCase() : '???';
     const hasUrl = f.url && f.url !== '#';
+    const rowHref = f.detailPage ? '/' + f.detailPage.replace(/^\/+/, '').replace(/\.html$/, '') : (hasUrl ? f.url : '');
     const cal = googleCalUrl(f);
     return `
-      <div class="cal-row cal-row--stack${past ? ' cal-row-past past' : ''}" data-id="${f.id}" onclick="${hasUrl ? `window.open('${f.url}','_blank')` : ''}">
+      <div class="cal-row cal-row--stack${past ? ' cal-row-past past' : ''}" data-id="${f.id}" onclick="${rowHref ? `window.open('${rowHref}','${f.detailPage ? '_self' : '_blank'}')` : ''}">
         <div class="cal-date-col">
           <span class="cal-date-month">${startMon}</span>
           <span class="cal-date-day">${dayRange}</span>
@@ -986,7 +987,7 @@ function festRowHTML(f) {
         <div class="cal-info-col">
           <div class="cal-name-row">
             <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
-            <span class="cal-name">${f.name}</span>
+            ${rowHref ? `<a class="cal-name" href="${rowHref}"${f.detailPage ? '' : ' target="_blank" rel="noopener"'} onclick="event.stopPropagation()">${f.name}</a>` : `<span class="cal-name">${f.name}</span>`}
             ${past ? `<span class="past-badge">ENDED</span>` : ''}
           </div>
           <span class="cal-loc"><img src="images/icons/icon-pin.webp" class="icon-pin-inline" alt="location"> ${f.location}</span>

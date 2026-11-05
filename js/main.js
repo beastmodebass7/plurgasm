@@ -221,7 +221,7 @@ function renderFestivals() {
         ${f._distanceMiles != null ? `<span class="fest-distance-badge">${PIN_ICON_HTML} ${f._distanceMiles} mi away</span>` : ''}
         <div class="fest-card-info">
           <span class="fci-date">${f.dates}</span>
-          <span class="fci-name">${f.name}</span>
+          <a class="fci-name" href="${dest}" target="${target}"${f.detailPage ? '' : ' rel="noopener"'} onclick="event.stopPropagation()">${f.name}</a>
           <span class="fci-loc">${PIN_ICON_HTML} ${f.location}</span>
           <span class="fci-meta">${f.age} &nbsp;·&nbsp; ${f.days} Day${f.days>1?'s':''}</span>
         </div>
@@ -303,14 +303,14 @@ function renderCalendar() {
           // Multi-day → "17 – 26" as one unit; single-day → just "17" (no dash).
           const dayRange = (endNum && endNum !== dayNum) ? `${dayNum} – ${endNum}` : `${dayNum}`;
           return `
-            <div class="cal-row" onclick="window.open('${f.url}','_blank')">
+            <div class="cal-row" onclick="window.open('${festDetailHref(f)}','${f.detailPage ? '_self' : '_blank'}')">
               <div class="cal-date-col">
                 <span class="cal-date-month">${monthName.slice(0,3).toUpperCase()}</span>
                 <span class="cal-date-day">${dayRange}</span>
               </div>
               <div class="cal-info-col">
                 <div class="cal-type-dot ${dotClass[f.type] || 'dot-reg'}"></div>
-                <span class="cal-name">${f.name}</span>
+                <a class="cal-name" href="${festDetailHref(f)}"${f.detailPage ? '' : ' target="_blank" rel="noopener"'} onclick="event.stopPropagation()">${f.name}</a>
                 <span class="cal-loc">${PIN_ICON_HTML} ${f.location} &nbsp;·&nbsp; ${f.age}</span>
                 <div class="cal-genres">${f.genres.slice(0,3).map(g=>`<span class="cal-genre">${g}</span>`).join('')}</div>
                 ${(() => { const cal = googleCalUrl(f); return cal ? `<a class="add-cal" href="${cal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">+ Google Calendar</a>` : ''; })()}

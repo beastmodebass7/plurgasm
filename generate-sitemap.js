@@ -102,6 +102,32 @@ const sitemapPath = path.join(__dirname, 'sitemap.xml');
 fs.writeFileSync(sitemapPath, xml, 'utf8');
 console.log('Wrote ' + sitemapPath + ' with ' + urls.length + ' URLs.');
 
+
+// --- Crawlable internal-link blocks (real <a href>, no JS needed) ----------
+// Fills <!-- GEN:NAME --> ... <!-- /GEN:NAME --> regions in index.html and
+// blog.html so posts + festival detail pages are reachable via plain anchors.
+function escHtml(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function fillBlock(file, name, html) {
+  const fp = path.join(__dirname, file);
+  const src = fs.readFileSync(fp, 'utf8');
+  const re = new RegExp('(<!-- GEN:' + name + ' -->)[\\s\\S]*?(<!-- /GEN:' + name + ' -->)');
+  if (!re.test(src)) { console.log('Marker GEN:' + name + ' not found in ' + file); return; }
+  fs.writeFileSync(fp, src.replace(re, (m, a, b) => a + html + b), 'utf8');
+}
+const pubPosts = (data.blogPosts || []).filter(p => p && p.published)
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
+const postLi = p => '<li><a href="/blog-post?id=' + escHtml(p.id) + '">' + escHtml(p.title) + '</a></li>';
+const festLi = f => '<li><a href="/' + f.detailPage.replace(/^\/+/, '').replace(/\.html$/, '') + '">' +
+  escHtml(f.name) + '</a></li>';
+const guideFests = (data.festivals || []).filter(f => f && f.detailPage)
+  .sort((a, b) => String(a.sortDate).localeCompare(String(b.sortDate)));
+fillBlock('index.html', 'FEST-GUIDES', '<ul>' + guideFests.map(festLi).join('') + '</ul>');
+fillBlock('index.html', 'HOME-POSTS',  '<ul>' + pubPosts.slice(5, 15).map(postLi).join('') + '</ul>');
+fillBlock('blog.html',  'BLOG-ALL',    '<ul class="crawl-static" style="list-style:none;padding:0;">' + pubPosts.map(postLi).join('') + '</ul>');
+console.log('Filled crawlable link blocks (' + guideFests.length + ' festival guides, ' + pubPosts.length + ' posts).');
+
 // --- Ensure robots.txt references the sitemap -----------------------------
 const robotsPath = path.join(__dirname, 'robots.txt');
 const sitemapLine = 'Sitemap: ' + SITE + '/sitemap.xml';
