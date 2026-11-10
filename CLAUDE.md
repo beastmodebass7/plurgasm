@@ -42,7 +42,8 @@ Hero → Countdown strip → then sections:
 2. **SHOP BY CATEGORY** `#categories`
 3. **SOCIAL SPOTLIGHT** `#social`
 4. **"From the Community" — RAVE NEWS & CULTURE** `#blog` (newspaper layout)
-5. Brand of the Week + Influencer of the Week
+5. Brand of the Month + Influencer of the Week
+   Brand of the Month: visible label only. Internal ids/classes/functions still use `botw` on purpose. Don't rename them.
 6. **RAVE BRANDS** `#brands` (item-filter pills + category filters)
 > The numbered "Chapter NN" eyebrows and the scrolling marquee were removed in July 2026 —
 > don't reintroduce them. The `.eyebrow` class itself is still used for non-numbered labels

@@ -1409,7 +1409,7 @@ function renderFeaturedInfluencer() {
 }
 
 /* ════════════════════════════════════════════════
-   RENDER BOTW — Brand of the Week (admin override)
+   RENDER BOTW — Brand of the Month (admin override)
 ════════════════════════════════════════════════ */
 function renderBotw() {
   const bw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null')
@@ -1435,7 +1435,7 @@ function renderBotw() {
     </div>` : ''}
     <div class="botw-content">
       <div>
-        <p class="botw-eyebrow"><span class="botw-star">★</span>Brand of the Week</p>
+        <p class="botw-eyebrow"><span class="botw-star">★</span>Brand of the Month</p>
         <p class="botw-name">${bw.name}</p>
         <p class="botw-tagline">${bw.tagline}</p>
       </div>

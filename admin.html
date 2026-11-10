@@ -682,7 +682,7 @@ select option { background: #15152a; }
 
   <div class="admin-tabs">
     <button class="tab-btn active" onclick="switchTab('dashboard',this)">Dashboard</button>
-    <button class="tab-btn" onclick="switchTab('botw',this)">Brand of Week</button>
+    <button class="tab-btn" onclick="switchTab('botw',this)">Brand of Month</button>
     <button class="tab-btn" id="tab-btn-submissions" onclick="switchTab('submissions',this)">Submissions</button>
     <button class="tab-btn" onclick="switchTab('add-festival',this)">Add Festival</button>
     <button class="tab-btn" onclick="switchTab('add-brand',this)">Add Brand</button>
@@ -713,7 +713,7 @@ select option { background: #15152a; }
       </div>
       <div class="how-card">
         <div class="how-icon">⭐</div>
-        <div class="how-title">Brand of the Week</div>
+        <div class="how-title">Brand of the Month</div>
         <div class="how-desc">Override the featured brand shown at the top of the homepage. Set it here and it applies immediately — no deploy needed. Clear the override to revert to the data.js default.</div>
       </div>
       <div class="how-card">
@@ -738,9 +738,9 @@ select option { background: #15152a; }
     </div>
   </div>
 
-  <!-- ══════════════ BRAND OF THE WEEK ══════════════ -->
+  <!-- ══════════════ BRAND OF THE MONTH ══════════════ -->
   <div class="tab-content" id="tab-botw">
-    <p class="admin-section-title">Brand of the Week</p>
+    <p class="admin-section-title">Brand of the Month</p>
     <p class="admin-section-sub">Override the featured brand in the spotlight banner at the top of the homepage. Applies immediately — no deploy needed. The override lives in localStorage so it persists across visits on this browser.</p>
 
     <div class="admin-tip">
@@ -760,7 +760,7 @@ select option { background: #15152a; }
       </div>
       <div class="form-row">
         <label for="botw-desc">Description</label>
-        <textarea id="botw-desc" placeholder="Why this brand deserves the spotlight this week..."></textarea>
+        <textarea id="botw-desc" placeholder="Why this brand deserves the spotlight this month..."></textarea>
         <p class="form-hint">Keep it 1–2 sentences. Appears directly below the brand name on the homepage.</p>
       </div>
       <div class="form-grid-2">
@@ -776,7 +776,7 @@ select option { background: #15152a; }
         </div>
       </div>
       <div class="btn-row">
-        <button class="save-btn" onclick="saveBotw()">Save Brand of Week</button>
+        <button class="save-btn" onclick="saveBotw()">Save Brand of Month</button>
         <button class="ghost-btn" onclick="clearBotw()">Clear Override</button>
         <span class="save-confirm" id="botw-confirm">✓ Saved — reload the homepage to see it</span>
       </div>
@@ -1135,7 +1135,7 @@ function initDashboard() {
 }
 
 /* ════════════════════════════════════════════════
-   BRAND OF THE WEEK
+   BRAND OF THE MONTH
 ════════════════════════════════════════════════ */
 function loadBotwForm() {
   const botw = JSON.parse(localStorage.getItem('pg_admin_botw') || 'null');
