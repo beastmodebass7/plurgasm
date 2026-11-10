@@ -2740,6 +2740,16 @@ footer {
 .post-body > h2:first-child,
 .post-body > h3:first-child { margin-top: 0; }
 .post-body h2 + h3 { margin-top: 24px; }
+/* IN-POST TABLE OF CONTENTS — <div class="post-toc"> at the top of a long guide (not <nav>: the global header nav rule would hijack it). Reuses the liner-notes list rows, flowed into two columns on wide screens. */
+.post-body > .post-toc { max-width: 100%; margin: 0 0 8px; }
+.post-body .post-toc-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.post-body .post-toc ul { columns: 2 240px; column-gap: 36px; margin: 0; }
+.post-body .post-toc li { break-inside: avoid; font-size: 15px; }
+.post-body .post-toc a { color: var(--white); text-decoration: none; transition: color 0.2s; }
+.post-body .post-toc a:hover, .post-body .post-toc a:focus-visible { color: var(--cyan); }
+.post-body > .post-toc + h2 { margin-top: 56px; }
+/* anchored headings land below the sticky 66px header */
+.post-body h2[id], .post-body h3[id] { scroll-margin-top: 88px; }
 
 /* LISTS — liner-notes index: no default bullets; each item is a "row"
    separated by hairline rules, marker in the left gutter, wrapped lines

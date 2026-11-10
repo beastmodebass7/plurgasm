@@ -1341,7 +1341,22 @@ PLURGASM_DATA.blogPosts = [
     published: true,
     featured: false,
     body: `
-    <h2>What Is Bass Music?</h2>
+    <div class="post-toc" role="navigation" aria-label="In this guide">
+      <p class="post-toc-title">In This Guide</p>
+      <ul>
+        <li><a href="#what-is-bass-music">What Is Bass Music?</a></li>
+        <li><a href="#dubstep">Dubstep</a></li>
+        <li><a href="#riddim">Riddim</a></li>
+        <li><a href="#melodic-bass">Melodic Bass</a></li>
+        <li><a href="#future-bass">Future Bass</a></li>
+        <li><a href="#midtempo">Midtempo</a></li>
+        <li><a href="#bass-house">Bass House</a></li>
+        <li><a href="#drum-and-bass">Drum &amp; Bass</a></li>
+        <li><a href="#festivals-by-region">Bass Festivals by Region</a></li>
+        <li><a href="#find-your-sound">How to Find Your Sound</a></li>
+      </ul>
+    </div>
+    <h2 id="what-is-bass-music">What Is Bass Music?</h2>
     <p>Bass music is an umbrella term for electronic dance music genres built
     around heavy sub-bass frequencies and high-energy sound design —
     a family that includes dubstep, riddim, melodic bass, future bass,
@@ -1364,7 +1379,7 @@ PLURGASM_DATA.blogPosts = [
       alt="Bass music festival crowd"
       style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
 
-    <h2>What Is Dubstep?</h2>
+    <h2 id="dubstep">What Is Dubstep?</h2>
     <p>Dubstep is a bass music genre built on half-time rhythms, deep sub bass,
     and heavy, aggressive drops. It started in South London in the late 1990s
     as a dark, minimal sound — spacious and atmospheric,
@@ -1384,7 +1399,7 @@ PLURGASM_DATA.blogPosts = [
     collaborations from 2011 to understand where modern dubstep came from,
     then follow Excision forward to hear how it evolved.</p>
 
-    <h2>What Is Riddim?</h2>
+    <h2 id="riddim">What Is Riddim?</h2>
     <p>Riddim is a stripped-back subgenre of dubstep built around a repeating
     bass pattern, a simple rhythm, and precise, mechanical sound design.
     It split from dubstep around 2015 and developed its own dedicated following.
@@ -1404,7 +1419,7 @@ PLURGASM_DATA.blogPosts = [
     and work backward through the Virtual Riot catalog
     to understand how the sound developed.</p>
 
-    <h2>What Is Melodic Bass?</h2>
+    <h2 id="melodic-bass">What Is Melodic Bass?</h2>
     <p>Melodic bass (also called melodic dubstep) is a bass music subgenre
     that pairs the weight and energy of dubstep with cinematic melodies,
     vocal chops, and song structures closer to pop than underground club music.
@@ -1430,7 +1445,7 @@ PLURGASM_DATA.blogPosts = [
       alt="Festival crowd with lights"
       style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
 
-    <h2>What Is Future Bass?</h2>
+    <h2 id="future-bass">What Is Future Bass?</h2>
     <p>Future bass is a bright, euphoric bass music subgenre built around
     chord-heavy drops, supersaw synths, and pitched-up vocal chops.
     It sits at the intersection of bass music and pop electronic music,
@@ -1450,7 +1465,7 @@ PLURGASM_DATA.blogPosts = [
     defined the genre. San Holo's album1
     pushed it in a more emotional direction worth exploring.</p>
 
-    <h2>What Is Midtempo?</h2>
+    <h2 id="midtempo">What Is Midtempo?</h2>
     <p>Midtempo is a dark, cinematic bass music subgenre that runs slower
     than most bass music — usually around 90 to 110 BPM —
     which creates a heaviness that feels less frantic and more deliberate.
@@ -1470,7 +1485,7 @@ PLURGASM_DATA.blogPosts = [
     is the definitive midtempo record.
     Start there and follow the Rezz Nation rabbit hole.</p>
 
-    <h2>What Is Bass House?</h2>
+    <h2 id="bass-house">What Is Bass House?</h2>
     <p>Bass house is a subgenre that fuses the four-on-the-floor structure
     of house music with the distorted, driving bass lines of bass music.
     The result is something that works on a house dancefloor
@@ -1487,7 +1502,7 @@ PLURGASM_DATA.blogPosts = [
     Habstrakt's catalog is the most consistent entry point
     for understanding the full sonic range.</p>
 
-    <h2>What Is Drum & Bass?</h2>
+    <h2 id="drum-and-bass">What Is Drum & Bass?</h2>
     <p>Drum & bass (DnB) is a fast electronic genre, running 160 to 180 BPM,
     defined by syncopated breakbeat drums and deep, rolling basslines.
     It is the oldest genre in this guide
@@ -1551,7 +1566,7 @@ PLURGASM_DATA.blogPosts = [
       alt="Festival at night with crowd"
       style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
 
-    <h2>Which Festivals to Go To Based on Your Region</h2>
+    <h2 id="festivals-by-region">Which Festivals to Go To Based on Your Region</h2>
     <p>Bass music is not evenly distributed across the country.
     Some regions have a thriving scene with multiple annual events.
     Others have less to choose from locally but are within driving distance
@@ -1631,7 +1646,7 @@ PLURGASM_DATA.blogPosts = [
     <p><strong>Best for:</strong> Dubstep, Bass House</p>
     <p><strong>Go to:</strong> Something Wicked (Houston, October)</p>
 
-    <h2>How to Figure Out What You Actually Like</h2>
+    <h2 id="find-your-sound">How to Figure Out What You Actually Like</h2>
     <p>The fastest way to understand the distinctions between subgenres
     is not to read about them but to listen back to back.
     Put on an Excision set, then a Seven Lions set,

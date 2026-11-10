@@ -282,6 +282,39 @@ document.addEventListener('DOMContentLoaded', () => {
     img.loading = 'lazy';
   });
 
+  // In-post anchors (e.g. the .post-toc table of contents). Images above a
+  // heading can load or hide mid-scroll and shift it, so after each jump we
+  // re-check where the heading landed and snap it into place if it moved.
+  function postJumpTo(id, smooth) {
+    const t = document.getElementById(id);
+    if (!t) return;
+    const snap = () => {
+      const want = parseFloat(getComputedStyle(t).scrollMarginTop) || 0;
+      if (Math.abs(t.getBoundingClientRect().top - want) > 4) t.scrollIntoView({ behavior: 'instant' });
+    };
+    t.scrollIntoView({ behavior: smooth ? 'smooth' : 'instant' });
+    if (smooth && 'onscrollend' in window) window.addEventListener('scrollend', snap, { once: true });
+    else setTimeout(snap, smooth ? 900 : 50);
+  }
+  document.getElementById('post-body').addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = decodeURIComponent(a.getAttribute('href').slice(1));
+    if (!document.getElementById(id)) return;
+    e.preventDefault();
+    history.replaceState(null, '', '#' + id);
+    postJumpTo(id, true);
+  });
+  // The body is injected after load, so the browser can't honour a #section
+  // in the URL on its own. Jump once now, and again when images finish.
+  if (location.hash) {
+    try {
+      const hashId = decodeURIComponent(location.hash.slice(1));
+      requestAnimationFrame(() => postJumpTo(hashId, false));
+      window.addEventListener('load', () => postJumpTo(hashId, false), { once: true });
+    } catch (e) {}
+  }
+
   // Embedded region map (scripts inside post.body never execute, so init here).
   // Currently only the Canada guide has the #post-canada-map placeholder.
   try {

@@ -113,6 +113,8 @@ then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
   `getFestivalOrganizers()` does the same for the calendar's Organizer dropdown (unique non-null
   `organizer` values, alphabetical).
 
+- Long guides can open with a table of contents: `<div class="post-toc" role="navigation" aria-label="In this guide">` with a `.post-toc-title` and a `<ul>` of `#anchor` links. Give each linked `<h2>` an id. Never use `<nav>` inside post bodies.
+
 ### Blog post id / URL convention
 `blog-post.html` routes on `?id=…`, so a blog post's `id` **is** its public URL.
 
