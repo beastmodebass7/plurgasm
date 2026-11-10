@@ -205,6 +205,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://plurgasm.com/festivals/ubbi-dubbi</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://plurgasm.com/festivals/edc-las-vegas</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
