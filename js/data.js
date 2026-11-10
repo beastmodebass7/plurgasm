@@ -2820,247 +2820,401 @@ PLURGASM_DATA.brandOfWeek = {
                   blog `body`: it's a template literal, so escape any backtick or
                   `${` you actually want to display.
 
-   ⚠ The entries below are DRAFTS, not verified history. Dates are approximate
-     anchors chosen for sorting, and every description opens with a
-     "[DRAFT — verify date & details]" marker. Leave that marker in place until
-     the entry has been checked against a real source — then remove it, tighten
-     the wording, and add a linkUrl.
+   Every entry below has been checked against a source (its linkUrl). Keep it that way: verify new events before adding them.
 ════════════════════════════════════════════════ */
 const TIMELINE = [
   {
+    id: 'warehouse-chicago-house',
+    date: '1977-01-01',
+    dateLabel: '1977',
+    title: 'Frankie Knuckles and The Warehouse Give House Music Its Name',
+    tier: 'historic',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: 'Chicago, IL',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Frankie_Knuckles',
+    linkLabel: 'Frankie Knuckles (Wikipedia)',
+    description: `<p>In 1977 a DJ named Frankie Knuckles moved from New York to Chicago to become the resident at a new after-hours club called The Warehouse. Its crowd was mostly Black and gay, and Knuckles kept them dancing until morning by re-editing disco records, stretching the breaks and layering drum machines underneath.</p>
+      <p>Locals started calling the music they heard there &ldquo;Warehouse music,&rdquo; which got shortened to &ldquo;house.&rdquo; At first the word meant a vibe more than a sound. Within a few years it was a full genre, built on the exact template Knuckles used: four-on-the-floor kick, long mixes, and a room that runs on community.</p>
+      <p>Knuckles left in November 1982 to open his own club, The Power Plant. Chicago named August 25, 2004 Frankie Knuckles Day and renamed part of Jefferson Street after him. He died on March 31, 2014, but every rave on this timeline traces back to that room.</p>`
+  },
+  {
+    id: 'belleville-three-detroit-techno',
+    date: '1985-01-01',
+    dateLabel: 'Mid 1980s',
+    title: 'The Belleville Three Invent Detroit Techno',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'artist-milestone',
+    location: 'Detroit, MI',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/The_Belleville_Three',
+    linkLabel: 'The Belleville Three (Wikipedia)',
+    description: `<p>Three friends from Belleville, a small town outside Detroit, built a new sound out of drum machines, synths and sci-fi ideas: Juan Atkins, Derrick May and Kevin Saunderson. Atkins had already made electro records as one half of Cybotron, and in 1985 he started recording as Model 500 on his own label, Metroplex.</p>
+      <p>May released the classic &ldquo;Strings of Life&rdquo; as Rhythim Is Rhythim, and Saunderson took the sound to the charts with Inner City and singer Paris Grey. In 1988 a UK label boss named Neil Rushton licensed their records for Britain, and the trio picked a word for what they were doing: techno.</p>
+      <p>Chicago gave the world house. Detroit gave it techno. Both were invented by young Black artists in the American Midwest, a fact that still gets lost when people tell rave history as a European story.</p>`
+  },
+  {
+    id: 'shoom-acid-house-london',
+    date: '1987-11-01',
+    dateLabel: 'Nov 1987',
+    title: 'Shoom Opens and Acid House Hits London',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'cultural-moment',
+    location: 'Southwark, London, UK',
+    image: null,
+    linkUrl: 'https://shoom.london/shoom-an-oral-history-of-the-london-club-that-kicked-off-rave-culture/',
+    linkLabel: 'Shoom: an oral history',
+    description: `<p>A group of London DJs came back from a 1987 trip to Ibiza wanting to recreate what they had felt there: open-air dancing, Balearic sets and a crowd that was all love. Danny Rampling and his wife Jenni did it in the most unlikely spot, a basement gym on Southwark Street in South London. They called it Shoom.</p>
+      <p>Paul Oakenfold launched his own nights, Future and Spectrum, around the same time. These rooms are where Chicago acid house, with its squelchy Roland TB-303 basslines, first caught fire in the UK.</p>
+      <p>By early 1988 Shoom was printing yellow smiley faces on its flyers. The smiley became the logo of the entire acid house movement and it is still the unofficial rave emoji today. Shoom itself closed in early 1990 as the scene moved to bigger and faster parties.</p>`
+  },
+  {
     id: 'second-summer-of-love',
-    date: '1988-01-01',
-    dateLabel: 'Late 1980s',
+    date: '1988-06-01',
+    dateLabel: '1988 – 1989',
     title: 'The Second Summer of Love',
     tier: 'historic',
     sizeOverride: null,
     category: 'cultural-moment',
     location: 'United Kingdom',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Acid house
-      broke out of the clubs and into warehouses and fields across Britain, and the parties
-      that followed became known as the Second Summer of Love. Cheap sound systems, imported
-      Chicago and Detroit records, and a word-of-mouth network of one-off events turned a
-      niche club sound into a mass youth movement.</p>
-      <p>This is the moment most histories treat as the start of rave culture as we know it
-      &mdash; the template of an all-night crowd, a DJ instead of a band, and a scene built
-      outside the licensed venue system.</p>`
+    linkUrl: 'https://en.wikipedia.org/wiki/Second_Summer_of_Love',
+    linkLabel: 'Second Summer of Love (Wikipedia)',
+    description: `<p>Acid house broke out of the clubs in the summer of 1988, and by 1989 it had exploded. Promoters like Sunrise, Energy, Biology and Genesis threw huge unlicensed parties in warehouses and fields around London&rsquo;s M25 ring road. The location went out by phone line at the last minute, and convoys of cars chased the directions through the countryside. These became known as orbital raves.</p>
+      <p>The press flipped fast. In October 1988 The Sun was calling acid house cool. A week later it was running scare headlines about ecstasy, and by June 1989 it was attacking Sunrise parties on the front page.</p>
+      <p>Most histories treat this as the true start of rave culture: an all-night crowd, a DJ instead of a band, and a scene built outside the licensed venue system. The name is a nod to 1967&rsquo;s original Summer of Love.</p>`
+  },
+  {
+    id: 'love-parade-berlin',
+    date: '1989-07-01',
+    dateLabel: 'July 1989',
+    title: 'The First Love Parade Hits the Streets of Berlin',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: 'West Berlin, Germany',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Love_Parade',
+    linkLabel: 'Love Parade (Wikipedia)',
+    description: `<p>In July 1989, a few months before the Wall came down, Matthias Roeingh (better known as Dr. Motte) and Danielle de Picciotto led about 150 people through West Berlin behind a truck playing house music. It was registered as a political demonstration, and its motto was Friede, Freude, Eierkuchen: Peace, Joy, Pancakes.</p>
+      <p>That tiny street party grew into one of the biggest dance events on Earth. The official count peaked at about 1.6 million people in Dortmund in 2008, though organisers&rsquo; numbers were never exact.</p>
+      <p>It ended in tragedy. On July 24, 2010, a crowd crush at the entrance to the Duisburg edition killed 21 people and injured hundreds more. The organiser announced the Love Parade would never take place again. Its story is one of the reasons crowd safety is taken so seriously at festivals today.</p>`
   },
   {
     id: 'berlin-techno-after-the-wall',
-    date: '1990-01-01',
-    dateLabel: 'Early 1990s',
-    title: 'Berlin Techno Erupts After the Wall',
+    date: '1991-03-01',
+    dateLabel: 'March 1991',
+    title: 'Tresor Opens in a Bank Vault and Berlin Becomes Techno City',
     tier: 'major',
     sizeOverride: null,
     category: 'cultural-moment',
     location: 'Berlin, Germany',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> With the Wall
-      down and large stretches of the city sitting empty, abandoned buildings and bunkers in
-      Berlin filled up with sound systems. Tresor opened in this window and became one of the
-      clubs that defined the sound, linking the city directly to Detroit techno.</p>
-      <p>Within a few years Berlin had gone from divided city to global techno capital &mdash;
-      a reputation it has held ever since.</p>`
+    linkUrl: 'https://en.wikipedia.org/wiki/Tresor_(club)',
+    linkLabel: 'Tresor (Wikipedia)',
+    description: `<p>The Berlin Wall fell on November 9, 1989, and East Berlin was suddenly full of empty buildings nobody was watching. Ravers moved in. In March 1991 label owner Dimitri Hegemann opened Tresor (German for &ldquo;safe&rdquo; or &ldquo;vault&rdquo;) in the old underground vaults of the Wertheim department store, near Potsdamer Platz.</p>
+      <p>Tresor became one of the clubs that defined the hard, stripped-back Berlin sound. Its record label put out music by Detroit artists like Juan Atkins and Robert Hood, building a direct bridge between the two techno cities.</p>
+      <p>The original site closed on April 16, 2005 so the land could be turned into offices. Tresor reopened on May 24, 2007 inside a decommissioned power station on K&ouml;penicker Stra&szlig;e, where it still runs today.</p>`
   },
   {
-    id: 'uk-free-party-jungle-era',
-    date: '1992-01-01',
-    dateLabel: 'Early–mid 1990s',
-    title: 'Free Parties, Breakbeat and the Rise of Jungle',
-    tier: 'notable',
+    id: 'castlemorton-common-1992',
+    date: '1992-05-22',
+    dateLabel: 'May 1992',
+    title: 'Castlemorton: The Free Party That Changed the Law',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: 'Malvern Hills, Worcestershire, UK',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Castlemorton_Common_Festival',
+    linkLabel: 'Castlemorton Common Festival (Wikipedia)',
+    description: `<p>Over the week of May 22 to 29, 1992, somewhere between 20,000 and 40,000 people turned up on Castlemorton Common in the English countryside for a free party nobody had permission to throw. Sound systems including Spiral Tribe, Bedlam, Circus Warp and DiY played for days straight.</p>
+      <p>Police could not stop it, and the national press went wild. For the UK free-party movement it was the peak. For the government, it was the final straw.</p>
+      <p>The backlash from Castlemorton led directly to new anti-rave legislation two years later (see 1994). It also pushed many of the free-party sound systems to take their parties across Europe.</p>`
+  },
+  {
+    id: 'criminal-justice-act-1994',
+    date: '1994-11-03',
+    dateLabel: 'Nov 1994',
+    title: 'The UK Outlaws “Repetitive Beats”',
+    tier: 'major',
     sizeOverride: null,
     category: 'cultural-moment',
     location: 'United Kingdom',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> The UK
-      free-party circuit peaked and then collided with a crackdown on unlicensed gatherings.
-      As the open-air parties were pushed back, the music sped up and got heavier: chopped
-      breakbeats and deep sub-bass turned into hardcore, then jungle, then drum and bass.</p>
-      <p>This is the era where rave stopped being one sound and started splintering into the
-      genre family tree the scene still runs on.</p>`
+    linkUrl: 'https://en.wikipedia.org/wiki/Criminal_Justice_and_Public_Order_Act_1994',
+    linkLabel: 'Criminal Justice and Public Order Act 1994 (Wikipedia)',
+    description: `<p>The Criminal Justice and Public Order Act became law on November 3, 1994. It gave police the power to shut down outdoor gatherings of 20 or more people playing music. In one of the strangest lines ever written into law, it defined that music as sound mostly made up of a succession of &ldquo;repetitive beats.&rdquo;</p>
+      <p>The scene fought back. Tens of thousands marched against the bill in London three separate times in 1994, and the October march ended in a riot in Hyde Park. The duo Autechre released the Anti EP in protest, with a track built on 65 different drum patterns so that, legally, none of its beats repeated.</p>
+      <p>The law drove much of the UK scene off the fields and into licensed clubs, which helped give rise to the superclub era of the late &rsquo;90s.</p>`
+  },
+  {
+    id: 'insomniac-edc-1997',
+    date: '1997-01-01',
+    dateLabel: '1997',
+    title: 'Insomniac Throws Its First Electric Daisy Carnival',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: 'Los Angeles, CA',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Electric_Daisy_Carnival',
+    linkLabel: 'Electric Daisy Carnival (Wikipedia)',
+    description: `<p>The Electric Daisy Carnival name goes back to 1991, when promoter Stephen Hauptfuhr threw a party in Chino, California for about 3,500 people. In 1995 the rights to the name went to Pasquale Rotella, who ran a rave company called Insomniac.</p>
+      <p>In 1997 Insomniac threw its own EDC at the Shrine Expo Hall in Los Angeles. It was an indoor SoCal rave, nowhere near the size it is today. But it is the direct ancestor of the festival that now fills the Las Vegas Motor Speedway every May.</p>`
   },
   {
     id: 'electronica-breaks-us-mainstream',
-    date: '1996-01-01',
-    dateLabel: 'Mid–late 1990s',
-    title: 'Electronic Music Breaks Into the US Mainstream',
+    date: '1997-07-19',
+    dateLabel: 'July 1997',
+    title: 'The Prodigy Top the US Charts During the “Electronica” Push',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'artist-milestone',
+    location: 'United States',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/The_Fat_of_the_Land',
+    linkLabel: 'The Fat of the Land (Wikipedia)',
+    description: `<p>In the mid-&rsquo;90s American labels and radio decided electronic music was the next big thing and marketed it under the label &ldquo;electronica.&rdquo; The high point came when The Prodigy&rsquo;s album The Fat of the Land debuted at number one on the Billboard 200 on July 19, 1997. It went on to sell 2.6 million copies in the US.</p>
+      <p>A British rave act at the top of the American album chart was huge. The hype faded within a few years, but the sound stuck with a generation of US kids. Many of them became the crowds, promoters and DJs who built the festival boom a decade later.</p>`
+  },
+  {
+    id: 'dancesafe-founded',
+    date: '1998-01-01',
+    dateLabel: '1998',
+    title: 'DanceSafe Brings Harm Reduction to US Raves',
     tier: 'notable',
     sizeOverride: null,
     category: 'cultural-moment',
     location: 'United States',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> American
-      labels and radio decided electronic music was the next big thing and marketed it under
-      the banner of &ldquo;electronica.&rdquo; A handful of acts crossed over into heavy MTV
-      rotation and mainstream press, and for a few years dance music had a real foothold in
-      the US charts.</p>
-      <p>The push faded, but it planted the sound with a generation of American listeners well
-      before the festival boom arrived.</p>`
+    linkUrl: 'https://en.wikipedia.org/wiki/DanceSafe',
+    linkLabel: 'DanceSafe (Wikipedia)',
+    description: `<p>Emanuel Sferios founded DanceSafe in 1998 with a simple idea: people at raves are going to make their own choices, so give them real information. Volunteers set up tables at events with drug facts, water, earplugs and peer support. In 1999 it started selling drug-checking kits directly to the public.</p>
+      <p>The work has never been easy in the US. After the RAVE Act passed in 2003 (see below), promoters worried that allowing a harm reduction booth could be read as admitting drugs were present. DanceSafe kept going anyway and now has chapters across the US and Canada. It is one of the reasons harm reduction is part of festival culture today.</p>`
+  },
+  {
+    id: 'ultra-miami-1999',
+    date: '1999-03-13',
+    dateLabel: 'March 1999',
+    title: 'Ultra Debuts on Miami Beach',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: 'Miami Beach, FL',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Ultra_Music_Festival',
+    linkLabel: 'Ultra Music Festival (Wikipedia)',
+    description: `<p>On March 13, 1999, Russell Faibisch and Alex Omes threw a one-day party at Collins Park in South Beach called the Ultra Beach Music Festival. About 10,000 people came, timed to Miami&rsquo;s Winter Music Conference.</p>
+      <p>Two years later it outgrew the beach and moved to Bayfront Park in downtown Miami, where it has been held most years since. By 2010 it sold out with more than 100,000 fans, and in 2011 it grew to three days. Ultra was also one of the first American festivals to take its brand worldwide, starting with Ultra Brasil in 2008.</p>`
+  },
+  {
+    id: 'demf-detroit-2000',
+    date: '2000-05-01',
+    dateLabel: '2000',
+    title: 'Detroit Finally Gets Its Own Techno Festival',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'festival-moment',
+    location: 'Detroit, MI',
+    image: null,
+    linkUrl: 'https://detroithistorical.org/learn/encyclopedia-of-detroit/detroit-electronic-music-festival-movement',
+    linkLabel: 'Detroit Historical Society: DEMF / Movement',
+    description: `<p>For years Detroit techno was more famous in Berlin and London than in Detroit. That changed in 2000, when Carl Craig and Carol Marvin of Pop Culture Media launched the three-day Detroit Electronic Music Festival.</p>
+      <p>The early editions were free. In 2003 Derrick May took over production and renamed it Movement, and from 2005 it started charging admission. Local promoter Paxahau took over after that and still runs it today at Hart Plaza over Memorial Day weekend. It remains the festival where techno comes home.</p>`
   },
   {
     id: 'dubstep-emerges-south-london',
-    date: '2002-01-01',
-    dateLabel: '2000s',
-    title: 'Dubstep Emerges from South London',
+    date: '2001-01-01',
+    dateLabel: '2001 – 2006',
+    title: 'Dubstep Is Born in South London',
     tier: 'major',
     sizeOverride: null,
     category: 'cultural-moment',
     location: 'South London, UK',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Out of the UK
-      garage scene in South London came something slower, darker and built around weight rather
-      than speed: half-time drums, long stretches of space, and sub-bass meant to be felt in
-      the chest. Small club nights and pirate radio carried it first.</p>
-      <p>Within a few years the sound had travelled well beyond London and become one of the
-      most exported UK genres of the decade.</p>`
+    linkUrl: 'https://en.wikipedia.org/wiki/Dubstep',
+    linkLabel: 'Dubstep (Wikipedia)',
+    description: `<p>Out of the UK garage scene came something slower, darker and heavier: half-time drums, lots of empty space, and sub-bass you feel in your chest more than hear. Big Apple Records in Croydon became a hangout for the young producers making it. In 2001 a club night called FWD&gt;&gt; started giving the sound a home, first in Soho and then at Plastic People in Shoreditch.</p>
+      <p>The name &ldquo;dubstep&rdquo; was being used by 2002. Pirate and online radio like Rinse FM spread it further. Then in January 2006 BBC Radio 1&rsquo;s Mary Anne Hobbs aired her &ldquo;Dubstep Warz&rdquo; special, putting artists like Mala, Skream and Kode9 in front of a global audience.</p>
+      <p>That show is often called the moment dubstep went worldwide. Within five years it would land in America and change festival music completely (see 2012).</p>`
+  },
+  {
+    id: 'rave-act-2003',
+    date: '2003-04-30',
+    dateLabel: 'April 2003',
+    title: 'The RAVE Act Becomes US Law',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'other',
+    location: 'Washington, D.C.',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Illicit_Drug_Anti-Proliferation_Act',
+    linkLabel: 'Illicit Drug Anti-Proliferation Act (Wikipedia)',
+    description: `<p>The first version, the Reducing Americans&rsquo; Vulnerability to Ecstasy (RAVE) Act, stalled in Congress in 2002 after pushback from the scene. Then-Senator Joe Biden reintroduced it in 2003 as the Illicit Drug Anti-Proliferation Act. It was attached to a separate, popular child-protection bill, the PROTECT Act, and President George W. Bush signed both into law on April 30, 2003.</p>
+      <p>The law expanded the federal &ldquo;crack house&rdquo; statute to cover temporary events, with civil fines of up to $250,000. In plain terms: a promoter could be held responsible for drug use at their party.</p>
+      <p>The side effect is still felt today. Because handing out drug-safety info can look like admitting drugs are present, many US events grew nervous about harm reduction services. Advocates have spent the two decades since pushing back on that.</p>`
+  },
+  {
+    id: 'daft-punk-coachella-2006',
+    date: '2006-04-29',
+    dateLabel: 'April 2006',
+    title: 'Daft Punk’s Pyramid Lands at Coachella',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'artist-milestone',
+    location: 'Indio, CA',
+    image: null,
+    linkUrl: 'https://library.rockhall.com/greatest_festival_moments/coachella_2006',
+    linkLabel: 'Rock & Roll Hall of Fame: Coachella 2006',
+    description: `<p>For their first Coachella, Daft Punk played from inside a giant LED pyramid, with the light show perfectly synced to the music. Nobody had seen anything like it. The Rock and Roll Hall of Fame now lists it among the greatest festival moments ever.</p>
+      <p>The set kicked off what people in the industry called an arms race in stage production. Ever since, electronic acts have been judged on the show as much as the tracklist. Many US producers and fans who drove the EDM explosion a few years later point to this night as the moment they got hooked.</p>`
+  },
+  {
+    id: 'streaming-livestream-sets',
+    date: '2010-03-01',
+    dateLabel: 'March 2010',
+    title: 'Boiler Room Starts Livestreaming DJ Sets',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'tech',
+    location: 'London, UK',
+    image: null,
+    linkUrl: 'https://en.wikipedia.org/wiki/Boiler_Room_(music_broadcaster)',
+    linkLabel: 'Boiler Room (Wikipedia)',
+    description: `<p>In March 2010 Blaise Bellville and Thristian Richards pointed a webcam at a DJ in a London room and streamed it live. It turned into a weekly show on a basic Ustream channel. That was the start of Boiler Room.</p>
+      <p>It grew to Berlin, Los Angeles, S&atilde;o Paulo and eventually hundreds of cities, with thousands of sets archived online. Together with SoundCloud, YouTube channels and official festival livestreams, it changed how fans find music. A set played to a small room could be watched around the world that same night, and an unsigned producer could find an audience with no label or radio.</p>`
+  },
+  {
+    id: 'edc-la-2010-tragedy',
+    date: '2010-06-26',
+    dateLabel: 'June 2010',
+    title: 'A Death at EDC Los Angeles Pushes the Festival to Vegas',
+    tier: 'major',
+    sizeOverride: null,
+    category: 'tragedy',
+    location: 'Los Angeles Memorial Coliseum, CA',
+    image: null,
+    linkUrl: 'https://www.cbsnews.com/losangeles/news/electric-daisy-carnival-leaving-la-for-las-vegas/',
+    linkLabel: 'CBS Los Angeles: EDC leaving LA for Las Vegas',
+    description: `<p>EDC 2010 at the LA Memorial Coliseum drew about 185,000 people. Fifteen-year-old Sasha Rodriguez took ecstasy at the event and died. Her death set off a firestorm. The Coliseum put a temporary ban on raves, and her age raised hard questions about who should be allowed in.</p>
+      <p>On February 24, 2011, Insomniac announced that EDC was leaving Los Angeles. It reopened that June at the Las Vegas Motor Speedway, where it has stayed ever since.</p>
+      <p>The tragedy changed how US festivals handle safety. EDC is now strictly 18+, and tighter ID checks and bigger on-site medical teams became the norm across the industry. Sasha Rodriguez&rsquo;s story is still told in harm reduction work today.</p>`
   },
   {
     id: 'us-edm-boom-mainstage-era',
-    date: '2010-01-01',
-    dateLabel: 'Late 2000s – early 2010s',
+    date: '2011-06-24',
+    dateLabel: '2010 – 2011',
     title: 'The US EDM Boom and the Mainstage Era',
     tier: 'historic',
     sizeOverride: null,
     category: 'festival-moment',
     location: 'United States',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> American
-      festival culture went from regional parties to stadium-scale production in the space of
-      a few years. Multi-day events with enormous mainstages, pyro and LED walls became the
-      default image of dance music, and &ldquo;EDM&rdquo; became the umbrella term for all of
-      it.</p>
-      <p>This is the period that built most of the festival brands, touring circuits and
-      economics the scene still runs on &mdash; and the one that pulled rave aesthetics into
-      the mainstream.</p>`
+    linkUrl: 'https://en.wikipedia.org/wiki/Electric_Daisy_Carnival',
+    linkLabel: 'Electric Daisy Carnival (Wikipedia)',
+    description: `<p>Around 2010 American dance music went from scene to industry almost overnight. Ultra sold out for the first time in 2010 with more than 100,000 fans and grew to three days in 2011. EDC&rsquo;s first Las Vegas edition, June 24 to 26, 2011, drew a reported 230,000 people.</p>
+      <p>Giant mainstages, pyro, LED walls and three-day passes became the default picture of dance music. &ldquo;EDM&rdquo; became the catch-all name for all of it. The growth never really stopped: EDC Las Vegas hit a record 525,000 attendees in 2023.</p>
+      <p>This era built most of the festival brands, touring circuits and ticket economics the scene still runs on. It is also when rave fashion, kandi and PLUR culture went fully mainstream.</p>`
   },
   {
     id: 'bass-music-crosses-over-us',
-    date: '2011-01-01',
-    dateLabel: 'Early 2010s',
-    title: 'Heavy Bass Crosses Into the US Mainstream',
+    date: '2012-02-12',
+    dateLabel: 'Feb 2012',
+    title: 'Skrillex Wins Three Grammys and Bass Goes Mainstream',
     tier: 'major',
     sizeOverride: null,
     category: 'artist-milestone',
-    location: 'United States',
+    location: 'Los Angeles, CA',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> A louder, more
-      aggressive take on dubstep found a mass American audience. Bass-led acts moved from side
-      stages to headline slots, picked up major-label deals and awards attention, and the drop
-      became the central structural idea in popular dance music.</p>
-      <p>Purists argued about what got lost in translation, but the wave brought an entire
-      generation into bass music.</p>`
+    linkUrl: 'https://factmag.com/2012/02/13/call-911-skrillex-wins-three-grammys',
+    linkLabel: 'FACT: Skrillex wins three Grammys',
+    description: `<p>A louder, more aggressive American take on dubstep, which critics nicknamed &ldquo;brostep,&rdquo; took over the US in 2011. Its biggest name was Skrillex, whose EP Scary Monsters and Nice Sprites climbed to number three on Billboard&rsquo;s dance chart.</p>
+      <p>At the Grammys in February 2012 he won three awards: Best Dance Recording, Best Dance/Electronica Album (beating Deadmau5 and David Guetta), and Best Remixed Recording for his remix of Benny Benassi&rsquo;s &ldquo;Cinema.&rdquo;</p>
+      <p>The drop became the central idea of popular dance music. UK purists argued about what got lost in translation, but this wave brought a whole generation into bass music and built the riddim, tearout and bass festival world that exists today.</p>`
   },
   {
-    id: 'streaming-livestream-sets',
-    date: '2013-01-01',
-    dateLabel: '2010s',
-    title: 'Streaming and Livestreamed Sets Reshape Discovery',
+    id: 'electric-zoo-2013',
+    date: '2013-09-01',
+    dateLabel: 'Sept 2013',
+    title: 'Electric Zoo Cancels Its Final Day After Two Deaths',
     tier: 'notable',
     sizeOverride: null,
-    category: 'tech',
-    location: null,
+    category: 'tragedy',
+    location: 'Randall’s Island, New York, NY',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Streaming
-      platforms, free mix hosting and officially livestreamed festival sets changed how fans
-      found new music. A set played to a field could be watched worldwide the same night, and
-      an unsigned producer could reach an audience without a label or a radio slot.</p>
-      <p>Discovery shifted from record shops and radio to feeds, playlists and archived
-      sets.</p>`
+    linkUrl: 'https://www.fuse.tv/2013/09/electronic-zoo-festival-shut-down-after-2-deaths',
+    linkLabel: 'Fuse: Electric Zoo shut down after 2 deaths',
+    description: `<p>Over Labor Day weekend 2013, two young attendees at New York&rsquo;s Electric Zoo festival died: Jeffrey Russ, 23, and Olivia Rotondo, 20. Four more people were critically ill. The city said both deaths appeared to involve MDMA, often sold as &ldquo;molly.&rdquo;</p>
+      <p>At the city&rsquo;s request, organisers cancelled the third and final day. It was one of the first times a major US festival was shut down mid-weekend over drug deaths.</p>
+      <p>The deaths came at the height of the molly craze, when pills and powders were often cut with other substances. It added urgency to the push for drug checking, on-site medical care and honest drug education at US events.</p>`
   },
   {
     id: 'pandemic-shutdown-virtual-raves',
-    date: '2020-03-01',
-    dateLabel: '2020',
-    title: 'Pandemic Shutdown and the Virtual Rave',
+    date: '2020-03-06',
+    dateLabel: 'March 2020',
+    title: 'The Pandemic Shuts Down the Dancefloor',
     tier: 'major',
     sizeOverride: null,
     category: 'cultural-moment',
-    location: null,
+    location: 'Worldwide',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Festivals and
-      clubs worldwide shut down, cancelling or postponing effectively an entire season. The
-      scene moved online: livestreamed DJ sets, virtual festivals and in-game events stood in
-      for the dancefloor for the better part of two years.</p>
-      <p>Many independent venues did not survive the gap, and the reopening reshaped touring
-      schedules and ticket pricing for years afterward.</p>`
+    linkUrl: 'https://djmag.com/news/ultra-announces-official-cancellation-festival-2020',
+    linkLabel: 'DJ Mag: Ultra cancels 2020',
+    description: `<p>On March 6, 2020, the City of Miami cancelled Ultra, set for March 20 to 22, because of the spread of COVID-19. It was one of the first major US festivals to fall. Within weeks nearly the entire festival season was gone. EDC Las Vegas was pushed from May to October 2020 and then cancelled outright.</p>
+      <p>The scene moved online. Livestreamed DJ sets, virtual festivals and in-game shows stood in for the dancefloor for the better part of two years. Many small independent venues did not survive.</p>
+      <p>EDC Las Vegas finally returned October 22 to 24, 2021. The reopening reshaped touring and ticket prices for years after.</p>`
   },
   {
     id: 'harm-reduction-goes-mainstream',
-    date: '2022-01-01',
-    dateLabel: '2020s',
-    title: 'Harm Reduction Goes Mainstream at Festivals',
+    date: '2023-03-29',
+    dateLabel: 'March 2023',
+    title: 'Narcan Goes Over the Counter and Harm Reduction Goes Mainstream',
     tier: 'major',
     sizeOverride: null,
     category: 'cultural-moment',
-    location: null,
+    location: 'United States',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details]</strong> Against the
-      backdrop of the fentanyl crisis, harm reduction moved from something volunteers did
-      quietly at the edge of a festival to something promoters advertise. Naloxone on site,
-      drug-checking supplies, free water and dedicated care teams became expectations rather
-      than favours.</p>
-      <p>The legal ground varies a lot by state and by country, so what is actually offered
-      still differs sharply from event to event.</p>`
+    linkUrl: 'https://www.opb.org/article/2023/03/29/narcan-naloxone-over-the-counter-fda-approval/',
+    linkLabel: 'OPB / NPR: FDA approves over-the-counter Narcan',
+    description: `<p>On March 29, 2023, the FDA approved Narcan, a naloxone nasal spray that can reverse an opioid overdose, for sale without a prescription. It could now be sold in drug stores, gas stations and online.</p>
+      <p>For the festival world, it capped a big shift. With fentanyl showing up in drugs that were never supposed to contain opioids, harm reduction moved from volunteers quietly working at the edge of a festival to something many events now advertise. Naloxone on site, test strips, free water and dedicated care teams have become things fans expect.</p>
+      <p>The rules still vary a lot by state and by event, so what is actually offered differs from festival to festival. Check our harm reduction guide before you go.</p>`
   },
   {
-    id: 'the-mud-year',
-    date: '2015-01-01',
-    dateLabel: 'Mid 2010s',
-    title: 'The Year the Rain Won',
+    id: 'coachella-2023-skrillex-four-tet-fred-again',
+    date: '2023-04-23',
+    dateLabel: 'April 2023',
+    title: 'Skrillex, Four Tet and Fred again.. Close Coachella',
+    tier: 'notable',
+    sizeOverride: null,
+    category: 'artist-milestone',
+    location: 'Indio, CA',
+    image: null,
+    linkUrl: 'https://djmag.com/news/skrillex-fred-again-and-four-tet-close-coachellas-second-weekend-place-frank-ocean',
+    linkLabel: 'DJ Mag: Skrillex, Fred again.. and Four Tet close Coachella',
+    description: `<p>When Frank Ocean pulled out of Coachella&rsquo;s second weekend with a leg injury, the festival filled the empty Sunday headline slot on April 23, 2023 with a surprise trio: Skrillex, Four Tet and Fred again.. playing back to back on the main stage. The schedule had just read &ldquo;TBA&rdquo; until the announcement.</p>
+      <p>The three had been playing marathon B2B shows together in London and New York, including a five-hour set at Madison Square Garden. Their Coachella close, with Four Tet dropping the viral &ldquo;Country Riddim,&rdquo; turned into one of the most talked-about sets of the year.</p>
+      <p>It was a sign of the times: three DJs, no big stage show, closing the most famous festival in America.</p>`
+  },
+  {
+    id: 'burning-man-mud-2023',
+    date: '2023-09-01',
+    dateLabel: 'Sept 2023',
+    title: 'The Year the Rain Won at Burning Man',
     tier: 'minor',
     sizeOverride: null,
     category: 'festival-moment',
-    location: null,
+    location: 'Black Rock Desert, NV',
     image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details; which festival and
-      which year both still need to be pinned down]</strong> A washed-out weekend the crowd
-      ends up talking about more than the lineup: campsites underwater, shuttles stuck, and a
-      field churned into mud by the second night. Ponchos and taped-up boots as the unofficial
-      dress code.</p>
-      <p>Every scene has one of these years. It is a footnote, but it is the kind people still
-      bring up a decade later.</p>`
-  },
-  {
-    id: 'surprise-b2b-set',
-    date: '2017-01-01',
-    dateLabel: 'Late 2010s',
-    title: 'The Surprise B2B Nobody Had on the Lineup',
-    tier: 'minor',
-    sizeOverride: null,
-    category: 'festival-moment',
-    location: null,
-    image: null,
-    linkUrl: null,
-    linkLabel: null,
-    description: `<p><strong>[DRAFT &mdash; verify date &amp; details; artists and event still
-      to be confirmed]</strong> An unannounced back-to-back set on a small stage that spreads
-      by word of mouth mid-set, pulls a crowd well past the tent capacity, and gets traded
-      around as a shaky phone recording for years afterward.</p>
-      <p>Small enough to miss on the schedule, big enough that the people who were there still
-      lead with it.</p>`
+    linkUrl: 'https://sfstandard.com/2023/09/02/burning-man-2023-rain-shuts-down-black-rock-city-burners-shelter-in-place/',
+    linkLabel: 'SF Standard: Rain shuts down Black Rock City',
+    description: `<p>On Friday, September 1, 2023, rain hit the Nevada desert during Burning Man. The dry lakebed turned to thick, sticky mud. Officials closed the roads, stopped all driving on the playa and told about 80,000 people to shelter in place.</p>
+      <p>The art cars and big dance camps that make Burning Man a bucket-list stop for so many ravers sat stuck in the mud. People were told to save food and water, and many kept the party going on foot until the ground dried out.</p>
+      <p>It is the ultimate example of why every festival packing list needs a plan for bad weather, even in the desert.</p>`
   },
 ];
 
