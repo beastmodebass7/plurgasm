@@ -2764,6 +2764,49 @@ const SOCIALS = [
 
 window.PLURGASM_DATA.socials = SOCIALS;
 
+/* ════════════════════════════════════════════════
+   BRAND PARTNERS — renders /brand-partners
+   Real, active partnerships only: brands we have a referral link
+   and/or discount code with. To add one, copy an entry and fill it in.
+   brandId is used as the card's anchor (/brand-partners#iedm). articleId
+   (optional) must match a published blog post id. Leave code/linkDeal null
+   for a referral-only partner, and logo null to show a text wordmark.
+════════════════════════════════════════════════ */
+const BRAND_PARTNERS = [
+  {
+    brandId: 'trippysquid',
+    name: 'Trippy Squid',
+    logo: '/images/brands/trippysquid.webp',
+    tagline: 'Handmade UV-reactive flowstars & ravewear',
+    blurb: 'A founder-run rave brand out of Seattle making handmade, UV-reactive flowstars at some of the best prices in the scene, plus ravewear and accessories. Free shipping on US orders.',
+    code: 'PLURGASM',
+    codeDeal: '10% off',
+    codeHow: 'Enter it at checkout.',
+    linkDeal: '5% off',
+    linkHow: 'when you shop through our link.',
+    shopUrl: 'https://trippysquid.com/?ref=Plurgasm',
+    ig: '@trippysquidraver',
+    articleId: 'trippysquid-flowstars',
+    articleLabel: 'Read our Trippy Squid flowstar guide',
+  },
+  {
+    brandId: 'iedm',
+    name: 'iEDM',
+    logo: null,               // no logo file yet: page shows a text wordmark
+    tagline: 'Rave apparel, LED gear & accessories',
+    blurb: 'One of the largest online rave and festival clothing shops, with all-over-print outfits, LED gear and accessories for guys and girls. Made in the USA, with free US shipping on orders over $125.',
+    code: null,
+    codeDeal: null,
+    linkDeal: null,           // no discount: the card shows a plain "shop through our link" box
+    linkNote: 'No code needed. Every order through our link helps support PLURGASM.',
+    shopUrl: 'https://iedm.com/?rfsn=9251280.404170',
+    ig: '@iedm',
+    articleId: null,
+    articleLabel: null,
+  },
+];
+window.PLURGASM_DATA.brandPartners = BRAND_PARTNERS;
+
 window.PLURGASM_DATA.featuredInfluencer = {
   handle: '@impeakingpod',
   name: "I'M PEAKING",

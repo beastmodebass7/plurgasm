@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Partners &amp; Rave Discount Codes | PLURGASM</title>
+<meta name="description" content="Rave brands PLURGASM actually works with, like Trippy Squid and iEDM, plus discount codes for the community. Save 10% at Trippy Squid with code PLURGASM.">
+<meta name="keywords" content="rave discount codes, rave brand coupon, Trippy Squid discount code, flowstar discount, PLURGASM code, rave brand partners, iEDM">
+<meta name="author" content="PLURGASM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plurgasm.com/brand-partners">
+<meta property="og:title" content="Brand Partners &amp; Rave Discount Codes | PLURGASM">
+<meta property="og:description" content="Rave brands we actually work with, and codes that save you money. 10% off Trippy Squid with code PLURGASM.">
+<meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brand Partners &amp; Rave Discount Codes | PLURGASM">
+<meta name="twitter:description" content="Rave brands we actually work with, and codes that save you money. 10% off Trippy Squid with code PLURGASM.">
+<meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
+<link rel="canonical" href="https://plurgasm.com/brand-partners">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/nav.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+<script src="/js/data.js" defer></script>
+<style>
+.bp-page { max-width: 1100px; margin: 0 auto; padding: 72px 48px 96px; }
+.bp-kicker {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--pink); margin: 0 0 14px;
+}
+.bp-title {
+  font-family: var(--display); font-weight: 400; line-height: 0.92;
+  font-size: clamp(56px, 9vw, 112px); color: var(--white); margin: 0 0 22px; letter-spacing: 1px;
+}
+.bp-title span { color: var(--cyan); }
+.bp-intro { max-width: 640px; font-size: 17px; line-height: 1.6; color: var(--muted); margin: 0 0 56px; }
+
+.bp-list { display: flex; flex-direction: column; gap: 28px; }
+
+/* partner card: logo column, info column, deal column */
+.bp-card {
+  display: grid; grid-template-columns: 180px 1fr 300px; gap: 36px; align-items: start;
+  padding: 36px; background: var(--surface); border: 1px solid var(--border-hi);
+  border-top: 3px solid var(--purple);
+}
+.bp-logo-link { display: block; text-decoration: none; }
+.bp-wordmark {
+  display: flex; align-items: center; justify-content: center; width: 180px; height: 90px;
+  font-family: var(--display); font-size: 48px; letter-spacing: 2px; color: var(--white);
+  border: 1px solid var(--border-hi); background: var(--black);
+}
+.bp-deal.bp-deal-plain { border-color: rgba(0,229,255,0.45); }
+.bp-deal-big.bp-deal-big-plain { color: var(--cyan); font-size: 32px; }
+.bp-logo {
+  width: 180px; height: 90px; object-fit: contain; display: block;
+}
+.bp-name { font-family: var(--display); font-weight: 400; font-size: 44px; line-height: 1; color: var(--white); margin: 0 0 6px; letter-spacing: 1px; }
+.bp-tagline { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple); margin: 0 0 16px; }
+.bp-blurb { font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0 0 20px; }
+.bp-links { display: flex; flex-wrap: wrap; gap: 10px 20px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 1px; }
+.bp-links a { color: var(--cyan); text-decoration: none; }
+.bp-links a:hover { text-decoration: underline; }
+
+/* deal column: a coupon stub */
+.bp-deal { border: 1px dashed rgba(61,255,133,0.55); padding: 22px; }
+.bp-deal-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--faint); margin: 0 0 6px; }
+.bp-deal-big { font-family: var(--display); font-size: 40px; line-height: 1; color: var(--green); margin: 0 0 14px; letter-spacing: 1px; }
+.bp-code-row { display: flex; align-items: stretch; margin: 0 0 8px; }
+.bp-code {
+  flex: 1; font-family: 'DM Mono', monospace; font-size: 18px; letter-spacing: 3px; color: var(--white);
+  padding: 10px 12px; border: 1px solid var(--border-hi); border-right: 0; background: var(--black);
+  user-select: all; overflow-wrap: anywhere;
+}
+.bp-copy {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 0 14px; background: var(--green); color: var(--black); border: 0; cursor: pointer; font-weight: 500;
+}
+.bp-copy:hover { opacity: 0.85; }
+.bp-copy.copied { background: var(--white); }
+.bp-deal-how { font-size: 13px; color: var(--muted); margin: 0 0 18px; }
+.bp-deal-alt { font-size: 13px; color: var(--muted); margin: 0 0 18px; padding-top: 14px; border-top: 1px solid var(--border); }
+.bp-deal-alt strong { color: var(--white); font-weight: 500; }
+.bp-shop {
+  display: block; text-align: center; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 3px;
+  text-transform: uppercase; padding: 13px 16px; background: var(--cyan); color: var(--black); text-decoration: none; font-weight: 500;
+}
+.bp-shop:hover { opacity: 0.85; }
+
+.bp-disclosure { margin: 40px 0 0; font-size: 13px; line-height: 1.6; color: var(--faint); max-width: 720px; }
+
+.bp-cta { margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.bp-cta h2 { font-family: var(--display); font-weight: 400; font-size: 40px; line-height: 1; margin: 0 0 6px; color: var(--white); letter-spacing: 1px; }
+.bp-cta p { margin: 0; color: var(--muted); font-size: 15px; }
+.bp-cta a {
+  font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  padding: 13px 28px; border: 1px solid rgba(182,77,255,0.5); color: var(--purple); text-decoration: none;
+}
+.bp-cta a:hover { background: rgba(182,77,255,0.08); }
+
+@media (max-width: 900px) {
+  .bp-card { grid-template-columns: 140px 1fr; gap: 20px 24px; padding: 24px; }
+  .bp-logo, .bp-wordmark { width: 140px; height: 70px; }
+  .bp-wordmark { font-size: 38px; }
+  .bp-deal { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .bp-page { padding: 48px 16px 120px; }
+  .bp-card { grid-template-columns: 1fr; }
+  .bp-logo, .bp-wordmark { width: 160px; height: 80px; }
+  .bp-name { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<main class="bp-page">
+  <p class="bp-kicker">Brand Partners · Deals for the Fam</p>
+  <h1 class="bp-title">BRAND<br><span>PARTNERS</span></h1>
+  <p class="bp-intro">These are the brands we actually work with. Some come with a code that saves you money, and every order through our links helps keep PLURGASM running. We only partner with brands we'd send our own friends to.</p>
+
+  <div class="bp-list" id="bp-list">
+    <noscript><p class="bp-intro">Turn on JavaScript to see our partner codes, or shop <a href="https://trippysquid.com/?ref=Plurgasm" rel="sponsored noopener">Trippy Squid</a> with code PLURGASM for 10% off.</p></noscript>
+  </div>
+
+  <p class="bp-disclosure">Heads up: links on this page are referral links. If you buy through them or use our codes, PLURGASM may earn a small commission at no extra cost to you. It never changes which brands we recommend.</p>
+
+  <section class="bp-cta">
+    <div>
+      <h2>WANT TO PARTNER WITH US?</h2>
+      <p>Rave brands, festivals and creators: see our partnership options.</p>
+    </div>
+    <a href="/partners">Partner With Us →</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Categories</a></li>
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/brand-partners">Brand Partners</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);">@beastmodebass ↗</a>
+      <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);">@PlurgasmHQ ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <span class="footer-legal"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<div id="site-bottom-nav"></div>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+function bpEsc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function bpCopy(btn) {
+  const code = btn.getAttribute('data-code');
+  const done = () => {
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+    if (typeof gtag === 'function') gtag('event', 'copy_partner_code', { code: code });
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(code).then(done).catch(() => {});
+  } else {
+    const t = document.createElement('textarea');
+    t.value = code; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    document.body.removeChild(t);
+  }
+}
+
+function renderBrandPartners() {
+  const list = document.getElementById('bp-list');
+  const partners = (window.PLURGASM_DATA && window.PLURGASM_DATA.brandPartners) || [];
+  if (!list || !partners.length) return;
+
+  list.innerHTML = partners.map(p => {
+    const shop = bpEsc(p.shopUrl);
+    const igHandle = p.ig ? String(p.ig).replace(/^@/, '') : '';
+    const links = [];
+    if (p.articleId) links.push(`<a href="/blog-post?id=${bpEsc(p.articleId)}">${bpEsc(p.articleLabel || 'Read our review')} →</a>`);
+    if (igHandle) links.push(`<a href="https://instagram.com/${bpEsc(igHandle)}" target="_blank" rel="noopener">${bpEsc(p.ig)} ↗</a>`);
+
+    let deal = '';
+    if (p.code) {
+      deal += `
+        <p class="bp-deal-label">Use code</p>
+        <p class="bp-deal-big">${bpEsc(p.codeDeal || 'Discount')}</p>
+        <div class="bp-code-row">
+          <span class="bp-code">${bpEsc(p.code)}</span>
+          <button class="bp-copy" type="button" data-code="${bpEsc(p.code)}" onclick="bpCopy(this)" aria-label="Copy code ${bpEsc(p.code)}">Copy</button>
+        </div>
+        <p class="bp-deal-how">${bpEsc(p.codeHow || '')}</p>`;
+    }
+    if (p.linkDeal) {
+      deal += p.code
+        ? `<p class="bp-deal-alt">No code? <strong>${bpEsc(p.linkDeal)}</strong> ${bpEsc(p.linkHow || 'through our link.')}</p>`
+        : `<p class="bp-deal-label">Through our link</p><p class="bp-deal-big">${bpEsc(p.linkDeal)}</p><p class="bp-deal-how">${bpEsc(p.linkHow || '')}</p>`;
+    }
+    if (!p.code && !p.linkDeal) {
+      deal += `
+        <p class="bp-deal-label">Our referral link</p>
+        <p class="bp-deal-big bp-deal-big-plain">Shop &amp; support</p>
+        <p class="bp-deal-how">${bpEsc(p.linkNote || 'Every order through our link helps support PLURGASM.')}</p>`;
+    }
+    deal += `<a class="bp-shop" href="${shop}" target="_blank" rel="sponsored noopener" data-partner="${bpEsc(p.brandId)}">Shop ${bpEsc(p.name)} →</a>`;
+
+    return `
+      <article class="bp-card" id="${bpEsc(p.brandId)}">
+        <a class="bp-logo-link" href="${shop}" target="_blank" rel="sponsored noopener" aria-label="Shop ${bpEsc(p.name)}">
+          ${p.logo
+            ? `<img class="bp-logo" src="${bpEsc(p.logo)}" alt="${bpEsc(p.name)} logo" loading="lazy" width="180" height="90">`
+            : `<span class="bp-wordmark">${bpEsc(p.name)}</span>`}
+        </a>
+        <div class="bp-info">
+          <h2 class="bp-name">${bpEsc(p.name)}</h2>
+          <p class="bp-tagline">${bpEsc(p.tagline || '')}</p>
+          <p class="bp-blurb">${bpEsc(p.blurb || '')}</p>
+          <div class="bp-links">${links.join('')}</div>
+        </div>
+        <div class="bp-deal${(!p.code && !p.linkDeal) ? ' bp-deal-plain' : ''}">${deal}</div>
+      </article>`;
+  }).join('');
+
+  list.addEventListener('click', e => {
+    const a = e.target.closest('a[data-partner]');
+    if (a && typeof gtag === 'function') gtag('event', 'partner_click', { partner: a.getAttribute('data-partner') });
+  });
+}
+document.addEventListener('DOMContentLoaded', renderBrandPartners);
+</script>
+</body>
+</html>

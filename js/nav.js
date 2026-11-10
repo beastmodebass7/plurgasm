@@ -23,6 +23,7 @@
     { label: 'Social',            href: '/#social' },
     { label: 'Blog &amp; News',   href: '/blog' },
     { label: 'History of Rave',   href: '/history' },
+    { label: 'Brand Partners &amp; Deals', href: '/brand-partners' },
     { label: 'Safety &amp; PLUR', href: '/safety', cls: 'mob-highlight' },
   ];
 
