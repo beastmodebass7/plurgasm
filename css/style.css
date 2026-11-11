@@ -5109,3 +5109,118 @@ a.fci-name:hover, a.cal-name:hover { color: var(--cyan); }
   border: 1px solid rgba(240,238,255,0.14); transition: all 0.2s;
 }
 .crawl-links a:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ══════════════════════════════════════════════════
+   ARTIST GENRE DIRECTORY (.gdir) — "What genre is X?" post.
+   Native <details> rows so every answer is in the HTML for search
+   engines; blog-post.html wires search/filter/hash-open on top.
+══════════════════════════════════════════════════ */
+.post-body > .gdir,
+.post-body > .gdir-quick,
+.post-body > .gdir-defs { max-width: 100%; }
+.post-body .gdir-quick { columns: 2 300px; column-gap: 36px; }
+.post-body .gdir-quick li { break-inside: avoid; font-size: 15px; }
+.post-body .gdir-quick a { text-decoration: none; }
+
+.gdir { margin: 0 0 2em; }
+.gdir-controls {
+  position: sticky; top: 66px; z-index: 5;
+  background: var(--black);
+  padding: 14px 0 12px;
+  border-bottom: 1px solid var(--border-hi);
+  margin-bottom: 8px;
+}
+.post-body .gdir-search-label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.gdir-search {
+  width: 100%; box-sizing: border-box;
+  font: 16px var(--body); color: var(--white);
+  background: var(--surface); border: 1px solid var(--border-hi);
+  border-radius: 6px; padding: 11px 14px; outline: none;
+}
+.gdir-search:focus { border-color: var(--cyan); }
+.gdir-pills { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 8px; margin: 12px 0 10px; padding-bottom: 2px; scrollbar-width: none; }
+.gdir-pills::-webkit-scrollbar { display: none; }
+.gdir-pill {
+  flex: none; cursor: pointer;
+  font: 11px var(--mono); letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); background: transparent;
+  border: 1px solid var(--border-hi); border-radius: 999px; padding: 7px 12px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.gdir-pill:hover { color: var(--white); border-color: var(--cyan); }
+.gdir-pill.is-on { color: var(--black); background: var(--cyan); border-color: var(--cyan); }
+.gdir-letters { display: flex; flex-wrap: wrap; gap: 2px 10px; }
+.post-body .gdir-letters a { font: 13px var(--mono); color: var(--muted); text-decoration: none; }
+.post-body .gdir-letters a:hover { color: var(--cyan); }
+.post-body .gdir-count { font: 11px var(--mono); letter-spacing: 2px; text-transform: uppercase; color: var(--faint); margin: 8px 0 0; }
+
+.post-body .gdir-letter {
+  font-family: var(--display); font-size: 34px; letter-spacing: 2px; color: var(--cyan);
+  margin: 28px 0 4px; scroll-margin-top: 270px;
+}
+.gdir-item { border-bottom: 1px solid var(--border); scroll-margin-top: 270px; }
+.gdir-item > summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  padding: 13px 0;
+}
+.gdir-item > summary::-webkit-details-marker { display: none; }
+.gdir-item > summary::before {
+  content: '+'; font: 16px var(--mono); color: var(--cyan); width: 14px; flex: none;
+  transition: transform .2s;
+}
+.gdir-item[open] > summary::before { content: '−'; }
+.gdir-name { font-family: var(--display); font-size: 24px; letter-spacing: 1.5px; color: var(--white); line-height: 1; }
+.gdir-big .gdir-name::after { content: '★'; font-size: 12px; color: var(--amber); margin-left: 8px; vertical-align: 4px; }
+.gdir-sum { font: 12px var(--mono); letter-spacing: 1px; color: var(--muted); }
+.gdir-item > summary:hover .gdir-name { color: var(--cyan); }
+.gdir-body { padding: 0 0 22px 28px; max-width: 64ch; }
+.post-body .gdir-body h3 { font-size: 18px; margin: 4px 0 8px; color: var(--muted); }
+.post-body .gdir-body h3::before { display: none; }
+.post-body .gdir-body p { margin: 0 0 12px; font-size: 16px; line-height: 1.65; }
+.post-body .gdir-answer { color: var(--white); }
+.gdir-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.gdir-tag { font: 11px var(--mono); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border-hi); border-radius: 4px; padding: 4px 8px; }
+.gdir-tag.is-main { color: var(--pink); border-color: rgba(255,45,120,.5); }
+.gdir-facts { display: grid; gap: 4px; margin: 0 0 14px; font-size: 14px; }
+.gdir-facts div { display: grid; grid-template-columns: 64px 1fr; gap: 10px; }
+.gdir-facts dt { font: 11px var(--mono); letter-spacing: 2px; text-transform: uppercase; color: var(--faint); padding-top: 3px; }
+.gdir-facts dd { margin: 0; color: var(--muted); }
+.post-body .gdir-label { font: 11px var(--mono); letter-spacing: 2px; text-transform: uppercase; color: var(--faint); margin: 0 10px 6px 0; }
+.post-body .gdir-body .gdir-label { font-size: 11px; line-height: 1.6; }
+.post-body .gdir-body p.gdir-label { margin-bottom: 6px; }
+.post-body .gdir-eras { margin: 0 0 14px; }
+.post-body .gdir-eras li { font-size: 15px; }
+.post-body .gdir-eras li strong { display: block; font-size: 13px; letter-spacing: .5px; color: var(--cyan); font-weight: 600; }
+.post-body .gdir-listen, .post-body .gdir-like { font-size: 15px; color: var(--muted); }
+.post-body .gdir-like a { display: inline-block; margin-right: 12px; }
+.post-body .gdir-empty { color: var(--muted); padding: 20px 0; }
+.gdir-group.is-hidden, .gdir-item.is-hidden { display: none; }
+.post-body .gdir-defs li a { font-size: 14px; white-space: nowrap; }
+@media (max-width: 768px) {
+  .gdir-controls { position: static; }
+  .gdir-item, .post-body .gdir-letter { scroll-margin-top: 80px; }
+  .gdir-body { padding-left: 0; }
+  .gdir-name { font-size: 22px; }
+  .gdir-sum { width: 100%; padding-left: 28px; }
+}
+/* DJ listing request CTA (genre directory post) */
+.post-body > .gdir-cta {
+  max-width: 100%; margin: 40px 0 0; padding: 24px;
+  border: 1px solid rgba(255,45,120,.35); border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,45,120,.08), rgba(0,229,255,.06));
+  scroll-margin-top: 88px;
+}
+.post-body > .gdir-cta-top { margin: 0 0 32px; padding: 18px 20px; }
+.post-body .gdir-cta-head { font-family: var(--display); font-size: 26px; letter-spacing: 2px; color: var(--white); margin: 0 0 6px; line-height: 1.1; }
+.post-body .gdir-cta-top .gdir-cta-head { font-size: 22px; }
+.post-body .gdir-cta-text { font-size: 16px; color: var(--muted); margin: 0 0 16px; max-width: 60ch; }
+.post-body a.gdir-cta-btn {
+  display: inline-block; text-decoration: none;
+  font: 12px var(--mono); letter-spacing: 2px; text-transform: uppercase;
+  color: var(--black); background: var(--pink); border-radius: 6px; padding: 12px 18px;
+  transition: background .2s, color .2s;
+}
+.post-body a.gdir-cta-btn:hover { background: var(--cyan); color: var(--black); }
+.post-body .gdir-cta-mail { font-size: 13px; color: var(--faint); margin: 12px 0 0; }
+.post-body .gdir-cta-mail a { color: var(--muted); }

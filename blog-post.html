@@ -192,6 +192,83 @@ function renderPostHeader(post, color) {
   }
 }
 
+// Artist genre directory: live search, genre pills, and opening an artist's
+// <details> when its #artist-x anchor is linked or clicked. All content is
+// already in the HTML (good for SEO); this only shows/hides rows.
+function initGenreDirectory() {
+  const root = document.getElementById('gdir');
+  if (!root) return;
+  const items  = Array.from(root.querySelectorAll('.gdir-item'));
+  const groups = Array.from(root.querySelectorAll('.gdir-group'));
+  const input  = document.getElementById('gdir-search');
+  const count  = document.getElementById('gdir-count');
+  const empty  = document.getElementById('gdir-empty');
+  const letters = root.querySelector('.gdir-letters');
+  let genre = '';
+
+  function apply() {
+    const q = (input.value || '').trim().toLowerCase();
+    let shown = 0;
+    items.forEach(it => {
+      const okG = !genre || (' ' + it.dataset.g + ' ').includes(' ' + genre + ' ');
+      const okQ = !q || it.dataset.s.includes(q);
+      const on = okG && okQ;
+      it.classList.toggle('is-hidden', !on);
+      if (on) shown++;
+    });
+    groups.forEach(g => g.classList.toggle('is-hidden', !g.querySelector('.gdir-item:not(.is-hidden)')));
+    count.textContent = shown + (shown === 1 ? ' artist' : ' artists');
+    empty.hidden = shown > 0;
+    if (letters) letters.style.display = (q || genre) ? 'none' : '';
+  }
+  input.addEventListener('input', apply);
+  root.querySelectorAll('.gdir-pill').forEach(p => p.addEventListener('click', () => {
+    root.querySelectorAll('.gdir-pill').forEach(x => x.classList.toggle('is-on', x === p));
+    genre = p.dataset.g || '';
+    apply();
+  }));
+
+  // Open (and un-hide) an artist before the shared in-post anchor handler scrolls to it.
+  function openArtist(id) {
+    const el = document.getElementById(id);
+    if (!el || !el.classList.contains('gdir-item')) return;
+    if (el.classList.contains('is-hidden')) {
+      input.value = ''; genre = '';
+      root.querySelectorAll('.gdir-pill').forEach(x => x.classList.toggle('is-on', !x.dataset.g));
+      apply();
+    }
+    el.open = true;
+    try { if (window.gtag) gtag('event', 'genre_directory_open', { artist: id.replace('artist-', '') }); } catch (e) {}
+  }
+  document.getElementById('post-body').addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#artist-"]');
+    if (a) openArtist(decodeURIComponent(a.getAttribute('href').slice(1)));
+  }, true);
+  if (location.hash.indexOf('#artist-') === 0) openArtist(decodeURIComponent(location.hash.slice(1)));
+  window.addEventListener('hashchange', () => {
+    if (location.hash.indexOf('#artist-') === 0) openArtist(decodeURIComponent(location.hash.slice(1)));
+  });
+  // Opening a row by hand updates the URL so it can be shared ("…#artist-subtronics").
+  items.forEach(it => it.addEventListener('toggle', () => {
+    if (it.open) history.replaceState(null, '', '#' + it.id);
+  }));
+
+  // FAQPage structured data built from the headliner entries.
+  try {
+    const qa = Array.from(root.querySelectorAll('.gdir-big')).map(it => ({
+      '@type': 'Question',
+      name: it.querySelector('h3').textContent,
+      acceptedAnswer: { '@type': 'Answer', text: it.querySelector('.gdir-answer').textContent }
+    }));
+    if (qa.length) {
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qa });
+      document.head.appendChild(s);
+    }
+  } catch (e) {}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
@@ -314,6 +391,10 @@ document.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('load', () => postJumpTo(hashId, false), { once: true });
     } catch (e) {}
   }
+
+  // Artist genre directory (.gdir) — search, genre pills, and #artist-x links
+  // that open the matching <details>. Only runs on posts that contain #gdir.
+  try { initGenreDirectory(); } catch (e) { console.error('genre directory error:', e); }
 
   // Embedded region map (scripts inside post.body never execute, so init here).
   // Currently only the Canada guide has the #post-canada-map placeholder.
