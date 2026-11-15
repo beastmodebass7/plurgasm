@@ -1,0 +1,39 @@
+name: Back up blog view counts
+
+# Copies post_views from Supabase into js/view-snapshot.js once a day so the
+# repo always has a backup of the counts. Never lowers a number (see script).
+# Run it by hand anytime from the Actions tab -> "Run workflow".
+on:
+  schedule:
+    - cron: '23 9 * * *'   # daily, 09:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Update snapshot
+        run: node update-view-snapshot.js
+
+      - name: Commit & push if counts changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- js/view-snapshot.js; then
+            echo "No view count changes — nothing to commit."
+          else
+            git add js/view-snapshot.js
+            git commit -m "back up blog view counts [skip ci]"
+            git push
+          fi

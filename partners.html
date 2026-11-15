@@ -870,6 +870,8 @@ footer {
 <script src="js/nav.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="/js/auth.js" defer></script>
+<script src="/js/view-snapshot.js" defer></script>
+<script src="/js/views.js" defer></script>
 </head>
 <body>
 
@@ -899,6 +901,10 @@ footer {
     <div class="p-stat">
       <span class="p-stat-num" style="color:var(--purple);">23+</span>
       <span class="p-stat-label">Festivals Tracked</span>
+    </div>
+    <div class="p-stat" id="p-stat-views" style="display:none;">
+      <span class="p-stat-num" id="p-stat-views-num" style="color:var(--green);"></span>
+      <span class="p-stat-label">Article Views</span>
     </div>
   </div>
 </div>
@@ -1188,6 +1194,23 @@ footer {
   </div>
 </footer>
 
+<script>
+// Total blog article views (live Supabase count, or the repo backup if
+// Supabase is down). Hidden until a real number is available, never "0".
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    if (!window.PlurViews || !PlurViews.totalViews) return;
+    const { total } = await PlurViews.totalViews();
+    if (!total) return;
+    const wrap = document.getElementById('p-stat-views');
+    const num  = document.getElementById('p-stat-views-num');
+    if (!wrap || !num) return;
+    num.textContent = PlurViews.formatCount(total).toUpperCase() + (total >= 1000 ? '+' : '');
+    wrap.title = total.toLocaleString() + ' total blog article views';
+    wrap.style.display = "";
+  } catch (e) { console.error('views stat error:', e); }
+});
+</script>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.has('success') || urlParams.get('success') === 'true') {

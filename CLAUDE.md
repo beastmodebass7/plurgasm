@@ -29,8 +29,10 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
   - `search.js` — homepage hero search
   - `auth.js` — Supabase Google login; exposes `window.sb`
   - `saves.js` — save/unsave festivals (`window.PlurSaves`)
-  - `views.js` — blog post view counts
+  - `views.js` — blog post view counts (live Supabase, merged with the backup below)
+  - `view-snapshot.js` — **auto-generated** backup of view counts; load it before `views.js`
   - `generate-sitemap.js` — regenerates `sitemap.xml` (Node script, run by hand)
+  - `update-view-snapshot.js` (repo root) — copies `post_views` into `js/view-snapshot.js`
 
 ## Script load order (important)
 On the homepage `data.js` → `main.js` → `search.js` are loaded **in that order with `defer`** at the
@@ -161,6 +163,12 @@ nav.js fills them on `DOMContentLoaded`. **Never edit nav markup in individual H
   they poll briefly for it because `auth.js` may init after them.
 - Tables/RPCs in use: `votes` (creator upvotes), `saved_festivals` (profile rave-calendar),
   `post_views` + RPC `increment_post_view`, RPC `get_vote_counts`.
+- **View count backup.** `.github/workflows/view-snapshot.yml` runs `update-view-snapshot.js` daily
+  (and on demand from the Actions tab) and commits `js/view-snapshot.js`. Every count shown is
+  `max(live, snapshot)`, so numbers never drop, and if Supabase is down the snapshot is shown instead.
+  The script never lowers a backed-up number. Don't hand-edit the snapshot. Pages that show counts
+  (`blog.html`, `blog-post.html`, `partners.html`) load `view-snapshot.js` then `views.js`.
+  The partners page "Article Views" stat (`#p-stat-views`) stays hidden until a real total exists.
 
 ---
 

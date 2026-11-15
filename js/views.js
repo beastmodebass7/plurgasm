@@ -9,7 +9,13 @@
      fillBadges(root) -> fill every .views-badge-slot[data-post-id] under root
                          from the post_views table (READ ONLY, no increment)
      recordAndGet(id) -> increment once per session, return the current count
-                         (number), or null if it couldn't be read at all */
+                         (number), or null if it couldn't be read at all
+     totalViews()     -> { total, live } across all posts (Promise)
+
+   Backup: js/view-snapshot.js (window.PLURGASM_VIEW_SNAPSHOT) holds a daily
+   copy of the counts committed to the repo. Every count shown is
+   max(live Supabase, snapshot), so numbers never drop, and if Supabase is
+   down the snapshot is shown instead of nothing. */
 (function () {
   'use strict';
 
@@ -24,6 +30,26 @@
     '</svg>';
 
   function client() { return window.sb || null; }
+
+  // Backup counts from js/view-snapshot.js ({} if that file isn't loaded).
+  function snapshotViews() {
+    var s = window.PLURGASM_VIEW_SNAPSHOT;
+    return (s && s.views && typeof s.views === 'object') ? s.views : {};
+  }
+  function hasSnapshot() { return Object.keys(snapshotViews()).length > 0; }
+
+  // Per post, keep the higher of live and snapshot.
+  function mergeWithSnapshot(live) {
+    var out = {}, snap = snapshotViews(), k;
+    for (k in snap) if (Object.prototype.hasOwnProperty.call(snap, k)) out[k] = Number(snap[k]) || 0;
+    for (k in live) if (Object.prototype.hasOwnProperty.call(live, k)) out[k] = Math.max(out[k] || 0, Number(live[k]) || 0);
+    return out;
+  }
+  function bestOf(id, n) {
+    var s = Number(snapshotViews()[id]) || 0;
+    return (n === null || n === undefined) ? (s || null) : Math.max(Number(n) || 0, s);
+  }
+  var _lastLive = false; // did the most recent fetchAllViews reach Supabase?
 
   // 1200 -> "1.2k", 1500000 -> "1.5M", 999 -> "999". Drops a trailing ".0".
   function formatCount(n) {
@@ -47,21 +73,44 @@
   //   undefined = not fetched yet, null = fetch failed, object = data
   var _allCache;
 
+  // auth.js may create window.sb a moment after this script runs.
+  function waitForClient(ms) {
+    return new Promise(function (resolve) {
+      var waited = 0;
+      (function check() {
+        if (client() || waited >= ms) return resolve(client());
+        waited += 100; setTimeout(check, 100);
+      })();
+    });
+  }
+
   async function fetchAllViews() {
     if (_allCache !== undefined) return _allCache;
     try {
-      var sb = client();
-      if (!sb) { _allCache = null; return _allCache; }
+      var sb = await waitForClient(3000);
+      if (!sb) throw new Error('Supabase client unavailable');
       var res = await sb.from('post_views').select('post_id, views');
       if (res.error) throw res.error;
       var map = {};
       (res.data || []).forEach(function (r) { map[r.post_id] = r.views; });
-      _allCache = map;
+      _lastLive = true;
+      _allCache = mergeWithSnapshot(map);
     } catch (e) {
       console.error('[views.js] fetchAllViews', e);
-      _allCache = null;
+      _lastLive = false;
+      // Fall back to the backup snapshot instead of showing nothing.
+      _allCache = hasSnapshot() ? mergeWithSnapshot({}) : null;
     }
     return _allCache;
+  }
+
+  // Total views across every post. live=false means the backup was used.
+  async function totalViews() {
+    var map = await fetchAllViews();
+    if (!map) return { total: 0, live: false };
+    var t = 0, k;
+    for (k in map) if (Object.prototype.hasOwnProperty.call(map, k)) t += Number(map[k]) || 0;
+    return { total: t, live: _lastLive };
   }
 
   // Fill every .views-badge-slot[data-post-id] under root. Posts with no row
@@ -87,13 +136,13 @@
   async function getViews(id) {
     try {
       var sb = client();
-      if (!sb) return null;
+      if (!sb) return bestOf(id, null);
       var res = await sb.from('post_views').select('views').eq('post_id', id).maybeSingle();
       if (res.error) throw res.error;
-      return res.data ? res.data.views : 0;
+      return bestOf(id, res.data ? res.data.views : 0);
     } catch (e) {
       console.error('[views.js] getViews', e);
-      return null;
+      return bestOf(id, null);
     }
   }
 
@@ -123,7 +172,7 @@
     var count = await increment(id);
     if (count !== null && count !== undefined) {
       try { sessionStorage.setItem(key, '1'); } catch (e) { /* private mode */ }
-      return count;
+      return bestOf(id, count);
     }
     // Increment failed — fall back to a plain read so a count can still show.
     return getViews(id);
@@ -133,6 +182,7 @@
     formatCount: formatCount,
     badgeHtml: badgeHtml,
     fillBadges: fillBadges,
-    recordAndGet: recordAndGet
+    recordAndGet: recordAndGet,
+    totalViews: totalViews
   };
 })();
