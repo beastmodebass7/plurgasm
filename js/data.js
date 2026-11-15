@@ -230,6 +230,119 @@ const BRANDS = [
 
 PLURGASM_DATA.blogPosts = [
   {
+    id: 'edc-orlando-2026-review-best-sets',
+    title: 'EDC Orlando 2026 in Review: Best Sets, Big Upgrades and What Needs Fixing',
+    slug: 'edc-orlando-2026-review-best-sets',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-11-15',
+    category: 'festival-news',
+    coverImage: '/images/blog/edc-orlando-2026-header.webp',
+    excerpt: 'EDC Orlando turned 15 with a monster Sunday of techno from Holy Priest, Klangkuenstler and Boys Noize b2b Brutalismus 3000, Garrix closing kineticFIELD, smoother grounds and the first Hotel EDC on the East Coast. Here is our full recap.',
+    published: true,
+    featured: true,
+    body: `
+<p>EDC Orlando turned 15 this year, and it threw itself a proper party. Over three nights, November 6 to 8, more than 95,000 people a day filled Tinker Field next to Camping World Stadium<sup class="fn"><a href="#src-3">[3]</a></sup>. Here is our look back at the best sets, the stage upgrades, what still needs fixing, and what is already locked in for 2027.</p>
+
+<div class="post-toc" role="navigation" aria-label="In this guide">
+  <p class="post-toc-title">In This Recap</p>
+  <ul>
+    <li><a href="#quick-take">The Quick Take</a></li>
+    <li><a href="#best-sets">Best Sets of the Weekend</a></li>
+    <li><a href="#stages">Stages &amp; Production</a></li>
+    <li><a href="#what-improved">What Got Better</a></li>
+    <li><a href="#what-needs-work">What Still Needs Work</a></li>
+    <li><a href="#hotel-edc">Hotel EDC Orlando</a></li>
+    <li><a href="#edc-orlando-2027">EDC Orlando 2027</a></li>
+  </ul>
+</div>
+
+<h2 id="quick-take">The Quick Take</h2>
+<ul>
+  <li><strong>Sunday was the techno night of the year.</strong> Holy Priest closed circuitGROUNDS, Klangkuenstler closed neonGARDEN, and Boys Noize went back to back with Brutalismus 3000. Picking between them was the hardest call of the weekend.</li>
+  <li><strong>The mainstage delivered.</strong> David Guetta closed Friday, Kaskade closed Saturday, and Hardwell into Martin Garrix closed out Sunday.</li>
+  <li><strong>The grounds felt better.</strong> Reviewers credited wider walkways, free water stations and less crowding at the big stages<sup class="fn"><a href="#src-1">[1]</a></sup><sup class="fn"><a href="#src-5">[5]</a></sup>.</li>
+  <li><strong>Phone theft is still a problem</strong>, especially near the end of the night<sup class="fn"><a href="#src-1">[1]</a></sup>.</li>
+  <li><strong>2027 is already set:</strong> November 5 to 7, back at Tinker Field<sup class="fn"><a href="#src-8">[8]</a></sup>.</li>
+</ul>
+
+<h2 id="best-sets">Best Sets of the Weekend</h2>
+<p>This year's lineup leaned hard into house and techno (we called it in our <a href="/blog-post?id=edc-orlando-2026-lineup">lineup breakdown</a>). That bet paid off. Here are the sets people kept talking about.</p>
+
+<h3>Holy Priest closes circuitGROUNDS (Sunday)</h3>
+<p>circuitGROUNDS is usually where Orlando's bassheads live, so handing its final slot of the weekend to a hard techno act was a statement. Holy Priest played the 10:55 PM to midnight closer on Sunday<sup class="fn"><a href="#src-7">[7]</a></sup>, under the stage's huge screens, pyro and hanging acrobats. EDMTunes named him among the standouts of a stacked Sunday techno run<sup class="fn"><a href="#src-1">[1]</a></sup>.</p>
+
+<h3>Klangkuenstler closes neonGARDEN (Sunday)</h3>
+<p>At the same time across the grounds, Klangkuenstler played a 90-minute closer at neonGARDEN from 10:30 PM to midnight<sup class="fn"><a href="#src-7">[7]</a></sup>. EDMTunes called him the "headmaster" of schranz<sup class="fn"><a href="#src-1">[1]</a></sup>, the fast, pounding German hard techno style. With Holy Priest, Klangkuenstler and Martin Garrix all playing at once, The Festival Babes summed up Sunday stage-hopping as "a serious dilemma"<sup class="fn"><a href="#src-5">[5]</a></sup>.</p>
+
+<h3>Boys Noize b2b Brutalismus 3000 (Sunday)</h3>
+<p>The back-to-back we flagged in June as a "dark-techno fever dream" happened at neonGARDEN on Sunday<sup class="fn"><a href="#src-2">[2]</a></sup>. Boys Noize stayed in town for Hotel EDC afterward too<sup class="fn"><a href="#src-1">[1]</a></sup>.</p>
+
+<h3>The rest of the Sunday techno run</h3>
+<p>Sunday at neonGARDEN was wall-to-wall techno. EDMTunes singled out SHDW, KI/KI, Marlon Hoffstadt and Adrián Mills<sup class="fn"><a href="#src-1">[1]</a></sup>, and The Festival Babes called the whole day "a techno head's dream"<sup class="fn"><a href="#src-5">[5]</a></sup>. EDMTunes also praised I Hate Models and Nico Moreno for high-intensity, storytelling sets<sup class="fn"><a href="#src-1">[1]</a></sup>.</p>
+
+<h3>Hardwell into Martin Garrix (Sunday)</h3>
+<p>kineticFIELD's Sunday night was pure big-room nostalgia. SLANDER played the sunset set, then Alok, then Hardwell from 9:15 to 10:25 PM, and finally Martin Garrix closed the festival from 10:28 to 11:56 PM<sup class="fn"><a href="#src-2">[2]</a></sup><sup class="fn"><a href="#src-7">[7]</a></sup>.</p>
+
+<h3>Kaskade, KREAM and SLANDER on the mainstage</h3>
+<p>EDMTunes picked KREAM, Kaskade and SLANDER as the mainstage sets that best balanced emotional and upbeat<sup class="fn"><a href="#src-1">[1]</a></sup>. Kaskade closed kineticFIELD on Saturday<sup class="fn"><a href="#src-7">[7]</a></sup>. On Friday, a "Space Rave" interlude bridged KREAM and Afrojack before David Guetta closed the night<sup class="fn"><a href="#src-2">[2]</a></sup>.</p>
+
+<h3>Bass highlights</h3>
+<p>The bass side of the lineup was lighter than past years, with no Subtronics. The sets that did happen still landed. EDMTunes praised Level Up, Adventure Club, Jkyl &amp; Hyde, Levity, AVELLO and Sippy, plus Of The Trees, whose sunset set mixed trap with heavy wubs<sup class="fn"><a href="#src-1">[1]</a></sup>. Alison Wonderland closed circuitGROUNDS on Saturday and Wooli closed it on Friday<sup class="fn"><a href="#src-7">[7]</a></sup>. CBS12 named Alison Wonderland, Ray Volpe and ALLEYCVT as Saturday's bass leaders<sup class="fn"><a href="#src-2">[2]</a></sup>. Not sure what genre any of these artists play? Look them up in our <a href="/blog-post?id=what-genre-is-bass-artist-directory">bass artist genre directory</a>.</p>
+
+<h3>House and garage</h3>
+<p>EDMTunes called Josh Baker, AYYBO, Interplanetary Criminal, Mau P and Roddy Lima some of the best sets of the weekend<sup class="fn"><a href="#src-1">[1]</a></sup>. Josh Baker closed neonGARDEN on Friday, and Chris Lorenzo closed stereoBLOOM<sup class="fn"><a href="#src-7">[7]</a></sup>. On Saturday, Miami's Club Space and Brooklyn's Factory 93 teamed up to host neonGARDEN<sup class="fn"><a href="#src-2">[2]</a></sup>.</p>
+
+<h2 id="stages">Stages &amp; Production</h2>
+<ul>
+  <li><strong>kineticFIELD</strong> dropped last year's owl look for a retro boombox design<sup class="fn"><a href="#src-5">[5]</a></sup>, running the kineticJOURNEY visuals carried over from EDC Las Vegas<sup class="fn"><a href="#src-1">[1]</a></sup>. Fireworks opened the festival on Friday night<sup class="fn"><a href="#src-2">[2]</a></sup>.</li>
+  <li><strong>circuitGROUNDS</strong> brought big screens, pyro and hanging acrobats<sup class="fn"><a href="#src-1">[1]</a></sup>.</li>
+  <li><strong>neonGARDEN</strong> brought back its shipping-container build, now curved around the back of the DJ booth<sup class="fn"><a href="#src-1">[1]</a></sup>.</li>
+  <li><strong>stereoBLOOM</strong> earned praise as the cozy stage, and <strong>Casa Bacardí</strong> became the go-to sunset and house meetup spot<sup class="fn"><a href="#src-1">[1]</a></sup>.</li>
+  <li>Between sets: carnival rides, arcade games and a new <strong>Kandi Casino</strong><sup class="fn"><a href="#src-5">[5]</a></sup>.</li>
+</ul>
+
+<h2 id="what-improved">What Got Better</h2>
+<p>Both recaps we read said Insomniac clearly listened to feedback from 2025.</p>
+<ul>
+  <li><strong>Wider walkways</strong> between kineticFIELD, circuitGROUNDS and stereoBLOOM, which had been bottlenecks in past years<sup class="fn"><a href="#src-5">[5]</a></sup>.</li>
+  <li><strong>Free water stations</strong> added to cut down on lines<sup class="fn"><a href="#src-1">[1]</a></sup>.</li>
+  <li><strong>Less crowding.</strong> EDMTunes said no stage felt overpacked, even during headliners<sup class="fn"><a href="#src-1">[1]</a></sup>.</li>
+  <li><strong>Food, drinks, vendors and restrooms</strong> were "noticeably better," and finding your friends was easier<sup class="fn"><a href="#src-5">[5]</a></sup>.</li>
+</ul>
+
+<h2 id="what-needs-work">What Still Needs Work</h2>
+<ul>
+  <li><strong>Phone theft.</strong> EDMTunes flagged it as the weekend's one real problem, especially near the end of the festival<sup class="fn"><a href="#src-1">[1]</a></sup>. Keep your phone in a zipped front pocket or on a phone leash, and turn on Find My before you go in. More tips on our <a href="/safety">safety page</a>.</li>
+  <li><strong>The neighbors.</strong> Residents near Tinker Field told Spectrum News 13 that the bass rattles their windows and that some festivalgoers wander into yards. They also credited a bigger police presence for making this year better than last<sup class="fn"><a href="#src-3">[3]</a></sup>.</li>
+  <li><strong>Getting there.</strong> The Orange County Sheriff's Office ran its largest-ever event zone for EDC, with doubled traffic fines and towing. Some nearby private lots charged $40 to $50 a night<sup class="fn"><a href="#src-4">[4]</a></sup>. Plan your ride before you go.</li>
+  <li><strong>Bass depth.</strong> Bass fans got good sets, but fewer of them than in past years. We are hoping 2027 brings back a deeper heavy bass lineup.</li>
+</ul>
+
+<h2 id="hotel-edc">Hotel EDC Orlando</h2>
+<p>For the first time, Hotel EDC came to the East Coast. It took over the Margaritaville Resort Orlando from November 6 to 9, with poolside sets, themed rooms and official afterparties running until 6 AM<sup class="fn"><a href="#src-1">[1]</a></sup>. More than 5,000 people went over the weekend<sup class="fn"><a href="#src-1">[1]</a></sup>. The bill included Svdden Death, Kai Wachi, Boys Noize, ALLEYCVT, Levity, Jkyl &amp; Hyde, Maddix and LAYZ<sup class="fn"><a href="#src-1">[1]</a></sup><sup class="fn"><a href="#src-6">[6]</a></sup>. The Festival Babes called the after-hours sets "some of the BEST sets I have seen from the artists"<sup class="fn"><a href="#src-6">[6]</a></sup>. Insomniac has not said yet whether Hotel EDC will return in 2027.</p>
+
+<h2 id="edc-orlando-2027">EDC Orlando 2027</h2>
+<p>EDC Orlando returns <strong>November 5 to 7, 2027</strong> at Tinker Field for its 16th edition. Tickets went on sale November 13, with three-day GA, GA+ and 21+ VIP passes and payment plans starting with a $5 deposit<sup class="fn"><a href="#src-8">[8]</a></sup>. It is already on the <a href="/calendar">PLURGASM festival calendar</a>.</p>
+
+<p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;line-height:1.8;">
+  Were you there? Tell us your set of the weekend. Tag <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener" style="color:var(--cyan);">@PlurgasmHQ</a> or <a href="/submit-article" style="color:var(--cyan);">send us your recap</a>.
+</p>
+
+<h3>Sources</h3>
+<ol class="sources">
+<li id="src-1">EDMTunes, "[Event Review] EDC Orlando Gloriously Celebrated Its 15th Anniversary": <a href="https://www.edmtunes.com/2026/11/13/event-review-edc-orlando-15th-anniversary/" target="_blank" rel="noopener">edmtunes.com</a></li>
+<li id="src-2">CBS12, "David Guetta, Kaskade and Martin Garrix lead a packed weekend at EDC Orlando": <a href="https://cbs12.com/news/entertainment/david-guetta-kaskade-and-martin-garrix-lead-a-packed-weekend-at-edc-orlando" target="_blank" rel="noopener">cbs12.com</a></li>
+<li id="src-3">Spectrum News 13, "EDC boosts business, but raises neighborhood concerns near Camping World": <a href="https://mynews13.com/fl/orlando/news/2026/11/09/edc-orlando-brings-business-opportunities-and-neighborhood-concerns-near-camping-world-stadium" target="_blank" rel="noopener">mynews13.com</a></li>
+<li id="src-4">The Florida Press, "EDC Orlando 2026 brings 300,000 fans, a record sheriff's event zone and festival-weekend cash to Tinker Field neighbors": <a href="https://www.thefloridapress.com/news/edc-orlando-2026-brings-300000-fans-a-record-sheriffs-event-zone-and-festival-we" target="_blank" rel="noopener">thefloridapress.com</a></li>
+<li id="src-5">The Festival Babes, "EDC Orlando 2026: Forever One of a Kind": <a href="https://thefestivalbabes.com/edc-orlando-2026-forever-one-of-a-kind-%E2%9C%A8%F0%9F%8E%A1/" target="_blank" rel="noopener">thefestivalbabes.com</a></li>
+<li id="src-6">The Festival Babes, "EDC Orlando Hotel 2026: A Weekend That Will Go Down in History": <a href="https://thefestivalbabes.com/edc-orlando-hotel-2026-a-weekend-that-will-go-down-in-history/" target="_blank" rel="noopener">thefestivalbabes.com</a></li>
+<li id="src-7">Ones To Watch, "EDC Orlando Set Times At Tinker Field 2026: Stage Guide": <a href="https://onestowatch.com/live/edc-orlando-set-times-2026/" target="_blank" rel="noopener">onestowatch.com</a></li>
+<li id="src-8">EDM House Network, "EDC Orlando Returns for Its 16th Edition in 2027": <a href="https://edmhousenetwork.com/edc-orlando-returns-for-its-16th-edition-in-2027/" target="_blank" rel="noopener">edmhousenetwork.com</a></li>
+</ol>
+`
+  },
+  {
     id: 'what-genre-is-bass-artist-directory',
     title: 'What Genre Is Your Favorite Bass Artist? The Dubstep, Riddim & Melodic Bass Artist Directory',
     slug: 'what-genre-is-bass-artist-directory',
@@ -1173,7 +1286,9 @@ PLURGASM_DATA.blogPosts = [
     excerpt: 'EDC Orlando 2026 is here: 100+ artists at Tinker Field this November. House and techno dominate, the mainstage is stacked, and one big bass name is missing. Our full breakdown.',
     published: true,
     featured: true,
-    body: `<p>The wait is over. EDC Orlando just dropped its 2026 lineup, and the rave internet lit up within minutes. Returning to <strong>Tinker Field</strong> from <strong>November 6–8</strong> for its 15th edition (all under the new <em>kineticJOURNEY</em> theme carried over from EDC Las Vegas' 30th anniversary), this year's bill runs more than 100 artists deep. Here's our honest breakdown of what stands out, and what's quietly missing.</p>
+    body: `<p style="padding:14px 18px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;"><strong>The festival has happened:</strong> read our <a href="/blog-post?id=edc-orlando-2026-review-best-sets">EDC Orlando 2026 recap and best sets</a>.</p>
+
+<p>The wait is over. EDC Orlando just dropped its 2026 lineup, and the rave internet lit up within minutes. Returning to <strong>Tinker Field</strong> from <strong>November 6–8</strong> for its 15th edition (all under the new <em>kineticJOURNEY</em> theme carried over from EDC Las Vegas' 30th anniversary), this year's bill runs more than 100 artists deep. Here's our honest breakdown of what stands out, and what's quietly missing.</p>
 
 <img class="blog-body-img" src="/images/blog/edc-orlando-2026.webp" alt="EDC Orlando 2026 official lineup poster — Nov 6-8 at Tinker Field">
 
