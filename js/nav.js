@@ -42,7 +42,7 @@
     try {
       var pathname = window.location.pathname;
       var inSubfolder = pathname.split('/').filter(Boolean).length > 1;
-      var imgBase = inSubfolder ? '../images/nav/' : 'images/nav/';
+      var imgBase = '/images/nav/'; // absolute: works from /, /festivals/x, and /posts/<id>/
       var isHome = pathname === '/' || pathname === '' || /\/index(\.html)?$/.test(pathname);
 
       // Normalize a path for active-state matching: strip a trailing ".html"
