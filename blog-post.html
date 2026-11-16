@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="PLURGASM Blog — Rave news and culture">
 <meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
 <title>PLURGASM — Blog</title>
-<!-- Canonical + og:url are filled in by JS once the ?id= post is resolved (extensionless form, matching sitemap.xml). No hardcoded href on purpose. -->
+<!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link">
 <meta property="og:url" content="">
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -26,10 +26,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4QSZ7HPXPJ');</script>
-<script src="js/nav.js" defer></script>
+<script src="/js/nav.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="/js/auth.js" defer></script>
 <script src="/js/view-snapshot.js" defer></script>
@@ -83,7 +83,9 @@
   </div>
 </footer>
 
-<script src="js/data.js" defer></script>
+<!-- List of posts that have a pre-built /posts/<id>/ page. Filled by generate-sitemap.js. -->
+<!-- GEN:STATIC-POSTS --><script>window.PLURGASM_STATIC_POSTS=["edc-orlando-2026-review-best-sets","what-genre-is-bass-artist-directory","canadian-rave-festival-guide","us-rave-festival-season-2027-dates","rave-harm-reduction-organizations","tomorrowland-2026-fireworks-ban","post-014","post-013","rave-slang-dictionary","electric-forest-2026-evacuated","defqon1-2026-cancelled-heat","post-012","post-011","edc-orlando-2026-lineup","trippysquid-flowstars","flowstar-guide","post-010","post-009","post-008","post-001","post-002","post-003","post-004","post-006","post-007","post-005"];</script><!-- /GEN:STATIC-POSTS -->
+<script src="/js/data.js" defer></script>
 <script>
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
@@ -131,8 +133,22 @@ const catLabels = {
 
 function getColor(cat) { return catColors[cat] || 'var(--cyan)'; }
 function getLabel(cat) { return catLabels[cat] || cat; }
-function fmtDate(d) {
-  return new Date(d).toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
+// "2026-11-15" -> "November 15, 2026". Split the string instead of new Date(d),
+// which parses as UTC midnight and shows the day before in US timezones.
+function fmtDate(d, short) {
+  const parts = String(d).split('-').map(Number);
+  if (parts.length !== 3 || !parts[0]) return String(d);
+  const dt = new Date(parts[0], parts[1] - 1, parts[2]);
+  return dt.toLocaleDateString('en-US', { month: short ? 'short' : 'long', day:'numeric', year:'numeric' });
+}
+// Root-absolute asset path, so relative coverImage values ("images/x.webp")
+// still load on pre-built pages one folder deep (/posts/<id>/).
+function absPath(u) { return !u ? '' : (/^(https?:|\/|data:)/i.test(u) ? u : '/' + u); }
+// Link to a post: its pre-built page when one exists, else the ?id= renderer.
+function postHref(id) {
+  return (window.PLURGASM_STATIC_POSTS || []).indexOf(id) !== -1
+    ? '/posts/' + encodeURIComponent(id) + '/'
+    : '/blog-post?id=' + encodeURIComponent(id);
 }
 function readTimeBadge(body) {
   try {
@@ -171,7 +187,7 @@ function setMetaDesc(txt) {
 function renderPostHeader(post, color) {
   const imgHeader = post.coverImage
     ? `<div class="blog-header-media">
-         <img src="${post.coverImage}" alt="${post.title}" class="blog-header-img" onerror="this.style.display='none'">
+         <img src="${absPath(post.coverImage)}" alt="${post.title}" class="blog-header-img" onerror="this.style.display='none'">
        </div>`
     : `<div class="blog-header-media blog-header-placeholder" style="--ph-color:${color};">
          <span>${post.title ? post.title[0] : ''}</span>
@@ -179,7 +195,7 @@ function renderPostHeader(post, color) {
   try {
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!post.headerVideo || reduceMotion) return imgHeader;
-    const poster = post.coverImage ? ` poster="${post.coverImage}"` : '';
+    const poster = post.coverImage ? ` poster="${absPath(post.coverImage)}"` : '';
     const webm = `<source src="${post.headerVideo}" type="video/webm">`;
     const mp4  = post.headerVideoMp4 ? `<source src="${post.headerVideoMp4}" type="video/mp4">` : '';
     return `<div class="blog-header-media">
@@ -272,18 +288,30 @@ function initGenreDirectory() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
+  // Pre-built /posts/<id>/ pages set PLURGASM_POST_ID and already contain the
+  // article, title, meta, canonical and schema in their HTML (build-posts.js).
+  const prerendered = !!window.PLURGASM_POST_ID;
+  const id = window.PLURGASM_POST_ID || params.get('id');
+  const hasStatic = (window.PLURGASM_STATIC_POSTS || []).indexOf(id) !== -1;
 
-  // Point canonical + og:url at the extensionless URL (matches sitemap.xml) as soon as
-  // the id is known, so GitHub Pages serving this page at both /blog-post.html?id= and
-  // /blog-post?id= collapses to one indexed URL. Wrapped so a throw here can't kill render.
-  try {
-    const canonicalUrl = 'https://plurgasm.com/blog-post?id=' + id;
-    document.getElementById('canonical-link').href = canonicalUrl;
-    let og = document.querySelector('meta[property="og:url"]');
-    if (!og) { og = document.createElement('meta'); og.setAttribute('property', 'og:url'); document.head.appendChild(og); }
-    og.setAttribute('content', canonicalUrl);
-  } catch (e) { console.error('canonical/og:url error:', e); }
+  // Old /blog-post?id=… link: forward to the pre-built page (keeps any #section).
+  if (!prerendered && id && hasStatic) {
+    try { setCanonical('https://plurgasm.com' + postHref(id)); } catch (e) {}
+    location.replace(postHref(id) + location.hash);
+    return;
+  }
+
+  // No pre-built page yet (e.g. a brand-new post before generate-sitemap.js ran):
+  // canonical points at this ?id= URL. Wrapped so a throw here can't kill render.
+  if (!prerendered) {
+    try {
+      const canonicalUrl = 'https://plurgasm.com/blog-post?id=' + id;
+      document.getElementById('canonical-link').href = canonicalUrl;
+      let og = document.querySelector('meta[property="og:url"]');
+      if (!og) { og = document.createElement('meta'); og.setAttribute('property', 'og:url'); document.head.appendChild(og); }
+      og.setAttribute('content', canonicalUrl);
+    } catch (e) { console.error('canonical/og:url error:', e); }
+  }
 
   const posts = (PLURGASM_DATA.blogPosts || []).filter(p => p.published);
   const post = posts.find(p => p.id === id);
@@ -300,6 +328,18 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  const color = getColor(post.category);
+  const label = getLabel(post.category);
+
+  if (prerendered) {
+    // Article is already in the HTML. Only swap in the header video, if any.
+    try {
+      if (post.headerVideo) {
+        const hm = main.querySelector('.blog-header-media');
+        if (hm) hm.outerHTML = renderPostHeader(post, color);
+      }
+    } catch (e) { console.error('header video error:', e); }
+  } else {
   document.title = post.title + ' — PLURGASM';
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
@@ -327,9 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setMeta('name', 'twitter:image', ogImg);
   } catch (e) { console.error('per-post og tags error:', e); }
 
-  const color = getColor(post.category);
-  const label = getLabel(post.category);
-
   main.innerHTML = `
     <div style="margin-bottom:32px;">
       <a href="/blog" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
@@ -354,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div id="post-body" class="post-body">${post.body}</div>
   `;
+  } // end !prerendered
 
   document.querySelectorAll('#post-body img').forEach(img => {
     img.onerror = () => img.style.display = 'none';
@@ -434,12 +472,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('more-posts-grid').innerHTML = morePosts.map(p => {
     const c = getColor(p.category);
     const l = getLabel(p.category);
-    const d = new Date(p.date).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    const d = fmtDate(p.date, true);
     return `
-      <a class="blog-card" href="/blog-post?id=${p.id}">
+      <a class="blog-card" href="${postHref(p.id)}">
         <div class="blog-card-top">
           ${p.coverImage
-            ? `<img src="${p.coverImage}" alt="${p.title}" class="blog-cover">`
+            ? `<img src="${absPath(p.coverImage)}" alt="${p.title}" class="blog-cover" loading="lazy">`
             : `<div class="blog-cover-placeholder" style="background:linear-gradient(135deg,${c}22,transparent);">
                 <span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:${c};opacity:0.2;">${l[0]}</span>
                </div>`}

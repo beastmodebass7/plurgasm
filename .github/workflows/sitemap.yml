@@ -1,12 +1,17 @@
 name: Auto-update sitemap
 
-# Regenerate sitemap.xml whenever the data file changes.
-# Only triggers on js/data.js, so it won't loop on its own sitemap commits.
+# Regenerate sitemap.xml AND the pre-built blog post pages (/posts/<id>/)
+# whenever the data, the post template or the generators change.
+# Its own commits use [skip ci], so it won't loop.
 on:
   push:
     branches: [main]
     paths:
       - 'js/data.js'
+      - 'blog-post.html'
+      - 'build-posts.js'
+      - 'generate-sitemap.js'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -23,17 +28,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate sitemap
+      - name: Generate sitemap + post pages
         run: node generate-sitemap.js
 
       - name: Commit & push if sitemap changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- sitemap.xml robots.txt; then
-            echo "No sitemap changes — nothing to commit."
+          FILES="sitemap.xml robots.txt posts index.html blog.html blog-post.html"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "No changes — nothing to commit."
           else
-            git add sitemap.xml robots.txt
-            git commit -m "auto-update sitemap.xml [skip ci]"
+            git add -A -- $FILES
+            git commit -m "auto-update sitemap + post pages [skip ci]"
             git push
           fi

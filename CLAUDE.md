@@ -15,7 +15,8 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
 ## File map
 - `index.html` — homepage (see section flow below). All styling is in `css/style.css`; the page only has small inline `<style>`/`<script>` blocks for the splash, search-cycle typer, and the rave-calendar CTA.
 - `calendar.html` — full festival calendar + map view (`/calendar`)
-- `blog.html` (`/blog`) all posts · `blog-post.html` (`/blog-post?id=…`) single post
+- `blog.html` (`/blog`) all posts · `blog-post.html` = the post **template** + fallback renderer for old `/blog-post?id=…` links
+- `posts/<id>/index.html` (`/posts/<id>/`) — **generated** static page per published post (see Blog URLs below). Never hand-edit.
 - `category.html` (`/category?cat=…`) — single brand-category page
 - `social.html` (`/social`) creators directory · `profile.html` (`/profile`) signed-in user's saved "rave calendar"
 - `admin.html` (`/admin`) — localStorage-based content editor (no real backend; writes to `pg_admin_*` keys)
@@ -31,7 +32,8 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
   - `saves.js` — save/unsave festivals (`window.PlurSaves`)
   - `views.js` — blog post view counts (live Supabase, merged with the backup below)
   - `view-snapshot.js` — **auto-generated** backup of view counts; load it before `views.js`
-  - `generate-sitemap.js` — regenerates `sitemap.xml` (Node script, run by hand)
+  - `generate-sitemap.js` (repo root) — regenerates `sitemap.xml`, the crawl-link blocks, **and the `/posts/` pages**
+  - `build-posts.js` (repo root) — called by generate-sitemap.js; builds `/posts/<id>/index.html` from `blog-post.html`
   - `update-view-snapshot.js` (repo root) — copies `post_views` into `js/view-snapshot.js`
 
 ## Script load order (important)
@@ -118,7 +120,23 @@ then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
 - Long guides can open with a table of contents: `<div class="post-toc" role="navigation" aria-label="In this guide">` with a `.post-toc-title` and a `<ul>` of `#anchor` links. Give each linked `<h2>` an id. Never use `<nav>` inside post bodies.
 
 ### Blog post id / URL convention
-`blog-post.html` routes on `?id=…`, so a blog post's `id` **is** its public URL.
+A blog post's `id` **is** its public URL: **`/posts/<id>/`** (canonical, in the sitemap).
+
+- **Pre-built pages.** `generate-sitemap.js` → `build-posts.js` writes `/posts/<id>/index.html` for every
+  published post, with the H1, real `<title>`, meta description, canonical, og tags, BlogPosting
+  JSON-LD and the full article in the raw HTML (crawlers read raw HTML first). Template = `blog-post.html`;
+  its JS still runs on top (`window.PLURGASM_POST_ID` set → skips re-render, keeps search/maps/views/etc.).
+- **You still only edit `js/data.js`.** The `sitemap.yml` Action rebuilds `/posts/` on every push that
+  touches data.js, blog-post.html, build-posts.js or generate-sitemap.js. Still run
+  `node generate-sitemap.js` before pushing a new post so its page exists the moment it goes live.
+  **Never hand-edit `/posts/*`** — changes are overwritten. Unpublished/deleted posts' pages are removed.
+- **Old links keep working.** `/blog-post?id=X` forwards to `/posts/X/` (keeps `#section`) when X is in
+  `PLURGASM_STATIC_POSTS` (the `GEN:STATIC-POSTS` block in blog-post.html). If a post has no page yet,
+  blog-post.html renders it the old way.
+- **Internal links:** link posts as `/posts/<id>/` (with `#anchor` after the slash). `build-posts.js`
+  also rewrites any `/blog-post?id=` link inside post bodies on output.
+- `blog-post.html` uses root-absolute asset paths (`/css/…`, `/js/…`) because it's also the template for
+  pages one folder deep. Relative `coverImage` values are made absolute automatically.
 
 - **New posts: descriptive, keyword-rich slug ids.** For every NEW blog post, set `id` to a
   descriptive slug (e.g. `'cercle-cancels-mexico-festival'`), **not** a sequential number like
@@ -135,7 +153,7 @@ then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
   no way to 301 it — losing ranking equity and breaking any external links. The minor inconsistency
   between old numbered ids and new descriptive ids is **acceptable and must be left as-is**.
 - If a task ever asks to "clean up" or "standardize" old post ids, **flag this rule and stop** rather
-  than renaming.
+  than renaming. This applies to `/posts/<id>/` too: the id is the folder name.
 
 ## main.js — function inventory (renderers + handlers)
 Renderers: `renderFestivals`, `renderCalendar`, `renderFestFilterPills`, `renderCategories`,
@@ -228,6 +246,6 @@ nav.js fills them on `DOMContentLoaded`. **Never edit nav markup in individual H
   `node generate-sitemap.js && git add -A && git commit -m "..." && git push origin main`.
   Pages auto-deploys in ~30s.
 - **After adding or editing a published blog post**, run `node generate-sitemap.js` **before
-  committing** so `sitemap.xml` stays in sync.
+  committing** so `sitemap.xml` and the `/posts/<id>/` pages stay in sync.
 - After adding/removing festival detail pages or static routes, regenerate `sitemap.xml` with
   `node generate-sitemap.js`.

@@ -1274,7 +1274,7 @@ function renderBlog() {
   container.innerHTML = `
     <div class="blog-newspaper-inner">
 
-      <a class="blog-feat" href="/blog-post?id=${featured.id}">
+      <a class="blog-feat" href="/posts/${featured.id}/">
         <div class="blog-feat-img">
           ${featured.coverImage
             ? `<img src="${featured.coverImage}" alt="${featured.title}">`
@@ -1306,7 +1306,7 @@ function renderBlog() {
 
       <div class="blog-sidebar">
         ${sidebar.map((p, i) => `
-          <a class="blog-thumb" href="/blog-post?id=${p.id}">
+          <a class="blog-thumb" href="/posts/${p.id}/">
             <div class="blog-thumb-img">
               ${p.coverImage
                 ? `<img src="${p.coverImage}" alt="${p.title}">`

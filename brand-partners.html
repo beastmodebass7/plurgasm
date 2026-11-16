@@ -225,7 +225,7 @@ function renderBrandPartners() {
     const shop = bpEsc(p.shopUrl);
     const igHandle = p.ig ? String(p.ig).replace(/^@/, '') : '';
     const links = [];
-    if (p.articleId) links.push(`<a href="/blog-post?id=${bpEsc(p.articleId)}">${bpEsc(p.articleLabel || 'Read our review')} →</a>`);
+    if (p.articleId) links.push(`<a href="/posts/${bpEsc(p.articleId)}/">${bpEsc(p.articleLabel || 'Read our review')} →</a>`);
     if (igHandle) links.push(`<a href="https://instagram.com/${bpEsc(igHandle)}" target="_blank" rel="noopener">${bpEsc(p.ig)} ↗</a>`);
 
     let deal = '';
