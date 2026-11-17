@@ -906,14 +906,14 @@ PLURGASM_DATA.blogPosts = [
   },
   {
     id: 'rave-slang-dictionary',
-    title: 'The Rave Dictionary: Every Slang Term and Phrase You Need to Know',
+    title: 'Rave Slang Dictionary: Every Term You Need to Know',
     slug: 'rave-slang-dictionary',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
     date: '2026-06-30',
     category: 'culture',
     coverImage: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
-    excerpt: 'New to the scene or just want to sound like you have been here for years? Here is the full glossary of rave slang, from PLUR and kandi to riding rail and sending it.',
+    excerpt: 'The complete rave slang dictionary. From PLUR and kandi to rail riders and bass face, learn every festival term before your next show.',
     published: true,
     featured: false,
     body: `<p>Every scene has its own language, and rave culture has one of the richest. Walk into your first festival and you will hear people talk about riding rail, trading kandi, catching an ID, and sending it, and none of it will make sense unless someone breaks it down. So here is that breakdown. Bookmark it, share it with your rave babies, and welcome to the family.</p>
