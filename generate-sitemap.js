@@ -25,6 +25,7 @@ require('./js/data.js');
 
 const data = global.PLURGASM_DATA || {};
 const { buildPosts, postPath } = require('./build-posts.js');
+const { buildSchedule } = require('./build-schedule.js');
 
 // --- Helpers --------------------------------------------------------------
 function xmlEscape(str) {
@@ -70,6 +71,8 @@ const builtIds = (data.blogPosts || []).filter(p => p && p.published && /^[a-z0-
   fs.writeFileSync(fp, src.replace(re, (m, a, b) => a + list + b), 'utf8');
 })();
 const built = buildPosts(__dirname, data);
+const sched = buildSchedule(__dirname, data);
+console.log('Built 2027 schedule on /calendar: ' + sched.festivals + ' festivals, ' + sched.schemaEvents + ' with Event schema.');
 console.log('Built ' + built.length + ' post pages in /posts/.');
 built.forEach(id => addUrl(postPath(id), 'monthly', '0.7'));
 

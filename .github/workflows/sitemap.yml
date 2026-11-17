@@ -10,6 +10,8 @@ on:
       - 'js/data.js'
       - 'blog-post.html'
       - 'build-posts.js'
+      - 'build-schedule.js'
+      - 'calendar.html'
       - 'generate-sitemap.js'
   workflow_dispatch:
 
@@ -22,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history: build-schedule.js reads when data.js last changed
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -35,7 +39,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          FILES="sitemap.xml robots.txt posts index.html blog.html blog-post.html"
+          FILES="sitemap.xml robots.txt posts index.html blog.html blog-post.html calendar.html"
           if [ -z "$(git status --porcelain -- $FILES)" ]; then
             echo "No changes — nothing to commit."
           else

@@ -323,7 +323,7 @@ PLURGASM_DATA.blogPosts = [
 <p>For the first time, Hotel EDC came to the East Coast. It took over the Margaritaville Resort Orlando from November 6 to 9, with poolside sets, themed rooms and official afterparties running until 6 AM<sup class="fn"><a href="#src-1">[1]</a></sup>. More than 5,000 people went over the weekend<sup class="fn"><a href="#src-1">[1]</a></sup>. The bill included Svdden Death, Kai Wachi, Boys Noize, ALLEYCVT, Levity, Jkyl &amp; Hyde, Maddix and LAYZ<sup class="fn"><a href="#src-1">[1]</a></sup><sup class="fn"><a href="#src-6">[6]</a></sup>. The Festival Babes called the after-hours sets "some of the BEST sets I have seen from the artists"<sup class="fn"><a href="#src-6">[6]</a></sup>. Insomniac has not said yet whether Hotel EDC will return in 2027.</p>
 
 <h2 id="edc-orlando-2027">EDC Orlando 2027</h2>
-<p>EDC Orlando returns <strong>November 5 to 7, 2027</strong> at Tinker Field for its 16th edition. Tickets went on sale November 13, with three-day GA, GA+ and 21+ VIP passes and payment plans starting with a $5 deposit<sup class="fn"><a href="#src-8">[8]</a></sup>. It is already on the <a href="/calendar">PLURGASM festival calendar</a>.</p>
+<p>EDC Orlando returns <strong>November 5 to 7, 2027</strong> at Tinker Field for its 16th edition. Tickets went on sale November 13, with three-day GA, GA+ and 21+ VIP passes and payment plans starting with a $5 deposit<sup class="fn"><a href="#src-8">[8]</a></sup>. It is already on the <a href="/calendar#rave-schedule-2027">PLURGASM 2027 rave schedule</a>.</p>
 
 <p style="margin-top:32px;padding:20px;background:rgba(0,229,255,0.06);border-left:3px solid #00e5ff;line-height:1.8;">
   Were you there? Tell us your set of the weekend. Tag <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener" style="color:var(--cyan);">@PlurgasmHQ</a> or <a href="/submit-article" style="color:var(--cyan);">send us your recap</a>.
@@ -603,7 +603,7 @@ PLURGASM_DATA.blogPosts = [
     featured: true,
     body: `<p>The 2027 rave and festival season is already taking shape. Early dates are landing, headliner rumors are circulating, and the usual crowd is booking flights before lineups even drop. Here is a month-by-month guide to the major US festivals worth planning around, with links to every festival page we have built.</p>
 
-<p><strong>A quick honesty note:</strong> most 2027 dates are still unannounced or unconfirmed. Where a festival has not published its 2027 dates, we say when it <em>typically</em> runs. Always confirm on the festival's official site before you buy tickets or book travel. Want to see everything in one place? Use the <a href="/calendar">raves near me festival calendar</a> and filter by region or distance.</p>
+<p><strong>A quick honesty note:</strong> most 2027 dates are still unannounced or unconfirmed. Where a festival has not published its 2027 dates, we say when it <em>typically</em> runs. Always confirm on the festival's official site before you buy tickets or book travel. Want to see everything in one place? Check the <a href="/calendar#rave-schedule-2027">full 2027 rave schedule</a>, or use the <a href="/calendar">raves near me festival calendar</a> and filter by region or distance.</p>
 <div style="margin:24px 0;padding:18px 20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;line-height:1.7;">
 <p style="margin:0 0 8px;"><strong>Updated November 12, 2026:</strong> more 2027 dates are now official.</p>
 <ul style="margin:0;">
@@ -1226,7 +1226,7 @@ PLURGASM_DATA.blogPosts = [
 
 <p>Most US festivals land at 2 or 3 days, the big destination camping events run 4, and a rare few stretch to 5. But the only number that actually matters is the one on this year's official lineup: formats change, weekends get added, and events get cancelled (RIP Summer Camp 2026). When in doubt, check the source before you book the flight.</p>
 
-<p>Find your next one on the <a href="/calendar">PLURGASM festival calendar</a>. Peace, love, unity, respect, and may all your sets run long. 🌈</p>`
+<p>Find your next one on the <a href="/calendar#rave-schedule-2027">PLURGASM 2027 rave schedule</a>. Peace, love, unity, respect, and may all your sets run long. 🌈</p>`
   },
   {
     id: 'post-011',

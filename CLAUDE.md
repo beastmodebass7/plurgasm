@@ -14,7 +14,9 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
 
 ## File map
 - `index.html` — homepage (see section flow below). All styling is in `css/style.css`; the page only has small inline `<style>`/`<script>` blocks for the splash, search-cycle typer, and the rave-calendar CTA.
-- `calendar.html` — full festival calendar + map view (`/calendar`)
+- `calendar.html` — full festival calendar + map view (`/calendar`). Ranks #1 on Bing for "rave schedule 2027".
+  Below the JS calendar is a **generated** static "2027 Rave Schedule" (`#rave-schedule-2027`) + Event JSON-LD
+  in `<head>`, both filled by `build-schedule.js` between `GEN:SCHEDULE` / `GEN:SCHEDULE-SCHEMA` markers. Never hand-edit those.
 - `blog.html` (`/blog`) all posts · `blog-post.html` = the post **template** + fallback renderer for old `/blog-post?id=…` links
 - `posts/<id>/index.html` (`/posts/<id>/`) — **generated** static page per published post (see Blog URLs below). Never hand-edit.
 - `category.html` (`/category?cat=…`) — single brand-category page
@@ -34,6 +36,10 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
   - `view-snapshot.js` — **auto-generated** backup of view counts; load it before `views.js`
   - `generate-sitemap.js` (repo root) — regenerates `sitemap.xml`, the crawl-link blocks, **and the `/posts/` pages**
   - `build-posts.js` (repo root) — called by generate-sitemap.js; builds `/posts/<id>/index.html` from `blog-post.html`
+  - `build-schedule.js` (repo root) — called by generate-sitemap.js; builds the 2027 schedule on `calendar.html` from festival data.
+    Status comes from `dates`: "(est)" → Expected, "TBD" → Dates TBA, otherwise Confirmed. Only Confirmed festivals get
+    Event schema (never mark estimated dates as scheduled events). "Last updated" = last commit that touched js/data.js.
+    Link to it with keyword anchor text: `/calendar#rave-schedule-2027` ("2027 rave schedule").
   - `update-view-snapshot.js` (repo root) — copies `post_views` into `js/view-snapshot.js`
 
 ## Script load order (important)
