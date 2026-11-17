@@ -7,14 +7,14 @@
    so counts never go backwards and still show if Supabase is down.
    Load this BEFORE views.js (both deferred, so tag order = run order). */
 window.PLURGASM_VIEW_SNAPSHOT = {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "views": {
     "canadian-rave-festival-guide": 11,
     "defqon1-2026-cancelled-heat": 20,
     "edc-orlando-2026-lineup": 31,
     "edc-orlando-2026-review-best-sets": 5,
     "electric-forest-2026-evacuated": 22,
-    "flowstar-guide": 27,
+    "flowstar-guide": 28,
     "post-001": 11,
     "post-002": 7,
     "post-003": 18,
@@ -23,14 +23,14 @@ window.PLURGASM_VIEW_SNAPSHOT = {
     "post-006": 9,
     "post-007": 9,
     "post-008": 11,
-    "post-009": 105,
+    "post-009": 106,
     "post-010": 10,
     "post-011": 17,
     "post-012": 14,
     "post-013": 8,
     "post-014": 15,
     "rave-harm-reduction-organizations": 23,
-    "rave-slang-dictionary": 94,
+    "rave-slang-dictionary": 95,
     "tomorrowland-2026-fireworks-ban": 17,
     "trippysquid-flowstars": 23,
     "us-rave-festival-season-2027-dates": 25,
