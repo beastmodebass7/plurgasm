@@ -52,6 +52,7 @@ addUrl('/calendar',        'weekly',  '0.8');
 addUrl('/history',         'weekly',  '0.7'); // History of Rave timeline
 addUrl('/partners',        'monthly', '0.6');
 addUrl('/brand-partners', 'weekly', '0.7'); // Brand partners + discount codes
+addUrl('/about',           'monthly', '0.5');
 addUrl('/privacy',         'yearly',  '0.3');
 addUrl('/safety',          'monthly', '0.6');
 addUrl('/terms',           'yearly',  '0.3');

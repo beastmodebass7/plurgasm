@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QSZ7HPXPJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4QSZ7HPXPJ');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About PLURGASM: a free, independent guide to US raves and EDM festivals, with the rave schedule, lineups, rave brands, news and harm reduction info.">
+<meta name="author" content="PLURGASM">
+<link rel="canonical" href="https://plurgasm.com/about">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plurgasm.com/about">
+<meta property="og:title" content="About PLURGASM: US Rave &amp; Festival Guide">
+<meta property="og:description" content="About PLURGASM: a free, independent guide to US raves and EDM festivals, with the rave schedule, lineups, rave brands, news and harm reduction info.">
+<meta property="og:image" content="https://plurgasm.com/images/og-default.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About PLURGASM: US Rave &amp; Festival Guide">
+<meta name="twitter:description" content="About PLURGASM: a free, independent guide to US raves and EDM festivals, with the rave schedule, lineups, rave brands, news and harm reduction info.">
+<meta name="twitter:image" content="https://plurgasm.com/images/og-default.webp">
+<title>About PLURGASM: US Rave &amp; Festival Guide</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","@id":"https://plurgasm.com/about","url":"https://plurgasm.com/about","name":"About PLURGASM","description":"About PLURGASM: a free, independent guide to US raves and EDM festivals, with the rave schedule, lineups, rave brands, news and harm reduction info.","about":{"@id":"https://plurgasm.com/#organization"}},{"@type":"Organization","@id":"https://plurgasm.com/#organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"},"email":"beastmodebass7@gmail.com","sameAs":["https://instagram.com/beastmodebass","https://x.com/PlurgasmHQ"]}]}</script>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#06060c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/nav.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/auth.js" defer></script>
+<style>
+/* ─────── LEGAL PAGE ─────── */
+.legal-main { padding: 120px 24px 80px; }
+.legal-wrap { max-width: 820px; margin: 0 auto; }
+.legal-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+.legal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.95;
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.legal-updated {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--faint);
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.legal-body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(240,238,255,0.88);
+}
+.legal-body h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 2px;
+  color: var(--white);
+  margin: 48px 0 18px;
+}
+.legal-body h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.legal-body p { margin-bottom: 18px; }
+.legal-body ul { margin: 0 0 18px; padding-left: 22px; }
+.legal-body li { margin-bottom: 10px; }
+.legal-body strong { color: var(--white); font-weight: 600; }
+.legal-body a { color: var(--cyan); text-decoration: none; }
+.legal-body a:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .legal-main { padding: 100px 18px 64px; }
+  .legal-body { font-size: 16.5px; }
+}
+.about-lead { font-size: 21px; color: var(--white); }
+.about-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 8px 0 18px; }
+.about-card { display: block; padding: 18px 20px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02); transition: border-color 0.2s, transform 0.2s; }
+.about-card:hover { border-color: rgba(0,229,255,0.5); transform: translateY(-2px); text-decoration: none !important; }
+.about-card-k { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1.5px; color: var(--cyan); margin-bottom: 6px; }
+.about-card-t { display: block; font-size: 15.5px; line-height: 1.5; color: rgba(240,238,255,0.78); }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } .about-lead { font-size: 18.5px; } }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="legal-main">
+  <div class="legal-wrap">
+    <p class="legal-eyebrow">Who We Are</p>
+    <h1 class="legal-title">ABOUT PLURGASM</h1>
+    <p class="legal-updated">Peace · Love · Unity · Respect</p>
+
+    <div class="legal-body">
+      <p class="about-lead">
+        PLURGASM is a free guide to US raves and electronic music festivals. We put the festival calendar,
+        lineups, rave brands, scene news and safety info in one place, so you can spend less time digging
+        through ten tabs and more time planning your next weekend.
+      </p>
+
+      <h2>What You'll Find Here</h2>
+      <div class="about-grid">
+        <a class="about-card" href="/calendar">
+          <span class="about-card-k">Rave Schedule</span>
+          <span class="about-card-t">Every major US festival by month, with dates marked as confirmed, expected or TBA.</span>
+        </a>
+        <a class="about-card" href="/#festivals">
+          <span class="about-card-k">Festival Guides</span>
+          <span class="about-card-t">Lineups, locations and know-before-you-go info for the big events.</span>
+        </a>
+        <a class="about-card" href="/#categories">
+          <span class="about-card-k">Rave Brands</span>
+          <span class="about-card-t">Outfits, flow toys, hydration packs and gear, sorted by category.</span>
+        </a>
+        <a class="about-card" href="/blog">
+          <span class="about-card-k">Blog</span>
+          <span class="about-card-t">Festival news, lineup breakdowns, genre guides and rave culture.</span>
+        </a>
+        <a class="about-card" href="/safety">
+          <span class="about-card-k">Safety</span>
+          <span class="about-card-t">Harm reduction basics and the organizations doing the work on the ground.</span>
+        </a>
+        <a class="about-card" href="/history">
+          <span class="about-card-k">Rave History</span>
+          <span class="about-card-t">How the scene got here, from warehouse parties to stadium festivals.</span>
+        </a>
+      </div>
+
+      <h2>Who's Behind It</h2>
+      <p>
+        PLURGASM is made by ravers, for ravers. It's run by the creator behind
+        <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer">@BeastModeBass</a>,
+        an EDM and bass music meme and content page. We go to these shows, we follow these artists, and we
+        built the site we wished existed when we were planning our own festival seasons.
+      </p>
+      <p>
+        PLURGASM is independent. We aren't owned by or affiliated with any festival, promoter or ticketing company.
+      </p>
+
+      <h2>How We Cover Things</h2>
+      <ul>
+        <li><strong>Sources first.</strong> News and factual posts link to official announcements and credible outlets in a Sources list at the end.</li>
+        <li><strong>Honest dates.</strong> On the schedule, a date is only marked confirmed once the festival announces it. Everything else is labeled expected or TBA.</li>
+        <li><strong>Original images.</strong> Our cover images are made in-house. We don't use official festival or artist artwork.</li>
+        <li><strong>Safety info isn't medical advice.</strong> Our harm reduction content points you to established organizations. For anything medical, talk to a professional, and at a festival, find the medical tent.</li>
+        <li><strong>Corrections.</strong> Spot something wrong or out of date? Email us and we'll fix it.</li>
+      </ul>
+
+      <h2>How PLURGASM Is Funded</h2>
+      <p>
+        The site is free to use. Some brand links are referral links or come with discount codes, which can
+        earn us a small commission at no extra cost to you. Brands and festivals can also join our
+        <a href="/partners">partner program</a> for featured placement. Paid placement never changes festival
+        dates, lineups or our safety information.
+      </p>
+
+      <h2>Get in Touch</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:beastmodebass7@gmail.com">beastmodebass7@gmail.com</a></li>
+        <li><strong>Missing a festival?</strong> <a href="/submit">Submit it here</a>.</li>
+        <li><strong>Want to write?</strong> <a href="/submit-article">Pitch an article</a>.</li>
+        <li><strong>Brand or festival?</strong> <a href="/partners">Partner with us</a>.</li>
+        <li><strong>Follow along:</strong> <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer">Instagram @beastmodebass</a> and <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener noreferrer">X @PlurgasmHQ</a>.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">PLURGASM</span>
+    <ul class="footer-links">
+      <li><a href="/#brands">Brands</a></li>
+      <li><a href="/#festivals">Festivals</a></li>
+      <li><a href="/calendar">Calendar</a></li>
+      <li><a href="/#categories">Shop Rave Brands</a></li>
+      <li><a href="/#social">Social</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/partners">Partner With Us</a></li>
+      <li><a href="/submit-article">Write for Us</a></li>
+    </ul>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+      <a href="https://instagram.com/beastmodebass" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@beastmodebass ↗</a>
+      <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener noreferrer"
+        style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'"
+        onmouseout="this.style.color='var(--muted)'">@PlurgasmHQ ↗</a>
+      <span class="footer-copy">© 2026 plurgasm.com · Peace Love Unity Respect</span>
+      <span class="footer-legal"><a href="/about">About</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<div id="site-bottom-nav"></div>
+
+<script>
+/* ─────── MOBILE HAMBURGER MENU ─────── */
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', opening);
+  document.body.style.overflow = opening ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+</body>
+</html>

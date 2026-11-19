@@ -23,6 +23,7 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
 - `social.html` (`/social`) creators directory · `profile.html` (`/profile`) signed-in user's saved "rave calendar"
 - `admin.html` (`/admin`) — localStorage-based content editor (no real backend; writes to `pg_admin_*` keys)
 - `brand-partners.html` (`/brand-partners`) — Brand partners + discount codes. Rendered from BRAND_PARTNERS in data.js. Only list brands with a real active deal or referral link.
+- `about.html` (`/about`) — About page: what the site is, who runs it (brand-level, @BeastModeBass), editorial standards, how it's funded, contact. Has AboutPage + Organization JSON-LD (the site's main Organization schema, `@id` https://plurgasm.com/#organization). Linked from every footer (`footer-legal`).
 - `partners.html`, `submit.html`, `submit-article.html`, `safety.html`, `privacy.html`, `terms.html`
 - `festivals/` — hand-built festival detail pages (only some festivals have one; see `detailPage`)
 - **JS** (all in `js/`):
