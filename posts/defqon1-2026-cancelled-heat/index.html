@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Defqon.1 2026 Cancelled: How a Historic Code Red Shut Down the World’s Biggest Hardstyle Festival — PLURGASM">
 <meta name="twitter:description" content="Defqon.1 2026 was called off mid-weekend after the Netherlands issued its first-ever Code Red heat warning. Here is what happened, why it was the right call…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1612852098567-8b5d42ee6a52?w=800&amp;q=80">
-<title>Defqon.1 2026 Cancelled: How a Historic Code Red Shut Down the World’s Biggest Hardstyle Festival — PLURGASM</title>
+<title>Defqon.1 2026 Cancelled: Code Red Shuts Down Festival — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/defqon1-2026-cancelled-heat/">
 <meta property="og:url" content="https://plurgasm.com/posts/defqon1-2026-cancelled-heat/">
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

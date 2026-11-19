@@ -119,6 +119,10 @@ then assigned (`PLURGASM_DATA.festivals = FESTIVALS`, etc.).
   featured` (+ `featuredOrder`, `desc`, `url`). Homepage shows featured ones; `/social` is the full directory.
 - **Blog** (`PLURGASM_DATA.blogPosts`): `id, title, slug, author, authorHandle, date, category,
   coverImage, excerpt, body, published, featured`. `body` is an HTML template literal.
+  Optional `seoTitle`: short version (≤ 60 chars, keep the keywords) used only for the `<title>` tag.
+  Bing flags titles over 70 chars and Google cuts ~60. " — PLURGASM" is appended only if the total stays
+  ≤ 65. The H1 and social share title keep the full `title`. **Add a `seoTitle` whenever `title` is over
+  ~55 chars**; `generate-sitemap.js` prints a ⚠ warning for any post whose search title is still over 70.
   Categories: `festival-news, culture, fashion, safety, gear`.
 - **Item filters** (`PLURGASM_DATA.itemFilters`): `[{ group, items:[{label, tag}] }]`. `filterByItem(tag)`
   sets `searchQuery` to the tag and re-renders brands (tags must match brand `tags[]`).

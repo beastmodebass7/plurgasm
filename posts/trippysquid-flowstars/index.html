@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Trippy Squid Flowstars: Affordable UV Flow Toys (10% Off with Code PLURGASM) — PLURGASM">
 <meta name="twitter:description" content="Trippy Squid makes handmade, UV-reactive flowstars at some of the best prices in the scene. Plurgasm readers get 10% off with code PLURGASM.">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&amp;q=80">
-<title>Trippy Squid Flowstars: Affordable UV Flow Toys (10% Off with Code PLURGASM) — PLURGASM</title>
+<title>Trippy Squid Flowstars: UV Flow Toys + 10% Off Code — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/trippysquid-flowstars/">
 <meta property="og:url" content="https://plurgasm.com/posts/trippysquid-flowstars/">
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

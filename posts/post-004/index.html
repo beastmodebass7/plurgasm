@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Electric Forest 2026: Why This is Unlike Any Other Festival — PLURGASM">
 <meta name="twitter:description" content="Electric Forest is not just a festival. It's a world built inside a Michigan pine forest. ILLENIUM, GRiZ, and Subtronics headline a 4-day experience that is…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&amp;q=80">
-<title>Electric Forest 2026: Why This is Unlike Any Other Festival — PLURGASM</title>
+<title>Electric Forest 2026: Why This is Unlike Any Other Festival</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-004/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-004/">
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

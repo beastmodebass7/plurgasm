@@ -132,6 +132,17 @@ function renderMoreCard(p) {
       </a>`;
 }
 
+// <title> for search results. Bing flags titles over 70 characters and Google
+// cuts them around 60, so: use the post's optional short `seoTitle` if it has
+// one, and add " — PLURGASM" only when the total stays at 65 or less.
+// (Social cards keep the full headline + brand.)
+const TITLE_MAX = 70;
+function searchTitle(post) {
+  const base = plainText(post.seoTitle || post.title);
+  const branded = base + ' — PLURGASM';
+  return branded.length <= 65 ? branded : base;
+}
+
 function articleSchema(post) {
   const author = post.author && post.author !== 'PLURGASM'
     ? { '@type': 'Person', name: post.author }
@@ -161,7 +172,8 @@ function replaceOnce(src, re, rep, label) {
 }
 
 function buildPage(template, post, more) {
-  const title = plainText(post.title) + ' — PLURGASM';
+  const title = searchTitle(post);
+  const socialTitle = plainText(post.title) + ' — PLURGASM';
   const desc = descFor(post);
   const img = post.coverImage ? absUrl(post.coverImage) : SITE + '/images/og-default.webp';
   let html = template;
@@ -169,10 +181,10 @@ function buildPage(template, post, more) {
   html = html.replace(/^<!DOCTYPE html>/i, '<!DOCTYPE html>\n' + MARKER);
   html = replaceOnce(html, /<meta name="description" content="[^"]*">/, `<meta name="description" content="${escAttr(desc)}">`, 'description');
   html = replaceOnce(html, /<meta property="og:type" content="[^"]*">/, '<meta property="og:type" content="article">', 'og:type');
-  html = replaceOnce(html, /<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escAttr(title)}">`, 'og:title');
+  html = replaceOnce(html, /<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escAttr(socialTitle)}">`, 'og:title');
   html = replaceOnce(html, /<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${escAttr(desc)}">`, 'og:description');
   html = replaceOnce(html, /<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${escAttr(img)}">`, 'og:image');
-  html = replaceOnce(html, /<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${escAttr(title)}">`, 'twitter:title');
+  html = replaceOnce(html, /<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${escAttr(socialTitle)}">`, 'twitter:title');
   html = replaceOnce(html, /<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${escAttr(desc)}">`, 'twitter:description');
   html = replaceOnce(html, /<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${escAttr(img)}">`, 'twitter:image');
   html = replaceOnce(html, /<title>[^<]*<\/title>/, `<title>${escText(title)}</title>`, 'title');
@@ -203,6 +215,7 @@ function buildPosts(root, data) {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), buildPage(template, post, more), 'utf8');
     built.add(post.id);
+    if (searchTitle(post).length > TITLE_MAX) console.warn('⚠ Title over ' + TITLE_MAX + ' chars for post "' + post.id + '" (' + searchTitle(post).length + '). Add a shorter seoTitle in data.js.');
   }
 
   // Remove pages for posts that were deleted or unpublished (only ones we generated).

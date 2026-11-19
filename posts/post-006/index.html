@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="The Coachella Effect: What Happens When the Mainstream Finds Our Festivals — PLURGASM">
 <meta name="twitter:description" content="Subtronics went viral on TikTok. Coachella booked Fisher. Bass music is everywhere. A new wave of fans is discovering our festivals, and some of them have…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&amp;q=80">
-<title>The Coachella Effect: What Happens When the Mainstream Finds Our Festivals — PLURGASM</title>
+<title>The Coachella Effect: When the Mainstream Finds Raves — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-006/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-006/">
@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

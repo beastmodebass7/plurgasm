@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Tomorrowland Hit With Fireworks Ban for Weekend 1 as Drought Grips Belgium — PLURGASM">
 <meta name="twitter:description" content="Days before gates open, Belgian authorities banned fireworks and pyro at Tomorrowland Weekend 1 over wildfire risk. Here is what happened and what it means for…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?w=800&amp;q=80">
-<title>Tomorrowland Hit With Fireworks Ban for Weekend 1 as Drought Grips Belgium — PLURGASM</title>
+<title>Tomorrowland 2026 Fireworks Ban as Drought Grips Belgium</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/tomorrowland-2026-fireworks-ban/">
 <meta property="og:url" content="https://plurgasm.com/posts/tomorrowland-2026-fireworks-ban/">
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis — PLURGASM">
 <meta name="twitter:description" content="Cercle has pulled its upcoming Mexico festival and gone public with serious money trouble, and for the first time in a decade, the team is asking fans for help.">
 <meta name="twitter:image" content="https://plurgasm.com/images/cercle-mexico-cancelled.webp">
-<title>Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis — PLURGASM</title>
+<title>Cercle Cancels Mexico Festival Amid Financial Crisis — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-011/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-011/">
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

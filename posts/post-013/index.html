@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="EDC Orlando 2026 Lineup by Day: Who Plays Friday, Saturday &amp; Sunday — PLURGASM">
 <meta name="twitter:description" content="The EDC Orlando 2026 daily lineup is here. See exactly who plays Friday, Saturday, and Sunday at Tinker Field, November 6 to 8.">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&amp;q=80">
-<title>EDC Orlando 2026 Lineup by Day: Who Plays Friday, Saturday &amp; Sunday — PLURGASM</title>
+<title>EDC Orlando 2026 Lineup by Day: Fri, Sat &amp; Sun — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-013/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-013/">
@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="December 2026 Raves &amp; NYE Festivals: Every Big US Event Left This Year — PLURGASM">
 <meta name="twitter:description" content="Every big US rave left in 2026: Jackpot over Christmas weekend, then Decadence, Lights All Night, HiJinx, Eternal, To The Future, Countdown and Proper for New…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&amp;q=80">
-<title>December 2026 Raves &amp; NYE Festivals: Every Big US Event Left This Year — PLURGASM</title>
+<title>December 2026 Raves &amp; NYE Festivals: Every US Event — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/december-2026-raves-nye-festivals/">
 <meta property="og:url" content="https://plurgasm.com/posts/december-2026-raves-nye-festivals/">
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

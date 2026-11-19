@@ -240,6 +240,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'december-2026-raves-nye-festivals',
     title: 'December 2026 Raves & NYE Festivals: Every Big US Event Left This Year',
+    seoTitle: 'December 2026 Raves & NYE Festivals: Every US Event',
     slug: 'december-2026-raves-nye-festivals',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -360,6 +361,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'edc-orlando-2026-review-best-sets',
     title: 'EDC Orlando 2026 in Review: Best Sets, Big Upgrades and What Needs Fixing',
+    seoTitle: 'EDC Orlando 2026 Review: Best Sets, Upgrades & Fixes',
     slug: 'edc-orlando-2026-review-best-sets',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -473,6 +475,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'what-genre-is-bass-artist-directory',
     title: 'What Genre Is Your Favorite Bass Artist? The Dubstep, Riddim & Melodic Bass Artist Directory',
+    seoTitle: 'What Genre Is Your Favorite Bass Artist? Full Directory',
     slug: 'what-genre-is-bass-artist-directory',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -646,6 +649,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'canadian-rave-festival-guide',
     title: 'The Ultimate Guide to Canadian Rave & Festival Culture: By Season and Province',
+    seoTitle: 'Canadian Rave & Festival Guide: By Season and Province',
     slug: 'canadian-rave-festival-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -806,6 +810,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'rave-harm-reduction-organizations',
     title: 'The Harm Reduction Heroes of Rave Culture: Who They Are and How They Keep Us Alive',
+    seoTitle: 'Rave Harm Reduction Organizations: Who Keeps Us Safe',
     slug: 'rave-harm-reduction-organizations',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -893,6 +898,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'tomorrowland-2026-fireworks-ban',
     title: 'Tomorrowland Hit With Fireworks Ban for Weekend 1 as Drought Grips Belgium',
+    seoTitle: 'Tomorrowland 2026 Fireworks Ban as Drought Grips Belgium',
     slug: 'tomorrowland-2026-fireworks-ban',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1000,6 +1006,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'post-013',
     title: 'EDC Orlando 2026 Lineup by Day: Who Plays Friday, Saturday & Sunday',
+    seoTitle: 'EDC Orlando 2026 Lineup by Day: Fri, Sat & Sun',
     slug: 'edc-orlando-2026-lineup-by-day',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1144,6 +1151,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'electric-forest-2026-evacuated',
     title: 'Electric Forest 2026 Evacuated as Severe Storms Shut Down the Final Night',
+    seoTitle: 'Electric Forest 2026 Evacuated: Storms End Final Night',
     slug: 'electric-forest-2026-evacuated-storm',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1186,6 +1194,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'defqon1-2026-cancelled-heat',
     title: 'Defqon.1 2026 Cancelled: How a Historic Code Red Shut Down the World’s Biggest Hardstyle Festival',
+    seoTitle: 'Defqon.1 2026 Cancelled: Code Red Shuts Down Festival',
     slug: 'defqon-1-2026-cancelled-heat',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1243,6 +1252,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'post-012',
     title: 'How Many Days Is Each US Festival? A Length Guide to the Majors',
+    seoTitle: 'How Many Days Is Each US Festival? Length Guide',
     slug: 'how-many-days-us-music-festivals',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1360,6 +1370,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'post-011',
     title: 'Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis',
+    seoTitle: 'Cercle Cancels Mexico Festival Amid Financial Crisis',
     slug: 'cercle-cancels-mexico-festival-financial-crisis',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1445,6 +1456,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'trippysquid-flowstars',
     title: 'Trippy Squid Flowstars: Affordable UV Flow Toys (10% Off with Code PLURGASM)',
+    seoTitle: 'Trippy Squid Flowstars: UV Flow Toys + 10% Off Code',
     slug: 'trippysquid-flowstars',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1473,6 +1485,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'flowstar-guide',
     title: 'Flow Star Tutorial Guide: Every Trick from Beginner to Advanced',
+    seoTitle: 'Flow Star Tutorial: Every Trick, Beginner to Advanced',
     slug: 'flow-star-tutorial-guide',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -1595,6 +1608,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'post-010',
     title: 'Chase & Status in a Bond Game: What Electronic Music in Video Games Actually Means',
+    seoTitle: 'Chase & Status in a Bond Game: EDM in Video Games',
     slug: 'chase-status-007-first-light-electronic-music-games',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',
@@ -2580,6 +2594,7 @@ PLURGASM_DATA.blogPosts = [
   {
     id: 'post-006',
     title: 'The Coachella Effect: What Happens When the Mainstream Finds Our Festivals',
+    seoTitle: 'The Coachella Effect: When the Mainstream Finds Raves',
     slug: 'coachella-effect-plur-culture',
     author: 'PLURGASM',
     authorHandle: '@plurgasm',

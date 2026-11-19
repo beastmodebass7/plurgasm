@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="EDC Las Vegas 2026: What to Expect at the 30th Anniversary — PLURGASM">
 <meta name="twitter:description" content="EDC turns 30 in 2026 and it's shaping up to be the biggest edition ever. 9 stages, 200+ artists, 500,000 headliners under the electric sky of Las Vegas. Here's…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&amp;q=80">
-<title>EDC Las Vegas 2026: What to Expect at the 30th Anniversary — PLURGASM</title>
+<title>EDC Las Vegas 2026: What to Expect at the 30th Anniversary</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-002/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-002/">
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="The Ultimate Guide to Canadian Rave &amp; Festival Culture: By Season and Province — PLURGASM">
 <meta name="twitter:description" content="From dancing in a Montreal winter at Igloofest to BC mountain bass at Shambhala, here is your cross-country guide to Canada's electronic music festivals, by…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&amp;q=80">
-<title>The Ultimate Guide to Canadian Rave &amp; Festival Culture: By Season and Province — PLURGASM</title>
+<title>Canadian Rave &amp; Festival Guide: By Season and Province — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/canadian-rave-festival-guide/">
 <meta property="og:url" content="https://plurgasm.com/posts/canadian-rave-festival-guide/">
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));

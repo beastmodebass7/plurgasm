@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Chase &amp; Status in a Bond Game: What Electronic Music in Video Games Actually Means — PLURGASM">
 <meta name="twitter:description" content="Chase &amp; Status are DJing in the new James Bond game. Dimitri Vegas remixed the Bond theme. FISHER is voicing a garden gnome in Toy Story 5. Electronic music is…">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&amp;q=80">
-<title>Chase &amp; Status in a Bond Game: What Electronic Music in Video Games Actually Means — PLURGASM</title>
+<title>Chase &amp; Status in a Bond Game: EDM in Video Games — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-010/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-010/">
@@ -560,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (e) { console.error('header video error:', e); }
   } else {
-  document.title = post.title + ' — PLURGASM';
+  document.title = ((post.seoTitle || post.title) + ' — PLURGASM').length <= 65 ? (post.seoTitle || post.title) + ' — PLURGASM' : (post.seoTitle || post.title);
   setCanonical('https://plurgasm.com/blog-post?id=' + post.id);
   const excerpt = (post.excerpt || '').trim();
   setMetaDesc(excerpt.length >= 25 ? excerpt : (post.title + ' — rave culture, news and guides on PLURGASM.'));
