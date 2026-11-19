@@ -1,22 +1,26 @@
-name: Auto-update sitemap
+name: Auto-update sitemap + IndexNow
 
-# Regenerate sitemap.xml AND the pre-built blog post pages (/posts/<id>/)
-# whenever the data, the post template or the generators change.
-# Its own commits use [skip ci], so it won't loop.
+# On every push to main:
+#  1. Regenerate sitemap.xml, the pre-built blog post pages (/posts/<id>/),
+#     the 2027 schedule on /calendar and llms.txt (generate-sitemap.js).
+#  2. Commit anything that changed (its own commits use [skip ci], so no loop).
+#  3. Ping IndexNow (Bing, Yandex, …) with the public pages that changed.
+# Run it by hand from the Actions tab to send EVERY sitemap URL to IndexNow.
 on:
   push:
     branches: [main]
-    paths:
-      - 'js/data.js'
-      - 'blog-post.html'
-      - 'build-posts.js'
-      - 'build-schedule.js'
-      - 'calendar.html'
-      - 'generate-sitemap.js'
+    paths-ignore:
+      - 'js/view-snapshot.js'   # daily view-count backup, not page content
+      - '**/*.md'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# Two quick pushes run one after the other instead of racing each other.
+concurrency:
+  group: sitemap-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   sitemap:
@@ -25,25 +29,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # full history: build-schedule.js reads when data.js last changed
+          fetch-depth: 0   # full history: build-schedule.js and the IndexNow diff need it
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Generate sitemap + post pages
+      - name: Generate sitemap + post pages + schedule + llms.txt
         run: node generate-sitemap.js
 
-      - name: Commit & push if sitemap changed
+      - name: Commit & push if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          FILES="sitemap.xml robots.txt posts index.html blog.html blog-post.html calendar.html"
+          FILES="sitemap.xml robots.txt llms.txt posts index.html blog.html blog-post.html calendar.html"
           if [ -z "$(git status --porcelain -- $FILES)" ]; then
             echo "No changes — nothing to commit."
           else
             git add -A -- $FILES
             git commit -m "auto-update sitemap + post pages [skip ci]"
+            git pull --rebase origin main
             git push
+          fi
+
+      - name: Ping IndexNow
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node ping-indexnow.js --all
+          else
+            node ping-indexnow.js "${{ github.event.before }}"
           fi

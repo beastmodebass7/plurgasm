@@ -41,6 +41,12 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
     Event schema (never mark estimated dates as scheduled events). "Last updated" = last commit that touched js/data.js.
     Link to it with keyword anchor text: `/calendar#rave-schedule-2027` ("2027 rave schedule").
   - `update-view-snapshot.js` (repo root) — copies `post_views` into `js/view-snapshot.js`
+  - `ping-indexnow.js` (repo root) — tells IndexNow (Bing, Yandex, …) which public pages changed. Run by the
+    sitemap Action after every push; only sitemap URLs are sent; post pages count as changed only if the
+    title/description/article changed (not just the "more posts" box). `--all` sends every sitemap URL,
+    `--dry-run` prints without sending. **Never delete or rename `bf5e0d39385e4420857116e88f9a9424.txt`**
+    in the repo root: it's the IndexNow key, and pings fail without it.
+- `llms.txt` — summary for AI crawlers. Its Blog Posts list is **generated** (`GEN:LLMS-POSTS`); edit the rest by hand.
 
 ## Script load order (important)
 On the homepage `data.js` → `main.js` → `search.js` are loaded **in that order with `defer`** at the
@@ -132,8 +138,9 @@ A blog post's `id` **is** its public URL: **`/posts/<id>/`** (canonical, in the 
   published post, with the H1, real `<title>`, meta description, canonical, og tags, BlogPosting
   JSON-LD and the full article in the raw HTML (crawlers read raw HTML first). Template = `blog-post.html`;
   its JS still runs on top (`window.PLURGASM_POST_ID` set → skips re-render, keeps search/maps/views/etc.).
-- **You still only edit `js/data.js`.** The `sitemap.yml` Action rebuilds `/posts/` on every push that
-  touches data.js, blog-post.html, build-posts.js or generate-sitemap.js. Still run
+- **You still only edit `js/data.js`.** The `sitemap.yml` Action runs on **every push to main** (except the
+  daily view-count backup): it rebuilds `/posts/`, the 2027 schedule, `llms.txt` and the sitemap, commits
+  them with `[skip ci]`, then pings IndexNow. Manual run (Actions tab) pings every sitemap URL. Still run
   `node generate-sitemap.js` before pushing a new post so its page exists the moment it goes live.
   **Never hand-edit `/posts/*`** — changes are overwritten. Unpublished/deleted posts' pages are removed.
 - **Old links keep working.** `/blog-post?id=X` forwards to `/posts/X/` (keeps `#section`) when X is in

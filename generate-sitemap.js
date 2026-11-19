@@ -143,6 +143,18 @@ const guideFests = (data.festivals || []).filter(f => f && f.detailPage)
 fillBlock('index.html', 'FEST-GUIDES', '<ul>' + guideFests.map(festLi).join('') + '</ul>');
 fillBlock('index.html', 'HOME-POSTS',  '<ul>' + pubPosts.slice(5, 15).map(postLi).join('') + '</ul>');
 fillBlock('blog.html',  'BLOG-ALL',    '<ul class="crawl-static" style="list-style:none;padding:0;">' + pubPosts.map(postLi).join('') + '</ul>');
+
+// llms.txt (plain markdown for AI crawlers): newest-first list of every published post.
+(function fillLlms() {
+  const fp = path.join(__dirname, 'llms.txt');
+  if (!fs.existsSync(fp)) return;
+  const src = fs.readFileSync(fp, 'utf8');
+  const re = /(<!-- GEN:LLMS-POSTS -->)[\s\S]*?(<!-- \/GEN:LLMS-POSTS -->)/;
+  if (!re.test(src)) { console.log('Marker GEN:LLMS-POSTS not found in llms.txt'); return; }
+  const md = s => String(s || '').replace(/<[^>]*>/g, '').replace(/[\[\]]/g, '').replace(/\s+/g, ' ').trim();
+  const list = pubPosts.map(p => '- [' + md(p.title) + '](https://plurgasm.com' + postPath(p.id) + '): ' + md(p.excerpt)).join('\n');
+  fs.writeFileSync(fp, src.replace(re, (m, a, b) => a + '\n' + list + '\n' + b), 'utf8');
+})();
 console.log('Filled crawlable link blocks (' + guideFests.length + ' festival guides, ' + pubPosts.length + ' posts).');
 
 // --- Ensure robots.txt references the sitemap -----------------------------
