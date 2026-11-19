@@ -37,7 +37,15 @@ const FESTIVALS = [
   { id:'escape-halloween', name:'ESCAPE HALLOWEEN', tagline:'Psycho Circus', location:'NOS Events Center, San Bernardino, CA', dates:'Oct 29–30, 2027 (est)', sortDate:'2027-10-29', endDate:'2027-10-30', days:2, age:'18+', type:'mega', typeLabel:'Mega Festival', genres:['EDM','House','Techno','Bass','Trance'], desc:'The biggest Halloween rave in North America — Insomniac turns the NOS Events Center into a horror-themed playground of costumed chaos and top electronic talent over Halloween weekend.', url:'https://escapehalloween.com/', featured:false, detailPage:null, cardTheme:null, region:'west', organizer:'Insomniac', lat:34.0975, lng:-117.2873, headliners:[], image:'https://images.unsplash.com/photo-1593958812614-2db6a598c71c?w=800&q=80' },
   { id:'edc-orlando', name:'EDC ORLANDO', tagline:'Under the Electric Sky — Florida', location:'Tinker Field, Orlando FL', dates:'Nov 5–7, 2027', sortDate:'2027-11-05', endDate:'2027-11-07', days:3, age:'18+', type:'regional', typeLabel:'Regional', genres:['EDM','House','Techno','Bass','Trance'], desc:'The East Coast\'s EDC. Same Insomniac production as Las Vegas in a smaller format. Great entry point for Florida and Southeast ravers.', headliners:[], url:'https://orlando.electricdaisycarnival.com', featured:false, detailPage:null, region:'southeast', organizer:'Insomniac', lat:28.4791, lng:-81.3892, image:null },
   { id:'dreamstate', name:'DREAMSTATE SOCAL', tagline:'All-trance, all weekend', location:'Queen Mary Waterfront, Long Beach, CA', dates:'November 20–21, 2026', sortDate:'2026-11-20', endDate:'2026-11-21', days:2, age:'18+', type:'regional', typeLabel:'Regional Festival', genres:['Trance','Techno'], desc:'An all-trance festival on the Long Beach waterfront by the Queen Mary — two days of euphoric melodies and the biggest names in the genre, from Insomniac.', url:'https://socal.dreamstateusa.com/', featured:false, detailPage:null, cardTheme:null, region:'west', organizer:'Insomniac', lat:33.7518, lng:-118.1903, headliners:[], image:null },
-  { id:'countdown-nye', name:'COUNTDOWN NYE', tagline:'Ring in the New Year', location:'NOS Event Center, San Bernardino CA', dates:'Dec 31, 2026 – Jan 1, 2027', sortDate:'2026-12-31', endDate:'2027-01-01', days:2, age:'18+', type:'mega', typeLabel:'Mega Festival', genres:['EDM','House','Techno','Bass','Trance'], desc:'Insomniac\'s massive New Year\'s Eve festival, now two days (Dec 31 and Jan 1). Midnight countdown, confetti, and a stacked lineup. One of the largest NYE events in the US.', headliners: [], url:'https://countdownnye.com', featured:false, detailPage:null, region:'west', organizer:'Insomniac', lat:34.1967, lng:-117.3703, image:null },
+  { id:'jackpot-festival', name:'JACKPOT FESTIVAL', tagline:'Vegas bass between Christmas and NYE', location:'The Llama Lot, Downtown Las Vegas NV', dates:'Dec 26–27, 2026', sortDate:'2026-12-26', endDate:'2026-12-27', days:2, age:'Check age', type:'regional', typeLabel:'Winter Festival', genres:['Bass','Dubstep','EDM'], desc:'Two-day winter bass festival in downtown Las Vegas over Christmas weekend. For 2026 it moves to The Llama Lot near Fremont Street, a former Life Is Beautiful site, after the Downtown Las Vegas Events Center closed.', headliners:['GRiZ','Ganja White Night','Crankdat','Levity','ALLEYCVT','Whethan'], url:'https://rvltnevents.com', featured:false, detailPage:null, region:'west', organizer:'RVLTN Events', lat:36.1667, lng:-115.1356, image:null },
+  { id:'decadence-colorado', name:'DECADENCE COLORADO', tagline:'Denver\'s two-night NYE takeover', location:'Colorado Convention Center, Denver CO', dates:'Dec 30–31, 2026', sortDate:'2026-12-30', endDate:'2026-12-31', days:2, age:'Check age', type:'regional', typeLabel:'NYE Festival', genres:['EDM','Bass','House','Dubstep'], desc:'Colorado\'s biggest New Year\'s Eve festival takes over the Colorado Convention Center in downtown Denver for two nights, produced by Global Dance and AEG Presents Rocky Mountains.', headliners:['Alesso','DJ Snake','Marshmello','Excision','GRiZ','Seven Lions','Zeds Dead','Lane 8'], url:'https://decadencenye.com', featured:false, detailPage:null, region:'west', organizer:'Global Dance', lat:39.7426, lng:-104.9963, image:null },
+  { id:'decadence-arizona', name:'DECADENCE ARIZONA', tagline:'NYE at Phoenix Raceway', location:'Phoenix Raceway, Avondale AZ', dates:'Dec 30–31, 2026', sortDate:'2026-12-30', endDate:'2026-12-31', days:2, age:'Check age', type:'regional', typeLabel:'NYE Festival', genres:['House','Techno','Bass','Dubstep','EDM'], desc:'Arizona\'s two-night New Year\'s Eve festival at Phoenix Raceway, from Relentless Beats and Global Dance. Heavy on house and techno this year, with a Disclosure DJ set for the midnight countdown.', headliners:['Chris Lake','Disclosure (DJ Set)','SLANDER','Zomboy','I Hate Models','Eli Brown','ISOxo','Levity','Patrick Topping','Polo & Pan'], url:'https://relentlessbeats.com', featured:false, detailPage:null, region:'southwest', organizer:'Relentless Beats', lat:33.3747, lng:-112.3113, image:null },
+  { id:'lights-all-night', name:'LIGHTS ALL NIGHT', tagline:'Dallas rings in the New Year', location:'Fair Park, Dallas TX', dates:'Dec 30–31, 2026', sortDate:'2026-12-30', endDate:'2026-12-31', days:2, age:'Check age', type:'regional', typeLabel:'NYE Festival', genres:['EDM','House','Bass','Dubstep'], desc:'Texas\'s long-running New Year\'s Eve festival at Fair Park in Dallas. Tiësto and Gryffin lead Dec 30, and Chris Lake and Subtronics lead NYE.', headliners:['Tiësto','Chris Lake','Subtronics','Gryffin','KETTAMA','ATLiens'], url:'https://lightsallnight.com', featured:false, detailPage:null, region:'southwest', organizer:null, lat:32.7795, lng:-96.7597, image:null },
+  { id:'hijinx', name:'HIJINX', tagline:'Philly\'s bass-heavy NYE', location:'Pennsylvania Convention Center, Philadelphia PA', dates:'Dec 30–31, 2026', sortDate:'2026-12-30', endDate:'2026-12-31', days:2, age:'Check age', type:'regional', typeLabel:'NYE Festival', genres:['Bass','Dubstep','Riddim','EDM'], desc:'The East Coast\'s heaviest New Year\'s Eve party, indoors at the Pennsylvania Convention Center. 2026 brings Subtronics, Excision b2b Wooli and Ray Volpe with Sullivan King.', headliners:['Subtronics','Tape B','Excision b2b Wooli','Ray Volpe & Sullivan King','DJ Diesel','Dabin'], url:'https://www.ticketmaster.com/hijinx-tickets/artist/2545626', featured:false, detailPage:null, region:'northeast', organizer:null, lat:39.9551, lng:-75.1597, image:null },
+  { id:'eternal-nye', name:'ETERNAL NYE', tagline:'Orlando\'s bass NYE', location:'Orlando Amphitheater, Orlando FL', dates:'Dec 30–31, 2026', sortDate:'2026-12-30', endDate:'2026-12-31', days:2, age:'Check age', type:'regional', typeLabel:'NYE Festival', genres:['Bass','Dubstep','EDM'], desc:'Two-night New Year\'s Eve festival at the Orlando Amphitheater on the Central Florida Fairgrounds, from Sacred Hive and Primal Presents. Zeds Dead play their last set of the year here.', headliners:['Zeds Dead','RL Grime','KNOCK2','LSDREAM'], url:'https://frontgatetickets.com/events/eternal-nye', featured:false, detailPage:null, region:'southeast', organizer:'Sacred Hive', lat:28.5410, lng:-81.4628, image:null },
+  { id:'to-the-future-nye', name:'TO THE FUTURE', tagline:'Nashville\'s biggest NYE rave', location:'The Warehouse at Nashville Fairgrounds, Nashville TN', dates:'Dec 30–31, 2026', sortDate:'2026-12-30', endDate:'2026-12-31', days:2, age:'21+', type:'regional', typeLabel:'NYE Festival', genres:['Bass','Dubstep','EDM'], desc:'BLNK CNVS\'s two-night New Year\'s Eve rave at The Warehouse at Nashville Fairgrounds, with GRiZ and Tape B on top.', headliners:['GRiZ','Tape B','TroyBoi','Kompany'], url:'https://tothefuturenye.com', featured:false, detailPage:null, region:'southeast', organizer:'BLNK CNVS', lat:36.1347, lng:-86.7604, image:null },
+  { id:'proper-nye', name:'PROPER NYE / NYD', tagline:'House and techno at Petco Park', location:'Petco Park, San Diego CA', dates:'Dec 31, 2026 – Jan 1, 2027', sortDate:'2026-12-31', endDate:'2027-01-01', days:2, age:'21+', type:'regional', typeLabel:'NYE Festival', genres:['House','Techno'], desc:'FNGRS CRSSD\'s New Year\'s Eve and New Year\'s Day at Petco Park in San Diego. A Cloonee, KETTAMA and Josh Baker b3b, plus a Lane 8 This Never Happened takeover.', headliners:['Cloonee b3b KETTAMA b3b Josh Baker','Lane 8','Green Velvet','Sara Landry'], url:'https://www.edmtunes.com/2026/09/02/proper-nye-nyd-returns-for-a-two-day-new-year-celebration/', featured:false, detailPage:null, region:'west', organizer:'FNGRS CRSSD', lat:32.7073, lng:-117.1566, image:null },
+  { id:'countdown-nye', name:'COUNTDOWN NYE', tagline:'Ring in the New Year', location:'NOS Event Center, San Bernardino CA', dates:'Dec 31, 2026 – Jan 1, 2027', sortDate:'2026-12-31', endDate:'2027-01-01', days:2, age:'18+', type:'mega', typeLabel:'Mega Festival', genres:['EDM','House','Techno','Bass','Trance'], desc:'Insomniac\'s massive New Year\'s Eve festival, now two days (Dec 31 and Jan 1). Midnight countdown, confetti, and a stacked lineup. One of the largest NYE events in the US.', headliners: ['Alesso','DJ Snake','Marshmello','Subtronics','Tchami','DJ Diesel','S.Y.N (Svdden Death, YVM3, NIMDA)'], url:'https://countdownnye.com', featured:false, detailPage:null, region:'west', organizer:'Insomniac', lat:34.1967, lng:-117.3703, image:null },
 ];
 
 /* ── ARTISTS — profile pages at /artist?id=… (rendered by renderArtist in main.js) ──
@@ -229,6 +237,126 @@ const BRANDS = [
 ];
 
 PLURGASM_DATA.blogPosts = [
+  {
+    id: 'december-2026-raves-nye-festivals',
+    title: 'December 2026 Raves & NYE Festivals: Every Big US Event Left This Year',
+    slug: 'december-2026-raves-nye-festivals',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-11-19',
+    category: 'festival-news',
+    coverImage: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
+    excerpt: 'Every big US rave left in 2026: Jackpot over Christmas weekend, then Decadence, Lights All Night, HiJinx, Eternal, To The Future, Countdown and Proper for New Year\'s Eve. Dates, lineups and which one fits your sound.',
+    published: true,
+    featured: true,
+    body: `
+<p>2026 is not done yet. There is still a trance weekend in Long Beach, a bass festival in Las Vegas over Christmas weekend, and then the biggest run of the winter: eight multi-day New Year's Eve festivals across seven states from December 30 to January 1. Here is every big US rave left this year, with dates, lineups and which one fits your sound.</p>
+
+<div class="post-toc" role="navigation" aria-label="In this guide">
+  <p class="post-toc-title">In This Guide</p>
+  <ul>
+    <li><a href="#at-a-glance">At a Glance</a></li>
+    <li><a href="#november">Last Call for November</a></li>
+    <li><a href="#christmas-weekend">Christmas Weekend</a></li>
+    <li><a href="#nye-festivals">NYE Festivals, Coast to Coast</a></li>
+    <li><a href="#pick-your-nye">Which NYE Fits Your Sound?</a></li>
+    <li><a href="#nye-tips">NYE Rave Tips</a></li>
+  </ul>
+</div>
+
+<h2 id="at-a-glance">At a Glance</h2>
+<table class="sch-table">
+  <thead><tr><th>Dates</th><th>Festival</th><th>City</th><th>Top of the Bill</th></tr></thead>
+  <tbody>
+    <tr><td data-l="Dates">Nov 20–21</td><td data-l="Festival">Dreamstate SoCal</td><td data-l="City">Long Beach, CA</td><td data-l="Top of the Bill">Above &amp; Beyond (Anjunabeats Classics set)</td></tr>
+    <tr><td data-l="Dates">Dec 26–27</td><td data-l="Festival">Jackpot Festival</td><td data-l="City">Las Vegas, NV</td><td data-l="Top of the Bill">GRiZ, Ganja White Night, Crankdat, Levity</td></tr>
+    <tr><td data-l="Dates">Dec 30–31</td><td data-l="Festival">Decadence Colorado</td><td data-l="City">Denver, CO</td><td data-l="Top of the Bill">Alesso, DJ Snake, Marshmello, Excision</td></tr>
+    <tr><td data-l="Dates">Dec 30–31</td><td data-l="Festival">Decadence Arizona</td><td data-l="City">Avondale, AZ</td><td data-l="Top of the Bill">Chris Lake, Disclosure (DJ set), SLANDER, Zomboy</td></tr>
+    <tr><td data-l="Dates">Dec 30–31</td><td data-l="Festival">Lights All Night</td><td data-l="City">Dallas, TX</td><td data-l="Top of the Bill">Tiësto, Chris Lake, Subtronics, Gryffin</td></tr>
+    <tr><td data-l="Dates">Dec 30–31</td><td data-l="Festival">HiJinx</td><td data-l="City">Philadelphia, PA</td><td data-l="Top of the Bill">Subtronics, Excision b2b Wooli, Tape B</td></tr>
+    <tr><td data-l="Dates">Dec 30–31</td><td data-l="Festival">Eternal NYE</td><td data-l="City">Orlando, FL</td><td data-l="Top of the Bill">Zeds Dead, RL Grime, KNOCK2, LSDREAM</td></tr>
+    <tr><td data-l="Dates">Dec 30–31</td><td data-l="Festival">To The Future</td><td data-l="City">Nashville, TN</td><td data-l="Top of the Bill">GRiZ, Tape B, TroyBoi</td></tr>
+    <tr><td data-l="Dates">Dec 31 – Jan 1</td><td data-l="Festival">Countdown NYE</td><td data-l="City">San Bernardino, CA</td><td data-l="Top of the Bill">Alesso, DJ Snake, Marshmello, Subtronics</td></tr>
+    <tr><td data-l="Dates">Dec 31 – Jan 1</td><td data-l="Festival">Proper NYE / NYD</td><td data-l="City">San Diego, CA</td><td data-l="Top of the Bill">Cloonee b3b KETTAMA b3b Josh Baker, Lane 8</td></tr>
+  </tbody>
+</table>
+<p>Every event here is also on the <a href="/calendar">PLURGASM festival calendar</a>, where you can filter by region or find the closest one to you.</p>
+
+<h2 id="november">Last Call for November</h2>
+<h3>Dreamstate SoCal: November 20–21, Long Beach</h3>
+<p>Insomniac's trance festival takes over the Queen Mary Waterfront this weekend. The headline moment is Above &amp; Beyond's Anjunabeats Classics set<sup class="fn"><a href="#src-1">[1]</a></sup>. If trance is your thing, this is the last big one of the year.</p>
+
+<h2 id="christmas-weekend">Christmas Weekend</h2>
+<h3>Jackpot Festival: December 26–27, Las Vegas</h3>
+<p>Jackpot is the bridge between Christmas and NYE, and it has a new home this year. The Downtown Las Vegas Events Center closed, so the festival moves to The Llama Lot near 9th and Fremont, a former Life Is Beautiful site<sup class="fn"><a href="#src-2">[2]</a></sup>. The bill is heavy on bass: GRiZ, Ganja White Night, Crankdat and Levity, with ALLEYCVT and Whethan as special guests<sup class="fn"><a href="#src-3">[3]</a></sup>.</p>
+
+<h2 id="nye-festivals">NYE Festivals, Coast to Coast</h2>
+<p>Most NYE festivals now run two nights. Six of the eight below go December 30 and 31. Countdown and Proper go December 31 into New Year's Day.</p>
+
+<h3>Decadence Colorado: December 30–31, Denver</h3>
+<p>Global Dance and AEG Presents Rocky Mountains bring Decadence back to the Colorado Convention Center. It has one of the most mainstage-heavy lineups of the NYE run: Alesso, DJ Snake, Marshmello, Excision, GRiZ, Seven Lions, Zeds Dead and Lane 8<sup class="fn"><a href="#src-4">[4]</a></sup>. It is fully indoors, which matters in Denver in December.</p>
+
+<h3>Decadence Arizona: December 30–31, Phoenix Raceway</h3>
+<p>Relentless Beats' Arizona edition leans toward house and techno this year. Chris Lake, Eli Brown, I Hate Models, Patrick Topping and Polo &amp; Pan share the bill with SLANDER, Zomboy, Levity and ISOxo. Disclosure plays a DJ set for the midnight countdown<sup class="fn"><a href="#src-5">[5]</a></sup>.</p>
+
+<h3>Lights All Night: December 30–31, Dallas</h3>
+<p>Texas's long-running NYE festival returns to Fair Park. Tiësto and Gryffin lead December 30, and Chris Lake and Subtronics lead New Year's Eve<sup class="fn"><a href="#src-6">[6]</a></sup>. Single-day passes are available if you only want one night.</p>
+
+<h3>HiJinx: December 30–31, Philadelphia</h3>
+<p>A bass-heavy NYE party, indoors at the Pennsylvania Convention Center. Subtronics, Tape B, Excision b2b Wooli, Ray Volpe and Sullivan King, DJ Diesel and Dabin are on the bill<sup class="fn"><a href="#src-7">[7]</a></sup>. If you are in the Northeast and love bass, this is the one.</p>
+
+<h3>Eternal NYE: December 30–31, Orlando</h3>
+<p>Sacred Hive and Primal Presents bring Eternal back to the Orlando Amphitheater. Zeds Dead, RL Grime, KNOCK2 and LSDREAM headline. EDM Identity reports this will be Zeds Dead's final set of the year before an indefinite hiatus<sup class="fn"><a href="#src-8">[8]</a></sup>, so expect this one to be emotional. It is also Orlando's second big festival weekend in two months, after <a href="/posts/edc-orlando-2026-review-best-sets/">EDC Orlando</a>.</p>
+
+<h3>To The Future: December 30–31, Nashville</h3>
+<p>BLNK CNVS's NYE rave at The Warehouse at Nashville Fairgrounds has GRiZ and Tape B on top, with TroyBoi, Kompany and more<sup class="fn"><a href="#src-9">[9]</a></sup>. Ticket listings show it as 21+<sup class="fn"><a href="#src-10">[10]</a></sup>.</p>
+
+<h3>Countdown NYE: December 31 – January 1, San Bernardino</h3>
+<p>Insomniac's NYE festival is two days for the first time, back at the NOS Event Center<sup class="fn"><a href="#src-11">[11]</a></sup>. The 75+ artist lineup is led by Alesso, DJ Snake, Marshmello, Subtronics, Tchami, DJ Diesel and S.Y.N, the trio of Svdden Death, YVM3 and NIMDA, across five stages<sup class="fn"><a href="#src-12">[12]</a></sup>.</p>
+
+<h3>Proper NYE / NYD: December 31 – January 1, San Diego</h3>
+<p>FNGRS CRSSD's house and techno celebration at Petco Park. The headline draw is a b3b from Cloonee, KETTAMA and Josh Baker, plus a Lane 8 This Never Happened takeover, Green Velvet and Sara Landry<sup class="fn"><a href="#src-13">[13]</a></sup>. It is 21+<sup class="fn"><a href="#src-14">[14]</a></sup>.</p>
+
+<h3>Not a festival, but worth knowing</h3>
+<p>ILLENIUM plays two nights at Bill Graham Civic Auditorium in San Francisco on December 30 and 31, and New Year's Eve was already listed as sold out in October<sup class="fn"><a href="#src-14">[14]</a></sup>.</p>
+
+<h2 id="pick-your-nye">Which NYE Fits Your Sound?</h2>
+<ul>
+  <li><strong>Bass and dubstep:</strong> HiJinx, Eternal NYE, To The Future, or Jackpot the weekend before. Not sure what you are into? Our <a href="/posts/what-genre-is-bass-artist-directory/">bass artist genre directory</a> breaks down who plays what.</li>
+  <li><strong>House and techno:</strong> Proper NYE / NYD or Decadence Arizona.</li>
+  <li><strong>Big mainstage names:</strong> Countdown NYE, Decadence Colorado or Lights All Night.</li>
+  <li><strong>GRiZ fans:</strong> he is on three end-of-year bills: Jackpot, Decadence Colorado and To The Future.</li>
+</ul>
+
+<h2 id="nye-tips">NYE Rave Tips</h2>
+<ul>
+  <li><strong>Book your ride home now.</strong> Rideshare prices spike after midnight on New Year's. Plan a pickup spot or a pre-booked ride before you go in.</li>
+  <li><strong>Check indoor vs. outdoor.</strong> Decadence Colorado and HiJinx are inside convention centers. Decadence Arizona, Proper and Jackpot are outdoors, and desert nights in Phoenix and Vegas get cold. Bring a layer you can check or tie around your waist.</li>
+  <li><strong>Check the age limit.</strong> Proper and To The Future are 21+. Confirm the age rules on each festival's ticket page before you buy.</li>
+  <li><strong>Go in with a plan.</strong> Pick a meetup spot, charge your phone, and set the festival's map as your lock screen. Our <a href="/safety">safety page</a> has more.</li>
+</ul>
+
+<p>Already planning next year? See the full <a href="/calendar#rave-schedule-2027">2027 rave schedule</a>, with every festival by month.</p>
+
+<h3>Sources</h3>
+<ol class="sources">
+<li id="src-1">We Rave You, "Above &amp; Beyond return to Dreamstate SoCal 2026 with exclusive Anjunabeats Classics set": <a href="https://weraveyou.com/2026/07/above-beyond-dreamstate-socal-2026-anjunabeats-classics/" target="_blank" rel="noopener">weraveyou.com</a></li>
+<li id="src-2">FOX5 Las Vegas, "Downtown Las Vegas festival finds new home following venue closure, announces lineup": <a href="https://www.fox5vegas.com/2026/09/11/downtown-las-vegas-festival-finds-new-home-following-venue-closure-announces-lineup/" target="_blank" rel="noopener">fox5vegas.com</a></li>
+<li id="src-3">RouteNote, "Jackpot Festival 2026 Lineup: GRiZ, Ganja White Night, Crankdat and More": <a href="https://routenote.com/radar/jackpot-festival-2026-lineup-griz-ganja-white-night-crankdat-and-more/" target="_blank" rel="noopener">routenote.com</a></li>
+<li id="src-4">EDMTunes, "Decadence Colorado Reveals Stacked Lineup to Close Out 2026": <a href="https://www.edmtunes.com/2026/08/20/decadence-colorado-reveals-stacked-lineup-to-close-out-2026/" target="_blank" rel="noopener">edmtunes.com</a></li>
+<li id="src-5">EDMTunes, "Decadence Arizona Reveals Phase 2 Lineup": <a href="https://www.edmtunes.com/2026/10/13/decadence-arizona-reveals-phase-2-lineup/" target="_blank" rel="noopener">edmtunes.com</a></li>
+<li id="src-6">Grateful Web, "Lights All Night Reveals 2026 Daily Lineup Ahead of Single-Day Ticket Sales": <a href="https://www.gratefulweb.com/articles/lights-all-night-reveals-2026-daily-lineup-ahead-of-single-day-ticket-sales/" target="_blank" rel="noopener">gratefulweb.com</a></li>
+<li id="src-7">EDM Identity, "HiJinx 2026 Lineup": <a href="https://edmidentity.com/2026/09/09/hijinx-2026-lineup/" target="_blank" rel="noopener">edmidentity.com</a></li>
+<li id="src-8">EDM Identity, "Eternal NYE 2026 Lineup": <a href="https://edmidentity.com/2026/07/01/eternal-nye-2026-lineup/" target="_blank" rel="noopener">edmidentity.com</a></li>
+<li id="src-9">The Daily Frequency, "To The Future 2026 Lineup Taps GRiZ &amp; Tape B": <a href="https://thedailyfrequency.com/2026/08/10/to-the-future-2026-lineup/" target="_blank" rel="noopener">thedailyfrequency.com</a></li>
+<li id="src-10">Songkick, "To The Future: NYE 2026, 2 Day Pass (21+)": <a href="https://www.songkick.com/festivals/3803311-to-the-future-nye-2026-2-day-pass-21-with-griz-tape-b-troyboi-and-more/id/43011511-to-the-future-nye-2026--2-day-pass-21--with-griz-tape-b-troyboi-and-more-2026" target="_blank" rel="noopener">songkick.com</a></li>
+<li id="src-11">Insomniac, "Countdown NYE Will Expand to Two Days and Return to NOS Event Center for 2026 Festival": <a href="https://press.insomniac.com/blog/countdown-nye-will-expand-to-two-days-and-return-to-nos-event-center-for-2026-festival" target="_blank" rel="noopener">press.insomniac.com</a></li>
+<li id="src-12">EDMTunes, "Countdown NYE 2026 Unveils 75+ Artist Lineup, Adds Second Day": <a href="https://www.edmtunes.com/2026/09/22/countdown-nye-lineup/" target="_blank" rel="noopener">edmtunes.com</a></li>
+<li id="src-13">EDMTunes, "Proper NYE/NYD Returns for a Two-Day New Year Celebration": <a href="https://www.edmtunes.com/2026/09/02/proper-nye-nyd-returns-for-a-two-day-new-year-celebration/" target="_blank" rel="noopener">edmtunes.com</a></li>
+<li id="src-14">Rave Bonfire, "NYE Raves 2026: New Year's Eve Music Festivals by Date": <a href="https://ravebonfire.com/nye-raves/" target="_blank" rel="noopener">ravebonfire.com</a></li>
+</ol>
+`
+  },
   {
     id: 'edc-orlando-2026-review-best-sets',
     title: 'EDC Orlando 2026 in Review: Best Sets, Big Upgrades and What Needs Fixing',
@@ -603,6 +731,7 @@ PLURGASM_DATA.blogPosts = [
     featured: true,
     body: `<p>The 2027 rave and festival season is already taking shape. Early dates are landing, headliner rumors are circulating, and the usual crowd is booking flights before lineups even drop. Here is a month-by-month guide to the major US festivals worth planning around, with links to every festival page we have built.</p>
 
+<p>Looking for the rest of this year first? See our guide to <a href="/posts/december-2026-raves-nye-festivals/">December 2026 raves and NYE festivals</a>.</p>
 <p><strong>A quick honesty note:</strong> most 2027 dates are still unannounced or unconfirmed. Where a festival has not published its 2027 dates, we say when it <em>typically</em> runs. Always confirm on the festival's official site before you buy tickets or book travel. Want to see everything in one place? Check the <a href="/calendar#rave-schedule-2027">full 2027 rave schedule</a>, or use the <a href="/calendar">raves near me festival calendar</a> and filter by region or distance.</p>
 <div style="margin:24px 0;padding:18px 20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;line-height:1.7;">
 <p style="margin:0 0 8px;"><strong>Updated November 12, 2026:</strong> more 2027 dates are now official.</p>
