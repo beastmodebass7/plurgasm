@@ -238,6 +238,108 @@ const BRANDS = [
 
 PLURGASM_DATA.blogPosts = [
   {
+    id: 'hottest-djs-2026-top-5-men-women',
+    title: 'The Hottest DJs of 2026: Our Top 5 Men and Top 5 Women',
+    seoTitle: 'Hottest DJs 2026: Top 5 Men & Top 5 Women Right Now',
+    slug: 'hottest-djs-2026-top-5-men-women',
+    author: 'PLURGASM',
+    authorHandle: '@plurgasm',
+    date: '2026-11-21',
+    category: 'culture',
+    coverImage: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80',
+    excerpt: 'Our totally biased, completely unscientific ranking of the hottest DJs of 2026. Buzz, stage presence and style: Dom Dolla, John Summit, Sara Landry, Peggy Gou, Alyssa Jolee and more.',
+    published: true,
+    featured: false,
+    body: `
+<p>This is an opinion piece, and a fun one. "Hottest" here means two things at once: who has the most heat in 2026 (stadium shows, sold-out runs, surprise albums) and who brings the most presence and style to the booth. We ranked five men and five women. You will disagree with us, and that is the point.</p>
+
+<div class="post-toc" role="navigation" aria-label="In this list">
+  <p class="post-toc-title">In This List</p>
+  <ul>
+    <li><a href="#how-we-ranked">How We Ranked Them</a></li>
+    <li><a href="#top-5-men">Top 5 Men</a></li>
+    <li><a href="#top-5-women">Top 5 Women</a></li>
+    <li><a href="#who-did-we-miss">Who Did We Miss?</a></li>
+  </ul>
+</div>
+
+<h2 id="how-we-ranked">How We Ranked Them</h2>
+<ul>
+  <li><strong>The buzz:</strong> big 2026 moments like headline debuts, arena tours, new albums and festival slots.</li>
+  <li><strong>The presence:</strong> how much energy they put into a room. You know it when you see it.</li>
+  <li><strong>The style:</strong> the look, the swagger, the whole package.</li>
+</ul>
+<p>Every fact below is sourced. The rankings are pure PLURGASM opinion.</p>
+
+<h2 id="top-5-men">Top 5 Men</h2>
+
+<h3>1. Dom Dolla</h3>
+<p>Nobody had a bigger year at home. Dom Dolla headlined Melbourne's Marvel Stadium on September 24, a homecoming that followed his sold-out Allianz Stadium debut in Sydney in December 2025<sup class="fn"><a href="#src-1">[1]</a></sup>. Next up is his biggest standalone headline show yet, at Auckland Domain in New Zealand on February 6, 2027<sup class="fn"><a href="#src-2">[2]</a></sup>.</p>
+<p><strong>Why he's #1:</strong> stadium-level fame, and he still plays like he is in a sweaty club. Easy pick.</p>
+
+<h3>2. John Summit</h3>
+<p>John Summit went all in on 2026 with his album <em>CTRL ESCAPE</em> and a North American arena tour of the same name, running October 1 to December 4 with stops at TD Garden, United Center and Barclays Center<sup class="fn"><a href="#src-3">[3]</a></sup>. He also played Kinetic Field at EDC Las Vegas in May<sup class="fn"><a href="#src-4">[4]</a></sup>.</p>
+<p><strong>Why he's here:</strong> the everyman-turned-arena-headliner story, plus a crowd that sings every word back to him.</p>
+
+<h3>3. Mau P</h3>
+<p>Mau P just announced his first arena tour behind his debut album, <em>Generation Rebrand</em>, due in spring 2027. It includes an open-to-close set at BMO Stadium in Los Angeles in January 2027 and a March 6 headline show at Madison Square Garden, which EDM Identity reports is the first single-headliner show for a dance music act at the venue<sup class="fn"><a href="#src-5">[5]</a></sup>.</p>
+<p><strong>Why he's here:</strong> tech house's biggest glow-up. Same guy who made big room bangers as Maurice West, now headlining the Garden.</p>
+
+<h3>4. Sammy Virji</h3>
+<p>Sammy Virji surprise-dropped his third album, <em>Open Late</em>, on October 21, revealing it at a pop-up party at 93 Feet East in London<sup class="fn"><a href="#src-6">[6]</a></sup>. Days earlier he headlined Red Rocks on October 16, with Confidence Man (DJ set), Oppidan and Sam Alfred in support<sup class="fn"><a href="#src-7">[7]</a></sup>.</p>
+<p><strong>Why he's here:</strong> UK garage's main character. Effortlessly cool, and he makes it look easy.</p>
+
+<h3>5. KETTAMA</h3>
+<p>KETTAMA played Circuit Grounds at EDC Las Vegas in May<sup class="fn"><a href="#src-4">[4]</a></sup>, and he closes the year in one of the biggest house sets on the calendar: a b3b with Cloonee and Josh Baker at Proper NYE / NYD in San Diego<sup class="fn"><a href="#src-8">[8]</a></sup>. See every New Year's festival in our <a href="/posts/december-2026-raves-nye-festivals/">December 2026 raves guide</a>.</p>
+<p><strong>Why he's here:</strong> Relentless energy and that grin behind the decks. The b3b sets alone earn him a spot.</p>
+
+<h2 id="top-5-women">Top 5 Women</h2>
+
+<h3>1. Sara Landry</h3>
+<p>The Austin-based hard techno queen made her long-awaited Red Rocks debut on October 10, sharing the bill with Pendulum, Supergloss and Lorely Mur<sup class="fn"><a href="#src-9">[9]</a></sup>. She is also on the Proper NYE / NYD bill in San Diego to close out the year<sup class="fn"><a href="#src-8">[8]</a></sup>.</p>
+<p><strong>Why she's #1:</strong> nobody owns a stage like she does. Dark, fast and impossible to look away from.</p>
+
+<h3>2. Peggy Gou</h3>
+<p>Peggy Gou, the Incheon-born DJ behind "(It Goes Like) Nanana," headlined the Saturday night concert at LIV Golf Korea in Busan on May 30<sup class="fn"><a href="#src-10">[10]</a></sup>. She also played Neon Garden at EDC Las Vegas, including a b2b with KI/KI<sup class="fn"><a href="#src-4">[4]</a></sup>.</p>
+<p><strong>Why she's here:</strong> she was dubbed the "world's hippest DJ" for a reason<sup class="fn"><a href="#src-11">[11]</a></sup>. A real fashion icon, and her sets are still a party.</p>
+
+<h3>3. Indira Paganotto</h3>
+<p>The Spanish DJ, born in the Canary Islands and raised in Madrid, runs her own label, Artcore, and has collaborated with Armin van Buuren on "Dragon"<sup class="fn"><a href="#src-12">[12]</a></sup>. In 2026 she brought her psychedelic, trance-tinged techno to Neon Garden at EDC Las Vegas<sup class="fn"><a href="#src-4">[4]</a></sup>.</p>
+<p><strong>Why she's here:</strong> pure fire energy behind the decks. When she plays, the whole crowd locks in.</p>
+
+<h3>4. Mary Droppinz</h3>
+<p>Mary Droppinz had a stacked 2026. Her festival run included Okeechobee, EDC Las Vegas, Project Glow, Electric Forest, HARD Summer, North Coast, EDC Korea and III Points<sup class="fn"><a href="#src-13">[13]</a></sup>, including a Basspod set at EDC<sup class="fn"><a href="#src-4">[4]</a></sup>. She is also booked for Jackpot in Las Vegas and HiJinx in Philadelphia this December<sup class="fn"><a href="#src-14">[14]</a></sup>.</p>
+<p><strong>Why she's here:</strong> bass music's hardest-working woman, and she always looks like she is having the time of her life.</p>
+
+<h3>5. Alyssa Jolee</h3>
+<p>Repping Long Beach, Alyssa Jolee is one of the names most tied to West Coast hard techno right now<sup class="fn"><a href="#src-15">[15]</a></sup>. She played the Wasteland stage at EDC Las Vegas in May<sup class="fn"><a href="#src-4">[4]</a></sup>, and she is booked for Toxic Winter in San Francisco on February 5 and 6, 2027<sup class="fn"><a href="#src-15">[15]</a></sup>. Follow her at <a href="https://www.instagram.com/alyssajmo/" target="_blank" rel="noopener">@alyssajmo</a>.</p>
+<p><strong>Why she's here:</strong> our rising-star pick. Big style, harder kicks, and a SoCal following that keeps growing.</p>
+
+<h2 id="who-did-we-miss">Who Did We Miss?</h2>
+<p>This list is all love and all opinion. Every DJ here earned their spot with the music first. Think we got it wrong? Tell us who belongs on the list at <a href="https://x.com/PlurgasmHQ" target="_blank" rel="noopener">@PlurgasmHQ</a> or <a href="mailto:beastmodebass7@gmail.com">beastmodebass7@gmail.com</a>.</p>
+<p>Want to see them live? Check the <a href="/calendar#rave-schedule-2027">2027 rave schedule</a> for every festival by month, or find out what genre your favorite bass artist plays in our <a href="/posts/what-genre-is-bass-artist-directory/">bass artist genre directory</a>.</p>
+
+<h3>Sources</h3>
+<ol class="sources">
+<li id="src-1">Frontier Touring, "Dom Dolla reveals line up for his Marvel Stadium homecoming": <a href="https://www.frontiertouring.com/news/dom-dolla-reveals-line-up-for-his-marvel-stadium-homecoming" target="_blank" rel="noopener">frontiertouring.com</a></li>
+<li id="src-2">Rova, "Dom Dolla announces record headline show in New Zealand for 2027": <a href="https://www.rova.nz/events/dom-dolla-announces-record-headline-show-in-new-zealand-for-2027" target="_blank" rel="noopener">rova.nz</a></li>
+<li id="src-3">Consequence, "John Summit Announces CTRL ESCAPE Arena Tour": <a href="https://concerts.consequence.net/articles/john-summit-ctrl-escape-2026-north-american-arena-tour" target="_blank" rel="noopener">consequence.net</a></li>
+<li id="src-4">EDC Las Vegas, "2026 Lineup": <a href="https://lasvegas.edc.com/lineup/" target="_blank" rel="noopener">lasvegas.edc.com</a></li>
+<li id="src-5">EDM Identity, "Mau P To Play First-Ever Open-to-Close Set At Madison Square Garden": <a href="https://edmidentity.com/2026/11/18/mau-p-generation-rebrand-arena-tour/" target="_blank" rel="noopener">edmidentity.com</a></li>
+<li id="src-6">Beatportal, "Sammy Virji Releases Surprise New Album 'Open Late'": <a href="https://www.beatportal.com/articles/1691841-sammy-virji-releases-surprise-new-album-open-late" target="_blank" rel="noopener">beatportal.com</a></li>
+<li id="src-7">Red Rocks Amphitheatre, "Sammy Virji": <a href="https://www.redrocksonline.com/events/sammy-virji-1330899/" target="_blank" rel="noopener">redrocksonline.com</a></li>
+<li id="src-8">EDMTunes, "Proper NYE/NYD Returns for a Two-Day New Year Celebration": <a href="https://www.edmtunes.com/2026/09/02/proper-nye-nyd-returns-for-a-two-day-new-year-celebration/" target="_blank" rel="noopener">edmtunes.com</a></li>
+<li id="src-9">Ground News, "Sara Landry announces long-awaited Red Rocks debut": <a href="https://ground.news/article/sara-landry-announces-long-awaited-red-rocks-debut" target="_blank" rel="noopener">ground.news</a></li>
+<li id="src-10">LIV Golf, "International DJ Peggy Gou to headline Saturday night concert at LIV Golf Korea": <a href="https://www.livgolf.com/news/peggy-gou-to-headline-saturday-concert-at-liv-golf-korea" target="_blank" rel="noopener">livgolf.com</a></li>
+<li id="src-11">Lifestyle.INQ, "Dubbed the 'world's hippest DJ,' Peggy Gou's style is as cool as her tunes": <a href="https://lifestyle.inquirer.net/342982/dubbed-the-worlds-hippest-dj-peggy-gous-style-is-as-cool-as-her-tunes/" target="_blank" rel="noopener">inquirer.net</a></li>
+<li id="src-12">Wikipedia, "Indira Paganotto": <a href="https://en.wikipedia.org/wiki/Indira_Paganotto" target="_blank" rel="noopener">wikipedia.org</a></li>
+<li id="src-13">Music Festival Wizard, "Mary Droppinz Tour Dates": <a href="https://www.musicfestivalwizard.com/artist/mary-droppinz/" target="_blank" rel="noopener">musicfestivalwizard.com</a></li>
+<li id="src-14">JamBase, "Mary Droppinz Tickets and Tour Dates": <a href="https://www.jambase.com/band/mary-droppinz" target="_blank" rel="noopener">jambase.com</a></li>
+<li id="src-15">Insomniac, "Alyssa Jolee": <a href="https://insomniac.com/music/artists/alyssa-jolee" target="_blank" rel="noopener">insomniac.com</a></li>
+</ol>
+`
+  },
+  {
     id: 'december-2026-raves-nye-festivals',
     title: 'December 2026 Raves & NYE Festivals: Every Big US Event Left This Year',
     seoTitle: 'December 2026 Raves & NYE Festivals: Every US Event',
