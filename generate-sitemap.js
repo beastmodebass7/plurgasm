@@ -24,7 +24,7 @@ global.window = global;
 require('./js/data.js');
 
 const data = global.PLURGASM_DATA || {};
-const { buildPosts, postPath } = require('./build-posts.js');
+const { buildPosts, postPath, esPostPath } = require('./build-posts.js');
 const { buildSchedule } = require('./build-schedule.js');
 
 // --- Helpers --------------------------------------------------------------
@@ -76,6 +76,9 @@ const sched = buildSchedule(__dirname, data);
 console.log('Built 2027 schedule on /calendar: ' + sched.festivals + ' festivals, ' + sched.schemaEvents + ' with Event schema.');
 console.log('Built ' + built.length + ' post pages in /posts/.');
 built.forEach(id => addUrl(postPath(id), 'monthly', '0.7'));
+// Spanish versions (posts with an `es` field) at /es/posts/<id>/.
+(built.es || []).forEach(id => addUrl(esPostPath(id), 'monthly', '0.6'));
+if ((built.es || []).length) console.log('Built ' + built.es.length + ' Spanish post pages in /es/posts/.');
 
 // --- Festivals with a dedicated detail page -------------------------------
 (data.festivals || [])

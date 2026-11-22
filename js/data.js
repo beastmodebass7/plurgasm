@@ -1881,6 +1881,351 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-009',
+    es: {
+      title: 'Subgéneros de la música bass: guía completa de cada sonido',
+      seoTitle: 'Subgéneros de la música bass: guía completa',
+      excerpt: 'Los subgéneros de la música bass explicados: dubstep, riddim, melodic bass, future bass, midtempo, bass house y drum & bass, con sus artistas clave y festivales.',
+      body: `
+    <div class="post-toc" role="navigation" aria-label="En esta guía">
+      <p class="post-toc-title">En esta guía</p>
+      <ul>
+        <li><a href="#what-is-bass-music">¿Qué es la música bass?</a></li>
+        <li><a href="#dubstep">Dubstep</a></li>
+        <li><a href="#riddim">Riddim</a></li>
+        <li><a href="#melodic-bass">Melodic bass</a></li>
+        <li><a href="#future-bass">Future bass</a></li>
+        <li><a href="#midtempo">Midtempo</a></li>
+        <li><a href="#bass-house">Bass house</a></li>
+        <li><a href="#drum-and-bass">Drum &amp; bass</a></li>
+        <li><a href="#festivals-by-region">Festivales de bass por región</a></li>
+        <li><a href="#find-your-sound">Cómo encontrar tu sonido</a></li>
+      </ul>
+    </div>
+    <h2 id="what-is-bass-music">¿Qué es la música bass?</h2>
+    <p>La música bass (bass music) es un término general para los géneros de música electrónica de baile
+    construidos alrededor de frecuencias sub bass pesadas y un diseño de sonido de alta energía.
+    Es una familia que incluye dubstep, riddim, melodic bass, future bass,
+    midtempo, bass house y drum & bass.</p>
+
+    <p>No es una sola cosa. Los subgéneros se ramifican en direcciones muy distintas
+    a partir de esa base común.
+    El riddim no suena nada parecido al melodic bass.
+    El future bass no suena nada parecido al midtempo.
+    Los artistas que dominan un rincón de la escena
+    muchas veces casi no coinciden con los que dominan otro.</p>
+
+    <p>Si descubriste la música bass por un solo artista o un solo festival
+    y quieres entender el panorama completo, este es el punto de partida.
+    Y si estás tratando de decidir qué festivales valen tu dinero
+    según los sonidos que de verdad te gustan,
+    al final lo desglosamos por región.</p>
+
+    <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80"
+      alt="Multitud en un festival de música bass"
+      style="width:100%;height:300px;object-fit:cover;margin:24px 0;">
+
+    <h2 id="dubstep">¿Qué es el dubstep?</h2>
+    <p>El dubstep es un género de música bass construido sobre ritmos half-time, sub bass profundo
+    y drops pesados y agresivos. Nació en el sur de Londres a finales de los 90
+    como un sonido oscuro y minimalista, espacioso y atmosférico,
+    con una fuerte influencia del reggae y el dub.
+    Para 2010 la versión estadounidense ya tenía un carácter completamente propio,
+    con drops agresivos, wobbles de bajo distorsionados y buildups de alta energía.
+    Esta versión estadounidense es a la que casi todos se refieren hoy cuando dicen dubstep.</p>
+
+    <p>El tempo ronda los 140 BPM. Los drops son pesados.
+    La reacción del público en un buen set de dubstep es física:
+    el bajo te golpea el pecho de una forma que se siente más como un fenómeno del clima que como música.</p>
+
+    <p><strong>Artistas clave:</strong> Excision, Zomboy, Datsik, Feed Me,
+    12th Planet, Downlink, Space Laces, Barely Alive</p>
+
+    <p><strong>Para empezar:</strong> escucha las colaboraciones de Excision y Datsik
+    de 2011 para entender de dónde viene el dubstep moderno,
+    y luego sigue a Excision hacia adelante para escuchar cómo evolucionó.</p>
+
+    <h2 id="riddim">¿Qué es el riddim?</h2>
+    <p>El riddim es un subgénero minimalista del dubstep construido alrededor de un patrón
+    de bajo que se repite, un ritmo simple y un diseño de sonido preciso y mecánico.
+    Se separó del dubstep alrededor de 2015 y desarrolló su propia base de fans.
+    La diferencia clave es el minimalismo. Donde el dubstep tradicional acumula complejidad,
+    el riddim lo reduce todo a lo esencial.
+    Los wobbles son más limpios y más mecánicos.
+    Los drops se sienten como maquinaria y no como caos.</p>
+
+    <p>Los fans del riddim están entre los más dedicados del mundo bass.
+    El subgénero tiene sus propios sellos, sus propios festivales
+    y una estética propia, claramente separada de la escena dubstep en general.</p>
+
+    <p><strong>Artistas clave:</strong> Svdden Death, Chomppa, Virtual Riot,
+    Griz (no es riddim puro, pero es influyente), Peekaboo, Yakz, Wooli</p>
+
+    <p><strong>Para empezar:</strong> arranca con los remixes de Svdden Death
+    y ve hacia atrás por el catálogo de Virtual Riot
+    para entender cómo se desarrolló el sonido.</p>
+
+    <h2 id="melodic-bass">¿Qué es el melodic bass?</h2>
+    <p>El melodic bass (también llamado melodic dubstep) es un subgénero de la música bass
+    que combina el peso y la energía del dubstep con melodías cinematográficas,
+    vocal chops y estructuras de canción más cercanas al pop que a la música de club underground.
+    Es el rincón más accesible emocionalmente del mundo bass.
+    Los drops siguen pegando fuerte, pero también es probable que sientas algo en el pecho
+    que no tiene nada que ver con el volumen.</p>
+
+    <p>Es el subgénero que el público nuevo descubre primero
+    y el que ha producido algunos de los artistas con más éxito comercial
+    del mundo bass.
+    También es el subgénero con más probabilidades de encabezar un festival masivo.</p>
+
+    <p><strong>Artistas clave:</strong> ILLENIUM, Seven Lions, Said the Sky,
+    Dabin, Trivecta, Woodes, Kompany, Rezz (cercano),
+    Excision (cuando se pone melódico)</p>
+
+    <p><strong>Para empezar:</strong> las colaboraciones de ILLENIUM y Said the Sky
+    son la puerta de entrada más accesible.
+    De ahí, Seven Lions te lleva más profundo hacia el lado
+    psicodélico y más complejo del sonido.</p>
+
+    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80"
+      alt="Multitud en un festival con luces"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2 id="future-bass">¿Qué es el future bass?</h2>
+    <p>El future bass es un subgénero brillante y eufórico de la música bass, construido alrededor de
+    drops llenos de acordes, sintetizadores supersaw y vocal chops con el tono subido.
+    Está en el cruce entre la música bass y la electrónica pop,
+    con melodías que se sienten casi abrumadoramente eufóricas.
+    La energía es para levantar el ánimo, no agresiva.
+    El público suele ser más joven y las contrataciones en festivales
+    muchas veces coinciden con la programación de los escenarios principales de EDM.</p>
+
+    <p>El future bass tuvo su punto comercial más alto entre 2016 y 2019,
+    pero sigue evolucionando, con artistas nuevos que lo llevan
+    a territorios más experimentales.</p>
+
+    <p><strong>Artistas clave:</strong> Flume, San Holo, Jai Wolf,
+    Odesza (cercano), Kasbo, Unlike Pluto, Slushii, Valentino Khan</p>
+
+    <p><strong>Para empezar:</strong> el álbum homónimo de Flume
+    definió el género. <em>album1</em> de San Holo
+    lo llevó hacia un lado más emocional que vale la pena explorar.</p>
+
+    <h2 id="midtempo">¿Qué es el midtempo?</h2>
+    <p>El midtempo es un subgénero oscuro y cinematográfico de la música bass, más lento
+    que casi toda la música bass (normalmente entre 90 y 110 BPM),
+    lo que crea un peso que se siente menos frenético y más deliberado.
+    Es uno de los subgéneros definidos más recientemente.
+    El bajo es profundo, las atmósferas son oscuras
+    y la música suele tener una calidad cinematográfica
+    que se disfruta tanto con audífonos como en el sistema de sonido de un festival.</p>
+
+    <p>Rezz es la artista más destacada de este espacio
+    y ha construido un público de culto que va mucho más allá
+    de la audiencia típica de la música bass.</p>
+
+    <p><strong>Artistas clave:</strong> Rezz, Phase (ahora el sello de Rezz),
+    Blanke, artistas de Sable Valley, Marauda, 1788-L, Lxstfire</p>
+
+    <p><strong>Para empezar:</strong> el álbum <em>Mass Manipulation</em> de Rezz
+    es el disco definitivo del midtempo.
+    Empieza ahí y métete de lleno en el mundo de Rezz Nation.</p>
+
+    <h2 id="bass-house">¿Qué es el bass house?</h2>
+    <p>El bass house es un subgénero que fusiona la estructura four-on-the-floor
+    del house con las líneas de bajo distorsionadas y potentes de la música bass.
+    El resultado funciona en una pista de house
+    pero pega bastante más fuerte que el house tradicional.
+    Es uno de los subgéneros más amigables para los DJs dentro del mundo bass
+    y ha dado algunos de los sets de festival más divertidos y constantes
+    de los últimos cinco años.</p>
+
+    <p><strong>Artistas clave:</strong> Habstrakt, Valentino Khan,
+    Walker and Royce, AC Slater, Jauz, Joyryde, Tchami</p>
+
+    <p><strong>Para empezar:</strong> "Deep Down Low" de Valentino Khan
+    fue el momento en que el género cruzó al gran público.
+    El catálogo de Habstrakt es la puerta de entrada más constante
+    para entender todo su rango sonoro.</p>
+
+    <h2 id="drum-and-bass">¿Qué es el drum &amp; bass?</h2>
+    <p>El drum & bass (DnB) es un género electrónico rápido, de 160 a 180 BPM,
+    definido por baterías breakbeat sincopadas y líneas de bajo profundas y ondulantes.
+    Es el género más antiguo de esta guía
+    y el que tiene la cultura más desarrollada fuera de Estados Unidos.
+    Surgió de la escena jungle del Reino Unido a principios de los 90
+    y creció hasta convertirse en un género enorme con varios subgéneros propios.</p>
+
+    <p>Su rasgo principal es el tempo,
+    mucho más rápido que cualquier otro género de esta guía.
+    Las baterías son sincopadas y complejas,
+    y las líneas de bajo, profundas y ondulantes.
+    Un buen set de DnB en un club con un buen sistema de sonido
+    es una de las experiencias más intensas físicamente de la música electrónica.</p>
+
+    <p>La escena de DnB en Estados Unidos es más pequeña que la del Reino Unido,
+    pero ha crecido bastante en los últimos años,
+    sobre todo en la Costa Oeste.</p>
+
+    <h3>Subgéneros del drum &amp; bass</h3>
+    <p>Los principales subgéneros del drum and bass son liquid, neurofunk, jump-up
+    y jungle, cada uno con su propio sonido y su propia escena.
+    Así puedes distinguirlos.</p>
+
+    <p><strong>El liquid DnB</strong> es el lado suave y melódico del drum & bass.
+    Mantiene los breakbeats rápidos, pero les suma voces con soul,
+    acordes con sabor a jazz y líneas de bajo cálidas y ondulantes.
+    Es la puerta de entrada más accesible para quien empieza a escuchar.
+    Artistas clave: Netsky, Logistics, Calibre, Hybrid Minds.</p>
+
+    <p><strong>El neurofunk</strong> es el extremo oscuro y técnico del espectro,
+    construido sobre líneas de bajo retorcidas y muy procesadas, con un diseño de sonido quirúrgico.
+    Es el subgénero de DnB más cercano en espíritu a los rincones más pesados del dubstep.
+    Artistas clave: Noisia, Black Sun Empire, Mefjus, Phace.</p>
+
+    <p><strong>El jump-up</strong> es la variante más alborotada y fiestera,
+    impulsada por líneas de bajo saltarinas y pegajosas, hechas para sacar la máxima reacción del público.
+    Domina el circuito actual de clubes y festivales del Reino Unido.
+    Artistas clave: Hedex, Macky Gee, DJ Guv, Turno.</p>
+
+    <p><strong>El jungle</strong> es donde empezó todo el género:
+    breaks Amen recortados, samples de reggae y dancehall,
+    y una producción cruda y cargada de bajo.
+    Un revival moderno del jungle ha vuelto a llevar el sonido a los escenarios de festivales.
+    Artistas clave: Congo Natty, Shy FX, Nia Archives, Goldie.</p>
+
+    <p>También vas a escuchar hablar del techstep (una variante más dura y fría de los 90
+    que dio origen al neurofunk) y de los rollers (DnB minimalista y enfocado en el groove),
+    pero liquid, neurofunk, jump-up y jungle
+    cubren casi todo lo que se programa hoy.</p>
+
+    <p><strong>Artistas clave:</strong> Chase and Status, Andy C, Noisia,
+    Pendulum, Dimension, Netsky, Shy FX, Sub Focus, Wilkinson,
+    Delta Heavy, Logistics</p>
+
+    <p><strong>Para empezar:</strong> <em>Hold Your Colour</em> de Pendulum
+    es el álbum que llevó a la mayoría de los fans estadounidenses
+    al DnB por primera vez.
+    Chase and Status son los artistas en vivo más consistentes del género.</p>
+
+    <img src="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80"
+      alt="Festival de noche con multitud"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2 id="festivals-by-region">A qué festivales ir según tu región</h2>
+    <p>La música bass no está repartida de forma pareja por el país.
+    Algunas regiones tienen una escena muy activa con varios eventos al año.
+    Otras tienen menos opciones cerca, pero están a distancia de manejo
+    de algo que vale la pena.
+    Aquí te decimos dónde buscar según dónde vives en Estados Unidos.</p>
+
+    <h3>Noreste (DC, Nueva York, Filadelfia, Boston)</h3>
+    <p>El Noreste tiene pocos eventos grandes de bass
+    para la cantidad de gente que vive ahí, por eso Project GLOW en Washington DC
+    es el evento principal de la región.
+    El Pulse Stage del festival es un escenario dedicado al bass
+    con un line-up fuerte que incluye dubstep,
+    riddim y bass experimental, junto a los headliners melódicos
+    del escenario principal.
+    Para DnB en particular, las noches de club en Nueva York
+    son más confiables que los festivales de esta región.</p>
+
+    <p><strong>Ideal para:</strong> dubstep, melodic bass, bass house</p>
+    <p><strong>Ve a:</strong> Project GLOW (DC, mayo)</p>
+
+    <h3>Sureste (Atlanta, Miami, Orlando, Nashville)</h3>
+    <p>El Sureste ha desarrollado una de las escenas regionales de bass
+    más fuertes del país en la última década.
+    Imagine Music Festival en Atlanta es el evento principal,
+    con un line-up muy cargado hacia el dubstep y el riddim,
+    con apoyo de melodic bass y future bass.
+    Ultra Miami cubre la música electrónica de forma más amplia,
+    pero tiene buenas contrataciones de bass en sus escenarios Resistance y Live.
+    EDC Orlando en noviembre es más accesible
+    que Las Vegas para la gente del Sureste
+    y cubre todos los subgéneros de bass.</p>
+
+    <p><strong>Ideal para:</strong> dubstep, riddim, bass house</p>
+    <p><strong>Ve a:</strong> Imagine Music Festival (Atlanta, septiembre),
+    Ultra Miami (marzo), EDC Orlando (noviembre)</p>
+
+    <h3>Medio Oeste (Chicago, Detroit, Columbus, Minneapolis)</h3>
+    <p>Lost Lands en Thornville, Ohio, es el festival de música bass más importante
+    del Medio Oeste y posiblemente del país en programación de bass pura.
+    El evento anual de Excision dura tres días, con un line-up
+    que cubre todos los rincones de la música bass, del dubstep al riddim
+    y lo experimental.
+    La producción es excepcional y el público
+    está entre los que más saben de bass en cualquier parte.
+    Bonnaroo en Tennessee (que se toma 2027 libre y vuelve en 2028) cubre bien el melodic bass y el future bass
+    y queda al alcance para el sur del Medio Oeste.</p>
+
+    <p><strong>Ideal para:</strong> dubstep, riddim, melodic bass, experimental</p>
+    <p><strong>Ve a:</strong> Lost Lands (Ohio, octubre), Bonnaroo (Tennessee, junio)</p>
+
+    <h3>Costa Oeste (Los Ángeles, San Francisco, Seattle, Portland)</h3>
+    <p>La Costa Oeste tiene la escena de bass más desarrollada fuera del Reino Unido.
+    Hard Summer en Los Ángeles cubre bass house, dubstep
+    y melodic bass con uno de los line-ups anuales más fuertes del país.
+    Bass Canyon en Quincy, Washington, es un festival dedicado al bass
+    organizado por Excision, más cercano al dubstep pesado y al riddim.
+    Nocturnal Wonderland en San Bernardino es uno de los
+    eventos con más trayectoria en la historia rave de Estados Unidos
+    y siempre contrata buenos artistas de bass de distintos subgéneros.
+    La Costa Oeste también tiene la escena de clubes de DnB más desarrollada del país,
+    sobre todo en San Francisco y Seattle.</p>
+
+    <p><strong>Ideal para:</strong> todos los subgéneros, la escena regional más fuerte</p>
+    <p><strong>Ve a:</strong> Hard Summer (LA, agosto),
+    Bass Canyon (Washington, agosto),
+    Nocturnal Wonderland (San Bernardino, septiembre)</p>
+
+    <h3>Texas y el Suroeste (Houston, Dallas, Austin, Phoenix)</h3>
+    <p>Something Wicked en Houston es el principal evento enfocado en bass
+    de la región de Texas, con buenas contrataciones de dubstep y bass house
+    alrededor del fin de semana de Halloween.
+    La escena de clubes de Austin cubre bien el melodic bass y el future bass todo el año.
+    Phoenix tiene una escena en crecimiento, con fechas de bass frecuentes
+    en clubes que muchas veces traen a artistas de gira
+    que viajan entre sus fechas en LA y Texas.</p>
+
+    <p><strong>Ideal para:</strong> dubstep, bass house</p>
+    <p><strong>Ve a:</strong> Something Wicked (Houston, octubre)</p>
+
+    <h2 id="find-your-sound">Cómo descubrir lo que de verdad te gusta</h2>
+    <p>La forma más rápida de entender las diferencias entre subgéneros
+    no es leer sobre ellos, sino escucharlos uno tras otro.
+    Pon un set de Excision, luego uno de Seven Lions,
+    luego uno de Rezz y luego uno de Valentino Khan.
+    Las diferencias se escuchan de inmediato,
+    de una forma que ninguna descripción logra captar del todo.</p>
+
+    <p>Casi todas las comunidades de subgéneros tienen sus propios subreddits,
+    servidores de Discord y curadores de playlists.
+    El mundo bass en general recibe bien a quien llega nuevo
+    con curiosidad de verdad,
+    y la mayoría de los fans veteranos te recomiendan cosas con gusto
+    si les dices qué es lo que ya sabes que te gusta.</p>
+
+    <p>Empieza con un artista. Síguelo hasta los artistas con los que colabora.
+    Sigue a esos artistas hasta los sellos donde publican.
+    Sigue a esos sellos hasta los otros artistas que firman.
+    En tres o cuatro pasos vas a tener un mapa de
+    todo un rincón del mundo bass,
+    armado con tu propio gusto y no con el de otra persona.</p>
+
+    <p style="margin-top:32px;padding:20px;
+      background:rgba(0,229,255,0.06);
+      border-left:3px solid #00e5ff;
+      line-height:1.8;">
+      Encuentra todos los festivales de música bass en un solo lugar en el
+      <a href="/calendar" style="color:var(--cyan);">
+        calendario de festivales de PLURGASM
+      </a>.
+      Usa el filtro de género para ver solo eventos de Bass, Dubstep
+      o Riddim y encontrar algo cerca de ti.
+    </p>
+`
+    },
     title: 'Bass Music Subgenres: A Complete Guide to Every Sound',
     slug: 'bass-music-101-guide',
     author: 'PLURGASM',
@@ -2556,6 +2901,83 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-003',
+    es: {
+      title: 'PLUR 101: Guía para principiantes de la cultura rave',
+      excerpt: '¿Nuevo en los raves? Todo lo que necesitas saber sobre la cultura, la etiqueta, el intercambio de kandi y por qué PLUR no es solo un eslogan: es cómo nos cuidamos de verdad en la pista de baile.',
+      body: `
+      <p>Todos empezamos en algún lado. Quizás un amigo te invitó a tu primer festival y no tenías idea de qué esperar. Quizás llevas tiempo con curiosidad por la cultura rave y por fin decidiste lanzarte. Sea como sea, bienvenido. Estás en el lugar correcto.</p>
+
+      <p>Esta guía cubre todo lo que necesitas saber para tu primer rave: qué significa realmente PLUR, cómo funciona el intercambio de kandi, la etiqueta en la pista de baile y cómo pasarla increíble y de forma segura.</p>
+
+      <h2>¿Qué es PLUR?</h2>
+      <p>PLUR son las siglas en inglés de <strong>Peace, Love, Unity, Respect</strong>: paz, amor, unidad y respeto. Nació a principios de los 90 en la escena rave de Nueva York como saludo y como filosofía, y se convirtió en la base de la cultura rave en todo el mundo por una razón.</p>
+
+      <p>PLUR no es solo un eslogan. Es cómo funciona la comunidad rave en su mejor versión:</p>
+
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Paz (Peace)</strong>: sin juicios, sin exclusión, sin ego. La pista de baile es una zona libre de juicios. No importa qué traes puesto, qué música te gusta ni cuánto tiempo llevas yendo a raves.</li>
+        <li><strong>Amor (Love)</strong>: amor incondicional hacia desconocidos. El tipo de amor que hace que alguien te pase agua cuando te ve acalorado, o que se acerque a ver cómo estás si te ve solo afuera de una carpa.</li>
+        <li><strong>Unidad (Unity)</strong>: una sola multitud, una sola energía. Todos los orígenes, todos los gustos musicales, todos los cuerpos. La pista de baile borra todo eso.</li>
+        <li><strong>Respeto (Respect)</strong>: por el espacio personal, por el consentimiento, por la música y por los demás. Respetar significa cuidar a la gente que tienes alrededor.</li>
+      </ul>
+
+      <h2>Kandi: qué es y cómo funciona el intercambio</h2>
+      <p>Las kandi son las pulseras de cuentas de colores que verás a los ravers usar apiladas a lo largo del brazo. Cada una la hizo alguien a mano, la usó y la intercambió. Cada pieza tiene una historia.</p>
+
+      <p>Intercambiar kandi es uno de los rituales más queridos de la cultura rave. Se hace con el <strong>saludo PLUR</strong>, un gesto de cuatro pasos que representa cada letra:</p>
+
+      <ol style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Paz</strong>: junten las palmas abiertas (como un namasté)</li>
+        <li><strong>Amor</strong>: entrelacen los dedos</li>
+        <li><strong>Unidad</strong>: enganchen los pulgares, sin soltar las manos</li>
+        <li><strong>Respeto</strong>: desliza la pulsera kandi de tu muñeca a la suya</li>
+      </ol>
+
+      <p>Algunas reglas de etiqueta: siempre pregunta antes de empezar. Acepta el intercambio con gusto aunque la pulsera no sea de tu estilo, porque lo que importa es la conexión, no la pulsera. Nunca exijas kandi ni intercambies con alguien que se vea incómodo. Siempre puedes decir que no con amabilidad.</p>
+
+      <h2>Cómo hacer el saludo PLUR</h2>
+      <p>Si alguna vez viste a dos ravers juntar las manos e intercambiar pulseras, viste el saludo PLUR, el pequeño ritual detrás del intercambio de <em>kandi</em> (las pulseras de cuentas que verás en cualquier show). Representa las cuatro palabras sobre las que se construye toda la escena: paz, amor, unidad y respeto. Así se hace.</p>
+      <img src="/images/plur/plur-handshake.webp" alt="El saludo PLUR: los gestos de paz, amor, unidad y respeto para intercambiar kandi" style="width:100%;max-width:100%;margin:24px 0;" />
+      <ol style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Paz</strong>: cada uno hace la señal de paz y junta sus dos dedos con los de la otra persona.</li>
+        <li><strong>Amor</strong>: cada uno forma medio corazón con la mano y los unen en uno solo.</li>
+        <li><strong>Unidad</strong>: junten las palmas abiertas, con las manos encontrándose en el medio.</li>
+        <li><strong>Respeto</strong>: entrelacen los dedos y luego desliza una pulsera kandi de tu muñeca a la suya.</li>
+      </ol>
+      <p>Eso es todo. La pulsera que pasas es suya para siempre, un pedacito de la noche que dice que te alegra que esté ahí. No lo pienses demasiado: el primer intercambio de todos es un poco torpe, y esa es la mitad de la diversión.</p>
+
+      <h2>Etiqueta en la pista de baile</h2>
+      <p>La etiqueta rave es casi puro sentido común, pero esto es lo que importa:</p>
+
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li><strong>Cuida tu espacio.</strong> Los festivales se llenan. Ten en cuenta a la gente a tu alrededor, sobre todo cerca del frente de los escenarios.</li>
+        <li><strong>Pregunta antes de tocar.</strong> El consentimiento no se negocia. Siempre pregunta antes de abrazar, bailar con alguien o tocar a cualquier persona.</li>
+        <li><strong>Pregunta cómo están los demás.</strong> Si alguien se ve mal, acércate. Si necesita ayuda, busca a un paramédico. Para eso están.</li>
+        <li><strong>No empujes para llegar al frente.</strong> La gente que llegó temprano se ganó su lugar.</li>
+        <li><strong>Deja espacio para los flow artists.</strong> Si alguien está girando o haciendo flow arts, dale espacio. Es hermoso de ver y peligroso de interrumpir.</li>
+      </ul>
+
+      <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Multitud bailando en un festival" style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+      <h2>Seguridad básica para tu primer rave</h2>
+      <ul style="margin:16px 0 16px 20px;line-height:2.2;">
+        <li>Dile a alguien a dónde vas y a qué hora piensas volver</li>
+        <li>Ve con al menos una persona de confianza</li>
+        <li>Acuerden un punto de encuentro antes de entrar, porque los celulares se descargan y las multitudes separan a los grupos</li>
+        <li>Toma agua. Más o menos 500 ml por hora si estás bailando</li>
+        <li>Lleva tapones para los oídos. La música está fuerte y el daño auditivo es permanente</li>
+        <li>Ubica la carpa médica en cuanto llegues</li>
+        <li>DanceSafe está en la mayoría de los festivales grandes. Búscalos para información de reducción de daños</li>
+      </ul>
+
+      <h2>Qué ponerte</h2>
+      <p>La moda rave es expresiva y de verdad no hay reglas, pero en la práctica: usa zapatos con los que puedas estar de pie por horas, lleva una capa extra si el evento es al aire libre y, si vas a estar entre la multitud, ponte algo con lo que te muevas cómodo.</p>
+
+      <p>Las kandi, los accesorios LED y los flow toys son bienvenidos en la mayoría de los festivales. Revisa las reglas del evento sobre lo que está permitido antes de ir.</p>
+
+      <p style="margin-top:32px;padding:20px;background:rgba(61,255,133,0.06);border-left:3px solid #3dff85;"><strong>Lo más importante:</strong> llega con la mente abierta y respeto real por la gente a tu alrededor. La comunidad rave es una de las más acogedoras del mundo cuando PLUR se practica de verdad. Nos alegra que estés aquí.</p>
+`
+    },
     title: 'PLUR 101: A Beginner\'s Guide to Rave Culture',
     slug: 'plur-101-beginners-guide',
     author: 'PLURGASM',
@@ -2796,6 +3218,324 @@ PLURGASM_DATA.blogPosts = [
 
   {
     id: 'post-007',
+    es: {
+      title: 'Qué llevar a un rave: la lista completa de lo que de verdad necesitas',
+      seoTitle: 'Qué llevar a un rave o festival: lista completa',
+      excerpt: 'La lista definitiva de qué llevar a un festival, hecha con experiencia real y no con tableros de Pinterest. Lo que de verdad necesitas, lo que seguro vas a olvidar, lo que debes dejar en casa y por qué los tapones para los oídos son lo más importante de toda la lista.',
+      body: `
+    <p>Cada temporada de festivales pasa lo mismo. Alguien arma su mochila, llega
+    y se pasa la primera hora buscando desesperado en la zona de vendedores
+    algo que se le olvidó. Casi siempre es el bloqueador solar. A veces es el cargador del celular.
+    De vez en cuando son los calcetines.</p>
+
+    <p>Esta es la lista que nos hubiera gustado tener en nuestro primer festival.
+    No la versión de Pinterest. La real, hecha con experiencia,
+    con errores y viendo a desconocidos sufrir con el calor
+    por llevar los zapatos equivocados.</p>
+
+    <img src="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80"
+      alt="Equipo de campamento para festival"
+      style="width:100%;height:280px;object-fit:cover;margin:24px 0;">
+
+    <h2>Lo que no puede faltar</h2>
+    <p>Si se te olvida cualquiera de estas cosas,
+    tu experiencia en el festival empeora de verdad.
+    No es solo una molestia: es peor.</p>
+
+    <h3>🎧 Tapones para los oídos: lo más importante de esta lista</h3>
+    <p>Los ponemos primero porque casi todos los ponen al final y luego se les olvidan.
+    Los escenarios de los festivales son ruidosos. Peligrosamente ruidosos: la exposición prolongada
+    a más de 85 dB causa daño auditivo permanente, y los escenarios principales
+    suelen pasar de 100 dB. Los tapones de alta fidelidad (Eargasm, Loop, Earasers,
+    Etymotic) bajan el volumen sin arruinar la calidad del sonido.
+    La música se sigue escuchando increíble. Y tus oídos siguen funcionando a los 40.</p>
+    <p>Los tapones desechables de espuma sirven en una emergencia, pero apagan mucho el sonido.
+    Invierte entre 20 y 40 dólares en un buen par. Te van a durar años.</p>
+
+    <h3>💧 Botella de agua sellada, máximo 32 oz (unos 946 ml)</h3>
+    <p>La mayoría de los festivales permiten botellas de agua selladas de hasta 32 oz.
+    Lleva una. Llénala en las estaciones de agua gratis que
+    hay en todos los festivales con permiso.
+    No dependas de comprar agua adentro.
+    Vas a pagar 8 dólares por botella y se te va a acabar todo el tiempo.</p>
+
+    <h3>🎒 Mochila pequeña, de menos de 18 pulgadas (unos 45 cm)</h3>
+    <p>Es el tamaño permitido estándar en la mayoría de los festivales.
+    Mide la tuya antes de ir. Una mochila de hidratación (tipo CamelBak)
+    es todavía mejor si vas a bailar mucho:
+    manos libres, siempre hidratado, y la mayoría de los eventos permiten hasta 70 oz (unos 2 litros).</p>
+
+    <h3>🪪 Identificación y boletos</h3>
+    <p>Toma captura de pantalla de tus boletos Y ten la app descargada.
+    Guarda las capturas en tu galería para que abran
+    sin señal. Te piden la identificación en la entrada y en
+    cualquier zona con restricción de edad adentro. No la dejes en el carro.</p>
+
+    <h3>💊 Sobres de electrolitos, mínimo 2 por día</h3>
+    <p>Liquid IV, LMNT, tabletas Nuun, lo que prefieras.
+    La deshidratación en los festivales casi nunca es por no tomar suficiente agua.
+    Es por tomar agua sin reponer los electrolitos
+    que pierdes al sudar. Un sobre disuelto en tu botella
+    por sesión cambia muchísimo cómo te sientes.</p>
+
+    <h3>🔋 Cargador portátil para el celular</h3>
+    <p>Tu celular se va a descargar. Siempre se descarga.
+    Una batería portátil de 10,000 mAh carga la mayoría de los celulares
+    2 o 3 veces y cabe en el bolsillo de una mochila pequeña.
+    Cárgala completa la noche anterior.
+    Lleva el cable correcto para tu celular.</p>
+
+    <img src="https://images.unsplash.com/photo-1571266752756-0fe20de8dde1?w=800&q=80"
+      alt="Multitud en un festival de noche"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>Seguridad y reducción de daños</h2>
+
+    <h3>🧪 Tiras para detectar fentanilo</h3>
+    <p>Las encuentras en la mayoría de las farmacias sin receta
+    y con DanceSafe en dancesafe.org.
+    El fentanilo está en el suministro de drogas.
+    Las tiras tardan 30 segundos y pueden salvar una vida.
+    Llévalas. Úsalas. Dales a tus amigos.</p>
+
+    <h3>💊 Narcan (naloxona)</h3>
+    <p>Se vende sin receta en CVS, Walgreens y Rite Aid.
+    Revierte las sobredosis de opioides.
+    No necesitas receta.
+    No necesitas saber usarla de antemano:
+    las instrucciones vienen en la caja.
+    Tenla a la mano en tu mochila, no enterrada en el fondo.</p>
+
+    <h3>🩹 Primeros auxilios básicos</h3>
+    <p>Un botiquín pequeño de viaje:
+    curitas, parches para ampollas (te van a salir ampollas),
+    ibuprofeno, antiácidos.
+    Nada glamoroso. Pero necesario.</p>
+
+    <h3>🌡️ Abanico de mano o ventilador con atomizador</h3>
+    <p>El agotamiento por calor en los festivales es serio y
+    pasa más rápido de lo que la gente cree.
+    Un ventilador pequeño de pilas con atomizador cuesta entre 10 y 15 dólares
+    y te cambia la vida en un festival de verano al aire libre.
+    Apúntalo a las muñecas y al cuello para enfriarte más rápido.</p>
+
+    <h3>☀️ Bloqueador solar, sin aerosol</h3>
+    <p>La mayoría de los festivales prohíben el bloqueador en aerosol por seguridad contra incendios.
+    Lleva crema o spray en botella sin aerosol.
+    SPF 50. Vuelve a ponértelo cada dos horas si estás al aire libre.
+    Quemarte hace que un festival de tres días sea mucho menos divertido
+    a partir de la sexta hora del primer día.</p>
+
+    <h2>Qué ponerte y qué llevar para más tarde</h2>
+
+    <h3>👟 Zapatos para estar de pie más de 8 horas</h3>
+    <p>Aquí es donde la gente comete el error más grande.
+    Las botas de plataforma se ven increíbles.
+    Las botas de plataforma después de seis horas bailando sobre concreto
+    se sienten como un castigo. Si vas a usar plataformas,
+    amánsalas primero. Úsalas en la casa,
+    para caminar, donde sea, al menos unas semanas antes del festival.
+    Lleva parches para ampollas y moleskin de todos modos.</p>
+
+    <h3>🧣 Una capa para después de medianoche</h3>
+    <p>Los festivales de verano al aire libre se ponen fríos de noche.
+    Esto sorprende a la gente cada vez.
+    Vas a estar sudado y de repente vas a estar a oscuras
+    con brisa y vas a necesitar algo encima.
+    Un pashmina ligero o una sudadera se doblan planos
+    y te salvan de sufrir después de medianoche.
+    También sirve para sentarte durante los sets
+    y de almohada si terminas en algún lugar inesperado.</p>
+
+    <h3>👙 Tu outfit, más uno de repuesto</h3>
+    <p>Lleva al menos una prenda de repuesto:
+    un top extra, unos shorts extra, algo.
+    Los festivales son impredecibles.
+    Las cosas se derraman, se rompen, el clima cambia.
+    Un repuesto casi no ocupa espacio y ha salvado
+    más experiencias de festival de las que podemos contar.</p>
+
+    <h3>🧦 Calcetines extra</h3>
+    <p>Los mencionamos aparte porque siempre se olvidan.
+    Un par extra. Créenos.</p>
+
+    <img src="https://images.unsplash.com/photo-1598387993441-a364f854cfba?w=800&q=80"
+      alt="Moda de festival y kandi"
+      style="width:100%;height:260px;object-fit:cover;margin:24px 0;">
+
+    <h2>Kandi y cultura</h2>
+
+    <h3>📿 Kandi para intercambiar</h3>
+    <p>No necesitas llevar muchas.
+    Con cinco o seis piezas basta para una buena experiencia de intercambio.
+    Si no tienes, visita el directorio de marcas de PLURGASM:
+    hay varias tiendas que venden kandi ya hechas,
+    listas para intercambiar la misma semana en que las pides.</p>
+
+    <h3>🎨 Glitter, joyas corporales y accesorios</h3>
+    <p>El glitter cosmético está bien.
+    El glitter de manualidades es microplástico y daña el medio ambiente,
+    y la mayoría de los festivales lo están dejando atrás.
+    Las joyas corporales, las gemas para la cara y los accesorios LED son geniales
+    y están permitidos en la mayoría de los eventos.
+    Revisa las reglas del festival antes de empacar algo fuera de lo común.</p>
+
+    <h3>🌀 Flow props: revisa las reglas primero</h3>
+    <p>Los flowstars, los poi, los guantes LED y la mayoría de los flow props
+    están permitidos en casi todos los festivales, con la condición de que
+    no tengan bordes filosos y no se usen
+    de forma peligrosa en zonas llenas de gente.
+    Revisa la política del festival antes de empacar los tuyos.
+    Llévalos bien guardados en la mochila durante el trayecto.</p>
+
+    <h2>Tecnología y equipo práctico</h2>
+
+    <h3>📱 Toma captura de todo</h3>
+    <p>Las apps de los festivales fallan. La señal de celular en los festivales es pésima:
+    50,000 personas en un mismo terreno saturan las antenas.
+    Toma captura de tu boleto, del mapa del festival,
+    de los horarios de los sets, de la ubicación de tu campamento (si acampas)
+    y de la dirección de donde te estás quedando.
+    De todo. Guardado en tu galería y disponible sin conexión.</p>
+
+    <h3>💵 Efectivo</h3>
+    <p>La mayoría de los festivales aceptan tarjeta en todos lados, pero los cajeros de adentro
+    cobran entre 8 y 12 dólares por retiro y se quedan sin efectivo para el segundo día.
+    Lleva entre 60 y 100 dólares en billetes chicos.
+    Los vas a usar para propinas, vendedores pequeños
+    y emergencias cuando no funcione la terminal de tarjetas.</p>
+
+    <h3>🔦 Linterna pequeña o lámpara de cabeza</h3>
+    <p>Sobre todo en festivales con campamento.
+    Encontrar tu casa de campaña a las 3 a. m. en un campamento a oscuras
+    sin luz es toda una experiencia.
+    Una lámpara de cabeza pequeña o una linterna de clip
+    es de esas cosas que cuestan 8 dólares
+    y se ganan su lugar cada vez que las usas.</p>
+
+    <h2>Qué NO llevar</h2>
+    <p>Lo que dejas en casa importa tanto como lo que empacas.</p>
+
+    <ul style="margin:16px 0 24px 20px;line-height:2.2;">
+      <li><strong>Mochilas grandes de más de 18 pulgadas</strong>:
+        te las van a rechazar en seguridad. Mide primero.</li>
+      <li><strong>Alcohol de fuera</strong>:
+        lo confiscan en todos los festivales, sin excepción.</li>
+      <li><strong>Cámaras profesionales con lentes intercambiables</strong>:
+        prohibidas en la mayoría de los eventos.
+        La cámara de tu celular es más que suficiente.</li>
+      <li><strong>Cualquier cosa en aerosol</strong>:
+        bloqueador, shampoo en seco, desodorante en spray. Todo prohibido.</li>
+      <li><strong>Cualquier cosa que no puedas darte el lujo de perder</strong>:
+        joyas caras, objetos irremplazables,
+        el anillo de tu abuela.
+        Las cosas se pierden, las cosas se roban.
+        Deja tus objetos de valor en casa.</li>
+      <li><strong>Drones</strong>: prohibidos en todos lados.</li>
+      <li><strong>Palos de selfie, apuntadores láser</strong>:
+        te los confiscan de inmediato.</li>
+      <li><strong>Más de lo que puedas cargar cómodamente</strong>:
+        vas a cargar esa mochila más de 8 horas.
+        Si se siente pesada en tu cuarto,
+        se va a sentir imposible a la sexta hora.</li>
+    </ul>
+
+    <h2>La lista de verificación completa</h2>
+    <p>Imprímela o tómale captura antes de empacar:</p>
+
+    <div style="background:rgba(0,229,255,0.05);
+      border:1px solid rgba(0,229,255,0.2);
+      padding:24px 28px;margin:20px 0;">
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--cyan);
+        margin-bottom:16px;">
+        ESENCIALES
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:20px;">
+        ☐ Tapones para los oídos de alta fidelidad<br>
+        ☐ Botella de agua sellada (máx. 32 oz)<br>
+        ☐ Mochila pequeña (menos de 18")<br>
+        ☐ Identificación + boletos (capturas sin conexión)<br>
+        ☐ Sobres de electrolitos (2 por día)<br>
+        ☐ Cargador portátil + cable<br>
+        ☐ Bloqueador solar (sin aerosol)<br>
+        ☐ Efectivo (60 a 100 dólares en billetes chicos)<br>
+        ☐ Celular cargado al 100% al salir
+      </p>
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--green);
+        margin-bottom:16px;">
+        SEGURIDAD
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:20px;">
+        ☐ Tiras para detectar fentanilo<br>
+        ☐ Narcan / naloxona<br>
+        ☐ Botiquín básico de primeros auxilios<br>
+        ☐ Abanico o ventilador con atomizador<br>
+        ☐ Medicamentos que tomas a diario
+      </p>
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--pink);
+        margin-bottom:16px;">
+        QUÉ PONERTE
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:20px;">
+        ☐ Zapatos ya amansados<br>
+        ☐ Parches para ampollas + moleskin<br>
+        ☐ Pashmina o capa ligera<br>
+        ☐ Prenda de repuesto<br>
+        ☐ Calcetines extra
+      </p>
+
+      <p style="font-family:'DM Mono',monospace;
+        font-size:10px;letter-spacing:3px;
+        text-transform:uppercase;color:var(--purple);
+        margin-bottom:16px;">
+        CULTURA
+      </p>
+      <p style="font-size:14px;color:var(--muted);
+        line-height:2.2;margin-bottom:0;">
+        ☐ Kandi para intercambiar<br>
+        ☐ Flow props (si se permiten)<br>
+        ☐ Linterna pequeña (para acampar)<br>
+        ☐ Captura del mapa del festival<br>
+        ☐ Punto de encuentro acordado con tu grupo
+      </p>
+    </div>
+
+    <p style="margin-top:32px;padding:20px;
+      background:rgba(255,45,120,0.06);
+      border-left:3px solid #ff2d78;
+      line-height:1.8;">
+      <strong>Una última cosa:</strong> acuerden un punto
+      de encuentro físico con tu grupo antes de entrar.
+      No una zona general. Elijan un lugar específico,
+      la entrada de un escenario en particular, algo imposible de confundir.
+      La señal va a fallar en el peor momento.
+      El punto de encuentro ha salvado a más grupos en festivales
+      que cualquier otra cosa de esta lista.
+    </p>
+
+    <p style="margin-top:24px;font-size:15px;
+      color:var(--muted);line-height:1.8;">
+      Para todos los recursos de reducción de daños, los enlaces de DanceSafe
+      y qué hacer en una emergencia en un festival,
+      visita nuestra
+      <a href="/safety" style="color:var(--cyan);">
+        página de Seguridad y PLUR (en inglés) →
+      </a>
+    </p>
+`
+    },
     title: 'The Complete Rave Packing List: What to Actually Bring',
     slug: 'complete-rave-packing-list',
     author: 'PLURGASM',

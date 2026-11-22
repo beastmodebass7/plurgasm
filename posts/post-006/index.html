@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="/js/festival-map.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Coachella Effect: What Happens When the Mainstream Finds Our Festivals","description":"Subtronics went viral on TikTok. Coachella booked Fisher. Bass music is everywhere. A new wave of fans is discovering our festivals, and some of them have…","image":["https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80"],"datePublished":"2026-05-28","dateModified":"2026-05-28","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-006/"},"articleSection":"Culture","wordCount":1426,"url":"https://plurgasm.com/posts/post-006/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Coachella Effect: What Happens When the Mainstream Finds Our Festivals","description":"Subtronics went viral on TikTok. Coachella booked Fisher. Bass music is everywhere. A new wave of fans is discovering our festivals, and some of them have…","inLanguage":"en","image":["https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80"],"datePublished":"2026-05-28","dateModified":"2026-05-28","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-006/"},"articleSection":"Culture","wordCount":1426,"url":"https://plurgasm.com/posts/post-006/"}</script>
 <script>window.PLURGASM_POST_ID="post-006";</script>
 </head>
 <body>
@@ -607,6 +607,10 @@ document.addEventListener('DOMContentLoaded', () => {
       await PlurViews.recordAndGet(post.id);
     } catch (e) { console.error('view tracking error:', e); }
   })();
+
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
 
   const morePosts = posts
     .filter(p => p.id !== post.id)

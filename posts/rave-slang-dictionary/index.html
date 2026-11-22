@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="/js/festival-map.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Rave Slang Dictionary: Every Term You Need to Know","description":"The complete rave slang dictionary. From PLUR and kandi to rail riders and bass face, learn every festival term before your next show.","image":["https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"],"datePublished":"2026-06-30","dateModified":"2026-06-30","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/rave-slang-dictionary/"},"articleSection":"Culture","wordCount":1481,"url":"https://plurgasm.com/posts/rave-slang-dictionary/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Rave Slang Dictionary: Every Term You Need to Know","description":"The complete rave slang dictionary. From PLUR and kandi to rail riders and bass face, learn every festival term before your next show.","inLanguage":"en","image":["https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"],"datePublished":"2026-06-30","dateModified":"2026-06-30","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/rave-slang-dictionary/"},"articleSection":"Culture","wordCount":1481,"url":"https://plurgasm.com/posts/rave-slang-dictionary/"}</script>
 <script>window.PLURGASM_POST_ID="rave-slang-dictionary";</script>
 </head>
 <body>
@@ -615,6 +615,10 @@ document.addEventListener('DOMContentLoaded', () => {
       await PlurViews.recordAndGet(post.id);
     } catch (e) { console.error('view tracking error:', e); }
   })();
+
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
 
   const morePosts = posts
     .filter(p => p.id !== post.id)

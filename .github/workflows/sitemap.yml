@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          FILES="sitemap.xml robots.txt llms.txt posts index.html blog.html blog-post.html calendar.html"
+          FILES="sitemap.xml robots.txt llms.txt posts es index.html blog.html blog-post.html calendar.html"
           if [ -z "$(git status --porcelain -- $FILES)" ]; then
             echo "No changes — nothing to commit."
           else

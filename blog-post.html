@@ -458,6 +458,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { console.error('view tracking error:', e); }
   })();
 
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
+
   const morePosts = posts
     .filter(p => p.id !== post.id)
     .sort((a,b) => new Date(b.date) - new Date(a.date))

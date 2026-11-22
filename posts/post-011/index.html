@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="/js/festival-map.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis","description":"Cercle has pulled its upcoming Mexico festival and gone public with serious money trouble, and for the first time in a decade, the team is asking fans for help.","image":["https://plurgasm.com/images/cercle-mexico-cancelled.webp"],"datePublished":"2026-06-24","dateModified":"2026-06-24","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-011/"},"articleSection":"Festival News","wordCount":622,"url":"https://plurgasm.com/posts/post-011/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cercle Cancels Its Mexico Festival as the Company Faces a Financial Crisis","description":"Cercle has pulled its upcoming Mexico festival and gone public with serious money trouble, and for the first time in a decade, the team is asking fans for help.","inLanguage":"en","image":["https://plurgasm.com/images/cercle-mexico-cancelled.webp"],"datePublished":"2026-06-24","dateModified":"2026-06-24","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-011/"},"articleSection":"Festival News","wordCount":622,"url":"https://plurgasm.com/posts/post-011/"}</script>
 <script>window.PLURGASM_POST_ID="post-011";</script>
 </head>
 <body>
@@ -554,6 +554,10 @@ document.addEventListener('DOMContentLoaded', () => {
       await PlurViews.recordAndGet(post.id);
     } catch (e) { console.error('view tracking error:', e); }
   })();
+
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
 
   const morePosts = posts
     .filter(p => p.id !== post.id)

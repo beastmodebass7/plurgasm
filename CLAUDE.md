@@ -19,6 +19,7 @@ green `#3dff85` · amber `#ffb800` · off-white text `#f0eeff`. Use CSS vars (`v
   in `<head>`, both filled by `build-schedule.js` between `GEN:SCHEDULE` / `GEN:SCHEDULE-SCHEMA` markers. Never hand-edit those.
 - `blog.html` (`/blog`) all posts · `blog-post.html` = the post **template** + fallback renderer for old `/blog-post?id=…` links
 - `posts/<id>/index.html` (`/posts/<id>/`) — **generated** static page per published post (see Blog URLs below). Never hand-edit.
+- `es/posts/<id>/index.html` (`/es/posts/<id>/`) — **generated** Spanish version of a post that has an `es` field (see Spanish posts below). Never hand-edit.
 - `category.html` (`/category?cat=…`) — single brand-category page
 - `social.html` (`/social`) creators directory · `profile.html` (`/profile`) signed-in user's saved "rave calendar"
 - `admin.html` (`/admin`) — localStorage-based content editor (no real backend; writes to `pg_admin_*` keys)
@@ -155,6 +156,15 @@ A blog post's `id` **is** its public URL: **`/posts/<id>/`** (canonical, in the 
   also rewrites any `/blog-post?id=` link inside post bodies on output.
 - `blog-post.html` uses root-absolute asset paths (`/css/…`, `/js/…`) because it's also the template for
   pages one folder deep. Relative `coverImage` values are made absolute automatically.
+
+- **Spanish posts (pilot).** Add an optional `es: { title, seoTitle, excerpt, body }` field to a post (same HTML
+  structure as the English body, translated). `build-posts.js` then also writes `/es/posts/<id>/` with
+  `lang="es"`, Spanish UI labels, `og:locale es_US`, and `hreflang` en/es/x-default links on **both** versions,
+  plus a "Leer en español →" / "Read in English →" link. Spanish URLs go in the sitemap and IndexNow automatically.
+  Rules: only add `es` for a real, reviewed translation (Google treats unreviewed machine translation as
+  low-quality); when you edit an English post that has `es`, update the Spanish body too or it goes stale;
+  keep the `<h2 id>` anchors identical so `#section` links work in both; no em dashes. Nav/footer stay
+  English (nav.js). Translated so far: post-003 (PLUR 101), post-007 (packing list), post-009 (bass subgenres).
 
 - **New posts: descriptive, keyword-rich slug ids.** For every NEW blog post, set `id` to a
   descriptive slug (e.g. `'cercle-cancels-mexico-festival'`), **not** a sequential number like

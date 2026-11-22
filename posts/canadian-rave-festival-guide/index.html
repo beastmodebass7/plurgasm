@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="/js/festival-map.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Ultimate Guide to Canadian Rave & Festival Culture: By Season and Province","description":"From dancing in a Montreal winter at Igloofest to BC mountain bass at Shambhala, here is your cross-country guide to Canada's electronic music festivals, by…","image":["https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80"],"datePublished":"2026-10-23","dateModified":"2026-10-23","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/canadian-rave-festival-guide/"},"articleSection":"Culture","wordCount":802,"url":"https://plurgasm.com/posts/canadian-rave-festival-guide/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Ultimate Guide to Canadian Rave & Festival Culture: By Season and Province","description":"From dancing in a Montreal winter at Igloofest to BC mountain bass at Shambhala, here is your cross-country guide to Canada's electronic music festivals, by…","inLanguage":"en","image":["https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80"],"datePublished":"2026-10-23","dateModified":"2026-10-23","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/canadian-rave-festival-guide/"},"articleSection":"Culture","wordCount":802,"url":"https://plurgasm.com/posts/canadian-rave-festival-guide/"}</script>
 <script>window.PLURGASM_POST_ID="canadian-rave-festival-guide";</script>
 </head>
 <body>
@@ -581,6 +581,10 @@ document.addEventListener('DOMContentLoaded', () => {
       await PlurViews.recordAndGet(post.id);
     } catch (e) { console.error('view tracking error:', e); }
   })();
+
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
 
   const morePosts = posts
     .filter(p => p.id !== post.id)

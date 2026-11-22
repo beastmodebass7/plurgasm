@@ -5261,3 +5261,8 @@ a.fci-name:hover, a.cal-name:hover { color: var(--cyan); }
   .sch-table td:nth-child(2) { font-size: 16px; }
   .sch-table td:nth-child(4), .sch-table td:nth-child(3) { font-size: 13px; }
 }
+
+/* Language switch on bilingual blog posts ("Leer en español →" / "Read in English →"), built by build-posts.js */
+.post-lang-switch { display: inline-block; white-space: nowrap; margin-left: 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,229,255,0.35); border-radius: 999px; padding: 5px 12px; transition: background 0.2s; }
+.post-lang-switch:hover { background: rgba(0,229,255,0.1); }
+@media (max-width: 520px) { .post-lang-switch { display: table; margin: 14px 0 0; } }

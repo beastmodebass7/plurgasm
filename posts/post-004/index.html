@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="/js/festival-map.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Electric Forest 2026: Why This is Unlike Any Other Festival","description":"Electric Forest is not just a festival. It's a world built inside a Michigan pine forest. ILLENIUM, GRiZ, and Subtronics headline a 4-day experience that is…","image":["https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80"],"datePublished":"2026-04-10","dateModified":"2026-04-10","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-004/"},"articleSection":"Festival News","wordCount":529,"url":"https://plurgasm.com/posts/post-004/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Electric Forest 2026: Why This is Unlike Any Other Festival","description":"Electric Forest is not just a festival. It's a world built inside a Michigan pine forest. ILLENIUM, GRiZ, and Subtronics headline a 4-day experience that is…","inLanguage":"en","image":["https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=800&q=80"],"datePublished":"2026-04-10","dateModified":"2026-04-10","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-004/"},"articleSection":"Festival News","wordCount":529,"url":"https://plurgasm.com/posts/post-004/"}</script>
 <script>window.PLURGASM_POST_ID="post-004";</script>
 </head>
 <body>
@@ -559,6 +559,10 @@ document.addEventListener('DOMContentLoaded', () => {
       await PlurViews.recordAndGet(post.id);
     } catch (e) { console.error('view tracking error:', e); }
   })();
+
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
 
   const morePosts = posts
     .filter(p => p.id !== post.id)

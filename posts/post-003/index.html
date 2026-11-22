@@ -18,6 +18,9 @@
 <title>PLUR 101: A Beginner's Guide to Rave Culture — PLURGASM</title>
 <!-- Canonical + og:url are filled in by JS once the ?id= post is resolved. Pre-built /posts/<id>/ pages (build-posts.js) have them hardcoded. -->
 <link rel="canonical" id="canonical-link" href="https://plurgasm.com/posts/post-003/">
+<link rel="alternate" hreflang="en" href="https://plurgasm.com/posts/post-003/">
+<link rel="alternate" hreflang="es" href="https://plurgasm.com/es/posts/post-003/">
+<link rel="alternate" hreflang="x-default" href="https://plurgasm.com/posts/post-003/">
 <meta property="og:url" content="https://plurgasm.com/posts/post-003/">
 <meta property="article:published_time" content="2026-04-20">
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -38,7 +41,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="/js/festival-map.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"PLUR 101: A Beginner's Guide to Rave Culture","description":"New to raving? Here's everything you need to know about the culture, etiquette, kandi trading, and why PLUR isn't just a slogan: it's how we actually look out…","image":["https://plurgasm.com/images/plur/plur-101-cover.svg"],"datePublished":"2026-04-20","dateModified":"2026-04-20","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-003/"},"articleSection":"Culture","wordCount":838,"url":"https://plurgasm.com/posts/post-003/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"PLUR 101: A Beginner's Guide to Rave Culture","description":"New to raving? Here's everything you need to know about the culture, etiquette, kandi trading, and why PLUR isn't just a slogan: it's how we actually look out…","inLanguage":"en","image":["https://plurgasm.com/images/plur/plur-101-cover.svg"],"datePublished":"2026-04-20","dateModified":"2026-04-20","author":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com"},"publisher":{"@type":"Organization","name":"PLURGASM","url":"https://plurgasm.com","logo":{"@type":"ImageObject","url":"https://plurgasm.com/favicon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://plurgasm.com/posts/post-003/"},"articleSection":"Culture","wordCount":838,"url":"https://plurgasm.com/posts/post-003/"}</script>
 <script>window.PLURGASM_POST_ID="post-003";</script>
 </head>
 <body>
@@ -52,6 +55,7 @@
     <div style="margin-bottom:32px;">
       <a href="/blog" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
         onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">← All Posts</a>
+      <a class="post-lang-switch" href="/es/posts/post-003/" hreflang="es" lang="es">Leer en español →</a>
     </div>
 
     <div class="blog-header-media">
@@ -594,6 +598,10 @@ document.addEventListener('DOMContentLoaded', () => {
       await PlurViews.recordAndGet(post.id);
     } catch (e) { console.error('view tracking error:', e); }
   })();
+
+  // Pre-built pages already have the right "more posts" cards in their HTML
+  // (in the page's own language), so only the old ?id= fallback renders them.
+  if (prerendered) return;
 
   const morePosts = posts
     .filter(p => p.id !== post.id)

@@ -47,6 +47,7 @@ function fileToUrl(file) {
   let m;
   if (file === 'index.html') return SITE + '/';
   if ((m = file.match(/^posts\/([a-z0-9-]+)\/index\.html$/))) return SITE + '/posts/' + m[1] + '/';
+  if ((m = file.match(/^es\/posts\/([a-z0-9-]+)\/index\.html$/))) return SITE + '/es/posts/' + m[1] + '/';
   if ((m = file.match(/^festivals\/([a-z0-9-]+)\.html$/))) return SITE + '/festivals/' + m[1];
   if ((m = file.match(/^([a-z0-9-]+)\.html$/))) return SITE + '/' + m[1];
   return null;
@@ -86,7 +87,7 @@ function changedUrls(before, inSitemap) {
     if (file === 'js/data.js') DATA_PAGES.forEach(p => urls.add(SITE + p));
     const url = fileToUrl(file);
     if (!url) continue;
-    if (status.startsWith('M') && /^posts\//.test(file) && !postReallyChanged(before, file)) continue;
+    if (status.startsWith('M') && /^(es\/)?posts\//.test(file) && !postReallyChanged(before, file)) continue;
     // Deleted post pages are sent too, so engines drop them faster.
     if (inSitemap.has(url) || (status.startsWith('D') && url.includes('/posts/'))) urls.add(url);
   }

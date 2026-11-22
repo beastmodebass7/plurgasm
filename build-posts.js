@@ -9,6 +9,11 @@
  * shell filled in by JS, so every post looked identical: same <title>, no H1,
  * no text, no canonical, no schema. These pages have all of that in the HTML,
  * and blog-post.html's JS still runs on top for the interactive extras.
+ *
+ * Spanish: a post with an `es: { title, seoTitle, excerpt, body }` field also
+ * gets /es/posts/<id>/index.html (lang="es", Spanish labels). Both versions
+ * carry hreflang links to each other so Google shows Spanish searchers the
+ * Spanish page. Only add `es` to posts that have a real, reviewed translation.
  */
 'use strict';
 
@@ -24,6 +29,28 @@ const MONTHS = ['January','February','March','April','May','June','July','August
 
 const postPath = id => '/posts/' + encodeURIComponent(id) + '/';
 const postUrl  = id => SITE + postPath(id);
+const esPostPath = id => '/es' + postPath(id);
+const esPostUrl  = id => SITE + esPostPath(id);
+const hasEs = p => !!(p && p.es && p.es.title && p.es.body);
+
+// UI words on the pre-built page, per language.
+const UI = {
+  en: { months: MONTHS, allPosts: '← All Posts', allHref: '/blog', by: 'By ', read: ' min read', share: 'Share Article',
+        more: 'More From the Community', cats: CAT_LABELS, descTail: ' — rave culture, news and guides on PLURGASM.',
+        switchText: 'Leer en español →', switchLang: 'es' },
+  es: { months: ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
+        allPosts: '← Todos los artículos', allHref: '/blog', by: 'Por ', read: ' min de lectura', share: 'Compartir artículo',
+        more: 'Más de la comunidad', descTail: ': cultura rave, noticias y guías en PLURGASM.',
+        cats: { 'festival-news': 'Noticias de festivales', culture: 'Cultura', fashion: 'Moda', safety: 'Seguridad', gear: 'Equipo' },
+        switchText: 'Read in English →', switchLang: 'en' }
+};
+// The Spanish version of a post: same post, with the es fields swapped in.
+function localize(post, lang) {
+  if (lang !== 'es') return post;
+  return Object.assign({}, post, { title: post.es.title, seoTitle: post.es.seoTitle || '', excerpt: post.es.excerpt || '', body: post.es.body });
+}
+const pathFor = (id, lang) => lang === 'es' ? esPostPath(id) : postPath(id);
+const urlFor  = (id, lang) => SITE + pathFor(id, lang);
 
 function escAttr(s) {
   return String(s == null ? '' : s).replace(/&(?!(?:[a-z]+|#\d+);)/gi, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -34,16 +61,20 @@ function absPath(u) { return !u ? '' : (/^(https?:|\/|data:)/i.test(u) ? u : '/'
 function absUrl(u)  { return !u ? '' : (/^https?:/i.test(u) ? u : SITE + absPath(u)); }
 
 // "2026-11-15" -> "November 15, 2026" (string split: no UTC off-by-one).
-function fmtDate(d, short) {
+function fmtDate(d, short, lang) {
   const [y, m, day] = String(d).split('-').map(Number);
   if (!y || !m || !day) return String(d);
+  if (lang === 'es') { // "20 de abril de 2026" / "20 abr 2026"
+    const mes = UI.es.months[m - 1];
+    return short ? day + ' ' + mes.slice(0, 3) + ' ' + y : day + ' de ' + mes + ' de ' + y;
+  }
   const mon = short ? MONTHS[m - 1].slice(0, 3) : MONTHS[m - 1];
   return mon + ' ' + day + ', ' + y;
 }
 function plainText(html) { return String(html || '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim(); }
-function readTimeBadge(body) {
+function readTimeBadge(body, lang) {
   const words = plainText(body) ? plainText(body).split(' ').length : 0;
-  return '<span class="read-time-badge">⏱ ' + Math.max(1, Math.ceil(words / 200)) + ' min read</span>';
+  return '<span class="read-time-badge">⏱ ' + Math.max(1, Math.ceil(words / 200)) + UI[lang || 'en'].read + '</span>';
 }
 function clampDesc(txt) {
   txt = (txt || '').replace(/\s+/g, ' ').trim();
@@ -55,22 +86,36 @@ function clampDesc(txt) {
   }
   return txt;
 }
-function descFor(post) {
+function descFor(post, lang) {
   const ex = (post.excerpt || '').trim();
-  return clampDesc(ex.length >= 25 ? ex : post.title + ' — rave culture, news and guides on PLURGASM.');
+  return clampDesc(ex.length >= 25 ? ex : post.title + UI[lang || 'en'].descTail);
 }
 
 // Body tweaks for the static copy: old ?id= links -> new URLs, lazy images.
-function prepBody(body) {
-  return String(body || '')
+// On Spanish pages, links to posts that also have a Spanish version go to it.
+function prepBody(body, lang, esIds) {
+  let out = String(body || '')
     .replace(/(href=")\/blog-post(?:\.html)?\?id=([a-z0-9-]+)(#[^"]*)?"/gi, (m, a, id, hash) => a + postPath(id) + (hash || '') + '"')
     .replace(/<img(?![^>]*\bloading=)/gi, '<img loading="lazy"');
+  if (lang === 'es' && esIds) {
+    out = out.replace(/(href=")\/posts\/([a-z0-9-]+)\//g, (m, a, id) => esIds.has(id) ? a + esPostPath(id) : m);
+  }
+  return out;
 }
 
 // Same markup blog-post.html's JS renders, so nothing jumps when JS takes over.
-function renderMain(post) {
+// The link to the same post in the other language (only when both exist).
+function langSwitch(post, lang) {
+  const L = UI[lang];
+  const href = lang === 'es' ? postPath(post.id) : esPostPath(post.id);
+  return `<a class="post-lang-switch" href="${href}" hreflang="${L.switchLang}" lang="${L.switchLang}">${L.switchText}</a>`;
+}
+
+function renderMain(post, lang, opts) {
+  lang = lang || 'en'; opts = opts || {};
+  const L = UI[lang];
   const color = CAT_COLORS[post.category] || 'var(--cyan)';
-  const label = CAT_LABELS[post.category] || post.category;
+  const label = L.cats[post.category] || post.category;
   const header = post.coverImage
     ? `<div class="blog-header-media">
          <img src="${escAttr(absPath(post.coverImage))}" alt="${escAttr(plainText(post.title))}" class="blog-header-img" onerror="this.style.display='none'">
@@ -80,35 +125,37 @@ function renderMain(post) {
        </div>`;
   return `
     <div style="margin-bottom:32px;">
-      <a href="/blog" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
-        onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">← All Posts</a>
+      <a href="${L.allHref}" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s;"
+        onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">${L.allPosts}</a>${opts.switchLink ? '\n      ' + langSwitch(post, lang) : ''}
     </div>
 
     ${header}
 
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
       <span class="blog-cat" style="color:${color};border-color:${color}44;">${escText(label)}</span>
-      <span class="blog-date"><time datetime="${escAttr(post.date)}">${fmtDate(post.date)}</time></span>
+      <span class="blog-date"><time datetime="${escAttr(post.date)}">${fmtDate(post.date, false, lang)}</time></span>
     </div>
 
     <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,72px);letter-spacing:3px;color:var(--white);line-height:1.05;margin-bottom:16px;">${escText(post.title)}</h1>
 
     <div style="display:flex;align-items:center;gap:10px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:40px;flex-wrap:wrap;">
-      <span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">By ${escText(post.author)}</span>
+      <span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">${L.by}${escText(post.author)}</span>
       ${post.authorHandle ? `<span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--cyan);">${escText(post.authorHandle)}</span>` : ''}
-      ${readTimeBadge(post.body)}
-      <button class="share-btn" onclick="sharePost()" style="margin-left:auto;">Share Article</button>
+      ${readTimeBadge(post.body, lang)}
+      <button class="share-btn" onclick="sharePost()" style="margin-left:auto;">${L.share}</button>
     </div>
 
-    <div id="post-body" class="post-body">${prepBody(post.body)}</div>
+    <div id="post-body" class="post-body">${prepBody(post.body, lang, opts.esIds)}</div>
   `;
 }
 
-function renderMoreCard(p) {
+function renderMoreCard(p, lang) {
+  lang = lang || 'en';
+  const L = UI[lang];
   const c = CAT_COLORS[p.category] || 'var(--cyan)';
-  const l = CAT_LABELS[p.category] || p.category;
+  const l = L.cats[p.category] || p.category;
   return `
-      <a class="blog-card" href="${postPath(p.id)}">
+      <a class="blog-card" href="${pathFor(p.id, lang)}">
         <div class="blog-card-top">
           ${p.coverImage
             ? `<img src="${escAttr(absPath(p.coverImage))}" alt="${escAttr(plainText(p.title))}" class="blog-cover" loading="lazy">`
@@ -119,13 +166,13 @@ function renderMoreCard(p) {
         <div class="blog-card-body">
           <div class="blog-card-meta">
             <span class="blog-cat" style="color:${c};border-color:${c}33;">${escText(l)}</span>
-            <span class="blog-date">${fmtDate(p.date, true)}</span>
-            ${readTimeBadge(p.body)}
+            <span class="blog-date">${fmtDate(p.date, true, lang)}</span>
+            ${readTimeBadge(p.body, lang)}
           </div>
           <h3 class="blog-title">${escText(p.title)}</h3>
           <p class="blog-excerpt">${escText(p.excerpt)}</p>
           <div class="blog-author">
-            <span class="blog-author-name">By ${escText(p.author)}</span>
+            <span class="blog-author-name">${L.by}${escText(p.author)}</span>
             ${p.authorHandle ? `<span class="blog-author-handle">${escText(p.authorHandle)}</span>` : ''}
           </div>
         </div>
@@ -143,7 +190,8 @@ function searchTitle(post) {
   return branded.length <= 65 ? branded : base;
 }
 
-function articleSchema(post) {
+function articleSchema(post, lang) {
+  lang = lang || 'en';
   const author = post.author && post.author !== 'PLURGASM'
     ? { '@type': 'Person', name: post.author }
     : { '@type': 'Organization', name: 'PLURGASM', url: SITE };
@@ -151,17 +199,19 @@ function articleSchema(post) {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: plainText(post.title).slice(0, 110),
-    description: descFor(post),
+    description: descFor(post, lang),
+    inLanguage: lang,
     image: [post.coverImage ? absUrl(post.coverImage) : SITE + '/images/og-default.webp'],
     datePublished: post.date,
     dateModified: post.updated || post.date,
     author,
     publisher: { '@type': 'Organization', name: 'PLURGASM', url: SITE, logo: { '@type': 'ImageObject', url: SITE + '/favicon.png' } },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl(post.id) },
-    articleSection: CAT_LABELS[post.category] || post.category,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': urlFor(post.id, lang) },
+    articleSection: UI[lang].cats[post.category] || post.category,
     wordCount: plainText(post.body).split(' ').length,
-    url: postUrl(post.id)
+    url: urlFor(post.id, lang)
   };
+  if (lang === 'es') data.translationOfWork = { '@type': 'BlogPosting', url: postUrl(post.id), inLanguage: 'en' };
   // "<" escaped so post text can never close the script tag early.
   return '<script type="application/ld+json">' + JSON.stringify(data).replace(/</g, '\\u003c') + '</script>';
 }
@@ -171,14 +221,25 @@ function replaceOnce(src, re, rep, label) {
   return src.replace(re, rep);
 }
 
-function buildPage(template, post, more) {
+// hreflang pair: tells search engines the two pages are translations of each other.
+function hreflangLinks(id) {
+  return `<link rel="alternate" hreflang="en" href="${postUrl(id)}">\n` +
+         `<link rel="alternate" hreflang="es" href="${esPostUrl(id)}">\n` +
+         `<link rel="alternate" hreflang="x-default" href="${postUrl(id)}">\n`;
+}
+
+function buildPage(template, post, more, lang, esIds) {
+  lang = lang || 'en';
+  const bilingual = esIds && esIds.has(post.id);
+  const canonical = urlFor(post.id, lang);
   const title = searchTitle(post);
   const socialTitle = plainText(post.title) + ' — PLURGASM';
-  const desc = descFor(post);
+  const desc = descFor(post, lang);
   const img = post.coverImage ? absUrl(post.coverImage) : SITE + '/images/og-default.webp';
   let html = template;
 
   html = html.replace(/^<!DOCTYPE html>/i, '<!DOCTYPE html>\n' + MARKER);
+  if (lang !== 'en') html = replaceOnce(html, /<html lang="en">/, `<html lang="${lang}">`, 'html lang');
   html = replaceOnce(html, /<meta name="description" content="[^"]*">/, `<meta name="description" content="${escAttr(desc)}">`, 'description');
   html = replaceOnce(html, /<meta property="og:type" content="[^"]*">/, '<meta property="og:type" content="article">', 'og:type');
   html = replaceOnce(html, /<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escAttr(socialTitle)}">`, 'og:title');
@@ -189,17 +250,31 @@ function buildPage(template, post, more) {
   html = replaceOnce(html, /<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${escAttr(img)}">`, 'twitter:image');
   html = replaceOnce(html, /<title>[^<]*<\/title>/, `<title>${escText(title)}</title>`, 'title');
   html = html.replace(/<!-- Canonical \+ og:url are filled in by JS[^>]*-->\n?/, '');
-  html = replaceOnce(html, /<link rel="canonical" id="canonical-link">/, `<link rel="canonical" id="canonical-link" href="${escAttr(postUrl(post.id))}">`, 'canonical');
-  html = replaceOnce(html, /<meta property="og:url" content="">/, `<meta property="og:url" content="${escAttr(postUrl(post.id))}">\n<meta property="article:published_time" content="${escAttr(post.date)}">`, 'og:url');
+  html = replaceOnce(html, /<link rel="canonical" id="canonical-link">/, `<link rel="canonical" id="canonical-link" href="${escAttr(canonical)}">` + (bilingual ? '\n' + hreflangLinks(post.id).trimEnd() : ''), 'canonical');
+  html = replaceOnce(html, /<meta property="og:url" content="">/, `<meta property="og:url" content="${escAttr(canonical)}">\n<meta property="article:published_time" content="${escAttr(post.date)}">` + (lang === 'es' ? '\n<meta property="og:locale" content="es_US">' : ''), 'og:url');
   html = replaceOnce(html, /<\/head>/,
-    articleSchema(post) + '\n<script>window.PLURGASM_POST_ID=' + JSON.stringify(post.id).replace(/</g, '\\u003c') + ';</script>\n</head>', 'head end');
-  html = replaceOnce(html, /<div id="post-main"><\/div>/, `<div id="post-main" data-prerendered="1">${renderMain(post)}</div>`, 'post-main');
+    articleSchema(post, lang) + '\n<script>window.PLURGASM_POST_ID=' + JSON.stringify(post.id).replace(/</g, '\\u003c') + ';</script>\n</head>', 'head end');
+  html = replaceOnce(html, /<div id="post-main"><\/div>/, `<div id="post-main" data-prerendered="1">${renderMain(post, lang, { switchLink: bilingual, esIds })}</div>`, 'post-main');
   html = replaceOnce(html, /<div class="blog-grid" id="more-posts-grid"([^>]*)><\/div>/,
-    (m, attrs) => `<div class="blog-grid" id="more-posts-grid"${attrs}>${more.map(renderMoreCard).join('')}</div>`, 'more-posts-grid');
+    (m, attrs) => `<div class="blog-grid" id="more-posts-grid"${attrs}>${more.map(p => renderMoreCard(p, lang)).join('')}</div>`, 'more-posts-grid');
+  if (lang !== 'en') html = replaceOnce(html, /<p class="eyebrow">More From the Community<\/p>/, `<p class="eyebrow">${UI[lang].more}</p>`, 'more eyebrow');
   return html;
 }
 
-/** Build every page. Returns the list of post ids built. */
+// Remove pages in `dir` for posts no longer built (only ones we generated).
+function removeStale(dir, keep, prefix) {
+  if (!fs.existsSync(dir)) return;
+  for (const name of fs.readdirSync(dir)) {
+    const f = path.join(dir, name, 'index.html');
+    if (keep.has(name) || !fs.existsSync(f)) continue;
+    if (fs.readFileSync(f, 'utf8').includes(MARKER)) {
+      fs.rmSync(path.join(dir, name), { recursive: true, force: true });
+      console.log('Removed stale post page: ' + prefix + name + '/');
+    }
+  }
+}
+
+/** Build every page. Returns the list of post ids built; .es lists ids that also got a Spanish page. */
 function buildPosts(root, data) {
   const template = fs.readFileSync(path.join(root, 'blog-post.html'), 'utf8');
   const posts = (data.blogPosts || []).filter(p => p && p.published && p.id);
@@ -207,27 +282,38 @@ function buildPosts(root, data) {
   const outDir = path.join(root, 'posts');
   fs.mkdirSync(outDir, { recursive: true });
 
+  const safe = posts.filter(p => /^[a-z0-9-]+$/.test(p.id));
+  posts.filter(p => !safe.includes(p)).forEach(p => console.warn('Skipping post with non-URL-safe id: ' + p.id));
+  const esIds = new Set(safe.filter(hasEs).map(p => p.id));
+
   const built = new Set();
-  for (const post of posts) {
-    if (!/^[a-z0-9-]+$/.test(post.id)) { console.warn('Skipping post with non-URL-safe id: ' + post.id); continue; }
+  for (const post of safe) {
     const more = sorted.filter(p => p.id !== post.id).slice(0, 2);
     const dir = path.join(outDir, post.id);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), buildPage(template, post, more), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), buildPage(template, post, more, 'en', esIds), 'utf8');
     built.add(post.id);
     if (searchTitle(post).length > TITLE_MAX) console.warn('⚠ Title over ' + TITLE_MAX + ' chars for post "' + post.id + '" (' + searchTitle(post).length + '). Add a shorter seoTitle in data.js.');
   }
 
-  // Remove pages for posts that were deleted or unpublished (only ones we generated).
-  for (const name of fs.readdirSync(outDir)) {
-    const f = path.join(outDir, name, 'index.html');
-    if (built.has(name) || !fs.existsSync(f)) continue;
-    if (fs.readFileSync(f, 'utf8').includes(MARKER)) {
-      fs.rmSync(path.join(outDir, name), { recursive: true, force: true });
-      console.log('Removed stale post page: /posts/' + name + '/');
-    }
+  // Spanish pages. "More posts" shows other Spanish posts first, then English ones.
+  const esDir = path.join(root, 'es', 'posts');
+  const esSorted = sorted.filter(hasEs);
+  for (const id of esIds) {
+    const post = localize(safe.find(p => p.id === id), 'es');
+    const more = esSorted.filter(p => p.id !== id).slice(0, 2).map(p => localize(p, 'es'));
+    const dir = path.join(esDir, id);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), buildPage(template, post, more, 'es', esIds), 'utf8');
+    if (searchTitle(post).length > TITLE_MAX) console.warn('⚠ Spanish title over ' + TITLE_MAX + ' chars for post "' + id + '". Add a shorter es.seoTitle in data.js.');
   }
-  return Array.from(built);
+  removeStale(esDir, esIds, '/es/posts/');
+
+  // Remove pages for posts that were deleted or unpublished (only ones we generated).
+  removeStale(outDir, built, '/posts/');
+  const ids = Array.from(built);
+  ids.es = Array.from(esIds);
+  return ids;
 }
 
-module.exports = { buildPosts, postPath, postUrl };
+module.exports = { buildPosts, postPath, postUrl, esPostPath };
