@@ -4,10 +4,9 @@
   'use strict';
 
   var NAV_LINKS = [
-    { label: 'Brands',           href: '/#brands' },
+    { label: 'Shop Brands',      href: '/#brands' },
     { label: 'Festivals',        href: '/#festivals' },
     { label: 'Calendar',         href: '/calendar' },
-    { label: 'Shop Rave Brands', href: '/#categories' },
     { label: 'Creators',         href: '/social' },
     { label: 'Social',           href: '/#social' },
     { label: 'Blog',             href: '/blog' },
@@ -15,10 +14,9 @@
   ];
 
   var MOBILE_LINKS = [
-    { label: 'Brands',            href: '/#brands' },
+    { label: 'Shop Rave Brands',  href: '/#brands' },
     { label: 'Festivals',         href: '/#festivals' },
     { label: 'Festival Calendar', href: '/calendar' },
-    { label: 'Shop Rave Brands',  href: '/#categories' },
     { label: 'Creators',          href: '/social' },
     { label: 'Social',            href: '/#social' },
     { label: 'Blog &amp; News',   href: '/blog' },

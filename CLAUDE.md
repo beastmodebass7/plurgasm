@@ -58,12 +58,15 @@ so data.js must stay first. `nav.js`, `auth.js`, `views.js`, `saves.js` are defe
 ## Homepage section flow (index.html)
 Hero → Countdown strip → then sections:
 1. **FESTIVALS** `#festivals` (grid/calendar toggle, vibe/region/month dropdowns, Near Me)
-2. **SHOP BY CATEGORY** `#categories`
-3. **SOCIAL SPOTLIGHT** `#social`
+2. **SHOP RAVE BRANDS**, one merged section (Nov 2026): wrapper `#categories` with `<section id="brands">` inside
+   (both old anchors land here). Order: Brand of the Month (`#botw`) → category icon tiles (`#cat-grid`) →
+   "What are you looking for?" item filters → `#brand-filter-status` → `#brand-grid`. The **tiles are the
+   category filter**: clicking one calls `pickCategory(cat)` → `filterBrands(cat)` (click again = all); the tile
+   `href="/category?cat=…"` stays for crawlers and new-tab clicks. There are no text category buttons anymore
+   (`#brand-filters` was removed). Brand of the Month: visible label only; internal ids/classes/functions still
+   use `botw` on purpose. Don't rename them.
+3. **SOCIAL SPOTLIGHT** `#social`: featured creators (one column) + **Influencer of the Week** (`#featured-influencer`) beside them
 4. **"From the Community" — RAVE NEWS & CULTURE** `#blog` (newspaper layout)
-5. Brand of the Month + Influencer of the Week
-   Brand of the Month: visible label only. Internal ids/classes/functions still use `botw` on purpose. Don't rename them.
-6. **RAVE BRANDS** `#brands` (item-filter pills + category filters)
 > The numbered "Chapter NN" eyebrows and the scrolling marquee were removed in July 2026 —
 > don't reintroduce them. The `.eyebrow` class itself is still used for non-numbered labels
 > (e.g. "From the Community").
@@ -89,7 +92,7 @@ Renders are wired by ID — a typo'd/missing container makes that render silentl
 | `botw`, `botw-name`, `botw-cat`, `botw-desc`, `botw-ig`, `botw-url` | `renderBotw()` |
 | `featured-influencer` | `renderFeaturedInfluencer()` |
 | `item-filters`, `item-clear-btn` | `renderItemFilters()` |
-| `brand-grid`, `brand-filters`, `brands-expand` | `renderBrands()` |
+| `brand-grid`, `brand-filter-status`, `brands-expand` | `renderBrands()` / `filterBrands()` / `updateCategoryUI()` |
 | `btn-grid`, `btn-cal` | view toggle |
 
 Other pages: `calendar.html` → `cal-output`, `fest-map`, `cal-vibe-select`, `cal-region-select`,
@@ -189,7 +192,7 @@ Renderers: `renderFestivals`, `renderCalendar`, `renderFestFilterPills`, `render
 `renderFeaturedInfluencer`, `renderBotw`.
 Festival logic: `getFilteredFests`, `getDaysBadge`, `festDetailHref`, `festPlaceholderClass`,
 `googleCalUrl`, `haversineDistance`, `getNextFestival`.
-Filters/handlers: `filterFests`, `filterGenre`, `filterRegion`, `filterMonth`, `filterBrands`,
+Filters/handlers: `filterFests`, `filterGenre`, `filterRegion`, `filterMonth`, `filterBrands`, `pickCategory`, `updateCategoryUI`,
 `filterByItem`, `setView`, `refreshFestView`, `expandFests`, `expandBrands`, `toggleNearMe`,
 `setDistance`, `toggleItemGroup`, `priceChipClass`.
 Brand modal: `openBrandModal`, `closeBrandModal`, `shareBrand`.

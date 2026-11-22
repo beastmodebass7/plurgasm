@@ -5266,3 +5266,42 @@ a.fci-name:hover, a.cal-name:hover { color: var(--cyan); }
 .post-lang-switch { display: inline-block; white-space: nowrap; margin-left: 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,229,255,0.35); border-radius: 999px; padding: 5px 12px; transition: background 0.2s; }
 .post-lang-switch:hover { background: rgba(0,229,255,0.1); }
 @media (max-width: 520px) { .post-lang-switch { display: table; margin: 14px 0 0; } }
+
+/* ══════════════════════════════════════════════════
+   SHOP RAVE BRANDS (merged section, Nov 2026)
+   Category tiles filter the brand grid; Brand of the Month sits on top.
+   Influencer of the Week now lives beside Social Spotlight.
+══════════════════════════════════════════════════ */
+.shop-section { padding-top: 88px; padding-bottom: 88px; }
+.shop-botw { margin: 28px 0 40px; }
+.shop-step {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 14px;
+}
+.cat-card.active {
+  background: var(--card-hi);
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 1px var(--cyan), 0 0 24px rgba(0,229,255,0.15);
+}
+.cat-card.active .cat-name { color: var(--cyan); }
+#categories .item-filter-wrap { margin-top: 28px; }
+.brand-filter-status {
+  display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin: 0 0 16px; padding: 12px 16px;
+  border: 1px solid rgba(0,229,255,0.25); background: rgba(0,229,255,0.05);
+  font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+}
+.brand-filter-status:not(:empty) { display: flex; }
+.brand-filter-status strong { color: var(--cyan); font-weight: 500; }
+.brand-filter-reset {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  background: transparent; border: 1px solid rgba(0,229,255,0.4); color: var(--cyan);
+  padding: 7px 14px; cursor: pointer;
+}
+.brand-filter-reset:hover { background: rgba(0,229,255,0.1); }
+.social-featured-row { margin-top: 32px; margin-bottom: 0; }
+.social-featured-row .social-grid { margin-top: 0; grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .shop-section { padding-top: 56px; padding-bottom: 56px; }
+  .shop-botw { margin: 20px 0 28px; }
+}

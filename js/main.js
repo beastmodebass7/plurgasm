@@ -438,8 +438,11 @@ function renderCategories() {
       const iconHtml = isImg
         ? `<img class="cat-icon-img" src="${c.icon}" alt="${c.label}" width="64" height="64">`
         : `<span class="cat-icon">${c.icon}</span>`;
+      // Tiles filter the brand cards right below (the href stays for crawlers,
+      // new-tab clicks and as a fallback if JS fails).
       return `
-      <a class="cat-card" href="/category?cat=${c.id}" style="text-decoration:none;">
+      <a class="cat-card" href="/category?cat=${c.id}" data-cat="${c.id}" style="text-decoration:none;"
+         onclick="if(event.metaKey||event.ctrlKey||event.shiftKey||event.button===1)return;event.preventDefault();pickCategory('${c.id}')">
         ${iconHtml}
         <span class="cat-name">${c.label.toUpperCase()}</span>
         <span class="cat-count">${count} Brand${count === 1 ? '' : 's'}</span>
@@ -474,7 +477,7 @@ function applyMobileCategoryLimit() {
     cards.forEach(c => c.style.display = '');
     btn.remove();
   };
-  grid.parentElement.appendChild(btn);
+  grid.insertAdjacentElement('afterend', btn); // right under the tiles, not at the end of the section
 }
 
 /* ════════════════════════════════════════════════
@@ -538,10 +541,7 @@ function filterByItem(tag, btn) {
   document.getElementById('item-clear-btn').style.display = 'block';
 
   window._currentCat = 'all';
-  document.querySelectorAll('.filter-btn[data-cat]')
-    .forEach(b => b.classList.remove('active'));
-  document.querySelector('.filter-btn[data-cat="all"]')
-    ?.classList.add('active');
+  updateCategoryUI('all');
 
   renderBrands('all');
 
@@ -750,10 +750,36 @@ document.addEventListener('click', e => {
   if (e.target === overlay) closeBrandModal();
 });
 
+// Category tile click: filter the brand cards; clicking the active tile again shows all brands.
+function pickCategory(cat) {
+  const next = (window._currentCat === cat) ? 'all' : cat;
+  filterBrands(next);
+  if (next !== 'all') {
+    document.getElementById('brand-filter-status')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+// Highlights the active category tile and shows "Showing: Kandi · 6 brands · Show all".
+function updateCategoryUI(cat) {
+  document.querySelectorAll('#cat-grid .cat-card').forEach(t => {
+    const on = t.dataset.cat === cat;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  const status = document.getElementById('brand-filter-status');
+  if (!status) return;
+  if (!cat || cat === 'all') { status.innerHTML = ''; status.style.display = 'none'; return; }
+  const label = (CATEGORIES.find(c => c.id === cat) || {}).label || cat;
+  const n = BRANDS.filter(b => b.cat === cat).length;
+  status.style.display = '';
+  status.innerHTML = `<span>Showing <strong>${label}</strong> · ${n} brand${n === 1 ? '' : 's'}</span>
+    <button type="button" class="brand-filter-reset" onclick="filterBrands('all')">Show all brands ✕</button>`;
+}
+
 function filterBrands(cat, btn) {
   _brandLimit = 6;
-  document.querySelectorAll('#brand-filters .filter-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
+  updateCategoryUI(cat);
   // clear item pill state when category filter changes
   _activeItemTag = '';
   searchQuery = '';
@@ -765,14 +791,6 @@ function filterBrands(cat, btn) {
   window._currentCat = cat;
 }
 
-// add data-cat to filter buttons after DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('#brand-filters .filter-btn').forEach(btn => {
-    const txt = btn.textContent.trim().toLowerCase().replace(/\s+/g,'-');
-    const map = {'all':'all','fem-clothing':'fem-clothing','male-clothing':'male-clothing','shoes':'shoes','accessories':'accessories','kandi':'kandi','events':'events'};
-    btn.dataset.cat = map[txt] || txt;
-  });
-});
 window._currentCat = 'all';
 
 /* ════════════════════════════════════════════════
