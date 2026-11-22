@@ -283,10 +283,9 @@
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
         <div class="filters" style="margin-bottom:0;">
           <button class="filter-btn active" onclick="filterFests('all',this)" data-type="all">All</button>
-          <button class="filter-btn" onclick="filterFests('mega',this)" data-type="mega">Mega</button>
-          <button class="filter-btn" onclick="filterFests('regional',this)" data-type="regional">Regional</button>
-          <button class="filter-btn" onclick="filterFests('underground',this)" data-type="underground">Underground</button>
-          <button class="filter-btn" onclick="filterFests('international',this)" data-type="international">International</button>
+          <button class="filter-btn" onclick="filterFests('mega',this)" data-type="mega" title="The biggest flagship festivals">Mega</button>
+          <button class="filter-btn" onclick="filterFests('regional',this)" data-type="regional" title="Smaller and local festivals">Regional</button>
+          <button class="filter-btn" onclick="filterFests('international',this)" data-type="international" title="Festivals outside the US and Canada">International</button>
         </div>
         <div class="view-toggle">
           <button class="view-btn active" id="btn-grid" onclick="setView('grid')">⊞ Grid</button>

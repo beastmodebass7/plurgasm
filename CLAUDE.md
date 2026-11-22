@@ -258,10 +258,11 @@ nav.js fills them on `DOMContentLoaded`. **Never edit nav markup in individual H
   `DnB` — not `Drum & Bass`).
 - **Region values**: `northeast`, `southeast`, `midwest`, `west`, `southwest`, `canada`,
   `international` (labels live in `FEST_REGION_META`).
-- **Festival `type`** (drives the All/Mega/Regional/Underground/International filter): `mega`,
-  `regional`, `underground`, `international`. **`typeLabel`** is free-text display only and varies
-  ("Mega Festival", "Regional", "Regional Festival", "Camping Festival", "East Coast", "World", …) —
-  filtering keys off `type`, never `typeLabel`.
+- **Festival `type`** (drives the homepage All/Mega/Regional/International filter and the card badge): only
+  `mega` (biggest flagship festivals), `regional` (smaller/local) or `international` (outside the US and Canada).
+  The card badge comes from `type` via `TYPE_LABELS` in main.js ("Mega Festival" / "Regional" / "International"),
+  so it always matches the filter. Keep `typeLabel` set to that same text. "Underground", "World", "East Coast",
+  "Bass Festival" etc. were retired in Nov 2026 to keep it simple; use genre tags for that kind of detail.
 - **Brand `cat`**: `fem-clothing`, `male-clothing`, `shoes`, `accessories`, `kandi`, `jerseys`,
   `events` (coming-soon categories: `supplements`, `gear`, `lights`, `wellness`).
 - **`badgeCls`**: `b-cyan`, `b-pink`, `b-purple`, `b-green`, `b-amber`.

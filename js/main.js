@@ -104,6 +104,8 @@ let _festView   = 'grid';
 let _festLimit  = 6;
 
 const typeClass = { mega:'t-mega', underground:'t-under', regional:'t-reg', playa:'t-playa', international:'t-intl' };
+// The card badge always matches the filter buttons: Mega / Regional / International.
+const TYPE_LABELS = { mega:'Mega Festival', regional:'Regional', international:'International' };
 const dotClass  = { mega:'dot-mega', underground:'dot-under', regional:'dot-reg', playa:'dot-playa', international:'dot-intl' };
 
 function getFilteredFests() {
@@ -217,7 +219,7 @@ function renderFestivals() {
       <div class="fest-card-img ${hasImg ? 'has-photo' : festPlaceholderClass(f, i)}">
         ${cover}
         ${getDaysBadge(f.sortDate)}
-        <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${f.typeLabel}</span>
+        <span class="fest-tag ${typeClass[f.type] || 't-reg'}">${TYPE_LABELS[f.type] || f.typeLabel}</span>
         ${f._distanceMiles != null ? `<span class="fest-distance-badge">${PIN_ICON_HTML} ${f._distanceMiles} mi away</span>` : ''}
         <div class="fest-card-info">
           <span class="fci-date">${f.dates}</span>
