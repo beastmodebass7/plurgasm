@@ -7,26 +7,26 @@
    so counts never go backwards and still show if Supabase is down.
    Load this BEFORE views.js (both deferred, so tag order = run order). */
 window.PLURGASM_VIEW_SNAPSHOT = {
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "views": {
-    "canadian-rave-festival-guide": 18,
-    "december-2026-raves-nye-festivals": 12,
-    "defqon1-2026-cancelled-heat": 25,
+    "canadian-rave-festival-guide": 19,
+    "december-2026-raves-nye-festivals": 13,
+    "defqon1-2026-cancelled-heat": 27,
     "edc-orlando-2026-lineup": 36,
-    "edc-orlando-2026-review-best-sets": 13,
+    "edc-orlando-2026-review-best-sets": 18,
     "electric-forest-2026-evacuated": 29,
-    "flowstar-guide": 41,
+    "flowstar-guide": 44,
     "hottest-djs-2026-top-5-men-women": 4,
     "post-001": 11,
-    "post-002": 8,
-    "post-003": 25,
+    "post-002": 9,
+    "post-003": 27,
     "post-004": 24,
-    "post-005": 12,
-    "post-006": 9,
-    "post-007": 9,
+    "post-005": 13,
+    "post-006": 10,
+    "post-007": 11,
     "post-008": 14,
-    "post-009": 119,
-    "post-010": 12,
+    "post-009": 123,
+    "post-010": 13,
     "post-011": 22,
     "post-012": 16,
     "post-013": 11,
@@ -34,8 +34,8 @@ window.PLURGASM_VIEW_SNAPSHOT = {
     "rave-harm-reduction-organizations": 26,
     "rave-slang-dictionary": 109,
     "tomorrowland-2026-fireworks-ban": 19,
-    "trippysquid-flowstars": 24,
-    "us-rave-festival-season-2027-dates": 34,
-    "what-genre-is-bass-artist-directory": 22
+    "trippysquid-flowstars": 25,
+    "us-rave-festival-season-2027-dates": 35,
+    "what-genre-is-bass-artist-directory": 29
   }
 };
